@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 01:10:54 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task noisy --seed 1 --out results/raw/main_patchtst_noisy_1.json --system patchtst
+
+config {"system": "patchtst", "task": "noisy", "seed": 1, "out": "results/raw/main_patchtst_noisy_1.json", "horizons": "24,96,192", "lr": 0.001, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.7941 mae=0.7106
+H=96 mse=0.8053 mae=0.7172
+H=192 mse=0.8006 mae=0.7161
+final {"val_mse_24": 0.755052534418074, "mse_24": 0.7941416238685209, "mae_24": 0.7106093025892891, "val_mse_96": 0.759520905778942, "mse_96": 0.805313830201412, "mae_96": 0.717249177275834, "val_mse_192": 0.7619025163955833, "mse_192": 0.8006276910627088, "mae_192": 0.716091768776014, "mse_mean": 0.800027715044214, "runtime_s": 46.34538912773132, "n_params_h96": 322656}

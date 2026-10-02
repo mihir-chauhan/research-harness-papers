@@ -1,0 +1,147 @@
+{
+  "slug": "dlinear-vs-transformer-synthetic-forecasting",
+  "direction": "Are simple linear models enough for long-horizon forecasting? On synthetic series with controlled trend, multiple seasonalities, noise and regime changes (and on ETTh1 if the public CSV of a few MB downloads), compare seasonal-naive, a DLinear-style decomposition-plus-linear model, a small patch transformer and a small GRU at horizons 24, 96 and 192. Find which data properties, if any, make the nonlinear models win.",
+  "created": "2026-10-01T18:43:58",
+  "updated": "2026-10-02T02:51:32",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T23:56:32",
+      "finished": "2026-10-02T00:05:26",
+      "notes": [
+        {
+          "t": "2026-10-02T00:05:26",
+          "note": "lit via direct arXiv ids (search rate-limited)"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-02T00:05:27",
+      "finished": "2026-10-02T01:37:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "method, runner, smoke test"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:37:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "baselines reimplemented in method/run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-02T01:59:14",
+      "finished": "2026-10-02T02:51:32",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "72 main runs"
+        },
+        {
+          "t": "2026-10-02T02:51:32",
+          "note": "72 main runs + post hoc budget sweep (108 runs: sweep_steps, sweep_dwell_2000)"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:37:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "108 ablation/sweep runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T02:51:32",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "tables, figures, RESULTS.md"
+        },
+        {
+          "t": "2026-10-02T02:51:32",
+          "note": "tables, figures, RESULTS.md with per-budget verdicts"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:37:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T02:51:32",
+      "notes": [
+        {
+          "t": "2026-10-02T01:37:23",
+          "note": "6 pages, READY"
+        },
+        {
+          "t": "2026-10-02T02:51:32",
+          "note": "fix round: budget sweep, per-budget verdicts, 6 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:05:21",
+      "phase": "novelty",
+      "decision": "Fixed learning rates a priori and no tuning (compute budget; avoids test tuning); checkpoint chosen on validation. Datasets: 5 synthetic + ETTh1 (downloaded OK, 2.6MB). One run = all horizons (separate model per horizon) so metrics are mse_24/96/192. Method 'DLinear' is the reference system in research.yaml because this is a comparison study."
+    },
+    {
+      "t": "2026-10-02T00:09:30",
+      "phase": "experiments",
+      "decision": "First launch of run_all.sh mislabelled every run as 'Linear (no decomp)' (bash 3.2 has no associative arrays). Runs were otherwise valid but mislabelled; removed those registry rows and raw files and relaunched everything with the fixed script and identical code/config (deterministic seeds; the sanity row reproduces the same etth1 numbers)."
+    },
+    {
+      "t": "2026-10-02T00:50:58",
+      "phase": "experiments",
+      "decision": "Discarded first batch of main runs: stray runner lanes from the interrupted job (stale script version) wrote mislabelled rows (system names did not match the commands). Registry reset to the committed sanity run and all runs redone from one clean pair of lanes."
+    },
+    {
+      "t": "2026-10-02T01:59:14",
+      "phase": "experiments",
+      "decision": "Audit fix round: the headline verdicts depended on the 400-step budget. Added a training-budget sweep with unchanged code/settings except --steps: (a) regime and etth1 at 1000 and 2000 steps, all horizons, 3 seeds; (b) seas1/trend/multiseas/noisy at 2000 steps, H=96; (c) the dwell sweep (registered test of H2 clause 2) repeated at 2000 steps, H=96. About 45 min wall in two lanes, beyond the original 30-min budget, accepted because the auditor requires it; the noise sweep and design ablation are NOT repeated and stay conditional on 400 steps. Verdicts are reported at both budgets with the registered win rule."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

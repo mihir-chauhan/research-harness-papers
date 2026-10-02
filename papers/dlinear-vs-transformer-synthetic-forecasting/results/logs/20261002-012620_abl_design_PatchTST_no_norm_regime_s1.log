@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:26:20 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 1 --out results/raw/abl_nonorm_patchtst_regime_1.json --system patchtst --horizons 96 --no_norm
+
+config {"system": "patchtst", "task": "regime", "seed": 1, "out": "results/raw/abl_nonorm_patchtst_regime_1.json", "horizons": "96", "lr": 0.001, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": true, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.4017 mae=0.4639
+final {"val_mse_96": 0.3803046359376722, "mse_96": 0.4016860184611408, "mae_96": 0.4639195760091146, "mse_mean": 0.4016860184611408, "runtime_s": 15.108547925949097, "n_params_h96": 322656}

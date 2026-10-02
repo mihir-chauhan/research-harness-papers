@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 02:23:11 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task multiseas --seed 0 --out results/raw/st_dlinear_multiseas_2000_0.json --system dlinear --steps 2000 --horizons 96
+
+config {"system": "dlinear", "task": "multiseas", "seed": 0, "out": "results/raw/st_dlinear_multiseas_2000_0.json", "horizons": "96", "lr": 0.003, "steps": 2000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.1025 mae=0.2579
+final {"val_mse_96": 0.10337668625766007, "mse_96": 0.10245499890772079, "mae_96": 0.2579149383511126, "mse_mean": 0.10245499890772079, "runtime_s": 2.7586240768432617, "n_params_h96": 64704}

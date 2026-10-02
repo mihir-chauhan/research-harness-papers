@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:25:59 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task trend --seed 1 --out results/raw/abl_linear_trend_1.json --system linear --horizons 96
+
+config {"system": "linear", "task": "trend", "seed": 1, "out": "results/raw/abl_linear_trend_1.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.0658 mae=0.1900
+final {"val_mse_96": 0.06915952162767844, "mse_96": 0.06577616984133969, "mae_96": 0.19004730528771283, "mse_mean": 0.06577616984133969, "runtime_s": 0.9635279178619385, "n_params_h96": 32352}

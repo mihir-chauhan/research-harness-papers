@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:25:51 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 1 --out results/raw/sw_dwell_patchtst_100_1.json --system patchtst --horizons 96 --dwell 100
+
+config {"system": "patchtst", "task": "regime", "seed": 1, "out": "results/raw/sw_dwell_patchtst_100_1.json", "horizons": "96", "lr": 0.001, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": 100, "split": "test"}
+H=96 mse=0.8050 mae=0.7053
+final {"val_mse_96": 0.8320040021623883, "mse_96": 0.8050206181218854, "mae_96": 0.7052920724862438, "mse_mean": 0.8050206181218854, "runtime_s": 16.362321853637695, "n_params_h96": 322656}

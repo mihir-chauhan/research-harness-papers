@@ -1,0 +1,65 @@
+slug: dlinear-vs-transformer-synthetic-forecasting
+direction: Are simple linear models enough for long-horizon forecasting? On synthetic
+  series with controlled trend, multiple seasonalities, noise and regime changes (and
+  on ETTh1 if the public CSV of a few MB downloads), compare seasonal-naive, a DLinear-style
+  decomposition-plus-linear model, a small patch transformer and a small GRU at horizons
+  24, 96 and 192. Find which data properties, if any, make the nonlinear models win.
+problem: When do nonlinear forecasters (patch transformer, GRU) beat a DLinear-style linear model at long horizons?
+gap: Controlled synthetic factors (trend, seasonality, noise, regime switching) are rarely varied one at a time against linear baselines under identical protocol.
+contribution: A controlled small-scale comparison identifying which data properties favour nonlinear models, with sweeps, ablations and a training-budget sweep.
+hypotheses:
+- id: H1
+  statement: Without regime changes no nonlinear model beats DLinear at any horizon.
+  test: win = seed-mean MSE lower by >=5% relative and lower in all 3 seeds
+- id: H2
+  statement: With regime switching a nonlinear model wins at H=96 and 192 and margin grows with switching rate.
+  test: same win rule on regime task; sweep_dwell
+- id: H3
+  statement: Higher noise erases nonlinear advantage.
+  test: sweep_noise on regime task
+- id: H4
+  statement: On ETTh1 DLinear is not beaten by patch transformer or GRU at H=96,192; all learned beat seasonal naive.
+  test: same win rule
+- id: H5
+  statement: Removing decomposition changes DLinear MSE by <5% on trend, regime, etth1 (H=96).
+  test: abl_design relative difference
+method:
+  name: DLinear
+  summary: Study compares DLinear-style, PatchTST-style, GRU and seasonal naive (all reimplemented); DLinear is the reference system.
+  components: [decomposition, instance_norm]
+  entrypoint: method/run.py
+tasks: [seas1, trend, multiseas, noisy, regime, etth1]
+metrics:
+  mse_24: {higher_is_better: false}
+  mse_96: {higher_is_better: false}
+  mse_192: {higher_is_better: false}
+  mae_24: {higher_is_better: false}
+  mae_96: {higher_is_better: false}
+  mae_192: {higher_is_better: false}
+  mse_mean: {higher_is_better: false}
+  runtime_s: {higher_is_better: false}
+seeds:
+- 0
+- 1
+- 2
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines: [Seasonal naive, PatchTST (reimplemented), GRU]
+ablations: [Linear (no decomp), DLinear no norm, PatchTST no norm, GRU no norm]
+budget_sweep: 'post hoc (fix round): groups sweep_steps (1000/2000 steps) and sweep_dwell_2000; same code and settings except --steps; verdicts reported per budget'
+ambition:
+  target_tier: 2
+  primary_metric: mse_96
+  primary_task: regime
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

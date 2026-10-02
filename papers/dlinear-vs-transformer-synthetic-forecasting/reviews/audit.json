@@ -1,0 +1,171 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bitwise reproducible, every number in the paper matches the registry, there is no leakage, and citations are used correctly. However the headline negative result depends on the 400-step budget: in the auditor's 2000-step check on regime H=96 the GRU is 10.6% better than DLinear in 3/3 seeds, passing the paper's own win rule, so the H2 verdict and the closing conclusions need a budget sweep and rewording.",
+      "reran": [
+        {
+          "run": "DLinear/regime/0",
+          "metric": "mse_96",
+          "registry": 0.46386580694289437,
+          "rerun": 0.46386580694289437
+        },
+        {
+          "run": "PatchTST/regime/0",
+          "metric": "mse_96",
+          "registry": 0.4405167234300379,
+          "rerun": 0.4405167234300379
+        },
+        {
+          "run": "GRU/etth1/1",
+          "metric": "mse_96",
+          "registry": 0.39698880389581187,
+          "rerun": 0.39698880389581187
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py (--steps 400); paper/sections/results.tex H2; abstract.tex; conclusion.tex",
+          "issue": "The nonlinear baselines are under-trained at 400 steps and the conclusions flip with budget. Auditor check at --steps 2000, regime, H=96, seeds 0-2: DLinear 0.4611/0.4324/0.4029 (mean 0.432), GRU 0.4049/0.3990/0.3549 (mean 0.386, -10.6%, 3/3 seeds, a win under the registered rule), PatchTST mean 0.4215 (-2.5%, 3/3). The paper reports the GRU as worse at every horizon on regime, H2 as refuted, and no nonlinear win on any task. On multiseas seed 0 the GRU gap goes from +7.6% to -1.1%.",
+          "fix": "Add a training-budget sweep (e.g. 400/1000/2000 steps, regime and etth1 at least, 3 seeds, all horizons for regime; the runs are cheap) and report it; restate H2 and the 'GRU is worse' statements as conditional on 400 steps or revise the verdict according to the sweep."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/conclusion.tex (last two sentences); introduction.tex contribution (ii)",
+          "issue": "'Simple linear models were therefore sufficient in this setting' and 'we find no support for regime switching alone as the property that favours nonlinear models' are stated as findings about the data, but they hold only at the 400-step budget (see previous finding). PatchTST is also better than DLinear in 3/3 seeds at regime H=24 and H=96.",
+          "fix": "Reword to 'at 400 training steps no nonlinear model passed the rule' and drop or condition the 'sufficient' and 'no support for regime switching' sentences unless the budget sweep confirms them."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, trend no-norm paragraph",
+          "issue": "The +66.5% (DLinear) and +218% (PatchTST) increases on trend are means dominated by seed 1 (DLinear 0.066 to 0.126; the other seeds change by 5-9%); only the GRU is described as dominated by one seed. 'Essential on the trend task' overstates a 3-seed result with one outlier dataset.",
+          "fix": "State that all three trend percentages are driven by seed 1 and give per-seed values or a median."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, 'Where the nonlinear models fail'",
+          "issue": "'The GRU is the worst learned model on ... etth1' is true only at H=24; at H=96 (0.3992 vs 0.3998) and H=192 (0.4381 vs 0.4382) PatchTST is marginally worse, effectively a tie.",
+          "fix": "Say the GRU and PatchTST are tied on etth1 at H=96/192 and the GRU is worst at H=24."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex H1 and H3",
+          "issue": "H1 says 1-2% differences are 'within the seed spread in Table II', but the seed is a new dataset and the paired differences are sign-consistent (nonlinear worse 3/3 on seas1/trend/multiseas, better 3/3 on noisy at all horizons). H3 says the GRU has 'no consistent gap', but its gap moves monotonically from +8.4% at noise 0.1 to -2.1% (3/3 seeds) at noise 3.0, the opposite of the hypothesis for the GRU.",
+          "fix": "Describe the paired per-seed consistency for H1; for H3 state that the GRU trend runs against the hypothesis and that small sub-threshold nonlinear advantages persist at high noise."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (registry reset); README.md",
+          "issue": "The paper says one registry reset occurred; state.json decisions record two discard-and-rerun events (00:09 and 00:50). The README calls runs.jsonl append-only although rows were removed. Logs of the discarded runs are not kept.",
+          "fix": "Report both resets and soften 'append-only'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex vs BRIEF.md",
+          "issue": "Limitations call the sweep cells examined 'after the main result and therefore exploratory', while the dwell and noise sweeps are the registered tests for H2 and H3 in BRIEF.md; the status of the sweeps is described inconsistently.",
+          "fix": "Say the sweeps were pre-planned but the per-cell win checks are not registered hypotheses."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py line 188; .gitignore; paper/sections/method.tex",
+          "issue": "The --split help text mentions an 'lr pilot' although the paper says no tuning and no pilot runs exist in the registry. data/ETTh1.csv is gitignored and no download instruction is given, so etth1 runs are not reproducible from the repository alone. There is a stray double comma in the seasonal-naive formula.",
+          "fix": "Remove the stale help text, add the ETTh1 source URL and checksum to the README, and fix the typo."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Table II (generated/main.tex)",
+          "issue": "Bold and underline mark best and second best for differences far inside the seed sd (e.g. trend 0.031\u00b10.030 vs 0.032\u00b10.031; noisy 0.785\u00b10.017 vs 0.785\u00b10.019).",
+          "fix": "Note in the caption that the marking is by mean only and that many differences are within one sd."
+        }
+      ],
+      "commit": "7b50149e89718cb69885ec09571f3dd5b6cc161c"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers regenerate byte-identically from the 289-run registry, every row has a command and a matching log, and four re-executed runs (DLinear, GRU, PatchTST at 400 steps and the headline GRU 2000-step cell) reproduce bit-for-bit. Code matches the described method with no leakage or hard-coding, citations are used in context, and the paper honestly reports a mixed, budget-dependent outcome with adequate limitations. Only minor wording, disclosure and rendering issues remain.",
+      "reran": [
+        {
+          "run": "DLinear/regime/0 (main)",
+          "metric": "mse_96",
+          "registry": 0.46386580694289437,
+          "rerun": 0.46386580694289437
+        },
+        {
+          "run": "GRU/regime/0 (main)",
+          "metric": "mse_96",
+          "registry": 0.48741650502151035,
+          "rerun": 0.48741650502151035
+        },
+        {
+          "run": "PatchTST/regime/0 (main)",
+          "metric": "mse_96",
+          "registry": 0.4405167234300379,
+          "rerun": 0.4405167234300379
+        },
+        {
+          "run": "GRU/regime/0 (sweep_steps, 2000 steps)",
+          "metric": "mse_96",
+          "registry": 0.40488447778644754,
+          "rerun": 0.40488447778644754
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "'The small differences are not seed noise' is inferred from 3/3 sign agreement with three seeds, where a seed is one dataset plus one initialisation; some cells have paired t well below the df=2 critical value and the signs flip at 2000 steps.",
+          "fix": "Reword to 'sign-consistent in 3/3 seeds (untested, and budget-dependent)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3; Where the nonlinear models fail iii)",
+          "issue": "The GRU 'runs against the hypothesis' verdict rests on the 400-step GRU the paper itself calls under-trained, with only the noise 3.0 cell seed-consistent; the dwell-4000 '+12.0% worse' at 2000 steps is 1/3 seeds better (+18.3/+13.9/-2.7%) in a cell with very large between-dataset spread.",
+          "fix": "State that the GRU part of H3 is untested at an adequate budget and that the dwell-4000 gap is inconclusive."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "The abstract says nothing passes the rule at 400 steps on the six tasks but omits that PatchTST passes it in two 400-step sweep cells on regime variants (noise 0.1: -9.3%; dwell 1000: -5.1%, not robust at 2000 steps).",
+          "fix": "Add a clause on the low-noise PatchTST win at 400 steps, or scope the sentence explicitly to the main grid."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py history (commits 77f09d9 to 7b50149) vs paper/sections/setup.tex",
+          "issue": "The original --split help text said 'val is used only for the lr pilot' while the paper says learning rates were fixed in advance with no tuning; no pilot runs are recorded, so whether one was run cannot be determined.",
+          "fix": "State explicitly that no lr pilot was run, or disclose the pilot and its results."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (fonts, Table II)",
+          "issue": "Bold does not render anywhere (font-shape warnings in main.log): in Table II the best value is unmarked while the second-best is underlined, and run-in headings are not bold.",
+          "fix": "Build with a font that has a bold face, or mark the best value another way."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (Table II headers, Fig. 2)",
+          "issue": "Table II headers show raw metric names (mse_24), and in Fig. 2 the dwell-4000 error bar overlaps the right panel's tick labels.",
+          "fix": "Rename the headers and add spacing between the Fig. 2 panels."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex; 'pre-registered' wording throughout",
+          "issue": "'DLinear and NLinear, a moving-average decomposition...' implies NLinear uses the decomposition, which it does not; 'pre-registered' refers to a git commit in the same repo shortly before the runs.",
+          "fix": "Reword the DLinear/NLinear sentence and say 'fixed in the committed brief before the runs'."
+        }
+      ],
+      "commit": "a4de22c9e3163c728a31031023b0aec040995a41"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on regime: ours 0.4338 vs PatchTST 0.4129\nREADY",
+      "response": "# Response to the audit (fix round)\n\nNew evidence added in this round: 108 runs through `rh run` (groups `sweep_steps`, `sweep_dwell_2000`; runner `experiments/run_budget.sh`,\ncommitted before the runs; same code and settings as the main grid except `--steps`). All runs finished with status ok, the longest took 247 s. (Checking durations for this round also showed that two main-grid PatchTST runs\nfrom the original batch took 450 s and 544 s under machine load, above the 6-minute limit; the setup section now says so.)\nThe sweep is described everywhere as post hoc (added after the audit); the hypotheses and the registered win rule are unchanged.\n\n## Major 1. Nonlinear baselines under-trained at 400 steps; conclusions flip with budget\nAccepted. The auditor's numbers reproduce exactly (regime, H=96, 2000 steps: DLinear 0.4611/0.4324/0.4029, GRU 0.4049/0.3990/0.3549).\n- Added a training-budget sweep: regime and etth1 at 1000 and 2000 steps, all three horizons, 3 seeds, three learned systems; seas1, trend,\n  multiseas and noisy at 2000 steps, H=96; and the dwell sweep (the registered test of H2's second clause) repeated at 2000 steps, H=96.\n- New Table IV (`results/tables/budget.tex`) reports every cell with MSE, change vs DLinear, seeds better and the win mark; Table VI now has\n  the dwell sweep at both budgets; Fig. 1 and Fig. 2 show both budgets.\n- What the sweep shows: DLinear is converged at 400 steps (MSE moves by at most 0.004 on regime/etth1), the GRU is not. At 1000 and 2000 steps\n  on regime, PatchTST and the GRU win at H=24, the GRU wins at H=96 (-7.4%, -10.6%), nobody wins at H=192. No win on the other four synthetic\n  tasks (H=96, 2000 steps) or on ETTh1 (any horizon, any budget).\n- Verdicts rewritten per budget in abstract, introduction, results, conclusion, `results/RESULTS.md`: H2 is \"not supported as registered at any\n  budget (no win at H=192, margin not monotone in switching rate); partly supported from 1000 steps (wins at H=24 and H=96)\". The statements\n  \"the GRU is worse at every horizon\" and \"no nonlinear win on any task\" are now explicitly restricted to 400 steps. The earlier untested\n  explanation of the GRU's multiseas gap (difficulty with the period-168 component) was removed, since the gap disappears at 2000 steps.\n- Not repeated at longer budgets (stated in setup, results H3, ablations and limitations): the noise sweep, the design ablation, and H=24/192\n  for the four tasks without regime changes.\n\n## Major 2. \"Simple linear models were therefore sufficient\" / \"no support for regime switching\"\nAccepted. Both sentences were removed. The conclusion and contribution (ii) now say that at 400 steps no nonlinear model passed the rule,\nthat at 1000 and 2000 steps the GRU (H=24, 96) and the patch transformer (H=24) pass it on regime-switching data, and that regime switching\nwas the only property we varied under which a nonlinear model passed the rule, with the limits of what was tested at 2000 steps stated.\n\n## Minor 3. Trend no-norm percentages driven by seed 1\nFixed. Table V has a new column with the median of the per-seed changes (+8.8% DLinear, +134% PatchTST, +805% GRU); the text says all three\nmeans are driven by seed 1 and \"essential\" was removed.\n\n## Minor 4. \"GRU is the worst learned model on etth1\"\nFixed. The text now says worst on etth1 at H=24 and tied with PatchTST at H=96 and 192 (0.399 vs 0.400, 0.438 vs 0.438), all at 400 steps.\n\n## Minor 5. H1 \"within the seed spread\"; H3 \"no consistent gap\" for the GRU\nFixed. Table III now carries the number of seeds in which each nonlinear model is better; H1 describes the paired, sign-consistent differences\n(and that their sign changes at 2000 steps). H3 is now \"mixed\": PatchTST keeps a small 3/3-seed advantage at every noise level, and the GRU's\ngap runs against the hypothesis (+8.4% at 0.1 to -2.1% at 3.0). One correction to the finding: the GRU trend is not strictly monotone\n(-0.6% at 0.6, -0.1% at 1.5, -2.1% at 3.0), so the paper gives the values instead of the word \"monotonically\".\n\n## Minor 6. Registry resets; \"append-only\"\nFixed. The setup section reports both discard-and-rerun events and that the logs of discarded runs were not kept; the README no longer\ncalls the registry append-only.\n\n## Minor 7. Status of the sweeps\nFixed. Limitations now say the dwell and noise sweeps were planned in the brief as the tests of H2 and H3, that the per-cell win checks are\nnot registered hypotheses, and that the budget sweep is post hoc.\n\n## Minor 8. Stale help text, ETTh1 source, double comma\nFixed. `--split` help text no longer mentions a pilot; the README gives the ETTh1 URL, sha256 (checked against a fresh download), size and\nrow count; the double comma in the seasonal-naive formula is gone.\n\n## Minor 9. Bold/underline in Table II\nFixed in the caption: marking is by mean only and many differences are within one sd. The table is generated by `rh table`, so the marking\nitself is unchanged. Note: the bold face does not render with the font of this build; the caption says so.\n\n## Other changes from the self-audit\n- The 400-step sweep win of PatchTST at dwell 1000 (-5.1%) is flagged as not robust to the budget (-1.6%, 2/3 seeds at 2000 steps).\n- Table I gained the median run time at 2000 steps; figures were redrawn at column width so that legends are readable.\n- `BRIEF.md`, `proposal.md`, `research.yaml`, `experiments/PROTOCOL.md`, `method/DESIGN.md` record the budget sweep as a post hoc addition.\n- Compute: the budget sweep took about 42 minutes of wall-clock in two lanes, beyond the original 30-minute budget; recorded with `rh decide`.\n",
+      "seconds": 3282
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 01:08:36 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task multiseas --seed 1 --out results/raw/main_snaive_multiseas_1.json --system snaive
+
+config {"system": "snaive", "task": "multiseas", "seed": 1, "out": "results/raw/main_snaive_multiseas_1.json", "horizons": "24,96,192", "lr": 0, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.2035 mae=0.3609
+H=96 mse=0.2041 mae=0.3614
+H=192 mse=0.2043 mae=0.3614
+final {"snaive_period_24": 168, "mse_24": 0.20345391029788484, "mae_24": 0.36093328750503917, "snaive_period_96": 168, "mse_96": 0.2040503171327238, "mae_96": 0.36139582130204007, "snaive_period_192": 168, "mse_192": 0.20425811038390665, "mae_192": 0.3614215855342377, "mse_mean": 0.2039207792715051, "runtime_s": 0.18031907081604004}

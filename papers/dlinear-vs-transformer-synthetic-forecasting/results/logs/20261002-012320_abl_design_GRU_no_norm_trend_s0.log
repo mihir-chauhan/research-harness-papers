@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:23:20 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task trend --seed 0 --out results/raw/abl_nonorm_gru_trend_0.json --system gru --horizons 96 --no_norm
+
+config {"system": "gru", "task": "trend", "seed": 0, "out": "results/raw/abl_nonorm_gru_trend_0.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": true, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.1006 mae=0.2128
+final {"val_mse_96": 0.018947345239144785, "mse_96": 0.10061187379780005, "mae_96": 0.21279497790838264, "mse_mean": 0.10061187379780005, "runtime_s": 4.6966471672058105, "n_params_h96": 20448}

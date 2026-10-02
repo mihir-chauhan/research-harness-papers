@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 01:06:59 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task trend --seed 2 --out results/raw/main_snaive_trend_2.json --system snaive
+
+config {"system": "snaive", "task": "trend", "seed": 2, "out": "results/raw/main_snaive_trend_2.json", "horizons": "24,96,192", "lr": 0, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.0269 mae=0.1255
+H=96 mse=0.0294 mae=0.1320
+H=192 mse=0.0347 mae=0.1442
+final {"snaive_period_24": 24, "mse_24": 0.026892345246692158, "mae_24": 0.12554531675946307, "snaive_period_96": 24, "mse_96": 0.02940326249216614, "mae_96": 0.13201894580591822, "snaive_period_192": 24, "mse_192": 0.03473115886727038, "mae_192": 0.14419896703593296, "mse_mean": 0.030342255535376228, "runtime_s": 0.25388216972351074}

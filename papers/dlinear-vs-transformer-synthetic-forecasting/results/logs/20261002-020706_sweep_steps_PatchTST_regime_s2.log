@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 02:07:06 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 2 --out results/raw/st_patchtst_regime_1000_2.json --system patchtst --steps 1000
+
+config {"system": "patchtst", "task": "regime", "seed": 2, "out": "results/raw/st_patchtst_regime_1000_2.json", "horizons": "24,96,192", "lr": 0.001, "steps": 1000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.2544 mae=0.3710
+H=96 mse=0.3769 mae=0.4460
+H=192 mse=0.4735 mae=0.4973
+final {"val_mse_24": 0.24322939400721078, "mse_24": 0.254355084742383, "mae_24": 0.3709667825063876, "val_mse_96": 0.31489048306904144, "mse_96": 0.37693377185369514, "mae_96": 0.4460044818595134, "val_mse_192": 0.4126494743505216, "mse_192": 0.4734952686130225, "mae_192": 0.49730896977969935, "mse_mean": 0.3682613750697002, "runtime_s": 125.20678400993347, "n_params_h96": 322656}

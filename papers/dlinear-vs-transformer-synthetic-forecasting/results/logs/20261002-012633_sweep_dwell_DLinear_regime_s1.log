@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:26:33 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 1 --out results/raw/sw_dwell_dlinear_4000_1.json --system dlinear --horizons 96 --dwell 4000
+
+config {"system": "dlinear", "task": "regime", "seed": 1, "out": "results/raw/sw_dwell_dlinear_4000_1.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": 4000, "split": "test"}
+H=96 mse=0.4990 mae=0.5073
+final {"val_mse_96": 0.11547093668942729, "mse_96": 0.4990300158461595, "mae_96": 0.5073435938635538, "mse_mean": 0.4990300158461595, "runtime_s": 1.093583106994629, "n_params_h96": 64704}

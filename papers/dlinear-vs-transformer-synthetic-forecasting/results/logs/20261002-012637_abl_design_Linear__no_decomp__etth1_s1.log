@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:26:37 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 1 --out results/raw/abl_linear_etth1_1.json --system linear --horizons 96
+
+config {"system": "linear", "task": "etth1", "seed": 1, "out": "results/raw/abl_linear_etth1_1.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.3773 mae=0.3974
+final {"val_mse_96": 0.6784942060656137, "mse_96": 0.3772747132740867, "mae_96": 0.39744147938052193, "mse_mean": 0.3772747132740867, "runtime_s": 1.3211839199066162, "n_params_h96": 32352}

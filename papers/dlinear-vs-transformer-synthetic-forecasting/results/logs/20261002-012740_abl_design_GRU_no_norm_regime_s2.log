@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:27:40 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 2 --out results/raw/abl_nonorm_gru_regime_2.json --system gru --horizons 96 --no_norm
+
+config {"system": "gru", "task": "regime", "seed": 2, "out": "results/raw/abl_nonorm_gru_regime_2.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": true, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.3819 mae=0.4515
+final {"val_mse_96": 0.3996308812809159, "mse_96": 0.38190981504793053, "mae_96": 0.45153006958142994, "mse_mean": 0.38190981504793053, "runtime_s": 4.040870904922485, "n_params_h96": 20448}

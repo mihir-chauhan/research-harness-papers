@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:57:18 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task noisy --seed 1 --out results/raw/main_gru_noisy_1.json --system gru
+
+config {"system": "gru", "task": "noisy", "seed": 1, "out": "results/raw/main_gru_noisy_1.json", "horizons": "24,96,192", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.7861 mae=0.7078
+H=96 mse=0.7999 mae=0.7154
+H=192 mse=0.7980 mae=0.7149
+final {"val_mse_24": 0.7531852208404027, "mse_24": 0.7861082753931536, "mae_24": 0.7078206512444721, "val_mse_96": 0.7628537939969825, "mse_96": 0.7998555230935943, "mae_96": 0.7154244761926392, "val_mse_192": 0.7627963049937103, "mse_192": 0.7979711961712374, "mae_192": 0.7148896021738046, "mse_mean": 0.7946449982193284, "runtime_s": 14.781615018844604, "n_params_h96": 20448}

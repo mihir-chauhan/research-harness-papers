@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:27:24 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 1 --out results/raw/sw_dwell_gru_1000_1.json --system gru --horizons 96 --dwell 1000
+
+config {"system": "gru", "task": "regime", "seed": 1, "out": "results/raw/sw_dwell_gru_1000_1.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": 1000, "split": "test"}
+H=96 mse=0.3595 mae=0.4600
+final {"val_mse_96": 0.29631477436691367, "mse_96": 0.35945885152383766, "mae_96": 0.45997066561169797, "mse_mean": 0.35945885152383766, "runtime_s": 3.77799129486084, "n_params_h96": 20448}

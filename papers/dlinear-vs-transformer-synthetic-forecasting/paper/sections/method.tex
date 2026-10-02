@@ -1,0 +1,19 @@
+All systems forecast one channel at a time (channel independent). Given a look-back window $x\in\mathbb{R}^{L}$ ($L=336$) a model predicts the next $H\in\{24,96,192\}$ values; a separate model is trained per horizon.
+
+\textbf{Instance normalisation.} For the learned models, $\mu=\operatorname{mean}(x)$, $\sigma=\operatorname{std}(x)+10^{-5}$ over the window, $\tilde x=(x-\mu)/\sigma$, and the output is $\hat y=f(\tilde x)\,\sigma+\mu$. It is applied identically to all three learned models and switched off in one ablation.
+
+\textbf{Seasonal naive (reimplemented).} $\hat y_{t+h}=x_{t-m+1+((h-1)\bmod m)}$, $h=1..H$, i.e.\ the last full cycle of length $m$ is repeated; $m\in\{24,168\}$ is chosen per task, horizon and seed on the validation split.
+
+\textbf{DLinear-style (reimplemented).} With a moving average of kernel $k=25$ and replicate padding, $T=\operatorname{MA}_k(\tilde x)$, $R=\tilde x-T$, and
+\begin{equation}\hat y=\big(W_R R + b_R + W_T T + b_T\big)\sigma+\mu,\quad W_R,W_T\in\mathbb{R}^{H\times L},\end{equation}
+with weights shared across channels and initialised to $1/L$. The ``no decomposition'' variant uses $\hat y=(W\tilde x+b)\sigma+\mu$.
+
+\textbf{PatchTST-style (reimplemented).} Patches of length 16 with stride 8 give $N=41$ tokens $p_i\in\mathbb{R}^{16}$, embedded as $z_i^{0}=W_e p_i+e_i$ with learned positions $e_i$; two pre-norm encoder layers ($d=64$, 4 heads, feed-forward width 128, dropout 0.1) compute $z^{l+1}=z^l+\mathrm{MSA}(\mathrm{LN}(z^l))$ followed by $z^{l+1}\leftarrow z^{l+1}+\mathrm{FF}(\mathrm{LN}(z^{l+1}))$. The head is linear on the flattened tokens: $\hat y=(W_o\,\mathrm{vec}(z^{2})+b_o)\sigma+\mu$.
+
+\textbf{Patch GRU.} Non-overlapping patches of 8 values form a sequence of 42 inputs to a one-layer GRU with hidden size 64, $h_j=\mathrm{GRU}(h_{j-1},p_j)$, and $\hat y=(W_o h_{42}+b_o)\sigma+\mu$.
+
+\textbf{Training.} Mean squared error, AdamW (weight decay $10^{-4}$), cosine learning-rate decay over the whole budget, batch 64 windows sampled uniformly with random channel, gradient clipping 1, learning rate $3\cdot10^{-3}$ (DLinear, GRU) and $10^{-3}$ (PatchTST), fixed in advance. The budget is 400 steps in the main grid, the design ablation and the dwell and noise sweeps; the budget sweep repeats runs with 1000 and 2000 steps and no other change. Validation MSE (every eighth validation window) is computed every 100 steps and the best checkpoint is kept, so a longer budget also means more candidate checkpoints, for every system alike.
+
+\textbf{Win rule.} For a nonlinear system $s$ and DLinear on a task and horizon, with seed-mean MSE $\bar e_s,\bar e_D$ over the same seeds,
+\begin{equation}\text{win}(s)\iff (\bar e_s-\bar e_D)/\bar e_D\le-5\%\ \text{ and }\ e_s^{(i)}<e_D^{(i)}\ \forall i.\end{equation}
+This rule was fixed in the proposal before running and is applied unchanged at every budget; with three seeds it is a screening rule, not a significance test.

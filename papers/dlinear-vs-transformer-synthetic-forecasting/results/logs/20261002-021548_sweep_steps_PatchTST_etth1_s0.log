@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 02:15:48 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 0 --out results/raw/st_patchtst_etth1_1000_0.json --system patchtst --steps 1000
+
+config {"system": "patchtst", "task": "etth1", "seed": 0, "out": "results/raw/st_patchtst_etth1_1000_0.json", "horizons": "24,96,192", "lr": 0.001, "steps": 1000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.3121 mae=0.3661
+H=96 mse=0.3937 mae=0.4180
+H=192 mse=0.4423 mae=0.4407
+final {"val_mse_24": 0.388162517522237, "mse_24": 0.3120978797441968, "mae_24": 0.3661061173481037, "val_mse_96": 0.708866099085517, "mse_96": 0.393667944221402, "mae_96": 0.418014644946646, "val_mse_192": 0.9471995305321017, "mse_192": 0.44226950277092625, "mae_192": 0.44073562028947677, "mse_mean": 0.38267844224550834, "runtime_s": 119.57082772254944, "n_params_h96": 322656}

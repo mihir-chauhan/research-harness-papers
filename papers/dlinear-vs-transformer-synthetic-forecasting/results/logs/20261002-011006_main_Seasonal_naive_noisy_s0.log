@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 01:10:06 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task noisy --seed 0 --out results/raw/main_snaive_noisy_0.json --system snaive
+
+config {"system": "snaive", "task": "noisy", "seed": 0, "out": "results/raw/main_snaive_noisy_0.json", "horizons": "24,96,192", "lr": 0, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=1.4326 mae=0.9650
+H=96 mse=1.4329 mae=0.9660
+H=192 mse=1.4345 mae=0.9662
+final {"snaive_period_24": 168, "mse_24": 1.4326179196380506, "mae_24": 0.9650243147561979, "snaive_period_96": 168, "mse_96": 1.4328842686920336, "mae_96": 0.9660171863644622, "snaive_period_192": 168, "mse_192": 1.4344568985812005, "mae_192": 0.966155926442919, "mse_mean": 1.4333196956370948, "runtime_s": 0.17973899841308594}

@@ -1,0 +1,35 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & mse\_24 $\downarrow$ & mse\_96 $\downarrow$ & mse\_192 $\downarrow$ & $n$ \\
+\midrule
+Seasonal naive & regime & 1.394 $\pm$ 0.494 & 1.587 $\pm$ 0.320 & 1.584 $\pm$ 0.417 & 3 \\
+GRU & regime & 0.322 $\pm$ 0.046 & 0.446 $\pm$ 0.052 & 0.549 $\pm$ 0.071 & 3 \\
+PatchTST & regime & \textbf{0.291 $\pm$ 0.014} & \textbf{0.413 $\pm$ 0.030} & \underline{0.546 $\pm$ 0.059} & 3 \\
+\textbf{DLinear} & regime & \underline{0.306 $\pm$ 0.015} & \underline{0.434 $\pm$ 0.031} & \textbf{0.538 $\pm$ 0.045} & 3 \\
+\midrule
+Seasonal naive & etth1 & 0.424 $\pm$ 0.000 & 0.512 $\pm$ 0.000 & 0.581 $\pm$ 0.000 & 3 \\
+GRU & etth1 & 0.331 $\pm$ 0.002 & \underline{0.399 $\pm$ 0.004} & \underline{0.438 $\pm$ 0.005} & 3 \\
+PatchTST & etth1 & \textbf{0.320 $\pm$ 0.003} & 0.400 $\pm$ 0.009 & 0.438 $\pm$ 0.005 & 3 \\
+\textbf{DLinear} & etth1 & \underline{0.324 $\pm$ 0.001} & \textbf{0.376 $\pm$ 0.001} & \textbf{0.410 $\pm$ 0.000} & 3 \\
+\midrule
+Seasonal naive & trend & 0.051 $\pm$ 0.050 & 0.056 $\pm$ 0.056 & 0.071 $\pm$ 0.073 & 3 \\
+GRU & trend & 0.029 $\pm$ 0.028 & 0.032 $\pm$ 0.031 & 0.040 $\pm$ 0.037 & 3 \\
+PatchTST & trend & \underline{0.028 $\pm$ 0.028} & \underline{0.032 $\pm$ 0.031} & \underline{0.039 $\pm$ 0.038} & 3 \\
+\textbf{DLinear} & trend & \textbf{0.028 $\pm$ 0.027} & \textbf{0.031 $\pm$ 0.030} & \textbf{0.038 $\pm$ 0.037} & 3 \\
+\midrule
+Seasonal naive & multiseas & 0.198 $\pm$ 0.006 & 0.198 $\pm$ 0.006 & 0.198 $\pm$ 0.006 & 3 \\
+GRU & multiseas & 0.114 $\pm$ 0.002 & 0.114 $\pm$ 0.005 & 0.116 $\pm$ 0.003 & 3 \\
+PatchTST & multiseas & \underline{0.105 $\pm$ 0.002} & \underline{0.106 $\pm$ 0.002} & \underline{0.106 $\pm$ 0.002} & 3 \\
+\textbf{DLinear} & multiseas & \textbf{0.103 $\pm$ 0.002} & \textbf{0.104 $\pm$ 0.002} & \textbf{0.104 $\pm$ 0.002} & 3 \\
+\midrule
+Seasonal naive & noisy & 1.481 $\pm$ 0.047 & 1.485 $\pm$ 0.049 & 1.486 $\pm$ 0.049 & 3 \\
+GRU & noisy & \textbf{0.773 $\pm$ 0.014} & \textbf{0.785 $\pm$ 0.017} & \textbf{0.784 $\pm$ 0.017} & 3 \\
+PatchTST & noisy & \underline{0.779 $\pm$ 0.014} & \underline{0.785 $\pm$ 0.019} & \underline{0.787 $\pm$ 0.017} & 3 \\
+\textbf{DLinear} & noisy & 0.782 $\pm$ 0.014 & 0.793 $\pm$ 0.018 & 0.792 $\pm$ 0.017 & 3 \\
+\midrule
+Seasonal naive & seas1 & 0.304 $\pm$ 0.006 & 0.309 $\pm$ 0.011 & 0.309 $\pm$ 0.011 & 3 \\
+GRU & seas1 & 0.160 $\pm$ 0.004 & 0.160 $\pm$ 0.003 & 0.160 $\pm$ 0.002 & 3 \\
+PatchTST & seas1 & \underline{0.159 $\pm$ 0.003} & \underline{0.160 $\pm$ 0.003} & \underline{0.159 $\pm$ 0.003} & 3 \\
+\textbf{DLinear} & seas1 & \textbf{0.156 $\pm$ 0.003} & \textbf{0.158 $\pm$ 0.004} & \textbf{0.158 $\pm$ 0.003} & 3 \\
+\bottomrule
+\end{tabular}

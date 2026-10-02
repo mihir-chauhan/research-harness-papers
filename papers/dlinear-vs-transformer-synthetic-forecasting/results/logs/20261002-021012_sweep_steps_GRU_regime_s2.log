@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 02:10:12 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 2 --out results/raw/st_gru_regime_1000_2.json --system gru --steps 1000
+
+config {"system": "gru", "task": "regime", "seed": 2, "out": "results/raw/st_gru_regime_1000_2.json", "horizons": "24,96,192", "lr": 0.003, "steps": 1000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.2399 mae=0.3605
+H=96 mse=0.3701 mae=0.4423
+H=192 mse=0.4661 mae=0.4955
+final {"val_mse_24": 0.2477399235221272, "mse_24": 0.23991238700489342, "mae_24": 0.3604514358462453, "val_mse_96": 0.36339735269967, "mse_96": 0.3700654605430358, "mae_96": 0.44225640112115433, "val_mse_192": 0.441609556841087, "mse_192": 0.46610447179912984, "mae_192": 0.49551386367296085, "mse_mean": 0.35869410644901967, "runtime_s": 24.97337317466736, "n_params_h96": 20448}

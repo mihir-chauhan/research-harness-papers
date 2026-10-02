@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:25:34 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 1 --out results/raw/abl_nonorm_dlinear_regime_1.json --system dlinear --horizons 96 --no_norm
+
+config {"system": "dlinear", "task": "regime", "seed": 1, "out": "results/raw/abl_nonorm_dlinear_regime_1.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": true, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.4069 mae=0.4715
+final {"val_mse_96": 0.38867441813151044, "mse_96": 0.406860155547048, "mae_96": 0.4715003519491236, "mse_mean": 0.406860155547048, "runtime_s": 1.0240750312805176, "n_params_h96": 64704}

@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:56:29 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 1 --out results/raw/main_snaive_etth1_1.json --system snaive
+
+config {"system": "snaive", "task": "etth1", "seed": 1, "out": "results/raw/main_snaive_etth1_1.json", "horizons": "24,96,192", "lr": 0, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.4244 mae=0.3892
+H=96 mse=0.5122 mae=0.4333
+H=192 mse=0.5808 mae=0.4692
+final {"snaive_period_24": 24, "mse_24": 0.42444513290626285, "mae_24": 0.38921316742513556, "snaive_period_96": 24, "mse_96": 0.5122251110300301, "mae_96": 0.4333027146561101, "snaive_period_192": 24, "mse_192": 0.5807811536290562, "mae_192": 0.46915980261380275, "mse_mean": 0.5058171325217831, "runtime_s": 0.9284350872039795}

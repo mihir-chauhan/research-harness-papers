@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 01:59:20 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 0 --out results/raw/st_dlinear_regime_2000_0.json --system dlinear --steps 2000
+
+config {"system": "dlinear", "task": "regime", "seed": 0, "out": "results/raw/st_dlinear_regime_2000_0.json", "horizons": "24,96,192", "lr": 0.003, "steps": 2000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.3203 mae=0.4203
+H=96 mse=0.4611 mae=0.5032
+H=192 mse=0.5737 mae=0.5699
+final {"val_mse_24": 0.3538711753357139, "mse_24": 0.3202803525479191, "mae_24": 0.42026738146852677, "val_mse_96": 0.495336778159705, "mse_96": 0.46107846721594253, "mae_96": 0.5032024227239497, "val_mse_192": 0.623232264976717, "mse_192": 0.5737121470126244, "mae_192": 0.5698682894683037, "mse_mean": 0.45169032225882866, "runtime_s": 7.002732038497925, "n_params_h96": 64704}

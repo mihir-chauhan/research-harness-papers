@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:25:35 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 0 --out results/raw/sw_noise_dlinear_1.5_0.json --system dlinear --horizons 96 --noise 1.5
+
+config {"system": "dlinear", "task": "regime", "seed": 0, "out": "results/raw/sw_noise_dlinear_1.5_0.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": 1.5, "dwell": null, "split": "test"}
+H=96 mse=0.9308 mae=0.7722
+final {"val_mse_96": 0.9411970404300319, "mse_96": 0.9307803537362438, "mae_96": 0.7722069014742525, "mse_mean": 0.9307803537362438, "runtime_s": 1.0982682704925537, "n_params_h96": 64704}

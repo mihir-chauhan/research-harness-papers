@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:31:44 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 2 --out results/raw/sw_noise_gru_1.5_2.json --system gru --horizons 96 --noise 1.5
+
+config {"system": "gru", "task": "regime", "seed": 2, "out": "results/raw/sw_noise_gru_1.5_2.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": 1.5, "dwell": null, "split": "test"}
+H=96 mse=0.9198 mae=0.7603
+final {"val_mse_96": 0.9247482272893243, "mse_96": 0.9197506183273636, "mae_96": 0.7603176552063867, "mse_mean": 0.9197506183273636, "runtime_s": 4.038548231124878, "n_params_h96": 20448}

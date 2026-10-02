@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:54:41 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task trend --seed 0 --out results/raw/main_dlinear_trend_0.json --system dlinear
+
+config {"system": "dlinear", "task": "trend", "seed": 0, "out": "results/raw/main_dlinear_trend_0.json", "horizons": "24,96,192", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.0091 mae=0.0752
+H=96 mse=0.0105 mae=0.0806
+H=192 mse=0.0140 mae=0.0905
+final {"val_mse_24": 0.008910334772533841, "mse_24": 0.009058631923505605, "mae_24": 0.07521317212280777, "val_mse_96": 0.010203118572369664, "mse_96": 0.010496457206582443, "mae_96": 0.08059679667154948, "val_mse_192": 0.014109149715545713, "mse_192": 0.013995565927025836, "mae_192": 0.0905475679627259, "mse_mean": 0.011183551685704627, "runtime_s": 2.6434407234191895, "n_params_h96": 64704}

@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 02:20:35 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 1 --out results/raw/st_dlinear_etth1_1000_1.json --system dlinear --steps 1000
+
+config {"system": "dlinear", "task": "etth1", "seed": 1, "out": "results/raw/st_dlinear_etth1_1000_1.json", "horizons": "24,96,192", "lr": 0.003, "steps": 1000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.3200 mae=0.3630
+H=96 mse=0.3742 mae=0.3950
+H=192 mse=0.4125 mae=0.4195
+final {"val_mse_24": 0.4100151934754376, "mse_24": 0.31998075934146436, "mae_24": 0.3629832724037732, "val_mse_96": 0.6751364334362528, "mse_96": 0.37417293994398393, "mae_96": 0.3950108244652074, "val_mse_192": 0.9067212695436692, "mse_192": 0.41251511560196297, "mae_192": 0.4195352032907047, "mse_mean": 0.3688896049624704, "runtime_s": 4.6094841957092285, "n_params_h96": 64704}

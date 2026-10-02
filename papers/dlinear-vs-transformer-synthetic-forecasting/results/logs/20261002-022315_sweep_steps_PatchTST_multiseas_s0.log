@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 02:23:15 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task multiseas --seed 0 --out results/raw/st_patchtst_multiseas_2000_0.json --system patchtst --steps 2000 --horizons 96
+
+config {"system": "patchtst", "task": "multiseas", "seed": 0, "out": "results/raw/st_patchtst_multiseas_2000_0.json", "horizons": "96", "lr": 0.001, "steps": 2000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.1069 mae=0.2628
+final {"val_mse_96": 0.10633002723545834, "mse_96": 0.10690745187888245, "mae_96": 0.2628366007757345, "mse_mean": 0.10690745187888245, "runtime_s": 75.03556418418884, "n_params_h96": 322656}

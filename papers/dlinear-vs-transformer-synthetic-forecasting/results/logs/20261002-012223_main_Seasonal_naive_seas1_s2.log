@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 01:22:23 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task seas1 --seed 2 --out results/raw/main_snaive_seas1_2.json --system snaive
+
+config {"system": "snaive", "task": "seas1", "seed": 2, "out": "results/raw/main_snaive_seas1_2.json", "horizons": "24,96,192", "lr": 0, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.3089 mae=0.4440
+H=96 mse=0.3104 mae=0.4450
+H=192 mse=0.3098 mae=0.4446
+final {"snaive_period_24": 168, "mse_24": 0.3088860406958258, "mae_24": 0.44402125642204404, "snaive_period_96": 168, "mse_96": 0.31041939398511037, "mae_96": 0.4450480177024934, "snaive_period_192": 168, "mse_192": 0.30983053856717235, "mae_192": 0.4445843593939444, "mse_mean": 0.3097119910827028, "runtime_s": 0.1828899383544922}

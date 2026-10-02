@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:26:39 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 1 --out results/raw/abl_nonorm_patchtst_etth1_1.json --system patchtst --horizons 96 --no_norm
+
+config {"system": "patchtst", "task": "etth1", "seed": 1, "out": "results/raw/abl_nonorm_patchtst_etth1_1.json", "horizons": "96", "lr": 0.001, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": true, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.3945 mae=0.4126
+final {"val_mse_96": 0.6618238374405855, "mse_96": 0.39445806716745446, "mae_96": 0.4125657955540483, "mse_mean": 0.39445806716745446, "runtime_s": 18.472358226776123, "n_params_h96": 322656}

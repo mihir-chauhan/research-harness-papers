@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:55:22 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task trend --seed 2 --out results/raw/main_gru_trend_2.json --system gru
+
+config {"system": "gru", "task": "trend", "seed": 2, "out": "results/raw/main_gru_trend_2.json", "horizons": "24,96,192", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.0154 mae=0.0948
+H=96 mse=0.0173 mae=0.1005
+H=192 mse=0.0217 mae=0.1119
+final {"val_mse_24": 0.016222783010013977, "mse_24": 0.015430988774216973, "mae_24": 0.09477442017923926, "val_mse_96": 0.016896533587622265, "mse_96": 0.017253678924881607, "mae_96": 0.10045494594975299, "val_mse_192": 0.018737049650562235, "mse_192": 0.021730051893473858, "mae_192": 0.11191468862655853, "mse_mean": 0.018138239864190813, "runtime_s": 22.71867322921753, "n_params_h96": 20448}

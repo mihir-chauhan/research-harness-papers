@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 02:28:15 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task seas1 --seed 2 --out results/raw/st_gru_seas1_2000_2.json --system gru --steps 2000 --horizons 96
+
+config {"system": "gru", "task": "seas1", "seed": 2, "out": "results/raw/st_gru_seas1_2000_2.json", "horizons": "96", "lr": 0.003, "steps": 2000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.1557 mae=0.3142
+final {"val_mse_96": 0.1583252928664865, "mse_96": 0.1556590455183027, "mae_96": 0.3142333105685043, "mse_mean": 0.1556590455183027, "runtime_s": 17.1390221118927, "n_params_h96": 20448}

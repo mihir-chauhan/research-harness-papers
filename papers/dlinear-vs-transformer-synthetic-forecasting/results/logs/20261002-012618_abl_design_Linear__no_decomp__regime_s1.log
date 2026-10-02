@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:26:18 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 1 --out results/raw/abl_linear_regime_1.json --system linear --horizons 96
+
+config {"system": "linear", "task": "regime", "seed": 1, "out": "results/raw/abl_linear_regime_1.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.4357 mae=0.4914
+final {"val_mse_96": 0.39267310221569457, "mse_96": 0.4357238854020669, "mae_96": 0.49143617615219237, "mse_mean": 0.4357238854020669, "runtime_s": 0.9342079162597656, "n_params_h96": 32352}

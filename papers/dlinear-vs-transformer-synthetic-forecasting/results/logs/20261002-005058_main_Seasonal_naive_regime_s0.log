@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:50:58 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task regime --seed 0 --out results/raw/main_snaive_regime_0.json --system snaive
+
+config {"system": "snaive", "task": "regime", "seed": 0, "out": "results/raw/main_snaive_regime_0.json", "horizons": "24,96,192", "lr": 0, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=1.7599 mae=1.0216
+H=96 mse=1.8100 mae=1.0615
+H=192 mse=1.8934 mae=1.0915
+final {"snaive_period_24": 24, "mse_24": 1.7598699901502597, "mae_24": 1.0216012473742369, "snaive_period_96": 24, "mse_96": 1.8100286980139986, "mae_96": 1.061538091344823, "snaive_period_192": 24, "mse_192": 1.8934390860188224, "mae_192": 1.091451023553939, "mse_mean": 1.8211125913943602, "runtime_s": 0.19588804244995117}

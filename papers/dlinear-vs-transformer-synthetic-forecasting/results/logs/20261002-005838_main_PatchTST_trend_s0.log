@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:58:38 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task trend --seed 0 --out results/raw/main_patchtst_trend_0.json --system patchtst
+
+config {"system": "patchtst", "task": "trend", "seed": 0, "out": "results/raw/main_patchtst_trend_0.json", "horizons": "24,96,192", "lr": 0.001, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.0094 mae=0.0766
+H=96 mse=0.0108 mae=0.0819
+H=192 mse=0.0144 mae=0.0918
+final {"val_mse_24": 0.009225816036314274, "mse_24": 0.009371389439823612, "mae_24": 0.07661224752066126, "val_mse_96": 0.010648972142941106, "mse_96": 0.010831517317762407, "mae_96": 0.08194799961837819, "val_mse_192": 0.014868106096702331, "mse_192": 0.014361814034585838, "mae_192": 0.09176604020728099, "mse_mean": 0.011521573597390622, "runtime_s": 445.6868779659271, "n_params_h96": 322656}

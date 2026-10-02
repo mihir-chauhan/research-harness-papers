@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 01:23:34 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 0 --out results/raw/abl_nonorm_dlinear_etth1_0.json --system dlinear --horizons 96 --no_norm
+
+config {"system": "dlinear", "task": "etth1", "seed": 0, "out": "results/raw/abl_nonorm_dlinear_etth1_0.json", "horizons": "96", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": true, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.3832 mae=0.4076
+final {"val_mse_96": 0.6486865415923152, "mse_96": 0.3832292720314946, "mae_96": 0.4076082956060198, "mse_mean": 0.3832292720314946, "runtime_s": 1.5349817276000977, "n_params_h96": 64704}

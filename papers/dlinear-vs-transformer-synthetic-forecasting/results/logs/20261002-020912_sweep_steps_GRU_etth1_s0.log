@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 02:09:12 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task etth1 --seed 0 --out results/raw/st_gru_etth1_2000_0.json --system gru --steps 2000
+
+config {"system": "gru", "task": "etth1", "seed": 0, "out": "results/raw/st_gru_etth1_2000_0.json", "horizons": "24,96,192", "lr": 0.003, "steps": 2000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.3104 mae=0.3667
+H=96 mse=0.3842 mae=0.4082
+H=192 mse=0.4401 mae=0.4445
+final {"val_mse_24": 0.39344778819488824, "mse_24": 0.3103754769774825, "mae_24": 0.36665202833099014, "val_mse_96": 0.6931728946510385, "mse_96": 0.3841591979414314, "mae_96": 0.408225149340718, "val_mse_192": 0.9583460328200619, "mse_192": 0.4400703138883663, "mae_192": 0.44446498166465814, "mse_mean": 0.3782016629357601, "runtime_s": 68.00420999526978, "n_params_h96": 20448}

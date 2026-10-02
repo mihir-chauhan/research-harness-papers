@@ -1,0 +1,12 @@
+\begin{tabular}{lrrrrrrr}
+\toprule
+noise & DLinear & \multicolumn{3}{c}{PatchTST} & \multicolumn{3}{c}{GRU}\\
+ & MSE & MSE & vs DL (\%) & seeds & MSE & vs DL (\%) & seeds\\
+\midrule
+0.1 & 0.335 & 0.304 & -9.3$^\ast$ & 3/3 & 0.363 & +8.4 & 1/3\\
+0.3 & 0.434 & 0.413 & -4.8 & 3/3 & 0.446 & +2.9 & 1/3\\
+0.6 & 0.619 & 0.611 & -1.3 & 3/3 & 0.616 & -0.6 & 1/3\\
+1.5 & 0.929 & 0.922 & -0.7 & 3/3 & 0.928 & -0.1 & 2/3\\
+3 & 1.023 & 1.012 & -1.1 & 3/3 & 1.002 & -2.1 & 3/3\\
+\bottomrule
+\end{tabular}

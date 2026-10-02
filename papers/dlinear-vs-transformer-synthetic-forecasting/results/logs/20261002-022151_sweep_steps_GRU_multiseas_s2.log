@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 02:21:51 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task multiseas --seed 2 --out results/raw/st_gru_multiseas_2000_2.json --system gru --steps 2000 --horizons 96
+
+config {"system": "gru", "task": "multiseas", "seed": 2, "out": "results/raw/st_gru_multiseas_2000_2.json", "horizons": "96", "lr": 0.003, "steps": 2000, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=96 mse=0.1041 mae=0.2572
+final {"val_mse_96": 0.10507593541759241, "mse_96": 0.10407203767254768, "mae_96": 0.2571753517733856, "mse_mean": 0.10407203767254768, "runtime_s": 19.383255004882812, "n_params_h96": 20448}

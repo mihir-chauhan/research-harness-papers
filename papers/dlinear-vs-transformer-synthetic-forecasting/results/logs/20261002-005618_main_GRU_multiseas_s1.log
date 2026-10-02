@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 00:56:18 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task multiseas --seed 1 --out results/raw/main_gru_multiseas_1.json --system gru
+
+config {"system": "gru", "task": "multiseas", "seed": 1, "out": "results/raw/main_gru_multiseas_1.json", "horizons": "24,96,192", "lr": 0.003, "steps": 400, "bs": 64, "eval_every": 100, "no_norm": false, "noise": null, "dwell": null, "split": "test"}
+H=24 mse=0.1165 mae=0.2706
+H=96 mse=0.1189 mae=0.2749
+H=192 mse=0.1180 mae=0.2740
+final {"val_mse_24": 0.11135256731951679, "mse_24": 0.11645240593198439, "mae_24": 0.2705570049402805, "val_mse_96": 0.11356877860148328, "mse_96": 0.11893049812528118, "mae_96": 0.2748916507691376, "val_mse_192": 0.11207118815621414, "mse_192": 0.11800968051943792, "mae_192": 0.27399920356846147, "mse_mean": 0.1177975281922345, "runtime_s": 18.43954610824585, "n_params_h96": 20448}

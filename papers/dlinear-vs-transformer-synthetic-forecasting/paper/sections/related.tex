@@ -1,0 +1,9 @@
+\textbf{Transformers for forecasting.} Informer \cite{zhou2020informer} introduced sparse attention for long sequences and the ETT datasets; Autoformer \cite{wu2021autoformer} added a series-decomposition block and auto-correlation. TimesNet \cite{wu2022timesnet} models temporal variation in a 2D representation across several analysis tasks. iTransformer \cite{liu2023itransformer} applies attention across variables instead of time steps. PatchTST \cite{nie2022time} splits each channel into patches used as tokens and treats channels independently; our patch transformer follows this design in a reduced form.
+
+\textbf{Linear and MLP models.} Zeng et al.\ \cite{zeng2022are} proposed DLinear and NLinear, a moving-average decomposition into trend and remainder, each mapped to the horizon by one linear layer, and argued that earlier Transformer gains came from direct multi-step prediction. N-BEATS \cite{oreshkin2019n} is an earlier fully connected stack with basis expansion. Kim et al.\ \cite{kim2024are} question the usefulness of self-attention in forecasting Transformers.
+
+\textbf{Recurrent models.} The GRU \cite{cho2014learning} is a standard gated recurrent unit. xLSTMTime \cite{alharthi2024xlstmtime} adapts an xLSTM recurrent architecture to long-term forecasting; our GRU is a much smaller patch-based variant.
+
+\textbf{Benchmarking.} TFB \cite{qiu2024tfb} documents evaluation pitfalls in forecasting comparisons (for example dropped last batches) and compares many methods on a broad set of datasets; the Monash archive \cite{godahewa2021monash} collects forecasting datasets for evaluating methods across domains. Accordingly we use all test windows (no dropped batch) and identical settings for every system.
+
+\textbf{Gap.} These works compare architectures on real datasets whose properties are not controlled. We propose no new model; we vary one data property at a time with a fixed pipeline, at a scale a single CPU can reproduce.
