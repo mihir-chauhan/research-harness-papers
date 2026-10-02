@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:38:17 2026
+# cwd: .
+# cmd: python method/run.py --system deeponet --seed 100 --lr 0.01 --epochs 100 --out results/raw/tune_deeponet_lr0.01.json
+
+CONFIG {"system": "deeponet", "seed": 100, "out": "results/raw/tune_deeponet_lr0.01.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 1.0003 val 1.0090
+ep 100 train_loss 0.9991 val 1.0148
+METRICS {"rel_l2": 1.0023853778839111, "rel_l2_val": 1.0027339458465576, "train_rel_l2": 0.9989435076713562, "rel_l2_256": 1.002392053604126, "rel_l2_512": 1.0023956298828125, "rel_l2_256_resamp": 1.0023853778839111, "interp_floor_256": 1.28949494637709e-07, "params": 66305.0, "train_s": 6.007436752319336}

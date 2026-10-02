@@ -1,0 +1,21 @@
+\textbf{Task.} We solve $u_t+uu_x=\nu u_{xx}$ on $x\in[0,1)$ with periodic boundary and $\nu=0.01$ and learn $\mathcal G:u(\cdot,0)\mapsto u(\cdot,1)$. All models are trained to minimise the per-sample relative error
+\begin{equation}
+\mathcal L(\theta)=\frac1N\sum_{i=1}^N\frac{\lVert \mathcal G_\theta(a_i)-u_i\rVert_2}{\lVert u_i\rVert_2},
+\end{equation}
+which is also the reported metric (on held-out samples).
+
+\textbf{FNO} (reimplemented~\cite{li2020fourier}). The input is $(a(x_j),x_j)$, lifted pointwise by a linear map $P$ to $v_0(x_j)=P(a(x_j),x_j)\in\mathbb R^{32}$. Four layers $l=0,\dots,3$ compute
+\begin{equation}
+v_{l+1}(x)=\sigma\!\big(W_lv_l(x)+\mathcal F^{-1}\!\big[R_l\cdot\mathcal F[v_l]\big](x)\big),
+\end{equation}
+where $\mathcal F$ is the DFT, $R_l\in\mathbb C^{K\times32\times32}$ acts on the lowest $K=16$ modes (the rest are set to zero), $W_l$ is a $1\times1$ convolution (with bias), and $\sigma$ is GELU for $l=0,1,2$ and the identity for the last layer ($l=3$), which has no activation. A two-layer pointwise head ($32\to128\to1$, GELU in between) gives the output. Since every operation acts on grid values pointwise or in Fourier space, the network applies to any grid without change.
+
+\textbf{DeepONet} (reimplemented~\cite{lu2019deeponet}). With $b(a)\in\mathbb R^{p}$ from a branch MLP ($128\to128\to128\to64$, GELU) on the $128$ sensor values and $\tau(x)\in\mathbb R^p$ from a trunk MLP ($1\to128\to128\to64$, GELU), $p=64$,
+\begin{equation}
+\mathcal G_\theta(a)(x)=\sum_{k=1}^{p}b_k(a)\,\tau_k(x)+b_0 .
+\end{equation}
+\textbf{MLP.} $\mathcal G_\theta(a)=W_3\sigma(W_2\sigma(W_1a))$ with $128\to512\to512\to128$ (biases included). \textbf{CNN.} Six circular 1D convolutions (32 channels, kernel 9, GELU after all but the last), mapping the input values on the grid to the output values. Its receptive field is 49 grid points, i.e.\ 49 of the 128 training-grid points; there is no pooling, dilation or normalisation.
+
+\textbf{Zero-shot rules.} On a grid with $r\times$ more points: the FNO and the CNN are applied natively to the finer input. The DeepONet branch and the MLP require 128 inputs, so we take every $r$-th input value; the DeepONet trunk is queried natively on the fine coordinates, and the MLP's 128-point output is Fourier-interpolated to the fine grid. In a second variant (``resampled'') every model receives the input subsampled to 128 points and its 128-point output is Fourier-interpolated (zero-padding of the spectrum, with the 128-point Nyquist mode dropped). Under these rules the MLP and DeepONet see the same information at every test resolution, so we do not read their flat error as invariance.
+
+\textbf{Scaling and optimisation.} Inputs and outputs are scaled by one scalar (training-set standard deviation of $u_0$). We use Adam~\cite{kingma2014adam} (weight decay $10^{-5}$) with a one-cycle schedule, batch 20, 100 epochs for every system in the main comparison, restoring the checkpoint with the lowest validation error (evaluated every 10 epochs).

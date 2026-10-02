@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:46:16 2026
+# cwd: .
+# cmd: python method/run.py --system cnn --seed 2 --lr 0.003 --epochs 100 --out results/raw/main_cnn_s2.json
+
+CONFIG {"system": "cnn", "seed": 2, "out": "results/raw/main_cnn_s2.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.003, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.2728 val 0.2314
+ep 100 train_loss 0.2511 val 0.2256
+METRICS {"rel_l2": 0.2118823230266571, "rel_l2_val": 0.22559955716133118, "train_rel_l2": 0.20883110165596008, "rel_l2_256": 0.5627793073654175, "rel_l2_512": 0.7184833288192749, "rel_l2_256_resamp": 0.21188083291053772, "interp_floor_256": 1.2645492120100243e-07, "params": 37601.0, "train_s": 136.07409167289734}

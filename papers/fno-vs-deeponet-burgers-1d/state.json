@@ -1,0 +1,125 @@
+{
+  "slug": "fno-vs-deeponet-burgers-1d",
+  "direction": "Operator learning on the 1D viscous Burgers equation at small scale: generate a few hundred solution pairs (initial condition to solution at a fixed time) with a spectral or finite-difference solver, then compare a small 1D Fourier neural operator, a small DeepONet and a plain MLP or CNN on relative L2 error, and test zero-shot evaluation at a finer grid than the one used in training.",
+  "created": "2026-10-01T18:42:06",
+  "updated": "2026-10-01T22:31:49",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:52:01",
+      "finished": "2026-10-01T21:26:55",
+      "notes": [
+        {
+          "t": "2026-10-01T21:26:55",
+          "note": "landscape + proposal + 11 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T21:27:12",
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "implemented"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "main group"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "main+sweeps"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "4 groups"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:49",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:49",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:49",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:49",
+          "note": "5 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T21:26:55",
+      "phase": "novelty",
+      "decision": "No new method: study is a small replication-style comparison; hypotheses and tests fixed in proposal.md before runs."
+    },
+    {
+      "t": "2026-10-01T21:40:49",
+      "phase": "baselines",
+      "decision": "Learning rates by lowest validation error on tuning seed 100 over {3e-4,1e-3,3e-3,1e-2} (CNN: first three): FNO 1e-2, DeepONet 3e-3, MLP 1e-3, CNN 3e-3. All systems: 100 epochs, batch 20. FNO and DeepONet best lr sit at/near grid edge; limitation."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

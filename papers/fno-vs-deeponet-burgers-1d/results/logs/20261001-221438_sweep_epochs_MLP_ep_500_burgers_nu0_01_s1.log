@@ -1,0 +1,16 @@
+# rh run | Thu Oct  1 22:14:38 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --seed 1 --lr 0.001 --epochs 100 --epochs 500 --out results/raw/sweep_epochs_mlp500_s1.json
+
+CONFIG {"system": "mlp", "seed": 1, "out": "results/raw/sweep_epochs_mlp500_s1.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.001, "epochs": 500, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.0833 val 0.1358
+ep 100 train_loss 0.0588 val 0.1198
+ep 150 train_loss 0.0588 val 0.1110
+ep 200 train_loss 0.0480 val 0.1086
+ep 250 train_loss 0.0345 val 0.1015
+ep 300 train_loss 0.0245 val 0.0965
+ep 350 train_loss 0.0143 val 0.0931
+ep 400 train_loss 0.0082 val 0.0931
+ep 450 train_loss 0.0041 val 0.0925
+ep 500 train_loss 0.0031 val 0.0925
+METRICS {"rel_l2": 0.07105572521686554, "rel_l2_val": 0.09237026423215866, "train_rel_l2": 0.006921697873622179, "rel_l2_256": 0.07104839384555817, "rel_l2_512": 0.07104839384555817, "rel_l2_256_resamp": 0.07104839384555817, "interp_floor_256": 1.2375579672152526e-07, "params": 394368.0, "train_s": 46.18271803855896}

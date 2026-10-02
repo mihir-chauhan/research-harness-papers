@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:47:55 2026
+# cwd: .
+# cmd: python method/run.py --system fno --seed 0 --lr 0.01 --epochs 100 --modes 4 --out results/raw/sweep_modes_m4_s0.json
+
+CONFIG {"system": "fno", "seed": 0, "out": "results/raw/sweep_modes_m4_s0.json", "modes": 4, "width": 32, "grid": 1, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.0248 val 0.0366
+ep 100 train_loss 0.0055 val 0.0067
+METRICS {"rel_l2": 0.007053909357637167, "rel_l2_val": 0.006678719539195299, "train_rel_l2": 0.00489777373149991, "rel_l2_256": 0.007051657419651747, "rel_l2_512": 0.007050556130707264, "rel_l2_256_resamp": 0.007053905166685581, "interp_floor_256": 1.252213195357399e-07, "params": 41441.0, "train_s": 64.01973795890808}

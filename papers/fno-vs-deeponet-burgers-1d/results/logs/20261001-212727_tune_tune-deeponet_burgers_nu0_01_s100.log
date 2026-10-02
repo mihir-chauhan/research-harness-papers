@@ -1,0 +1,15 @@
+# rh run | Thu Oct  1 21:27:27 2026
+# cwd: .
+# cmd: python method/run.py --system deeponet --seed 100 --lr 0.001 --epochs 100 --out results/raw/tune_deeponet_lr0.001.json
+
+CONFIG {"system": "deeponet", "seed": 100, "out": "results/raw/tune_deeponet_lr0.001.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.001, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.3112 val 0.3402
+ep 100 train_loss 0.3449 val 0.3175
+METRICS {"rel_l2": 0.3292633295059204, "rel_l2_val": 0.3174594044685364, "train_rel_l2": 0.3086639940738678, "rel_l2_256": 0.32983502745628357, "rel_l2_512": 0.3301626443862915, "rel_l2_256_resamp": 0.3292398750782013, "interp_floor_256": 1.28949494637709e-07, "params": 66305.0, "train_s": 5.5421130657196045}
+Traceback (most recent call last):
+  File "method/run.py", line 200, in <module>
+    main()
+  File "method/run.py", line 196, in main
+    json.dump(m, open(a.out, "w"))
+                 ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/tune_deeponet_lr0.001.json'

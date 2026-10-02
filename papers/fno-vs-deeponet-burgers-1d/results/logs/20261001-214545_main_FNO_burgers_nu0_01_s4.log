@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:45:45 2026
+# cwd: .
+# cmd: python method/run.py --system fno --seed 4 --lr 0.01 --epochs 100 --modes 16 --out results/raw/main_fno_s4.json
+
+CONFIG {"system": "fno", "seed": 4, "out": "results/raw/main_fno_s4.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.0269 val 0.0345
+ep 100 train_loss 0.0028 val 0.0053
+METRICS {"rel_l2": 0.004797676112502813, "rel_l2_val": 0.005263736471533775, "train_rel_l2": 0.002981550060212612, "rel_l2_256": 0.0047957454808056355, "rel_l2_512": 0.004794902168214321, "rel_l2_256_resamp": 0.004797633737325668, "interp_floor_256": 1.2763595691467344e-07, "params": 139745.0, "train_s": 60.344650983810425}

@@ -1,0 +1,159 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Results are real and bit-for-bit reproducible, numbers match the generated tables, there is no leakage or hard-coding, and the framing is honest about the easy zero-shot test and under-trained baselines. One statement about baseline tuning is false against the registry (CNN was never run at lr 1e-2, three tuning runs not four); my own run of that point diverges, so no conclusion changes, but the text or registry must be corrected. The remaining findings are minor wording and detail issues.",
+      "reran": [
+        {
+          "run": "FNO/burgers_nu0.01/0",
+          "metric": "rel_l2",
+          "registry": 0.005167591385543346,
+          "rerun": 0.005167591385543346
+        },
+        {
+          "run": "MLP/burgers_nu0.01/0",
+          "metric": "rel_l2",
+          "registry": 0.07976171374320984,
+          "rerun": 0.07976171374320984
+        },
+        {
+          "run": "DeepONet/burgers_nu0.01/0",
+          "metric": "rel_l2",
+          "registry": 0.23096232116222382,
+          "rerun": 0.23096232116222382
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/setup.tex (Training and tuning); limitations.tex",
+          "issue": "Paper states 'four runs per system' and 'the other systems were also run at 1e-2', but the registry has only three tune-cnn runs (3e-4, 1e-3, 3e-3); CNN was never run at 1e-2 although its best rate sat at the edge of the original grid, the same condition that triggered the extension for the FNO. Auditor run in /tmp: CNN at lr 1e-2 on seed 100 diverges (val rel_l2 = 1.0), so the selected 3e-3 and all conclusions stand.",
+          "fix": "Run and log the CNN lr=1e-2 tuning point via rh run (about 3.5 minutes) and keep the sentence, or correct the text to say the CNN was tuned on three values only and note the asymmetry in Limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'3e-3 was within 1e-4 in validation error' for the MLP: the registry gap is 1.5e-4 (0.09413 vs 0.09398).",
+          "fix": "Say 'within 2e-4' or quote both values."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex Eq. 2 vs method/run.py:48",
+          "issue": "Equation applies GELU after every one of the four Fourier layers; the code omits the activation after the last layer.",
+          "fix": "State that the last Fourier layer has no activation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, ablations.tex, limitations.tex (CNN baseline)",
+          "issue": "The CNN's receptive field (49 of 128 points) is a structural limit that is never mentioned; its 0.22 error is attributed only to under-fitting and 'would also improve' with longer training is speculation with no run behind it.",
+          "fix": "Mention the receptive field as a likely cause and drop or hedge the claim, or run the CNN for 500 epochs on 3 seeds."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, results.tex, limitations.tex (DeepONet baseline)",
+          "issue": "The reimplemented DeepONet (0.22; 0.13 at 2000 epochs) is far weaker than the closest prior work suggests (Lu et al. 2021: DeepONet and FNO comparable in simple settings). The paper does not state this contrast, compares against no published number, and does not report that DeepONet overfits at 2000 epochs (train 0.042 vs test 0.128).",
+          "fix": "State explicitly that the DeepONet result does not reproduce published near-parity and is a lower bound on DeepONet quality; report the 2000-epoch train/test gap."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "PDEBench is cited as 'larger-scale evidence' in a sentence about FNO-vs-DeepONet comparisons, but it has no DeepONet baseline (FNO, U-Net, PINN). 'Neither wins everywhere' is a loose rendering of Lu et al., whose abstract reports parity in simple settings and FNO deteriorating on complex geometries and noisy data.",
+          "fix": "Reword: PDEBench provides larger-scale Burgers data and FNO/U-Net/PINN baselines; summarise Lu et al. as their abstract does."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'MLP error is higher at 2000 epochs than at 100' is stated flatly on 3 seeds (0.0894\u00b10.0067 vs 0.0808\u00b10.0038, Welch p=0.14). The n_train sweep at fixed epochs also gives 4x fewer gradient steps at n=100, which is not stated.",
+          "fix": "Hedge the MLP statement as within noise and note the step-count confound in the H4 paragraph."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Table I; results/VERDICT.md; BRIEF.md; experiments/PROTOCOL.md",
+          "issue": "Table I headers are raw metric keys (rel_l2_256_resamp, train_rel_l2) while caption and text say 'rs256' and 'train', and params print as 37601.0000 \u00b1 0.0000. VERDICT.md lists all ablations as 'missing / Matters? NO' and quotes the paired p instead of Welch. BRIEF and PROTOCOL still list the three-value learning-rate grid.",
+          "fix": "Rename the columns or caption terms and format params as integers; regenerate VERDICT.md with ablation mappings; update the grid in BRIEF and PROTOCOL."
+        }
+      ],
+      "commit": "b744b86819c203adb207e456f5b268bd8a19f9de"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All numbers in the paper match tables recomputed from the registry, every ok run's log equals its registry row, and re-executed main runs (FNO seed 2, DeepONet seed 2, plus MLP seed 1) reproduced bit-identically. Code matches the described method with no leakage or hard-coded results, all 11 citations are used in context, and the weak DeepONet baseline, easy resolution test and tuning asymmetry are disclosed. Only minor wording and provenance issues remain.",
+      "reran": [
+        {
+          "run": "FNO/burgers_nu0.01/2",
+          "metric": "rel_l2",
+          "registry": 0.005031629931181669,
+          "rerun": 0.005031629931181669
+        },
+        {
+          "run": "DeepONet/burgers_nu0.01/2",
+          "metric": "rel_l2",
+          "registry": 0.20233787596225739,
+          "rerun": 0.20233787596225739
+        },
+        {
+          "run": "MLP/burgers_nu0.01/1",
+          "metric": "rel_l2",
+          "registry": 0.07763388752937317,
+          "rerun": 0.07763388752937317
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "method/run.py (DeepONet), paper/sections/limitations.tex",
+          "issue": "DeepONet is a plain implementation with a raw-x trunk (no periodic features) and its learning rate was tuned only at 100 epochs and reused for the 500/2000-epoch runs; the weakness is disclosed in general terms but these two specifics are not stated.",
+          "fix": "State both specifics in Limitations, or re-tune the DeepONet learning rate at the longer budget."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'its error is a lower bound on DeepONet quality' is loosely worded; the error is an upper bound on achievable DeepONet error.",
+          "fix": "Reword, e.g. 'its error should be read as an upper bound on what DeepONet can achieve here'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'Applied zero-shot to 256 and 512 points, its error is unchanged' has an ambiguous antecedent after a sentence about DeepONet and the CNN.",
+          "fix": "Write 'the FNO's error is unchanged'."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl (group tune)",
+          "issue": "Fourteen ok tuning runs record git commit 3a875f9, but the output-directory fix (one os.makedirs line) was only committed in df836fa, so they ran on an uncommitted tree or with a hand-made directory; no numerical effect.",
+          "fix": "Note this in experiments/PROTOCOL.md."
+        },
+        {
+          "severity": "minor",
+          "where": "proposal.md, paper/sections/setup.tex",
+          "issue": "The H1 decision-rule text was edited in the revision (added 'as reported by rh compare') while the paper says hypotheses were registered before the runs; the substance is unchanged.",
+          "fix": "Mark the H1 wording change as a dated amendment, as was done for the learning-rate grid."
+        },
+        {
+          "severity": "minor",
+          "where": "research.yaml, paper/sections/ablations.tex",
+          "issue": "Summed run time is about 96 minutes against max_total_minutes 45; the paper cites only the per-run limit as the reason the CNN was not trained longer.",
+          "fix": "State the total compute used in the setup or limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Tool output lists every ablation as 'missing / NO'; a hand-written note explains this and points to ablsum.md, but the note is overwritten whenever rh verdict is re-run.",
+          "fix": "Keep the explanatory note in RESULTS.md (already present) and re-add it to VERDICT.md after any re-run."
+        }
+      ],
+      "commit": "96e6f74257b8c3585ca15e7e8e1ed6ba0b8cfe69"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! 2 failed runs in registry (fine, but check they were rerun)\nREADY",
+      "response": "# Response to the audit\n\nNew run in this round: one tuning run, `tune-cnn` at lr 1e-2 (seed 100, group `tune`, run id d98b2a85f8, 146 s), launched on a clean tree at commit b744b86. No other experiment was run; all other numbers come from the existing registry.\n\n1. **major - \"four runs per system\" / CNN never run at 1e-2 (setup.tex, limitations.tex).**\n   The finding is correct. Fixed at the cause: the CNN lr=1e-2 tuning point was run and logged through `rh run`. It diverges (validation rel. L2 = 1.0000, the network outputs approximately zero), as the auditor's own run did, so the selected rate (3e-3) and all main results are unchanged. The registry now has four successful tuning runs per system, and the paper has a new tuning table (Table I, `results/tables/tune.tex`, generated from the registry) with all 16 validation errors. The text now states the order of events: the grid was extended for the FNO, DeepONet and MLP before the main runs, and the CNN's point was added only in the revision. Limitations names the asymmetry and adds that the FNO's selected rate is still at the edge of the extended grid.\n\n2. **minor - MLP \"within 1e-4\".** Text now says the two validation errors differ by less than 2e-4; both values (0.0940, 0.0941) are in the tuning table.\n\n3. **minor - Eq. 2 vs code (activation after the last Fourier layer).** Method section now states that GELU is applied for l = 0, 1, 2 and that the last layer has no activation. While re-reading `method/run.py` against the text I also added: the branch/trunk layer sizes of DeepONet, that the CNN has no activation after its last convolution and a 49-point receptive field, that the lifting takes (a(x), x), and that the Fourier interpolation drops the 128-point Nyquist mode. `method/DESIGN.md` updated likewise. No code change.\n\n4. **minor - CNN receptive field; \"would also improve\".** The receptive field (49 of 128 points) is now stated in the method, named in the H1 paragraph and in Limitations as an untested second candidate cause of the CNN's error. The speculation is removed: the text says the CNN was not run longer (500 epochs would exceed the per-run time limit) and that whether it would improve is unknown. The H2 sentence \"the CNN fails because ...\" is hedged to \"a likely cause\", with the statement that it was not isolated by a run.\n\n5. **minor - DeepONet weaker than prior work suggests.** Abstract, related work, results (H1), limitations and conclusion now say that our plain DeepONet does not reproduce the comparable performance reported by Lu et al. for simple settings, that no published error value was used as a reference, and that the numbers are a lower bound on DeepONet quality. The ablation table now has a training-error column, and the text reports that between 500 and 2000 epochs DeepONet's test error barely moves (0.1314 to 0.1276) while its training error halves (0.0833 to 0.0417), i.e. it overfits.\n\n6. **minor - PDEBench and Lu et al. in the introduction.** Reworded: Lu et al. are summarised as their abstract does (comparable in relatively simple settings, FNO deteriorating on complex geometries and noisy data); PDEBench is cited for larger-scale data including 1D Burgers with baselines, and related work says its baselines are FNO, U-Net and PINN with no DeepONet.\n\n7. **minor - MLP at 2000 epochs; step-count confound.** The ablation table now has \"change vs default\" and Welch p columns. The MLP statement reads \"within noise of its 100-epoch value (Welch p of 0.314 and 0.145)\". The H4 paragraph, the abstract and Limitations state that the n_train sweep fixes epochs, so 100/200/400 pairs get 500/1000/2000 gradient steps, with no matched-step control. The mechanism claim \"limited by optimisation as much as by data\" is hedged to \"may\". The H3 claim now quotes the table (4 modes 36% worse, 8 vs 16 modes about 1%), and the grid-channel paragraph cites its p-value row.\n\n8. **minor - Table headers, params format, VERDICT.md, BRIEF/PROTOCOL grid.**\n   - The main table is now `results/tables/maintab.tex`, written by `experiments/make_figs.py` from the same registry rows as `rh table --group main` (which is still generated as `main.tex`/`main.md` for cross-checking): headers \"test 128 / train 128 / test 256 / test 512 / rs256 / params / time (s)\" match the caption, parameters are integers, time has one decimal. It is no longer shrunk with `\\resizebox`.\n   - `research.yaml` ablations now carry their group. `rh verdict` was re-run, but it still prints \"missing\" for every ablation: the tool looks for the FNO's rows inside each ablation group, and the reference FNO runs are in `main` (re-logging identical runs under another group is not allowed). I did not work around this. Instead a hand-written note at the end of `results/VERDICT.md` and in `results/RESULTS.md` explains both this and the paired-vs-Welch p-value, and points to `results/tables/ablsum.md`, which has the deltas and Welch p-values. Note that re-running `rh verdict` overwrites the hand-written note in VERDICT.md; the copy in RESULTS.md stays.\n   - BRIEF.md, experiments/PROTOCOL.md and a dated amendment line in proposal.md now give the four-value grid, the order in which it was extended, and the selected rates. Hypotheses and registered tests are unchanged.\n\n## Other changes from the self-audit\n- Failure-case sentence about the FNO (\"dominated by what it cannot gain from the grid\") replaced by a plain statement of what the table shows.\n- Abstract: \"insensitive\" replaced by \"no measurable sensitivity on three seeds\".\n- Conclusion: added that the size of the FNO gap should not be generalised given under-fit baselines.\n\n## Not done\n- No longer CNN training and no CNN with a larger receptive field (a 500-epoch CNN run would take about 14 minutes, above the per-run limit). The paper says so.\n- No matched-step control for the n_train sweep and no regularisation control for the MLP. Both are stated as limits.\n",
+      "seconds": 385
+    }
+  ]
+}

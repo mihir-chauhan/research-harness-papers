@@ -1,0 +1,104 @@
+slug: fno-vs-deeponet-burgers-1d
+direction: 'Operator learning on the 1D viscous Burgers equation at small scale: generate a few hundred solution pairs (initial condition to solution at a fixed time) with a spectral or finite-difference
+  solver, then compare a small 1D Fourier neural operator, a small DeepONet and a plain MLP or CNN on relative L2 error, and test zero-shot evaluation at a finer grid than the one used in training.'
+problem: 'Small-data operator learning for the 1D viscous Burgers equation (nu=0.01, periodic, u(x,0)->u(x,1)): which of a Fourier neural operator, a DeepONet, an MLP and a CNN is most accurate with 400
+  training pairs, and which can be evaluated zero-shot on a finer grid than it was trained on?'
+gap: Comparisons of FNO and DeepONet exist (Lu et al. 2021, PDEBench), but a tiny, fully reproducible CPU-scale protocol that reports multi-seed relative L2 at the training grid and at 2x/4x finer grids,
+  with plain MLP/CNN controls and explicit input/output resampling rules for fixed-grid models, is rarely spelled out.
+contribution: A reimplemented, seed-replicated small-scale comparison of FNO, DeepONet, MLP and CNN on Burgers with a zero-shot resolution test and an analysis of FNO mode count and training-set size. No
+  new method is claimed.
+hypotheses:
+- id: H1
+  statement: At the training resolution (128 points, 400 training pairs) the FNO has lower test relative L2 than DeepONet, MLP and CNN.
+  test: Welch t-test (as in `rh compare`) on per-seed test rel_l2 (FNO vs each baseline), alpha=0.05, plus FNO error at least 10% lower than the best baseline.
+- id: H2
+  statement: Zero-shot on a 2x finer grid (256 pts) the FNO error stays within 1.5x of its 128-point error, while the fixed-grid baselines do not (CNN and MLP/DeepONet via native application).
+  test: Ratio rel_l2_256/rel_l2 per system, mean over 5 seeds; H2 holds if FNO ratio <1.5 and the CNN ratio exceeds 1.5.
+- id: H3
+  statement: 'FNO accuracy saturates in the number of retained Fourier modes: going from 8 to 16 modes changes test error by less than 10% relative, while 4 modes is clearly worse.'
+  test: Mean test rel_l2 over 3 seeds for modes in {4,8,16,32}.
+- id: H4
+  statement: 'FNO is more data-efficient than DeepONet: the gap in test error persists at 100 and 200 training pairs.'
+  test: Mean test rel_l2 over 3 seeds at n_train in {100,200,400} for FNO and DeepONet.
+method:
+  name: FNO
+  summary: Reimplemented 1D Fourier neural operator (4 spectral layers, width 32, 16 modes) compared with reimplemented DeepONet, MLP and CNN controls on Burgers operator learning.
+  components:
+  - spectral convolution
+  - pointwise skip
+  - grid coordinate channel
+  entrypoint: method/run.py
+tasks:
+- burgers_nu0.01
+metrics:
+  rel_l2:
+    higher_is_better: false
+  rel_l2_256:
+    higher_is_better: false
+  rel_l2_512:
+    higher_is_better: false
+  rel_l2_256_resamp:
+    higher_is_better: false
+  train_rel_l2:
+    higher_is_better: false
+  rel_l2_val:
+    higher_is_better: false
+  interp_floor_256:
+    higher_is_better: false
+  params:
+    higher_is_better: false
+  train_s:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- DeepONet
+- MLP
+- CNN
+ablations:
+- name: FNO modes=4
+  group: sweep_modes
+- name: FNO modes=8
+  group: sweep_modes
+- name: FNO modes=32
+  group: sweep_modes
+- name: FNO no grid channel
+  group: abl_grid
+- name: FNO n=100
+  group: sweep_ntrain
+- name: FNO n=200
+  group: sweep_ntrain
+- name: DeepONet n=100
+  group: sweep_ntrain
+- name: DeepONet n=200
+  group: sweep_ntrain
+- name: DeepONet ep=500
+  group: sweep_epochs
+- name: DeepONet ep=2000
+  group: sweep_epochs
+- name: MLP ep=500
+  group: sweep_epochs
+- name: MLP ep=2000
+  group: sweep_epochs
+ambition:
+  target_tier: 2
+  primary_metric: rel_l2
+  primary_task: burgers_nu0.01
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

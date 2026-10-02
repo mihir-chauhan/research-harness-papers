@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:27:44 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --seed 100 --lr 0.0003 --epochs 100 --out results/raw/tune_mlp_lr0.0003.json
+
+CONFIG {"system": "mlp", "seed": 100, "out": "results/raw/tune_mlp_lr0.0003.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.0003, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.0693 val 0.1144
+ep 100 train_loss 0.0371 val 0.1027
+METRICS {"rel_l2": 0.09718982875347137, "rel_l2_val": 0.10274699330329895, "train_rel_l2": 0.04088205844163895, "rel_l2_256": 0.09713022410869598, "rel_l2_512": 0.09713022410869598, "rel_l2_256_resamp": 0.09713023155927658, "interp_floor_256": 1.28949494637709e-07, "params": 394368.0, "train_s": 9.405455827713013}

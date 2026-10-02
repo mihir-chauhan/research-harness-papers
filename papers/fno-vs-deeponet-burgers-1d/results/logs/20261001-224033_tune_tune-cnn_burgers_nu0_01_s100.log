@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:40:33 2026
+# cwd: .
+# cmd: python method/run.py --system cnn --seed 100 --lr 0.01 --epochs 100 --out results/raw/tune_cnn_lr0.01.json
+
+CONFIG {"system": "cnn", "seed": 100, "out": "results/raw/tune_cnn_lr0.01.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 1.0000 val 1.0000
+ep 100 train_loss 1.0000 val 1.0000
+METRICS {"rel_l2": 1.0, "rel_l2_val": 1.0, "train_rel_l2": 1.0, "rel_l2_256": 1.0, "rel_l2_512": 1.0, "rel_l2_256_resamp": 1.0, "interp_floor_256": 1.28949494637709e-07, "params": 37601.0, "train_s": 146.36167407035828}

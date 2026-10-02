@@ -1,0 +1,7 @@
+# Protocol
+- Task `burgers_nu0.01`: u_t + u u_x = 0.01 u_xx, x in [0,1) periodic, T=1. Per seed s: 600 ICs from RNG seed 1000+s; split 400 train / 100 val / 100 test (disjoint). Seeds 0-4 for the main comparison (seed changes data AND initialisation/batch order); 3 seeds (0-2) for sweeps.
+- Training grid 128. Zero-shot test grids 256, 512 (same test ICs/solutions, solver run at 512 and subsampled).
+- Metrics: mean per-sample relative L2.
+- Tuning: lr in {3e-4,1e-3,3e-3,1e-2} per system (4 runs each, 16 in total; table `results/tables/tune.tex`), tuning seed 100 (disjoint data), selection by validation error; logged as group `tune`, kind sanity. The grid was {3e-4,1e-3,3e-3} at first and was extended to 1e-2 when the FNO's best rate sat at the edge; the CNN's 1e-2 point was added in the revision, after the main runs (diverges, val rel_l2 = 1.0; selection unchanged). Selected: FNO 1e-2, DeepONet 3e-3, CNN 3e-3, MLP 1e-3. Two early DeepONet tuning runs crashed on a missing output directory and are kept as failed rows.
+- Sweeps (seeds 0-2, 100 epochs unless stated): FNO modes {4,8,32}; n_train {100,200} for FNO and DeepONet (fixed epochs, so 500/1000 gradient steps instead of 2000); epochs {500,2000} for DeepONet and MLP; FNO without grid channel. Reference rows are the main-group runs for seeds 0-2 (not re-logged).
+- Hardware: shared Apple-silicon laptop CPU, 2 torch threads. Runtime per run recorded as `train_s`.

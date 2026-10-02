@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:47:10 2026
+# cwd: .
+# cmd: python method/run.py --system deeponet --seed 4 --lr 0.003 --epochs 100 --out results/raw/main_deeponet_s4.json
+
+CONFIG {"system": "deeponet", "seed": 4, "out": "results/raw/main_deeponet_s4.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.003, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.2196 val 0.2476
+ep 100 train_loss 0.1744 val 0.2002
+METRICS {"rel_l2": 0.20354633033275604, "rel_l2_val": 0.20024390518665314, "train_rel_l2": 0.17877893149852753, "rel_l2_256": 0.20374849438667297, "rel_l2_512": 0.20388217270374298, "rel_l2_256_resamp": 0.203532412648201, "interp_floor_256": 1.2763595691467344e-07, "params": 66305.0, "train_s": 2.7872657775878906}

@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:06:56 2026
+# cwd: .
+# cmd: python method/run.py --system fno --seed 0 --lr 0.01 --epochs 100 --n_train 200 --out results/raw/sweep_ntrain_fno200_s0.json
+
+CONFIG {"system": "fno", "seed": 0, "out": "results/raw/sweep_ntrain_fno200_s0.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 200, "data_seed": null}
+ep 50 train_loss 0.0358 val 0.0426
+ep 100 train_loss 0.0043 val 0.0092
+METRICS {"rel_l2": 0.009094443172216415, "rel_l2_val": 0.009242161177098751, "train_rel_l2": 0.004116671625524759, "rel_l2_256": 0.009103229269385338, "rel_l2_512": 0.009108155965805054, "rel_l2_256_resamp": 0.009094408713281155, "interp_floor_256": 1.252213195357399e-07, "params": 139745.0, "train_s": 90.85965514183044}

@@ -1,0 +1,46 @@
+# rh run | Thu Oct  1 22:19:02 2026
+# cwd: .
+# cmd: python method/run.py --system deeponet --seed 2 --lr 0.003 --epochs 100 --epochs 2000 --out results/raw/sweep_epochs_don2000_s2.json
+
+CONFIG {"system": "deeponet", "seed": 2, "out": "results/raw/sweep_epochs_don2000_s2.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.003, "epochs": 2000, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.4654 val 0.4379
+ep 100 train_loss 0.3304 val 0.3356
+ep 150 train_loss 0.2601 val 0.2730
+ep 200 train_loss 0.2616 val 0.2683
+ep 250 train_loss 0.2221 val 0.2116
+ep 300 train_loss 0.2100 val 0.2110
+ep 350 train_loss 0.1553 val 0.1855
+ep 400 train_loss 0.1440 val 0.1973
+ep 450 train_loss 0.1775 val 0.1923
+ep 500 train_loss 0.1330 val 0.1798
+ep 550 train_loss 0.1370 val 0.1731
+ep 600 train_loss 0.1268 val 0.1609
+ep 650 train_loss 0.1209 val 0.1613
+ep 700 train_loss 0.1048 val 0.1569
+ep 750 train_loss 0.1130 val 0.1509
+ep 800 train_loss 0.1252 val 0.1620
+ep 850 train_loss 0.0906 val 0.1570
+ep 900 train_loss 0.0944 val 0.1503
+ep 950 train_loss 0.1045 val 0.1621
+ep 1000 train_loss 0.0925 val 0.1555
+ep 1050 train_loss 0.0965 val 0.1486
+ep 1100 train_loss 0.0823 val 0.1509
+ep 1150 train_loss 0.0937 val 0.1510
+ep 1200 train_loss 0.0759 val 0.1363
+ep 1250 train_loss 0.0836 val 0.1374
+ep 1300 train_loss 0.0600 val 0.1355
+ep 1350 train_loss 0.0565 val 0.1300
+ep 1400 train_loss 0.0621 val 0.1326
+ep 1450 train_loss 0.0703 val 0.1320
+ep 1500 train_loss 0.0515 val 0.1303
+ep 1550 train_loss 0.0573 val 0.1308
+ep 1600 train_loss 0.0440 val 0.1293
+ep 1650 train_loss 0.0466 val 0.1288
+ep 1700 train_loss 0.0367 val 0.1291
+ep 1750 train_loss 0.0415 val 0.1293
+ep 1800 train_loss 0.0486 val 0.1292
+ep 1850 train_loss 0.0312 val 0.1292
+ep 1900 train_loss 0.0298 val 0.1294
+ep 1950 train_loss 0.0464 val 0.1294
+ep 2000 train_loss 0.0383 val 0.1294
+METRICS {"rel_l2": 0.13131381571292877, "rel_l2_val": 0.12836521863937378, "train_rel_l2": 0.04466363042593002, "rel_l2_256": 0.1314234584569931, "rel_l2_512": 0.13148358464241028, "rel_l2_256_resamp": 0.13131259381771088, "interp_floor_256": 1.2645492120100243e-07, "params": 66305.0, "train_s": 63.56816506385803}

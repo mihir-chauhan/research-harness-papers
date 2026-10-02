@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:54:13 2026
+# cwd: .
+# cmd: python method/run.py --system fno --seed 2 --lr 0.01 --epochs 100 --modes 8 --out results/raw/sweep_modes_m8_s2.json
+
+CONFIG {"system": "fno", "seed": 2, "out": "results/raw/sweep_modes_m8_s2.json", "modes": 8, "width": 32, "grid": 1, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.0198 val 0.0305
+ep 100 train_loss 0.0028 val 0.0052
+METRICS {"rel_l2": 0.004751589149236679, "rel_l2_val": 0.0051939282566308975, "train_rel_l2": 0.003296676091849804, "rel_l2_256": 0.004753489978611469, "rel_l2_512": 0.004754548892378807, "rel_l2_256_resamp": 0.00475158030167222, "interp_floor_256": 1.2645492120100243e-07, "params": 74209.0, "train_s": 148.60075402259827}

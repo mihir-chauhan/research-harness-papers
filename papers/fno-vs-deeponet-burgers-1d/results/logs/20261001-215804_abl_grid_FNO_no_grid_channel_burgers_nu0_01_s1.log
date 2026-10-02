@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:58:04 2026
+# cwd: .
+# cmd: python method/run.py --system fno --seed 1 --lr 0.01 --epochs 100 --grid 0 --out results/raw/abl_grid_nogrid_s1.json
+
+CONFIG {"system": "fno", "seed": 1, "out": "results/raw/abl_grid_nogrid_s1.json", "modes": 16, "width": 32, "grid": 0, "lr": 0.01, "epochs": 100, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.0234 val 0.0192
+ep 100 train_loss 0.0025 val 0.0054
+METRICS {"rel_l2": 0.0037063180934637785, "rel_l2_val": 0.00535324914380908, "train_rel_l2": 0.00277874618768692, "rel_l2_256": 0.0037062661722302437, "rel_l2_512": 0.0037062643095850945, "rel_l2_256_resamp": 0.0037062866613268852, "interp_floor_256": 1.2375579672152526e-07, "params": 139713.0, "train_s": 169.85979390144348}

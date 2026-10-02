@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:06:48 2026
+# cwd: .
+# cmd: python method/run.py --system deeponet --seed 2 --lr 0.003 --epochs 100 --n_train 100 --out results/raw/sweep_ntrain_don100_s2.json
+
+CONFIG {"system": "deeponet", "seed": 2, "out": "results/raw/sweep_ntrain_don100_s2.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.003, "epochs": 100, "batch": 20, "n_train": 100, "data_seed": null}
+ep 50 train_loss 0.4241 val 0.4493
+ep 100 train_loss 0.3697 val 0.3870
+METRICS {"rel_l2": 0.38905277848243713, "rel_l2_val": 0.38695454597473145, "train_rel_l2": 0.3731425404548645, "rel_l2_256": 0.38959187269210815, "rel_l2_512": 0.389880895614624, "rel_l2_256_resamp": 0.3890356421470642, "interp_floor_256": 1.2645492120100243e-07, "params": 66305.0, "train_s": 2.9810712337493896}

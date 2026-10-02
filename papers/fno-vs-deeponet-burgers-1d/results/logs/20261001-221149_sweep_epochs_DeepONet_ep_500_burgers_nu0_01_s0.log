@@ -1,0 +1,16 @@
+# rh run | Thu Oct  1 22:11:49 2026
+# cwd: .
+# cmd: python method/run.py --system deeponet --seed 0 --lr 0.003 --epochs 100 --epochs 500 --out results/raw/sweep_epochs_don500_s0.json
+
+CONFIG {"system": "deeponet", "seed": 0, "out": "results/raw/sweep_epochs_don500_s0.json", "modes": 16, "width": 32, "grid": 1, "lr": 0.003, "epochs": 500, "batch": 20, "n_train": 400, "data_seed": null}
+ep 50 train_loss 0.3276 val 0.3409
+ep 100 train_loss 0.2589 val 0.2530
+ep 150 train_loss 0.1818 val 0.2091
+ep 200 train_loss 0.1847 val 0.2069
+ep 250 train_loss 0.1534 val 0.1779
+ep 300 train_loss 0.1251 val 0.1666
+ep 350 train_loss 0.1189 val 0.1556
+ep 400 train_loss 0.0867 val 0.1465
+ep 450 train_loss 0.0729 val 0.1460
+ep 500 train_loss 0.0835 val 0.1457
+METRICS {"rel_l2": 0.13491283357143402, "rel_l2_val": 0.1456933170557022, "train_rel_l2": 0.08308469504117966, "rel_l2_256": 0.13486622273921967, "rel_l2_512": 0.13486328721046448, "rel_l2_256_resamp": 0.13490937650203705, "interp_floor_256": 1.252213195357399e-07, "params": 66305.0, "train_s": 38.825376987457275}
