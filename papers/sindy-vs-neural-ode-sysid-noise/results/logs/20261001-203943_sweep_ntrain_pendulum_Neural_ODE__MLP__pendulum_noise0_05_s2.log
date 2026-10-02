@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:39:43 2026
+# cwd: .
+# cmd: python method/run.py --system node --task pendulum --seed 2 --noise 0.05 --ntrain 5000 --out results/raw/sweep_ntrain_pendulum__node__Neural_ODE_MLP__pendulum_noise0.05__ntrain5000__2.json
+
+{'pred_nrmse': 0.5946618574012016, 'pred_nrmse_h5': 0.07414868066985833, 'val_mse': 0.05055411905050278, 'lqr_cost': 3.9947574644171446, 'lqr_fail': 0.0, 'mpc_cost': 4.335747745695863, 'mpc_fail': 0.0, 'seconds': 7.138692855834961}

@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:39:45 2026
+# cwd: .
+# cmd: python method/run.py --system oracle --task pendulum --seed 2 --noise 0.05 --ntrain 5000 --out results/raw/sweep_ntrain_pendulum__oracle__True_model_oracle__pendulum_noise0.05__ntrain5000__2.json
+
+{'pred_nrmse': 0.0, 'pred_nrmse_h5': 0.0, 'lqr_cost': 1.031977543415163, 'lqr_fail': 0.0, 'mpc_cost': 2.731166152172097, 'mpc_fail': 0.0, 'seconds': 0.3407278060913086}

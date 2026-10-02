@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:11:00 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task digits_n0.6 --seed 1 --system global --out results/raw/main_GlobalRidge_digits_n0.6_s1.json --curve results/raw/curve_main_GlobalRidge_digits_n0.6_s1.csv
+
+config: {"system": "global", "task": "digits_n0.6", "seed": 1, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_GlobalRidge_digits_n0.6_s1.csv", "out": "results/raw/main_GlobalRidge_digits_n0.6_s1.json"}
+metrics: {"test_mse": 0.055335498860095984, "train_mse_thresh": 0.3362258257659658, "peak_mse": 0.059793872317371266, "log10_peak_mse": -1.2233433202776234, "peak_pos": 0.4, "best_mse": 0.05433454797000337, "final_mse": 0.05448656928577445, "bump_rel": 0.004072127993904202, "peak_over_final": 1.097405711190234, "log10_lam_thresh": -2.0, "log10_lam_final": -2.0, "acc_thresh": 0.807444523979957, "acc_final": 0.8060128847530422, "acc_best": 0.8153185397279885}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:12:31 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task synth_n0.25 --seed 3 --system tuned --val-size 50 --out results/raw/abl_tuning_TunedRidge_val50_synth_n0.25_s3.json --curve results/raw/curve_abl_tuning_TunedRidge_val50_synth_n0.25_s3.csv
+
+config: {"system": "tuned", "task": "synth_n0.25", "seed": 3, "lam": 0.01, "val_size": 50, "curve": "results/raw/curve_abl_tuning_TunedRidge_val50_synth_n0.25_s3.csv", "out": "results/raw/abl_tuning_TunedRidge_val50_synth_n0.25_s3.json"}
+metrics: {"test_mse": 0.24013062492810827, "train_mse_thresh": 0.07310850692178276, "peak_mse": 0.3456240844633044, "log10_peak_mse": -0.46139600176876433, "peak_pos": 0.4, "best_mse": 0.16625405791608386, "final_mse": 0.16625405791608386, "bump_rel": 0.008176375104139384, "peak_over_final": 2.0788911187825376, "log10_lam_thresh": -3.5, "log10_lam_final": -3.5}

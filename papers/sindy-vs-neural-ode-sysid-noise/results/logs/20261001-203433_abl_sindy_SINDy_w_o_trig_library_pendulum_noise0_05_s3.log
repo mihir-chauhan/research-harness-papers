@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:34:33 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task pendulum --seed 3 --noise 0.05 --ntrain 1000 --trig 0 --out results/raw/abl_sindy__sindy__SINDy_w-o_trig_library__pendulum_noise0.05____3.json
+
+{'pred_nrmse': 1.1316794626880058, 'pred_nrmse_h5': 0.2912764714360299, 'n_terms': 12.0, 'lqr_cost': 18.436887517928945, 'lqr_fail': 0.8, 'mpc_cost': 23.171425869700936, 'mpc_fail': 0.8333333333333334, 'seconds': 0.6266660690307617}

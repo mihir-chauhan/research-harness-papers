@@ -1,0 +1,11 @@
+\begin{tabular}{lcccccccc}
+\toprule
+Method & pred\_nrmse $\downarrow$ & pred\_nrmse\_h5 $\downarrow$ & lqr\_cost $\downarrow$ & lqr\_fail $\downarrow$ & mpc\_cost $\downarrow$ & mpc\_fail $\downarrow$ & support\_f1 $\uparrow$ & $n$ \\
+\midrule
+SINDy lam=0.01 & 0.03 $\pm$ 0.01 & 0.01 $\pm$ 0.00 & 0.69 $\pm$ 0.08 & \textbf{0.00 $\pm$ 0.00} & 1.42 $\pm$ 0.14 & \textbf{0.00 $\pm$ 0.00} & 0.38 $\pm$ 0.05 & 5 \\
+SINDy lam=0.03 & 0.03 $\pm$ 0.01 & 0.01 $\pm$ 0.00 & \textbf{0.69 $\pm$ 0.08} & 0.00 $\pm$ 0.00 & \textbf{1.40 $\pm$ 0.14} & 0.00 $\pm$ 0.00 & 0.49 $\pm$ 0.08 & 5 \\
+SINDy lam=1.0 & 0.20 $\pm$ 0.26 & 0.04 $\pm$ 0.06 & 0.69 $\pm$ 0.08 & 0.00 $\pm$ 0.00 & \underline{1.42 $\pm$ 0.14} & 0.00 $\pm$ 0.00 & \textbf{0.93 $\pm$ 0.11} & 5 \\
+SINDy lam=0.3 & \textbf{0.01 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \underline{0.69 $\pm$ 0.08} & 0.00 $\pm$ 0.00 & 1.42 $\pm$ 0.15 & 0.00 $\pm$ 0.00 & \underline{0.91 $\pm$ 0.13} & 5 \\
+SINDy lam=0.1 & \underline{0.02 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & 0.69 $\pm$ 0.08 & \underline{0.00 $\pm$ 0.00} & 1.42 $\pm$ 0.15 & \underline{0.00 $\pm$ 0.00} & 0.67 $\pm$ 0.20 & 5 \\
+\bottomrule
+\end{tabular}

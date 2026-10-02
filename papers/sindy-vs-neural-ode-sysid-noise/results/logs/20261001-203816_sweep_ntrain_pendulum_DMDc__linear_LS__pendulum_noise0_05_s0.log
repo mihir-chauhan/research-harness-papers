@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:38:16 2026
+# cwd: .
+# cmd: python method/run.py --system dmdc --task pendulum --seed 0 --noise 0.05 --ntrain 200 --out results/raw/sweep_ntrain_pendulum__dmdc__DMDc_linear_LS__pendulum_noise0.05__ntrain200__0.json
+
+{'pred_nrmse': 1.0587767462850775, 'pred_nrmse_h5': 0.37547646984410815, 'lqr_cost': 40.09994051335792, 'lqr_fail': 0.9, 'mpc_cost': 24.244116153434703, 'mpc_fail': 0.6666666666666666, 'seconds': 0.15573573112487793}

@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:33:21 2026
+# cwd: .
+# cmd: python method/run.py --system oracle --task vdp --seed 2 --noise 0.05 --ntrain 1000 --out results/raw/main__oracle__True_model_oracle__vdp_noise0.05____2.json
+
+{'pred_nrmse': 0.0, 'pred_nrmse_h5': 0.0, 'lqr_cost': 0.6753548866351288, 'lqr_fail': 0.0, 'mpc_cost': 1.4804295451601355, 'mpc_fail': 0.0, 'seconds': 0.3706552982330322}

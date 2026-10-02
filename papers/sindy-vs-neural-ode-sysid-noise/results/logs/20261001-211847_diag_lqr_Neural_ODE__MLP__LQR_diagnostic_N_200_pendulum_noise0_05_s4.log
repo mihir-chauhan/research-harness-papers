@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:18:47 2026
+# cwd: .
+# cmd: python experiments/diag_lqr.py --system node --task pendulum --seed 4 --noise 0.05 --ntrain 200 --out results/raw/diag_lqr__node__pendulum_noise0.05__ntrain200__4.json
+
+config {'system': 'node', 'task': 'pendulum', 'seed': 4, 'noise': 0.05, 'ntrain': 200, 'out': 'results/raw/diag_lqr__node__pendulum_noise0.05__ntrain200__4.json'}
+{'riccati_ok': 1.0, 'lqr_cost': 1000.0, 'n_capped': 10.0, 'true_cl_radius': 1.5677157061141724, 'model_B2': -0.07475202841877422, 'true_B2': 0.04958226295867405}

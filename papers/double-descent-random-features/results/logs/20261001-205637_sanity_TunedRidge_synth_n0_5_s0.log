@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:56:37 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system tuned --task synth_n0.5 --seed 0 --out results/raw/sanity.json
+
+config: {"system": "tuned", "task": "synth_n0.5", "seed": 0, "lam": 0.01, "val_size": 200, "curve": null, "out": "results/raw/sanity.json"}
+metrics: {"test_mse": 0.2729876222808004, "train_mse_thresh": 0.21051313052990708, "peak_mse": 0.3796062200413165, "log10_peak_mse": -0.42066668005009394, "peak_pos": 0.4, "best_mse": 0.19953190856030203, "final_mse": 0.20137428067207838, "bump_rel": 0.05041454610794273, "peak_over_final": 1.8850779691150048, "log10_lam_thresh": -3.0, "log10_lam_final": -3.5}

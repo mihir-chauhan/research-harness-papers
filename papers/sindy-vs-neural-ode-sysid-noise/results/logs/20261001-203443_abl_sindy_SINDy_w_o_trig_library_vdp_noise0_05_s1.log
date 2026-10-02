@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:34:43 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task vdp --seed 1 --noise 0.05 --ntrain 1000 --trig 0 --out results/raw/abl_sindy__sindy__SINDy_w-o_trig_library__vdp_noise0.05____1.json
+
+{'pred_nrmse': 0.013915759060811335, 'pred_nrmse_h5': 0.00389045223647681, 'support_f1': 0.9090909090909091, 'n_terms': 6.0, 'lqr_cost': 0.6347713407877917, 'lqr_fail': 0.0, 'mpc_cost': 1.3178293066450235, 'mpc_fail': 0.0, 'seconds': 0.6040759086608887}

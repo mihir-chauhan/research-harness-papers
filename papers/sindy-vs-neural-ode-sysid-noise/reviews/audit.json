@@ -1,0 +1,294 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 451 registry rows have commands, logs and matching raw files, and 250 re-executed runs (all of main, abl_sindy and sweep_lam) reproduce bit-identically; numbers in the paper match the tables and the framing is largely honest. Two fixable major issues remain: the SINDy regression pairs a central-difference derivative with a misaligned held input, creating a noise-independent error floor that the paper misattributes to noise, and the MLP baseline is under-trained at small data sizes because epochs are fixed, which drives the small-data closed-loop claim at 500 transitions.",
+      "reran": [
+        {
+          "run": "SINDy (STLSQ)/pendulum_noise0.05/1",
+          "metric": "pred_nrmse",
+          "registry": 0.08472533371487863,
+          "rerun": 0.08472533371487863
+        },
+        {
+          "run": "Neural ODE (MLP)/pendulum_noise0.05/2",
+          "metric": "pred_nrmse",
+          "registry": 0.7605243237615206,
+          "rerun": 0.7605243237615206
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py:76-77 (fit_sindy); paper/sections/results.tex H1 paragraph; Table I and Table IV SINDy rows",
+          "issue": "The central-difference derivative (x[k+1]-x[k-1])/(2dt) is regressed on u[k] although the input is piecewise constant with a 5-step hold, so at hold boundaries the difference spans two inputs. This gives a noise-independent bias: at noise 0 SINDy has pred_nrmse 0.052 (pendulum) and 0.069 (Van der Pol) with support F1 about 0.6 and 7-13 nonzero terms. A scratch run using the average of u[k-1] and u[k] gives 0.007 and 0.004 with F1 1.0 and 0.9, and Van der Pol at noise 0.05 drops from 0.071 to 0.018. The paper says SINDy's error grows steeply with noise and attributes imperfect support to noise amplification, but on Van der Pol the error is flat at 0.069-0.071 from noise 0 to 0.05, and the noise-0 support F1 is never reported.",
+          "fix": "Align the input with the derivative estimate (average u over the stencil, or drop samples at hold boundaries), re-run the SINDy rows (seconds each), regenerate tables, and rewrite the explanation; otherwise disclose the misalignment, report noise-0 support F1 and n_terms, and remove the noise-amplification explanation and the 'grows steeply with noise' wording for Van der Pol."
+        },
+        {
+          "severity": "major",
+          "where": "method/run.py fit_node (epochs=150 fixed); paper/sections/results.tex data-size paragraphs; Tables II and III",
+          "issue": "The MLP training budget is fixed in epochs, so it gets about 300 gradient steps at 200 transitions and about 600 at 500, versus about 1050 at 1000. A scratch run at 500 transitions on the pendulum with 300 epochs gives pred_nrmse 0.76 instead of 1.33 and LQR cost 2.08 instead of 35.4. The claim that with 500 transitions the MLP controller is far worse than the SINDy controller is largely an under-training artefact; at 200 transitions the MLP stays poor even with 750 epochs.",
+          "fix": "Train the MLP with a fixed number of gradient steps (or to validation convergence) across data sizes, re-run sweep_ntrain for the MLP (about 50 runs of a few seconds), and revise the data-size claims; at minimum state that the budget is fixed in epochs and restrict the small-data claim accordingly."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "The text reports only that Savitzky-Golay smoothing improves pendulum prediction error and support F1, and omits that on Van der Pol smoothing worsens prediction error in all 5 seeds (0.07 to 0.11, paired p about 0.001) and slightly raises LQR cost. No compare file exists for the ablation group (VERDICT.md lists the ablation deltas as missing).",
+          "fix": "State the Van der Pol degradation in the text and run rh compare for abl_sindy, or state that the ablations are untested."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex, conclusion.tex",
+          "issue": "'Outlier seeds' (plural) at Van der Pol noise 0.1: there is a single divergent seed (seed 2, 2.88); the other four SINDy seeds (0.07-0.09) are below every MLP seed (0.21-0.36). Predictions are clipped to +/-50 in the evaluation, which bounds divergent values and is not disclosed.",
+          "fix": "Say 'one divergent seed', report the median alongside the mean for that cell, and disclose the clip in the metric definition."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, H2 and 'What the numbers do not show'",
+          "issue": "The text says LQR costs on Van der Pol are within seed noise and that small differences cannot be resolved with 5 seeds. Seeds share initial conditions across models, so the comparison is paired: DMDc's LQR cost exceeds the oracle's in 5 of 5 seeds at every noise level, by roughly 2-3%. The difference is small but systematic, not unresolvable.",
+          "fix": "Report paired differences and state that DMDc is consistently but only slightly worse (about 2-3%)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (H1), results.tex, results/RESULTS.md",
+          "issue": "H1 includes 'with the gap shrinking as noise grows', but the verdict never assesses this clause. The absolute SINDy-MLP gap widens from noise 0 to 0.05 on both systems (pendulum 0.29 to 0.46, Van der Pol 0.03 to 0.12). The 'small data' part of H1 is tested only at noise 0.05, and contribution (2) calls two one-dimensional sweeps a 'noise x data sweep'.",
+          "fix": "Give an explicit verdict on the gap clause (not supported in absolute terms) and describe the design as two one-dimensional sweeps."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex; paper/refs.bib",
+          "issue": "kaiser2018sparse is described only as showing MPC on a sparse model from limited data, although its abstract reports SINDy-MPC against neural-network and linear models under limited noisy data, the closest prior comparison to this paper. messenger2021weak is the PDE Weak SINDy paper, cited for the weak formulation in an ODE context. The brunton2016sparse bib title contains the funding-acknowledgement footnote, rendered in reference [2].",
+          "fix": "State that Kaiser et al. already report this three-way comparison and position the paper as a small-scale re-examination; cite the ODE Weak SINDy paper (Messenger and Bortz, Multiscale Modeling and Simulation 2021) or say 'originally for PDEs'; clean the bib title."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf figures; results.tex",
+          "issue": "Figs. 1 and 4 have overlapping, illegible x-tick labels. The Fig. 2 caption says 'three identified models' but the plot includes the oracle. Fig. 3's y-scale is dominated by the divergent SINDy seed at 200 transitions, hiding the ordering, and the sentence 'Fig. 3 confirms the prediction-error ordering holds across data sizes while the LQR cost is flat' is contradicted at 200 transitions by the plotted mean and refers to LQR data shown in Table III, not Fig. 3.",
+          "fix": "Rotate or shorten tick labels, correct the Fig. 2 caption, plot medians or a log scale in Fig. 3, and reword the sentence to cite Table III for LQR cost and to except the 200-transition point."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "Undisclosed details: Adam weight decay 1e-5 for the MLP; DMDc uses the fitted discrete A and B directly rather than 'linearise and discretise exactly'.",
+          "fix": "Add these details to the method section."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl provenance; results/logs",
+          "issue": "All 451 runs record git_commit 220c9a5, the scaffold commit that predates method/run.py, so the code was uncommitted when run. 40 sweep_lam rows share 20 log files because the log name omits lambda, so those logs show another lambda's output. Raw metrics files match the registry and re-execution is bit-identical, so the numbers are unaffected.",
+          "fix": "Commit code before running and include the config in the log filename; optionally re-run the lambda sweep to regenerate distinct logs."
+        }
+      ],
+      "commit": "da156387152ef9d718577cb733552c9aeeacb662"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "All 450 runs are real with full provenance, 8 re-executed runs reproduce bit-identically, the code matches the paper with no leakage or hard-coding, and nearly all prose numbers match the registry. One major text problem: at 200 transitions on Van der Pol two of five SINDy seeds diverge (not one, as stated), the proposal's own H1 refutation criterion is met there, and the abstract and conclusion omit this SINDy failure while reporting the MLP's; the rest are minor wording, citation and figure issues.",
+      "reran": [
+        {
+          "run": "SINDy (STLSQ)/vdp_noise0.1/2",
+          "metric": "pred_nrmse",
+          "registry": 1.74778369,
+          "rerun": 1.74778369
+        },
+        {
+          "run": "Neural ODE (MLP)/pendulum_noise0.05/0",
+          "metric": "pred_nrmse",
+          "registry": 0.6251837097,
+          "rerun": 0.6251837097
+        },
+        {
+          "run": "Neural ODE (MLP)/vdp_noise0.1/0",
+          "metric": "pred_nrmse",
+          "registry": 0.433055392,
+          "rerun": 0.433055392
+        },
+        {
+          "run": "SINDy (STLSQ)/pendulum_noise0.05/0",
+          "metric": "pred_nrmse",
+          "registry": 0.1474304422,
+          "rerun": 0.1474304422
+        },
+        {
+          "run": "DMDc (linear LS)/pendulum_noise0.1/3",
+          "metric": "pred_nrmse",
+          "registry": 1.060425961,
+          "rerun": 1.060425961
+        },
+        {
+          "run": "SINDy (STLSQ)/vdp_noise0.05 ntrain=200/1",
+          "metric": "pred_nrmse",
+          "registry": 4.965037133,
+          "rerun": 4.965037133
+        },
+        {
+          "run": "SINDy (STLSQ)/vdp_noise0.05 ntrain=200/4",
+          "metric": "pred_nrmse",
+          "registry": 15.42470189,
+          "rerun": 15.42470189
+        },
+        {
+          "run": "Neural ODE (MLP)/pendulum_noise0.05 ntrain=200/0",
+          "metric": "lqr_cost",
+          "registry": 1000,
+          "rerun": 1000
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (Data size paragraph, Fig. 3 caption); abstract.tex; conclusion.tex; results/RESULTS.md",
+          "issue": "The paper says the Van der Pol SINDy mean at 200 transitions (4.190) is dominated by 'one divergent seed'; the registry has two divergent seeds of five (seed 1 = 4.965, seed 4 = 15.425). SINDy beats the MLP in only 3/5 seeds (MLP mean 0.333, paired p = 0.26), which meets the proposal's stated refutation criterion for the small-data part of H1 on Van der Pol. The abstract and conclusion report the MLP's failure at 200 transitions but not SINDy's divergence.",
+          "fix": "State that 2 of 5 SINDy seeds diverge at N=200 on Van der Pol and SINDy is better in 3/5 seeds; say the small-data clause of H1 is not supported (refuted by the proposal's criterion) on Van der Pol; add this to the abstract, conclusion and RESULTS.md; correct the Fig. 3 caption; ideally add a per-seed row or table for N=200."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2 paragraph)",
+          "issue": "'The MPC results show the same ordering on the pendulum for noise >= 0.02' is false at noise 0.1: MLP MPC cost 30.295 +/- 30.687 is above DMDc 27.028 +/- 6.085, whereas LQR has MLP below DMDc.",
+          "fix": "Restrict the claim to noise 0.02 and 0.05, or say that at 0.1 MLP and DMDc are both poor and not separable under MPC."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "'The absolute gap to the MLP widens with noise' is unqualified, but on the pendulum the median gap falls from 0.478 to 0.341 between noise 0.05 and 0.1 (the results body says this correctly).",
+          "fix": "Qualify: widens up to noise 0.05 on both systems (and up to 0.1 on Van der Pol)."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Stale file from the archived v1 runs (e.g. pendulum noise 0 'ours 0.05153' versus 0.0068 in the current registry; ablations listed as 'missing').",
+          "fix": "Regenerate the verdict from the current registry."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, limitations.tex",
+          "issue": "Weak SINDy chronology is reversed: the ODE paper (arXiv 2005.04339) is described as following a formulation 'originally developed for PDE identification' (messenger2021weak), but the ODE paper came first. Limitations cites the PDE paper for weak-form SINDy in an ODE setting.",
+          "fix": "Reword to 'weak formulation for ODEs [messenger2020weak], later extended to PDEs [messenger2021weak]' and cite messenger2020weak in the limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'Two families dominate current data-driven practice' is an uncited claim about the field.",
+          "fix": "Soften to 'two widely used families' or add a supporting citation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Figs. 2 and 3 (experiments/make_figs.py)",
+          "issue": "Log-axis x tick labels overlap and are unreadable, contrary to the claim in reviews/response.md that they were made readable. Table I is also very small at column width.",
+          "fix": "Set explicit ticks at the five data sizes with plain labels and disable minor tick labels; consider a two-column table for Table I."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2 paragraph)",
+          "issue": "The Van der Pol origin is called a 'weakly unstable focus'; the linearisation has eigenvalues 0.5 +/- 0.87i, which is not weak.",
+          "fix": "Say 'unstable focus'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "Q, R, initial-condition and input ranges, the closed-loop input clip of +/-10 (training inputs are +/-5 and +/-3) and the fallback terminal cost 10*Q when the Riccati solve fails are not stated.",
+          "fix": "Add these values in a sentence or small table."
+        }
+      ],
+      "commit": "c636608701f7ba0a23466f7e00af23b01182b1eb"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper and all derived tables were recomputed from the 453-row registry and match; four re-executed runs (two SINDy, two MLP) were bit-identical, the code matches the described method with no leakage or hard-coded results, and the MLP baseline is not materially under-trained. The paper reports its refuted and inconclusive hypotheses in the abstract and conclusion, the citations are used in context, and the 6-page PDF renders cleanly. Only minor presentation and wording issues remain.",
+      "reran": [
+        {
+          "run": "SINDy (STLSQ)/vdp_noise0.1/seed2 (main)",
+          "metric": "pred_nrmse",
+          "registry": 1.747783689573804,
+          "rerun": 1.747783689573804
+        },
+        {
+          "run": "Neural ODE (MLP)/pendulum_noise0.05/seed0 (main)",
+          "metric": "pred_nrmse",
+          "registry": 0.6251837096762715,
+          "rerun": 0.6251837096762715
+        },
+        {
+          "run": "Neural ODE (MLP)/pendulum_noise0.05 ntrain=200/seed0 (sweep_ntrain_pendulum)",
+          "metric": "lqr_cost",
+          "registry": 1000.0,
+          "rerun": 1000.0
+        },
+        {
+          "run": "SINDy (STLSQ)/vdp_noise0.05 ntrain=200/seed4 (sweep_ntrain_vdp)",
+          "metric": "pred_nrmse",
+          "registry": 15.424701886942245,
+          "rerun": 15.424701886942245
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper Fig. 1 (experiments/make_figs.py, bars)",
+          "issue": "The legend overlaps the bars and seed dots at noise 0 and 0.02 in the Van der Pol panel.",
+          "fix": "Place the legend outside the axes or in an empty region."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, setup.tex, abstract.tex ('registered', 'fixed in advance')",
+          "issue": "proposal.md with the refutation criteria was first committed in the same commit as the results; only its file time (19:42) and state.json show it predates the runs, so pre-registration cannot be verified from git.",
+          "fix": "Say 'stated in proposal.md before the runs' or note that there was no external registration."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'the sparsity threshold matters little between 0.01 and 0.3' understates Van der Pol, where prediction error roughly halves (0.027 to 0.012, lower in 5 of 5 seeds).",
+          "fix": "Qualify the statement as small in absolute terms and for LQR cost, or give the Van der Pol numbers."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Table I (generated/main.tex) and its caption",
+          "issue": "Underline/best marks are not explained, the oracle takes the 'best' mark, and the down-arrow on n_terms has no meaning.",
+          "fix": "Explain the marks in the caption and exclude the oracle from ranking, or remove the marks and the n_terms arrow."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex (Neural ODE (MLP))",
+          "issue": "The model labelled 'neural ODE' is trained with a fixed-step RK4 one-step loss, with no adaptive solver or adjoint; 'standardised inputs' is loose because u is scaled by max|u|.",
+          "fix": "Add a sentence stating the difference from the cited neural ODE and correct the input-scaling description."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md, research.yaml (baselines), rh check warning",
+          "issue": "The oracle is registered as a baseline, so VERDICT.md reports tier 0 with nan% gains against a zero-error reference and rh check warns; RESULTS.md discloses this but VERDICT.md is uninformative.",
+          "fix": "Register the oracle as a reference/sanity kind, or state in VERDICT.md that it is not applicable to this comparison study."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, paper/refs.bib",
+          "issue": "No reference is later than 2022, although literature/landscape.md mentions 2024-2025 SINDy noise/benchmark studies.",
+          "fix": "Cite one or two verified recent benchmark studies and position the paper against them."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'4 systems' is used for model classes while 'system' elsewhere means the plant; 'about 7 seconds' per MLP run is the in-script time, whereas registry wall time is 7.7-9.0 s.",
+          "fix": "Write '4 models' and 'about 8 seconds wall time'."
+        }
+      ],
+      "commit": "9b378be4bce80795dbdb250701b94e1dc3c2b455"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on pendulum_noise0.05: ours 0.1559 vs True model (oracle) 0\nREADY",
+      "response": "# Response to audit\n1. **SINDy input misalignment (major)** \u2013 Fixed in `method/run.py` (`fit_sindy`): the central-difference derivative is now regressed on the stencil-average input (u[k-1]+u[k])/2. All SINDy runs (main, abl_sindy, sweep_ntrain, sweep_lam) were re-executed. At noise 0 SINDy now has pred_nrmse 0.007 (pendulum, support F1 1.0, 4 terms) and 0.004 (Van der Pol, F1 0.90). The text now reports noise-0 support F1/n_terms, no longer says Van der Pol error is flat, and calls noise amplification a plausible but untested cause. The method section discloses the earlier flaw; the v1 results are kept in `results/archive_v1`.\n2. **MLP budget fixed in epochs (major)** \u2013 The MLP now trains for a fixed 2500 gradient steps at every data size (validation every 25 steps). All MLP runs, including sweep_ntrain, were re-run. The data-size claims were rewritten: the MLP LQR cost at 200 transitions is still very poor (mean 430.585, median 121.376), at 500 it is heavy-tailed (median 1.616), and from 1000 up it is ~2.5 vs SINDy ~1.1. The claim is explicitly restricted to this training budget; no budget sweep was run (limitations).\n3. **Ablation text (minor)** \u2013 Van der Pol smoothing degradation (worse in 5/5 seeds) and the no-trig improvement on Van der Pol are now reported; added paired tests table (`abl_paired`, also `rh compare` on abl_sindy).\n4. **\"Outlier seeds\" and clipping (minor)** \u2013 Now \"one divergent seed\", per-seed table with mean and median at Van der Pol noise 0.1 (new numbers: seed 2 = 1.748), and the clip to [-50,50] is disclosed in the metric definition and method.\n5. **Paired LQR differences (minor)** \u2013 New table `paired_lqr`; text states DMDc is consistently but slightly (1.9-3.5%) worse than the oracle on Van der Pol.\n6. **H1 gap clause (minor)** \u2013 Explicit verdict (not supported in absolute terms; `noise_gap` table); design described as two one-dimensional sweeps (also in the contributions).\n7. **Related work and bib (minor)** \u2013 Kaiser et al. now described as already comparing SINDy-MPC with neural and linear models; positioned this paper as a small-scale re-examination. Added the ODE Weak SINDy paper (arXiv 2005.04339, `rh lit cite`) and described the PDE paper as such. The SINDYc bib title footnote is hidden from the rendered reference with `\\iffalse...\\fi` (the full title is kept so that `rh lit verify` still matches the Crossref record).\n8. **Figures (minor)** \u2013 Figs. bars/ntrain/lam regenerated by `experiments/make_figs.py` from the registry: readable x labels, log scales, medians with min-max bands for the data-size plots (so the divergent seed no longer dominates); captions corrected (the oracle is not in the data-size figures); the sentence about Fig. 3 and LQR was rewritten to cite the LQR table and to except 200 transitions.\n9. **Method details (minor)** \u2013 Weight decay 1e-5, direct use of the fitted (A,B) for DMDc, and the linearisation of SINDy/MLP are now stated.\n10. **Provenance (minor)** \u2013 Code was committed (2d1ce25) before the rerun, but `rh run` records the HEAD at run time, which for the final registry is that commit or later. The sweep_lam runs now carry lambda in the run name so each has its own log file (they were re-run for this).\n",
+      "seconds": 1113
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on pendulum_noise0.05: ours 0.1559 vs True model (oracle) 0\nREADY",
+      "response": "# Response to audit\n1. **SINDy input misalignment (major)** \u2013 Fixed in `method/run.py` (`fit_sindy`): the central-difference derivative is now regressed on the stencil-average input (u[k-1]+u[k])/2. All SINDy runs (main, abl_sindy, sweep_ntrain, sweep_lam) were re-executed. At noise 0 SINDy now has pred_nrmse 0.007 (pendulum, support F1 1.0, 4 terms) and 0.004 (Van der Pol, F1 0.90). The text now reports noise-0 support F1/n_terms, no longer says Van der Pol error is flat, and calls noise amplification a plausible but untested cause. The method section discloses the earlier flaw; the v1 results are kept in `results/archive_v1`.\n2. **MLP budget fixed in epochs (major)** \u2013 The MLP now trains for a fixed 2500 gradient steps at every data size (validation every 25 steps). All MLP runs, including sweep_ntrain, were re-run. The data-size claims were rewritten: the MLP LQR cost at 200 transitions is still very poor (mean 430.585, median 121.376), at 500 it is heavy-tailed (median 1.616), and from 1000 up it is ~2.5 vs SINDy ~1.1. The claim is explicitly restricted to this training budget; no budget sweep was run (limitations).\n3. **Ablation text (minor)** \u2013 Van der Pol smoothing degradation (worse in 5/5 seeds) and the no-trig improvement on Van der Pol are now reported; added paired tests table (`abl_paired`, also `rh compare` on abl_sindy).\n4. **\"Outlier seeds\" and clipping (minor)** \u2013 Now \"one divergent seed\", per-seed table with mean and median at Van der Pol noise 0.1 (new numbers: seed 2 = 1.748), and the clip to [-50,50] is disclosed in the metric definition and method.\n5. **Paired LQR differences (minor)** \u2013 New table `paired_lqr`; text states DMDc is consistently but slightly (1.9-3.5%) worse than the oracle on Van der Pol.\n6. **H1 gap clause (minor)** \u2013 Explicit verdict (not supported in absolute terms; `noise_gap` table); design described as two one-dimensional sweeps (also in the contributions).\n7. **Related work and bib (minor)** \u2013 Kaiser et al. now described as already comparing SINDy-MPC with neural and linear models; positioned this paper as a small-scale re-examination. Added the ODE Weak SINDy paper (arXiv 2005.04339, `rh lit cite`) and described the PDE paper as such. The SINDYc bib title footnote is hidden from the rendered reference with `\\iffalse...\\fi` (the full title is kept so that `rh lit verify` still matches the Crossref record).\n8. **Figures (minor)** \u2013 Figs. bars/ntrain/lam regenerated by `experiments/make_figs.py` from the registry: readable x labels, log scales, medians with min-max bands for the data-size plots (so the divergent seed no longer dominates); captions corrected (the oracle is not in the data-size figures); the sentence about Fig. 3 and LQR was rewritten to cite the LQR table and to except 200 transitions.\n9. **Method details (minor)** \u2013 Weight decay 1e-5, direct use of the fitted (A,B) for DMDc, and the linearisation of SINDy/MLP are now stated.\n10. **Provenance (minor)** \u2013 Code was committed (2d1ce25) before the rerun, but `rh run` records the HEAD at run time, which for the final registry is that commit or later. The sweep_lam runs now carry lambda in the run name so each has its own log file (they were re-run for this).\n\n# Response to audit, round 2\n1. **Van der Pol N=200: two divergent SINDy seeds, H1 small-data clause (major)** - Fixed. Results now state that two of five SINDy seeds diverge (seeds 1 and 4: 4.965 and 15.425), that SINDy beats the MLP in 3/5 seeds (and DMDc in 3/5), mean 4.190 vs 0.333, paired p = 0.262, and that by the criterion registered in proposal.md the small-data clause of H1 is refuted on Van der Pol (supported on the pendulum). The same statement is in the abstract, the conclusion and results/RESULTS.md. New per-seed table (`vdp_seeds`, Table III) covers both settings with divergent seeds (noise 0.1 at N=1000 and N=200 at noise 0.05); the data-size table (`ntrain_pred`) now has a \"seeds SINDy better (paired p)\" column for every size; the Fig. 2 caption says \"two divergent seeds\". The registered refutation criteria are now quoted in the setup section and each verdict refers to them.\n2. **MPC ordering on the pendulum (minor)** - Restricted to noise 0.02 and 0.05; the text states that at noise 0.1 the MLP (30.295 +/- 30.687) and DMDc (27.028 +/- 6.085) are both poor and not separable.\n3. **\"Gap widens with noise\" (minor)** - Abstract and conclusion now say \"up to noise 0.05 on both systems (up to 0.1 on Van der Pol)\".\n4. **Stale VERDICT.md (minor)** - Regenerated with `rh verdict` from the current registry; research.yaml ablations now point to group abl_sindy, so the ablation rows are filled. RESULTS.md notes that the verdict is advisory (the oracle is the \"best baseline\" by construction).\n5. **Weak SINDy chronology (minor)** - Related work now reads \"introduced for ODEs [messenger2020weak] and later extended to PDEs [messenger2021weak]\"; the limitations cite messenger2020weak. PySINDy is described as an open-source package implementing these variants (its abstract says so), not as \"the reference implementation\".\n6. **\"Two families dominate\" (minor)** - Now \"two widely used families of data-driven models are ...\".\n7. **Figure tick labels, Table I size (minor)** - `experiments/make_figs.py`: the data-size figure is one two-panel figure with explicit ticks at the five sizes (200, 500, 1k, 2k, 5k) and no minor tick labels; the bar figure is drawn at column size with 7-8 pt fonts. Table I is now a two-column `table*`. The sweep tables were transposed (rows = N or lambda, at most four value columns) and the two ablation tables merged, so no table is shrunk below about 6 pt; I looked at every page of the PDF. The LQR bar figure and the ablation bar figure were dropped (their numbers are in Tables I, VI and VIII) to stay within 6 pages.\n8. **\"Weakly unstable focus\" (minor)** - Now \"an unstable focus\".\n9. **Unstated settings (minor)** - Method section now gives Q, R, the training and closed-loop initial-condition ranges, the traini",
+      "seconds": 796
+    }
+  ]
+}

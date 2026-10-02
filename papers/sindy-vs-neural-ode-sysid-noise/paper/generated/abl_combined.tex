@@ -1,0 +1,14 @@
+\begin{tabular}{lccccc}\toprule
+Variant & pred\_nrmse & F1 & terms & worse ($p$) & $\Delta$LQR (worse) \\\midrule
+\multicolumn{6}{l}{\emph{pendulum}} \\
+full & 0.156 $\pm$ 0.062 & 0.397 & 16.8 & -- & -- \\
+no trig & 1.224 $\pm$ 0.250 & -- & 14.2 & 5/5 ($<$0.001) & +17.904 (5/5) \\
+SG & 0.086 $\pm$ 0.069 & 0.514 & 14.0 & 0/5 (0.015) & -0.025 (0/5) \\
+SG, $\lambda{=}0.3$ & 0.057 $\pm$ 0.021 & 0.933 & 4.8 & 0/5 (0.015) & -0.026 (0/5) \\
+\midrule
+\multicolumn{6}{l}{\emph{Van der Pol}} \\
+full & 0.018 $\pm$ 0.004 & 0.546 & 14.0 & -- & -- \\
+no trig & 0.011 $\pm$ 0.004 & 0.982 & 5.2 & 0/5 (0.015) & -0.000 (4/5) \\
+SG & 0.053 $\pm$ 0.011 & 0.516 & 14.6 & 5/5 (0.005) & +0.004 (5/5) \\
+SG, $\lambda{=}0.3$ & 0.052 $\pm$ 0.011 & 0.778 & 8.6 & 5/5 (0.005) & +0.004 (5/5) \\
+\bottomrule\end{tabular}

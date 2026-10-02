@@ -1,0 +1,44 @@
+Table~\ref{tab:main} gives the main comparison and Fig.~\ref{fig:curves} the mean curves on two representative tasks. All statements below are about 5 seeds at $n=200$.
+
+\begin{table*}[t]\centering\scriptsize
+\caption{Main results (mean $\pm$ sd over 5 seeds; bold marks the lowest mean, not a significant difference; in Table~\ref{tab:h4}, $p_{peak}$ compares MinNorm's peak with an edge value for the ridge systems). For the ridge systems the window maximum is usually the left edge ($N/n=0.4$), not a peak. \texttt{log10\_peak\_mse}: $\log_{10}$ of the maximum test MSE in $0.4\le N/n\le4$; \texttt{bump\_rel}: hump height over best error (0 = no hump); \texttt{final\_mse}: test MSE at $N/n=25$. Task name = dataset and label-noise sd. $n$ = seeds.}\label{tab:main}
+\input{generated/main.tex}
+\end{table*}
+
+\begin{figure*}[t]\centering
+\includegraphics[width=0.8\textwidth]{fig_curves.pdf}
+\caption{Test MSE against $N/n$ (mean of 5 seeds, log--log axes) for the four systems. The dotted line is the interpolation threshold $N=n$. MinNorm has a sharp peak there; the tuned-ridge curves decrease without a visible hump.}\label{fig:curves}
+\end{figure*}
+
+\textbf{H1 (position) -- supported.} For MinNorm the argmax of the test error is at $N/n=1$ in all 40 runs (Table~\ref{tab:noise}, column \texttt{pos}, all eight task medians $1.00$). Training MSE at $N=n$ is of order $10^{-30}$ (logged as \texttt{train\_mse\_thresh}), so these fits do interpolate. The grid has a resolution of $0.05$ near the threshold, so we can say only that the peak lies within one grid step of $N/n=1$.
+
+\textbf{H2 (noise raises the peak) -- supported, with low power and a caveat.} The mean peak MSE of MinNorm increases monotonically with noise on both datasets (Table~\ref{tab:noise}), and the one-sided paired Wilcoxon test of the highest against the lowest noise level gives $p=0.031$ on each (the smallest $p$ attainable with 5 pairs). The $\log_{10}$ peaks show the same ordering. The caveat is that the peak is already large at zero label noise (synthetic $\sigma=0$: mean peak 269 against best error 0.161). Because our teacher is not in the span of finitely many ReLU features, and the digits labels are not represented exactly by a random-feature model, approximation error may act as effective noise and produce a peak without label noise; we did not isolate this with a run. The noise dependence is much steeper on digits (Table~\ref{tab:noise}). The peak position does not move with noise.
+
+\begin{table*}[t]\centering\small
+\caption{MinNorm peak height against label noise. \texttt{pos}: median peak $N/n$; $\log_{10}$ peak: mean $\pm$ sd; mean and median of the peak test MSE over seeds; best: mean over seeds of the minimum over the grid of the test MSE.}\label{tab:noise}
+\input{generated/noise_minnorm.tex}
+\end{table*}
+
+\textbf{H3 (ridge lowers the peak monotonically) -- refuted as registered.} Table~\ref{tab:sweep} and Fig.~\ref{fig:sweep} show the mean window peak against $\lambda$. It falls by orders of magnitude from $\lambda=0$ to $10^{-3}$ on every task, reaches its minimum at $10^{-3}$ or $10^{-2}$, and rises again at $\lambda=10^{-1}$ on every task, so the registered ``non-increasing in $\lambda$'' is false on all eight tasks. The rise is not a new peak: the values for $\lambda\ge1$ are nearly identical across noise levels within each dataset, consistent with a flat, under-fitted curve, and the median peak position jumps to arbitrary positions (Fig.~\ref{fig:sweep}, right); we did not run a separate check of the under-fitting explanation. With $\lambda\le10^{-6}$ the median peak position stays near $N/n=1$, for $\lambda=10^{-3}$ and $10^{-2}$ the median position is the left edge of the window ($0.4$), and for larger $\lambda$ it is at scattered interior positions (medians such as 0.8, 1.25 and 2.0), which says only that the peak is no longer located at the threshold. Larger noise may move the best fixed $\lambda$ upward: the lowest mean peak is at $\lambda=10^{-2}$ for synth\_n1 and digits\_n0.6 and at $10^{-3}$ for six tasks, with digits\_n0.3 a tie (0.0551 at $10^{-2}$ against 0.0554 at $10^{-3}$; Table~\ref{tab:sweep}). The statement ``the peak decreases with $\lambda$ up to $10^{-3}$ on all tasks'' was formulated after seeing the data.
+
+\begin{table*}[t]\centering\small
+\caption{Mean peak test MSE (window $0.4\le N/n\le4$) of fixed-ridge regression against $\lambda$ ($0$ = MinNorm, $10^{-2}$ = the FixedRidge of Table~\ref{tab:main}).}\label{tab:sweep}
+\input{generated/sweep_peak.tex}
+\end{table*}
+
+\begin{figure*}[t]\centering
+\includegraphics[width=0.85\textwidth]{fig_sweep.pdf}
+\caption{Ridge sweep. Left: $\log_{10}$ mean peak MSE against $\log_{10}\lambda$ (leftmost point $\lambda=0$). Right: median peak position. Lines are tasks (solid: synthetic, dashed: digits; lighter = more noise).}\label{fig:sweep}
+\end{figure*}
+
+\textbf{H4 (tuned ridge removes the peak) -- partly supported.} The mean hump of TunedRidge is below $0.05$ of the best error on all eight tasks (Table~\ref{tab:h4}, column Tuned; largest task mean 0.0328 on synth\_n0.5), compared with $10^3$ to $10^5$ for MinNorm (Table~\ref{tab:main}); the final error of TunedRidge is at or below that of MinNorm on every task (Table~\ref{tab:main}, e.g.\ synth\_n1 0.326 against 0.608; digits\_n0 equal at 0.021). Three things qualify this. (i) The hump is small but not zero: three tasks have a seed above $0.05$ (column Tuned max: synth\_n0.5, digits\_n0.15, digits\_n0.6). (ii) The second part of the registered test, that the hump is lower than MinNorm's under a paired test on \texttt{bump\_rel}, is \emph{not} met: $p$ ranges from 0.06 to 0.21 (column $p_{bump}$), because the standard deviation of MinNorm's hump is of the order of its mean. The unregistered paired $t$-test on the $\log_{10}$ peak is far below $0.05$ on all tasks (column $p_{peak}$), but we chose it after seeing the heavy tail, so it is supporting evidence and not the registered verdict. (iii) FixedRidge also has a small hump (Table~\ref{tab:main}) while being a poor predictor at low noise (synth\_n0 final MSE 0.370 against 0.162 for MinNorm), so ``no peak'' alone is not evidence of good generalisation. TunedRidge, unlike FixedRidge, adapts to noise: the selected $\lambda$ grows with the noise level (Fig.~\ref{fig:lam}).
+
+\begin{table*}[t]\centering\small
+\caption{Residual hump (\texttt{bump\_rel}) of tuned-ridge variants, mean over 5 seeds. Tuned: per-width validation with 200 points (the method); Tuned max: largest seed; Global: one $\lambda$ for all widths; LOO: leave-one-out on training data; val50: 50 validation points. $p_{bump}$: paired $t$-test of Tuned against MinNorm on \texttt{bump\_rel} (registered); $p_{peak}$: same on $\log_{10}$ peak (not registered).}\label{tab:h4}
+\input{generated/h4.tex}
+\end{table*}
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.78\columnwidth]{fig_lam.pdf}
+\caption{Validation-selected $\log_{10}\lambda$ against $N/n$ for TunedRidge (mean of 5 seeds), by label-noise sd.}\label{fig:lam}
+\end{figure}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:09:38 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task digits_n0.3 --seed 3 --system tuned --out results/raw/main_TunedRidge_digits_n0.3_s3.json --curve results/raw/curve_main_TunedRidge_digits_n0.3_s3.csv
+
+config: {"system": "tuned", "task": "digits_n0.3", "seed": 3, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_TunedRidge_digits_n0.3_s3.csv", "out": "results/raw/main_TunedRidge_digits_n0.3_s3.json"}
+metrics: {"test_mse": 0.0463263111062553, "train_mse_thresh": 0.0939307410241118, "peak_mse": 0.0516637914920206, "log10_peak_mse": -1.2868137250763643, "peak_pos": 0.4, "best_mse": 0.0421156745544166, "final_mse": 0.0421156745544166, "bump_rel": 0.014677029702963156, "peak_over_final": 1.2267117181102516, "log10_lam_thresh": -2.5, "log10_lam_final": -3.0, "acc_thresh": 0.8589835361488904, "acc_final": 0.8797423049391553, "acc_best": 0.8797423049391553}

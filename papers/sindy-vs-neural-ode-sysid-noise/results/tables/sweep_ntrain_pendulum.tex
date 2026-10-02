@@ -1,0 +1,10 @@
+\begin{tabular}{lcccccccc}
+\toprule
+Method & pred\_nrmse $\downarrow$ & pred\_nrmse\_h5 $\downarrow$ & lqr\_cost $\downarrow$ & lqr\_fail $\downarrow$ & mpc\_cost $\downarrow$ & mpc\_fail $\downarrow$ & support\_f1 $\uparrow$ & $n$ \\
+\midrule
+DMDc (linear LS) & 1.02 $\pm$ 0.05 & 0.34 $\pm$ 0.02 & 32.59 $\pm$ 5.00 & 0.84 $\pm$ 0.10 & 21.50 $\pm$ 5.02 & 0.77 $\pm$ 0.14 & -- & 25 \\
+Neural ODE (MLP) & 0.71 $\pm$ 0.28 & 0.14 $\pm$ 0.11 & 129.28 $\pm$ 329.09 & 0.23 $\pm$ 0.42 & 27.47 $\pm$ 45.94 & 0.22 $\pm$ 0.39 & -- & 25 \\
+True model (oracle) & \textbf{0.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \textbf{1.07 $\pm$ 0.19} & \underline{0.00 $\pm$ 0.00} & \textbf{2.44 $\pm$ 0.37} & \underline{0.00 $\pm$ 0.00} & -- & 25 \\
+\textbf{SINDy (STLSQ)} & \underline{0.21 $\pm$ 0.16} & \underline{0.03 $\pm$ 0.01} & \underline{1.13 $\pm$ 0.22} & \textbf{0.00 $\pm$ 0.00} & \underline{2.57 $\pm$ 0.43} & \textbf{0.00 $\pm$ 0.00} & \textbf{0.40 $\pm$ 0.11} & 25 \\
+\bottomrule
+\end{tabular}

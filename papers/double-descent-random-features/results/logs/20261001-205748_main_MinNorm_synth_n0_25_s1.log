@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:57:48 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task synth_n0.25 --seed 1 --system minnorm --out results/raw/main_MinNorm_synth_n0.25_s1.json --curve results/raw/curve_main_MinNorm_synth_n0.25_s1.csv
+
+config: {"system": "minnorm", "task": "synth_n0.25", "seed": 1, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_MinNorm_synth_n0.25_s1.csv", "out": "results/raw/main_MinNorm_synth_n0.25_s1.json"}
+metrics: {"test_mse": 122.3969689198373, "train_mse_thresh": 3.179167225939009e-30, "peak_mse": 122.3969689198373, "log10_peak_mse": 2.0877706629264674, "peak_pos": 1.0, "best_mse": 0.20834844336516273, "final_mse": 0.20834844336516273, "bump_rel": 585.5119023024208, "peak_over_final": 587.4628432203727}

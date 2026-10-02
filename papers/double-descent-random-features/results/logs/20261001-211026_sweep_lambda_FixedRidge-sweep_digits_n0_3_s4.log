@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:10:26 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task digits_n0.3 --seed 4 --system fixed --lam 1 --out results/raw/sweep_digits_n0.3_s4_l1.json --curve results/raw/curve_sweep_digits_n0.3_s4_l1.csv
+
+config: {"system": "fixed", "task": "digits_n0.3", "seed": 4, "lam": 1.0, "val_size": 200, "curve": "results/raw/curve_sweep_digits_n0.3_s4_l1.csv", "out": "results/raw/sweep_digits_n0.3_s4_l1.json"}
+metrics: {"test_mse": 0.09605922481979987, "train_mse_thresh": 0.16491661500282442, "peak_mse": 0.09618513732009372, "log10_peak_mse": -1.0168920306497682, "peak_pos": 4.0, "best_mse": 0.09575596545834267, "final_mse": 0.09602542991513106, "bump_rel": 0.0016678585422663218, "peak_over_final": 1.0016631782341803, "acc_thresh": 0.6084466714387974, "acc_final": 0.6120257695060844, "acc_best": 0.6263421617752326}

@@ -1,0 +1,130 @@
+{
+  "slug": "double-descent-random-features",
+  "direction": "Double descent in random-features regression: sweep the number of random ReLU features through the interpolation threshold on a synthetic regression task and on scikit-learn's digits (as regression to one-hot labels). How do label noise and ridge regularisation change the height and position of the test-error peak, and does optimally tuned ridge remove it?",
+  "created": "2026-10-01T18:39:51",
+  "updated": "2026-10-01T21:22:18",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:51:44",
+      "finished": "2026-10-01T20:55:31",
+      "notes": [
+        {
+          "t": "2026-10-01T20:55:31",
+          "note": "landscape+proposal written, 12 refs cited"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:56:38",
+      "notes": [
+        {
+          "t": "2026-10-01T20:56:38",
+          "note": "run.py smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T20:57:01",
+      "finished": "2026-10-01T21:16:18",
+      "notes": [
+        {
+          "t": "2026-10-01T21:16:18",
+          "note": "reimplemented baselines run"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:16:18",
+      "notes": [
+        {
+          "t": "2026-10-01T21:16:18",
+          "note": "main group 160 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:18:44",
+      "notes": [
+        {
+          "t": "2026-10-01T21:18:44",
+          "note": "abl_tuning, sweep_lambda"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:18:45",
+      "notes": [
+        {
+          "t": "2026-10-01T21:18:45",
+          "note": "tables, figs, RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:18:45",
+      "notes": [
+        {
+          "t": "2026-10-01T21:18:45",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:22:18",
+      "notes": [
+        {
+          "t": "2026-10-01T21:22:18",
+          "note": "6 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T20:55:31",
+      "phase": "novelty",
+      "decision": "Chose nested features, test error vs clean targets, bump statistic and 5% threshold before running; empirical replication-style study."
+    },
+    {
+      "t": "2026-10-01T20:56:37",
+      "phase": "setup",
+      "decision": "Peak statistics restricted to window 0.4<=N/n<=4 after 2-seed smoke test showed left-edge underfitting dominates global max for tuned ridge; bump_rel stays over the full grid; also log10_peak_mse because min-norm peak is heavy-tailed."
+    },
+    {
+      "t": "2026-10-01T21:22:18",
+      "phase": "paper",
+      "decision": "Reported H3 as refuted and H4 as partly supported per registered tests; log-peak t-test labelled unregistered."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

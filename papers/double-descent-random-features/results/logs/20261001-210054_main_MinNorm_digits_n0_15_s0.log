@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:00:54 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task digits_n0.15 --seed 0 --system minnorm --out results/raw/main_MinNorm_digits_n0.15_s0.json --curve results/raw/curve_main_MinNorm_digits_n0.15_s0.csv
+
+config: {"system": "minnorm", "task": "digits_n0.15", "seed": 0, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_MinNorm_digits_n0.15_s0.csv", "out": "results/raw/main_MinNorm_digits_n0.15_s0.json"}
+metrics: {"test_mse": 125.72954013606173, "train_mse_thresh": 5.772681123053599e-31, "peak_mse": 125.72954013606173, "log10_peak_mse": 2.099437327096209, "peak_pos": 1.0, "best_mse": 0.046524351392759775, "final_mse": 0.046524351392759775, "bump_rel": 2700.9095486505025, "peak_over_final": 2702.445845502492, "acc_thresh": 0.14960629921259844, "acc_final": 0.917680744452398, "acc_best": 0.917680744452398}

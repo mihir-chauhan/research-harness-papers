@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:34:51 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task vdp --seed 3 --noise 0.05 --ntrain 1000 --smooth 1 --lam 0.3 --out results/raw/abl_sindy__sindy__SINDy_+_SG_smoothing,_lam_0.3__vdp_noise0.05____3.json
+
+{'pred_nrmse': 0.043744130421006715, 'pred_nrmse_h5': 0.018153795013624262, 'support_f1': 0.6666666666666666, 'n_terms': 10.0, 'lqr_cost': 0.8080564997284918, 'lqr_fail': 0.0, 'mpc_cost': 1.6166440000737146, 'mpc_fail': 0.0, 'seconds': 0.685401201248169}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:12:13 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task synth_n0 --seed 4 --system loo --out results/raw/abl_tuning_TunedRidge_LOO_synth_n0_s4.json --curve results/raw/curve_abl_tuning_TunedRidge_LOO_synth_n0_s4.csv
+
+config: {"system": "loo", "task": "synth_n0", "seed": 4, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_abl_tuning_TunedRidge_LOO_synth_n0_s4.csv", "out": "results/raw/abl_tuning_TunedRidge_LOO_synth_n0_s4.json"}
+metrics: {"test_mse": 0.20356852708681858, "train_mse_thresh": 0.07905609321890178, "peak_mse": 0.3431337892581183, "log10_peak_mse": -0.46453651375435545, "peak_pos": 0.4, "best_mse": 0.15567147003298157, "final_mse": 0.15567147003298157, "bump_rel": 0.07920415164859028, "peak_over_final": 2.204217569124386, "log10_lam_thresh": -3.0, "log10_lam_final": -4.0}

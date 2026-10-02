@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:07:55 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task digits_n0.3 --seed 1 --system fixed --lam 0.01 --out results/raw/main_FixedRidge_digits_n0.3_s1.json --curve results/raw/curve_main_FixedRidge_digits_n0.3_s1.csv
+
+config: {"system": "fixed", "task": "digits_n0.3", "seed": 1, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_FixedRidge_digits_n0.3_s1.csv", "out": "results/raw/main_FixedRidge_digits_n0.3_s1.json"}
+metrics: {"test_mse": 0.04783276000680454, "train_mse_thresh": 0.11237683547692442, "peak_mse": 0.05137600134326399, "log10_peak_mse": -1.2892397004226184, "peak_pos": 0.4, "best_mse": 0.04706365653768285, "final_mse": 0.047258189031418096, "bump_rel": 0.006937288897970889, "peak_over_final": 1.0871343654135435, "acc_thresh": 0.8711524695776665, "acc_final": 0.8732999284180386, "acc_best": 0.8797423049391553}

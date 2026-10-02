@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:33:46 2026
+# cwd: .
+# cmd: python method/run.py --system dmdc --task vdp --seed 3 --noise 0.05 --ntrain 1000 --out results/raw/main__dmdc__DMDc_linear_LS__vdp_noise0.05____3.json
+
+{'pred_nrmse': 0.3216936734706145, 'pred_nrmse_h5': 0.0957878178155083, 'lqr_cost': 0.8225987099221784, 'lqr_fail': 0.0, 'mpc_cost': 1.520655177072541, 'mpc_fail': 0.0, 'seconds': 0.15987586975097656}

@@ -1,0 +1,15 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & pred\_nrmse $\downarrow$ & support\_f1 $\uparrow$ & lqr\_cost $\downarrow$ & mpc\_cost $\downarrow$ & $n$ \\
+\midrule
+SINDy w/o trig library & pendulum\_noise0.05 & 1.26 $\pm$ 0.26 & -- & 18.32 $\pm$ 7.30 & 22.32 $\pm$ 11.42 & 5 \\
+SINDy + SG smoothing, lam 0.3 & pendulum\_noise0.05 & \textbf{0.10 $\pm$ 0.04} & \textbf{0.85 $\pm$ 0.23} & \underline{1.08 $\pm$ 0.21} & \textbf{2.41 $\pm$ 0.35} & 5 \\
+SINDy + SG smoothing & pendulum\_noise0.05 & \underline{0.11 $\pm$ 0.06} & \underline{0.42 $\pm$ 0.09} & \textbf{1.07 $\pm$ 0.21} & \underline{2.41 $\pm$ 0.36} & 5 \\
+\textbf{SINDy (STLSQ)} & pendulum\_noise0.05 & 0.15 $\pm$ 0.06 & 0.35 $\pm$ 0.06 & 1.10 $\pm$ 0.19 & 2.43 $\pm$ 0.42 & 5 \\
+\midrule
+SINDy w/o trig library & vdp\_noise0.05 & \textbf{0.07 $\pm$ 0.01} & \textbf{0.79 $\pm$ 0.07} & \underline{0.69 $\pm$ 0.08} & \underline{1.40 $\pm$ 0.15} & 5 \\
+SINDy + SG smoothing, lam 0.3 & vdp\_noise0.05 & 0.11 $\pm$ 0.02 & \underline{0.68 $\pm$ 0.08} & 0.70 $\pm$ 0.08 & 1.41 $\pm$ 0.14 & 5 \\
+SINDy + SG smoothing & vdp\_noise0.05 & 0.11 $\pm$ 0.02 & 0.50 $\pm$ 0.06 & 0.70 $\pm$ 0.08 & \textbf{1.38 $\pm$ 0.13} & 5 \\
+\textbf{SINDy (STLSQ)} & vdp\_noise0.05 & \underline{0.07 $\pm$ 0.02} & 0.47 $\pm$ 0.07 & \textbf{0.69 $\pm$ 0.08} & 1.42 $\pm$ 0.16 & 5 \\
+\bottomrule
+\end{tabular}

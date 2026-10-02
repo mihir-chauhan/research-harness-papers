@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:45:50 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task pendulum --seed 3 --noise 0.05 --ntrain 1000 --lam 0.03 --out results/raw/sweep_lam_pendulum__sindy__SINDy_lam=0.03__pendulum_noise0.05__lam0.03__3.json
+
+{'pred_nrmse': 0.16300814555803173, 'pred_nrmse_h5': 0.021203711034780064, 'support_f1': 0.32, 'n_terms': 21.0, 'lqr_cost': 1.3648740687546006, 'lqr_fail': 0.0, 'mpc_cost': 2.9004440507057327, 'mpc_fail': 0.0, 'seconds': 0.8254761695861816}

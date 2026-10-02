@@ -1,0 +1,125 @@
+{
+  "slug": "sindy-vs-neural-ode-sysid-noise",
+  "direction": "System identification for control under measurement noise: sparse regression (SINDy-style sequentially thresholded least squares, implemented in numpy) versus a small neural network dynamics model versus linear least squares (DMD-style), on a damped pendulum and the Van der Pol oscillator. Measure multi-step prediction error and the closed-loop cost of an LQR or MPC controller designed on each identified model, as noise level and data quantity vary.",
+  "created": "2026-10-01T18:38:48",
+  "updated": "2026-10-01T21:29:18",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T19:29:28",
+      "finished": "2026-10-01T19:42:35",
+      "notes": [
+        {
+          "t": "2026-10-01T19:42:35",
+          "note": "landscape, proposal, 11 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T19:40:26",
+      "finished": "2026-10-01T19:42:35",
+      "notes": [
+        {
+          "t": "2026-10-01T19:42:35",
+          "note": "method/run.py smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T19:42:35",
+      "finished": "2026-10-01T20:02:31",
+      "notes": [
+        {
+          "t": "2026-10-01T20:02:31",
+          "note": "baselines run with main"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:02:32",
+      "notes": [
+        {
+          "t": "2026-10-01T20:02:32",
+          "note": "main 160 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:02:32",
+      "notes": [
+        {
+          "t": "2026-10-01T20:02:32",
+          "note": "abl_sindy, sweeps"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:04:06",
+      "notes": [
+        {
+          "t": "2026-10-01T20:04:06",
+          "note": "tables figs"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:04:06",
+      "notes": [
+        {
+          "t": "2026-10-01T20:04:06",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:10:40",
+      "notes": [
+        {
+          "t": "2026-10-01T20:10:40",
+          "note": "5 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T19:42:34",
+      "phase": "novelty",
+      "decision": "Chose controlled comparison framing (no novelty claim); arXiv API was rate limited so refs added via DOI/Crossref."
+    },
+    {
+      "t": "2026-10-01T21:29:18",
+      "phase": "results",
+      "decision": "H1 small-data clause judged by the registered criterion: refuted on Van der Pol at N=200 (2/5 SINDy seeds diverge, SINDy better in 3/5); capped LQR runs diagnosed with registered sanity runs (diag_lqr) rather than explained by assumption"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

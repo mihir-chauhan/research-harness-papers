@@ -1,0 +1,11 @@
+# Response to audit
+- H5 lambda claim (major): restricted to the threshold window (0.1-0.9 dex), stated the 2.3-2.7 dex variation over the full grid, made the explanation "may".
+- H3 peak positions: reworded (left edge at 1e-3, 1e-2; scattered interior positions beyond).
+- H3 noise/lambda: digits_n0.3 described as a tie; sentence softened.
+- "Noisiest tasks": only synth_n1; synth_n0.25 described as at threshold with large sd.
+- H3 registration: registered form quoted, lambda=10 noted as added.
+- Smoke runs: now "one logged smoke run"; timing of the window edit stated.
+- H2: shared noise draw disclosed; five paired seeds.
+- Table I caption: ridge window max is the left edge; bold = lowest mean, not significant; p_peak caveat.
+- Related work: Liu et al. reworded to asymptotic or non-asymptotic.
+- citations.json: refreshed by rh lit verify and committed.

@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:32:15 2026
+# cwd: .
+# cmd: python method/run.py --system node --task vdp --seed 0 --noise 0.0 --ntrain 1000 --out results/raw/main__node__Neural_ODE_MLP__vdp_noise0.0____0.json
+
+{'pred_nrmse': 0.07583838329181279, 'pred_nrmse_h5': 0.02395711003157757, 'val_mse': 0.0001066389522748068, 'lqr_cost': 0.7137262207202386, 'lqr_fail': 0.0, 'mpc_cost': 1.357577832332491, 'mpc_fail': 0.0, 'seconds': 6.655670166015625}

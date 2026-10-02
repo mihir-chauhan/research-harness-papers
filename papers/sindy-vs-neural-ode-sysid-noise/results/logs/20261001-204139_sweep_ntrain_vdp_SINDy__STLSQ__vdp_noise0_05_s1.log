@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:41:39 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task vdp --seed 1 --noise 0.05 --ntrain 1000 --out results/raw/sweep_ntrain_vdp__sindy__SINDy_STLSQ__vdp_noise0.05__ntrain1000__1.json
+
+{'pred_nrmse': 0.017526064958793525, 'pred_nrmse_h5': 0.005055608158825923, 'support_f1': 0.45454545454545453, 'n_terms': 17.0, 'lqr_cost': 0.6346078987846829, 'lqr_fail': 0.0, 'mpc_cost': 1.3639194845324702, 'mpc_fail': 0.0, 'seconds': 0.7362658977508545}

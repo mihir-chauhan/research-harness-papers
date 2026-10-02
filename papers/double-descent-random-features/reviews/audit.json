@@ -1,0 +1,177 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 481 runs are real and logged, three re-executed runs reproduce the registry bit-for-bit, the code matches the paper with fair baselines and no leakage, and every prose number matches the tables with negative and mixed outcomes reported honestly. One explanatory claim (selected lambda varies only mildly with width) is contradicted by the paper's own Fig. 3 and data, and there are several minor wording inaccuracies; all are text-only fixes, so the FIX verdict is borderline.",
+      "reran": [
+        {
+          "run": "TunedRidge/synth_n0.5/2",
+          "metric": "bump_rel",
+          "registry": 0.05979272967115946,
+          "rerun": 0.05979272967115946
+        },
+        {
+          "run": "MinNorm/digits_n0.3/3",
+          "metric": "log10_peak_mse",
+          "registry": 3.9499740396728114,
+          "rerun": 3.9499740396728114
+        },
+        {
+          "run": "GlobalRidge/synth_n0.5/2",
+          "metric": "bump_rel",
+          "registry": 0.018699048087104035,
+          "rerun": 0.018699048087104035
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex (H5 paragraph)",
+          "issue": "States that the selected lambda varies only mildly with width (Fig. 3) as the reason GlobalRidge matches per-width tuning, but Fig. 3 and results/raw/lam_*.csv show the mean selected log10 lambda changing by 2.3-2.7 dex across the grid on five of eight tasks (e.g. synth_n0 from -1.0 at N/n=0.05 to -3.7 at N/n=25); it is mild (0.1-0.9 dex) only inside the window 0.4<=N/n<=4.",
+          "fix": "Restrict the statement to the threshold window and give the numbers, or remove the explanation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "Says that for lambda>=1e-3 the median peak position is at or beyond the edges of the window; for lambda>=1e-1 the medians are 0.8, 1.25 and 2.0, which are interior.",
+          "fix": "Say the position is at the left edge (0.4) for 1e-3 and 1e-2 and at scattered interior positions for larger lambda."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "The claim that larger noise moves the best fixed lambda upward relies partly on digits_n0.3, where 0.0551 at 1e-2 versus 0.0554 at 1e-3 is a tie.",
+          "fix": "Describe digits_n0.3 as a tie or soften the sentence."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "Calls synth_n0.25 and synth_n1 the noisiest synthetic tasks; synth_n0.25 is the second-lowest noise level.",
+          "fix": "Reword; only synth_n1 is the noisiest, and val50 on synth_n0.25 is at the threshold with sd 0.089."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (H3 as registered)",
+          "issue": "proposal.md registered lambda in {0,...,1} without 10 and a refutation rule of an increase beyond 1 s.e.; the paper restates H3 with lambda up to 10 and plain non-increasing. The verdict is unchanged.",
+          "fix": "Quote the registered form and note that lambda=10 was added in the sweep."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex, limitations.tex",
+          "issue": "Says two smoke-test runs motivated the peak window, but only one sanity run is in the registry; the window edit to proposal.md was committed with the run scripts in the same second the main runs started.",
+          "fix": "State one logged smoke run and give the timing of the metric change."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results.tex (H2)",
+          "issue": "Within a seed the label-noise vector is the same draw scaled by sigma at every noise level, so monotonicity of the MinNorm peak in sigma is close to mechanical; this is not stated.",
+          "fix": "Disclose the shared noise realisation and describe H2 as five paired seeds."
+        },
+        {
+          "severity": "minor",
+          "where": "Table I, Table IV, results.tex",
+          "issue": "For the ridge systems log10_peak_mse is the error at the window's left edge (peak_pos 0.40), not a peak, so p_peak compares MinNorm's peak with an under-fit edge value; Table I bolds TunedRidge as best where it differs from GlobalRidge by far less than one sd.",
+          "fix": "Add a caption note that the ridge systems' window maximum is the left edge and that bold marks the lowest mean, not a significant difference."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex",
+          "issue": "Liu et al. (2110.06910) is grouped under high-dimensional asymptotic results, but that paper derives non-asymptotic bounds.",
+          "fix": "Reword to asymptotic or non-asymptotic theoretical results."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/citations.json (audit side effect)",
+          "issue": "Running the mandated rh lit verify rewrote the checked_at timestamp, leaving the working tree modified by one line.",
+          "fix": "git checkout paper/citations.json, or commit the refreshed timestamp."
+        }
+      ],
+      "commit": "5b799b4b06481c266a1feddc7ab69e96a9920340"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 481 runs have commands and logs whose metrics match the registry, two re-executed runs reproduce bit-identically, the code matches the described method with no leakage or hard-coded results, and every table recomputes from the registry. The paper reports its refuted and partly supported hypotheses honestly, citations are used in context, and the PDF is 6 pages and renders cleanly. Only minor wording and scope issues remain, mainly an abstract claim about leave-one-out tuning that rests on one seed and an 'or better' that the seeds do not support.",
+      "reran": [
+        {
+          "run": "TunedRidge/synth_n0.5/2",
+          "metric": "bump_rel",
+          "registry": 0.05979272967115946,
+          "rerun": 0.05979272967115946
+        },
+        {
+          "run": "MinNorm/digits_n0.3/3",
+          "metric": "peak_mse",
+          "registry": 8911.976644325661,
+          "rerun": 8911.976644325661
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "The claim that leave-one-out tuning does not remove the hump on the noisiest synthetic task rests on one seed (per-seed 0.018, 0.234, 0.011, 0.017, 0.021; mean 0.060 +/- 0.097 against a 0.05 threshold).",
+          "fix": "Say LOO exceeds the registered threshold only marginally in the mean and is driven by one seed; keep the val50 statement (0.155 +/- 0.113)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'A single global ridge removes the hump as well or better than per-width tuning' - the 'or better' is not supported at 5 seeds (paired p 0.08-0.37 in compare_main_bump_rel.csv).",
+          "fix": "Drop 'or better', matching the conclusion's 'did as well as'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'already very large without noise (factor of 10^3 to 10^5)': at zero noise the ratios are about 1.7e3 (synthetic) and 2.2e4 (digits); 1e5 is only reached at digits sigma=0.6.",
+          "fix": "Write '10^3 to 10^4' for the zero-noise case or state that the range covers all noise levels."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (b)",
+          "issue": "'lambda >= 10^-1 gives larger window maxima than 10^-3' is false for digits_n0.6 (0.0812, 0.0962, 0.0996 vs 0.104 in Table III).",
+          "fix": "Say 'on seven of eight tasks' or compare with the per-task minimum."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3) and results/RESULTS.md",
+          "issue": "'lowest mean peak at 10^-3 for six tasks' counts digits_n0.3, whose minimum is at 10^-2 (0.0551 vs 0.0554); RESULTS.md says the peak 'rises again for lambda>=1e-2', which is wrong for the three tasks whose minimum is at 1e-2.",
+          "fix": "Write 'five tasks plus a near-tie on digits_n0.3' and correct RESULTS.md to 'rises for lambda>=1e-1 on all tasks'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "States the window edit to proposal.md was committed together with the run scripts; git shows it in commit 11056fe (code and smoke run, 20:56:39), before the run-scripts commit cad5cbb (20:57:02). Still before all main runs.",
+          "fix": "State that the edit was committed with the method code, before the run-scripts commit recorded by the main runs."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "Does not mention that TunedRidge and GlobalRidge use 200 extra labelled validation points (as many as the training set) that MinNorm and FixedRidge do not use.",
+          "fix": "Add one sentence on the validation-label budget."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "The statement that classical learning theory predicts a U-shaped test error has no citation.",
+          "fix": "Attribute it to the existing Belkin et al. reference or add a textbook citation."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md, proposal.md",
+          "issue": "Stale details: 'each run 1-5 s' (actual 0.8-123 s) and digits d=64 (actual 55-58 after dropping constant pixels).",
+          "fix": "Update both documents to match the paper."
+        }
+      ],
+      "commit": "470fc2291d2a7edd724a2bf1c87d7cac520a9240"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on synth_n0.5: ours 0.0328 vs GlobalRidge 0.01471\nREADY",
+      "response": "# Response to audit\n- H5 lambda claim (major): restricted to the threshold window (0.1-0.9 dex), stated the 2.3-2.7 dex variation over the full grid, made the explanation \"may\".\n- H3 peak positions: reworded (left edge at 1e-3, 1e-2; scattered interior positions beyond).\n- H3 noise/lambda: digits_n0.3 described as a tie; sentence softened.\n- \"Noisiest tasks\": only synth_n1; synth_n0.25 described as at threshold with large sd.\n- H3 registration: registered form quoted, lambda=10 noted as added.\n- Smoke runs: now \"one logged smoke run\"; timing of the window edit stated.\n- H2: shared noise draw disclosed; five paired seeds.\n- Table I caption: ridge window max is the left edge; bold = lowest mean, not significant; p_peak caveat.\n- Related work: Liu et al. reworded to asymptotic or non-asymptotic.\n- citations.json: refreshed by rh lit verify and committed.\n",
+      "seconds": 47
+    }
+  ]
+}

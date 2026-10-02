@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:58:09 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task synth_n0.25 --seed 0 --system fixed --lam 10 --out results/raw/sweep_synth_n0.25_s0_l10.json --curve results/raw/curve_sweep_synth_n0.25_s0_l10.csv
+
+config: {"system": "fixed", "task": "synth_n0.25", "seed": 0, "lam": 10.0, "val_size": 200, "curve": "results/raw/curve_sweep_synth_n0.25_s0_l10.csv", "out": "results/raw/sweep_synth_n0.25_s0_l10.json"}
+metrics: {"test_mse": 0.6465851812870641, "train_mse_thresh": 0.6523944328900962, "peak_mse": 0.646632899410457, "log10_peak_mse": -0.18934220311304967, "peak_pos": 3.0, "best_mse": 0.6460778966856155, "final_mse": 0.6465694878591305, "bump_rel": 0.00018406953791331654, "peak_over_final": 1.0000980738381833}

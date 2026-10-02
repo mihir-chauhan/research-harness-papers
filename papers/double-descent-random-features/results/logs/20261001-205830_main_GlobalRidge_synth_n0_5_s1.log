@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:58:30 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task synth_n0.5 --seed 1 --system global --out results/raw/main_GlobalRidge_synth_n0.5_s1.json --curve results/raw/curve_main_GlobalRidge_synth_n0.5_s1.csv
+
+config: {"system": "global", "task": "synth_n0.5", "seed": 1, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_GlobalRidge_synth_n0.5_s1.csv", "out": "results/raw/main_GlobalRidge_synth_n0.5_s1.json"}
+metrics: {"test_mse": 0.25590400025347676, "train_mse_thresh": 0.2116725009724613, "peak_mse": 0.29920652786058305, "log10_peak_mse": -0.5240289355973371, "peak_pos": 0.4, "best_mse": 0.23472267498291463, "final_mse": 0.23638114360400236, "bump_rel": 0.03323633848063772, "peak_over_final": 1.2657800165390052, "log10_lam_thresh": -3.0, "log10_lam_final": -3.0}

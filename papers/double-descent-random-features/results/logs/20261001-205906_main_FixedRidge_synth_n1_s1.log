@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:59:06 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task synth_n1 --seed 1 --system fixed --lam 0.01 --out results/raw/main_FixedRidge_synth_n1_s1.json --curve results/raw/curve_main_FixedRidge_synth_n1_s1.csv
+
+config: {"system": "fixed", "task": "synth_n1", "seed": 1, "lam": 0.01, "val_size": 200, "curve": "results/raw/curve_main_FixedRidge_synth_n1_s1.csv", "out": "results/raw/main_FixedRidge_synth_n1_s1.json"}
+metrics: {"test_mse": 0.38560572289547146, "train_mse_thresh": 1.0879969047299682, "peak_mse": 0.4048476068079475, "log10_peak_mse": -0.39270842364277186, "peak_pos": 2.0, "best_mse": 0.3770286944499158, "final_mse": 0.40902157270269307, "bump_rel": 0.026795165746018722, "peak_over_final": 0.9897952426636932}

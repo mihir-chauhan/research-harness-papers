@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:46:06 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task vdp --seed 1 --noise 0.05 --ntrain 1000 --lam 0.3 --out results/raw/sweep_lam_vdp__sindy__SINDy_lam=0.3__vdp_noise0.05__lam0.3__1.json
+
+{'pred_nrmse': 0.008021152117091404, 'pred_nrmse_h5': 0.0014064850460885332, 'support_f1': 1.0, 'n_terms': 5.0, 'lqr_cost': 0.6351085796239819, 'lqr_fail': 0.0, 'mpc_cost': 1.3179806374637946, 'mpc_fail': 0.0, 'seconds': 0.8366129398345947}

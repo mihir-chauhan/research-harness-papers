@@ -1,0 +1,97 @@
+slug: double-descent-random-features
+direction: 'Double descent in random-features regression: sweep the number of random
+  ReLU features through the interpolation threshold on a synthetic regression task
+  and on scikit-learn''s digits (as regression to one-hot labels). How do label noise
+  and ridge regularisation change the height and position of the test-error peak,
+  and does optimally tuned ridge remove it?'
+problem: Test-error peak of random-ReLU-features ridge regression at the interpolation
+  threshold, and its dependence on label noise and ridge.
+gap: Small reproducible finite-sample measurement of peak height/position vs noise
+  and ridge, and of whether tuned ridge removes the peak, on synthetic and digits
+  regression.
+contribution: Empirical, pre-registered study (n=200, 5 seeds) of peak height, position
+  and a bump statistic under label noise and ridge, comparing min-norm, fixed, global-tuned
+  and per-width tuned ridge.
+hypotheses:
+- id: H1
+  statement: Min-norm peak lies at N/n in [0.9,1.1]
+  test: median peak_pos per noisy task
+- id: H2
+  statement: Peak height of min-norm grows with label noise
+  test: mean peak_mse strictly increasing in noise; paired Wilcoxon lowest vs highest
+- id: H3
+  statement: Larger fixed ridge lowers the peak
+  test: mean peak_mse non-increasing in lambda
+- id: H4
+  statement: Per-width tuned ridge removes the peak
+  test: mean bump_rel<0.05 on every task and below MinNorm (rh compare)
+- id: H5
+  statement: Other tuning protocols also remove the bump (exploratory)
+  test: mean bump_rel<0.05
+method:
+  name: TunedRidge
+  summary: Random ReLU features ridge regression with the ridge strength chosen per
+    width on a held-out validation set.
+  components:
+  - per-width validation tuning
+  entrypoint: method/run.py
+tasks:
+- synth_n0
+- synth_n0.25
+- synth_n0.5
+- synth_n1
+- digits_n0
+- digits_n0.15
+- digits_n0.3
+- digits_n0.6
+metrics:
+  test_mse:
+    higher_is_better: false
+  peak_mse:
+    higher_is_better: false
+  peak_pos:
+    higher_is_better: false
+  best_mse:
+    higher_is_better: false
+  final_mse:
+    higher_is_better: false
+  bump_rel:
+    higher_is_better: false
+  log10_peak_mse:
+    higher_is_better: false
+  acc_final:
+    higher_is_better: true
+  acc_best:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- MinNorm
+- FixedRidge
+- GlobalRidge
+ablations:
+- TunedRidge-LOO
+- TunedRidge-val50
+- FixedRidge-sweep
+ambition:
+  target_tier: 2
+  primary_metric: bump_rel
+  primary_task: synth_n0.5
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

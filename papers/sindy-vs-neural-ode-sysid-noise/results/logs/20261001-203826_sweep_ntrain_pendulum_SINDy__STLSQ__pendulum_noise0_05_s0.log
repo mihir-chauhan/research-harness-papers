@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:38:26 2026
+# cwd: .
+# cmd: python method/run.py --system sindy --task pendulum --seed 0 --noise 0.05 --ntrain 1000 --out results/raw/sweep_ntrain_pendulum__sindy__SINDy_STLSQ__pendulum_noise0.05__ntrain1000__0.json
+
+{'pred_nrmse': 0.1474304421949042, 'pred_nrmse_h5': 0.0413058290638313, 'support_f1': 0.3076923076923077, 'n_terms': 22.0, 'lqr_cost': 1.1992141946546298, 'lqr_fail': 0.0, 'mpc_cost': 2.3421662002926857, 'mpc_fail': 0.0, 'seconds': 0.7368872165679932}

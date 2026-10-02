@@ -1,0 +1,12 @@
+\begin{tabular}{lccccccc}\toprule
+System & s0 & s1 & s2 & s3 & s4 & mean & med. \\\midrule
+\multicolumn{8}{l}{\emph{noise 0.1, 1000 transitions (group main)}} \\
+SINDy & 0.048 & 0.048 & 1.748 & 0.065 & 0.036 & 0.389 & 0.048 \\
+MLP & 0.433 & 0.323 & 0.283 & 0.253 & 0.230 & 0.304 & 0.283 \\
+DMDc & 0.425 & 0.350 & 0.406 & 0.375 & 0.386 & 0.388 & 0.386 \\
+\midrule
+\multicolumn{8}{l}{\emph{noise 0.05, 200 transitions (group sweep\_ntrain\_vdp)}} \\
+SINDy & 0.133 & 4.965 & 0.289 & 0.138 & 15.425 & 4.190 & 0.289 \\
+MLP & 0.258 & 0.485 & 0.380 & 0.259 & 0.281 & 0.333 & 0.281 \\
+DMDc & 0.324 & 0.369 & 0.412 & 0.360 & 0.324 & 0.358 & 0.360 \\
+\bottomrule\end{tabular}

@@ -1,0 +1,25 @@
+\textbf{Model.} Given $x\in\mathbb R^d$ and a fixed matrix $W\in\mathbb R^{d\times N}$ with i.i.d.\ $\mathcal N(0,1)$ entries, the features are $\varphi_N(x)=N^{-1/2}\,\mathrm{relu}(W^\top x/\sqrt d)\in\mathbb R^N$ and the predictor is $f(x)=\varphi_N(x)^\top a$ (no intercept). The $1/\sqrt N$ scaling keeps the kernel $\varphi_N(x)^\top\varphi_N(x')$ of order one for every $N$, so that a ridge value has a comparable meaning at all widths. Widths are nested: $W_N$ is the first $N$ columns of one matrix with $5000$ columns.
+
+\textbf{Ridge.} With $\Phi\in\mathbb R^{n\times N}$ the training feature matrix and $y\in\mathbb R^{n\times q}$ the targets,
+\begin{equation}
+\hat a_\lambda=\arg\min_a\ \tfrac1n\|y-\Phi a\|_2^2+\lambda\|a\|_2^2=\Phi^\top(\Phi\Phi^\top+n\lambda I)^{-1}y .
+\end{equation}
+With the SVD $\Phi=U\,\mathrm{diag}(s)\,V^\top$ this is $\hat a_\lambda=V\,\mathrm{diag}\!\big(s_i/(s_i^2+n\lambda)\big)U^\top y$, so every $\lambda$ at a given width costs one SVD. For $\lambda=0$ we use the minimum-norm solution $\hat a_0=\Phi^{+}y$, dropping singular values below $10^{-10}s_{\max}$. At $N=n$ this is the interpolator through a nearly singular square matrix.
+
+\textbf{Systems (all reimplemented here).}
+\emph{MinNorm}: $\lambda=0$ at every width (ridgeless interpolation as analysed in~\cite{hastie2019surprises}).
+\emph{FixedRidge}: $\lambda=10^{-2}$ at every width, chosen a priori; the sweep varies it.
+\emph{GlobalRidge}: one $\lambda$ for all widths, $\hat\lambda=\arg\min_{\lambda\in\Lambda}\frac1{|\mathcal N|}\sum_N \mathrm{MSE}_{\rm val}(N,\lambda)$.
+\emph{TunedRidge} (the method under test): a separate $\lambda$ per width, $\hat\lambda(N)=\arg\min_{\lambda\in\Lambda}\mathrm{MSE}_{\rm val}(N,\lambda)$ on a held-out validation set of 200 labelled (noisy) points, the 15 values $\Lambda=\{10^{k/2}: k=-12,\dots,2\}$.
+Ablations: \emph{TunedRidge-val50} uses only the first 50 validation points; \emph{TunedRidge-LOO} uses no validation data and minimises the closed-form leave-one-out error on the training set,
+\begin{equation}
+\mathrm{LOO}(\lambda)=\tfrac1n\textstyle\sum_i\big(r_i/(1-H_{ii})\big)^2,
+\end{equation}
+where $H=U\,\mathrm{diag}\big(s^2/(s^2+n\lambda)\big)U^\top$ and $r=y-Hy$.
+
+
+\textbf{Metrics.} Test error is $\mathrm{MSE}(N)=\frac1{m q}\|f_N(X_{\rm te})-Y^{\rm clean}_{\rm te}\|^2$ against \emph{clean} targets. Label noise perturbs only training and validation labels. For one run (one system, task, seed) the sweep gives the curve $m_1,\dots,m_{24}$ over $N/n$. We report: \emph{peak} $=\max$ of $\mathrm{MSE}$ over the threshold window $0.4\le N/n\le4$ (peak\_mse, and its $\log_{10}$) and \emph{peak position} $=N/n$ at that maximum; \emph{final} $=\mathrm{MSE}(N/n{=}25)$. The \emph{hump} is
+\begin{equation}
+b=\max_{p}\ \min\Big(m_p-\min_{j<p}m_j,\ m_p-\min_{j>p}m_j\Big),
+\end{equation}
+and $\texttt{bump\_rel}=b/\min_j m_j$, over the full grid: it is positive only if the curve rises and then falls, so a monotone decrease or a pure U-shape gives zero. The window was introduced after one logged smoke-test run showed that for tuned ridge the global maximum is the under-fitted left edge $N/n=0.05$, not a peak; the window edit to \texttt{proposal.md} was committed together with the run scripts, at the time the main runs started.
