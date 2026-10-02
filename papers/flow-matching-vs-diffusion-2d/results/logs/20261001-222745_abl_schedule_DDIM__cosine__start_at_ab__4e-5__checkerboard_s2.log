@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:27:45 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task checkerboard --seed 2 --out results/raw/abl_schedule_ddimschedcosinestart_ab4e-5_checkerboard_s2.json --sched cosine --start_ab 4e-5
+
+CONFIG {"system": "ddim", "task": "checkerboard", "seed": 2, "out": "results/raw/abl_schedule_ddimschedcosinestart_ab4e-5_checkerboard_s2.json", "sched": "cosine", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "start_ab": 4e-05, "nref": 10000, "nmmd": 3000}
+loaded diff_cosine
+DDIM start index 994 alpha_bar 6.071799361961894e-05
+METRICS {"sw_k1": 2.9138925075531006, "mmd_k1": 0.18701843917369843, "sw_k2": 0.4824043810367584, "mmd_k2": 0.040711939334869385, "sw_k4": 0.24576693773269653, "mmd_k4": 0.017720282077789307, "sw_k8": 0.3250311315059662, "mmd_k8": 0.03534281253814697, "sw_k16": 0.3037412166595459, "mmd_k16": 0.03814584016799927, "sw_k32": 0.18797025084495544, "mmd_k32": 0.017437756061553955, "sw_k64": 0.11689670383930206, "mmd_k64": 0.00810176134109497, "sw_k100": 0.08886636048555374, "mmd_k100": 0.006332993507385254, "straight": 0.5625207424163818, "train_plus_eval_s": 7.53544807434082}

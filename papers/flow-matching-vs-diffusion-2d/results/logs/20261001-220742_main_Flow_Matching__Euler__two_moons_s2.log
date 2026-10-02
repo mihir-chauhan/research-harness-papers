@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:07:42 2026
+# cwd: .
+# cmd: python method/run.py --system fm_euler --task two_moons --seed 2 --out results/raw/main_fm_euler_two_moons_s2.json
+
+CONFIG {"system": "fm_euler", "task": "two_moons", "seed": 2, "out": "results/raw/main_fm_euler_two_moons_s2.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained fm
+METRICS {"sw_k1": 1.1443138122558594, "mmd_k1": 0.5556625127792358, "sw_k2": 0.5875581502914429, "mmd_k2": 0.07856780290603638, "sw_k4": 0.25251305103302, "mmd_k4": 0.013097107410430908, "sw_k8": 0.1201518103480339, "mmd_k8": 0.002915620803833008, "sw_k16": 0.057793792337179184, "mmd_k16": 0.0011318325996398926, "sw_k32": 0.03702513873577118, "mmd_k32": 0.0008297562599182129, "sw_k64": 0.020039934664964676, "mmd_k64": 0.0005357265472412109, "sw_k100": 0.03422544524073601, "mmd_k100": 0.0008344054222106934, "straight": 0.676437497138977, "train_plus_eval_s": 48.56299185752869}

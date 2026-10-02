@@ -1,0 +1,26 @@
+\begin{tabular}{llcc}
+\toprule
+Method & Task & val\_average\_accuracy $\uparrow$ & $n$ \\
+\midrule
+Fine-tuning lr0.01 & perm\_dil & 0.49 $\pm$ 0.04 & 2 \\
+Fine-tuning lr0.1 & perm\_dil & 0.55 $\pm$ 0.01 & 2 \\
+Joint training lr0.05 & perm\_dil & \underline{0.94 $\pm$ 0.02} & 2 \\
+Joint training lr0.1 & perm\_dil & \textbf{0.96 $\pm$ 0.01} & 2 \\
+Fine-tuning lr0.05 & perm\_dil & 0.53 $\pm$ 0.01 & 2 \\
+Joint training lr0.01 & perm\_dil & 0.80 $\pm$ 0.01 & 2 \\
+\midrule
+Fine-tuning lr0.01 & split\_cil & 0.20 $\pm$ 0.00 & 2 \\
+Fine-tuning lr0.1 & split\_cil & 0.20 $\pm$ 0.00 & 2 \\
+Joint training lr0.05 & split\_cil & \underline{0.94 $\pm$ 0.01} & 2 \\
+Joint training lr0.1 & split\_cil & \textbf{0.95 $\pm$ 0.01} & 2 \\
+Fine-tuning lr0.05 & split\_cil & 0.20 $\pm$ 0.00 & 2 \\
+Joint training lr0.01 & split\_cil & 0.77 $\pm$ 0.02 & 2 \\
+\midrule
+Fine-tuning lr0.01 & split\_til & 0.93 $\pm$ 0.01 & 2 \\
+Fine-tuning lr0.1 & split\_til & 0.91 $\pm$ 0.06 & 2 \\
+Joint training lr0.05 & split\_til & \underline{0.99 $\pm$ 0.00} & 2 \\
+Joint training lr0.1 & split\_til & \textbf{0.99 $\pm$ 0.00} & 2 \\
+Fine-tuning lr0.05 & split\_til & 0.92 $\pm$ 0.04 & 2 \\
+Joint training lr0.01 & split\_til & 0.96 $\pm$ 0.01 & 2 \\
+\bottomrule
+\end{tabular}

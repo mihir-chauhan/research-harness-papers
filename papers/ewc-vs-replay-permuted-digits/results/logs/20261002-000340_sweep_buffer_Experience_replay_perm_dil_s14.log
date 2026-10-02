@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:03:40 2026
+# cwd: .
+# cmd: python method/run.py --system replay --buffer 10 --task perm_dil --seed 14 --out results/raw/sweep_buffer_Experiencereplay_10_perm_dil_14.json
+
+config: {"system": "replay", "task": "perm_dil", "seed": 14, "lam": 0.0, "buffer": 10, "lr": 0.1, "epochs": 30, "out": "results/raw/sweep_buffer_Experiencereplay_10_perm_dil_14.json", "curve": null}
+metrics: {"average_accuracy": 0.574444442987442, "forgetting": 0.48055555671453476, "backward_transfer": -0.48055555671453476, "last_task_accuracy": 0.9611111283302307, "mean_seen_accuracy": 0.7698425908883413, "acc_matrix": [[0.9556, 0.0667, 0.075, 0.0833, 0.1083], [0.8556, 0.9583, 0.0917, 0.1333, 0.0806], [0.6528, 0.675, 0.9611, 0.0944, 0.0861], [0.5083, 0.5444, 0.5861, 0.9583, 0.0583], [0.3778, 0.4611, 0.4583, 0.6139, 0.9611]], "val_average_accuracy": 0.5676880240440368, "val_forgetting": 0.5048746466636658}

@@ -1,0 +1,140 @@
+{
+  "slug": "ewc-vs-replay-permuted-digits",
+  "direction": "Continual learning on a sequence of permuted-pixel and split-class tasks built from scikit-learn digits: naive fine-tuning versus elastic weight consolidation versus a small experience-replay buffer versus joint training (upper bound). Measure average accuracy and forgetting after each task, and how replay buffer size compares with EWC's regularisation strength.",
+  "created": "2026-10-01T18:40:21",
+  "updated": "2026-10-02T00:23:07",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T21:46:19",
+      "finished": "2026-10-01T21:53:18",
+      "notes": [
+        {
+          "t": "2026-10-01T21:53:18",
+          "note": "landscape, proposal, 10 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:54:23",
+      "notes": [
+        {
+          "t": "2026-10-01T21:54:23",
+          "note": "run.py smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T21:54:23",
+      "finished": "2026-10-01T22:35:21",
+      "notes": [
+        {
+          "t": "2026-10-01T22:35:21",
+          "note": "reimplemented"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:35:21",
+      "notes": [
+        {
+          "t": "2026-10-01T22:35:21",
+          "note": "main 75 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:35:21",
+      "notes": [
+        {
+          "t": "2026-10-01T22:35:21",
+          "note": "sweeps"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T22:35:22",
+      "finished": "2026-10-01T22:38:17",
+      "notes": [
+        {
+          "t": "2026-10-01T22:38:17",
+          "note": "RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:38:17",
+      "notes": [
+        {
+          "t": "2026-10-01T22:38:17",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:38:18",
+      "notes": [
+        {
+          "t": "2026-10-01T22:38:18",
+          "note": "5 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T21:53:19",
+      "phase": "novelty",
+      "decision": "Seeds: main 0-4, sweeps 10-14, lr tuning 100-101; lambda* from validation accuracy of sweep seeds; grad clip 5 for all systems because large-lambda EWC diverged to NaN with plain SGD"
+    },
+    {
+      "t": "2026-10-01T21:59:11",
+      "phase": "setup",
+      "decision": "lr=0.1 chosen on val (seeds 100,101) from tune_lr; used by all systems"
+    },
+    {
+      "t": "2026-10-01T22:30:14",
+      "phase": "experiments",
+      "decision": "lambda* from sweep val_average_accuracy (seeds 10-14): perm_dil 10, split_cil 1000, split_til 1000; ER M=20 and M=100 fixed a priori"
+    },
+    {
+      "t": "2026-10-01T23:58:52",
+      "phase": "ablations",
+      "decision": "Audit fix round: sweep logs collided (rh log names carry no config value and two workers started in the same second). Re-running both sweep groups with the committed job list experiments/jobs.py and a driver that serialises jobs sharing a log stem; earlier sweep rows are superseded (kept in the registry), not deleted."
+    },
+    {
+      "t": "2026-10-02T00:23:07",
+      "phase": "paper",
+      "decision": "fix round: sweeps re-run for one log per row (identical metrics), main table cut to four test metrics in table*, last-task sweep table added to support the plasticity claim, derived difference 0.143 replaced by table values"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

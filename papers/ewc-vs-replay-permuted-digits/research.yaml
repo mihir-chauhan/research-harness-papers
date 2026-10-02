@@ -1,0 +1,85 @@
+slug: ewc-vs-replay-permuted-digits
+direction: 'Continual learning on a sequence of permuted-pixel and split-class tasks
+  built from scikit-learn digits: naive fine-tuning versus elastic weight consolidation
+  versus a small experience-replay buffer versus joint training (upper bound). Measure
+  average accuracy and forgetting after each task, and how replay buffer size compares
+  with EWC''s regularisation strength.'
+problem: How do regularisation (EWC) and a small replay buffer compare against fine-tuning
+  and joint training on small continual-learning sequences built from sklearn digits?
+gap: Controlled same-budget comparison with a joint sweep of EWC strength and buffer
+  size across domain-, class- and task-incremental scenarios on CPU-scale data.
+contribution: Small reproducible comparison and sensitivity sweeps; no new algorithm.
+hypotheses:
+- id: H1
+  statement: On perm_dil, ER M=100 beats EWC in average accuracy
+  test: rh compare, paired over 5 seeds, alpha 0.05
+- id: H2
+  statement: On split_cil EWC gains <=0.05 over fine-tuning while ER M=100 gains >0.2
+  test: mean differences main group
+- id: H3
+  statement: On split_til fine-tuning is within 0.10 of joint
+  test: mean difference main group
+- id: H4
+  statement: Replay accuracy rises with M; EWC accuracy vs lambda is inverted-U on
+    perm_dil and split_cil
+  test: sweep_buffer and sweep_lambda means
+- id: H5
+  statement: Joint upper-bounds all continual systems
+  test: main group means
+method:
+  name: Experience replay (M=100)
+  summary: Reimplemented experience replay with an equal-share episodic buffer, compared
+    with reimplemented EWC, fine-tuning and joint training.
+  components:
+  - episodic buffer
+  entrypoint: method/run.py
+tasks:
+- perm_dil
+- split_cil
+- split_til
+metrics:
+  average_accuracy:
+    higher_is_better: true
+  forgetting:
+    higher_is_better: false
+  backward_transfer:
+    higher_is_better: true
+  last_task_accuracy:
+    higher_is_better: true
+  mean_seen_accuracy:
+    higher_is_better: true
+  val_average_accuracy:
+    higher_is_better: true
+  val_forgetting:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Fine-tuning
+- EWC
+- Joint training
+ablations:
+- Experience replay
+- EWC
+ambition:
+  target_tier: 2
+  primary_metric: average_accuracy
+  primary_task: perm_dil
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

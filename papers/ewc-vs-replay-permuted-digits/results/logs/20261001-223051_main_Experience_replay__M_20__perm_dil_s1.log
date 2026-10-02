@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:30:51 2026
+# cwd: .
+# cmd: python method/run.py --system replay --buffer 20 --task perm_dil --seed 1 --out 'results/raw/main_Experiencereplay(M=20)_20_perm_dil_1.json' --curve 'results/raw/curve_main_Experiencereplay(M=20)_20_perm_dil_1.csv'
+
+config: {"system": "replay", "task": "perm_dil", "seed": 1, "lam": 0.0, "buffer": 20, "lr": 0.1, "epochs": 30, "out": "results/raw/main_Experiencereplay(M=20)_20_perm_dil_1.json", "curve": "results/raw/curve_main_Experiencereplay(M=20)_20_perm_dil_1.csv"}
+metrics: {"average_accuracy": 0.6711111187934875, "forgetting": 0.37013886868953705, "backward_transfer": -0.37013886868953705, "last_task_accuracy": 0.9833333492279053, "mean_seen_accuracy": 0.8061666582028071, "acc_matrix": [[0.9472, 0.0944, 0.1083, 0.1222, 0.1083], [0.7667, 0.9667, 0.0417, 0.0833, 0.075], [0.6778, 0.7972, 0.9667, 0.1083, 0.0417], [0.5611, 0.6861, 0.7083, 0.9722, 0.0472], [0.5861, 0.5389, 0.4556, 0.7917, 0.9833]], "val_average_accuracy": 0.6774373292922974, "val_forgetting": 0.35654595494270325}

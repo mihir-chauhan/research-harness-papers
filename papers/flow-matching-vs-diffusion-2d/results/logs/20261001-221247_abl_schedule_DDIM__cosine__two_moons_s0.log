@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:12:47 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task two_moons --seed 0 --out results/raw/abl_schedule_ddimschedcosine_two_moons_s0.json --sched cosine
+
+CONFIG {"system": "ddim", "task": "two_moons", "seed": 0, "out": "results/raw/abl_schedule_ddimschedcosine_two_moons_s0.json", "sched": "cosine", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained diff_cosine
+METRICS {"sw_k1": 654.068115234375, "mmd_k1": 0.246022567152977, "sw_k2": 110.43587493896484, "mmd_k2": 0.24549990892410278, "sw_k4": 63.782737731933594, "mmd_k4": 0.24584507942199707, "sw_k8": 32.05861282348633, "mmd_k8": 0.24317152798175812, "sw_k16": 15.95583724975586, "mmd_k16": 0.2353268414735794, "sw_k32": 7.561073303222656, "mmd_k32": 0.2111642062664032, "sw_k64": 3.5753281116485596, "mmd_k64": 0.16808485984802246, "sw_k100": 2.178090810775757, "mmd_k100": 0.13795334100723267, "straight": 0.22372767329216003, "train_plus_eval_s": 32.97674918174744}

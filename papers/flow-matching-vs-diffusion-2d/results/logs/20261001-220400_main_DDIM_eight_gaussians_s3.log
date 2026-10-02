@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:04:00 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task eight_gaussians --seed 3 --out results/raw/main_ddim_eight_gaussians_s3.json
+
+CONFIG {"system": "ddim", "task": "eight_gaussians", "seed": 3, "out": "results/raw/main_ddim_eight_gaussians_s3.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained diff_linear
+METRICS {"sw_k1": 3.867920398712158, "mmd_k1": 0.18670618534088135, "sw_k2": 0.6787747144699097, "mmd_k2": 0.14819058775901794, "sw_k4": 0.28188836574554443, "mmd_k4": 0.04006579518318176, "sw_k8": 0.07921932637691498, "mmd_k8": 0.005097389221191406, "sw_k16": 0.052178673446178436, "mmd_k16": 0.003369450569152832, "sw_k32": 0.047204047441482544, "mmd_k32": 0.0016744136810302734, "sw_k64": 0.03813010826706886, "mmd_k64": 0.001751720905303955, "sw_k100": 0.04242204129695892, "mmd_k100": 0.0016810894012451172, "straight": 0.7646574974060059, "train_plus_eval_s": 39.51321220397949}

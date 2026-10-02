@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:05:03 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task two_moons --seed 3 --out results/raw/main_ddim_two_moons_s3.json
+
+CONFIG {"system": "ddim", "task": "two_moons", "seed": 3, "out": "results/raw/main_ddim_two_moons_s3.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained diff_linear
+METRICS {"sw_k1": 4.017366886138916, "mmd_k1": 0.18375444412231445, "sw_k2": 0.5013614296913147, "mmd_k2": 0.09587985277175903, "sw_k4": 0.2326384335756302, "mmd_k4": 0.02573263645172119, "sw_k8": 0.10598569363355637, "mmd_k8": 0.005207836627960205, "sw_k16": 0.05442613363265991, "mmd_k16": 0.002078145742416382, "sw_k32": 0.045300550758838654, "mmd_k32": 0.0010929703712463379, "sw_k64": 0.025532472878694534, "mmd_k64": 0.0010131597518920898, "sw_k100": 0.023888012394309044, "mmd_k100": 0.0006047487258911133, "straight": 0.8130645751953125, "train_plus_eval_s": 40.356549978256226}

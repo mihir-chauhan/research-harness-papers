@@ -1,0 +1,135 @@
+{
+  "slug": "flow-matching-vs-diffusion-2d",
+  "direction": "Flow matching versus denoising diffusion on 2D toy distributions (eight Gaussians, two moons, checkerboard) with the same small MLP: sample quality as a function of the number of sampling steps (1 to 100), measured with a sliced Wasserstein distance and an MMD against held-out samples. Does the straighter path of flow matching give better few-step samples, and what does a rectified-flow style reflow step add?",
+  "created": "2026-10-01T18:40:39",
+  "updated": "2026-10-02T00:19:54",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T21:46:50",
+      "finished": "2026-10-01T21:53:21",
+      "notes": [
+        {
+          "t": "2026-10-01T21:53:21",
+          "note": "landscape, proposal, 13 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:47",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:47",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:47",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:47",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:31:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:31:48",
+          "note": "6 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T21:53:34",
+      "phase": "setup",
+      "decision": "Training budget cut to 3000 it x 512 (from 5000) to fit ~30 min total; shared by all systems. 5 seeds main, 3 seeds ablations. Checkpoints cached so sampler variants share one trained model; the reflow teacher is the seed's FM model."
+    },
+    {
+      "t": "2026-10-01T22:25:43",
+      "phase": "experiments",
+      "decision": "Driver partitions A and B were accidentally started twice concurrently (4 processes for ~15 min, briefly over the 2-process limit); each (system,task,seed) was logged twice with bit-identical metrics (deterministic seeds), and one duplicate row failed from a file race. Kept the earliest ok row per key, moved the 89 other rows to results/runs_duplicates_removed.jsonl so n=5 seeds, not 10."
+    },
+    {
+      "t": "2026-10-01T22:30:44",
+      "phase": "results",
+      "decision": "H2 was registered as 'ratio closer to 1'; I apply it literally as |r-1| on seed-mean ratios and also disclose the log-ratio reading because the moons case flips sign. Earlier decision text said 89 duplicate rows removed; the correct count is 88."
+    },
+    {
+      "t": "2026-10-02T00:19:54",
+      "phase": "paper",
+      "decision": "Audit round: intro gap restated as a controlled 2D replication (Lipman et al. use one architecture for all compared models); exploratory paired tests (K=100 gap, MMD@4, ancestral, Heun at equal NFE) added as a separate table computed by experiments/analyze.py and marked not registered; no new experiment runs."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

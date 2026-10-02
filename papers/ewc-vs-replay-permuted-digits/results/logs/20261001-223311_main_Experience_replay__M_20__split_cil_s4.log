@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:33:11 2026
+# cwd: .
+# cmd: python method/run.py --system replay --buffer 20 --task split_cil --seed 4 --out 'results/raw/main_Experiencereplay(M=20)_20_split_cil_4.json' --curve 'results/raw/curve_main_Experiencereplay(M=20)_20_split_cil_4.csv'
+
+config: {"system": "replay", "task": "split_cil", "seed": 4, "lam": 0.0, "buffer": 20, "lr": 0.1, "epochs": 30, "out": "results/raw/main_Experiencereplay(M=20)_20_split_cil_4.json", "curve": "results/raw/curve_main_Experiencereplay(M=20)_20_split_cil_4.csv"}
+metrics: {"average_accuracy": 0.7044965267181397, "forgetting": 0.35206444561481476, "backward_transfer": -0.35206444561481476, "last_task_accuracy": 0.9722222089767456, "mean_seen_accuracy": 0.8317508039871851, "acc_matrix": [[1.0, 0.0, 0.0, 0.0, 0.0], [0.9718, 0.9859, 0.0, 0.0, 0.0], [0.831, 0.4507, 0.9726, 0.0, 0.0], [0.8732, 0.3239, 0.6986, 1.0, 0.0], [0.7887, 0.2958, 0.7397, 0.726, 0.9722]], "val_average_accuracy": 0.7397104859352112, "val_forgetting": 0.300909623503685}

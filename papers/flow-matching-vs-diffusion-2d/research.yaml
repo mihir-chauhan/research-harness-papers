@@ -1,0 +1,121 @@
+slug: flow-matching-vs-diffusion-2d
+direction: 'Flow matching versus denoising diffusion on 2D toy distributions (eight
+  Gaussians, two moons, checkerboard) with the same small MLP: sample quality as a
+  function of the number of sampling steps (1 to 100), measured with a sliced Wasserstein
+  distance and an MMD against held-out samples. Does the straighter path of flow matching
+  give better few-step samples, and what does a rectified-flow style reflow step add?'
+problem: At few sampling steps, do flow-matching ODE samplers beat DDIM/DDPM samplers
+  built on the same MLP on 2D toy densities, and what does one reflow round add?
+gap: Published flow-versus-diffusion comparisons are mostly image benchmarks scored
+  by FID or likelihood on a shared architecture; a small controlled 2D replication
+  can add held-out SW/MMD over 1 to 100 steps, a DDIM sampler baseline and seed variance.
+contribution: A controlled, reproducible CPU comparison (3 tasks, 5 seeds) of reimplemented
+  DDPM/DDIM, conditional flow matching and one-round reflow, with SW and MMD as a
+  function of steps, an NFE-matched Heun comparison and ablations on diffusion schedule
+  and reflow teacher/rounds.
+hypotheses:
+- id: H1
+  statement: At K=4 Euler steps, flow matching has lower sliced Wasserstein than DDIM
+    on each of the three tasks.
+  test: Paired t-test over 5 seeds per task on sw_k4, FM-Euler vs DDIM, alpha 0.05
+    uncorrected; refuted if DDIM is not worse on >=2 tasks.
+- id: H2
+  statement: 'The FM advantage shrinks with steps: the ratio SW(DDIM)/SW(FM) is closer
+    to 1 at K=100 than at K=4.'
+  test: Ratio of seed-mean SW per task at K=4 and K=100; refuted if the ratio at K=100
+    is farther from 1 on >=2 tasks.
+- id: H3
+  statement: One reflow round lowers 1-step SW versus FM-Euler on each task, with
+    no improvement at K=100.
+  test: Paired t-test over 5 seeds on sw_k1 (Reflow vs FM-Euler) and sw_k100, alpha
+    0.05 uncorrected.
+- id: H4
+  statement: Flow-matching trajectories are straighter (higher chord/arc ratio) than
+    DDIM trajectories, and reflow is straighter still.
+  test: Paired t-test on the straight metric (100-step ODE paths), FM vs DDIM and
+    Reflow vs FM, per task, alpha 0.05.
+method:
+  name: Flow Matching (Euler)
+  summary: Conditional flow matching with linear paths, MLP velocity field, Euler
+    sampler; compared with DDIM / DDPM ancestral on the same MLP and one-round reflow.
+  components:
+  - linear interpolation path
+  - velocity regression
+  - Euler sampler
+  - reflow
+  entrypoint: method/run.py
+tasks:
+- eight_gaussians
+- two_moons
+- checkerboard
+metrics:
+  sw_k1:
+    higher_is_better: false
+  mmd_k1:
+    higher_is_better: false
+  sw_k2:
+    higher_is_better: false
+  mmd_k2:
+    higher_is_better: false
+  sw_k4:
+    higher_is_better: false
+  mmd_k4:
+    higher_is_better: false
+  sw_k8:
+    higher_is_better: false
+  mmd_k8:
+    higher_is_better: false
+  sw_k16:
+    higher_is_better: false
+  mmd_k16:
+    higher_is_better: false
+  sw_k32:
+    higher_is_better: false
+  mmd_k32:
+    higher_is_better: false
+  sw_k64:
+    higher_is_better: false
+  mmd_k64:
+    higher_is_better: false
+  sw_k100:
+    higher_is_better: false
+  mmd_k100:
+    higher_is_better: false
+  straight:
+    higher_is_better: true
+  train_plus_eval_s:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- DDIM (reimplemented)
+- DDPM ancestral (reimplemented)
+- Flow Matching (Heun)
+- Reflow-1 (Euler)
+ablations:
+- DDIM (cosine)
+- DDIM (cosine, start at ab>=4e-5)
+- Reflow-1 (teacher 4 steps)
+- Reflow-2 (Euler)
+ambition:
+  target_tier: 2
+  primary_metric: sw_k4
+  primary_task: two_moons
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

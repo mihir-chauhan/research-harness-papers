@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:56:24 2026
+# cwd: .
+# cmd: python method/run.py --system joint --lr 0.05 --task perm_dil --seed 100 --out results/raw/tune_lr_Jointtraininglr0.05_perm_dil_100.json
+
+config: {"system": "joint", "task": "perm_dil", "seed": 100, "lam": 0.0, "buffer": 0, "lr": 0.05, "epochs": 30, "out": "results/raw/tune_lr_Jointtraininglr0.05_perm_dil_100.json", "curve": null}
+metrics: {"average_accuracy": 0.9561111211776734, "forgetting": 0.008333325386047363, "backward_transfer": 0.0034722238779067993, "last_task_accuracy": 0.9555555582046509, "mean_seen_accuracy": 0.9526111141840617, "acc_matrix": [[0.9611, 0.1722, 0.1139, 0.1083, 0.0944], [0.9417, 0.9278, 0.0944, 0.1167, 0.0806], [0.9278, 0.9694, 0.9528, 0.1167, 0.0139], [0.95, 0.9667, 0.9583, 0.9694, 0.05], [0.9472, 0.9694, 0.9556, 0.9528, 0.9556]], "val_average_accuracy": 0.961002779006958, "val_forgetting": 0.0006963908672332764}

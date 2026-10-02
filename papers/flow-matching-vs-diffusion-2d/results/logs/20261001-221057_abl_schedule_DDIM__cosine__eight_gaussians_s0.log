@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:10:57 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task eight_gaussians --seed 0 --out results/raw/abl_schedule_ddimschedcosine_eight_gaussians_s0.json --sched cosine
+
+CONFIG {"system": "ddim", "task": "eight_gaussians", "seed": 0, "out": "results/raw/abl_schedule_ddimschedcosine_eight_gaussians_s0.json", "sched": "cosine", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained diff_cosine
+METRICS {"sw_k1": 540.8082885742188, "mmd_k1": 0.25635308027267456, "sw_k2": 59.64647674560547, "mmd_k2": 0.2504068911075592, "sw_k4": 39.39892578125, "mmd_k4": 0.2552589774131775, "sw_k8": 18.769521713256836, "mmd_k8": 0.24690453708171844, "sw_k16": 8.659005165100098, "mmd_k16": 0.21927028894424438, "sw_k32": 3.8221445083618164, "mmd_k32": 0.15897102653980255, "sw_k64": 1.6500694751739502, "mmd_k64": 0.09460392594337463, "sw_k100": 0.9189484119415283, "mmd_k100": 0.06623941659927368, "straight": 0.22413402795791626, "train_plus_eval_s": 30.15440011024475}

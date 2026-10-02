@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:02:34 2026
+# cwd: .
+# cmd: python method/run.py --system fm_heun --task two_moons --seed 1 --out results/raw/main_fm_heun_two_moons_s1.json
+
+CONFIG {"system": "fm_heun", "task": "two_moons", "seed": 1, "out": "results/raw/main_fm_heun_two_moons_s1.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded fm
+METRICS {"sw_k1": 0.7164669036865234, "mmd_k1": 0.11287826299667358, "sw_k2": 0.14384524524211884, "mmd_k2": 0.008149564266204834, "sw_k4": 0.04080839082598686, "mmd_k4": 0.0015609264373779297, "sw_k8": 0.026413030922412872, "mmd_k8": 0.0006784498691558838, "sw_k16": 0.04154486209154129, "mmd_k16": 0.0009888410568237305, "sw_k32": 0.02080284245312214, "mmd_k32": 0.0007725358009338379, "sw_k64": 0.023193201050162315, "mmd_k64": 0.0005971193313598633, "sw_k100": 0.02572067268192768, "mmd_k100": 0.0009269416332244873, "straight": 0.6833909749984741, "train_plus_eval_s": 24.45283007621765}

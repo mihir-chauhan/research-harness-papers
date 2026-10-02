@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:14:35 2026
+# cwd: .
+# cmd: python method/run.py --system fm_euler --task checkerboard --seed 3 --out results/raw/main_fm_euler_checkerboard_s3.json
+
+CONFIG {"system": "fm_euler", "task": "checkerboard", "seed": 3, "out": "results/raw/main_fm_euler_checkerboard_s3.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained fm
+METRICS {"sw_k1": 0.9261150360107422, "mmd_k1": 0.5328366756439209, "sw_k2": 0.41351553797721863, "mmd_k2": 0.05079370737075806, "sw_k4": 0.21965236961841583, "mmd_k4": 0.01340252161026001, "sw_k8": 0.11792387813329697, "mmd_k8": 0.004989743232727051, "sw_k16": 0.06442142277956009, "mmd_k16": 0.0023341774940490723, "sw_k32": 0.03306358680129051, "mmd_k32": 0.001501321792602539, "sw_k64": 0.029129888862371445, "mmd_k64": 0.00179368257522583, "sw_k100": 0.027112023904919624, "mmd_k100": 0.001287698745727539, "straight": 0.4459473788738251, "train_plus_eval_s": 26.8193621635437}

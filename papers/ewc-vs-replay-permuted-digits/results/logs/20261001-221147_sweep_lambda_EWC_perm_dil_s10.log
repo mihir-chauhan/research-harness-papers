@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:11:47 2026
+# cwd: .
+# cmd: python method/run.py --system ewc --lam 100 --task perm_dil --seed 10 --out results/raw/sweep_lambda_EWC_100_perm_dil_10.json
+
+config: {"system": "ewc", "task": "perm_dil", "seed": 10, "lam": 100.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/sweep_lambda_EWC_100_perm_dil_10.json", "curve": null}
+metrics: {"average_accuracy": 0.5783333301544189, "forgetting": 0.3777777850627899, "backward_transfer": -0.3777777850627899, "last_task_accuracy": 0.7722222208976746, "mean_seen_accuracy": 0.7291388888160387, "acc_matrix": [[0.9556, 0.0611, 0.1611, 0.0972, 0.1139], [0.7694, 0.9389, 0.075, 0.0972, 0.0944], [0.5167, 0.6722, 0.8528, 0.0361, 0.0639], [0.4167, 0.5389, 0.4694, 0.8833, 0.0972], [0.3917, 0.4278, 0.4444, 0.8556, 0.7722]], "val_average_accuracy": 0.6061281323432922, "val_forgetting": 0.366295263171196}

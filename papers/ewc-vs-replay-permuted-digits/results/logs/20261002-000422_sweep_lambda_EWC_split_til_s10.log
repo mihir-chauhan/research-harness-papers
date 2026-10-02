@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:04:22 2026
+# cwd: .
+# cmd: python method/run.py --system ewc --lam 10 --task split_til --seed 10 --out results/raw/sweep_lambda_EWC_10_split_til_10.json
+
+config: {"system": "ewc", "task": "split_til", "seed": 10, "lam": 10.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/sweep_lambda_EWC_10_split_til_10.json", "curve": null}
+metrics: {"average_accuracy": 0.9267626762390136, "forgetting": 0.0880255252122879, "backward_transfer": -0.0880255252122879, "last_task_accuracy": 0.98591548204422, "mean_seen_accuracy": 0.9763622921705245, "acc_matrix": [[1.0, 0.5, 0.5, 0.507, 0.507], [0.9722, 1.0, 0.4865, 0.507, 0.507], [0.9583, 1.0, 1.0, 0.5211, 0.507], [0.9583, 1.0, 0.973, 1.0, 0.507], [0.9722, 1.0, 0.6757, 1.0, 0.9859]], "val_average_accuracy": 0.9583333373069763, "val_forgetting": 0.0486111044883728}

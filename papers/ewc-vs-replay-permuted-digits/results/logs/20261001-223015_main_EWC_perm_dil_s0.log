@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:30:15 2026
+# cwd: .
+# cmd: python method/run.py --system ewc --lam 10 --task perm_dil --seed 0 --out results/raw/main_EWC_10_perm_dil_0.json --curve results/raw/curve_main_EWC_10_perm_dil_0.csv
+
+config: {"system": "ewc", "task": "perm_dil", "seed": 0, "lam": 10.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/main_EWC_10_perm_dil_0.json", "curve": "results/raw/curve_main_EWC_10_perm_dil_0.csv"}
+metrics: {"average_accuracy": 0.7166666626930237, "forgetting": 0.2881944477558136, "backward_transfer": -0.2881944477558136, "last_task_accuracy": 0.9333333373069763, "mean_seen_accuracy": 0.8305555510520936, "acc_matrix": [[0.9639, 0.0917, 0.0722, 0.0972, 0.0944], [0.8722, 0.9639, 0.1056, 0.1417, 0.0278], [0.8306, 0.5917, 0.9444, 0.2278, 0.0583], [0.7528, 0.6389, 0.7389, 0.9306, 0.0861], [0.7028, 0.5667, 0.6417, 0.7389, 0.9333]], "val_average_accuracy": 0.7041782855987548, "val_forgetting": 0.2994428873062134}

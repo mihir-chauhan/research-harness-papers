@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:59:11 2026
+# cwd: .
+# cmd: python method/run.py --system real --task two_moons --seed 1 --out results/raw/main_real_two_moons_s1.json
+
+CONFIG {"system": "real", "task": "two_moons", "seed": 1, "out": "results/raw/main_real_two_moons_s1.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+METRICS {"sw_k1": 0.024913834407925606, "mmd_k1": 0.0005607903003692627, "sw_k2": 0.024913834407925606, "mmd_k2": 0.0005607903003692627, "sw_k4": 0.024913834407925606, "mmd_k4": 0.0005607903003692627, "sw_k8": 0.024913834407925606, "mmd_k8": 0.0005607903003692627, "sw_k16": 0.024913834407925606, "mmd_k16": 0.0005607903003692627, "sw_k32": 0.024913834407925606, "mmd_k32": 0.0005607903003692627, "sw_k64": 0.024913834407925606, "mmd_k64": 0.0005607903003692627, "sw_k100": 0.024913834407925606, "mmd_k100": 0.0005607903003692627, "train_plus_eval_s": 1.2940752506256104}

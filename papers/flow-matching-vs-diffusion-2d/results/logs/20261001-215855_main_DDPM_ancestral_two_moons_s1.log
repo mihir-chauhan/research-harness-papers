@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:58:55 2026
+# cwd: .
+# cmd: python method/run.py --system ddpm_anc --task two_moons --seed 1 --out results/raw/main_ddpm_anc_two_moons_s1.json
+
+CONFIG {"system": "ddpm_anc", "task": "two_moons", "seed": 1, "out": "results/raw/main_ddpm_anc_two_moons_s1.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded diff_linear
+METRICS {"sw_k1": 4.048604488372803, "mmd_k1": 0.17538148164749146, "sw_k2": 0.4050713777542114, "mmd_k2": 0.0707695484161377, "sw_k4": 0.4672251343727112, "mmd_k4": 0.050765037536621094, "sw_k8": 0.24155910313129425, "mmd_k8": 0.0125352144241333, "sw_k16": 0.11559804528951645, "mmd_k16": 0.0037522315979003906, "sw_k32": 0.05736905336380005, "mmd_k32": 0.0012536346912384033, "sw_k64": 0.04525919631123543, "mmd_k64": 0.0008934438228607178, "sw_k100": 0.034611865878105164, "mmd_k100": 0.000943988561630249, "train_plus_eval_s": 13.227843284606934}

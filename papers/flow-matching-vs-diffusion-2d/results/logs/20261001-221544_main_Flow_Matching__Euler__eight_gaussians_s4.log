@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:15:44 2026
+# cwd: .
+# cmd: python method/run.py --system fm_euler --task eight_gaussians --seed 4 --out results/raw/main_fm_euler_eight_gaussians_s4.json
+
+CONFIG {"system": "fm_euler", "task": "eight_gaussians", "seed": 4, "out": "results/raw/main_fm_euler_eight_gaussians_s4.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained fm
+METRICS {"sw_k1": 1.2308886051177979, "mmd_k1": 0.6806873083114624, "sw_k2": 0.4125767946243286, "mmd_k2": 0.06625309586524963, "sw_k4": 0.0838194191455841, "mmd_k4": 0.004871666431427002, "sw_k8": 0.05193126201629639, "mmd_k8": 0.0017122626304626465, "sw_k16": 0.029729748144745827, "mmd_k16": 0.001046895980834961, "sw_k32": 0.035446859896183014, "mmd_k32": 0.000644981861114502, "sw_k64": 0.02337232418358326, "mmd_k64": 0.0003514885902404785, "sw_k100": 0.023347217589616776, "mmd_k100": 0.0005217790603637695, "straight": 0.6563547253608704, "train_plus_eval_s": 20.236267805099487}

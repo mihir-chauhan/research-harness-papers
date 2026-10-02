@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:57:40 2026
+# cwd: .
+# cmd: python method/run.py --system finetune --lr 0.1 --task split_cil --seed 101 --out results/raw/tune_lr_Fine-tuninglr0.1_split_cil_101.json
+
+config: {"system": "finetune", "task": "split_cil", "seed": 101, "lam": 0.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/tune_lr_Fine-tuninglr0.1_split_cil_101.json", "curve": null}
+metrics: {"average_accuracy": 0.19726027250289918, "forgetting": 1.0, "backward_transfer": -1.0, "last_task_accuracy": 0.9863013625144958, "mean_seen_accuracy": 0.4561187211672465, "acc_matrix": [[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.9863]], "val_average_accuracy": 0.2, "val_forgetting": 0.9965277761220932}

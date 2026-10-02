@@ -1,0 +1,32 @@
+metric: average_accuracy; paired over seeds 0-4; difference = a - b
+scenario   a                          b                           mean_a  mean_b    diff     sd  ci95_lo  ci95_hi  paired_p
+perm_dil   EWC                        Fine-tuning                  0.695   0.498   0.197  0.026    0.164    0.229  7.39e-05
+perm_dil   Experience replay (M=20)   Fine-tuning                  0.670   0.498   0.172  0.041    0.120    0.223  7.58e-04
+perm_dil   Experience replay (M=100)  Fine-tuning                  0.847   0.498   0.348  0.016    0.329    0.368  9.97e-07
+perm_dil   Joint training             Fine-tuning                  0.954   0.498   0.455  0.015    0.437    0.474  2.81e-07
+perm_dil   Experience replay (M=20)   EWC                          0.670   0.695  -0.025  0.026   -0.057    0.007  9.22e-02
+perm_dil   Experience replay (M=100)  EWC                          0.847   0.695   0.152  0.023    0.123    0.180  1.23e-04
+perm_dil   Joint training             EWC                          0.954   0.695   0.259  0.015    0.240    0.277  2.82e-06
+perm_dil   Experience replay (M=100)  Experience replay (M=20)     0.847   0.670   0.177  0.045    0.121    0.233  9.13e-04
+perm_dil   Joint training             Experience replay (M=20)     0.954   0.670   0.284  0.038    0.237    0.331  7.46e-05
+perm_dil   Joint training             Experience replay (M=100)    0.954   0.847   0.107  0.010    0.095    0.119  1.56e-05
+split_cil  EWC                        Fine-tuning                  0.246   0.214   0.032  0.050   -0.029    0.094  2.20e-01
+split_cil  Experience replay (M=20)   Fine-tuning                  0.728   0.214   0.514  0.078    0.418    0.611  1.22e-04
+split_cil  Experience replay (M=100)  Fine-tuning                  0.896   0.214   0.682  0.017    0.661    0.704  9.78e-08
+split_cil  Joint training             Fine-tuning                  0.957   0.214   0.743  0.032    0.704    0.782  7.82e-07
+split_cil  Experience replay (M=20)   EWC                          0.728   0.246   0.482  0.061    0.407    0.557  5.89e-05
+split_cil  Experience replay (M=100)  EWC                          0.896   0.246   0.650  0.050    0.588    0.712  8.12e-06
+split_cil  Joint training             EWC                          0.957   0.246   0.711  0.038    0.663    0.758  1.97e-06
+split_cil  Experience replay (M=100)  Experience replay (M=20)     0.896   0.728   0.168  0.068    0.084    0.253  5.25e-03
+split_cil  Joint training             Experience replay (M=20)     0.957   0.728   0.229  0.048    0.169    0.288  4.41e-04
+split_cil  Joint training             Experience replay (M=100)    0.957   0.896   0.061  0.021    0.034    0.087  3.03e-03
+split_til  EWC                        Fine-tuning                  0.973   0.946   0.026  0.031   -0.012    0.065  1.28e-01
+split_til  Experience replay (M=20)   Fine-tuning                  0.973   0.946   0.026  0.023   -0.002    0.055  6.04e-02
+split_til  Experience replay (M=100)  Fine-tuning                  0.984   0.946   0.038  0.030   -0.000    0.075  5.04e-02
+split_til  Joint training             Fine-tuning                  0.990   0.946   0.044  0.027    0.010    0.077  2.30e-02
+split_til  Experience replay (M=20)   EWC                          0.973   0.973  -0.000  0.017   -0.021    0.021  9.94e-01
+split_til  Experience replay (M=100)  EWC                          0.984   0.973   0.011  0.014   -0.006    0.029  1.55e-01
+split_til  Joint training             EWC                          0.990   0.973   0.017  0.012    0.002    0.032  3.34e-02
+split_til  Experience replay (M=100)  Experience replay (M=20)     0.984   0.973   0.011  0.013   -0.005    0.027  1.20e-01
+split_til  Joint training             Experience replay (M=20)     0.990   0.973   0.017  0.017   -0.004    0.038  8.76e-02
+split_til  Joint training             Experience replay (M=100)    0.990   0.984   0.006  0.010   -0.007    0.019  2.58e-01

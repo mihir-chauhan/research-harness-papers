@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:01:13 2026
+# cwd: .
+# cmd: python method/run.py --system ddpm_anc --task eight_gaussians --seed 2 --out results/raw/main_ddpm_anc_eight_gaussians_s2.json
+
+CONFIG {"system": "ddpm_anc", "task": "eight_gaussians", "seed": 2, "out": "results/raw/main_ddpm_anc_eight_gaussians_s2.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded diff_linear
+METRICS {"sw_k1": 4.388615608215332, "mmd_k1": 0.1494428813457489, "sw_k2": 0.696433424949646, "mmd_k2": 0.14182689785957336, "sw_k4": 0.30929312109947205, "mmd_k4": 0.044039636850357056, "sw_k8": 0.09126651287078857, "mmd_k8": 0.007387042045593262, "sw_k16": 0.05072217062115669, "mmd_k16": 0.0029218196868896484, "sw_k32": 0.04412447661161423, "mmd_k32": 0.0014601349830627441, "sw_k64": 0.04429240897297859, "mmd_k64": 0.0008129477500915527, "sw_k100": 0.038399048149585724, "mmd_k100": 0.0010696053504943848, "train_plus_eval_s": 17.19704294204712}
+

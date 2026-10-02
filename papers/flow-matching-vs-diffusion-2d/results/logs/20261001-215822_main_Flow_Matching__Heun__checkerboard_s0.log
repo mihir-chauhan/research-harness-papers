@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:58:22 2026
+# cwd: .
+# cmd: python method/run.py --system fm_heun --task checkerboard --seed 0 --out results/raw/main_fm_heun_checkerboard_s0.json
+
+CONFIG {"system": "fm_heun", "task": "checkerboard", "seed": 0, "out": "results/raw/main_fm_heun_checkerboard_s0.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded fm
+METRICS {"sw_k1": 0.5400750041007996, "mmd_k1": 0.09038633108139038, "sw_k2": 0.07454507797956467, "mmd_k2": 0.00391840934753418, "sw_k4": 0.029773449525237083, "mmd_k4": 0.001601576805114746, "sw_k8": 0.033739954233169556, "mmd_k8": 0.00158613920211792, "sw_k16": 0.031146056950092316, "mmd_k16": 0.0012999176979064941, "sw_k32": 0.028393780812621117, "mmd_k32": 0.0015919208526611328, "sw_k64": 0.027102764695882797, "mmd_k64": 0.0014081001281738281, "sw_k100": 0.03039705753326416, "mmd_k100": 0.0015109777450561523, "straight": 0.4655952751636505, "train_plus_eval_s": 21.90233087539673}

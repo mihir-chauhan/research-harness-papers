@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:33:04 2026
+# cwd: .
+# cmd: python method/run.py --system ewc --lam 1000 --task split_cil --seed 4 --out results/raw/main_EWC_1000_split_cil_4.json --curve results/raw/curve_main_EWC_1000_split_cil_4.csv
+
+config: {"system": "ewc", "task": "split_cil", "seed": 4, "lam": 1000.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/main_EWC_1000_split_cil_4.json", "curve": "results/raw/curve_main_EWC_1000_split_cil_4.csv"}
+metrics: {"average_accuracy": 0.19120200872421264, "forgetting": 0.4658981263637543, "backward_transfer": -0.4658981263637543, "last_task_accuracy": 0.0, "mean_seen_accuracy": 0.45531223793824516, "acc_matrix": [[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.9155, 0.0, 0.0, 0.0], [0.0, 0.3239, 0.9041, 0.0, 0.0], [0.0, 0.3662, 0.5068, 0.0, 0.0], [0.0, 0.3944, 0.5616, 0.0, 0.0]], "val_average_accuracy": 0.1872456967830658, "val_forgetting": 0.4879205748438835}

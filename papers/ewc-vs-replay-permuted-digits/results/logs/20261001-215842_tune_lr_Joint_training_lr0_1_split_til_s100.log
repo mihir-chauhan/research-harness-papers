@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:58:42 2026
+# cwd: .
+# cmd: python method/run.py --system joint --lr 0.1 --task split_til --seed 100 --out results/raw/tune_lr_Jointtraininglr0.1_split_til_100.json
+
+config: {"system": "joint", "task": "split_til", "seed": 100, "lam": 0.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/tune_lr_Jointtraininglr0.1_split_til_100.json", "curve": null}
+metrics: {"average_accuracy": 0.9861100316047668, "forgetting": 0.0034722238779067993, "backward_transfer": -0.0034722238779067993, "last_task_accuracy": 0.98591548204422, "mean_seen_accuracy": 0.9896053105592728, "acc_matrix": [[1.0, 0.5, 0.5068, 0.4444, 0.2676], [1.0, 0.9722, 0.3973, 0.4861, 0.6197], [1.0, 0.9722, 0.9863, 0.5139, 0.5493], [1.0, 0.9722, 0.9863, 1.0, 0.7465], [0.9861, 0.9722, 0.9863, 1.0, 0.9859]], "val_average_accuracy": 0.9944053173065186, "val_forgetting": 0.0034722238779067993}

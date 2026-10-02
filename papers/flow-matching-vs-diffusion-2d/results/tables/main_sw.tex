@@ -1,0 +1,26 @@
+\begin{tabular}{llccccccc}
+\toprule
+Method & Task & SW@1 $\downarrow$ & SW@2 $\downarrow$ & SW@4 $\downarrow$ & SW@8 $\downarrow$ & SW@16 $\downarrow$ & SW@100 $\downarrow$ & $n$ \\
+\midrule
+DDIM & 8 Gaussians & 5.101 $\pm$ 1.386 & 0.652 $\pm$ 0.049 & 0.288 $\pm$ 0.043 & 0.106 $\pm$ 0.052 & 0.069 $\pm$ 0.030 & 0.057 $\pm$ 0.028 & 5 \\
+DDPM ancestral & 8 Gaussians & 5.101 $\pm$ 1.386 & 0.649 $\pm$ 0.055 & 0.329 $\pm$ 0.015 & 0.104 $\pm$ 0.016 & 0.069 $\pm$ 0.020 & 0.044 $\pm$ 0.018 & 5 \\
+\textbf{Flow Matching (Euler)} & 8 Gaussians & 1.234 $\pm$ 0.004 & 0.417 $\pm$ 0.008 & 0.086 $\pm$ 0.007 & 0.054 $\pm$ 0.007 & 0.044 $\pm$ 0.013 & \underline{0.027 $\pm$ 0.005} & 5 \\
+Flow Matching (Heun) & 8 Gaussians & \underline{0.719 $\pm$ 0.128} & \underline{0.138 $\pm$ 0.011} & \underline{0.046 $\pm$ 0.005} & \underline{0.037 $\pm$ 0.007} & \underline{0.038 $\pm$ 0.013} & \textbf{0.026 $\pm$ 0.005} & 5 \\
+Reflow-1 (Euler) & 8 Gaussians & \textbf{0.042 $\pm$ 0.006} & \textbf{0.033 $\pm$ 0.003} & \textbf{0.035 $\pm$ 0.006} & \textbf{0.035 $\pm$ 0.005} & \textbf{0.036 $\pm$ 0.011} & 0.028 $\pm$ 0.005 & 5 \\
+Real data (floor) & 8 Gaussians & 0.022 $\pm$ 0.008 & 0.022 $\pm$ 0.008 & 0.022 $\pm$ 0.008 & 0.022 $\pm$ 0.008 & 0.022 $\pm$ 0.008 & 0.022 $\pm$ 0.008 & 5 \\
+\midrule
+DDIM & Two moons & 4.248 $\pm$ 0.395 & 0.438 $\pm$ 0.044 & 0.203 $\pm$ 0.018 & 0.101 $\pm$ 0.011 & 0.056 $\pm$ 0.006 & 0.031 $\pm$ 0.007 & 5 \\
+DDPM ancestral & Two moons & 4.248 $\pm$ 0.395 & 0.457 $\pm$ 0.073 & 0.455 $\pm$ 0.014 & 0.232 $\pm$ 0.009 & 0.108 $\pm$ 0.006 & 0.030 $\pm$ 0.006 & 5 \\
+\textbf{Flow Matching (Euler)} & Two moons & 1.145 $\pm$ 0.008 & 0.591 $\pm$ 0.011 & 0.263 $\pm$ 0.012 & 0.125 $\pm$ 0.006 & 0.065 $\pm$ 0.006 & \textbf{0.024 $\pm$ 0.006} & 5 \\
+Flow Matching (Heun) & Two moons & \underline{0.763 $\pm$ 0.051} & \underline{0.149 $\pm$ 0.007} & \underline{0.041 $\pm$ 0.012} & \textbf{0.028 $\pm$ 0.007} & \textbf{0.031 $\pm$ 0.010} & \underline{0.026 $\pm$ 0.008} & 5 \\
+Reflow-1 (Euler) & Two moons & \textbf{0.028 $\pm$ 0.002} & \textbf{0.028 $\pm$ 0.003} & \textbf{0.029 $\pm$ 0.006} & \underline{0.031 $\pm$ 0.009} & \underline{0.032 $\pm$ 0.010} & 0.026 $\pm$ 0.006 & 5 \\
+Real data (floor) & Two moons & 0.022 $\pm$ 0.007 & 0.022 $\pm$ 0.007 & 0.022 $\pm$ 0.007 & 0.022 $\pm$ 0.007 & 0.022 $\pm$ 0.007 & 0.022 $\pm$ 0.007 & 5 \\
+\midrule
+DDIM & Checkerboard & 2.408 $\pm$ 0.241 & 0.501 $\pm$ 0.039 & 0.232 $\pm$ 0.010 & 0.130 $\pm$ 0.008 & 0.082 $\pm$ 0.005 & 0.053 $\pm$ 0.002 & 5 \\
+DDPM ancestral & Checkerboard & 2.408 $\pm$ 0.241 & 0.571 $\pm$ 0.027 & 0.355 $\pm$ 0.004 & 0.208 $\pm$ 0.002 & 0.118 $\pm$ 0.002 & 0.058 $\pm$ 0.004 & 5 \\
+\textbf{Flow Matching (Euler)} & Checkerboard & 0.931 $\pm$ 0.005 & 0.417 $\pm$ 0.007 & 0.219 $\pm$ 0.005 & 0.113 $\pm$ 0.010 & 0.064 $\pm$ 0.006 & \underline{0.031 $\pm$ 0.003} & 5 \\
+Flow Matching (Heun) & Checkerboard & \underline{0.541 $\pm$ 0.008} & \underline{0.079 $\pm$ 0.005} & \underline{0.039 $\pm$ 0.010} & \textbf{0.037 $\pm$ 0.011} & \underline{0.035 $\pm$ 0.004} & \textbf{0.030 $\pm$ 0.003} & 5 \\
+Reflow-1 (Euler) & Checkerboard & \textbf{0.032 $\pm$ 0.003} & \textbf{0.030 $\pm$ 0.002} & \textbf{0.034 $\pm$ 0.007} & \underline{0.037 $\pm$ 0.009} & \textbf{0.034 $\pm$ 0.005} & 0.031 $\pm$ 0.003 & 5 \\
+Real data (floor) & Checkerboard & 0.014 $\pm$ 0.000 & 0.014 $\pm$ 0.000 & 0.014 $\pm$ 0.000 & 0.014 $\pm$ 0.000 & 0.014 $\pm$ 0.000 & 0.014 $\pm$ 0.000 & 5 \\
+\bottomrule
+\end{tabular}

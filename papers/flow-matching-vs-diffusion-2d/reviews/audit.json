@@ -1,0 +1,240 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and reproduce bit-for-bit (including from-scratch retraining), code matches the paper, no leakage, and all citations are verified and used in context. The abstract, H1 text and conclusion present two SW-only comparisons (FM worse than DDIM on two moons at K=4; FM much better at K=1) as general sample-quality claims while the paper's own MMD table significantly reverses both; the K=4 reversal is not disclosed anywhere. The remaining issues are minor wording and within-noise claims, all fixable in text without new runs.",
+      "reran": [
+        {
+          "run": "Flow Matching (Euler)/two_moons/0",
+          "metric": "sw_k4",
+          "registry": 0.26109418272972107,
+          "rerun": 0.26109418272972107
+        },
+        {
+          "run": "DDIM/two_moons/0",
+          "metric": "sw_k4",
+          "registry": 0.19784049689769745,
+          "rerun": 0.19784049689769745
+        },
+        {
+          "run": "Reflow-1 (Euler)/two_moons/0",
+          "metric": "sw_k4",
+          "registry": 0.020232630893588066,
+          "rerun": 0.020232630893588066
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, results.tex (H1), limitations.tex, conclusion.tex, results/RESULTS.md",
+          "issue": "The claim that FM gives worse four-step samples than DDIM on two moons holds only for SW (0.263 vs 0.203). MMD at K=4 on the same runs favours FM (0.0145 vs 0.0252, paired p=8e-5), also at K=8 and nominally at K=16; on MMD, H1 holds on all three tasks. The paper acknowledges metric disagreement only at K=1.",
+          "fix": "State that the two-moons reversal is SW-only and that MMD ranks FM ahead at K=4 on all tasks; qualify the abstract, H1 paragraph, H4 sentence, conclusion and RESULTS.md, and extend the Limitations metric-disagreement sentence to K=4-16 on two moons."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "'Much better one-step samples than DDIM on every task' and 'far better than DDIM at one sampling step' are true for SW only; MMD at K=1 is 3-4x worse for FM on all three tasks (e.g. 0.68 vs 0.19, p<1e-5), and both samplers are far from usable at K=1. The body discloses this but the abstract and conclusion do not.",
+          "fix": "Reword to 'lower one-step SW but higher one-step MMD than DDIM; neither is usable at one step' in the abstract and conclusion."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "Checkerboard K=4 advantage is 0.013 SW (0.219 vs 0.232), about one DDIM standard deviation, uncorrected p=0.007; the abstract and conclusion call it 'better' without the hedge given in the body.",
+          "fix": "Say 'slightly better (0.013 SW, about one seed std)' or 'marginally' in the abstract and conclusion."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "'Same direction at K=2, 8 and 16' on two moons: the K=16 gap is 0.0085 with p=0.083. 'Ancestral worse than DDIM at K=4 on all tasks': on eight Gaussians it is within one standard deviation (0.329\u00b10.015 vs 0.288\u00b10.043, p=0.068).",
+          "fix": "Mark the K=16 and eight-Gaussians ancestral comparisons as nominal or within seed noise."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (diffusion schedule)",
+          "issue": "Truncated-start cosine 'better than linear at K=1' is within one standard deviation on checkerboard and not significant on matched seeds 0-2 (p=0.15, 0.026, 0.39); the conclusion that the weak DDIM baseline is not a schedule artefact rests on three seeds. The diagnostic is also described as changing 'only the first timestep of the grid', whereas --start_ab rescales the whole uniform grid from index 994.",
+          "fix": "Compare on matched seeds 0-2, soften to 'nominally', and describe the diagnostic as changing the grid's start index (uniform grid from 994)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex (Process)",
+          "issue": "'88 duplicate registry rows (identical metrics)': 87 are identical duplicates and one is a failed row with empty metrics caused by the concurrent-driver race on the raw file; four kept rows carry train_plus_eval_s from the sibling process (timing only).",
+          "fix": "Say '87 identical duplicates and one failed duplicate (metrics file race)' and note the shared raw-file and checkpoint paths."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex",
+          "issue": "'The evidence for this argument usually comes from image models\u2026' is an uncited claim about prior work, and the cited rectified-flow and minibatch-OT papers themselves include 2D toy experiments. Consistency models are described only as distillation.",
+          "fix": "Cite examples, acknowledge the existing 2D toy comparisons, and say 'distil or train directly' for consistency models."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Tables I, II, V, VI; setup.tex",
+          "issue": "Column headers are raw metric keys (sw_k1 etc.), and bold/underline marks the real-data floor as 'best'. 'One run takes about 10 to 50 s' although runs range from 3 to 54 s.",
+          "fix": "Use readable headers, exclude the floor row from best/second marking, and state the actual duration range."
+        }
+      ],
+      "commit": "acb539c30354aefdb14cafcbd277ac87b1352766"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "All 127 registry rows are backed by logs with matching metrics, three from-scratch reruns reproduce the registry bit-for-bit, the code matches the paper with no leakage or hard-coding, and every prose number matches the tables. The one major problem is the introduction's gap statement, which says the image evidence in Lipman et al. and Liu et al. compares methods with differing networks, while both papers state they use the same architecture; the rest are minor wording issues. Running the mandated rh lit verify changed the checked_at timestamp in paper/citations.json, which I left in place.",
+      "reran": [
+        {
+          "run": "Flow Matching (Euler)/two_moons/1",
+          "metric": "sw_k4",
+          "registry": 0.25798511505126953,
+          "rerun": 0.25798511505126953
+        },
+        {
+          "run": "DDIM/two_moons/1",
+          "metric": "sw_k4",
+          "registry": 0.19099943339824677,
+          "rerun": 0.19099943339824677
+        },
+        {
+          "run": "Reflow-1 (Euler)/two_moons/1",
+          "metric": "sw_k4",
+          "registry": 0.026730094105005264,
+          "rerun": 0.026730094105005264
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/introduction.tex, paragraph 2 (also research.yaml gap)",
+          "issue": "Claims the evidence comes from image models 'whose networks, schedules and samplers differ between the compared methods' citing lipman2022flow and liu2022flow, but Lipman et al. state all models use the same architecture, hyperparameters and iterations, and Liu et al. report rectified flow and (sub-)VP ODE on the same DDPM++ architecture. The cited papers do not support the stated gap.",
+          "fix": "Reword to what the papers do: same-architecture image comparisons using FID with adaptive or fixed-step solvers, without a per-step-count sweep against held-out SW/MMD, a DDIM sampler baseline or seed variance; or drop the 'networks differ' claim and motivate the study as a small controlled replication."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, H2 paragraph",
+          "issue": "'DDIM's seed-to-seed spread (e.g. 0.057 +/- 0.028 on eight Gaussians) five times that of FM' reads as general, but the std ratio at K=100 is 5.2x only on eight Gaussians (1.06x on two moons, 0.7x on checkerboard).",
+          "fix": "Restrict the statement to eight Gaussians; note that the checkerboard K=100 gap is consistent across seeds (paired p about 1e-4) and two moons is marginal (p = 0.048)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'its advantage does not shrink with the step count' is stated flatly, while the results call H2 'nominally refuted, effectively inconclusive' and the ratio does shrink on eight Gaussians (3.34 to 2.15).",
+          "fix": "Say the outcome is mixed: the ratio shrinks on eight Gaussians, grows on the checkerboard and flips sign on two moons."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, H1 paragraph",
+          "issue": "Ancestral sampling is called worse than DDIM at K=4 'in MMD on eight Gaussians', but the gap (0.0087) is within one DDIM seed std (0.0089), paired p = 0.0496 uncorrected.",
+          "fix": "Call it nominal or within seed noise, as is already done for the SW comparison on the same task."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, H3 paragraph",
+          "issue": "'the difference to FM-Euler is at most 0.001' but Table III shows 0.0012 on two moons.",
+          "fix": "Write 'about 0.001' or 'at most 0.0012'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex and BRIEF.md",
+          "issue": "FM-Heun is the best non-reflow few-step sampler by a wide margin (the rh check tier-0 warning; e.g. two moons SW 0.041 at 8 NFE vs FM-Euler 0.125 at 8 NFE) but is never discussed in prose, and the NFE-matched comparison listed in the brief was removed from the paper.",
+          "fix": "Add one or two sentences on the Heun result at matched NFE from the existing nfe.tex data, or state explicitly that the NFE-matched analysis was left out."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables/compare_main_sw_k4.csv",
+          "issue": "rh compare output exists only for two_moons sw_k4; all other p-values come from experiments/analyze.py (reproduced exactly from the registry).",
+          "fix": "State in the paper or RESULTS.md that the tests are computed by experiments/analyze.py, or generate rh compare files for the other tasks and metrics."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/abl_schedule.tex, abl_reflow.tex, main_sw.tex (Tables I, II, IV, V)",
+          "issue": "Raw label 'DDIM (cosine, start at ab>=4e-5)' and lowercase 'checkerboard' in tables; best/second marks on two-row ablation blocks carry no information.",
+          "fix": "Typeset the label with alpha-bar, capitalise the task name, and drop the marks in Tables IV and V."
+        }
+      ],
+      "commit": "0ae564b8215d53fe092646a153f8150d2f6ac379"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper matches the registry and generated tables, all 127 runs have real logs whose metrics equal the registry, and three runs retrained from scratch reproduced bit-identically. The code matches the described method, baselines share budget and data with no leakage, citations are used in context, and the abstract and conclusion state the mixed and negative outcomes with adequate limitations. Only minor wording and layout issues remain.",
+      "reran": [
+        {
+          "run": "Flow Matching (Euler)/two_moons/1",
+          "metric": "sw_k4",
+          "registry": 0.25798511505126953,
+          "rerun": 0.25798511505126953
+        },
+        {
+          "run": "DDIM/checkerboard/2",
+          "metric": "sw_k4",
+          "registry": 0.2377602756023407,
+          "rerun": 0.2377602756023407
+        },
+        {
+          "run": "Reflow-1 (Euler)/eight_gaussians/3",
+          "metric": "sw_k4",
+          "registry": 0.043979864567518234,
+          "rerun": 0.043979864567518234
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "States 'p <= 0.001 on each task' for MMD at K=4, but the eight-Gaussians paired p is 0.00109 (printed as 0.001 in Table III).",
+          "fix": "Write 'p < 0.002 on each task' or 'p about 0.001 or below'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1, ancestral vs DDIM)",
+          "issue": "The eight-Gaussians MMD@4 ancestral-minus-DDIM difference is called 'within seed noise' although its paired p is 0.0496 (shown as 0.050 in Table III); the prose omits the p value.",
+          "fix": "Quote the paired p (0.050) next to the 'about one DDIM seed standard deviation' statement and call it borderline."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "Says the registered runs were 'launched two at a time', but the decision log records four concurrent processes for about 15 minutes during the accidental double launch, which inflates the per-run timings; the limitations mention the double launch but not its effect on timing.",
+          "fix": "Say 'two at a time (four during an accidental double launch)' and note that the 3-54 s timings include that contention."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (second reflow round)",
+          "issue": "The 'small improvement at K=1' from Reflow-2 (0.009, 0.003, 0.001 SW) rests on three seeds and is about the size of the unpaired seed standard deviations (0.007, 0.003, 0.002); only the paired test separates it.",
+          "fix": "Add that the improvement is within about one seed standard deviation and is indicative only; the abstract's 'adds little' is already appropriate."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex and method.tex",
+          "issue": "Albergo and Vanden-Eijnden 2022 is cited for 'a unifying view', which is better attributed to the later stochastic-interpolants framework paper; the kernel MMD has no citation.",
+          "fix": "Reword to 'stochastic interpolants build flows from an interpolant between two densities' and add a reference for MMD (Gretton et al., 2012)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf page 2, Eq. (2)",
+          "issue": "Overfull hbox of 17.8 pt: the DDIM update equation runs into the right column and overlaps the text there.",
+          "fix": "Split the equation over two lines or put the sigma definition on its own line."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md and research.yaml",
+          "issue": "The VERDICT.md ablation table lists all four ablations as 'missing ... Matters? NO', which is a harness artefact and not a result; research.yaml lists Reflow-1 as a baseline while the driver registers it as kind=method.",
+          "fix": "Add a note to VERDICT.md that ablation deltas are not computed by rh verdict for this comparison study (see Table III/IV), and make the Reflow-1 kind consistent."
+        }
+      ],
+      "commit": "7ffb0d0aa02a387c5e06e13fb60a4e890148eeaf"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on two_moons: ours 0.2634 vs Flow Matching (Heun) 0.04143\nREADY",
+      "response": "# Response to audit\n\n1. (major) Two-moons K=4 reversal is SW-only. Fixed: abstract, H1 paragraph, H4 sentence, conclusion, limitations and RESULTS.md now say MMD at K=4 favours FM on all tasks (two moons 0.0145 vs 0.0252, Table II) and that SW and MMD disagree on two moons. The limitations sentence now covers K=4 to 16 on two moons (the MMD column is only tabulated at K=1, 4, 16, 100, so K=8 is not claimed). No exact MMD p-values are quoted because they are not in the registered tests table.\n2. (major) One-step claim. Fixed: abstract and conclusion now say lower one-step SW, higher one-step MMD, neither usable.\n3. (minor) Checkerboard K=4: abstract, conclusion and H1 say \"marginally\" / about one DDIM seed std.\n4. (minor) K=16 two-moons gap marked small/nominal; eight-Gaussians ancestral-vs-DDIM SW at K=4 marked within seed noise.\n5. (minor) Cosine ablation: softened to \"nominally better\"/\"does not appear\"; diagnostic described as changing the start index of the uniform grid. Matched-seed re-comparison not run (no new runs); the text says so.\n6. (minor) Process: 87 identical duplicates plus one failed duplicate (file race), timing caveat stated.\n7. (minor) Intro/related: uncited claim reworded with citations and acknowledgement of existing 2D toy comparisons; consistency models \"distil or train directly\".\n8. (minor) Tables: readable headers (SW@K, MMD@K), best/second marks computed without the real-data floor (method/postprocess_tables.py, cosmetic only), run time corrected to 3 to 54 s. To stay at six pages the exploratory equal-NFE Heun/Euler table and its discussion were removed from the paper (the data stay in the registry).\n",
+      "seconds": 211
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on two_moons: ours 0.2634 vs Flow Matching (Heun) 0.04143\nREADY",
+      "response": "# Response to audit (fix round)\n\nNo experiment was re-run and no registry row was added or changed in this round (127 rows, as audited). All changes are to\ntext, table/figure generation from `results/runs.jsonl`, and documentation. Everything is regenerated by\n`sh experiments/make_tables.sh` (new; documents the previously undocumented `rh table` -> postprocess -> analyze chain).\n\n1. (major) Introduction gap statement / research.yaml gap. Fixed. The claim that the compared methods' \"networks, schedules\n   and samplers differ\" is removed. I re-read both papers: Lipman et al. state that all compared models use the same\n   architecture and hyper-parameters and report NLL, FID and adaptive-solver NFE on CIFAR-10 and ImageNet; Liu et al. report\n   FID and recall of one-step rectified flows on CIFAR-10. The introduction now says exactly that, says \"we do not question\n   that evidence\", and motivates the study as a small controlled 2D replication that adds held-out SW/MMD, a 1-to-100 step\n   sweep, a DDIM sampler baseline and seed variance. `research.yaml` (gap) and `literature/landscape.md` were changed the same way.\n2. (minor) H2, DDIM spread \"five times that of FM\". Fixed. The statement is restricted to eight Gaussians; the K=100 gap is\n   now reported per task with a paired test (new exploratory row \"SW@100 FM-DDIM\" in Table III: p = 0.086, 0.048, <0.001):\n   not significant on eight Gaussians, marginal on two moons, consistent on the checkerboard.\n3. (minor) Conclusion on H2. Fixed. Conclusion and abstract now say the outcome is mixed: the ratio shrinks on eight\n   Gaussians, grows on the checkerboard and changes side on two moons.\n4. (minor) Ancestral vs DDIM, MMD at K=4 on eight Gaussians. Fixed. Now described as within seed noise (gap 0.0087, about\n   one DDIM seed std), together with the SW comparison; the supporting paired tests are rows \"SW@4 Anc.-DDIM\" and\n   \"MMD@4 Anc.-DDIM\" of Table III.\n5. (minor) \"at most 0.001\". Fixed: \"at most 0.0012\".\n6. (minor) FM-Heun never discussed. Fixed. New results paragraph \"Heun at equal evaluations (exploratory)\" with paired tests\n   at 8, 4 and 2 network evaluations (Table III rows \"SW Heun@K - Euler@2K\", \"SW Heun@4 - DDIM@8\"), computed from the\n   existing runs. It is stated to be exploratory (not registered), that Heun is worse at 2 evaluations and on eight Gaussians\n   at 4, and that no second-order solver was run for the diffusion model (also added to the limitations). Abstract,\n   conclusion, contributions and BRIEF.md mention it.\n7. (minor) `rh compare` only for two_moons sw_k4. Fixed both ways. The setup section and RESULTS.md state that all tests are\n   computed by `experiments/analyze.py`; `rh compare` CSVs now exist for every task for sw_k1, sw_k4, sw_k100, mmd_k1, mmd_k4\n   and straight (`results/tables/compare_main_<metric>_<task>.csv`), and their paired p values equal those of the tests table.\n8. (minor) Table labels and marks. Fixed in `method/postprocess_tables.py`: the label is typeset with alpha-bar, the task\n   name is \"Checkerboard\", and the best/second marks are removed from the two-row ablation blocks. Values are unchanged\n   (diffed against the previous tables).\n\nFurther changes from my own audit of the paper:\n- Tables. The registered tests (former Table III), the new exploratory tests and the reflow paired differences (former\n  Table VI) are now one compact table (`tests_all.tex`: mean difference with the paired p in parentheses, one column per\n  task). The registered numbers are the same as in `tests.tex` / `results/tests.json` (unchanged, checked by diff); t\n  statistics remain in `results/tables/tests.tex`. p values below 0.001 are printed as \"<0.001\", and the prose was changed\n  from \"p < 1e-8\" / \"p < 1e-4\" to \"p < 0.001\" accordingly. The two ablation tables share one float; the ablation figure was\n  re-plotted at single-column size (same data, seeds 0-2). This kept the paper at 6 pages.\n- Range claims. \"Within 0.025 SW of the floor at every K\" is now \"at every K of Table I\"; the MMD \"factor of about three\"\n  claim was replaced by a table value; \"caps the student at every step count\" is \"every step count shown\"; the second\n  reflow round's change is stated for K=1 and K=100 only (the tabulated cells), with the K=100 differences (at most 0.0003).\n- Mechanisms. The cosine-schedule explanation (division by sqrt(alpha-bar) at the first step) is now marked \"may ... which we\n  did not test separately\"; what the diagnostic isolates (the start index, same network) is stated as such. The abstract\n  no longer says the schedule breaks sampling \"through the start of the grid alone\". \"Biased pairs\" became \"pairs from a poor sampler\".\n- H4. Removed a duplicated sentence; \"the straightest model is the best few-step model\" is restricted to the Euler-sampled\n  flow models of Table I at K<=4, with a pointer to the 4-step-teacher student as a counter-example of the converse.\n- Method vs code. The text now gives the exact DDIM sub-grid (floor((T-1)(1-(k-1)/K))), the Fourier features (eight\n  frequencies, i.e. sixteen features), that straightness is the per-sample mean ratio along each system's own sampler path\n  (the Heun row uses the Heun path), that it differs from Liu et al.'s straightness functional, and the truncated-start variant.\n- Setup. Wall-clock corrected from \"about 30 minutes\" to \"about 35 minutes\" (registry start times 21:53 to 22:28);\n  PROTOCOL.md run time corrected to 3-54 s.\n- Limitations. Metric-disagreement sentence rewritten so that the direction is unambiguous at K=1 and at K=4/16 on two moons;\n  a \"Solvers\" item added.\n\nNot changed: the `rh check` tier-0 warning (FM-Euler is not the best system on two_moons sw_k4; FM-Heun and Reflow-1 are\nbetter) is a true statement about the results and is now discussed in the paper rather than hidden.\n",
+      "seconds": 1055
+    }
+  ]
+}

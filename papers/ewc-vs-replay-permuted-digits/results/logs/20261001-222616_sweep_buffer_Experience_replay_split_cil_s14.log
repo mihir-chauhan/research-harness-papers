@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:26:16 2026
+# cwd: .
+# cmd: python method/run.py --system replay --buffer 50 --task split_cil --seed 14 --out results/raw/sweep_buffer_Experiencereplay_50_split_cil_14.json
+
+config: {"system": "replay", "task": "split_cil", "seed": 14, "lam": 0.0, "buffer": 50, "lr": 0.1, "epochs": 30, "out": "results/raw/sweep_buffer_Experiencereplay_50_split_cil_14.json", "curve": null}
+metrics: {"average_accuracy": 0.8995197892189026, "forgetting": 0.11170868575572968, "backward_transfer": -0.11170868575572968, "last_task_accuracy": 0.9863013625144958, "mean_seen_accuracy": 0.9383092339833577, "acc_matrix": [[1.0, 0.0, 0.0, 0.0, 0.0], [0.9444, 0.9859, 0.0, 0.0, 0.0], [0.9583, 0.9014, 0.9863, 0.0, 0.0], [0.875, 0.7887, 0.863, 0.9859, 0.0], [0.9444, 0.8169, 0.8767, 0.8732, 0.9863]], "val_average_accuracy": 0.8798122048377991, "val_forgetting": 0.13624803721904755}

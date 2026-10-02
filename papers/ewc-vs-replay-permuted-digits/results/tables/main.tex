@@ -1,0 +1,23 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & average\_accuracy $\uparrow$ & forgetting $\downarrow$ & backward\_transfer $\uparrow$ & last\_task\_accuracy $\uparrow$ & $n$ \\
+\midrule
+Fine-tuning & perm\_dil & 0.498 $\pm$ 0.021 & 0.584 $\pm$ 0.023 & -0.584 $\pm$ 0.023 & 0.973 $\pm$ 0.009 & 5 \\
+EWC & perm\_dil & 0.695 $\pm$ 0.019 & 0.303 $\pm$ 0.024 & -0.303 $\pm$ 0.024 & 0.917 $\pm$ 0.017 & 5 \\
+Experience replay (M=20) & perm\_dil & 0.670 $\pm$ 0.042 & 0.370 $\pm$ 0.052 & -0.370 $\pm$ 0.052 & \underline{0.975 $\pm$ 0.009} & 5 \\
+\textbf{Experience replay (M=100)} & perm\_dil & \underline{0.847 $\pm$ 0.008} & \underline{0.148 $\pm$ 0.009} & \underline{-0.148 $\pm$ 0.009} & \textbf{0.976 $\pm$ 0.011} & 5 \\
+Joint training & perm\_dil & \textbf{0.954 $\pm$ 0.010} & \textbf{0.010 $\pm$ 0.006} & \textbf{-0.004 $\pm$ 0.005} & 0.967 $\pm$ 0.009 & 5 \\
+\midrule
+Fine-tuning & split\_cil & 0.214 $\pm$ 0.031 & 0.973 $\pm$ 0.039 & -0.973 $\pm$ 0.039 & \textbf{0.997 $\pm$ 0.006} & 5 \\
+EWC & split\_cil & 0.246 $\pm$ 0.050 & 0.568 $\pm$ 0.136 & -0.568 $\pm$ 0.136 & 0.118 $\pm$ 0.263 & 5 \\
+Experience replay (M=20) & split\_cil & 0.728 $\pm$ 0.051 & 0.327 $\pm$ 0.062 & -0.327 $\pm$ 0.062 & \underline{0.992 $\pm$ 0.012} & 5 \\
+\textbf{Experience replay (M=100)} & split\_cil & \underline{0.896 $\pm$ 0.021} & \underline{0.112 $\pm$ 0.032} & \underline{-0.112 $\pm$ 0.032} & 0.986 $\pm$ 0.010 & 5 \\
+Joint training & split\_cil & \textbf{0.957 $\pm$ 0.015} & \textbf{0.028 $\pm$ 0.018} & \textbf{-0.026 $\pm$ 0.020} & 0.964 $\pm$ 0.018 & 5 \\
+\midrule
+Fine-tuning & split\_til & 0.946 $\pm$ 0.025 & 0.059 $\pm$ 0.028 & -0.058 $\pm$ 0.029 & \textbf{0.997 $\pm$ 0.006} & 5 \\
+EWC & split\_til & 0.973 $\pm$ 0.015 & \underline{0.006 $\pm$ 0.005} & \underline{-0.005 $\pm$ 0.004} & 0.945 $\pm$ 0.071 & 5 \\
+Experience replay (M=20) & split\_til & 0.973 $\pm$ 0.011 & 0.026 $\pm$ 0.014 & -0.025 $\pm$ 0.014 & 0.997 $\pm$ 0.006 & 5 \\
+\textbf{Experience replay (M=100)} & split\_til & \underline{0.984 $\pm$ 0.006} & 0.012 $\pm$ 0.009 & -0.010 $\pm$ 0.010 & 0.997 $\pm$ 0.006 & 5 \\
+Joint training & split\_til & \textbf{0.990 $\pm$ 0.009} & \textbf{0.005 $\pm$ 0.005} & \textbf{-0.003 $\pm$ 0.005} & \underline{0.997 $\pm$ 0.006} & 5 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:27:26 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task eight_gaussians --seed 2 --out results/raw/abl_schedule_ddimschedcosinestart_ab4e-5_eight_gaussians_s2.json --sched cosine --start_ab 4e-5
+
+CONFIG {"system": "ddim", "task": "eight_gaussians", "seed": 2, "out": "results/raw/abl_schedule_ddimschedcosinestart_ab4e-5_eight_gaussians_s2.json", "sched": "cosine", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "start_ab": 4e-05, "nref": 10000, "nmmd": 3000}
+loaded diff_cosine
+DDIM start index 994 alpha_bar 6.071799361961894e-05
+METRICS {"sw_k1": 3.268251895904541, "mmd_k1": 0.16290529072284698, "sw_k2": 0.7973952889442444, "mmd_k2": 0.07081064581871033, "sw_k4": 0.6740092635154724, "mmd_k4": 0.06377425789833069, "sw_k8": 0.6088399291038513, "mmd_k8": 0.06354576349258423, "sw_k16": 0.3184633255004883, "mmd_k16": 0.020472228527069092, "sw_k32": 0.11967692524194717, "mmd_k32": 0.005125582218170166, "sw_k64": 0.06389696151018143, "mmd_k64": 0.003150045871734619, "sw_k100": 0.050799980759620667, "mmd_k100": 0.0019608736038208008, "straight": 0.7292733192443848, "train_plus_eval_s": 7.833460092544556}

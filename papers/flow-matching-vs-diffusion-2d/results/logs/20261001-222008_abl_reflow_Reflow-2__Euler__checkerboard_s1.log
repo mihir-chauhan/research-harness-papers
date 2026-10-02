@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:20:08 2026
+# cwd: .
+# cmd: python method/run.py --system reflow --task checkerboard --seed 1 --out results/raw/abl_reflow_reflowrounds2_checkerboard_s1.json --rounds 2
+
+CONFIG {"system": "reflow", "task": "checkerboard", "seed": 1, "out": "results/raw/abl_reflow_reflowrounds2_checkerboard_s1.json", "sched": "linear", "rounds": 2, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded reflow1_ts100_np20000
+trained reflow2_ts100_np20000
+METRICS {"sw_k1": 0.03041469119489193, "mmd_k1": 0.0014399290084838867, "sw_k2": 0.030493613332509995, "mmd_k2": 0.001877129077911377, "sw_k4": 0.03318443149328232, "mmd_k4": 0.0014360547065734863, "sw_k8": 0.02811243198812008, "mmd_k8": 0.001432180404663086, "sw_k16": 0.04113154858350754, "mmd_k16": 0.001681983470916748, "sw_k32": 0.030526379123330116, "mmd_k32": 0.0015163421630859375, "sw_k64": 0.029879480600357056, "mmd_k64": 0.0015172958374023438, "sw_k100": 0.0315038226544857, "mmd_k100": 0.0015845894813537598, "straight": 0.999263346195221, "train_plus_eval_s": 19.169164180755615}

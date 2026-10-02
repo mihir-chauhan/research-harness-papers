@@ -1,0 +1,25 @@
+\textbf{Setting.} A sequence of $T{=}5$ tasks with training sets $\mathcal D_1,\dots,\mathcal D_T$ is presented one after another; at stage $t$ only $\mathcal D_t$ (and a buffer, for ER) is available. A network $f_\theta$ with parameters $\theta$ outputs 10 logits. Let $a_{i,j}$ be the test accuracy on task $j$ after training stage $i$.
+
+\textbf{Fine-tuning.} At stage $t$ minimise $\mathcal L_t(\theta)=\mathbb E_{(x,y)\sim\mathcal D_t}\,\ell(f_\theta(x),y)$ with cross-entropy $\ell$, starting from the previous parameters.
+
+\textbf{EWC (reimplemented).} After stage $k$ we store $\theta^*_k$ and the diagonal Fisher, estimated with one model-sampled label per example,
+\begin{equation}
+F_{k}=\frac1{|\mathcal D_k|}\sum_{x\in\mathcal D_k}\big(\nabla_\theta \ell(f_{\theta^*_k}(x),\tilde y)\big)^{2},\quad \tilde y\sim p_{\theta^*_k}(\cdot|x),
+\end{equation}
+with the label $\tilde y$ sampled once per image from the model's own predictive distribution. Stage $t$ minimises
+\begin{equation}
+\mathcal L_t(\theta)+\frac{\lambda}{2}\sum_{k<t}\sum_i F_{k,i}\,(\theta_i-\theta^*_{k,i})^2,
+\end{equation}
+one penalty per earlier task (not the merged online variant).
+
+\textbf{Experience replay (reimplemented).} A buffer $\mathcal B$ of $M$ slots is split equally among tasks seen so far: after stage $t$ it holds $\lfloor M/t\rfloor$ randomly chosen training examples of each task, so earlier shares shrink as tasks arrive. At every step with a new batch $b_t$ of size 32 and a buffer batch $b_{\mathcal B}$ of size 32 sampled uniformly from $\mathcal B$,
+\begin{equation}
+\mathcal L=\ell_{b_t}(\theta)+\ell_{b_{\mathcal B}}(\theta).
+\end{equation}
+With $M{=}0$ ER is fine-tuning.
+
+\textbf{Joint training (upper bound).} After each task $t$, a fresh network is trained on $\bigcup_{k\le t}\mathcal D_k$ with the same number of epochs (hence more steps than the sequential systems).
+
+\textbf{Scenarios.} \emph{perm\_dil}: task 1 is the original digits, tasks 2--5 apply a fixed random pixel permutation; one 10-way head, no task identity. \emph{split\_cil}: a random pairing of the ten classes into five two-class tasks, one 10-way head, no task identity. \emph{split\_til}: same data, but logits are masked to the two classes of the task, in training, in the Fisher estimate and in evaluation.
+
+\textbf{Metrics.} With $A=(a_{i,j})$ on the test split, \emph{average accuracy} $=\frac1T\sum_j a_{T,j}$; \emph{forgetting} $=\frac1{T-1}\sum_{j<T}\big(\max_{i<T}a_{i,j}-a_{T,j}\big)$; \emph{backward transfer} $=\frac1{T-1}\sum_{j<T}(a_{T,j}-a_{j,j})$ (the negative of forgetting whenever a task's best earlier accuracy is the one right after learning it); \emph{last-task accuracy} $=a_{T,T}$, a measure of plasticity. Validation versions use the validation split and are used only for selection.

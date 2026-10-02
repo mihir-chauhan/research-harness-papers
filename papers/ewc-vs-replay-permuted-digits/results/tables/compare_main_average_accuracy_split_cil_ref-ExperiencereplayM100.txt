@@ -1,0 +1,5 @@
+     task                       ref                     name           metric  ref_mean   mean    delta  n_ref  n   welch_p  paired_p  cohen_d
+split_cil Experience replay (M=100)                      EWC average_accuracy    0.8961 0.2459   0.6501      5  5 6.384e-07 8.117e-06    16.79
+split_cil Experience replay (M=100) Experience replay (M=20) average_accuracy    0.8961  0.728   0.1681      5  5 0.0008392  0.005248    4.265
+split_cil Experience replay (M=100)              Fine-tuning average_accuracy    0.8961 0.2137   0.6823      5  5 1.019e-09 9.783e-08    25.79
+split_cil Experience replay (M=100)           Joint training average_accuracy    0.8961 0.9567 -0.06057      5  5   0.00117  0.003029   -3.305

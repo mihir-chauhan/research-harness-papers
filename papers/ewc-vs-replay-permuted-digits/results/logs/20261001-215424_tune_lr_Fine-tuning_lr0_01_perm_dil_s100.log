@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:54:24 2026
+# cwd: .
+# cmd: python method/run.py --system finetune --lr 0.01 --task perm_dil --seed 100 --out results/raw/tune_lr_Fine-tuninglr0.01_perm_dil_100.json
+
+config: {"system": "finetune", "task": "perm_dil", "seed": 100, "lam": 0.0, "buffer": 0, "lr": 0.01, "epochs": 30, "out": "results/raw/tune_lr_Fine-tuninglr0.01_perm_dil_100.json", "curve": null}
+metrics: {"average_accuracy": 0.5305555641651154, "forgetting": 0.4277777597308159, "backward_transfer": -0.4277777597308159, "last_task_accuracy": 0.925000011920929, "mean_seen_accuracy": 0.6297685147325198, "acc_matrix": [[0.6917, 0.0861, 0.0528, 0.1083, 0.0694], [0.5611, 0.9, 0.0861, 0.1361, 0.0806], [0.3222, 0.6028, 0.9278, 0.1028, 0.0778], [0.2722, 0.3778, 0.7444, 0.9194, 0.0639], [0.2139, 0.3056, 0.5639, 0.6444, 0.925]], "val_average_accuracy": 0.5175487399101257, "val_forgetting": 0.43105849623680115}

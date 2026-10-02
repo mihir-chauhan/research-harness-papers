@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:18:16 2026
+# cwd: .
+# cmd: python method/run.py --system reflow --task two_moons --seed 1 --out results/raw/abl_reflow_reflowteacher_steps4_two_moons_s1.json --teacher_steps 4
+
+CONFIG {"system": "reflow", "task": "two_moons", "seed": 1, "out": "results/raw/abl_reflow_reflowteacher_steps4_two_moons_s1.json", "sched": "linear", "rounds": 1, "teacher_steps": 4, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded fm
+trained reflow1_ts4_np20000
+METRICS {"sw_k1": 0.27029967308044434, "mmd_k1": 0.014041781425476074, "sw_k2": 0.2648041546344757, "mmd_k2": 0.015961527824401855, "sw_k4": 0.25747182965278625, "mmd_k4": 0.015131592750549316, "sw_k8": 0.2671290934085846, "mmd_k8": 0.014165997505187988, "sw_k16": 0.26587048172950745, "mmd_k16": 0.015396356582641602, "sw_k32": 0.2655900716781616, "mmd_k32": 0.014299750328063965, "sw_k64": 0.26336798071861267, "mmd_k64": 0.01411372423171997, "sw_k100": 0.262600302696228, "mmd_k100": 0.013460934162139893, "straight": 0.9957721829414368, "train_plus_eval_s": 19.689292192459106}

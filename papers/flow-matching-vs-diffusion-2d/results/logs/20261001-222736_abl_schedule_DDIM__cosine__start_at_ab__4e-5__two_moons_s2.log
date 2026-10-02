@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 22:27:36 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task two_moons --seed 2 --out results/raw/abl_schedule_ddimschedcosinestart_ab4e-5_two_moons_s2.json --sched cosine --start_ab 4e-5
+
+CONFIG {"system": "ddim", "task": "two_moons", "seed": 2, "out": "results/raw/abl_schedule_ddimschedcosinestart_ab4e-5_two_moons_s2.json", "sched": "cosine", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "start_ab": 4e-05, "nref": 10000, "nmmd": 3000}
+loaded diff_cosine
+DDIM start index 994 alpha_bar 6.071799361961894e-05
+METRICS {"sw_k1": 1.7944265604019165, "mmd_k1": 0.09371334314346313, "sw_k2": 0.47673535346984863, "mmd_k2": 0.031163156032562256, "sw_k4": 0.3973950147628784, "mmd_k4": 0.03690248727798462, "sw_k8": 0.3850545585155487, "mmd_k8": 0.043301135301589966, "sw_k16": 0.1885838359594345, "mmd_k16": 0.014013111591339111, "sw_k32": 0.10480939596891403, "mmd_k32": 0.004585355520248413, "sw_k64": 0.06016579642891884, "mmd_k64": 0.001975417137145996, "sw_k100": 0.060324493795633316, "mmd_k100": 0.0025677084922790527, "straight": 0.745144248008728, "train_plus_eval_s": 7.434407949447632}

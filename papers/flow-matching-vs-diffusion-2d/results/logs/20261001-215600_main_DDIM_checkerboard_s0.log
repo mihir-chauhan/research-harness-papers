@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:56:00 2026
+# cwd: .
+# cmd: python method/run.py --system ddim --task checkerboard --seed 0 --out results/raw/main_ddim_checkerboard_s0.json
+
+CONFIG {"system": "ddim", "task": "checkerboard", "seed": 0, "out": "results/raw/main_ddim_checkerboard_s0.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+trained diff_linear
+METRICS {"sw_k1": 2.125331163406372, "mmd_k1": 0.10335765779018402, "sw_k2": 0.49610623717308044, "mmd_k2": 0.0960075855255127, "sw_k4": 0.21879619359970093, "mmd_k4": 0.019300520420074463, "sw_k8": 0.13016262650489807, "mmd_k8": 0.007120668888092041, "sw_k16": 0.08217592537403107, "mmd_k16": 0.004156529903411865, "sw_k32": 0.05874308571219444, "mmd_k32": 0.0035139918327331543, "sw_k64": 0.05123065784573555, "mmd_k64": 0.0034719109535217285, "sw_k100": 0.053937818855047226, "mmd_k100": 0.0032062530517578125, "straight": 0.7832934856414795, "train_plus_eval_s": 39.601495027542114}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:34:10 2026
+# cwd: .
+# cmd: python method/run.py --system joint --task split_til --seed 3 --out results/raw/main_Jointtraining__split_til_3.json --curve results/raw/curve_main_Jointtraining__split_til_3.csv
+
+config: {"system": "joint", "task": "split_til", "seed": 3, "lam": 0.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/main_Jointtraining__split_til_3.json", "curve": "results/raw/curve_main_Jointtraining__split_til_3.csv"}
+metrics: {"average_accuracy": 0.9917047142982482, "forgetting": 0.0, "backward_transfer": 0.0034246593713760376, "last_task_accuracy": 1.0, "mean_seen_accuracy": 0.9825050646066666, "acc_matrix": [[0.9726, 0.625, 0.4444, 0.2676, 0.2361], [0.9726, 0.9722, 0.4583, 0.507, 0.5139], [0.9863, 0.9722, 1.0, 0.1127, 0.4722], [0.9863, 0.9722, 1.0, 1.0, 0.0], [0.9863, 0.9722, 1.0, 1.0, 1.0]], "val_average_accuracy": 0.997183096408844, "val_forgetting": -0.0035211294889450073}

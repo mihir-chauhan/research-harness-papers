@@ -1,0 +1,258 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and reproduce bit-for-bit, all reported numbers and p-values match the registry, the code matches the paper, there is no leakage, and the EWC baseline is not crippled by the shared learning rate. One major issue: the H2 sub-claim that EWC gains at most 0.05 over fine-tuning on split_cil is stated as supported, but the main-seed gain of 0.032 has a 95% CI of -0.03 to 0.09 (p=0.22) and the paper's own sweep seeds with the identical configuration show a gain of 0.143. The rest are minor provenance and presentation defects.",
+      "reran": [
+        {
+          "run": "Experience replay (M=100)/perm_dil/0",
+          "metric": "average_accuracy",
+          "registry": 0.8483333349227905,
+          "rerun": 0.8483333349227905
+        },
+        {
+          "run": "EWC (lam=10)/perm_dil/0",
+          "metric": "average_accuracy",
+          "registry": 0.7166666626930237,
+          "rerun": 0.7166666626930237
+        },
+        {
+          "run": "EWC (lam=1000)/split_cil/2",
+          "metric": "average_accuracy",
+          "registry": 0.28944444209337233,
+          "rerun": 0.28944444209337233
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (H2), abstract.tex, conclusion.tex, results/RESULTS.md",
+          "issue": "H2 is declared supported on the basis that EWC gains only 0.032 over fine-tuning on split_cil (below the 0.05 threshold), but that difference is not significant (paired p=0.22, 95% CI about -0.03 to 0.09, straddling the threshold), and the sweep seeds 10-14 with the identical configuration (lambda=1000, lr 0.1) give 0.340 vs 0.196, a gain of 0.143 (CI 0.13-0.16) that exceeds the threshold. The paper reports both numbers but never reconciles them.",
+          "fix": "State that the EWC<=0.05 half of H2 holds only on the main seeds by the registered mean criterion, is within noise there, and is contradicted on the sweep seeds (gain 0.143); downgrade to 'partly supported / seed-dependent' in results, abstract, conclusion and RESULTS.md, or pool the 10 seeds. Keep the ER>0.2 half and the EWC-far-below-replay conclusion, which hold on both seed sets."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs, results/runs.jsonl (sweep_lambda, sweep_buffer)",
+          "issue": "48 sweep rows share 24 log paths because the log filename has no config and two workers started in the same second; for 37 rows provenance.log does not contain that run's metrics line (overwritten or interleaved). Two such rows were re-executed and matched the registry exactly.",
+          "fix": "Include the config or run_id in the log filename and re-run the affected sweep rows, or note the collision in the repository."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables/compare_main_average_accuracy.csv",
+          "issue": "The file contains only split_til rows (overwritten by the last per-task call), so the perm_dil and split_cil accuracy p-values quoted in the paper (1.2e-4, <1e-4, <0.01) have no saved rh compare output; they do reproduce from the registry.",
+          "fix": "Regenerate rh compare for all tasks into one file or per-task files."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/drive.py, .gitignore",
+          "issue": "drive.py holds only helper functions; the job lists for the tune_lr, sweep and main groups are not in the repo, and results/raw (including the curve CSVs behind Fig. 1) is gitignored.",
+          "fix": "Commit the job-list scripts and the curve CSVs, or have make_figs.py derive the curves from registry data."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex eq. 1",
+          "issue": "Called the 'diagonal empirical Fisher', but labels sampled from the model give a Monte Carlo estimate of the true Fisher; the empirical Fisher uses ground-truth labels.",
+          "fix": "Rename to 'diagonal Fisher estimated with one model-sampled label per example'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'All systems share one MLP, optimiser, step budget' is inaccurate: joint training takes more steps and replay uses a doubled batch (both disclosed later in method and limitations).",
+          "fix": "Say 'epoch budget' or add 'except joint training'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3, Forgetting versus accuracy)",
+          "issue": "p=0.0504 is reported as 'p=0.05' without saying it does not pass alpha=0.05; 'accuracy near chance' at huge lambda is loose (0.273 on perm_dil vs chance 0.10; 0.715 on split_til vs 0.5).",
+          "fix": "Write p=0.050 (not significant at 0.05) and replace 'near chance' with the actual values."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Table I, Fig. 2; experiments/make_figs.py",
+          "issue": "Bold does not render (bold font shape undefined in the LaTeX log), so 'Bold: best' in the Table I caption and the bold run-in headings appear in regular weight; Fig. 2 error bars use population std (ddof=0) while the tables use sample std; Fig. 2 tick labels are cramped.",
+          "fix": "Fix the font setup so bold renders, use ddof=1 in make_figs.py, and thin or rotate the tick labels."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, limitations.tex",
+          "issue": "Every seed re-splits the same 1797 images, so test images of the main seeds overlap the train/validation images of the sweep seeds used to select lambda and of the seeds used to select the learning rate; this is not mentioned.",
+          "fix": "Add one sentence to the limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'Catastrophic forgetting' is introduced with no citation, and GEM/A-GEM are grouped under methods that 'rehearse' stored examples although they use memory to constrain gradients.",
+          "fix": "Add a citation for catastrophic forgetting and reword to 'use stored examples'."
+        }
+      ],
+      "commit": "a14ace280dd0e2e053dfdbda9c2c32f4d068c490"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "Every number in the paper matches the run registry, six re-executed runs reproduce bit-for-bit, the code matches the described method with no leakage or hard-coding, citations are used in context and the framing is honest about mixed results. The one blocking defect is that Table I overflows the page by 177pt in the PDF, clipping its last three columns; the remaining findings are minor (an unsaved comparison, collided sweep logs, missing job lists, wording).",
+      "reran": [
+        {
+          "run": "Experience replay (M=100)/perm_dil/0",
+          "metric": "average_accuracy",
+          "registry": 0.8483333349,
+          "rerun": 0.8483333349
+        },
+        {
+          "run": "EWC/split_cil/2",
+          "metric": "average_accuracy",
+          "registry": 0.2894444421,
+          "rerun": 0.2894444421
+        },
+        {
+          "run": "EWC/split_cil/0",
+          "metric": "average_accuracy",
+          "registry": 0.2760879368,
+          "rerun": 0.2760879368
+        },
+        {
+          "run": "Joint training/split_til/3",
+          "metric": "average_accuracy",
+          "registry": 0.9917047143,
+          "rerun": 0.9917047143
+        },
+        {
+          "run": "sweep_lambda EWC lam=1000/split_cil/10",
+          "metric": "average_accuracy",
+          "registry": 0.3316816807,
+          "rerun": 0.3316816807
+        },
+        {
+          "run": "sweep_buffer Experience replay M=0/perm_dil/13",
+          "metric": "average_accuracy",
+          "registry": 0.5344444394,
+          "rerun": 0.5344444394
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/main.pdf Table I (paper/sections/results.tex, paper/generated/main.tex)",
+          "issue": "The 10-column main table is 176.6pt too wide (main.log line 558) and is clipped at the page edge: val_average_accuracy is cut mid-cell and val_forgetting and n are not visible.",
+          "fix": "Restrict the table to the test metrics used in the text or wrap it in \\resizebox{\\textwidth}{!}{...} as Table II does, then rebuild the PDF."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables/compare_* and paper/sections/results.tex (H2)",
+          "issue": "The EWC vs fine-tuning paired p=0.22 and 95% CI are attributed to rh compare but no saved compare output contains that pair (all use ER M=100 as reference); the values are correct when recomputed. compare_main_average_accuracy.csv holds only split_til rows because it was overwritten.",
+          "fix": "Save an rh compare output with Fine-tuning as reference and keep one compare file per scenario."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs (sweep_buffer, sweep_lambda)",
+          "issue": "24 log files are shared by 48 sweep rows; 38 rows have no clean own log (10 contain the other row's output, 28 are interleaved). Disclosed in limitations; raw JSON matches the registry for all rows and two such rows reran identically.",
+          "fix": "Include the config value in the log file name and re-run the affected sweep rows."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/drive.py",
+          "issue": "The job lists that generated the tune_lr, sweep and main groups are not in the repository (drive.py is only the helper), while the paper calls the comparison reproducible.",
+          "fix": "Commit the job-list scripts or state that reproduction is per run via provenance.command."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'A 100-sample buffer (20 per task at the end)' is misleading: during training of the last task the buffer holds 25 examples per earlier task; the 20-per-task buffer exists only after the final stage and is never trained on.",
+          "fix": "Say '25 per earlier task while learning the last task' or drop the parenthesis."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Table I formatting",
+          "issue": "The bold 'Experience replay (M=100)' row label is not explained by the caption, four systems tie at 0.9973 last-task accuracy on split_til but receive arbitrary bold/underline, and column headers are raw underscored metric names.",
+          "fix": "Explain or remove the bold row label, mark ties consistently and use readable headers."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/refs.bib",
+          "issue": "All references are cited as arXiv preprints although published versions exist (e.g. PNAS, ICML, NeurIPS, CVPR).",
+          "fix": "Cite the published venues where available."
+        }
+      ],
+      "commit": "0e00c3f4de7a822c3e0490f47676ebccf2b58bd7"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper matches the generated tables and the run registry, all 336 active rows have their own matching log, and seven re-executed runs (four main, one tuning, two sweep) reproduced the registry bit-for-bit. The code implements what the paper describes with no test leakage or hard-coded results, the EWC baseline is not crippled (a lower-learning-rate probe did not improve it), all 11 citations are used in context, and the framing reports the negative and mixed outcomes with adequate limitations. Only minor wording and presentation issues remain.",
+      "reran": [
+        {
+          "run": "Experience replay (M=100)/perm_dil/0",
+          "metric": "average_accuracy",
+          "registry": 0.8483333349227905,
+          "rerun": 0.8483333349227905
+        },
+        {
+          "run": "EWC/split_cil/1",
+          "metric": "average_accuracy",
+          "registry": 0.282317191362381,
+          "rerun": 0.282317191362381
+        },
+        {
+          "run": "Fine-tuning/split_cil/0",
+          "metric": "average_accuracy",
+          "registry": 0.26868884563446044,
+          "rerun": 0.26868884563446044
+        },
+        {
+          "run": "Joint training/split_til/4",
+          "metric": "average_accuracy",
+          "registry": 0.9748794078826905,
+          "rerun": 0.9748794078826905
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (H4b)",
+          "issue": "'the peak exceeds its neighbours by many seed standard deviations (0.008)' uses only the peak's own std; the lambda=1e4 neighbour is 0.212 +- 0.051, so the 0.128 gap is about 2.5 of that neighbour's std.",
+          "fix": "Reword to state the gap relative to both stds, e.g. 'exceeds its neighbours by 0.13-0.14, against seed stds of 0.008 at the peak and 0.051 at lambda=1e4'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex, limitations.tex",
+          "issue": "On the split scenarios (about 215 training images per task) large buffers hold much of the earlier data: M=500 keeps 125 per task in the last stage (58%) and all of task 1 during stage 2, so floor(M/t) is capped by task size. This is not stated.",
+          "fix": "Add a sentence in the method or limitations giving the fraction of earlier-task data stored at M=200 and M=500 on split tasks and noting the cap at the task size."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Compute)",
+          "issue": "'Individual runs take seconds to tens of seconds' holds for the first sweep execution, but two re-run sweep rows whose numbers are reported took 127 s and 147 s under load.",
+          "fix": "State that re-run durations reached about 150 s under load, or give the range from the registry."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Fig. 1 (experiments/make_figs.py)",
+          "issue": "The split_til panel shares a 0.2-1.0 y-axis with the other panels, so its curves are indistinguishable.",
+          "fix": "Use a separate y-range for split_til or note in the caption that the curves overlap and refer to Table II."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md, rh status output",
+          "issue": "The auto-generated 'tier 0 / TARGET NOT REACHED' verdict, 'Ablation ... missing' rows and '225 failed' run count are tool artefacts (joint training is an upper bound; the 225 rows are superseded sweep runs) and can mislead a reader; RESULTS.md explains only the first.",
+          "fix": "Add a note to RESULTS.md or the README explaining that the 225 non-active rows are superseded, not failed, and that the ablation rows in VERDICT.md do not apply to this comparative study."
+        }
+      ],
+      "commit": "0247581ef28a3fb62035cd43f196a236209beecd"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (2):\n! numbers in prose not found in any table or run: results.tex: 0.263, 0.303, 0.670\n! verdict tier 0 < target 2: not best on perm_dil: ours 0.8467 vs Joint training 0.9537\nREADY",
+      "response": "# Response to audit\n1. (major) H2 EWC half: downgraded to \"partly supported, seed-dependent\" in results, abstract, conclusion and RESULTS.md. Added paired p=0.22, CI straddling 0.05, and the sweep-seed gain of 0.143 (0.340 vs 0.196); ER half kept as holding on both seed sets.\n2. (minor) Log collisions: not re-run (registry is the record); disclosed in limitations.\n3. (minor) Saved per-task `rh compare` outputs as results/tables/compare_main_average_accuracy_<task>.txt.\n4. (minor) results/raw curve CSVs are now un-ignored and committed so Fig. 1 can be rebuilt. The job-list scripts for the tune/sweep/main groups were not recovered; drive.py holds only the helper and the job lists are not in the repo (not fixed).\n5. (minor) Eq. 1 renamed to a diagonal Fisher estimated with one model-sampled label per example.\n6. (minor) Abstract now says \"epoch budget (except joint training)\".\n7. (minor) p=0.050 stated as not significant at 0.05; \"near chance\" replaced by actual values (0.273 vs 0.10, 0.715 vs 0.5).\n8. (minor) Bold now renders (STIXGeneral main font under XeTeX, guarded); Fig. 2 error bars use ddof=1 and smaller tick labels.\n9. (minor) Added a data-reuse sentence to the limitations.\n10. (minor) Added Goodfellow et al. 2013 (via rh lit cite) for catastrophic forgetting; \"rehearse\" reworded to \"use\".\n",
+      "seconds": 66
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on perm_dil: ours 0.8467 vs Joint training 0.9537\nREADY",
+      "response": "# Response to the audit (fix round)\n\nOne entry per finding of the second audit. The response to the first audit is in the git history of this file.\n\n1. **(major) Table I overflowed the page.** Fixed. The main table is now built with\n   `rh table --group main --metrics average_accuracy,forgetting,backward_transfer,last_task_accuracy`, i.e. only the\n   four test metrics used in the text (the validation columns are dropped), and is set in a two-column `table*`\n   float at natural size. `paper/main.log` has no overfull box; every column, including the seed count, is visible in\n   the rendered PDF (checked on the page image).\n\n2. **(minor) EWC vs fine-tuning p-value not in a saved compare output; compare CSV overwritten.** Fixed.\n   `experiments/make_stats.sh` saves one `rh compare` output per scenario and per reference system (ER M=100 and\n   Fine-tuning): `results/tables/compare_main_average_accuracy_<task>_ref-<ref>.{txt,csv}`. The EWC vs fine-tuning\n   pair on split_cil (paired p = 0.2195) is in `..._split_cil_ref-Finetuning.txt`. The 95% intervals, which\n   `rh compare` does not print, come from `experiments/paired_stats.py` (`results/tables/paired_main_average_accuracy.txt`)\n   and are shown in the paper as a table of paired differences; the text now says which number comes from where.\n\n3. **(minor) Sweep logs shared between rows.** Fixed by re-running. The 225 original sweep rows are retired with\n   `rh supersede` (still visible with `rh runs --all`) and all 225 sweep runs were executed again through `rh run`\n   with a driver that serialises jobs sharing a log stem (`experiments/drive.py`). The first attempt at the re-run was\n   interrupted after 98 rows; the remaining 127 were run with `experiments/jobs.py sweeps --resume`, and the two\n   partial logs of the interrupted jobs (no registry row) were deleted. `experiments/check_logs.py` reports one clean\n   log per active row, and the re-run metrics are identical to the retired rows for all 225 runs, so no number in the\n   paper changed. The limitations section describes this instead of the old disclosure.\n\n4. **(minor) Job lists missing.** Fixed. `experiments/jobs.py` holds the job lists of the tune_lr, sweep and main\n   groups (`--dry-run` prints the `rh run` commands). The generated commands were compared with\n   `provenance.command` of the registry rows: sweeps and main are identical; the tune_lr rows were produced by an\n   earlier driver version whose metrics-file names did not contain the learning rate, otherwise identical. This is\n   stated in `experiments/PROTOCOL.md`. The introduction no longer says the lists \"produced\" the runs, only that the\n   job lists of every group are in the repository.\n\n5. **(minor) \"20 per task at the end\" in the abstract.** Fixed: the abstract now says \"25 stored examples per earlier\n   task while the last task is learned\".\n\n6. **(minor) Table I formatting.** Fixed in `experiments/make_tables.py`, which changes only the presentation of the\n   `rh table` output (every number is the string `rh table` printed): the bold row label is removed, headers are\n   readable names, every cell tied for best is bold and a runner-up is underlined only when the best is unique. The\n   caption explains the marks.\n\n7. **(minor) Published venues.** Partly fixed. The four references that have a Crossref DOI were re-added with\n   `rh lit cite <DOI>`: Kirkpatrick et al. (PNAS), Rebuffi et al. (CVPR), Li and Hoiem (TPAMI), Liu et al. (ICPR).\n   The other seven remain arXiv records: their published versions (ICML, NeurIPS and ICLR proceedings) have no DOI\n   that `rh lit cite` can resolve, \"Three scenarios for continual learning\" and \"On Tiny Episodic Memories\" are\n   arXiv-only under those titles, and BibTeX entries are not to be typed by hand. `rh lit verify` ends with\n   CITATIONS VERIFIED.\n\n## Changes from the self-audit\n- The abstract and ablation text said that EWC's low forgetting at large lambda \"comes with low accuracy on the last\n  task\" / \"stability is bought with plasticity\" without a table of last-task accuracy for the sweeps. Added that\n  table (last-task accuracy per lambda and for four buffer sizes, from the registry) and replaced the phrase by the\n  numbers. The table also shows an extreme value, last-task accuracy exactly 0 in all five seeds for lambda >= 1e4\n  on split_cil, which the text now states and relates to the failure case of the main runs.\n- Added the learning-rate selection table that the setup text quotes (0.930 against 0.911, rates within 0.001).\n- \"the peak is real\" (split_cil, lambda sweep) reworded to a statement about seed standard deviations.\n- The sentence that the M-versus-lambda comparison \"is not biased towards replay by tuning\" was replaced by the\n  facts: the EWC value is the best of seven on those seeds, the buffer sizes were not tuned.\n- Sweep figure enlarged to two-column width so its tick labels are readable.\n- The EWC gain on the sweep seeds was quoted as a difference (0.143) that appears in no table; the abstract, results\n  and conclusion now quote the two table values (0.340 against 0.196) instead.\n- A negative number in a bold cell of the main table was typeset with a hyphen; fixed in `experiments/make_tables.py`.\n",
+      "seconds": 1053
+    }
+  ]
+}

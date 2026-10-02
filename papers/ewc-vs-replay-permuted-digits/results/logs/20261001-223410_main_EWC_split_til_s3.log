@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:34:10 2026
+# cwd: .
+# cmd: python method/run.py --system ewc --lam 1000 --task split_til --seed 3 --out results/raw/main_EWC_1000_split_til_3.json --curve results/raw/curve_main_EWC_1000_split_til_3.csv
+
+config: {"system": "ewc", "task": "split_til", "seed": 3, "lam": 1000.0, "buffer": 0, "lr": 0.1, "epochs": 30, "out": "results/raw/main_EWC_1000_split_til_3.json", "curve": "results/raw/curve_main_EWC_1000_split_til_3.csv"}
+metrics: {"average_accuracy": 0.9722211360931396, "forgetting": 0.010416671633720398, "backward_transfer": -0.010416671633720398, "last_task_accuracy": 0.9583333134651184, "mean_seen_accuracy": 0.9803933431704838, "acc_matrix": [[0.9863, 0.4722, 0.5139, 0.493, 0.8194], [0.9863, 0.9722, 0.5278, 0.4648, 0.6944], [0.9863, 0.9583, 1.0, 0.4789, 0.5139], [0.9863, 0.9583, 1.0, 0.9859, 0.5139], [0.9863, 0.9583, 0.9722, 0.9859, 0.9583]], "val_average_accuracy": 0.9554381966590881, "val_forgetting": 0.013937771320343018}

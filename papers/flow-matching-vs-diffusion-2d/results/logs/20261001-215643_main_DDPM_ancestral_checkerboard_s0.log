@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:56:43 2026
+# cwd: .
+# cmd: python method/run.py --system ddpm_anc --task checkerboard --seed 0 --out results/raw/main_ddpm_anc_checkerboard_s0.json
+
+CONFIG {"system": "ddpm_anc", "task": "checkerboard", "seed": 0, "out": "results/raw/main_ddpm_anc_checkerboard_s0.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded diff_linear
+METRICS {"sw_k1": 2.125331163406372, "mmd_k1": 0.10335765779018402, "sw_k2": 0.5631441473960876, "mmd_k2": 0.09888267517089844, "sw_k4": 0.35075151920318604, "mmd_k4": 0.036992549896240234, "sw_k8": 0.20511896908283234, "mmd_k8": 0.01355069875717163, "sw_k16": 0.11792703717947006, "mmd_k16": 0.005903124809265137, "sw_k32": 0.08196187019348145, "mmd_k32": 0.004029273986816406, "sw_k64": 0.06325186789035797, "mmd_k64": 0.003662288188934326, "sw_k100": 0.0625578910112381, "mmd_k100": 0.004037916660308838, "train_plus_eval_s": 14.574634075164795}

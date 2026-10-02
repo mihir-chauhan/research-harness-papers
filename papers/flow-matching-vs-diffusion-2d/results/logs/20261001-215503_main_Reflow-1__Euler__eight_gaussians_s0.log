@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:55:03 2026
+# cwd: .
+# cmd: python method/run.py --system reflow --task eight_gaussians --seed 0 --out results/raw/main_reflow_eight_gaussians_s0.json
+
+CONFIG {"system": "reflow", "task": "eight_gaussians", "seed": 0, "out": "results/raw/main_reflow_eight_gaussians_s0.json", "sched": "linear", "rounds": 1, "teacher_steps": 100, "iters": 3000, "bs": 512, "lr": 0.002, "npairs": 20000, "nref": 10000, "nmmd": 3000}
+loaded fm
+trained reflow1_ts100_np20000
+METRICS {"sw_k1": 0.051633186638355255, "mmd_k1": 0.002468705177307129, "sw_k2": 0.035760149359703064, "mmd_k2": 0.0013949275016784668, "sw_k4": 0.030395597219467163, "mmd_k4": 0.000821530818939209, "sw_k8": 0.029323572292923927, "mmd_k8": 0.0007447004318237305, "sw_k16": 0.04452982172369957, "mmd_k16": 0.0008522272109985352, "sw_k32": 0.02789079025387764, "mmd_k32": 0.0005152225494384766, "sw_k64": 0.028318367898464203, "mmd_k64": 0.0005645751953125, "sw_k100": 0.026731466874480247, "mmd_k100": 0.0004878044128417969, "straight": 0.9993521571159363, "train_plus_eval_s": 41.27922797203064}
