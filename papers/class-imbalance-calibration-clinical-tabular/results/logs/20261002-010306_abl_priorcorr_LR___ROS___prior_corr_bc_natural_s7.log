@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:03:06 2026
+# cwd: .
+# cmd: python method/run.py --system ros --model lr --task bc_natural --seed 7 --prior_corr 1 --out results/raw/abl_prior_ros_lr_bc_natural_7.json
+
+config: {'system': 'ros', 'model': 'lr', 'task': 'bc_natural', 'seed': 7, 'smote_ratio': 1.0, 'prior_corr': 1, 'out': 'results/raw/abl_prior_ros_lr_bc_natural_7.json'}
+metrics: {"auroc": 0.9962032710280373, "auprc": 0.9947345890410959, "brier": 0.018325294727168328, "cal_slope": 1.3228573046759033, "cal_citl": 0.018147270019491922, "slope_dev": 0.32285730467590334, "citl_abs": 0.018147270019491922, "mean_pred": 0.3738131197871638, "obs_prev": 0.3742690058479532, "sens": 0.96875, "spec": 1.0, "bal_acc": 0.984375, "n_train_pos": 148, "n_train": 398, "n_test_pos": 64, "n_fit": 500, "runtime_s": 0.017980098724365234}

@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:04:54 2026
+# cwd: .
+# cmd: python method/run.py --system reweight --model gb --task bc_1to20 --seed 1 --prior_corr 1 --out results/raw/abl_prior_reweight_gb_bc_1to20_1.json
+
+config: {'system': 'reweight', 'model': 'gb', 'task': 'bc_1to20', 'seed': 1, 'smote_ratio': 1.0, 'prior_corr': 1, 'out': 'results/raw/abl_prior_reweight_gb_bc_1to20_1.json'}
+metrics: {"auroc": 0.8768983644859809, "auprc": 0.8094908604988005, "brier": 0.01695041548257254, "cal_slope": 0.6724560545901189, "cal_citl": 8.221213045295977, "slope_dev": 0.3275439454098811, "citl_abs": 8.221213045295977, "mean_pred": 0.02990050302676795, "obs_prev": 0.04761904761904761, "sens": 0.609375, "spec": 1.0, "bal_acc": 0.8046875, "n_train_pos": 12, "n_train": 262, "n_test_pos": 64, "n_fit": 262, "runtime_s": 0.12982988357543945}

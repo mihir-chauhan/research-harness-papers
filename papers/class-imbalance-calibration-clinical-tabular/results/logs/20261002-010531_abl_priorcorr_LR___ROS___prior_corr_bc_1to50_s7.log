@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:05:31 2026
+# cwd: .
+# cmd: python method/run.py --system ros --model lr --task bc_1to50 --seed 7 --prior_corr 1 --out results/raw/abl_prior_ros_lr_bc_1to50_7.json
+
+config: {'system': 'ros', 'model': 'lr', 'task': 'bc_1to50', 'seed': 7, 'smote_ratio': 1.0, 'prior_corr': 1, 'out': 'results/raw/abl_prior_ros_lr_bc_1to50_7.json'}
+metrics: {"auroc": 0.9818925233644861, "auprc": 0.9054540976124535, "brier": 0.003697586806733085, "cal_slope": 0.6895644404457457, "cal_citl": 2.6488965319631803, "slope_dev": 0.3104355595542543, "citl_abs": 2.6488965319631803, "mean_pred": 0.01539813683028756, "obs_prev": 0.019607843137254905, "sens": 0.78125, "spec": 1.0, "bal_acc": 0.890625, "n_train_pos": 5, "n_train": 255, "n_test_pos": 64, "n_fit": 500, "runtime_s": 0.013782024383544922}

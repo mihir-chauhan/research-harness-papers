@@ -1,0 +1,19 @@
+Let $x\in\mathbb{R}^{30}$ be standardised features and $y\in\{0,1\}$ the outcome (1 = malignant), with training prevalence $\pi=\bar y_{\text{train}}$. A learner outputs $\hat p(x)=\Pr(y{=}1\mid x)$ as fitted on the (possibly modified) training set. All systems share the learner and its hyperparameters; they differ only in the training data, the loss weights or the decision rule.
+
+\textbf{Learners.} LR minimises $\sum_i \ell(y_i, \sigma(w^\top x_i+b)) + \tfrac{1}{2C}\|w\|^2$ with $C=1$ and log-loss $\ell$. GB is Friedman's gradient boosting machine~\cite{friedman2001greedy} with log-loss, 100 trees of depth 3, learning rate 0.1 and no subsampling.
+
+\textbf{Class reweighting.} Each example gets weight $\omega_c = n/(2n_c)$, so both classes carry total weight $n/2$: $\min \sum_i \omega_{y_i}\,\ell(y_i,\hat p(x_i))$ (LR \texttt{class\_weight} / GB \texttt{sample\_weight}). The effective training prevalence is $\pi_{\text{eff}}=0.5$.
+
+\textbf{Random oversampling (ROS).} Draw $m=\mathrm{round}(r\,n_0) - n_1$ minority rows with replacement and append them, with target ratio $r=1$ unless stated ($n_0$, $n_1$: majority and minority training counts). $\pi_{\text{eff}}$ is the realised prevalence of the resampled set, which is $0.5$ at $r=1$.
+
+\textbf{SMOTE (reimplemented).} For each of $m=\mathrm{round}(r\,n_0)-n_1$ synthetic points, pick a minority point $x_a$ uniformly, pick uniformly one of its $k=5$ nearest minority neighbours $x_b$ (Euclidean distance in standardised space; $k=\min(5,n_1-1)$ if fewer minority points), draw $u\sim U(0,1)$ and set $x_{\text{new}}=x_a+u\,(x_b-x_a)$ with label 1~\cite{chawla2011smote}.
+
+\textbf{Threshold moving.} Fit with no correction, then classify as positive if $\hat p(x)\ge\pi$ instead of $0.5$. The probabilities, hence all probability metrics, are those of no correction by construction; only sensitivity and specificity change.
+
+\textbf{Prior-shift offset (ablation).} A model fitted at prevalence $\pi_{\text{eff}}$ but deployed at $\pi$ has, under the prior-shift assumption, corrected logit~\cite{pozzolo2015calibrating}
+\begin{equation}
+\operatorname{logit}\tilde p(x)=\operatorname{logit}\hat p(x)+\log\tfrac{\pi}{1-\pi}-\log\tfrac{\pi_{\text{eff}}}{1-\pi_{\text{eff}}}.
+\end{equation}
+The map is monotone, so it changes no ranking metric, except that the code applies it to $\hat p$ clipped to $[10^{-6},1-10^{-6}]$, which can tie saturated predictions.
+
+\textbf{Metrics.} With test weights $w_i$ (Section~\ref{sec:setup}): AUROC and AUPRC (average precision) computed with sample weights; Brier score $\sum_i w_i(\hat p_i-y_i)^2/\sum_i w_i$; calibration slope $b$ from the weighted logistic regression $\operatorname{logit}\Pr(y{=}1)=a_0+b\,\operatorname{logit}\hat p$ (scikit-learn, $C=10^6$, i.e.\ effectively unpenalised), where $\hat p$ is clipped to $[10^{-6},1-10^{-6}]$ ($b=1$ is ideal; $b<1$ means predictions are too extreme); and calibration-in-the-large $a$, the offset solving $\sum_i w_i\big(y_i-\sigma(\operatorname{logit}\hat p_i+a)\big)=0$, searched in $[-20,20]$ ($a=0$ is ideal; $a>0$ means risks are underestimated, $a<0$ overestimated). We rank by $|b-1|$ and $|a|$ and also report the signed values. Sensitivity and specificity use the system's decision threshold (0.5; $\pi$ for threshold moving).

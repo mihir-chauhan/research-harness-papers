@@ -25,6 +25,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 | generative-models | Flow Matching versus Denoising Diffusion on 2D Toy Distributions: Few-Step Sample Quality and What One Reflow Round Adds | [`papers/flow-matching-vs-diffusion-2d`](papers/flow-matching-vs-diffusion-2d) |
 | graph-learning | When Does Message Passing Help? A Small Controlled Study on Contextual Stochastic Block Models | [`papers/gcn-homophily-sbm`](papers/gcn-homophily-sbm) |
 | math-reasoning | Size Generalisation of Neural Bellman-Ford: Aggregation and Step Supervision in a Small CPU Study | [`papers/neural-algorithmic-size-generalisation`](papers/neural-algorithmic-size-generalisation) |
+| medicine-health | Do Imbalance Corrections Help or Only Distort Risk? A Small CPU Study with Logistic Regression and Gradient Boosting on Breast Cancer Wisconsin | [`papers/class-imbalance-calibration-clinical-tabular`](papers/class-imbalance-calibration-clinical-tabular) |
 | ml-theory-optimization | Does In-Distribution Temperature Scaling Stay Calibrated Under Shift? A Small Study on Digits | [`papers/calibration-under-shift-digits`](papers/calibration-under-shift-digits) |
 | ml-theory-optimization | Where the Peak Sits and Whether Ridge Removes It: A Small Study of Double Descent in Random-ReLU-Features Regression | [`papers/double-descent-random-features`](papers/double-descent-random-features) |
 | ml-theory-optimization | Replay Memory versus EWC Strength on Permuted and Split Digits: A Small Controlled CPU Study | [`papers/ewc-vs-replay-permuted-digits`](papers/ewc-vs-replay-permuted-digits) |

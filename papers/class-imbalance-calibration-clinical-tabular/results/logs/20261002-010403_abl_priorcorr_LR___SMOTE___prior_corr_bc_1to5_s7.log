@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:04:03 2026
+# cwd: .
+# cmd: python method/run.py --system smote --model lr --task bc_1to5 --seed 7 --prior_corr 1 --out results/raw/abl_prior_smote_lr_bc_1to5_7.json
+
+config: {'system': 'smote', 'model': 'lr', 'task': 'bc_1to5', 'seed': 7, 'smote_ratio': 1.0, 'prior_corr': 1, 'out': 'results/raw/abl_prior_smote_lr_bc_1to5_7.json'}
+metrics: {"auroc": 0.9938668224299064, "auprc": 0.9792217122250866, "brier": 0.01796408302284828, "cal_slope": 0.7820065079348811, "cal_citl": 1.6559216152009693, "slope_dev": 0.21799349206511887, "citl_abs": 1.6559216152009693, "mean_pred": 0.15111612720318282, "obs_prev": 0.16666666666666669, "sens": 0.875, "spec": 1.0, "bal_acc": 0.9375, "n_train_pos": 50, "n_train": 300, "n_test_pos": 64, "n_fit": 500, "runtime_s": 0.013390779495239258}

@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:58:17 2026
+# cwd: .
+# cmd: python method/run.py --system reweight --model gb --task bc_1to5 --seed 4 --out results/raw/main_reweight_gb_bc_1to5_4.json
+
+config: {'system': 'reweight', 'model': 'gb', 'task': 'bc_1to5', 'seed': 4, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_reweight_gb_bc_1to5_4.json'}
+metrics: {"auroc": 0.9711594626168223, "auprc": 0.9257505936691544, "brier": 0.05608949592673271, "cal_slope": 0.28616635006426716, "cal_citl": -6.125282600903932, "slope_dev": 0.7138336499357328, "citl_abs": 6.125282600903932, "mean_pred": 0.18312734869351163, "obs_prev": 0.16666666666666669, "sens": 0.875, "spec": 0.9532710280373832, "bal_acc": 0.9141355140186915, "n_train_pos": 50, "n_train": 300, "n_test_pos": 64, "n_fit": 300, "runtime_s": 0.16141176223754883}

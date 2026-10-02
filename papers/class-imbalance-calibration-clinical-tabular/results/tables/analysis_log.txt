@@ -1,0 +1,75 @@
+H3 max abs diff 0.0
+--- counts
+max |dAUROC| LR, all tasks: 0.0025554906542055943
+GB dAUROC/dAUPRC > 0 at 1:5-1:50: 11 of 18
+H1 refuting cells (gain >= 0.01, p < 0.05):
+learner correction    task metric  none_mean  corr_mean    delta  paired_p  n_seeds_lower
+     GB        ROS bc_1to5  auprc   0.940529   0.951479 0.010949  0.016371              2
+Brier higher with correction at 1:20, 1:50: 11 of 12
+min p Brier at 1:20, 1:50: 0.08483969198682184
+|a| higher with correction at 1:20, 1:50: 5 of 12
+min p |a| at 1:20, 1:50: 0.10501047322463251
+LR cal_citl nat: delta -0.3881..-0.2756, p 7.3e-11..0.00016, p<0.05 in 3 of 3
+LR cal_citl 1:5-1:50: delta -1.6494..-0.7235, p 2.1e-09..9.4e-05, p<0.05 in 9 of 9
+LR cal_slope nat: delta -0.0254..+0.1162, p 0.59..0.78, p<0.05 in 0 of 3
+LR cal_slope 1:5-1:50: delta -0.6745..-0.1821, p 0.00016..0.027, p<0.05 in 9 of 9
+LR slope_dev nat: delta +0.0145..+0.1823, p 0.38..0.75, p<0.05 in 0 of 3
+LR slope_dev 1:5-1:50: delta -0.3580..-0.0588, p 0.16..0.59, p<0.05 in 0 of 9
+LR mean_pred nat: delta +0.0074..+0.0106, p 8.5e-09..9.8e-05, p<0.05 in 3 of 3
+LR mean_pred 1:5-1:50: delta +0.0062..+0.0200, p 2.8e-06..0.0043, p<0.05 in 9 of 9
+LR sens nat: delta +0.0109..+0.0156, p 0.0011..0.0095, p<0.05 in 3 of 3
+LR sens 1:5-1:50: delta +0.0328..+0.0891, p 6.3e-05..0.012, p<0.05 in 9 of 9
+LR spec nat: delta -0.0103..-0.0075, p 0.011..0.037, p<0.05 in 3 of 3
+LR spec 1:5-1:50: delta -0.0131..-0.0019, p 0.0067..0.19, p<0.05 in 4 of 9
+LR bal_acc nat: delta +0.0003..+0.0041, p 0.014..0.9, p<0.05 in 1 of 3
+LR bal_acc 1:5-1:50: delta +0.0113..+0.0431, p 0.00026..0.032, p<0.05 in 9 of 9
+GB cal_citl nat: delta -0.6056..-0.3211, p 6e-06..0.00012, p<0.05 in 3 of 3
+GB cal_citl 1:5-1:50: delta -2.3768..+0.7081, p 0.026..0.91, p<0.05 in 1 of 9
+GB cal_slope nat: delta -0.0173..+0.0292, p 0.35..0.91, p<0.05 in 0 of 3
+GB cal_slope 1:5-1:50: delta -0.0330..+1.8852, p 0.0029..0.9, p<0.05 in 2 of 9
+GB slope_dev nat: delta -0.0573..-0.0107, p 0.012..0.27, p<0.05 in 2 of 3
+GB slope_dev 1:5-1:50: delta -0.0869..+1.6677, p 0.0029..0.91, p<0.05 in 2 of 9
+GB mean_pred nat: delta +0.0043..+0.0080, p 2.9e-05..0.00099, p<0.05 in 3 of 3
+GB mean_pred 1:5-1:50: delta -0.0013..+0.0087, p 0.093..0.99, p<0.05 in 0 of 9
+GB sens nat: delta +0.0063..+0.0094, p 0.051..0.42, p<0.05 in 0 of 3
+GB sens 1:5-1:50: delta -0.0547..+0.0359, p 0.02..0.96, p<0.05 in 1 of 9
+GB spec nat: delta -0.0065..-0.0019, p 0.11..0.51, p<0.05 in 0 of 3
+GB spec 1:5-1:50: delta -0.0084..+0.0000, p 0.2..1, p<0.05 in 0 of 9
+GB bal_acc nat: delta +0.0008..+0.0030, p 0.21..0.86, p<0.05 in 0 of 3
+GB bal_acc 1:5-1:50: delta -0.0278..+0.0180, p 0.014..0.92, p<0.05 in 1 of 9
+LR sens nat.: threshold - none +0.0172 p=0.0032; threshold - corrections +0.0016..+0.0063 p 0.1..0.34
+LR sens 1:5: threshold - none +0.0641 p=8.1e-05; threshold - corrections +0.0234..+0.0312 p 0.00067..0.0017
+LR sens 1:20: threshold - none +0.1172 p=0.00034; threshold - corrections +0.0609..+0.0641 p 8.8e-05..0.00022
+LR sens 1:50: threshold - none +0.1828 p=8.1e-05; threshold - corrections +0.0938..+0.0969 p 6.5e-05..0.0002
+LR spec nat.: threshold - none -0.0140 p=0.0067; threshold - corrections -0.0065..-0.0037 p 0.025..0.045
+LR spec 1:5: threshold - none -0.0224 p=0.0037; threshold - corrections -0.0121..-0.0093 p 0.0063..0.032
+LR spec 1:20: threshold - none -0.0280 p=8.8e-05; threshold - corrections -0.0262..-0.0215 p 2.7e-05..0.0026
+LR spec 1:50: threshold - none -0.0327 p=0.00038; threshold - corrections -0.0299..-0.0299 p 0.00066..0.00066
+LR bal_acc nat.: threshold - none +0.0016 p=0.46; threshold - corrections -0.0025..+0.0013 p 0.14..0.93
+LR bal_acc 1:5: threshold - none +0.0208 p=0.0046; threshold - corrections +0.0066..+0.0096 p 0.014..0.077
+LR bal_acc 1:20: threshold - none +0.0446 p=0.0032; threshold - corrections +0.0189..+0.0197 p 0.003..0.0069
+LR bal_acc 1:50: threshold - none +0.0751 p=0.00095; threshold - corrections +0.0319..+0.0335 p 0.0052..0.0083
+GB sens nat.: threshold - none +0.0109 p=0.0095; threshold - corrections +0.0016..+0.0047 p 0.34..0.68
+GB sens 1:5: threshold - none +0.0172 p=0.0032; threshold - corrections -0.0188..+0.0047 p 0.19..0.89
+GB sens 1:20: threshold - none +0.0359 p=0.076; threshold - corrections +0.0469..+0.0906 p 0.025..0.4
+GB sens 1:50: threshold - none +0.0359 p=0.071; threshold - corrections +0.0375..+0.0797 p 0.25..0.33
+GB spec nat.: threshold - none -0.0047 p=0.052; threshold - corrections -0.0028..+0.0019 p 0.34..1
+GB spec 1:5: threshold - none -0.0065 p=0.025; threshold - corrections -0.0065..-0.0047 p 0.045..0.18
+GB spec 1:20: threshold - none -0.0037 p=0.1; threshold - corrections -0.0037..+0.0047 p 0.42..0.54
+GB spec 1:50: threshold - none -0.0028 p=0.081; threshold - corrections -0.0009..+0.0000 p 0.73..1
+GB bal_acc nat.: threshold - none +0.0031 p=0.046; threshold - corrections +0.0002..+0.0023 p 0.5..0.95
+GB bal_acc 1:5: threshold - none +0.0053 p=0.03; threshold - corrections -0.0126..-0.0009 p 0.058..0.86
+GB bal_acc 1:20: threshold - none +0.0161 p=0.091; threshold - corrections +0.0258..+0.0439 p 0.036..0.36
+GB bal_acc 1:50: threshold - none +0.0166 p=0.077; threshold - corrections +0.0183..+0.0398 p 0.25..0.33
+offset: Brier gap smaller in magnitude: 11 of 24
+  of which LR: 2 of 12
+  of which GB: 9 of 12
+offset: gap within 0.005 (H4): 23 of 24
+raw gap within 0.005: 22 of 24
+offset: mean |a| higher than raw: 24 of 24
+offset: |a| higher with p < 0.05: 10 of 24
+offset: max AUROC / AUPRC change in any run: 0.00014602803738317238 4.382220535958936e-05 runs with a change: 1 cell(s)
+GB AUPRC sd at 1:20: [0.17, 0.156, 0.107, 0.154]
+extremes: slope 0.18599480582837719 18.64875044827936 | a -11.509024612486414 9.557266537701372 | AUROC min 0.582067757009346 | sens min 0.14062499999999997
+n paired tests written: 480
+rh compare cross-check: 408 paired p-values matched, max abs difference 1.11e-16

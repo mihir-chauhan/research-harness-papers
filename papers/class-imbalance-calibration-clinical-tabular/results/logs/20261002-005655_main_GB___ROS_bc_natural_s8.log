@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:56:55 2026
+# cwd: .
+# cmd: python method/run.py --system ros --model gb --task bc_natural --seed 8 --out results/raw/main_ros_gb_bc_natural_8.json
+
+config: {'system': 'ros', 'model': 'gb', 'task': 'bc_natural', 'seed': 8, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_ros_gb_bc_natural_8.json'}
+metrics: {"auroc": 0.9956191588785047, "auprc": 0.9928969540459017, "brier": 0.03300795400341186, "cal_slope": 0.9397461360994895, "cal_citl": 1.3514719121170784, "slope_dev": 0.06025386390051046, "citl_abs": 1.3514719121170784, "mean_pred": 0.34760488129105577, "obs_prev": 0.3742690058479532, "sens": 0.890625, "spec": 0.9906542056074766, "bal_acc": 0.9406396028037383, "n_train_pos": 148, "n_train": 398, "n_test_pos": 64, "n_fit": 500, "runtime_s": 0.24752378463745117}

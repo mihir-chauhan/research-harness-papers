@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:01:40 2026
+# cwd: .
+# cmd: python method/run.py --system threshold --model lr --task bc_1to50 --seed 4 --out results/raw/main_threshold_lr_bc_1to50_4.json
+
+config: {'system': 'threshold', 'model': 'lr', 'task': 'bc_1to50', 'seed': 4, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_threshold_lr_bc_1to50_4.json'}
+metrics: {"auroc": 0.9856892523364487, "auprc": 0.8712473871860731, "brier": 0.007133923828683429, "cal_slope": 1.1562101614599611, "cal_citl": 1.608793172410286, "slope_dev": 0.15621016145996114, "citl_abs": 1.608793172410286, "mean_pred": 0.012435431073020744, "obs_prev": 0.019607843137254905, "sens": 0.859375, "spec": 0.9813084112149533, "bal_acc": 0.9203417056074766, "n_train_pos": 5, "n_train": 255, "n_test_pos": 64, "n_fit": 255, "runtime_s": 0.012557029724121094}

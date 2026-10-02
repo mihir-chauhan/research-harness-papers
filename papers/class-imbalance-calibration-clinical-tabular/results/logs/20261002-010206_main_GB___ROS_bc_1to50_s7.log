@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:02:06 2026
+# cwd: .
+# cmd: python method/run.py --system ros --model gb --task bc_1to50 --seed 7 --out results/raw/main_ros_gb_bc_1to50_7.json
+
+config: {'system': 'ros', 'model': 'gb', 'task': 'bc_1to50', 'seed': 7, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_ros_gb_bc_1to50_7.json'}
+metrics: {"auroc": 0.8750000000000002, "auprc": 0.754901960784314, "brier": 0.004901746714438963, "cal_slope": 0.7250416046045031, "cal_citl": 5.430606579669596, "slope_dev": 0.27495839539549694, "citl_abs": 5.430606579669596, "mean_pred": 0.014726372349181331, "obs_prev": 0.019607843137254905, "sens": 0.75, "spec": 1.0, "bal_acc": 0.875, "n_train_pos": 5, "n_train": 255, "n_test_pos": 64, "n_fit": 500, "runtime_s": 0.08302998542785645}

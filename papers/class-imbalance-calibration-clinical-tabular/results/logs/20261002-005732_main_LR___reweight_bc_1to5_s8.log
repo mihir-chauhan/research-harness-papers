@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:57:32 2026
+# cwd: .
+# cmd: python method/run.py --system reweight --model lr --task bc_1to5 --seed 8 --out results/raw/main_reweight_lr_bc_1to5_8.json
+
+config: {'system': 'reweight', 'model': 'lr', 'task': 'bc_1to5', 'seed': 8, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_reweight_lr_bc_1to5_8.json'}
+metrics: {"auroc": 0.9932827102803738, "auprc": 0.9796334001279737, "brier": 0.018753155832282434, "cal_slope": 1.296746070401729, "cal_citl": -0.9823474064953149, "slope_dev": 0.29674607040172907, "citl_abs": 0.9823474064953149, "mean_pred": 0.1910682244194022, "obs_prev": 0.16666666666666669, "sens": 0.9375000000000001, "spec": 1.0, "bal_acc": 0.96875, "n_train_pos": 50, "n_train": 300, "n_test_pos": 64, "n_fit": 300, "runtime_s": 0.015707969665527344}

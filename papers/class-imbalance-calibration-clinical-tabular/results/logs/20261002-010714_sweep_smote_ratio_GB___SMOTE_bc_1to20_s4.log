@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:07:14 2026
+# cwd: .
+# cmd: python method/run.py --system smote --model gb --task bc_1to20 --seed 4 --smote_ratio 0.75 --out results/raw/sweep_smote_gb_bc_1to20_4_0.75.json
+
+config: {'system': 'smote', 'model': 'gb', 'task': 'bc_1to20', 'seed': 4, 'smote_ratio': 0.75, 'prior_corr': 0, 'out': 'results/raw/sweep_smote_gb_bc_1to20_4_0.75.json'}
+metrics: {"auroc": 0.9659024532710277, "auprc": 0.8642653305789278, "brier": 0.02663419858613326, "cal_slope": 0.3674057709289589, "cal_citl": -3.5089961813482993, "slope_dev": 0.6325942290710411, "citl_abs": 3.5089961813482993, "mean_pred": 0.05986768603105771, "obs_prev": 0.04761904761904761, "sens": 0.8124999999999999, "spec": 0.9813084112149533, "bal_acc": 0.8969042056074765, "n_train_pos": 12, "n_train": 262, "n_test_pos": 64, "n_fit": 438, "runtime_s": 0.20562005043029785}

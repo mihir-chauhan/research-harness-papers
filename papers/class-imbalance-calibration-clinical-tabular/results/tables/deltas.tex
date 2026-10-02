@@ -1,0 +1,13 @@
+\begin{tabular}{lccccccccc}
+\toprule
+ & \multicolumn{3}{c}{1:5} & \multicolumn{3}{c}{1:20} & \multicolumn{3}{c}{1:50} \\
+Correction & $\Delta$AUROC & $\Delta$AUPRC & $\Delta$Brier & $\Delta$AUROC & $\Delta$AUPRC & $\Delta$Brier & $\Delta$AUROC & $\Delta$AUPRC & $\Delta$Brier \\
+\midrule
+LR + reweight & -0.002\rlap{$^{*}$} & -0.004\rlap{$^{*}$} & +0.003\rlap{$^{*}$} & -0.002 & -0.007 & +0.001 & -0.001 & -0.011 & +0.001 \\
+LR + ROS & -0.003\rlap{$^{*}$} & -0.006\rlap{$^{*}$} & +0.004\rlap{$^{*}$} & -0.002 & -0.008 & +0.001 & -0.001 & -0.015 & +0.001 \\
+LR + SMOTE & -0.001 & -0.004 & +0.002 & -0.001 & -0.002 & -0.000 & +0.001 & -0.000 & +0.000 \\
+GB + reweight & +0.000 & +0.002 & -0.004 & -0.019 & +0.025 & +0.002 & -0.029 & -0.068 & +0.002 \\
+GB + ROS & +0.004\rlap{$^{*}$} & +0.011\rlap{$^{*}$} & -0.003 & +0.005 & +0.031 & +0.003 & -0.044 & -0.076 & +0.002 \\
+GB + SMOTE & +0.004 & +0.010 & -0.007 & +0.002 & +0.002 & +0.007 & -0.028 & -0.085 & +0.003 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:01:47 2026
+# cwd: .
+# cmd: python method/run.py --system none --model gb --task bc_1to50 --seed 2 --out results/raw/main_none_gb_bc_1to50_2.json
+
+config: {'system': 'none', 'model': 'gb', 'task': 'bc_1to50', 'seed': 2, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_none_gb_bc_1to50_2.json'}
+metrics: {"auroc": 0.8685747663551403, "auprc": 0.271515465935681, "brier": 0.03209944431886258, "cal_slope": 0.18674546613842463, "cal_citl": -11.509024612486414, "slope_dev": 0.8132545338615753, "citl_abs": 11.509024612486414, "mean_pred": 0.042428358035870535, "obs_prev": 0.019607843137254905, "sens": 0.765625, "spec": 0.9719626168224299, "bal_acc": 0.868793808411215, "n_train_pos": 5, "n_train": 255, "n_test_pos": 64, "n_fit": 255, "runtime_s": 0.06813192367553711}

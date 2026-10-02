@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:56:40 2026
+# cwd: .
+# cmd: python method/run.py --system reweight --model gb --task bc_natural --seed 2 --out results/raw/main_reweight_gb_bc_natural_2.json
+
+config: {'system': 'reweight', 'model': 'gb', 'task': 'bc_natural', 'seed': 2, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_reweight_gb_bc_natural_2.json'}
+metrics: {"auroc": 0.9843749999999999, "auprc": 0.9821819588699672, "brier": 0.04164701776255576, "cal_slope": 0.6019927692717516, "cal_citl": 1.2027681732984177, "slope_dev": 0.3980072307282484, "citl_abs": 1.2027681732984177, "mean_pred": 0.3551242841194183, "obs_prev": 0.3742690058479532, "sens": 0.890625, "spec": 0.9719626168224299, "bal_acc": 0.931293808411215, "n_train_pos": 148, "n_train": 398, "n_test_pos": 64, "n_fit": 398, "runtime_s": 0.21136069297790527}

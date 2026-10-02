@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:55:18 2026
+# cwd: .
+# cmd: python method/run.py --system none --model lr --task bc_natural --seed 2 --out results/raw/main_none_lr_bc_natural_2.json
+
+config: {'system': 'none', 'model': 'lr', 'task': 'bc_natural', 'seed': 2, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_none_lr_bc_natural_2.json'}
+metrics: {"auroc": 0.9899240654205607, "auprc": 0.9886504935180236, "brier": 0.026459459450532616, "cal_slope": 0.9103085129184919, "cal_citl": 0.49642518746778563, "slope_dev": 0.08969148708150809, "citl_abs": 0.49642518746778563, "mean_pred": 0.36105906737305304, "obs_prev": 0.3742690058479532, "sens": 0.9375, "spec": 0.9906542056074766, "bal_acc": 0.9640771028037383, "n_train_pos": 148, "n_train": 398, "n_test_pos": 64, "n_fit": 398, "runtime_s": 0.01518106460571289}

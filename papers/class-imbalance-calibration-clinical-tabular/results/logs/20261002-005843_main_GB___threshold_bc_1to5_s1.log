@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:58:43 2026
+# cwd: .
+# cmd: python method/run.py --system threshold --model gb --task bc_1to5 --seed 1 --out results/raw/main_threshold_gb_bc_1to5_1.json
+
+config: {'system': 'threshold', 'model': 'gb', 'task': 'bc_1to5', 'seed': 1, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_threshold_gb_bc_1to5_1.json'}
+metrics: {"auroc": 0.9846670560747662, "auprc": 0.9495601869661362, "brier": 0.03477213099798285, "cal_slope": 0.45583893763048833, "cal_citl": 3.0237869434215825, "slope_dev": 0.5441610623695117, "citl_abs": 3.0237869434215825, "mean_pred": 0.15345367359709516, "obs_prev": 0.16666666666666669, "sens": 0.8593750000000001, "spec": 0.9813084112149533, "bal_acc": 0.9203417056074767, "n_train_pos": 50, "n_train": 300, "n_test_pos": 64, "n_fit": 300, "runtime_s": 0.16826319694519043}

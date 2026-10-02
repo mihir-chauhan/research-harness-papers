@@ -1,0 +1,54 @@
+slug: class-imbalance-calibration-clinical-tabular
+direction: 'Handling class imbalance without breaking calibration on small public clinical tabular data (breast cancer Wisconsin, artificially imbalanced 1:5, 1:20, 1:50): no correction, class reweighting, random oversampling, SMOTE, threshold moving, for logistic regression and gradient boosting; AUROC, AUPRC, Brier score, calibration slope.'
+problem: 'Imbalance corrections are routinely applied to clinical risk models, but they shift the training prevalence and may distort predicted risks while adding little discrimination.'
+gap: 'Existing simulation and real-data studies already cover several learners and event fractions; a CPU-sized check on a public bundled dataset that adds a threshold-moving arm and the analytic prior-shift offset is the narrow addition.'
+contribution: 'A controlled small-scale comparison of five imbalance handling strategies x two learners x four prevalences with discrimination and calibration metrics, plus an ablation of the analytic prior-shift correction and a SMOTE target-ratio sweep.'
+hypotheses:
+- id: H1
+  statement: 'Reweighting, random oversampling and SMOTE do not improve AUROC or AUPRC over no correction (no mean paired gain >= 0.01 at any imbalance level, for either learner).'
+  test: 'Paired difference over 10 seeds vs no correction (rh compare); refuted if a correction has a mean gain >= 0.01 in AUROC or AUPRC with paired p<0.05.'
+- id: H2
+  statement: 'Reweighting, oversampling and SMOTE worsen Brier score and increase |calibration-in-the-large| relative to no correction at 1:20 and 1:50 (prevalence-matched evaluation).'
+  test: 'Paired rh compare on brier and citl_abs vs no correction at bc_1to20 and bc_1to50, per learner.'
+- id: H3
+  statement: 'Threshold moving leaves AUROC, AUPRC, Brier and calibration slope identical to no correction and raises sensitivity at the cost of specificity.'
+  test: 'Exact equality of probability metrics; paired comparison of balanced accuracy and sensitivity.'
+- id: H4
+  statement: 'An analytic logit-offset prior correction removes most of the Brier degradation caused by reweighting/ROS/SMOTE (Brier within 0.005 of no correction on average).'
+  test: 'Ablation group abl_priorcorr: mean Brier difference to no correction per task and learner.'
+method:
+  name: LR + no correction
+  summary: 'Study design rather than a new algorithm. The reference ("method") arm is logistic regression without correction; all corrections are compared against it. Prior-corrected variants form the ablation.'
+  components: [none, reweight, ros, smote, threshold, prior_corr]
+  entrypoint: 'method/run.py'
+tasks: [bc_natural, bc_1to5, bc_1to20, bc_1to50]
+metrics:
+  auroc: {higher_is_better: true}
+  auprc: {higher_is_better: true}
+  brier: {higher_is_better: false}
+  slope_dev: {higher_is_better: false}
+  citl_abs: {higher_is_better: false}
+  bal_acc: {higher_is_better: true}
+  sens: {higher_is_better: true}
+  spec: {higher_is_better: true}
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 30
+baselines: ['LR + reweight', 'LR + ROS', 'LR + SMOTE', 'LR + threshold', 'GB + none', 'GB + reweight', 'GB + ROS', 'GB + SMOTE', 'GB + threshold']
+ablations: ['LR + reweight + prior corr', 'LR + ROS + prior corr', 'LR + SMOTE + prior corr', 'GB + reweight + prior corr', 'GB + ROS + prior corr', 'GB + SMOTE + prior corr', 'LR + SMOTE', 'GB + SMOTE']
+ambition:
+  target_tier: 2
+  primary_metric: brier
+  primary_task: bc_1to20
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

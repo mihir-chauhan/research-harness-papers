@@ -1,0 +1,171 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and reproduce bit-for-bit, there is no leakage or hard-coding, baselines are fair, citations are verified and used in context, and nearly every number matches the registry. One conclusion sentence is contradicted by the registry: reweighting, ROS and SMOTE also significantly raise LR sensitivity and balanced accuracy, so threshold moving is not the only strategy that does. The remaining issues are minor wording and analysis fixes that need no new runs.",
+      "reran": [
+        {
+          "run": "LR + no correction/bc_1to20/3",
+          "metric": "brier",
+          "registry": 0.0035357234120550135,
+          "rerun": 0.0035357234120550135
+        },
+        {
+          "run": "GB + SMOTE/bc_1to20/7",
+          "metric": "brier",
+          "registry": 0.038298598218278926,
+          "rerun": 0.038298598218278926
+        },
+        {
+          "run": "LR + ROS/bc_1to50/5",
+          "metric": "brier",
+          "registry": 0.017664822959178775,
+          "rerun": 0.017664822959178775
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/conclusion.tex (also results.tex H3 paragraph)",
+          "issue": "The claim that threshold moving 'was the only strategy that reliably changed sensitivity and balanced accuracy for LR' is contradicted by the registry: reweighting, ROS and SMOTE raise LR sensitivity at every prevalence (paired p<=0.012 in all 12 cells) and LR balanced accuracy at 1:5, 1:20 and 1:50 (p=0.0003-0.032, e.g. 0.863 to 0.905-0.906 at 1:50). The paper never tests or reports this benefit of the corrections.",
+          "fix": "Reword to what the data show: all corrections raise LR sensitivity and balanced accuracy at the 0.5 cut-off, and threshold moving raises them more (threshold vs each correction p<0.01 at 1:20 and 1:50) without changing probabilities. Add the paired tests for corrections vs none on sensitivity and balanced accuracy to threshold_tests.csv and the results text."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'the offset does not bring the Brier score closer to no correction' is a blanket statement; the gap shrinks in 11 of 24 cells (2 of 12 for LR, 9 of 12 for GB). 'Increases |a| in most cells' is actually all 24 cells on unrounded means.",
+          "fix": "Say 'does not consistently bring the Brier score closer (11 of 24 cells, mostly GB) and increases |a| in every cell'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2 and calibration slope), results/RESULTS.md",
+          "issue": "Calibration-in-the-large is analysed only as |a|, which hides the clearest calibration effect in the data: signed CITL for LR flips from underestimation (+0.33 to +0.76) to overestimation (-0.35 to -0.89) at 1:5, 1:20 and 1:50, p<=0.0001 in all nine imbalanced cells; at natural prevalence it only moves toward zero (p<=0.0002). The signed LR slope shift is also significant at 1:5-1:50 (p=0.0002-0.027). 'Distortion is visible in the slope' is stated with no supporting test (only |b-1|, p>0.15, is reported).",
+          "fix": "Report signed cal_citl and cal_slope paired differences alongside the absolute ones and state the direction of the risk shift; keep the registered |a| verdict but add the signed result."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "'seed sd of the AUPRC levels is 0.11-0.16 in Table I' but the GB sds are 0.107-0.170 (no correction is 0.170).",
+          "fix": "Write 0.11-0.17."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'the offset moves a by about ... -3 logits' has the wrong sign: the offset lowers logits by about 3, so a rises by about 3 (LR reweight 1:20 signed a goes from -0.78 to +2.25).",
+          "fix": "State that the offset shifts logits by about -3 and therefore a by about +3."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex vs method/run.py",
+          "issue": "The paper gives m = ceil(r*n0) - n1 for ROS and SMOTE; the code uses round(). Identical at r=1, differs by one sample at r=0.25 in the sweep (62 vs 63).",
+          "fix": "Write round() in the paper."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Statistics) and Table I",
+          "issue": "Text says slopes are reported as medians with IQR because they are heavy-tailed, but Table I reports |b-1| as mean +/- sd (0.365 +/- 0.565). Only one rh compare CSV exists (Brier at 1:20); all other p-values come from scipy.ttest_rel in analysis/make_tables.py (they agree where they overlap).",
+          "fix": "Use median [IQR] for |b-1| in Table I or note the exception; say the p-values come from analysis/make_tables.py, or generate rh compare CSVs for the other metrics and tasks."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex",
+          "issue": "'Recent simulation studies' includes Andersen et al., a real-data study on ten clinical datasets. 'Ours ... adds threshold moving, gradient boosting and an imbalance ladder' overstates the gap: Carriero et al. vary event fraction across a variety of ML algorithms and Andersen et al. use several non-linear model families. Guo et al. are said to 'propose' binned ECE, which they use rather than introduce.",
+          "fix": "Say 'recent simulation and empirical studies'; restrict the stated addition to threshold moving and the prior-shift offset on a small bundled dataset; say Guo et al. 'use' ECE."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Table III",
+          "issue": "Significance stars collide with the next column (e.g. '-0.002*-0.004*').",
+          "fix": "Add column padding or use a fixed-width star placeholder in deltas.tex."
+        }
+      ],
+      "commit": "7bbe296d2b7ee6f238b09ee2d9c7173cef09beab"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 722 registry rows have commands and logs whose metrics match the registry, four re-executed runs reproduce bit-for-bit, and every number and comparative claim in the paper matches an independent recomputation from runs.jsonl. Code matches the described methods with no leakage or hard-coding, citations are used in context, and the mostly null result is framed honestly with adequate limitations. Only minor issues remain: overestimation wording that outruns the seeds in three LR cells, anti-conservative p-values from overlapping splits, and small presentation and bibliography points.",
+      "reran": [
+        {
+          "run": "LR + no correction/bc_1to20/3",
+          "metric": "brier",
+          "registry": 0.0035357234120550135,
+          "rerun": 0.0035357234120550135
+        },
+        {
+          "run": "GB + SMOTE/bc_1to20/7",
+          "metric": "brier",
+          "registry": 0.038298598218278926,
+          "rerun": 0.038298598218278926
+        },
+        {
+          "run": "LR + ROS/bc_1to50/4",
+          "metric": "brier",
+          "registry": 0.004904403751261839,
+          "rerun": 0.004904403751261839
+        },
+        {
+          "run": "GB + reweight + prior corr/bc_1to5/2",
+          "metric": "brier",
+          "registry": 0.0419063324773436,
+          "rerun": 0.0419063324773436
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex (signed calibration-in-the-large), conclusion.tex",
+          "issue": "'Turning underestimation into overestimation at 1:5, 1:20 and 1:50' overstates three of nine LR cells: the paired downward shift is robust (10/10 seeds), but the post-correction mean intercept is not distinguishable from zero for ROS at 1:50 (-0.61, sd 1.35, p=0.19), SMOTE at 1:50 (-0.43, sd 1.30, p=0.33) and SMOTE at 1:20 (-0.38, sd 0.59, p=0.07), with 3/10 seeds still positive in each.",
+          "fix": "Say the mean intercept changes sign and that overestimation is established for reweighting and at 1:5 but within seed noise for ROS/SMOTE at 1:50 and SMOTE at 1:20."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Statistics), limitations.tex, results.tex (operating point)",
+          "issue": "Paired t-tests treat 10 overlapping 70/30 splits of one dataset as independent, so p-values are anti-conservative. Under a Nadeau-Bengio corrected test the signed-intercept shift survives in all 12 LR cells (p<=0.025), but most LR sensitivity and balanced-accuracy gains at natural prevalence and 1:20 do not (p=0.07-0.22) and no threshold-versus-correction balanced-accuracy difference survives (p>=0.11); seed-level direction is consistent (9-10 of 10 at 1:20 and 1:50).",
+          "fix": "State in limitations that the p-values are anti-conservative because splits overlap, and report sign counts or a corrected resampled t-test for the operating-point claims."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, ablations.tex",
+          "issue": "'Increases the mean absolute calibration intercept in every cell' counts GB + SMOTE at 1:20, where the increase is 2e-7 (p=1.0); the ablation text caveats this but the abstract does not.",
+          "fix": "Write '23 of 24 cells (one unchanged)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (signed calibration-in-the-large)",
+          "issue": "'For GB, a is positive in every cell' describes means with sd 1.3-6.5 that are mostly not distinguishable from zero (e.g. GB + SMOTE at 1:20: +0.24, sd 5.7, 5/10 seeds positive).",
+          "fix": "Say the mean is positive but the sign is not established at 1:20 and 1:50."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf, Fig. 1 (fig_slope.pdf)",
+          "issue": "The y-axis label is clipped at the left edge and the shared log axis squeezes the LR panel.",
+          "fix": "Increase the left margin or use separate y-axes per panel in analysis/make_tables.py and regenerate."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, method.tex, paper/refs.bib",
+          "issue": "Threshold moving, the Brier score and the calibration slope/intercept have no citation; Chawla is dated 2011 (arXiv posting) rather than 2002 (JAIR); Dal Pozzolo is typed @article with the conference as journal.",
+          "fix": "Add standard references for these concepts and correct the two bib entries."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "The ablation table lists all eight ablations as 'missing' (harness name mismatch) although the ablation runs exist and are analysed in the paper.",
+          "fix": "Regenerate the verdict with matching ablation names or annotate the file."
+        }
+      ],
+      "commit": "7f8ff5ea509f2c2e6a38990450693c50a76f52e9"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (2):\n! 1 failed runs in registry (fine, but check they were rerun)\n! verdict tier 0 < target 2: not best on bc_1to20: ours 0.008225 vs LR + SMOTE 0.008179\nREADY",
+      "response": "# Response to the audit\n\nNo new experiment runs were needed: every finding concerned analysis or wording. The registry (`results/runs.jsonl`) is\nunchanged. `analysis/make_tables.py` was extended and all tables, tests and figures were regenerated from the registry; the\ncounts quoted in the paper are printed in `results/tables/analysis_log.txt`.\n\n## Major\n\n1. **\"Threshold moving was the only strategy that reliably changed sensitivity and balanced accuracy for LR\" (conclusion,\n   H3).** Correct, the claim was wrong and is removed. Changes:\n   - `threshold_tests.csv` now holds, per learner, task and metric (sens, spec, bal_acc), the paired test of every strategy\n     against no correction and of threshold moving against every correction (168 rows).\n   - Table IV is now the operating point of all ten systems (sensitivity, specificity, balanced accuracy at four\n     prevalences) with a star for paired p < 0.05 against no correction (`operating.tex`, replaces `threshold.tex`).\n   - New results paragraph \"Operating point of the corrections (not registered)\": reweighting, ROS and SMOTE raise LR\n     sensitivity in all 12 cells (p <= 0.012) and LR balanced accuracy at 1:5, 1:20, 1:50 (p = 0.0003-0.032, 0.863 to\n     0.905-0.906 at 1:50), with a specificity loss significant in 7 of 12 cells; threshold moving raises balanced accuracy\n     more than each correction at 1:20 and 1:50 (p < 0.01; p = 0.014-0.077 at 1:5; no difference at natural prevalence).\n     For GB the corrections help in one cell only (SMOTE at 1:5).\n   - Abstract and conclusion reworded accordingly; the advice is reduced to \"try the threshold before resampling when only\n     the operating point matters\".\n\n## Minor\n\n2. **Abstract, blanket statement on the offset.** Now: \"does not consistently bring the Brier score closer to no correction\n   (11 of 24 cells, mostly GB) and increases the mean absolute calibration intercept in every cell\". The ablation text\n   gives 2 of 12 (LR), 9 of 12 (GB), |a| higher in 24 of 24 cells (p < 0.05 in 10), from `abl_prior_summary.csv`, which\n   now carries these columns and tests.\n3. **Signed calibration-in-the-large and signed slope.** Added. Table VI (`citl.tex`, replaces `abl_prior_citl.tex`) shows\n   signed a with stars, |a| and |a| with the offset at all four prevalences. New paragraph \"Signed calibration-in-the-large\n   (not registered)\": LR goes from underestimation (+0.33 to +0.76) to overestimation (-0.35 to -0.89) at 1:5-1:50,\n   p <= 0.0002 in all 12 LR cells, toward zero at natural prevalence. The slope paragraph reports the signed slope test\n   (p = 0.0002-0.027 at 1:5-1:50, absent at natural prevalence) next to the registered |b-1| (p >= 0.16). The unsupported\n   sentence \"distortion is visible in the slope\" is gone. The registered |a| verdict for H2 is kept (higher in 5 of 12\n   cells, none significant) and the one cell that refutes H2 under the registered rule is named. `deltas_all.csv` now has\n   cal_citl, cal_slope, mean_pred, sens, spec and bal_acc. Limitations state that these analyses were not registered.\n4. **AUPRC sd range.** Now 0.11-0.17 (both places).\n5. **Sign of the offset effect.** Now: the offset shifts every logit by about -3 at 1:20 and therefore raises a by about 3;\n   the raw corrected LR models overestimated by less than one logit (a = -0.38 to -0.78), so the offset overshoots.\n6. **ceil vs round.** Method section now writes round() for ROS and SMOTE, and states that pi_eff is the realised prevalence\n   (0.5 at r = 1), which is what the code uses. `method/DESIGN.md` updated.\n7. **Median [IQR] for slopes; source of p-values.** Table I now gives slope b and |b-1| as median [IQR]; the mean of |b-1|\n   is no longer quoted. This changed one statement: at 1:20 the median |b-1| is larger with a correction (0.10 vs\n   0.22-0.28) while the mean is smaller, so the paper now draws no conclusion on |b-1|. The Statistics paragraph says the\n   p-values come from `analysis/make_tables.py`; in addition `experiments/run_compare.sh` runs `rh compare` for every\n   metric, task and reference arm (104 CSVs in `results/tables/compare/`), and the analysis script cross-checks them: 408\n   paired p-values match with maximum absolute difference 1.1e-16 (mean_pred, 24 tests, is not a registered metric and\n   is not in `rh compare`).\n8. **Introduction and related work.** \"Recent simulation and empirical studies\"; Andersen et al. described as real clinical\n   datasets with several model families; Carriero et al. as varying event fraction across algorithms. The stated addition\n   is restricted to the threshold-moving arm and the prior-shift offset on a small bundled dataset. Guo et al. \"use\" the\n   binned ECE. `literature/landscape.md` and the `gap` field of `research.yaml` were narrowed in the same way.\n9. **Stars colliding in Table III.** Stars are now zero-width (`\\rlap`) in all generated tables; checked in the rendered PDF.\n\n## Found in the self-audit (not in the audit report)\n\n- \"AUROC differences exactly 0\" for the offset was false for one run: GB + ROS at 1:5, seed 7, changes AUROC by 1.5e-4\n  because the offset is applied to probabilities clipped to [1e-6, 1-1e-6], which ties saturated predictions. The method\n  and ablation sections now say so.\n- \"Training positives ... on average\" is exact (50, 12, 5 in every split); reworded.\n- Mechanism sentences without an isolating run were removed or kept with \"may\" (C = 1 penalty sentence removed; GB\n  overfitting of resampled positives and near-separability kept with \"may\" and \"not tested\").\n- Extreme values: slopes range from 0.19 to 18.6 (largest for GB at 1:50, seed 8), a from -11.5 to 9.6, none at the +-20\n  search bound; minimum AUROC 0.58 (GB + ROS/SMOTE, 1:50, seed 9). Stated in the setup, failure paragraph and RESULTS.md.\n- The Brier-difference figure was removed to stay within 6 pages after the two new analyses; its content is in Table III\n  (1:5-1:50, with tests) and the raw columns of Table V (all four prevalences). Two figures remain (s",
+      "seconds": 839
+    }
+  ]
+}

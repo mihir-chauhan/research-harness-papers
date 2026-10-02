@@ -1,0 +1,120 @@
+{
+  "slug": "class-imbalance-calibration-clinical-tabular",
+  "direction": "Handling class imbalance without breaking calibration, on small public clinical tabular datasets bundled with scikit-learn (breast cancer Wisconsin; and artificially imbalanced versions at 1:5, 1:20 and 1:50). Compare no correction, class reweighting, random oversampling, SMOTE (implemented directly) and decision-threshold moving, for logistic regression and gradient boosting. Report AUROC, AUPRC, Brier score and calibration slope: which corrections help discrimination and which only distort predicted risk?",
+  "created": "2026-10-01T18:43:47",
+  "updated": "2026-10-02T01:13:58",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T00:45:51",
+      "finished": "2026-10-02T00:54:59",
+      "notes": [
+        {
+          "t": "2026-10-02T00:54:59",
+          "note": "landscape, proposal, 10 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-02T00:54:59",
+      "finished": "2026-10-02T01:07:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:07:23",
+          "note": "runner smoke-tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:07:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:07:23",
+          "note": "reimplemented in same runner"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:07:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:07:23",
+          "note": "400 main runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:07:23",
+      "notes": [
+        {
+          "t": "2026-10-02T01:07:23",
+          "note": "prior corr, smote ratio"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:12:57",
+      "notes": [
+        {
+          "t": "2026-10-02T01:12:57",
+          "note": "tables, figs, verdict"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:12:57",
+      "notes": [
+        {
+          "t": "2026-10-02T01:12:57",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": "2026-10-02T01:12:57",
+      "finished": "2026-10-02T01:13:58",
+      "notes": [
+        {
+          "t": "2026-10-02T01:13:58",
+          "note": "6 pages, refs verified"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:54:59",
+      "phase": "setup",
+      "decision": "Weighted prevalence-matched test evaluation, 10 seeds, fixed hyperparameters, LR-none as reference arm; see BRIEF.md"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

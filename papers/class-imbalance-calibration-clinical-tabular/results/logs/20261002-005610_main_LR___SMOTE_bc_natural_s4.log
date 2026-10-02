@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:56:10 2026
+# cwd: .
+# cmd: python method/run.py --system smote --model lr --task bc_natural --seed 4 --out results/raw/main_smote_lr_bc_natural_4.json
+
+config: {'system': 'smote', 'model': 'lr', 'task': 'bc_natural', 'seed': 4, 'smote_ratio': 1.0, 'prior_corr': 0, 'out': 'results/raw/main_smote_lr_bc_natural_4.json'}
+metrics: {"auroc": 0.9913843457943925, "auprc": 0.9873749013498876, "brier": 0.03714366351514906, "cal_slope": 0.9868999187469331, "cal_citl": 0.7797817487818688, "slope_dev": 0.013100081253066942, "citl_abs": 0.7797817487818688, "mean_pred": 0.34983618385753273, "obs_prev": 0.3742690058479532, "sens": 0.890625, "spec": 0.9906542056074766, "bal_acc": 0.9406396028037383, "n_train_pos": 148, "n_train": 398, "n_test_pos": 64, "n_fit": 500, "runtime_s": 0.017998933792114258}

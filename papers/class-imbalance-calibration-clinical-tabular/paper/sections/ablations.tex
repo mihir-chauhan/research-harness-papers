@@ -1,0 +1,16 @@
+\textbf{Prior-shift offset (H4).} We add the logit offset of Eq.~(1) to reweighting, ROS and SMOTE ($\pi_{\text{eff}}=0.5$ in all three) for both learners and all four tasks. AUROC and AUPRC are unchanged in every run but one (GB with ROS at 1:5, where clipping ties saturated predictions; change below $2\times10^{-4}$). Table~\ref{tab:abl_brier} gives the Brier gap to no correction without (raw) and with the offset, Table~\ref{tab:citl} the calibration-in-the-large.
+
+\begin{table*}[t]\centering\caption{Prior-shift ablation: Brier score minus the no-correction value of the same learner, raw versus with logit offset, mean of 10 seeds.}\label{tab:abl_brier}
+\small\input{generated/abl_prior_brier.tex}
+\end{table*}
+
+\begin{table*}[t]\centering\caption{Calibration-in-the-large, mean of 10 seeds: signed $a$ ($>0$: risk underestimated), $|a|$, and $|a|_{\text{off}}$ with the prior-shift offset. $^{*}$: $a$ differs from no correction, same learner, unadjusted paired $p<0.05$.}\label{tab:citl}
+\small\input{generated/citl.tex}
+\end{table*}
+
+H4 as registered (corrected Brier within 0.005 of no correction) holds in 23 of 24 cells; the exception is GB with SMOTE at 1:5, where the gap is $-0.0080$ (\emph{better} than no correction, as is the raw model at $-0.0073$). The criterion is weak: the raw gaps are already below 0.005 in 22 of 24 cells (the exceptions are GB with SMOTE at 1:5 and at 1:20, $+0.0072$, which the offset brings to $+0.0047$). The offset does not move Brier score consistently toward no correction: the gap shrinks in magnitude in 11 of 24 cells (2 of 12 for LR, 9 of 12 for GB). The offset also raises mean $|a|$ in all 24 cells ($p<0.05$ in 10; for GB with SMOTE at 1:20 only beyond the second decimal): LR at 1:20 goes from $|a|=0.80$ (reweight), 0.66 (ROS) and 0.56 (SMOTE) to 2.25, 2.48 and 2.66, against 0.75 for no correction (Table~\ref{tab:citl}). The arithmetic is that the offset shifts every logit by $\log\frac{\pi}{1-\pi}-\log\frac{\pi_{\text{eff}}}{1-\pi_{\text{eff}}}\approx -3$ at 1:20 and therefore raises $a$ by about $3$; the raw corrected LR models overestimated risk by less than one logit ($a=-0.38$ to $-0.78$), so the offset overshoots into a strong underestimate. The raw models may be this close to the deployment prevalence because with 12 positives and nearly separable classes they are not calibrated at $\pi_{\text{eff}}$ in the first place; we did not test this. We read H4 as \emph{refuted in spirit} (no repair, higher $|a|$) although the registered threshold is formally met in 23 cells.
+
+\textbf{SMOTE target ratio.} Fig.~\ref{fig:sweep} varies the target ratio $r$ at 1:20 ($r=1$ is the main-group SMOTE rows). For LR, Brier score and AUPRC are flat in $r$ and close to the no-correction level. For GB both are noisy: Brier score is lowest at $r=0.5$ and highest at $r=1$, and AUPRC dips at $r=0.75$, which looks like seed noise given the seed sd of 0.11--0.17 in Table~\ref{tab:main}. We claim no trend; the sweep covers one task and one correction.
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{fig_sweep_smote.pdf}
+\caption{SMOTE target ratio at 1:20: Brier score and AUPRC (mean, normal-approximation 95\% interval over 10 seeds); dotted lines are the no-correction means.}\label{fig:sweep}\end{figure}
