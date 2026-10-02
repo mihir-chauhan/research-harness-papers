@@ -1,0 +1,28 @@
+\subsection{Truth: two-scale Lorenz-96}
+With $K{=}36$ slow variables $X_k$ and $J{=}10$ fast variables $Y_{j,k}$ per slow variable (cyclic indices),
+\begin{align}
+\dot X_k &= -X_{k-1}(X_{k-2}-X_{k+1}) - X_k + F - \tfrac{hc}{b}\textstyle\sum_{j} Y_{j,k},\\
+\dot Y_{j,k} &= -cb\,Y_{j+1,k}(Y_{j+2,k}-Y_{j-1,k}) - cY_{j,k} + \tfrac{hc}{b}X_k,
+\end{align}
+with $F{=}10$, $h{=}1$, $c{=}10$, $b{=}10$; the fast variables form one ring of $360$ cyclically indexed values. The system is integrated in NumPy with RK4 at step $0.005$ and sampled every $\Delta{=}0.05$ time units ($10$ RK4 steps) after discarding $400$ spin-up snapshots. Only $x_t=X(t\Delta)\in\mathbb R^{36}$ is given to the emulators; the $Y$ are never used, so the one-step map is not closed and carries irreducible error.
+
+\subsection{CNN emulator and the rollout loss}
+Let $z=(x-\mu)/\sigma$ with $\mu,\sigma$ the scalar mean and standard deviation of the training data. The emulator is a residual circular CNN,
+\begin{equation}
+\begin{split}\hat z_{t+1}&=\hat z_t+f_\theta(\hat z_t),\\ f_\theta&=\mathrm{conv}_4\circ\mathrm{GELU}\circ\mathrm{conv}_3\circ\mathrm{GELU}\\&\quad\circ\,\mathrm{conv}_2\circ\mathrm{GELU}\circ\mathrm{conv}_1,\end{split}
+\end{equation}
+with $4$ circular 1D convolutions (kernel $5$, channels $1\to32\to32\to32\to 1$). Starting from a training state $z_t$ and unrolling $\hat z_t^{(0)}=z_t$, $\hat z_t^{(k)}=\hat z_t^{(k-1)}+f_\theta(\hat z_t^{(k-1)})$, the $K$-step rollout loss is
+\begin{equation}
+\mathcal L_K(\theta)=\frac1K\sum_{k=1}^{K}\frac{1}{36}\Big\|\hat z_t^{(k)}-z_{t+k}\Big\|_2^2 ,
+\end{equation}
+averaged over a minibatch of random windows, with full back-propagation through the unrolled steps. $K{=}1$ is ordinary one-step training. For the noise ablation the initial state is perturbed, $\hat z_t^{(0)}=z_t+\epsilon$, $\epsilon\sim\mathcal N(0,s^2 I)$, while targets stay clean; the number of optimiser steps, batch size and schedule are identical for every $K$ (so larger $K$ costs proportionally more compute per step).
+
+\subsection{Reimplemented baselines}
+\textbf{Persistence:} $\hat x_{t+\tau}=x_t$. \textbf{Climatology:} $\hat x_{t+\tau}=\mu$ (the training mean). \textbf{Linear stencil (ridge):} a translation-invariant linear one-step model $\hat z_{t+1,k}=z_{t,k}+\sum_{s=-2}^{2}w_s z_{t,k+s}+w_0'$, with $w$ the ridge solution (penalty $0.001$) of the one-step increment regression over all training sites and times; it is the linear counterpart of the CNN with the same receptive field. All three use the same evaluation code and data as the CNNs. These are simple baselines chosen for the controlled question; they are not published ML forecasters.
+
+\subsection{Metrics}
+For forecast windows $w$ and lead $\tau$ (in steps), $\mathrm{RMSE}(\tau)=\sqrt{\mathrm{mean}_{w,k}(\hat x-x)^2}$ and
+\begin{equation}
+\mathrm{ACC}(\tau)=\mathrm{mean}_w\frac{\sum_k (\hat x_{k}-\mu)(x_{k}-\mu)}{\big[\sum_k(\hat x_{k}-\mu)^2\sum_k(x_{k}-\mu)^2\big]^{1/2}},
+\end{equation}
+the pattern correlation of anomalies about the training climatology (set to $0$ for the constant climatology forecast, whose anomaly is zero). The ACC lead time is the lead at which mean ACC first falls below $0.6$ (linear interpolation; capped at the horizon). In a free run of 200 time units from 16 test states, a member \emph{diverges} if any value is non-finite or $|x|>50$ (the truth stays below about 15); \texttt{stable\_frac} is the surviving fraction and \texttt{survival\_time} the mean survival time. For surviving members, after dropping the first 10 time units, we report the variance ratio \texttt{var\_ratio} $=\mathrm{Var}_{\rm emu}/\mathrm{Var}_{\rm truth}$ of all pooled values, the roughness ratio (the same ratio for the discrete Laplacian $x_{k+1}-2x_k+x_{k-1}$, which is sensitive to smoothing and to grid-scale noise) and the Kolmogorov--Smirnov distance \texttt{ks} between pooled emulator and truth marginals; truth is every test-trajectory state. Persistence and climatology have no free run (undefined or trivial), so they are omitted from long-run columns.

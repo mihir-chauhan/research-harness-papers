@@ -1,0 +1,183 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "The study is real and reproducible: all 59 runs have commands and hash-matching logs, three re-runs were bit-identical to the registry, the code matches the paper, there is no leakage, and the mixed/negative outcome is stated honestly with thorough limitations. The one major issue is the headline 'relative reduction of 5.2%' in the abstract, results and RESULTS.md, which is really 4.98% (5.2% is relative to the K=8 mean); the rest are minor wording, citation-precision and layout fixes.",
+      "reran": [
+        {
+          "run": "CNN K=4/l96/1",
+          "metric": "rmse_t20",
+          "registry": 1.2605999657865146,
+          "rerun": 1.2605999657865146
+        },
+        {
+          "run": "CNN K=1/l96/1",
+          "metric": "rmse_t20",
+          "registry": 1.294310786648087,
+          "rerun": 1.294310786648087
+        },
+        {
+          "run": "Linear stencil (ridge)/l96/1",
+          "metric": "rmse_t20",
+          "registry": 3.710706487068529,
+          "rerun": 3.710706487068529
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, results.tex (H1), results/RESULTS.md",
+          "issue": "States RMSE at lead 2 falls from 1.308 (K=1) to 1.243 (K=8), 'a relative reduction of 5.2%'. The reduction relative to K=1 is 0.0651/1.3084 = 4.98%; 5.2% is the delta divided by the K=8 mean (rh rel_delta), i.e. K=1 is 5.2% higher than K=8. The headline number is wrong as described.",
+          "fix": "Write 5.0% (delta divided by the K=1 mean), or reword to 'K=1 is 5.2% higher than K=8'; update RESULTS.md likewise."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'but not in RMSE beyond about three time units': lead curves show CNN RMSE crosses climatology at about 4.55-4.65 time units (at lead 3 the CNN is 2.39 vs 3.54), and the statement only holds against climatology, not persistence.",
+          "fix": "Say 'beyond about 4.5 time units the CNN RMSE exceeds climatology'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "For K=8 vs K=1 var_ratio only the paired p=0.08 is quoted; the Welch p is 0.030 (compare_main_var_ratio.csv), whereas for H1 the Welch p is quoted when it weakens the claim.",
+          "fix": "Report both p-values; keep the 'not supported' verdict on the grounds of the registered paired test and the 0.46% effect size."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex (Metrics)",
+          "issue": "'the truth stays below about 13': fresh seed-1 test data reaches |x| = 14.9.",
+          "fix": "Say 'below about 15'; the blow-up threshold of 50 is unaffected."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (tuning)",
+          "issue": "The selected learning rate 0.003 is the upper edge of a two-point grid for both K, nothing higher was tried, and K=2 and K=8 are untuned; the grid-edge fact is not stated.",
+          "fix": "State that the optimum is at the grid edge, or add lr=0.01 to the tuning grid on seed 100."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "Chattopadhyay et al. is cited for the 'two-scale Lorenz-96 system' but uses a three-tier multi-scale variant; the Lorenz-96 model has no primary citation. 'The study is a small CPU reproduction' is inaccurate since nothing specific is reproduced.",
+          "fix": "Cite Lorenz (1996) for the model, use 'multi-scale' for Chattopadhyay, and change 'reproduction' to 'study'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf page 2",
+          "issue": "Eq. (3) overflows the left column and overprints the first line of Sec. IV in the right column.",
+          "fix": "Break the equation over two lines."
+        },
+        {
+          "severity": "minor",
+          "where": "method/DESIGN.md, experiments/PROTOCOL.md, proposal.md",
+          "issue": "DESIGN.md says 928 forecast windows while code and paper give 896; PROTOCOL.md and proposal.md omit the sweep_ntrain group, so that ablation was added after registration.",
+          "fix": "Correct the window count and note that the ntrain ablation is post-hoc."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Auto-generated 'tier 2 (solid) - TARGET REACHED' rests on a +1.4% K=4 gain with ablation deltas marked 'missing', which is more favourable than the paper's own reading.",
+          "fix": "Regenerate or annotate the verdict so it matches the paper's 'supported for K=8, weak for K=4' conclusion."
+        },
+        {
+          "severity": "minor",
+          "where": "audit process (citations, workspace)",
+          "issue": "arXiv API returned HTTP 429, so citation-in-context checks rest on resolved titles and reviewer knowledge rather than fetched abstracts; running rh lit verify rewrote the checked_at timestamp in paper/citations.json.",
+          "fix": "Re-check abstracts when the API is available if desired; the timestamp change is harmless and can be discarded."
+        }
+      ],
+      "commit": "00fa5a5290863a3eaee4cad91111692df9373f5c"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers are macro-bound to the run registry and match my recomputation; the 59 runs have real logs with matching hashes, and two re-executed main-group runs reproduced bit-identically. The code matches the described method with no leakage or hard-coding, and the abstract and conclusion state the mixed result (small K=8 gain, no stability or variance effect) with adequate limitations. Only minor wording and detail issues remain; citation context was judged from titles because the arXiv API returned 503.",
+      "reran": [
+        {
+          "run": "CNN K=4/l96/1",
+          "metric": "rmse_t20",
+          "registry": 1.2605999657865146,
+          "rerun": 1.2605999657865146
+        },
+        {
+          "run": "Linear stencil (ridge)/l96/1",
+          "metric": "rmse_t20",
+          "registry": 3.710706487068529,
+          "rerun": 3.710706487068529
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, introduction.tex",
+          "issue": "Says tests were fixed in proposal.md before the runs, but proposal.md is an empty template in git until commit 00fa5a5, after all runs; the hypotheses and tests were in research.yaml at b39e71c, before the first run, and the 'Refuted if' criteria exist only in the later proposal.md.",
+          "fix": "Point to research.yaml at commit b39e71c as the pre-run record and state that the refutation criteria were written afterwards."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex",
+          "issue": "Paired p=0.0025 for the headline K=8 vs K=1 result prints as 0.002; other p-values print with spurious precision (2.526e-9, 9.448e-7).",
+          "fix": "Print 0.0025 (or p<0.01) and use p<0.001 for the very small values."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "Gain is called 'monotone' without qualification; it is monotone only in seed means, and K=2 vs K=1 at lead 2 is paired p=0.06 with one seed reversed.",
+          "fix": "Say 'monotone in the mean', as results.tex already does."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, conclusion.tex",
+          "issue": "'Input noise hurts' rests on two noise levels (0.03, 0.1 normalised) that are about 4.6x and 15x the model's normalised one-step error (about 0.0065), tested only at K=1.",
+          "fix": "State the noise levels relative to the one-step error and that smaller noise was not tried; limit the claim to these levels."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (training-set size)",
+          "issue": "Claim that the K=4 better than K=1 ordering is preserved at 4 trajectories with a similar gap is untested in the paper; my paired test gives p=0.07 for rmse_t20 (0.003 for acc_leadtime).",
+          "fix": "Report the paired test or describe it as a difference in means within one standard deviation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H4)",
+          "issue": "Linear stencil one-step RMSE 0.698 is called 'hardly better' than persistence's 0.923, though it is about 24% lower.",
+          "fix": "Reword, e.g. 'far from the CNN's 0.023'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex Table IV",
+          "issue": "var_ratio ranking uses 'lower is better' and highlights the noise rows although the target is 1; Table III's caption has this caveat, Table IV's does not.",
+          "fix": "Add the same caveat to the Table IV caption or drop the ranking for var_ratio."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "Implies Chattopadhyay et al. use the two-scale Lorenz-96 system; from memory their testbed is a three-tier multi-scale variant (abstract could not be re-fetched, arXiv API 503).",
+          "fix": "Say 'multi-scale Lorenz-96 variants', as related.tex does."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, limitations.tex",
+          "issue": "'Rollout losses are a common remedy' and 'instabilities of one-step emulators are reported for harder problems' carry no citation; the Lorenz (1996) model is uncited.",
+          "fix": "Cite existing keys (lam2022graphcast/keisler2022forecasting; stachenfeld2021learned/lippe2023pde/pedersen2025thermalizer) and add a Lorenz 1996 reference."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Automatic verdict reads 'tier 2 (solid) TARGET REACHED' on a +1.4% K=4 gain (Welch p=0.49) with ablation deltas 'missing'; only an appended annotation corrects it.",
+          "fix": "Keep the annotation or regenerate with K=8 as the method and the ablation deltas filled; do not cite the tier."
+        }
+      ],
+      "commit": "2cf7d520954c184b860f49f42a6ffffafc01639d"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS: none\nREADY",
+      "response": "# Response to audit\n1. (major) 5.2% headline: fixed. Abstract and results now say K=1 is 5.2% higher than K=8 (the rh rel_delta quantity), no longer \"relative reduction\". RESULTS.md states both 5.2% and the 4.98% reduction relative to K=1 (the latter appears only in RESULTS.md, not in the paper). Same rewording for K=4.\n2. Conclusion: now \"beyond about 4.5 time units the CNN RMSE exceeds that of climatology\".\n3. H3: Welch p for K=8 vs K=1 var_ratio is now reported next to the paired p; verdict unchanged (registered paired test, effect below one percent).\n4. Method: truth bound changed to \"about 15\"; the divergence threshold of 50 is unchanged.\n5. Tuning: setup now states that lr 0.003 is the upper edge of the two-point grid and that K=2,8 were untuned. A larger lr was not tried (no new runs).\n6. Introduction: Chattopadhyay/Gagne described as multi-scale studies; \"reproduction\" changed to \"study\". Lorenz (1996) has no arXiv id or DOI available to `rh lit cite`, so it is not added (no hand-typed BibTeX).\n7. Eq. (3) now splits over lines and Eq. (5) is narrower; checked on the rendered page 2.\n8. DESIGN.md window count corrected to 896; PROTOCOL.md and proposal.md note that sweep_ntrain was added post-hoc.\n9. VERDICT.md annotated: the automatic tier is more favourable than the paper's reading (K=4 gain is weak, H2/H3 not supported).\n10. Citation abstract re-check: not redone (API limit); citations.json timestamp change is harmless.\n",
+      "seconds": 198
+    }
+  ]
+}

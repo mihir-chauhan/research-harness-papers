@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:02:29 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --task l96 --seed 4 --out results/raw/main_climatology_s4.json --curve results/raw/curve_main_climatology_s4.csv --system climatology
+
+CONFIG {"system": "climatology", "task": "l96", "seed": 4, "out": "results/raw/main_climatology_s4.json", "rollout": 1, "iters": 1500, "batch": 32, "lr": 0.003, "noise": 0.0, "width": 32, "residual": 1, "curve": "results/raw/curve_main_climatology_s4.csv"}
+METRICS {"rmse_t05": 3.529645363551369, "rmse_t10": 3.5307014343879723, "rmse_t20": 3.5282740746925243, "rmse_t30": 3.5309076996292403, "rmse_t50": 3.5409106283037417, "rmse_1step": 3.5440916652478274, "acc_t05": 0.0, "acc_t10": 0.0, "acc_t20": 0.0, "acc_t30": 0.0, "acc_t50": 0.0, "acc_leadtime": 0.020000000000000004, "val_rmse_t05": 3.5175738554663223, "val_rmse_t10": 3.5316719175161797, "val_rmse_t20": 3.551452802653402, "val_rmse_t30": 3.5152855275010593, "val_rmse_t50": 3.545280128365901, "val_rmse_1step": 3.5292988062893493, "truth_std": 3.533811952693563} [0s]
+
+# rh: exit code 0 after 1.7 s
+# rh metrics: {"acc_leadtime": 0.020000000000000004, "acc_t05": 0.0, "acc_t10": 0.0, "acc_t20": 0.0, "acc_t30": 0.0, "acc_t50": 0.0, "rmse_1step": 3.5440916652478274, "rmse_t05": 3.529645363551369, "rmse_t10": 3.5307014343879723, "rmse_t20": 3.5282740746925243, "rmse_t30": 3.5309076996292403, "rmse_t50": 3.5409106283037417, "truth_std": 3.533811952693563, "val_rmse_1step": 3.5292988062893493, "val_rmse_t05": 3.5175738554663223, "val_rmse_t10": 3.5316719175161797, "val_rmse_t20": 3.551452802653402, "val_rmse_t30": 3.5152855275010593, "val_rmse_t50": 3.545280128365901}

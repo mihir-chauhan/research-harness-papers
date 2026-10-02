@@ -1,0 +1,286 @@
+project: autoregressive-emulator-on-lorenz-96
+problem: Autoregressive ML emulators of chaotic multiscale systems are trained on
+  one-step targets but used for long rollouts. How much does training on multi-step
+  rollouts (backpropagating through K emulator steps) help skill at medium range,
+  and what does it cost in long-run stability and climatological variance?
+gap: Rollout-loss fine-tuning is standard in ML weather models, yet its effect is
+  rarely separated from other design choices and its effect on climatological variance
+  (blurring) is rarely measured together with skill. A cheap, fully controlled two-scale
+  Lorenz-96 testbed lets us sweep K with all else fixed.
+contribution: 'A controlled sweep of the training rollout length K for a small circular
+  1D CNN emulator of the 36 slow Lorenz-96 variables (truth: two-scale model with
+  fast variables unobserved), against persistence, climatology and a linear stencil
+  baseline, reporting RMSE/ACC vs lead time, long-run survival, and climatological
+  variance, with an input-noise ablation.'
+hypotheses:
+- id: H1
+  statement: Multi-step rollout training (K=4, K=8) lowers RMSE at lead 2 time units
+    relative to one-step training (K=1).
+  test: paired comparison over 5 seeds (rh compare, metric rmse_t20, K=1 vs K=4 and
+    vs K=8), alpha 0.05
+- id: H2
+  statement: One-step-trained CNNs are less stable in 200-time-unit free runs (lower
+    stable_frac) than multi-step-trained ones.
+  test: rh compare on stable_frac over 5 seeds
+- id: H3
+  statement: Multi-step training reduces climatological variance (var_ratio below
+    the one-step model's and below 1).
+  test: rh compare on var_ratio over 5 seeds (surviving members)
+- id: H4
+  statement: The CNN beats persistence, climatology and the linear stencil in ACC
+    lead time.
+  test: rh compare on acc_leadtime over 5 seeds
+method:
+  name: CNN K=4
+  summary: Circular 1D CNN residual one-step emulator trained with a K-step rollout
+    loss; K=1 is the one-step reference.
+  components:
+  - rollout loss length K
+  - input noise
+  entrypoint: method/run.py
+tasks:
+- l96
+metrics:
+  rmse_t05:
+    higher_is_better: false
+  rmse_t10:
+    higher_is_better: false
+  rmse_t20:
+    higher_is_better: false
+  rmse_t30:
+    higher_is_better: false
+  rmse_t50:
+    higher_is_better: false
+  rmse_1step:
+    higher_is_better: false
+  acc_t10:
+    higher_is_better: true
+  acc_t20:
+    higher_is_better: true
+  acc_t30:
+    higher_is_better: true
+  acc_t50:
+    higher_is_better: true
+  acc_t05:
+    higher_is_better: true
+  acc_leadtime:
+    higher_is_better: true
+  stable_frac:
+    higher_is_better: true
+  survival_time:
+    higher_is_better: true
+  var_ratio:
+    higher_is_better: false
+  mean_bias:
+    higher_is_better: false
+  roughness_ratio:
+    higher_is_better: false
+  ks:
+    higher_is_better: false
+  val_rmse_t05:
+    higher_is_better: false
+  val_rmse_t10:
+    higher_is_better: false
+  val_rmse_t20:
+    higher_is_better: false
+  val_rmse_t30:
+    higher_is_better: false
+  val_rmse_t50:
+    higher_is_better: false
+  val_rmse_1step:
+    higher_is_better: false
+  n_params:
+    higher_is_better: false
+  final_train_loss:
+    higher_is_better: false
+  truth_std:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- Persistence
+- Climatology
+- Linear stencil (ridge)
+- CNN K=1
+ablations:
+- CNN K=2
+- CNN K=1 noise=0.03
+- CNN K=1 noise=0.1
+- CNN K=1 ntrain=4
+- CNN K=4 ntrain=4
+ambition:
+  target_tier: 2
+  primary_metric: rmse_t20
+  primary_task: l96
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_slow
+  value: 36
+  why: number of slow Lorenz-96 variables K
+- name: n_fast_per_slow
+  value: 10
+  why: fast variables per slow variable J
+- name: L96_F
+  value: 10
+  why: Lorenz-96 forcing F
+- name: L96_h
+  value: 1
+  why: coupling h
+- name: L96_c
+  value: 10
+  why: time-scale ratio c
+- name: L96_b
+  value: 10
+  why: amplitude ratio b
+- name: dt_int
+  value: 0.005
+  why: RK4 integration step
+- name: dt_obs
+  value: 0.05
+  why: emulator step / snapshot interval
+- name: spinup_snapshots
+  value: 400
+  why: snapshots discarded as spin-up (20 time units)
+- name: n_train_traj
+  value: 32
+  why: training trajectories per seed
+- name: n_train_snap
+  value: 1250
+  why: snapshots per training trajectory
+- name: n_val_traj
+  value: 8
+  why: validation trajectories per seed
+- name: n_val_snap
+  value: 500
+  why: snapshots per validation trajectory
+- name: n_test_traj
+  value: 32
+  why: test trajectories per seed
+- name: n_test_snap
+  value: 1500
+  why: snapshots per test trajectory
+- name: n_test_windows
+  value: 896
+  why: 'forecast windows per seed: 28 start times (stride 50) x 32 test trajectories'
+- name: n_val_windows
+  value: 64
+  why: 'validation forecast windows: 8 start times x 8 trajectories'
+- name: max_lead_steps
+  value: 100
+  why: forecast horizon in emulator steps (5 time units)
+- name: n_seeds
+  value: 5
+  why: seeds 0-4
+- name: n_iters
+  value: 1500
+  why: Adam steps for every CNN
+- name: batch
+  value: 32
+  why: minibatch size
+- name: width
+  value: 32
+  why: CNN channel width
+- name: n_layers
+  value: 4
+  why: number of conv layers
+- name: kernel
+  value: 5
+  why: conv kernel size
+- name: lr_main
+  value: 0.003
+  why: Adam peak learning rate
+- name: lr_alt
+  value: 0.001
+  why: the other learning rate in the tuning grid
+- name: tune_seed
+  value: 100
+  why: seed used only for lr tuning on validation split
+- name: grad_clip
+  value: 1
+  why: gradient-norm clip
+- name: ridge
+  value: 0.001
+  why: ridge penalty of the linear stencil
+- name: freerun_steps
+  value: 4000
+  why: free-run length in emulator steps (200 time units)
+- name: freerun_tu
+  value: 200
+  why: free-run length in time units
+- name: freerun_members
+  value: 16
+  why: free-run initial states
+- name: freerun_drop_tu
+  value: 10
+  why: time units dropped from the start of the free run before computing statistics
+- name: blowup_thresh
+  value: 50
+  why: divergence threshold on |x|
+- name: noise_lo
+  value: 0.03
+  why: input noise std (normalised units), ablation
+- name: noise_hi
+  value: 0.1
+  why: input noise std (normalised units), ablation
+- name: ntrain_small
+  value: 4
+  why: reduced number of training trajectories
+- name: acc_thresh
+  value: 0.6
+  why: ACC threshold defining the lead time
+- name: run_budget_min
+  value: 6
+  why: per-run wall-clock budget
+- name: n_threads
+  value: 2
+  why: threads per process
+- name: max_procs
+  value: 2
+  why: concurrent processes
+- name: truth_max_x
+  value: 13
+  why: approximate maximum |x| seen in truth data (from a seed-100 smoke run)
+- name: lead_t05
+  value: 0.5
+  why: lead in time units, 10 steps
+- name: lead_t10
+  value: 1
+  why: lead 20 steps
+- name: lead_t20
+  value: 2
+  why: lead 40 steps
+- name: lead_t30
+  value: 3
+  why: lead 60 steps
+- name: lead_t50
+  value: 5
+  why: lead 100 steps
+- name: n_tune_runs
+  value: 4
+  why: tuning runs
+- name: n_fast_total
+  value: 360
+  why: fast variables 36x10
+- name: ntrain_small_snap
+  value: 5000
+  why: 4 trajectories x 1250 snapshots
+- name: rk4_per_obs
+  value: 10
+  why: RK4 steps per emulator step

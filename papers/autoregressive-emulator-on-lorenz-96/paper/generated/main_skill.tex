@@ -1,0 +1,12 @@
+\begin{tabular}{lccccccc}
+\toprule
+Method & rmse\_1step $\downarrow$ & rmse\_t10 $\downarrow$ & rmse\_t20 $\downarrow$ & rmse\_t30 $\downarrow$ & rmse\_t50 $\downarrow$ & acc\_leadtime $\uparrow$ & $n$ \\
+\midrule
+Persistence & 0.923 $\pm$ 0.005 & 5.160 $\pm$ 0.020 & 5.364 $\pm$ 0.014 & 4.948 $\pm$ 0.027 & 5.088 $\pm$ 0.031 & 0.190 $\pm$ 0.001 & 5 \\
+Climatology & 3.538 $\pm$ 0.007 & 3.534 $\pm$ 0.008 & 3.540 $\pm$ 0.010 & 3.538 $\pm$ 0.006 & \textbf{3.536 $\pm$ 0.009} & 0.020 $\pm$ 0.000 & 5 \\
+Linear stencil (ridge) & 0.698 $\pm$ 0.002 & 3.435 $\pm$ 0.036 & 3.732 $\pm$ 0.028 & 3.794 $\pm$ 0.021 & 3.753 $\pm$ 0.011 & 0.366 $\pm$ 0.009 & 5 \\
+CNN K=1 & \textbf{0.023 $\pm$ 0.000} & 0.388 $\pm$ 0.015 & 1.308 $\pm$ 0.034 & 2.385 $\pm$ 0.038 & 3.775 $\pm$ 0.041 & 3.984 $\pm$ 0.038 & 5 \\
+\textbf{CNN K=4} & \underline{0.024 $\pm$ 0.000} & \underline{0.374 $\pm$ 0.021} & \underline{1.290 $\pm$ 0.044} & \underline{2.359 $\pm$ 0.044} & 3.752 $\pm$ 0.035 & \underline{4.030 $\pm$ 0.050} & 5 \\
+CNN K=8 & 0.025 $\pm$ 0.000 & \textbf{0.357 $\pm$ 0.024} & \textbf{1.243 $\pm$ 0.048} & \textbf{2.317 $\pm$ 0.037} & \underline{3.733 $\pm$ 0.037} & \textbf{4.053 $\pm$ 0.043} & 5 \\
+\bottomrule
+\end{tabular}

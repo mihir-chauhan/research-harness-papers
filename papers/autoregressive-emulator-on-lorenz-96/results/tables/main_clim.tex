@@ -1,0 +1,10 @@
+\begin{tabular}{lcccccc}
+\toprule
+Method & stable\_frac $\uparrow$ & survival\_time $\uparrow$ & var\_ratio $\downarrow$ & roughness\_ratio $\downarrow$ & ks $\downarrow$ & $n$ \\
+\midrule
+Linear stencil (ridge) & \textbf{1.000 $\pm$ 0.000} & \textbf{200.000 $\pm$ 0.000} & \textbf{0.001 $\pm$ 0.000} & \textbf{0.001 $\pm$ 0.000} & 0.468 $\pm$ 0.002 & 5 \\
+CNN K=1 & \underline{1.000 $\pm$ 0.000} & \underline{200.000 $\pm$ 0.000} & 1.003 $\pm$ 0.003 & 1.005 $\pm$ 0.007 & 0.002 $\pm$ 0.001 & 5 \\
+\textbf{CNN K=4} & 1.000 $\pm$ 0.000 & 200.000 $\pm$ 0.000 & 1.002 $\pm$ 0.004 & 1.005 $\pm$ 0.010 & \underline{0.002 $\pm$ 0.002} & 5 \\
+CNN K=8 & 1.000 $\pm$ 0.000 & 200.000 $\pm$ 0.000 & \underline{0.998 $\pm$ 0.003} & \underline{0.997 $\pm$ 0.006} & \textbf{0.002 $\pm$ 0.001} & 5 \\
+\bottomrule
+\end{tabular}

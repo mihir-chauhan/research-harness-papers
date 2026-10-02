@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:02:04 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --task l96 --seed 4 --out results/raw/main_persistence_s4.json --curve results/raw/curve_main_persistence_s4.csv --system persistence
+
+CONFIG {"system": "persistence", "task": "l96", "seed": 4, "out": "results/raw/main_persistence_s4.json", "rollout": 1, "iters": 1500, "batch": 32, "lr": 0.003, "noise": 0.0, "width": 32, "residual": 1, "curve": "results/raw/curve_main_persistence_s4.csv"}
+METRICS {"rmse_t05": 5.4365933314046275, "rmse_t10": 5.167431650647579, "rmse_t20": 5.35703441292744, "rmse_t30": 4.931327020760688, "rmse_t50": 5.098546099347203, "rmse_1step": 0.9285542949833117, "acc_t05": -0.1837097829995264, "acc_t10": -0.06925344783715794, "acc_t20": -0.15168371635853267, "acc_t30": 0.030407158492289307, "acc_t50": -0.038474661243687, "acc_leadtime": 0.1896527033680958, "val_rmse_t05": 5.415064154296135, "val_rmse_t10": 5.121745109549459, "val_rmse_t20": 5.421708948786715, "val_rmse_t30": 4.906642923060393, "val_rmse_t50": 5.242965511618821, "val_rmse_1step": 0.92330794689207, "truth_std": 3.533811952693563} [0s]
+
+# rh: exit code 0 after 24.0 s
+# rh metrics: {"acc_leadtime": 0.1896527033680958, "acc_t05": -0.1837097829995264, "acc_t10": -0.06925344783715794, "acc_t20": -0.15168371635853267, "acc_t30": 0.030407158492289307, "acc_t50": -0.038474661243687, "rmse_1step": 0.9285542949833117, "rmse_t05": 5.4365933314046275, "rmse_t10": 5.167431650647579, "rmse_t20": 5.35703441292744, "rmse_t30": 4.931327020760688, "rmse_t50": 5.098546099347203, "truth_std": 3.533811952693563, "val_rmse_1step": 0.92330794689207, "val_rmse_t05": 5.415064154296135, "val_rmse_t10": 5.121745109549459, "val_rmse_t20": 5.421708948786715, "val_rmse_t30": 4.906642923060393, "val_rmse_t50": 5.242965511618821}

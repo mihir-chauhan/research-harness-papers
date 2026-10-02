@@ -1,0 +1,128 @@
+{
+  "slug": "autoregressive-emulator-on-lorenz-96",
+  "direction": "Autoregressive emulator on Lorenz-96. Two-scale Lorenz-96 (36 slow variables) integrated in NumPy as the truth. Train a 1D CNN one-step emulator on the slow variables with one-step versus multi-step rollout loss. Measure RMSE and anomaly correlation versus lead time against persistence and climatology, and long-run stability and climatological variance. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T17:21:02",
+  "updated": "2026-10-02T18:35:29",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T17:21:09",
+      "finished": "2026-10-02T17:39:01",
+      "notes": [
+        {
+          "t": "2026-10-02T17:39:01",
+          "note": "landscape/proposal written below"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-02T17:39:02",
+      "finished": "2026-10-02T18:30:07",
+      "notes": [
+        {
+          "t": "2026-10-02T18:30:03",
+          "note": "ok"
+        },
+        {
+          "t": "2026-10-02T18:30:07",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:30:07",
+      "notes": [
+        {
+          "t": "2026-10-02T18:30:04",
+          "note": "reimplemented persistence, climatology, linear stencil"
+        },
+        {
+          "t": "2026-10-02T18:30:07",
+          "note": "reimplemented persistence, climatology, linear stencil"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:30:07",
+      "notes": [],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": "2026-10-02T18:30:15",
+      "finished": "2026-10-02T18:35:18",
+      "notes": [
+        {
+          "t": "2026-10-02T18:35:18",
+          "note": "K=2 sweep, noise ablation, ntrain sweep"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-02T18:35:18",
+      "finished": "2026-10-02T18:35:20",
+      "notes": [
+        {
+          "t": "2026-10-02T18:35:20",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:35:20",
+      "notes": [
+        {
+          "t": "2026-10-02T18:35:20",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:35:29",
+      "notes": [
+        {
+          "t": "2026-10-02T18:35:29",
+          "note": "paper built"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T17:39:02",
+      "phase": "setup",
+      "decision": "Training budget fixed at 1500 Adam steps x batch 32 for every K (multi-step costs K times more compute per step, noted); lr tuned on validation RMSE at 1 time unit with a dedicated seed 100, lr in {1e-3,3e-3} for K=1 and K=4. Method display name is CNN K=4 (multi-step), CNN K=1 is the one-step reference baseline. Fast variables are never shown to the emulator."
+    },
+    {
+      "t": "2026-10-02T17:43:22",
+      "phase": "experiments",
+      "decision": "lr=3e-3 chosen for all CNN variants: on the validation split (seed 100) it beat 1e-3 for both K=1 and K=4 on val_rmse_t10 (0.40 vs 0.51; 0.39 vs 0.48) and val_rmse_t20. No tuning of baselines is possible (persistence/climatology have no parameters; linear stencil is closed-form with fixed ridge 1e-3)."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}
