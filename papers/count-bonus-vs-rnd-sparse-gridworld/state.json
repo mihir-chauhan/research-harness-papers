@@ -1,0 +1,180 @@
+{
+  "slug": "count-bonus-vs-rnd-sparse-gridworld",
+  "direction": "Exploration bonuses in sparse-reward gridworlds: epsilon-greedy Q-learning versus count-based bonuses versus a random-network-distillation style novelty bonus (small numpy or torch networks), on chain and multi-room gridworlds of increasing size. Measure steps to first reward and final return, and test the known failure case of novelty bonuses under a 'noisy TV' state.",
+  "created": "2026-10-01T18:38:55",
+  "updated": "2026-10-01T21:57:42",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T19:29:46",
+      "finished": "2026-10-01T19:46:47",
+      "notes": [
+        {
+          "t": "2026-10-01T19:46:47",
+          "note": "lit cite pending rate limit"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:46:51",
+      "notes": [
+        {
+          "t": "2026-10-01T19:46:51",
+          "note": "numpy impl"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T19:46:51",
+      "finished": "2026-10-01T19:59:26",
+      "notes": [
+        {
+          "t": "2026-10-01T19:59:26",
+          "note": "reimplemented baselines run"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T21:28:55",
+      "finished": "2026-10-01T21:57:41",
+      "notes": [
+        {
+          "t": "2026-10-01T19:59:26",
+          "note": "261 runs"
+        },
+        {
+          "t": "2026-10-01T21:28:54",
+          "note": "reopened from experiments"
+        },
+        {
+          "t": "2026-10-01T21:57:41",
+          "note": "400 main runs (10 systems x 8 tasks x 5 seeds) from commit 24c3e27; old rows superseded"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:57:41",
+      "notes": [
+        {
+          "t": "2026-10-01T19:59:26",
+          "note": "abl_norm, sweep_beta, sweep_K"
+        },
+        {
+          "t": "2026-10-01T21:28:54",
+          "note": "reopened from experiments"
+        },
+        {
+          "t": "2026-10-01T21:57:41",
+          "note": "RND normaliser variants on all tasks, clip/K/beta sweeps (80 runs), pilot logged (12)"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:57:41",
+      "notes": [
+        {
+          "t": "2026-10-01T20:11:50",
+          "note": "tables, figures, compare"
+        },
+        {
+          "t": "2026-10-01T21:28:54",
+          "note": "reopened from experiments"
+        },
+        {
+          "t": "2026-10-01T21:57:41",
+          "note": "tables, tests, figures, verdict rebuilt by experiments/build_results.sh"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:57:42",
+      "notes": [
+        {
+          "t": "2026-10-01T20:11:50",
+          "note": "quick study: no improve loop"
+        },
+        {
+          "t": "2026-10-01T21:28:54",
+          "note": "reopened from experiments"
+        },
+        {
+          "t": "2026-10-01T21:57:42",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:57:42",
+      "notes": [
+        {
+          "t": "2026-10-01T20:12:01",
+          "note": "paper builds, READY"
+        },
+        {
+          "t": "2026-10-01T21:28:54",
+          "note": "reopened from experiments"
+        },
+        {
+          "t": "2026-10-01T21:57:42",
+          "note": "6 pages, 13 verified references, audit round 2 fixes; READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T19:46:47",
+      "phase": "setup",
+      "decision": "Bonus is centred (bonus - 1) for all bonus systems: with Q initialised to 0 and a non-negative bonus, visited actions get Q>0 and unvisited stay at 0 so greedy never explores; pilot on seed 100 showed 0/6 systems finding the reward on chain_40/room_6 without it. Pilot used seed 100 (not an evaluation seed); beta=0.1 fixed afterwards. Before the first reward the Q-values are linear in beta so steps_to_first_reward is invariant to beta; beta only matters after reward."
+    },
+    {
+      "t": "2026-10-01T19:46:48",
+      "phase": "experiments",
+      "decision": "Step budgets 30k (chain) / 100k (room); steps_to_first_reward censored at the budget when no reward found; 5 seeds (0-4); runs are seconds each so all cells are run."
+    },
+    {
+      "t": "2026-10-01T20:11:56",
+      "phase": "ablations",
+      "decision": "Beta and K sweeps are sensitivity sweeps (groups sweep_beta, sweep_K) run with the method/baseline names, so only rnd_nonorm is listed as an ablation in research.yaml."
+    },
+    {
+      "t": "2026-10-01T21:28:55",
+      "phase": "experiments",
+      "decision": "Audit round 2: the RND normaliser e/(sigma+1e-8) blew up to 1e6-1e7 when the first errors coincided (sigma=0). Repair fixed a priori, not tuned: no intrinsic signal (b=1) for the first 64 errors, then b=min(e/(sigma+1e-8),5). The old normaliser stays as ablation 'RND, unguarded normaliser (v1)', with warm-up-only and clip-only variants to isolate which guard matters, and a clip sweep."
+    },
+    {
+      "t": "2026-10-01T21:28:55",
+      "phase": "experiments",
+      "decision": "All runs are repeated from one commit containing the code and old rows superseded, so every live row has matching provenance; RND ablation variants are logged in group main (kind ablation) so rh compare can test them against the method without duplicating method runs; sweep cells at default values reuse the main runs."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

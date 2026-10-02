@@ -1,0 +1,73 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+chain_10,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,816.2,88.4,727.8000000000001,5,5,0.1379013547024911,0.125178361124984,1.1677580603821023
+chain_10,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,816.2,88.4,727.8000000000001,5,5,0.1379013547024911,0.125178361124984,1.1677580603821023
+chain_10,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,816.2,5408.2,-4592.0,5,5,6.154201276324587e-05,0.0019364488092495308,-4.881187979517305
+chain_10,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,816.2,524.8,291.4000000000001,5,5,0.5206160285915591,0.5457602676608213,0.4352176847323115
+chain_10,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,816.2,915.4,-99.19999999999993,5,5,0.8170120811244783,0.8200533177731727,-0.1552482697848557
+chain_10,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,816.2,6696.0,-5879.8,5,5,0.34514331825854305,0.3152142204628237,-0.6754297164356414
+chain_10,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,816.2,521.4,294.80000000000007,5,5,0.5162843639857273,0.5408773634437236,0.4398422768720414
+chain_10,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,816.2,122.0,694.2,5,5,0.1523077016374973,0.14669544561329528,1.1151715858640212
+chain_10,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,816.2,64.0,752.2,5,5,0.12833441489510627,0.13140406453985345,1.2085930468647892
+chain_20,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,27752.0,475.8,27276.2,5,5,0.0002587904981333088,0.0002707289918795778,7.664808470559726
+chain_20,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,27752.0,475.8,27276.2,5,5,0.0002587904981333088,0.0002707289918795778,7.664808470559726
+chain_20,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,27752.0,14402.0,13350.0,5,5,0.0029152469161580234,0.006426503861374021,3.6119222962320965
+chain_20,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,27752.0,2146.0,25606.0,5,5,0.00031541875727551376,0.0003632972214268115,7.175552129231404
+chain_20,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,27752.0,2427.2,25324.8,5,5,0.0003456909759215523,0.00036912236884182687,7.115787317326285
+chain_20,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,27752.0,24509.8,3242.2000000000007,5,5,0.606915727832615,0.6406926820895775,0.34564030228903747
+chain_20,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,27752.0,2050.8,25701.2,5,5,0.0003109093671092966,0.00042326396830841604,7.202347788468728
+chain_20,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,27752.0,618.4,27133.6,5,5,0.0002687676866313407,0.00028101283464706877,7.631664623526529
+chain_20,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,27752.0,569.6,27182.4,5,5,0.00026784804177877776,0.0002798898440762684,7.646840996286222
+chain_20_tv,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,25007.4,611.6,24395.800000000003,5,5,0.008118744284051878,0.00821204919257183,3.0901758124220926
+chain_20_tv,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,25007.4,500.0,24507.4,5,5,0.007991173726673382,0.008241641418333685,3.10442031194549
+chain_20_tv,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,25007.4,16226.8,8780.600000000002,5,5,0.15832000492657064,0.15049179948645622,1.0490679491659387
+chain_20_tv,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,25007.4,2387.4,22620.0,5,5,0.010558991276634441,0.010737882587134293,2.8648799896064623
+chain_20_tv,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,25007.4,2359.2,22648.2,5,5,0.010516634862667665,0.010661156578301467,2.8685917962134626
+chain_20_tv,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,25007.4,13231.2,11776.2,5,5,0.2054094594820848,0.3313027273906798,0.8789903620209084
+chain_20_tv,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,25007.4,2347.0,22660.4,5,5,0.010495499150349034,0.01087717431391828,2.8700628895942484
+chain_20_tv,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,25007.4,557.2,24450.2,5,5,0.008056411646299225,0.008170803576750773,3.097128720054644
+chain_20_tv,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,25007.4,619.6,24387.800000000003,5,5,0.008128163975069234,0.007873263957845909,3.0891649190771138
+chain_40,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,30000.0,2603.2,27396.8,5,5,4.241116732086714e-09,4.241116732086714e-09,122.6530936850186
+chain_40,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,30000.0,2603.2,27396.8,5,5,4.241116732086714e-09,4.241116732086714e-09,122.6530936850186
+chain_40,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,30000.0,30000.0,0.0,5,5,,,
+chain_40,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,30000.0,5242.0,24758.0,5,5,2.2562712545583972e-07,2.2562712545583972e-07,45.402480329597836
+chain_40,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,30000.0,6492.6,23507.4,5,5,5.082062053923866e-09,5.0820620539238615e-09,117.22945628231999
+chain_40,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,30000.0,15979.4,14020.6,5,5,0.07068475591057391,0.07068475591057391,1.5475230511925413
+chain_40,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,30000.0,5005.2,24994.8,5,5,1.037397632134196e-08,1.037397632134196e-08,98.0734370965593
+chain_40,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,30000.0,2637.6,27362.4,5,5,7.395041157785045e-10,7.395041157785045e-10,189.81241880983694
+chain_40,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,30000.0,2619.8,27380.2,5,5,5.773743137617234e-09,5.773743137617234e-09,113.54839213009129
+room_2,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,35426.8,1156.4,34270.4,5,5,0.08907835184915758,0.09014883931933941,1.413731194947368
+room_2,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,35426.8,1156.4,34270.4,5,5,0.08907835184915758,0.09014883931933941,1.413731194947368
+room_2,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,35426.8,36025.0,-598.1999999999971,5,5,0.9716390429445136,0.9679473511649325,-0.02371833024091532
+room_2,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,35426.8,3905.4,31521.4,5,5,0.10893618935902731,0.1076020130745644,1.3001759457299917
+room_2,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,35426.8,3704.4,31722.4,5,5,0.10731930793851724,0.10599762069102979,1.308016998705441
+room_2,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,35426.8,42797.0,-7370.199999999997,5,5,0.7996314272679089,0.7724394747009575,-0.16684134206017165
+room_2,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,35426.8,3744.4,31682.4,5,5,0.10763944004854326,0.10851538066352123,1.3064757341302016
+room_2,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,35426.8,982.4,34444.4,5,5,0.08796120240958749,0.08745709790807042,1.420820528482335
+room_2,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,35426.8,1145.2,34281.600000000006,5,5,0.08900255001624265,0.08803281958222475,1.4140866827257408
+room_4,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,100000.0,11476.2,88523.8,5,5,8.28856983645232e-08,8.28856983645232e-08,58.32608410510871
+room_4,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,100000.0,11476.2,88523.8,5,5,8.28856983645232e-08,8.28856983645232e-08,58.32608410510871
+room_4,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,100000.0,100000.0,0.0,5,5,,,
+room_4,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,100000.0,18434.6,81565.4,5,5,1.5008588603839168e-06,1.5008588603839168e-06,28.256643508549548
+room_4,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,100000.0,17810.6,82189.4,5,5,1.728505399576113e-08,1.728505399576113e-08,86.31996786747658
+room_4,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,100000.0,69776.8,30223.199999999997,5,5,0.17895160569092694,0.17895160569092694,1.0293481757410476
+room_4,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,100000.0,19473.8,80526.2,5,5,2.6358961272594764e-07,2.635896127259478e-07,43.67007900455368
+room_4,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,100000.0,11920.8,88079.2,5,5,1.0885333655078177e-09,1.0885333655078177e-09,172.32473618284908
+room_4,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,100000.0,13206.0,86794.0,5,5,8.481515542939818e-10,8.481515542939818e-10,183.41752830195009
+room_4_tv,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,100000.0,11142.4,88857.6,5,5,1.8849471428534376e-07,1.8849471428534376e-07,47.4913688781771
+room_4_tv,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,100000.0,11643.4,88356.6,5,5,2.450886478012881e-10,2.450886478012881e-10,250.16836093803389
+room_4_tv,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,100000.0,100000.0,0.0,5,5,,,
+room_4_tv,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,100000.0,15184.2,84815.8,5,5,7.805005356358935e-07,7.805005356358928e-07,33.2822984882251
+room_4_tv,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,100000.0,19681.8,80318.2,5,5,7.709395625231979e-07,7.709395625231975e-07,33.38513485389843
+room_4_tv,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,100000.0,67356.2,32643.800000000003,5,5,0.17823492882795777,0.17823492882795786,1.0315055329830833
+room_4_tv,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,100000.0,17106.0,82894.0,5,5,2.7167598348643628e-08,2.7167598348643628e-08,77.09146264797258
+room_4_tv,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,100000.0,13230.8,86769.2,5,5,8.007201471958862e-11,8.007201471958869e-11,330.8986345147548
+room_4_tv,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,100000.0,11439.2,88560.8,5,5,3.436609352155528e-09,3.436609352155528e-09,129.2760109832515
+room_6,Epsilon-greedy Q-learning,Count bonus (obs),steps_to_first_reward,100000.0,28438.6,71561.4,5,5,2.3689434359921139e-07,2.3689434359921139e-07,44.852356961175644
+room_6,Epsilon-greedy Q-learning,Count bonus (state),steps_to_first_reward,100000.0,28438.6,71561.4,5,5,2.3689434359921139e-07,2.3689434359921139e-07,44.852356961175644
+room_6,Epsilon-greedy Q-learning,"Count bonus (state), no offset",steps_to_first_reward,100000.0,100000.0,0.0,5,5,,,
+room_6,Epsilon-greedy Q-learning,RND bonus,steps_to_first_reward,100000.0,76276.4,23723.600000000006,5,5,0.06719046241996961,0.06719046241996969,1.5773947855996848
+room_6,Epsilon-greedy Q-learning,"RND, clip only",steps_to_first_reward,100000.0,77949.6,22050.399999999994,5,5,0.04302885953928437,0.04302885953928429,1.8499199888480231
+room_6,Epsilon-greedy Q-learning,"RND, unguarded normaliser (v1)",steps_to_first_reward,100000.0,94877.8,5122.199999999997,5,5,0.3713415663720141,0.3713415663720138,0.636237180970063
+room_6,Epsilon-greedy Q-learning,"RND, warm-up only",steps_to_first_reward,100000.0,83830.4,16169.600000000006,5,5,0.1685379532623881,0.1685379532623881,1.061619211371754
+room_6,Epsilon-greedy Q-learning,Step penalty only (optimistic init),steps_to_first_reward,100000.0,29104.8,70895.2,5,5,9.421333096530816e-08,9.42133309653082e-08,56.48706385961618
+room_6,Epsilon-greedy Q-learning,no bonus normalisation (rnd_nonorm),steps_to_first_reward,100000.0,29807.8,70192.2,5,5,4.245923504675543e-08,4.245923504675543e-08,68.94676121728331

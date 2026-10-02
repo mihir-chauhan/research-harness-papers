@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:31:33 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system offset_only --task chain_20 --seed 2 --out results/raw/r2/main__step-penalty-only-optimistic-init__chain_20__s2.json --beta 0.1 --offset 1.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/main__step-penalty-only-optimistic-init__chain_20__s2.json", "seed": 2, "steps": 0, "system": "offset_only", "task": "chain_20", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.0, "bonus_max": 0.0, "bonus_max_early": 0.0, "bonus_median": 0.0, "coverage": 1.0, "final_return": 1.0, "found_reward": 1.0, "greedy_success": 1.0, "q_abs_max": 1.543472337215047, "steps_to_first_reward": 679.0, "tv_time_frac": 0.0}
+runtime 0.5s

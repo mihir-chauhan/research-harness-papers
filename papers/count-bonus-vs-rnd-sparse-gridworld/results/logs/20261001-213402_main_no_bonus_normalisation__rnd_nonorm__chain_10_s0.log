@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:34:02 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd_nonorm --task chain_10 --seed 0 --out results/raw/r2/main__no-bonus-normalisation-rnd_nonorm__chain_10__s0.json --beta 0.1 --offset 1.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/main__no-bonus-normalisation-rnd_nonorm__chain_10__s0.json", "seed": 0, "steps": 0, "system": "rnd_nonorm", "task": "chain_10", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.0, "bonus_max": 0.3286385359069615, "bonus_max_early": 0.3286385359069615, "bonus_median": 3.946200363394065e-32, "coverage": 1.0, "final_return": 1.0, "found_reward": 1.0, "greedy_success": 1.0, "q_abs_max": 0.9046729838926902, "steps_to_first_reward": 92.0, "tv_time_frac": 0.0}
+runtime 1.1s

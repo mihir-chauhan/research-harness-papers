@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:36:55 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd --task room_6 --seed 3 --out results/raw/r2/main__rnd-unguarded-normaliser-v1__room_6__s3__clip0.0_warmup0.json --beta 0.1 --offset 1.0 --K 16 --warmup 0 --clip 0.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 0.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/main__rnd-unguarded-normaliser-v1__room_6__s3__clip0.0_warmup0.json", "seed": 3, "steps": 0, "system": "rnd", "task": "room_6", "warmup": 0}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.01891, "bonus_max": 1598506.6004895805, "bonus_max_early": 1598506.6004895805, "bonus_median": 0.010200087242276046, "coverage": 0.3032258064516129, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 551154.3917629764, "steps_to_first_reward": 100000.0, "tv_time_frac": 0.0}
+runtime 4.5s

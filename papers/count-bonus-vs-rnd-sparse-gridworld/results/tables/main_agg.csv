@@ -1,0 +1,961 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+main,chain_10,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,122.0,42.326114870136614,85.6,152.8,59.0,160.0
+main,chain_10,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Step penalty only (optimistic init),q_abs_max,5,0.9,1.2412670766236366e-16,0.9,0.9,0.8999999999999999,0.8999999999999999
+main,chain_10,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,816.2,879.3370798504974,254.4,1561.2,33.0,2297.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Epsilon-greedy Q-learning,q_abs_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,5408.2,998.4010717141684,4640.0,6187.8,4136.0,6713.0
+main,chain_10,ablation,"Count bonus (state), no offset",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"Count bonus (state), no offset",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"Count bonus (state), no offset",bonus_median,5,0.025623414479922356,0.00019339638409005604,0.02547124232870009,0.025775586631144626,0.02538365412834048,0.02581558781034974
+main,chain_10,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"Count bonus (state), no offset",q_abs_max,5,1.0427595341158402,0.0077500778046394,1.0366923674729132,1.0488267007587666,1.034526381925978,1.0511708048958561
+main,chain_10,baseline,Count bonus (state),steps_to_first_reward,5,88.4,60.30174126839125,42.4,134.4,39.0,156.0
+main,chain_10,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (state),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (state),bonus_median,5,0.02480850795466337,2.661014604098214e-05,0.02478412758457175,0.02482222683731816,0.024761275912089115,0.02482222683731816
+main,chain_10,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Count bonus (state),q_abs_max,5,0.9349170069259782,0.0,0.9349170069259782,0.9349170069259782,0.9349170069259782,0.9349170069259782
+main,chain_10,baseline,Count bonus (obs),steps_to_first_reward,5,88.4,60.30174126839125,42.4,134.4,39.0,156.0
+main,chain_10,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (obs),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,baseline,Count bonus (obs),bonus_median,5,0.02480850795466337,2.661014604098214e-05,0.02478412758457175,0.02482222683731816,0.024761275912089115,0.02482222683731816
+main,chain_10,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,baseline,Count bonus (obs),q_abs_max,5,0.9349170069259782,0.0,0.9349170069259782,0.9349170069259782,0.9349170069259782,0.9349170069259782
+main,chain_10,method,RND bonus,steps_to_first_reward,5,524.8,351.2274192030001,236.4,788.4,39.0,920.0
+main,chain_10,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,method,RND bonus,final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,method,RND bonus,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,method,RND bonus,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,method,RND bonus,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,method,RND bonus,bonus_max,5,4.800384807694734,0.2890448287193302,4.547597468888101,5.0,4.368031652983418,5.0
+main,chain_10,method,RND bonus,bonus_max_early,5,2.3251056229533127,0.4013336130722057,1.9666053699226793,2.593340006975657,1.6466877860869829,2.6912455145086125
+main,chain_10,method,RND bonus,bonus_median,5,4.541481677338037e-26,1.0154205852286635e-25,2.5263888742429834e-30,1.36237086101564e-25,2.0079900584733078e-30,2.2705877308398384e-25
+main,chain_10,method,RND bonus,bonus_gt1_frac,5,0.006,0.0012411911841273908,0.0051266666666666665,0.0070199999999999985,0.004533333333333334,0.007833333333333333
+main,chain_10,method,RND bonus,bonus_clip_frac,5,6.666666666666667e-05,8.498365855987975e-05,6.666666666666667e-06,0.00014,0.0,0.0002
+main,chain_10,method,RND bonus,q_abs_max,5,2.0622074159913915,0.8746733827633344,1.39741692663002,2.7769118600928575,1.2132853830662291,3.288992119939254
+main,chain_20,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,27752.0,5026.680813419527,23256.0,30000.0,18760.0,30000.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,found_reward,5,0.2,0.447213595499958,0.0,0.6,0.0,1.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,coverage,5,0.9199999999999999,0.07582875444051548,0.86,0.9700000000000001,0.8,1.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.1,0.223606797749979,0.0,0.3,0.0,0.5
+main,chain_20,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,618.4,119.08106482560525,516.4,703.4,438.0,712.0
+main,chain_20,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Step penalty only (optimistic init),q_abs_max,5,1.530510523423418,0.021241807033976243,1.5140999723480588,1.5461164307370079,1.4998747027865165,1.5540998012822869
+main,chain_20,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,14402.0,1433.416896788928,13173.2,15373.4,12036.0,15703.0
+main,chain_20,ablation,"Count bonus (state), no offset",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"Count bonus (state), no offset",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"Count bonus (state), no offset",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"Count bonus (state), no offset",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"Count bonus (state), no offset",bonus_median,5,0.0363604253841774,0.00010917813809199574,0.036264738240598025,0.03643721037166635,0.03617873026462108,0.03646624787447364
+main,chain_20,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"Count bonus (state), no offset",q_abs_max,5,1.040177404564033,0.0067351477748442265,1.0351419361207388,1.0456816505612547,1.034526381925978,1.0498258824059339
+main,chain_20,baseline,Count bonus (obs),steps_to_first_reward,5,475.8,245.24008644591527,268.6,643.0,78.0,675.0
+main,chain_20,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (obs),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (obs),bonus_median,5,0.03589328637805128,1.0334106302073692e-05,0.035884043272380026,0.03589790793088691,0.03587480016670876,0.03589790793088691
+main,chain_20,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Count bonus (obs),q_abs_max,5,1.2411757381050819,0.06451790209095647,1.1900567551622452,1.2922947210479188,1.1674178943637696,1.3091062863301894
+main,chain_20,baseline,Count bonus (state),steps_to_first_reward,5,475.8,245.24008644591527,268.6,643.0,78.0,675.0
+main,chain_20,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (state),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,baseline,Count bonus (state),bonus_median,5,0.03589328637805128,1.0334106302073692e-05,0.035884043272380026,0.03589790793088691,0.03587480016670876,0.03589790793088691
+main,chain_20,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,baseline,Count bonus (state),q_abs_max,5,1.2411757381050819,0.06451790209095647,1.1900567551622452,1.2922947210479188,1.1674178943637696,1.3091062863301894
+main,chain_40,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,30000.0,0.0,30000.0,30000.0,30000.0,30000.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,coverage,5,0.595,0.07582875444051548,0.54,0.655,0.5,0.7
+main,chain_40,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,2637.6,203.8658872886781,2477.6,2797.6,2397.0,2876.0
+main,chain_40,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Step penalty only (optimistic init),q_abs_max,5,3.0268640888345915,0.028520547716229482,3.0052636216534383,3.0480571985000133,2.9953647239385592,3.0653270101003693
+main,chain_20,method,RND bonus,steps_to_first_reward,5,2146.0,448.2727964086155,1788.2,2505.0,1519.0,2753.0
+main,chain_20,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,method,RND bonus,final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,method,RND bonus,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,method,RND bonus,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,method,RND bonus,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,method,RND bonus,bonus_max,5,4.88210019908285,0.18715896220157643,4.710638332778183,5.0,4.571345334238334,5.0
+main,chain_20,method,RND bonus,bonus_max_early,5,2.662339355049743,1.0395497953348964,1.84862677606869,3.476051934030796,1.4721036069631845,3.6614320585974833
+main,chain_20,method,RND bonus,bonus_median,5,7.767193601828107e-16,1.7149604166804892e-15,2.5611393489383283e-20,2.3144484759978028e-15,2.3214401453646108e-23,3.844384715800646e-15
+main,chain_20,method,RND bonus,bonus_gt1_frac,5,0.010013333333333334,0.001079763348557863,0.009179999999999999,0.010853333333333331,0.008533333333333334,0.011333333333333334
+main,chain_20,method,RND bonus,bonus_clip_frac,5,0.00027333333333333333,0.0002812669747963865,6.666666666666667e-05,0.00047999999999999996,0.0,0.0006666666666666666
+main,chain_20,method,RND bonus,q_abs_max,5,2.741309371113995,0.6314788870175311,2.2140938143264783,3.1704617317428534,1.7256458054677197,3.3033640476746724
+main,chain_40,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,30000.0,0.0,30000.0,30000.0,30000.0,30000.0
+main,chain_40,ablation,"Count bonus (state), no offset",found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"Count bonus (state), no offset",final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"Count bonus (state), no offset",greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"Count bonus (state), no offset",coverage,5,0.8049999999999999,0.04107919181288744,0.7749999999999999,0.835,0.75,0.85
+main,chain_40,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"Count bonus (state), no offset",bonus_median,5,0.04348224174802999,0.0008539210003554829,0.04275050213509762,0.04409976544190381,0.042257712736425826,0.044194173824159216
+main,chain_40,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"Count bonus (state), no offset",q_abs_max,5,1.0017824771708788,0.04896294850303138,0.961768009067588,1.0386285687574692,0.9371458003151867,1.0585319158000246
+main,chain_40,baseline,Count bonus (state),steps_to_first_reward,5,2603.2,315.8903290700746,2348.2,2842.8,2158.0,3032.0
+main,chain_40,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (state),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (state),bonus_median,5,0.05141407989928021,3.0365934441972545e-05,0.05138691978183518,0.051434449987363975,0.051366549693751415,0.05143444998736397
+main,chain_40,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Count bonus (state),q_abs_max,5,2.6702009165033576,0.04100387630313749,2.638013767686264,2.702388065320451,2.618852963820152,2.711907770263121
+main,chain_40,baseline,Count bonus (obs),steps_to_first_reward,5,2603.2,315.8903290700746,2348.2,2842.8,2158.0,3032.0
+main,chain_40,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (obs),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,baseline,Count bonus (obs),bonus_median,5,0.05141407989928021,3.0365934441972545e-05,0.05138691978183518,0.051434449987363975,0.051366549693751415,0.05143444998736397
+main,chain_40,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,baseline,Count bonus (obs),q_abs_max,5,2.6702009165033576,0.04100387630313749,2.638013767686264,2.702388065320451,2.618852963820152,2.711907770263121
+main,chain_40,method,RND bonus,steps_to_first_reward,5,5242.0,771.1715114032676,4683.8,5910.2,4400.0,6310.0
+main,chain_40,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,method,RND bonus,final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,method,RND bonus,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,method,RND bonus,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,method,RND bonus,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,method,RND bonus,bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_40,method,RND bonus,bonus_max_early,5,3.0697400090641365,1.3141999208712023,2.0072642333695274,4.184775036255823,1.2952576049618136,5.0
+main,chain_40,method,RND bonus,bonus_median,5,7.565568919026156e-09,9.287752084750476e-09,1.6406580774499715e-09,1.5686799350351246e-08,1.804163736356087e-10,2.319110763021856e-08
+main,chain_40,method,RND bonus,bonus_gt1_frac,5,0.016706666666666665,0.0023299260837107167,0.0152,0.018779999999999998,0.0143,0.0205
+main,chain_40,method,RND bonus,bonus_clip_frac,5,0.0007199999999999999,0.000557075698027955,0.0002866666666666667,0.0011533333333333333,6.666666666666667e-05,0.0014
+main,chain_40,method,RND bonus,q_abs_max,5,3.6441781571982474,1.3144581523696104,2.7319139701496025,4.788407502782663,2.673037102791431,5.642857267004841
+main,room_2,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,35426.8,34281.28335112325,9738.2,63820.2,3318.0,84119.0
+main,room_2,baseline,Epsilon-greedy Q-learning,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Epsilon-greedy Q-learning,final_return,5,0.8004,0.446319168308958,0.40119999999999995,1.0,0.002,1.0
+main,room_2,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.8,0.4472135954999579,0.4,1.0,0.0,1.0
+main,room_2,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Epsilon-greedy Q-learning,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.9,0.22360679774997896,0.7,1.0,0.5,1.0
+main,room_2,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,982.4,449.478364329141,658.6,1331.2,425.0,1623.0
+main,room_2,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Step penalty only (optimistic init),q_abs_max,5,0.9451585474232598,0.029653718891162514,0.9192573759424842,0.9685894989163042,0.8999999999999999,0.9833118266107391
+main,room_2,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,36025.0,9848.414288605045,29208.6,44000.4,26078.0,51516.0
+main,room_2,ablation,"Count bonus (state), no offset",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"Count bonus (state), no offset",final_return,5,0.9979638041282634,0.0029530083195495878,0.9953273183569815,0.9998029556650246,0.9929161747343566,1.0
+main,room_2,ablation,"Count bonus (state), no offset",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"Count bonus (state), no offset",coverage,5,0.996078431372549,0.008768894029410959,0.9882352941176471,1.0,0.9803921568627451,1.0
+main,room_2,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"Count bonus (state), no offset",bonus_median,5,0.027161828451030205,0.0007064569384984197,0.026660548157576004,0.027785324157194646,0.026407386650992314,0.0282842712474619
+main,room_2,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"Count bonus (state), no offset",q_abs_max,5,1.0381504653894467,0.007741569079651349,1.0323100235819223,1.0439909071969713,1.0283770397887855,1.0464915064052964
+main,room_2,baseline,Count bonus (state),steps_to_first_reward,5,1156.4,235.62746019935793,975.6,1337.2,959.0,1432.0
+main,room_2,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (state),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (state),bonus_median,5,0.024886560476945038,0.0005783967926420143,0.02436885081967385,0.0251993974193112,0.023863697995167382,0.025229689602299696
+main,room_2,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Count bonus (state),q_abs_max,5,0.9311698809754182,0.0038880202545191946,0.9283671391370929,0.9339726228137435,0.9256537155367632,0.9349170069259782
+main,room_2,baseline,Count bonus (obs),steps_to_first_reward,5,1156.4,235.62746019935793,975.6,1337.2,959.0,1432.0
+main,room_2,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (obs),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,baseline,Count bonus (obs),bonus_median,5,0.024886560476945038,0.0005783967926420143,0.02436885081967385,0.0251993974193112,0.023863697995167382,0.025229689602299696
+main,room_2,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,baseline,Count bonus (obs),q_abs_max,5,0.9311698809754182,0.0038880202545191946,0.9283671391370929,0.9339726228137435,0.9256537155367632,0.9349170069259782
+main,room_4,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,100000.0,0.0,100000.0,100000.0,100000.0,100000.0
+main,room_4,baseline,Epsilon-greedy Q-learning,found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,coverage,5,0.6019417475728155,0.055348321606754305,0.5553398058252427,0.6427184466019418,0.5242718446601942,0.6504854368932039
+main,room_4,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,11920.8,722.8376027850239,11355.0,12486.6,11060.0,12597.0
+main,room_4,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Step penalty only (optimistic init),q_abs_max,5,2.4198608408036426,0.01118650487943841,2.410598745383048,2.427847065653618,2.402911449256353,2.431735055982001
+main,room_2,method,RND bonus,steps_to_first_reward,5,3905.4,576.0111110039459,3416.2,4284.4,2952.0,4360.0
+main,room_2,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,method,RND bonus,final_return,5,0.9725435228051655,0.04351089415581713,0.9328600056449338,0.9987012987012986,0.8975444538526672,1.0
+main,room_2,method,RND bonus,greedy_success,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,room_2,method,RND bonus,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,method,RND bonus,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,method,RND bonus,bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_2,method,RND bonus,bonus_max_early,5,3.344602610218562,0.9128690083005137,2.641204924797338,4.048000295639785,2.193883532984803,4.300717981625804
+main,room_2,method,RND bonus,bonus_median,5,0.0014163257688645835,0.0004258623742190926,0.0011024965377120694,0.001751395892483969,0.0009301625668289477,0.0020204788885366805
+main,room_2,method,RND bonus,bonus_gt1_frac,5,0.009749999999999998,0.0038575056707670567,0.006818,0.012868000000000001,0.00606,0.01498
+main,room_2,method,RND bonus,bonus_clip_frac,5,0.0007280000000000001,0.0008801249911234199,0.000126,0.001498,5e-05,0.00215
+main,room_2,method,RND bonus,q_abs_max,5,5.413268474836369,4.392884077038337,2.4108552788517827,9.317080124652128,2.293428493163707,12.267869043608775
+main,room_4,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,100000.0,0.0,100000.0,100000.0,100000.0,100000.0
+main,room_4,ablation,"Count bonus (state), no offset",found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"Count bonus (state), no offset",final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"Count bonus (state), no offset",greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"Count bonus (state), no offset",coverage,5,0.8194174757281554,0.06314412637479264,0.7728155339805826,0.8718446601941748,0.7669902912621359,0.912621359223301
+main,room_4,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,"Count bonus (state), no offset",bonus_median,5,0.03887111819078788,0.00074136420151819,0.038331982008470634,0.03946774510786494,0.038180177416060626,0.03993615319154358
+main,room_4,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"Count bonus (state), no offset",q_abs_max,5,0.9778844322073356,0.05904889010749876,0.9304382311129183,1.0284442446896922,0.8962207640085161,1.0615001148599863
+main,room_4,baseline,Count bonus (state),steps_to_first_reward,5,11476.2,2146.407743183946,9927.6,13098.6,8892.0,14452.0
+main,room_4,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (state),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (state),bonus_median,5,0.04098507294363107,0.00031112902785043636,0.040718631410161674,0.0412128323656795,0.04052204492365539,0.0413802944301184
+main,room_4,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Count bonus (state),q_abs_max,5,2.16623508150196,0.0008303996393401361,2.1655171647513525,2.166774098821287,2.1648520581135458,2.167060828417804
+main,room_4,baseline,Count bonus (obs),steps_to_first_reward,5,11476.2,2146.407743183946,9927.6,13098.6,8892.0,14452.0
+main,room_4,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (obs),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,baseline,Count bonus (obs),bonus_median,5,0.04098507294363107,0.00031112902785043636,0.040718631410161674,0.0412128323656795,0.04052204492365539,0.0413802944301184
+main,room_4,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,baseline,Count bonus (obs),q_abs_max,5,2.16623508150196,0.0008303996393401361,2.1655171647513525,2.166774098821287,2.1648520581135458,2.167060828417804
+main,room_6,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,100000.0,0.0,100000.0,100000.0,100000.0,100000.0
+main,room_6,baseline,Epsilon-greedy Q-learning,found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,coverage,5,0.4645161290322581,0.012069862537980442,0.4541935483870968,0.47225806451612906,0.44516129032258067,0.4774193548387097
+main,room_6,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,29104.8,1774.9365340766412,27610.6,30458.2,26747.0,31493.0
+main,room_6,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Step penalty only (optimistic init),q_abs_max,5,3.3337061349535055,0.013608002204161062,3.323359409404231,3.343339886516304,3.3140385351601536,3.34927953485914
+main,room_4,method,RND bonus,steps_to_first_reward,5,18434.6,4082.257500452415,15506.2,21936.4,14330.0,24681.0
+main,room_4,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,method,RND bonus,final_return,5,0.996420581655481,0.008003822738254302,0.9892617449664429,1.0,0.9821029082774049,1.0
+main,room_4,method,RND bonus,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,method,RND bonus,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,method,RND bonus,coverage,5,0.996116504854369,0.00868375913592151,0.9883495145631068,1.0,0.9805825242718447,1.0
+main,room_4,method,RND bonus,bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_4,method,RND bonus,bonus_max_early,5,2.5186338715298975,1.1732592372316413,1.9249986534712071,3.5726447242829886,1.8897272114107033,4.608408621218099
+main,room_4,method,RND bonus,bonus_median,5,0.0028600456034462785,0.000757587932953919,0.0022586662310747152,0.0034614249758178417,0.0020424391922224594,0.0037261277323856366
+main,room_4,method,RND bonus,bonus_gt1_frac,5,0.016576,0.005932223866308486,0.012072000000000001,0.021471999999999998,0.00872,0.02466
+main,room_4,method,RND bonus,bonus_clip_frac,5,0.00092,0.0004504442251822083,0.000528,0.0012460000000000001,0.00027,0.00135
+main,room_4,method,RND bonus,q_abs_max,5,5.063551332086011,1.8322695195458942,3.6627401129415604,6.463899043376126,2.9125918165575353,6.914202917868247
+main,room_6,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,100000.0,0.0,100000.0,100000.0,100000.0,100000.0
+main,room_6,ablation,"Count bonus (state), no offset",found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"Count bonus (state), no offset",final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"Count bonus (state), no offset",greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"Count bonus (state), no offset",coverage,5,0.5548387096774194,0.05018177156807756,0.5187096774193549,0.5974193548387097,0.5096774193548387,0.632258064516129
+main,room_6,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,ablation,"Count bonus (state), no offset",bonus_median,5,0.0395827768584696,0.0007650281880763068,0.03915721605647228,0.04026438230338596,0.03907323325822818,0.0409272754535029
+main,room_6,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"Count bonus (state), no offset",q_abs_max,5,0.9710977087731983,0.03433306323719201,0.942302925925722,0.9958106155134203,0.9198772225587712,1.0088805755011814
+main,room_6,baseline,Count bonus (state),steps_to_first_reward,5,28438.6,2256.360853232479,26484.6,30057.0,24989.0,30357.0
+main,room_6,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (state),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (state),bonus_median,5,0.049744981261714255,0.00047538387131518283,0.0493747218352914,0.05011524068813712,0.049326362366699,0.05031546054266276
+main,room_6,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Count bonus (state),q_abs_max,5,3.133219329586596,0.002639711969932926,3.1312418219045535,3.1351968372686394,3.1303199085576754,3.1360496521204895
+main,room_6,baseline,Count bonus (obs),steps_to_first_reward,5,28438.6,2256.360853232479,26484.6,30057.0,24989.0,30357.0
+main,room_6,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (obs),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,baseline,Count bonus (obs),bonus_median,5,0.049744981261714255,0.00047538387131518283,0.0493747218352914,0.05011524068813712,0.049326362366699,0.05031546054266276
+main,room_6,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,baseline,Count bonus (obs),q_abs_max,5,3.133219329586596,0.002639711969932926,3.1312418219045535,3.1351968372686394,3.1303199085576754,3.1360496521204895
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,25007.4,11163.79298446545,15022.2,30000.0,5037.0,30000.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,found_reward,5,0.2,0.447213595499958,0.0,0.6,0.0,1.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,final_return,5,0.0013333333333333335,0.00298142396999972,0.0,0.004,0.0,0.006666666666666667
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.2142666666666667,0.0027803876628188988,0.21196666666666664,0.2163,0.21006666666666668,0.21686666666666668
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,coverage,5,0.9263157894736842,0.060009232899954634,0.8736842105263157,0.968421052631579,0.8421052631578947,1.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.15,0.33541019662496846,0.0,0.45,0.0,0.75
+main,chain_20_tv,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,557.2,123.05974158919724,469.0,644.8,398.0,719.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.05397333333333334,0.0007832978715377415,0.05332,0.05450000000000001,0.0527,0.054766666666666665
+main,chain_20_tv,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Step penalty only (optimistic init),q_abs_max,5,1.5052796601936567,0.02464215023432461,1.4856434284874662,1.5244509326552589,1.4777354430370626,1.5307029967570989
+main,chain_20_tv,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,16226.8,3934.51079551194,13231.2,19222.4,11560.0,20428.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.07018666666666666,0.0026616202250175055,0.06820666666666667,0.0722,0.06696666666666666,0.0741
+main,chain_20_tv,ablation,"Count bonus (state), no offset",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",bonus_median,5,0.03581505399330419,0.0005266595616072599,0.03540655542242759,0.03621731061738222,0.03511474936103118,0.03646624787447364
+main,chain_20_tv,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,ablation,"Count bonus (state), no offset",q_abs_max,5,1.046311900891214,0.012514273739429607,1.0368969968750945,1.0557631776851077,1.034526381925978,1.0640811112835036
+main,chain_20_tv,baseline,Count bonus (state),steps_to_first_reward,5,500.0,106.99766352589201,428.4,587.8,398.0,674.0
+main,chain_20_tv,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (state),tv_time_frac,5,0.05401333333333334,0.0007228800422999355,0.05339333333333333,0.054479999999999994,0.0528,0.05466666666666667
+main,chain_20_tv,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (state),bonus_median,5,0.03586557488766676,1.263223357647205e-05,0.035856349608624744,0.03587480016670876,0.03585173696910374,0.03587480016670876
+main,chain_20_tv,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Count bonus (state),q_abs_max,5,1.2404072420698058,0.03255506976286743,1.2124097698445822,1.262431073903682,1.188146222906278,1.272737727888718
+main,chain_20_tv,baseline,Count bonus (obs),steps_to_first_reward,5,611.6,141.93766237331093,497.6,716.6,434.0,799.0
+main,chain_20_tv,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (obs),tv_time_frac,5,0.055266666666666665,0.000717247826378332,0.05465333333333333,0.055753333333333335,0.0541,0.05603333333333333
+main,chain_20_tv,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,baseline,Count bonus (obs),bonus_median,5,0.037059985766185397,4.437680685529754e-05,0.037021884225793125,0.03709050046497881,0.036986336072765455,0.037100714014437236
+main,chain_20_tv,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,baseline,Count bonus (obs),q_abs_max,5,1.2181542699875152,0.049278387875765835,1.1787269133150418,1.2510168291579327,1.1403415156031027,1.2697614418948329
+main,chain_20_tv,method,RND bonus,steps_to_first_reward,5,2387.4,226.52880611524884,2206.0,2554.2,2120.0,2673.0
+main,chain_20_tv,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,method,RND bonus,final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,method,RND bonus,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,method,RND bonus,tv_time_frac,5,0.06222,0.002514358765172546,0.06000666666666667,0.06421333333333334,0.0584,0.06546666666666667
+main,chain_20_tv,method,RND bonus,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,method,RND bonus,bonus_max,5,4.876853653733557,0.23992101610688268,4.6571627244442535,5.0,4.45077267677674,5.0
+main,chain_20_tv,method,RND bonus,bonus_max_early,5,3.8419016758788063,1.107271936100095,2.965740625377047,4.718062726380565,2.692935004153542,5.0
+main,chain_20_tv,method,RND bonus,bonus_median,5,8.243906716175345e-07,7.987035666338631e-07,2.1917647250924695e-07,1.4485825429016488e-06,7.722079826697582e-08,1.9572596887973707e-06
+main,chain_20_tv,method,RND bonus,bonus_gt1_frac,5,0.011986666666666668,0.00044509674354134646,0.011640000000000001,0.012333333333333332,0.011433333333333334,0.0125
+main,chain_20_tv,method,RND bonus,bonus_clip_frac,5,0.00013333333333333334,0.00015092308563562364,2.6666666666666667e-05,0.00025333333333333333,0.0,0.00036666666666666667
+main,chain_20_tv,method,RND bonus,q_abs_max,5,2.7252162282185832,0.7578354475970049,2.18046393407871,3.3054304118387408,1.8644737616672469,3.7865503260677897
+main,room_6,method,RND bonus,steps_to_first_reward,5,76276.4,21269.397600778448,58733.4,90743.4,42569.0,100000.0
+main,room_6,method,RND bonus,found_reward,5,0.8,0.4472135954999579,0.4,1.0,0.0,1.0
+main,room_6,method,RND bonus,final_return,5,0.44516343656941465,0.40250239603587107,0.15152838427947599,0.780923187883159,0.0,0.9893617021276596
+main,room_6,method,RND bonus,greedy_success,5,0.2,0.44721359549995804,0.0,0.6,0.0,1.0
+main,room_6,method,RND bonus,tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,method,RND bonus,coverage,5,0.9987096774193549,0.0028852490032255425,0.9961290322580645,1.0,0.9935483870967742,1.0
+main,room_6,method,RND bonus,bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_6,method,RND bonus,bonus_max_early,5,3.4900649218558883,1.2425727652970964,2.523367660786014,4.456762182925763,2.3272232293336708,5.0
+main,room_6,method,RND bonus,bonus_median,5,0.04251017110248556,0.0177356095553042,0.02727390476308933,0.054331867917807676,0.014287326234578273,0.0621473712567629
+main,room_6,method,RND bonus,bonus_gt1_frac,5,0.057824,0.014673950729098145,0.044732,0.066608,0.03247,0.0686
+main,room_6,method,RND bonus,bonus_clip_frac,5,0.002836,0.0008051273191241246,0.0021400000000000004,0.0033619999999999995,0.00152,0.00349
+main,room_6,method,RND bonus,q_abs_max,5,5.9987985057467785,1.953005553870994,4.539878351293514,7.444145566049156,3.228336432646911,8.166928403161595
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,steps_to_first_reward,5,100000.0,0.0,100000.0,100000.0,100000.0,100000.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,tv_time_frac,5,0.034554,0.0009989644638324223,0.033762,0.035346,0.03359,0.03574
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,coverage,5,0.6333333333333333,0.029083131321943817,0.611764705882353,0.6568627450980392,0.6078431372549019,0.6764705882352942
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Epsilon-greedy Q-learning,q_abs_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),steps_to_first_reward,5,13230.8,370.83918347445433,12934.2,13538.8,12727.0,13756.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),tv_time_frac,5,0.020712,0.009824633326491122,0.011857999999999999,0.025472,0.00317,0.02593
+main,room_4_tv,baseline,Step penalty only (optimistic init),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),bonus_max,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),bonus_max_early,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),bonus_median,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Step penalty only (optimistic init),q_abs_max,5,2.407851432013216,0.025645880605258606,2.387820916529299,2.4278819474971316,2.378289188450449,2.437621281044093
+main,room_4_tv,ablation,"Count bonus (state), no offset",steps_to_first_reward,5,100000.0,0.0,100000.0,100000.0,100000.0,100000.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",found_reward,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",final_return,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",tv_time_frac,5,0.018279999999999998,0.0032320426977377635,0.015904,0.020772000000000002,0.01503,0.02283
+main,room_4_tv,ablation,"Count bonus (state), no offset",coverage,5,0.7666666666666666,0.02125439547909683,0.7490196078431373,0.7823529411764705,0.7352941176470589,0.7941176470588235
+main,room_4_tv,ablation,"Count bonus (state), no offset",bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",bonus_median,5,0.03830682018670673,0.0009914064038814728,0.03744935937393056,0.03894697642258936,0.03668644191235265,0.039283710065919304
+main,room_4_tv,ablation,"Count bonus (state), no offset",bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"Count bonus (state), no offset",q_abs_max,5,0.952969706354369,0.03867928157938453,0.9224896740484155,0.9819370978833415,0.8966701329796769,0.9957491727045538
+main,room_4_tv,baseline,Count bonus (state),steps_to_first_reward,5,11643.4,499.48403377885865,11247.0,12039.8,11069.0,12159.0
+main,room_4_tv,baseline,Count bonus (state),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (state),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (state),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (state),tv_time_frac,5,0.012869999999999998,0.0005064089256717347,0.012462,0.013250000000000001,0.01215,0.01352
+main,room_4_tv,baseline,Count bonus (state),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (state),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (state),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (state),bonus_median,5,0.041346903176319526,0.0008102229107657387,0.040624755805170575,0.04182113861283497,0.03993615319154358,0.0419960525565808
+main,room_4_tv,baseline,Count bonus (state),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Count bonus (state),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Count bonus (state),q_abs_max,5,2.171668591094693,0.012659610567310072,2.1653494882342503,2.1830996613906817,2.164691567660264,2.194235327144357
+main,room_4_tv,baseline,Count bonus (obs),steps_to_first_reward,5,11142.4,2646.030763237646,8925.6,13025.4,7222.0,13369.0
+main,room_4_tv,baseline,Count bonus (obs),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (obs),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (obs),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (obs),tv_time_frac,5,0.023164,0.0012638354323249528,0.022036,0.023884,0.02094,0.02406
+main,room_4_tv,baseline,Count bonus (obs),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (obs),bonus_max,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (obs),bonus_max_early,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,baseline,Count bonus (obs),bonus_median,5,0.042424788934779925,0.0005200096330457019,0.041988808012245325,0.042806496008477385,0.04163054471218133,0.04299335803923478
+main,room_4_tv,baseline,Count bonus (obs),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Count bonus (obs),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,baseline,Count bonus (obs),q_abs_max,5,2.1651168727581247,0.012158123859412874,2.157474109037538,2.175965900040533,2.1544298064438623,2.186039404450887
+main,room_4_tv,method,RND bonus,steps_to_first_reward,5,15184.2,3603.9474468976377,12556.0,18259.8,12016.0,20287.0
+main,room_4_tv,method,RND bonus,found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,method,RND bonus,final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,method,RND bonus,greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,method,RND bonus,tv_time_frac,5,0.024646,0.0010017884008112702,0.024035999999999995,0.025522,0.02386,0.02636
+main,room_4_tv,method,RND bonus,coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,method,RND bonus,bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_4_tv,method,RND bonus,bonus_max_early,5,3.4110097633611387,1.227035600842793,2.4742354070078045,4.339968514628994,1.894251538637294,5.0
+main,room_4_tv,method,RND bonus,bonus_median,5,0.003801651911603804,0.0006664653565769007,0.0032859913587334894,0.004338174388311667,0.002869879758514285,0.004706188685291084
+main,room_4_tv,method,RND bonus,bonus_gt1_frac,5,0.013439999999999999,0.002618797433937952,0.011288,0.015414,0.00976,0.01609
+main,room_4_tv,method,RND bonus,bonus_clip_frac,5,0.0005059999999999999,0.00030484422251372915,0.000266,0.000732,0.00015,0.0009
+main,room_4_tv,method,RND bonus,q_abs_max,5,4.027386054647102,1.3500965778952603,2.977659933028727,5.077112176265476,2.570422185856093,5.763690945786623
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,64.0,38.360135557633264,34.4,93.6,20.0,113.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.2850024336694078,0.0807499954114704,0.2275133744115238,0.3557664692904198,0.19067067460373738,0.39991781138283344
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.2829554532555058,0.08196573698064812,0.22341941358371975,0.3537194888765178,0.19067067460373738,0.39991781138283344
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,4.946946664418592e-32,2.1784696827096984e-32,3.703548236728964e-32,6.918444412216583e-32,3.572148657007607e-32,8.758655427750897e-32
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,0.9134831663005951,0.008059044707188752,0.9075571431164366,0.9200913950750014,0.9046729838926902,0.9255634038236313
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,6696.0,12279.67094428837,989.8,17725.4,736.0,28656.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.8006666666666667,0.4457228835149581,0.402,1.0,0.0033333333333333335,1.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.8,0.4472135954999579,0.4,1.0,0.0,1.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,2440340.075109828,5456690.940680127,23.78031614624564,7320955.270307429,8.551487749863007,12201565.57551725
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,2440339.204267015,5456691.427501401,21.167787709051208,7320955.270307429,4.197273687872294,12201565.57551725
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,8.016806538587899e-06,1.7926124382747335e-05,2.671553682370437e-30,2.4050419615763694e-05,2.3335783044256486e-30,4.008403269293949e-05
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.006406666666666667,0.0012581732790041284,0.0055,0.007333333333333333,0.005166666666666667,0.008233333333333334
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,723012.0498496607,1616680.1402453228,7.182616808812139,2169015.1609936007,1.9093742601962873,3615017.403000581
+main,chain_10,ablation,"RND, warm-up only",steps_to_first_reward,5,521.4,353.8506747202837,233.0,788.4,39.0,920.0
+main,chain_10,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, warm-up only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, warm-up only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, warm-up only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, warm-up only",bonus_max,5,5.851250588837696,1.5610028341485584,4.6948297470110845,7.0608435771656755,4.368031652983418,7.673526793701951
+main,chain_10,ablation,"RND, warm-up only",bonus_max_early,5,2.3251056229533127,0.4013336130722057,1.9666053699226793,2.593340006975657,1.6466877860869829,2.6912455145086125
+main,chain_10,ablation,"RND, warm-up only",bonus_median,5,4.541481023361783e-26,1.0154206217881935e-25,2.5133093491710638e-30,1.36237086101564e-25,2.0079900584733078e-30,2.2705877308398384e-25
+main,chain_10,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.005833333333333334,0.0012905640455070622,0.004946666666666667,0.006933333333333333,0.004533333333333334,0.007833333333333333
+main,chain_10,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"RND, warm-up only",q_abs_max,5,2.2197145445683537,1.1710123445165874,1.3976724765370219,3.2056547291130797,1.2132853830662291,4.075888888056561
+main,chain_10,ablation,"RND, clip only",steps_to_first_reward,5,915.4,208.20254561364038,754.6,1076.2,651.0,1159.0
+main,chain_10,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, clip only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, clip only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, clip only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_10,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_10,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_10,ablation,"RND, clip only",bonus_max_early,5,4.839454737574458,0.3589901202490528,4.518364212723376,5.0,4.197273687872294,5.0
+main,chain_10,ablation,"RND, clip only",bonus_median,5,1.3750871581078748e-24,3.0746862001400955e-24,2.695273447717714e-30,4.125187082161277e-24,2.070998502385354e-30,6.875253038900796e-24
+main,chain_10,ablation,"RND, clip only",bonus_gt1_frac,5,0.007186666666666666,0.0007798147928265476,0.006513333333333334,0.00782,0.006033333333333333,0.008233333333333334
+main,chain_10,ablation,"RND, clip only",bonus_clip_frac,5,0.0007266666666666667,0.0003662118391192605,0.00041333333333333337,0.0010266666666666666,0.0002,0.0012333333333333332
+main,chain_10,ablation,"RND, clip only",q_abs_max,5,3.9676932160242844,1.5778395236575893,2.6455766362709827,5.126956714242316,1.9093742601962873,5.830825503463133
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,569.6,67.73699137103743,516.4,622.4,480.0,667.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.24881894082243577,0.026273247587129688,0.23086365638214387,0.27110150370766883,0.22754542929642374,0.2914314773933845
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.21833406995845298,0.03073136977413064,0.19428412883447632,0.24238401108242963,0.1810880752430418,0.2536676570617668
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,1.799527060162442e-18,3.4399835668643166e-18,7.243731430376867e-20,4.899413575781396e-18,3.378239108895962e-32,7.930809574806749e-18
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,1.4900099447429385,0.03397030909844299,1.4638256349923393,1.5161942544935374,1.4532765024410983,1.5321661755203624
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,24509.8,12276.460410069345,13529.4,30000.0,2549.0,30000.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.2,0.44721359549995804,0.0,0.6,0.0,1.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.2,0.44721359549995804,0.0,0.6,0.0,1.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.2,0.44721359549995804,0.0,0.6,0.0,1.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.82,0.10954451150103323,0.75,0.9199999999999999,0.75,1.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,9105985.547612157,5409584.654199915,4218483.998250396,12644602.190869238,8.625024873356564,14434238.97276653
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,9105985.547612157,5409584.654199915,4218483.998250396,12644602.190869238,8.625024873356564,14434238.97276653
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,8.69171453493079e-05,5.993020931433227e-05,3.559140049102853e-05,0.000132973654203827,1.3731726357960563e-18,0.00016621706775478342
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.009260000000000001,0.0024600587165531005,0.007306666666666667,0.011213333333333334,0.006566666666666667,0.011733333333333333
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,1714102.2563721924,1247427.8818809032,731639.1733769343,2698749.799592562,3.6262778745117674,3419319.873580026
+main,chain_20,ablation,"RND, warm-up only",steps_to_first_reward,5,2050.8,447.3423744739593,1700.6,2388.8,1519.0,2597.0
+main,chain_20,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, warm-up only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, warm-up only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, warm-up only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, warm-up only",bonus_max,5,6.164505384416734,1.582141926977759,4.97326545830167,7.471084542206137,4.571345334238334,8.42159070322366
+main,chain_20,ablation,"RND, warm-up only",bonus_max_early,5,2.662339355049743,1.0395497953348964,1.84862677606869,3.476051934030796,1.4721036069631845,3.6614320585974833
+main,chain_20,ablation,"RND, warm-up only",bonus_median,5,7.728927920863051e-16,1.7170235794648188e-15,1.7916099497156743e-18,2.3088790073606662e-15,2.538200608996753e-27,3.844384715800646e-15
+main,chain_20,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.009953333333333333,0.0011795950340877349,0.009113333333333334,0.010920000000000001,0.008533333333333334,0.0117
+main,chain_20,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"RND, warm-up only",q_abs_max,5,2.564441319794401,1.0061094423878802,1.7786872346323084,3.339731399927892,1.28814210667305,3.5868742651335523
+main,chain_20,ablation,"RND, clip only",steps_to_first_reward,5,2427.2,254.6913818722573,2199.4,2579.8,1989.0,2632.0
+main,chain_20,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, clip only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, clip only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, clip only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_20,ablation,"RND, clip only",bonus_max_early,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_20,ablation,"RND, clip only",bonus_median,5,2.5135955396081425e-12,5.588523535746944e-12,3.7305200734123116e-18,7.517812432387671e-12,1.2289676016103575e-20,1.251055147768549e-11
+main,chain_20,ablation,"RND, clip only",bonus_gt1_frac,5,0.011946666666666666,0.0011149489275796948,0.011126666666666665,0.012766666666666666,0.010433333333333333,0.0133
+main,chain_20,ablation,"RND, clip only",bonus_clip_frac,5,0.0009533333333333335,0.0004220321209471041,0.0006266666666666666,0.0012799999999999999,0.0005,0.0014333333333333333
+main,chain_20,ablation,"RND, clip only",q_abs_max,5,3.6895978845028843,1.1118284747953355,2.803376006569489,4.516547687288498,2.15611443992739,5.096061897398984
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,2619.8,341.0127563596412,2349.8,2906.8,2157.0,3115.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.17625222839540905,0.040827294871412755,0.1441611392184222,0.20834331757239588,0.13542795044823483,0.22425363148125071
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.15094347333823363,0.04361563211101287,0.1225319175813759,0.18839542454586464,0.10992481527461997,0.22425363148125071
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,1.2441921751523148e-08,1.1860588406773506e-08,3.741445253149426e-09,2.2085810348175135e-08,2.8770957795754844e-09,2.7903146205739527e-08
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,3.0136455041662407,0.03681524834481131,2.9873826145188076,3.043672536798929,2.976946701282002,3.0707632384155383
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,15979.4,12812.812485945466,6473.2,25485.6,5752.0,30000.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.755,0.33559648389099667,0.505,1.0,0.375,1.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,3019030.9634736283,4140296.186802623,9.543137059942683,6167529.016438937,7.261373079066467,7871254.938791733
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,3019030.579914283,4140296.536407744,8.776018368519091,6167529.016438937,5.343576350507482,7871254.938791733
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,0.00025701995631484474,0.0003581725207430976,2.054764892158274e-10,0.0005516765560221908,1.5342293857382065e-10,0.0007366417745620267
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.01802666666666667,0.004585811451277372,0.014799999999999999,0.021653333333333337,0.012966666666666666,0.025133333333333334
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,1040943.5022189852,1427545.9798231437,5.184946496651466,2126524.1036349693,4.185979437080395,2713957.4460783806
+main,chain_40,ablation,"RND, warm-up only",steps_to_first_reward,5,5005.2,360.4236396242622,4766.4,5341.0,4640.0,5599.0
+main,chain_40,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, warm-up only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, warm-up only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, warm-up only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, warm-up only",bonus_max,5,7.122250729421812,1.4427367123681971,5.9916428360441145,8.25285862279951,5.802000920455517,8.885206850978838
+main,chain_40,ablation,"RND, warm-up only",bonus_max_early,5,3.3349732751683425,1.8326995836265365,2.0072642333695274,4.980474834568441,1.2952576049618136,6.326166330521029
+main,chain_40,ablation,"RND, warm-up only",bonus_median,5,1.9208520528271145e-08,2.0155622194271997e-08,4.570475541647458e-09,3.637000089140832e-08,1.0803607445985934e-10,4.858978631628731e-08
+main,chain_40,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.016366666666666668,0.001012697168730887,0.015526666666666666,0.01704,0.014766666666666668,0.017466666666666665
+main,chain_40,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"RND, warm-up only",q_abs_max,5,3.3088234973576705,0.6448981499737466,2.8779339758725357,3.8805411598995008,2.83104732667739,4.345179964143084
+main,chain_40,ablation,"RND, clip only",steps_to_first_reward,5,6492.6,283.58473160591706,6270.0,6699.4,6078.0,6793.0
+main,chain_40,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, clip only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, clip only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, clip only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_40,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_40,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_40,ablation,"RND, clip only",bonus_max_early,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_40,ablation,"RND, clip only",bonus_median,5,7.977673401650686e-10,1.1048390264603487e-09,1.4407247918533043e-10,1.780581344015851e-09,7.13462634586685e-15,2.7064730079076554e-09
+main,chain_40,ablation,"RND, clip only",bonus_gt1_frac,5,0.018253333333333333,0.0007259476565152615,0.017646666666666665,0.018786666666666667,0.0172,0.018833333333333334
+main,chain_40,ablation,"RND, clip only",bonus_clip_frac,5,0.0014733333333333334,0.0007170154190190831,0.0008666666666666668,0.001966666666666667,0.00036666666666666667,0.002266666666666667
+main,chain_40,ablation,"RND, clip only",q_abs_max,5,5.0974283990132845,1.4520506930045298,4.334907124994371,6.383419581072834,4.164753419595284,7.668683132000714
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,1145.2,482.30249843848003,780.4,1510.0,758.0,1715.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.1534022814832802,0.015159497366449448,0.1416700521421527,0.16465391489271317,0.130625238187948,0.1712055105748918
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.12271582184204047,0.016154608552597927,0.11058457028299895,0.13612180180655747,0.10599173013315757,0.14521828196951383
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,1.4360816094492666e-05,5.507889299080403e-07,1.3947046952250441e-05,1.4810907428581629e-05,1.3727828653205315e-05,1.5073079622410034e-05
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,0.9523155298103436,0.04130423779600802,0.9193055335133788,0.9831354058957406,0.9000928965554187,1.005328100284427
+main,room_2,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,42797.0,52226.79019430545,4402.8,81191.2,3398.0,100000.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.5998359310910583,0.547572886184198,0.19983593109105824,0.9998359310910583,0.0,1.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.9215686274509803,0.12087086280331329,0.8117647058823529,1.0,0.7254901960784313,1.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,2484520.1878856,3500969.050375657,18.910709269762116,5436491.07508219,8.373141566278552,7379947.445211055
+main,room_2,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,2484516.99310968,3500971.8843872244,12.817965099561729,5436488.177113941,6.889103210772546,7379947.445211055
+main,room_2,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,0.003977637157810027,0.0038305743516580913,0.0010577535127423445,0.00689752080287771,0.00043400847800890546,0.008228596353389468
+main,room_2,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.011222,0.0032174088953690672,0.008394,0.013386,0.00599,0.01371
+main,room_2,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,549305.9950649703,795297.2138345771,7.788996648771092,1244762.8590451318,5.435103285017696,1738652.1322138587
+main,room_2,ablation,"RND, warm-up only",steps_to_first_reward,5,3744.4,972.4177600188101,2981.4,4589.2,2470.0,5200.0
+main,room_2,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"RND, warm-up only",final_return,5,0.9998349834983499,0.0003689881150989921,0.9995049504950495,1.0,0.9991749174917491,1.0
+main,room_2,ablation,"RND, warm-up only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"RND, warm-up only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"RND, warm-up only",bonus_max,5,14.09807710050095,8.608589332264058,7.62938087390215,20.859267761647082,5.190300519591172,25.142127615345217
+main,room_2,ablation,"RND, warm-up only",bonus_max_early,5,3.344602610218562,0.9128690083005137,2.641204924797338,4.048000295639785,2.193883532984803,4.300717981625804
+main,room_2,ablation,"RND, warm-up only",bonus_median,5,0.001051659191172487,0.0006050732054593889,0.0006084664532936594,0.0014948519290513148,0.00045318451246941893,0.0019105773039856183
+main,room_2,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.010336000000000001,0.0040272732710855364,0.00738,0.013452,0.0061,0.01529
+main,room_2,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"RND, warm-up only",q_abs_max,5,6.348368951818387,3.0853259527143138,4.053171354530396,8.643566549106378,2.1244943004578904,9.637880727129472
+main,room_2,ablation,"RND, clip only",steps_to_first_reward,5,3704.4,1067.7969376243782,2876.8,4532.0,2464.0,4981.0
+main,room_2,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"RND, clip only",final_return,5,0.9783792815371761,0.03851351081561293,0.9428237259816207,1.0,0.9111111111111111,1.0
+main,room_2,ablation,"RND, clip only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"RND, clip only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_2,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_2,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_2,ablation,"RND, clip only",bonus_max_early,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_2,ablation,"RND, clip only",bonus_median,5,0.0014529596861640854,0.0008074292971033653,0.0008168231202010272,0.002049615714954554,0.00040382681371254096,0.002187865075694376
+main,room_2,ablation,"RND, clip only",bonus_gt1_frac,5,0.009946,0.00511287883681982,0.006052,0.013874000000000001,0.0057,0.01637
+main,room_2,ablation,"RND, clip only",bonus_clip_frac,5,0.0009600000000000001,0.0005961124055075519,0.0005120000000000001,0.001448,0.00042,0.00181
+main,room_2,ablation,"RND, clip only",q_abs_max,5,5.786315129563232,1.9202740104163147,4.470811469861319,7.404500509948906,3.8155807890152937,8.82256820893345
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,13206.0,669.2122234388729,12653.6,13718.2,12222.0,14079.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.09388308078834519,0.011513853923227704,0.0851455922317039,0.10315564555914288,0.08348043553634571,0.10973031511415182
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.08235992894371173,0.01097227060871532,0.07336385808316873,0.0905965679736795,0.06709056230273949,0.09458661928426469
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,1.9763685149149838e-05,1.4195066871860734e-06,1.868836739983249e-05,2.081083128979181e-05,1.7769742536422816e-05,2.1240914342386405e-05
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,2.4268147180205384,0.03709183349693379,2.397366095886528,2.456263340154549,2.384390692468557,2.463924992008614
+main,room_4,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,69776.8,41523.42263349686,37636.0,100000.0,19648.0,100000.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.4,0.5477225575051662,0.0,0.8,0.0,1.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.4,0.5477225575051662,0.0,0.8,0.0,1.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.4,0.5477225575051662,0.0,0.8,0.0,1.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.6621359223300971,0.30873175789284335,0.43300970873786404,0.8912621359223302,0.4174757281553398,1.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,3535017.1570994603,3413150.410815787,828412.1827449958,6241622.131453924,46.85137707459996,7186463.518901558
+main,room_4,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,3535017.1570994603,3413150.410815787,828412.1827449958,6241622.131453924,46.85137707459996,7186463.518901558
+main,room_4,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,0.008760909936492502,0.0052968648199118035,0.004743550374462237,0.012944546958331731,0.00276434754058904,0.013739976815577646
+main,room_4,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.014914,0.00294449995754797,0.012764000000000001,0.017224,0.01195,0.01924
+main,room_4,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,1218842.7737004547,1176842.454390733,285616.0928718182,2152070.594727861,6.036510379196718,2477845.7937960997
+main,room_4,ablation,"RND, warm-up only",steps_to_first_reward,5,19473.8,2607.7636395961963,17588.6,21513.0,16816.0,23488.0
+main,room_4,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,"RND, warm-up only",final_return,5,0.8199281240012943,0.40003565193047097,0.4620903693422777,0.9995680345572353,0.10432569974554708,1.0
+main,room_4,ablation,"RND, warm-up only",greedy_success,5,0.8,0.4472135954999579,0.4,1.0,0.0,1.0
+main,room_4,ablation,"RND, warm-up only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,"RND, warm-up only",bonus_max,5,16.370313032039054,9.703094514523354,9.171262430917656,24.278735525927544,7.801813415396953,28.98988307920139
+main,room_4,ablation,"RND, warm-up only",bonus_max_early,5,2.5186338715298975,1.1732592372316413,1.9249986534712071,3.5726447242829886,1.8897272114107033,4.608408621218099
+main,room_4,ablation,"RND, warm-up only",bonus_median,5,0.003699401009648561,0.0007596695614553755,0.0031862464929473906,0.004357218777170364,0.003017681606965821,0.004969302080670777
+main,room_4,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.02196,0.011659762004432165,0.01329,0.03094774999999995,0.01258,0.03644
+main,room_4,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"RND, warm-up only",q_abs_max,5,7.540730524741997,5.159099146327116,3.7190078722218365,11.663468712102693,2.912608389255297,14.735440891365414
+main,room_4,ablation,"RND, clip only",steps_to_first_reward,5,17810.6,1346.5408645859955,16812.2,18847.2,16320.0,19709.0
+main,room_4,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,"RND, clip only",final_return,5,0.9446082940384782,0.11667423591231789,0.839065056787924,1.0,0.7361419068736141,1.0
+main,room_4,ablation,"RND, clip only",greedy_success,5,0.8,0.4472135954999579,0.4,1.0,0.0,1.0
+main,room_4,ablation,"RND, clip only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_4,ablation,"RND, clip only",bonus_max_early,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_4,ablation,"RND, clip only",bonus_median,5,0.003083945186551612,0.001078695522493137,0.002272545371099281,0.003913568396113983,0.0019089209302022758,0.004326511594772995
+main,room_4,ablation,"RND, clip only",bonus_gt1_frac,5,0.01725,0.004583241211195414,0.013644,0.020856,0.01266,0.02297
+main,room_4,ablation,"RND, clip only",bonus_clip_frac,5,0.0011779999999999998,0.00048571596638364694,0.000804,0.001552,0.0006,0.00167
+main,room_4,ablation,"RND, clip only",q_abs_max,5,4.554846887544573,1.3991531146836829,3.6202591705823663,5.839576055088737,3.170846103408647,6.913772314882921
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,29807.8,1439.7595979884975,28713.0,30902.6,28231.0,31680.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.06927459107167785,0.012224304219581738,0.059887442125341306,0.07893569874195704,0.05215836645253091,0.08564459344902269
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.04667578181623223,0.0036400132563739356,0.043916868694898976,0.049434694937565485,0.04236157462862872,0.05105716685648408
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,3.9469771457650695e-05,2.0710420877554797e-06,3.798173017578096e-05,4.117343881974448e-05,3.686849473251697e-05,4.243467194883692e-05
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,3.3284844812509684,0.015360958417258829,3.3174201519735886,3.3409682079626526,3.3147932018545307,3.350907171879295
+main,room_6,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,94877.8,11385.509878788916,84682.2,100000.0,74511.0,100000.0
+main,room_6,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.4,0.5477225575051662,0.0,0.8,0.0,1.0
+main,room_6,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.1534234301500784,0.3406079307868341,0.0,0.45850817591279025,0.0,0.7627118644067796
+main,room_6,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.5638709677419355,0.34771739694377807,0.30838709677419357,0.8374193548387098,0.3032258064516129,1.0
+main,room_6,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,1332423.3527353848,1478831.5015274768,294268.5098774128,2475097.85364467,14.677310771368429,3592322.663474333
+main,room_6,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,1332414.2050331216,1478841.8038740938,294250.2144728865,2475095.6761457953,3.789816396107351,3592322.663474333
+main,room_6,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,0.017741525898744635,0.01111373675867814,0.009138531670631021,0.02634452012685825,0.005485399411522896,0.03104660200055149
+main,room_6,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.037354000000000005,0.01713692592036273,0.024447999999999998,0.050476,0.01891,0.05665
+main,room_6,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,423542.21927330084,511984.6531469885,65595.71222008506,853398.10729364,8.322439049686293,1238609.2740887245
+main,room_6,ablation,"RND, warm-up only",steps_to_first_reward,5,83830.4,21539.990396933794,65568.6,99339.4,52694.0,100000.0
+main,room_6,ablation,"RND, warm-up only",found_reward,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,room_6,ablation,"RND, warm-up only",final_return,5,0.11473935389133627,0.22758973711117456,0.0026431718061674008,0.32042951541850223,0.0,0.5208333333333334
+main,room_6,ablation,"RND, warm-up only",greedy_success,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, warm-up only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, warm-up only",coverage,5,0.9845161290322579,0.02168740169544725,0.9651612903225807,0.9987096774193549,0.9483870967741935,1.0
+main,room_6,ablation,"RND, warm-up only",bonus_max,5,17.047647625846977,5.244866168785689,13.089514280450024,21.149369637021106,11.942532683609484,24.527654097784556
+main,room_6,ablation,"RND, warm-up only",bonus_max_early,5,3.5021579589202196,1.2610977507501537,2.523367660786014,4.4809482570544255,2.3272232293336708,5.060465185321657
+main,room_6,ablation,"RND, warm-up only",bonus_median,5,0.03906538785764735,0.0048469977326862,0.03566702113661494,0.04289367747681498,0.033104358731248666,0.04609424515059274
+main,room_6,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.061128,0.003932794172086815,0.058188,0.06465800000000001,0.0566,0.06747
+main,room_6,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, warm-up only",q_abs_max,5,10.372075888879829,2.8544807375276364,7.868008125017576,12.38537741838979,6.094100572539383,13.407262380667973
+main,room_6,ablation,"RND, clip only",steps_to_first_reward,5,77949.6,16856.93160987491,65079.6,91415.8,58695.0,100000.0
+main,room_6,ablation,"RND, clip only",found_reward,5,0.8,0.44721359549995804,0.4,1.0,0.0,1.0
+main,room_6,ablation,"RND, clip only",final_return,5,0.32203262387350734,0.42185441346030306,0.03436123348017621,0.6920209965378048,0.0,0.9888475836431226
+main,room_6,ablation,"RND, clip only",greedy_success,5,0.2,0.447213595499958,0.0,0.6,0.0,1.0
+main,room_6,ablation,"RND, clip only",tv_time_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_6,ablation,"RND, clip only",coverage,5,0.9896774193548387,0.01967477507351859,0.9716129032258065,1.0,0.9548387096774194,1.0
+main,room_6,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_6,ablation,"RND, clip only",bonus_max_early,5,4.75796327922147,0.5412105607119285,4.273889837664411,5.0,3.789816396107351,5.0
+main,room_6,ablation,"RND, clip only",bonus_median,5,0.0482353496265223,0.018498054951676994,0.03228140690198576,0.06193353218277496,0.019389983614591697,0.070728298008161
+main,room_6,ablation,"RND, clip only",bonus_gt1_frac,5,0.064632,0.01460865736472726,0.052644,0.07438399999999999,0.04108,0.07997
+main,room_6,ablation,"RND, clip only",bonus_clip_frac,5,0.0036059999999999994,0.0012504319253761876,0.00262,0.004478,0.00166,0.00499
+main,room_6,ablation,"RND, clip only",q_abs_max,5,6.807143142817642,1.2630587080325963,5.820736478214099,7.724105558731591,4.869962685589553,8.08903941090219
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,619.6,141.2384508552823,514.4,724.8,436.0,797.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.05435333333333333,0.0007840776605526881,0.05371333333333332,0.05494,0.05316666666666667,0.05533333333333333
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.3321949022113018,0.06262817724619199,0.29429857660301156,0.38690493849145197,0.281992427796181,0.4404746878864698
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.3321949022113018,0.06262817724619199,0.29429857660301156,0.38690493849145197,0.281992427796181,0.4404746878864698
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,2.7115726337217874e-06,2.98339126835255e-07,2.4902484128096743e-06,2.9467489462225227e-06,2.340568651119208e-06,3.114754369281826e-06
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,1.500751672943988,0.038136282153648206,1.470286112761801,1.5306178642220574,1.4622613458421367,1.5410263750281352
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,13231.2,15308.535697446701,2006.8,24455.6,1840.0,30000.0
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.6,0.5477225575051662,0.2,1.0,0.0,1.0
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.0994,0.05084403166110606,0.061919999999999996,0.13789333333333334,0.060733333333333334,0.1588
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.9052631578947368,0.14122534594735514,0.7789473684210526,1.0,0.6842105263157895,1.0
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,5121928.259997731,7107491.888821587,5.371838514173137,10895621.668794027,5.314745465517829,14434238.97276653
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,5121927.971185433,7107492.148982692,4.847285589781145,10895621.609644212,4.431791410388035,14434238.97276653
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,0.00010508318253384401,0.0001551422878202726,2.9419285594387704e-06,0.00024524192938760035,1.6426039145546882e-06,0.0003552824379192343
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.011953333333333333,0.002619647983137344,0.009986666666666668,0.014046666666666666,0.008566666666666667,0.015333333333333332
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,731638.616329578,1038960.6517279991,2.4824613940956053,1618985.4041599412,1.786496640390987,2218369.750267586
+main,chain_20_tv,ablation,"RND, warm-up only",steps_to_first_reward,5,2347.0,213.4689672996991,2181.2,2512.8,2120.0,2598.0
+main,chain_20_tv,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, warm-up only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, warm-up only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, warm-up only",tv_time_frac,5,0.06225333333333334,0.002478417954170674,0.06007333333333333,0.06411333333333333,0.0584,0.0653
+main,chain_20_tv,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, warm-up only",bonus_max,5,5.250721787703294,0.5818504349123839,4.806294959360574,5.695148616046014,4.45077267677674,5.84213974247984
+main,chain_20_tv,ablation,"RND, warm-up only",bonus_max_early,5,3.9043878859516923,1.1916291102894045,2.965740625377047,4.843035146526338,2.692935004153542,5.262938259467301
+main,chain_20_tv,ablation,"RND, warm-up only",bonus_median,5,7.869770775705802e-07,7.591487580966544e-07,2.3933237927942157e-07,1.4144576912551495e-06,1.3143703283583623e-07,1.9572596887973707e-06
+main,chain_20_tv,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.012173333333333331,0.0007251053563295323,0.011626666666666667,0.01272,0.011433333333333334,0.013166666666666667
+main,chain_20_tv,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,chain_20_tv,ablation,"RND, warm-up only",q_abs_max,5,2.760866464657405,0.7538448942048608,2.2117674649483035,3.3345701803157723,1.8644737616672469,3.7975961705490486
+main,chain_20_tv,ablation,"RND, clip only",steps_to_first_reward,5,2359.2,197.80722939265894,2208.0,2510.4,2148.0,2591.0
+main,chain_20_tv,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, clip only",final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, clip only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, clip only",tv_time_frac,5,0.06245333333333334,0.0015401298646542775,0.0613,0.06370666666666666,0.06076666666666666,0.06463333333333333
+main,chain_20_tv,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,chain_20_tv,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,chain_20_tv,ablation,"RND, clip only",bonus_max_early,5,4.886358282077607,0.25411060635432686,4.659074846232821,5.0,4.431791410388035,5.0
+main,chain_20_tv,ablation,"RND, clip only",bonus_median,5,3.689141655434888e-06,5.1008799301740504e-06,4.537340398800556e-07,8.268982823636968e-06,3.890784485840723e-08,1.2191264792949187e-05
+main,chain_20_tv,ablation,"RND, clip only",bonus_gt1_frac,5,0.014113333333333334,0.001392958482271935,0.012853333333333333,0.014966666666666666,0.0117,0.0153
+main,chain_20_tv,ablation,"RND, clip only",bonus_clip_frac,5,0.0002666666666666667,0.00021343747458109493,0.0001,0.0004333333333333333,3.3333333333333335e-05,0.0005333333333333334
+main,chain_20_tv,ablation,"RND, clip only",q_abs_max,5,3.3337304920938164,0.9543164296870668,2.6200701821842665,4.047390802003366,2.3250554841198667,4.498842533451034
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),steps_to_first_reward,5,11439.2,968.8099400811286,10672.0,12206.4,10302.0,12475.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),final_return,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),tv_time_frac,5,0.02052,0.004502121722032846,0.017066,0.023710000000000002,0.01367,0.02477
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_max,5,0.1336648080224751,0.039401518674291286,0.10980074493584409,0.16839396241634802,0.10394789887821676,0.20135812700470546
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_max_early,5,0.12469073919566379,0.048252314675274584,0.09123381653622978,0.16562985415591946,0.07216269302324928,0.20135812700470546
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_median,5,2.449475528261903e-05,1.0964552338007309e-06,2.368225774124671e-05,2.5307252823991353e-05,2.2967165940965533e-05,2.5594110312290944e-05
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_gt1_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,no bonus normalisation (rnd_nonorm),q_abs_max,5,2.3869019078833675,0.009043147171921874,2.380937572118686,2.3945017383498657,2.378593598804099,2.4015841901156714
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",steps_to_first_reward,5,67356.2,44755.26617282038,33447.4,100000.0,15228.0,100000.0
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",found_reward,5,0.4,0.5477225575051662,0.0,0.8,0.0,1.0
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",final_return,5,0.3995841995841996,0.5471536930572874,0.0,0.7995841995841996,0.0,1.0
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",greedy_success,5,0.4,0.5477225575051662,0.0,0.8,0.0,1.0
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",tv_time_frac,5,0.035844,0.009875921729134957,0.028274000000000004,0.043413999999999994,0.02508,0.04498
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",coverage,5,0.6588235294117647,0.3116814539232695,0.42745098039215684,0.8901960784313726,0.4215686274509804,1.0
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",bonus_max,5,3535017.1570994603,3413150.410815787,828412.1827449958,6241622.131453924,46.85137707459996,7186463.518901558
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",bonus_max_early,5,3535017.1570994603,3413150.410815787,828412.1827449958,6241622.131453924,46.85137707459996,7186463.518901558
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",bonus_median,5,0.010317402575373908,0.0053497107143622045,0.00623345655674095,0.014401348594006866,0.003902301340517558,0.0164441376884025
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",bonus_gt1_frac,5,0.014256,0.004528214880060353,0.011317999999999998,0.01817,0.00985,0.02184
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"RND, unguarded normaliser (v1)",q_abs_max,5,1218842.7737004547,1176842.454390733,285616.0928718182,2152070.594727861,6.036510379196718,2477845.7937960997
+main,room_4_tv,ablation,"RND, warm-up only",steps_to_first_reward,5,17106.0,1520.6589032389875,16031.6,18309.4,15160.0,19258.0
+main,room_4_tv,ablation,"RND, warm-up only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"RND, warm-up only",final_return,5,0.991612451498089,0.01754975004781758,0.9757184117629898,1.0,0.9602649006622517,1.0
+main,room_4_tv,ablation,"RND, warm-up only",greedy_success,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"RND, warm-up only",tv_time_frac,5,0.0243,0.001670344275890452,0.0228,0.02532,0.02144,0.02565
+main,room_4_tv,ablation,"RND, warm-up only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"RND, warm-up only",bonus_max,5,12.097907978587084,4.060281248923926,9.414992232877854,15.516135141437744,8.204286052780098,18.658412710751136
+main,room_4_tv,ablation,"RND, warm-up only",bonus_max_early,5,3.939503588436229,2.236419862608258,2.4742354070078045,5.9231659590506975,1.894251538637294,7.642469125375448
+main,room_4_tv,ablation,"RND, warm-up only",bonus_median,5,0.003655993042670943,0.000813062380696894,0.003026816451164693,0.004285169634177193,0.002605673061564966,0.00441850671480366
+main,room_4_tv,ablation,"RND, warm-up only",bonus_gt1_frac,5,0.013231999999999999,0.003880298957554688,0.01018,0.016284,0.00886,0.01758
+main,room_4_tv,ablation,"RND, warm-up only",bonus_clip_frac,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,room_4_tv,ablation,"RND, warm-up only",q_abs_max,5,6.143935671907928,3.312741089449375,3.784293784686023,9.029940535290379,3.46126674859066,11.163614619306713
+main,room_4_tv,ablation,"RND, clip only",steps_to_first_reward,5,19681.8,3402.3252636983434,16894.6,22254.6,14975.0,23101.0
+main,room_4_tv,ablation,"RND, clip only",found_reward,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"RND, clip only",final_return,5,0.996103896103896,0.008711953159090067,0.9883116883116884,1.0,0.9805194805194806,1.0
+main,room_4_tv,ablation,"RND, clip only",greedy_success,5,0.8,0.4472135954999579,0.4,1.0,0.0,1.0
+main,room_4_tv,ablation,"RND, clip only",tv_time_frac,5,0.024022,0.0012944381020350104,0.022848,0.024812,0.0218,0.02487
+main,room_4_tv,ablation,"RND, clip only",coverage,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,room_4_tv,ablation,"RND, clip only",bonus_max,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_4_tv,ablation,"RND, clip only",bonus_max_early,5,5.0,0.0,5.0,5.0,5.0,5.0
+main,room_4_tv,ablation,"RND, clip only",bonus_median,5,0.004155115597104579,0.0006520883272118734,0.00365320121730642,0.004656247325958877,0.0032968866410004313,0.00488771174598946
+main,room_4_tv,ablation,"RND, clip only",bonus_gt1_frac,5,0.014613999999999999,0.002798576423826943,0.012917999999999999,0.017026000000000003,0.01245,0.0194
+main,room_4_tv,ablation,"RND, clip only",bonus_clip_frac,5,0.000774,0.00017910890541790488,0.000618,0.00091,0.0005,0.001
+main,room_4_tv,ablation,"RND, clip only",q_abs_max,5,3.983306348813619,0.9822632101355809,3.2160776996529856,4.723496214869972,2.716353125272306,5.212874886289391

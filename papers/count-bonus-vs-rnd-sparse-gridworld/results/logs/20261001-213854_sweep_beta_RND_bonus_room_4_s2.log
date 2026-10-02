@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:38:54 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd --task room_4 --seed 2 --out results/raw/r2/sweep_beta__rnd-bonus__room_4__s2__beta0.03.json --beta 0.03 --offset 1.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.03, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/sweep_beta__rnd-bonus__room_4__s2__beta0.03.json", "seed": 2, "steps": 0, "system": "rnd", "task": "room_4", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0008, "bonus_gt1_frac": 0.01341, "bonus_max": 5.0, "bonus_max_early": 4.608408621218099, "bonus_median": 0.0031512607408418786, "coverage": 0.9805825242718447, "final_return": 1.0, "found_reward": 1.0, "greedy_success": 1.0, "q_abs_max": 1.0397837682658633, "steps_to_first_reward": 15674.0, "tv_time_frac": 0.0}
+runtime 4.8s

@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:29:11 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd --task room_6 --seed 100 --out results/raw/r2/pilot__rnd-bonus-no-offset__room_6__s100__offset0.0.json --beta 0.1 --offset 0.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 0.0, "out": "results/raw/r2/pilot__rnd-bonus-no-offset__room_6__s100__offset0.0.json", "seed": 100, "steps": 0, "system": "rnd", "task": "room_6", "warmup": 64}
+metrics {"bonus_clip_frac": 0.00378, "bonus_gt1_frac": 0.05911, "bonus_max": 5.0, "bonus_max_early": 3.2226808204670303, "bonus_median": 0.03968466701150464, "coverage": 0.36129032258064514, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 13.201241628090482, "steps_to_first_reward": 100000.0, "tv_time_frac": 0.0}
+runtime 8.0s

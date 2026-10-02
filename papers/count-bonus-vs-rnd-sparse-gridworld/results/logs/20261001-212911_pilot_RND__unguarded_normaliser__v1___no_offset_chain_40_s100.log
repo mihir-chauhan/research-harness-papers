@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:29:11 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd --task chain_40 --seed 100 --out results/raw/r2/pilot__rnd-unguarded-normaliser-v1-no-offset__chain_40__s100__clip0.0_offset0.0_warmup0.json --beta 0.1 --offset 0.0 --K 16 --warmup 0 --clip 0.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 0.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 0.0, "out": "results/raw/r2/pilot__rnd-unguarded-normaliser-v1-no-offset__chain_40__s100__clip0.0_offset0.0_warmup0.json", "seed": 100, "steps": 0, "system": "rnd", "task": "chain_40", "warmup": 0}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.0171, "bonus_max": 8314004.55202603, "bonus_max_early": 8314004.55202603, "bonus_median": 0.0018548839543290098, "coverage": 0.4, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 2866614.997782279, "steps_to_first_reward": 30000.0, "tv_time_frac": 0.0}
+runtime 2.0s

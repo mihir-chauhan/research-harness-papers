@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:33:58 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system count_state --task room_4_tv --seed 4 --out results/raw/r2/main__count-bonus-state-no-offset__room_4_tv__s4__offset0.0.json --beta 0.1 --offset 0.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 0.0, "out": "results/raw/r2/main__count-bonus-state-no-offset__room_4_tv__s4__offset0.0.json", "seed": 4, "steps": 0, "system": "count_state", "task": "room_4_tv", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.0, "bonus_max": 1.0, "bonus_max_early": 1.0, "bonus_median": 0.038895492079220696, "coverage": 0.7647058823529411, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 0.9817086196039853, "steps_to_first_reward": 100000.0, "tv_time_frac": 0.0194}
+runtime 1.8s

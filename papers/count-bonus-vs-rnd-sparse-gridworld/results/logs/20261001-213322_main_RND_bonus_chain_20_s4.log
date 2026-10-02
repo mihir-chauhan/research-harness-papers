@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:33:22 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd --task chain_20 --seed 4 --out results/raw/r2/main__rnd-bonus__chain_20__s4.json --beta 0.1 --offset 1.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/main__rnd-bonus__chain_20__s4.json", "seed": 4, "steps": 0, "system": "rnd", "task": "chain_20", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0006666666666666666, "bonus_gt1_frac": 0.011333333333333334, "bonus_max": 5.0, "bonus_max_early": 1.639315136701307, "bonus_median": 3.908820937267541e-17, "coverage": 1.0, "final_return": 1.0, "found_reward": 1.0, "greedy_success": 1.0, "q_abs_max": 2.7840053471983492, "steps_to_first_reward": 2274.0, "tv_time_frac": 0.0}
+runtime 1.5s

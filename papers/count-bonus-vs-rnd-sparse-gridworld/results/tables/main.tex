@@ -1,0 +1,93 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & steps\_to\_first\_reward $\downarrow$ & found\_reward $\uparrow$ & final\_return $\uparrow$ & $n$ \\
+\midrule
+Step penalty only (optimistic init) & chain\_10 & 122.00 $\pm$ 42.33 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & chain\_10 & 88.40 $\pm$ 60.30 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & chain\_10 & \underline{88.40 $\pm$ 60.30} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Epsilon-greedy Q-learning & chain\_10 & 816.20 $\pm$ 879.34 & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+RND, warm-up only & chain\_10 & 521.40 $\pm$ 353.85 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+no bonus normalisation (rnd\_nonorm) & chain\_10 & \textbf{64.00 $\pm$ 38.36} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & chain\_10 & 6696.00 $\pm$ 12279.67 & 1.00 $\pm$ 0.00 & 0.80 $\pm$ 0.45 & 5 \\
+RND, clip only & chain\_10 & 915.40 $\pm$ 208.20 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state), no offset & chain\_10 & 5408.20 $\pm$ 998.40 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\textbf{RND bonus} & chain\_10 & 524.80 $\pm$ 351.23 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\midrule
+Step penalty only (optimistic init) & chain\_20 & 618.40 $\pm$ 119.08 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & chain\_20 & \textbf{475.80 $\pm$ 245.24} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & chain\_20 & \underline{475.80 $\pm$ 245.24} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Epsilon-greedy Q-learning & chain\_20 & 27752.00 $\pm$ 5026.68 & 0.20 $\pm$ 0.45 & 0.00 $\pm$ 0.00 & 5 \\
+RND, warm-up only & chain\_20 & 2050.80 $\pm$ 447.34 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+no bonus normalisation (rnd\_nonorm) & chain\_20 & 569.60 $\pm$ 67.74 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & chain\_20 & 24509.80 $\pm$ 12276.46 & 0.20 $\pm$ 0.45 & 0.20 $\pm$ 0.45 & 5 \\
+RND, clip only & chain\_20 & 2427.20 $\pm$ 254.69 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state), no offset & chain\_20 & 14402.00 $\pm$ 1433.42 & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+\textbf{RND bonus} & chain\_20 & 2146.00 $\pm$ 448.27 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\midrule
+Step penalty only (optimistic init) & chain\_40 & 2637.60 $\pm$ 203.87 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & chain\_40 & \underline{2603.20 $\pm$ 315.89} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & chain\_40 & \textbf{2603.20 $\pm$ 315.89} & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+Epsilon-greedy Q-learning & chain\_40 & 30000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+RND, warm-up only & chain\_40 & 5005.20 $\pm$ 360.42 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+no bonus normalisation (rnd\_nonorm) & chain\_40 & 2619.80 $\pm$ 341.01 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & chain\_40 & 15979.40 $\pm$ 12812.81 & 0.60 $\pm$ 0.55 & 0.60 $\pm$ 0.55 & 5 \\
+RND, clip only & chain\_40 & 6492.60 $\pm$ 283.58 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state), no offset & chain\_40 & 30000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+\textbf{RND bonus} & chain\_40 & 5242.00 $\pm$ 771.17 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\midrule
+Step penalty only (optimistic init) & room\_2 & \textbf{982.40 $\pm$ 449.48} & \underline{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & room\_2 & 1156.40 $\pm$ 235.63 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & room\_2 & 1156.40 $\pm$ 235.63 & 1.00 $\pm$ 0.00 & \underline{1.00 $\pm$ 0.00} & 5 \\
+Epsilon-greedy Q-learning & room\_2 & 35426.80 $\pm$ 34281.28 & \textbf{1.00 $\pm$ 0.00} & 0.80 $\pm$ 0.45 & 5 \\
+RND, warm-up only & room\_2 & 3744.40 $\pm$ 972.42 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+no bonus normalisation (rnd\_nonorm) & room\_2 & \underline{1145.20 $\pm$ 482.30} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & room\_2 & 42797.00 $\pm$ 52226.79 & 0.60 $\pm$ 0.55 & 0.60 $\pm$ 0.55 & 5 \\
+RND, clip only & room\_2 & 3704.40 $\pm$ 1067.80 & 1.00 $\pm$ 0.00 & 0.98 $\pm$ 0.04 & 5 \\
+Count bonus (state), no offset & room\_2 & 36025.00 $\pm$ 9848.41 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\textbf{RND bonus} & room\_2 & 3905.40 $\pm$ 576.01 & 1.00 $\pm$ 0.00 & 0.97 $\pm$ 0.04 & 5 \\
+\midrule
+Step penalty only (optimistic init) & room\_4 & 11920.80 $\pm$ 722.84 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & room\_4 & \underline{11476.20 $\pm$ 2146.41} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & room\_4 & \textbf{11476.20 $\pm$ 2146.41} & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+Epsilon-greedy Q-learning & room\_4 & 100000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+RND, warm-up only & room\_4 & 19473.80 $\pm$ 2607.76 & 1.00 $\pm$ 0.00 & 0.82 $\pm$ 0.40 & 5 \\
+no bonus normalisation (rnd\_nonorm) & room\_4 & 13206.00 $\pm$ 669.21 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & room\_4 & 69776.80 $\pm$ 41523.42 & 0.40 $\pm$ 0.55 & 0.40 $\pm$ 0.55 & 5 \\
+RND, clip only & room\_4 & 17810.60 $\pm$ 1346.54 & 1.00 $\pm$ 0.00 & 0.94 $\pm$ 0.12 & 5 \\
+Count bonus (state), no offset & room\_4 & 100000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+\textbf{RND bonus} & room\_4 & 18434.60 $\pm$ 4082.26 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.01 & 5 \\
+\midrule
+Step penalty only (optimistic init) & room\_6 & 29104.80 $\pm$ 1774.94 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & room\_6 & \underline{28438.60 $\pm$ 2256.36} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & room\_6 & \textbf{28438.60 $\pm$ 2256.36} & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+Epsilon-greedy Q-learning & room\_6 & 100000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+RND, warm-up only & room\_6 & 83830.40 $\pm$ 21539.99 & 0.60 $\pm$ 0.55 & 0.11 $\pm$ 0.23 & 5 \\
+no bonus normalisation (rnd\_nonorm) & room\_6 & 29807.80 $\pm$ 1439.76 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & room\_6 & 94877.80 $\pm$ 11385.51 & 0.40 $\pm$ 0.55 & 0.15 $\pm$ 0.34 & 5 \\
+RND, clip only & room\_6 & 77949.60 $\pm$ 16856.93 & 0.80 $\pm$ 0.45 & 0.32 $\pm$ 0.42 & 5 \\
+Count bonus (state), no offset & room\_6 & 100000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+\textbf{RND bonus} & room\_6 & 76276.40 $\pm$ 21269.40 & 0.80 $\pm$ 0.45 & 0.45 $\pm$ 0.40 & 5 \\
+\midrule
+Step penalty only (optimistic init) & chain\_20\_tv & \underline{557.20 $\pm$ 123.06} & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & chain\_20\_tv & 611.60 $\pm$ 141.94 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & chain\_20\_tv & \textbf{500.00 $\pm$ 107.00} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Epsilon-greedy Q-learning & chain\_20\_tv & 25007.40 $\pm$ 11163.79 & 0.20 $\pm$ 0.45 & 0.00 $\pm$ 0.00 & 5 \\
+RND, warm-up only & chain\_20\_tv & 2347.00 $\pm$ 213.47 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+no bonus normalisation (rnd\_nonorm) & chain\_20\_tv & 619.60 $\pm$ 141.24 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & chain\_20\_tv & 13231.20 $\pm$ 15308.54 & 0.60 $\pm$ 0.55 & 0.60 $\pm$ 0.55 & 5 \\
+RND, clip only & chain\_20\_tv & 2359.20 $\pm$ 197.81 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state), no offset & chain\_20\_tv & 16226.80 $\pm$ 3934.51 & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+\textbf{RND bonus} & chain\_20\_tv & 2387.40 $\pm$ 226.53 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\midrule
+Step penalty only (optimistic init) & room\_4\_tv & 13230.80 $\pm$ 370.84 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 5 \\
+Count bonus (obs) & room\_4\_tv & \textbf{11142.40 $\pm$ 2646.03} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+Count bonus (state) & room\_4\_tv & 11643.40 $\pm$ 499.48 & \underline{1.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & 5 \\
+Epsilon-greedy Q-learning & room\_4\_tv & 100000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+RND, warm-up only & room\_4\_tv & 17106.00 $\pm$ 1520.66 & 1.00 $\pm$ 0.00 & 0.99 $\pm$ 0.02 & 5 \\
+no bonus normalisation (rnd\_nonorm) & room\_4\_tv & \underline{11439.20 $\pm$ 968.81} & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+RND, unguarded normaliser (v1) & room\_4\_tv & 67356.20 $\pm$ 44755.27 & 0.40 $\pm$ 0.55 & 0.40 $\pm$ 0.55 & 5 \\
+RND, clip only & room\_4\_tv & 19681.80 $\pm$ 3402.33 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.01 & 5 \\
+Count bonus (state), no offset & room\_4\_tv & 100000.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+\textbf{RND bonus} & room\_4\_tv & 15184.20 $\pm$ 3603.95 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+\bottomrule
+\end{tabular}

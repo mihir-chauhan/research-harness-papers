@@ -1,0 +1,276 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and reproduce exactly (4 re-executions identical to the registry) and every prose number matches a generated table, with the negative RND result reported honestly. However the headline 'count bonus beats epsilon-greedy' is confounded: the bonus systems get a constant -1 offset (optimistic initialisation) that epsilon-greedy is denied, and an auditor control shows the offset alone matches the count bonus while counts without the offset fail; the normalisation ablation is confounded the same way. One comparative sentence is also wrong for room_2.",
+      "reran": [
+        {
+          "run": "RND bonus/room_4/1",
+          "metric": "steps_to_first_reward",
+          "registry": 29236.0,
+          "rerun": 29236.0
+        },
+        {
+          "run": "Count bonus (state)/room_6/3",
+          "metric": "steps_to_first_reward",
+          "registry": 29391.0,
+          "rerun": 29391.0
+        },
+        {
+          "run": "Epsilon-greedy Q-learning/chain_20/2",
+          "metric": "steps_to_first_reward",
+          "registry": 30000.0,
+          "rerun": 30000.0
+        },
+        {
+          "run": "no bonus normalisation (rnd_nonorm)/room_4/0",
+          "metric": "steps_to_first_reward",
+          "registry": 12222.0,
+          "rerun": 12222.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py line 126; paper abstract, results H1, conclusion, related 'Gap'; results/RESULTS.md H1",
+          "issue": "Unfair baseline and misattributed mechanism. All bonus systems get the -1 offset (a per-step penalty of up to beta, i.e. optimistic initialisation with Q0=0) while epsilon-greedy gets none. Auditor control in /tmp (zero bonus + offset, seeds 0-4) gives mean steps 618 / 2638 / 11921 / 29105 on chain_20 / chain_40 / room_4 / room_6 versus 476 / 2603 / 11476 / 28439 for the count bonus; count bonus with --offset 0 finds the reward in 0/5 seeds on chain_40, room_4 and room_6. The speed-up over epsilon-greedy is due to the offset, not the count signal, and the claim that the learner is held fixed and only the bonus swapped is not true.",
+          "fix": "Add an 'epsilon-greedy + constant step penalty (optimistic init)' baseline and a 'count bonus without offset' row to the main group (seconds of compute), then rewrite H1, abstract and conclusion to attribute the gain to the offset/optimism unless counts beat the offset-only control; state the asymmetry in limitations."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex, abstract ('normalising the RND bonus ... as in the original method, hurt'), conclusion",
+          "issue": "The normalisation ablation is confounded by the same offset. Raw RND error is about 0.01-0.08 against an offset of 1, so rnd_nonorm is effectively a constant -beta step penalty; its results (room_4 13206, chain_40 2620) match the auditor's offset-only control (11921, 2638). The ablation does not show that the RND novelty signal works without normalisation. In addition, 'as in the original method' is inaccurate as far as I recall: RND normalises by a running std of intrinsic returns and has no -1 offset.",
+          "fix": "Include the offset-only control in the ablation table, state that un-normalised RND is indistinguishable from it, and reword the abstract and ablation to say the normalisation here is a simplified variant (std of raw errors) interacting with the offset, not the original RND scheme."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex, H1 paragraph",
+          "issue": "'Its mean steps are lower than epsilon-greedy's on chain_40 and the rooms only because epsilon-greedy never succeeds there' is wrong for room_2: RND 42797 vs epsilon-greedy 35427 (RND slower), and epsilon-greedy succeeds in 5/5 seeds on room_2 while RND succeeds in 3/5.",
+          "fix": "Restrict the sentence to chain_40, room_4 and room_6 and state that on room_2 RND is slower and less reliable than epsilon-greedy (not significant)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'epsilon-greedy found the reward in only a few runs on the larger chains' overstates: it is 1 of 10 runs (chain_20 1/5, chain_40 0/5).",
+          "fix": "Say 'in one of five seeds on chain_20 and none on chain_40'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex vs method.tex and limitations.tex",
+          "issue": "Setup says hyperparameters are 'fixed a priori ... none was tuned', but the offset was introduced after a pilot in which nothing worked; the paper contradicts itself.",
+          "fix": "Reword setup to say the offset was chosen after a one-seed pilot and all other hyperparameters were fixed a priori."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex vs method/run.py (class RND)",
+          "issue": "Undocumented implementation details: the target output layer is scaled by 2 and the predictor has bias terms the target lacks, so 'a predictor of the same shape' is not exact.",
+          "fix": "Document both details in the method section."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "The claim that prediction-error bonuses are known to be attracted to noisy-TV observations has no citation at the point of the claim.",
+          "fix": "Cite burda2018large (and burda2018exploration) on that sentence."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "The ablation table lists all three ablations as 'missing / Matters? NO', which contradicts the paper's finding that normalisation changes the result strongly.",
+          "fix": "Regenerate the verdict so ablation deltas are populated, or note that the harness could not match the ablation rows."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl provenance",
+          "issue": "git_commit for the inspected runs is ceeb56c (scaffold, before method/run.py was committed), so the registry does not pin the code version that produced the numbers; re-runs with the committed code do reproduce exactly.",
+          "fix": "Commit code before running, or note in the README that runs were made from the uncommitted tree later committed as 3d9ad8f."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (Fig. 1, Tables I-IV), paper/main.tex",
+          "issue": "Fig. 1 x-axis task labels overlap and are unreadable; Tables II-IV are shrunk to near-illegible size; Table I bolds a 'best' tv_time_frac on tasks with no TV cell; \\label{sec:limitations} is defined twice.",
+          "fix": "Rotate or abbreviate tick labels, shorten sweep-table headers so they fit without extreme scaling, suppress bolding for tv_time_frac on noise-free tasks, and remove the duplicate label."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, limitations.tex",
+          "issue": "Welch tests are run on means censored at the budget with n=5 and no multiple-comparison correction across 8 tasks; only the censoring is mentioned.",
+          "fix": "Add one sentence that the p-values are uncorrected and computed on censored values, and treat them as descriptive."
+        }
+      ],
+      "commit": "3d9ad8fcdadd717b3192b7079a5c3907444012c6"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "All 351 registry runs have real logs and reproduce bit-for-bit, the paper's numbers match the tables, citations are in context, and the offset confound is honestly reported. However, the headline RND results are caused by a divide-by-near-zero in the bonus normaliser: 19 of 19 RND runs that never find the reward have a 1e6-1e7 bonus in the first steps, all 20 spike-free runs succeed, and the paper wrongly says the normalised bonus stays at order one. This is fixable by repairing the normaliser, re-running the RND rows (minutes of CPU) and rewriting the RND claims.",
+      "reran": [
+        {
+          "run": "RND bonus/room_4/1",
+          "metric": "steps_to_first_reward",
+          "registry": 29236.0,
+          "rerun": 29236.0
+        },
+        {
+          "run": "Count bonus (state)/room_4/1",
+          "metric": "steps_to_first_reward",
+          "registry": 9977.0,
+          "rerun": 9977.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py RND.bonus (Eq. 2 in paper/sections/method.tex); abstract, results H1/H2/H3, ablations, conclusion",
+          "issue": "The normalised RND bonus is e/(running std + 1e-8). When the first two observations coincide the std is 0 and the bonus is about 1e6-1e7, leaving Q-values of order 1e5 near the start that never wash out. Instrumented re-runs of all 40 main RND runs: 20 have this spike, 19 of them never find the reward and the 20th is the chain_10 outlier at 28656 steps; all 20 spike-free runs find it. With the bonus clipped at 5 (auditor diagnostic) RND finds the reward in 5/5 seeds on six of the eight tasks (room_6 4/5; chain_10 was already 5/5). So 'RND not reliably better than epsilon-greedy', found_reward 0.40, the large RND variances and the RND noisy-TV and K-sweep numbers reflect a start-up numerical artifact, not the novelty signal.",
+          "fix": "Repair the normaliser (floor on sigma, warm-up before normalising, or clipping), re-run the RND rows in main, abl_norm, sweep_beta and sweep_K (about 2 minutes of CPU), regenerate tables, figures and compare CSV, and rewrite the RND claims and H1-H4 verdicts. Alternatively keep the current runs but state explicitly, with the per-seed evidence, that every failure is caused by this artifact."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex (bonus normalisation paragraph)",
+          "issue": "The text says the normalised bonus 'stays at order one' and 'adds noise on top of the offset'. Measured on room_4 it ranges from about 1e-8 to 7e6 (up to 1.4e7 on chains), with a median near 0.01 and early spikes of 1e6-1e7. The stated explanation is not supported and the real cause is not reported.",
+          "fix": "Log the bonus magnitudes, delete the 'order one' explanation, and report the early-step blow-up as the cause of the failed seeds."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'the count bonus has lower mean steps than the penalty-only control only on chain_10 and chain_20' contradicts Table I: the count mean is lower on 7 of 8 tasks (also chain_40, room_4, room_6 and both TV tasks) and higher only on room_2, with every gap within about one standard deviation.",
+          "fix": "Say the count and penalty-only means are within one standard deviation on every task, with the largest relative gaps on chain_10 and chain_20, untested."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'the bonus systems found a sparse reward far faster than epsilon-greedy' includes RND, which the next sentence says did not reliably beat epsilon-greedy.",
+          "fix": "Write 'the count bonuses' (and the penalty-only control)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3) and Table II",
+          "issue": "'The TV does attract visits (0.10 for RND on chain_20_tv)' is driven by the two stuck seeds (0.16 and 0.15) against 0.06 in the three successful seeds, which equals the count variants. Also, the cited RND paper argues RND is robust to noisy-TV stochasticity, so 'textbook failure not reproduced' is the expected outcome for RND and is not framed that way.",
+          "fix": "Report the TV fraction separately for found and not-found seeds or drop the 'attracts visits' wording, and note in the abstract and H3 that RND is designed to avoid this failure."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2)",
+          "issue": "H2 is called a fair comparison of the two bonuses, but the penalty-only control beats RND by the same margin (Welch p = 0.012, 0.036 and 0.00016 on chain_20, room_4 and room_6), so the result is not evidence for the count signal over RND.",
+          "fix": "Add the penalty-only versus RND comparison to the H2 paragraph."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Fig. 2, Table I, Fig. 1",
+          "issue": "Fig. 2's caption omits the penalty-only bar and the figure shows unexplained labels (-57856.00, -56570.80). Table I marks the identical count rows and tied found_reward values as bold versus underlined arbitrarily. Fig. 1's legend is very small.",
+          "fix": "Correct the caption and explain or remove the delta labels, mark ties consistently, and enlarge the legend."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl provenance; paper/sections/method.tex pilot claim",
+          "issue": "261 rows record git_commit ceeb56c, which does not contain method/run.py (disclosed in the README; re-runs reproduce exactly). The seed-100 pilot behind the offset is not in the registry, although the auditor reproduced it.",
+          "fix": "Log the pilot runs with rh, and keep the README note or re-register the runs under the commit that contains the code."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md; paper/sections/introduction.tex",
+          "issue": "The VERDICT ablation row reads 'missing' (a harness matching failure, noted by the author). 'Most published comparisons of these ideas use large deep-RL benchmarks' is a claim about prior work with no citation.",
+          "fix": "Fix the ablation name matching or keep the note, and cite support for the sentence or soften it."
+        }
+      ],
+      "commit": "ba9d3342844f88d11c7a0a39f50b8dc7c45dda24"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 492 live runs come from one commit with real logs, four re-executed runs reproduce the registry exactly, and every number and p-value in the paper matches my independent recomputation. The paper honestly reports a negative result for its RND-style method with appropriate controls and limitations. Only minor issues remain: one mean-ordering claim that is within noise on one task, a wrong explanation in the clip sweep, non-independent twin spike runs, and a few wording or disclosure gaps.",
+      "reran": [
+        {
+          "run": "RND bonus/room_4/0",
+          "metric": "steps_to_first_reward",
+          "registry": 19965,
+          "rerun": 19965
+        },
+        {
+          "run": "Step penalty only (optimistic init)/room_6/2",
+          "metric": "steps_to_first_reward",
+          "registry": 29656,
+          "rerun": 29656
+        },
+        {
+          "run": "Count bonus (state)/chain_40/3",
+          "metric": "steps_to_first_reward",
+          "registry": 3032,
+          "rerun": 3032
+        },
+        {
+          "run": "RND, unguarded normaliser (v1)/chain_20/4",
+          "metric": "steps_to_first_reward",
+          "registry": 30000,
+          "rerun": 30000
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex, ablations.tex",
+          "issue": "'RND slower than count and penalty-only on every task' holds only for means; on room_4_tv the gap (15184\u00b13604 vs 13231\u00b1371) is within one std (Welch p=0.293, paired p=0.122 vs count) and chain_10 vs penalty-only has p=0.062.",
+          "fix": "Say 'slower in the mean on every task; beyond seed spread on seven of eight (not room_4_tv)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (clip paragraph), Table V",
+          "issue": "States c=20 equals no clip 'because the bonus never reached 20 after the warm-up on these tasks'; on room_4 the unclipped bonus reached 28.99 and 24.62 (seeds 1, 2) and the c=20 runs did clip (bonus_max 20.0, 7 and 6 steps). Table V shows the clipped share as 0.000 by rounding.",
+          "fix": "State that the bonus exceeded 20 on a handful of steps on room_4 without changing steps to first reward; print the clip count or more digits."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, abstract.tex (20 of 40 spike runs)",
+          "issue": "Five of the 20 spike runs are the same seed and early trajectory as their no-TV twin (room_4/room_4_tv seeds 0,2,4; chain_20/chain_20_tv seeds 3,4; identical bonus_max and q_abs_max), so the 40 runs are not independent.",
+          "fix": "Note that twin tasks share the initial trajectory per seed, giving 15 independent spike events."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex, results.tex (H1 exception, Table III), method/run.py",
+          "issue": "The environment draws TV tokens from the agent's RNG, so _tv runs diverge from their twins even for token-blind systems; this explains the penalty-only twin difference (p=0.011) and why count(state) on room_4_tv differs from count(obs) at K=1, but the paper leaves it unexplained.",
+          "fix": "State the shared-RNG mechanism in the paper, or use a separate RNG for the token and re-run the _tv cells."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Hypotheses)",
+          "issue": "'Registered before the runs' cannot be verified from git: hypotheses first appear in the same commit as the first results, and all reported runs were made after two rounds of results on the same seeds.",
+          "fix": "Reword to 'stated before the first round of runs; the method was revised after two audits'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex vs research.yaml (H1)",
+          "issue": "research.yaml H1 includes 'and the gap grows with task size'; the paper's H1 omits this clause and declares H1 'supported as stated'.",
+          "fix": "Report the clause as untestable under budget censoring, or align research.yaml with BRIEF.md and the paper."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "'One TV placement off the critical path' is wrong for chain_20_tv, where the TV cell (cell 1) lies on the only path to the goal.",
+          "fix": "Say the TV is on the path in the chain and off the shortest path in the room task."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Systems)",
+          "issue": "'Nothing was tuned ... on the evaluation seeds' sits uneasily with the guard being introduced in response to failures on seeds 0-4 (admitted only in Limitations).",
+          "fix": "Say the guard values were not tuned but the guard itself was motivated by evaluation-seed failures."
+        }
+      ],
+      "commit": "91f8cb6f62653887c0db28acbf26e3332c0256e1"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on room_4: ours 6.978e+04 vs Count bonus (obs) 1.148e+04\nREADY",
+      "response": "# Response to audit\n\n- **Major, offset confound (H1):** Added to `main` two controls, 5 seeds x 8 tasks: \"Step penalty only (optimistic init)\" (zero bonus, same offset) and \"Count bonus (state), no offset\". The penalty-only control matches the count bonus on chain_40, room_4, room_6; counts without the offset fail there. Rewrote abstract, H1 results, conclusion, intro, related-work gap and limitations to attribute the gain to the offset; the asymmetry is now stated in the method section. Not done: a tuned epsilon-greedy with optimism (listed as follow-up).\n- **Major, normalisation ablation:** Added the penalty-only control to `abl_norm`; the un-normalised variant is reported as indistinguishable from it. Reworded: our normaliser is a simplified variant, not the original RND scheme (original uses a running std of intrinsic returns, no offset). Raw error magnitude was not logged, so the text says \"expected to be small\".\n- **Major, room_2 sentence:** Restricted to chain_40, room_4, room_6; room_2 RND is slower (42797 vs 35427) and found in 3/5 vs 5/5 seeds.\n- **Minor, abstract overstated:** now \"one of five seeds on chain_20, none on chain_40, room_4, room_6\".\n- **Minor, tuning statement:** setup and protocol now say the offset was chosen from a one-seed pilot.\n- **Minor, RND details:** target scale 2 and predictor biases documented in method.\n- **Minor, noisy-TV citation:** burda2018large and burda2018exploration cited.\n- **Minor, VERDICT.md:** regenerated; the harness still cannot match ablation rows, a note was appended pointing to abl_norm.\n- **Minor, provenance:** noted in README (code was committed after the main runs; re-runs reproduce exactly per the audit).\n- **Minor, presentation:** Fig. 1 rebuilt (split chains/rooms, short labels, `method/tv_table_and_fig.py`); sweep-table headers shortened; tv_time_frac removed from the main table into a TV-only table (Table tv); duplicate label removed.\n- **Minor, statistics:** added sentences that Welch p-values are uncorrected, censored, n=5, descriptive.\n",
+      "seconds": 181
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on room_4: ours 1.843e+04 vs Count bonus (obs) 1.148e+04\nREADY",
+      "response": "# Response to the second audit\n\nAll experiments were repeated for this round: 492 runs through `rh run` from commit 24c3e27 (which contains the code), about 20 CPU-minutes. The 351 earlier rows are superseded in the registry and no longer feed any table or figure. Numbers below are from `results/tables/`.\n\n1. **Major \u2014 RND normaliser divides by a near-zero std (method/run.py, Eq. 2; abstract, H1-H3, ablations, conclusion).**\n   Fixed in the code, re-run, and all RND claims rewritten.\n   - `RND.bonus` now has a guard: no intrinsic signal (b = 1) for the first W = 64 errors, then b = min(e/(sigma + 1e-8), 5). W and c were fixed a priori and recorded with `rh decide`; they were not tuned on results. Eq. (2) and `method/DESIGN.md` describe exactly this.\n   - The old normaliser is kept as a flag (`--warmup 0 --clip 0`) and reported as the ablation \"RND, unguarded normaliser (v1)\" on all eight tasks. It reproduces the old RND numbers exactly (e.g. 69777 steps on room_4, 2/5 found) and the auditor's diagnosis: 20 of 40 runs have a bonus above 1e4 in the first 100 steps (max 1.44e7, |Q| up to 3.62e6), 1 of those 20 finds the reward (chain_10, 28656 steps), all 20 others find it (Table IV, Fig. 2, `abl_diag_per_run.md`).\n   - To isolate the mechanism, two more variants were run on all tasks: clip only (39/40 found, no spike) and warm-up only (38/40 found, no spike). A clip sweep (c = 2, 5, 20, none) is Table V.\n   - New headline for RND: with the guard it finds the reward in 39/40 runs but is slower than the count bonus and than the penalty-only control on every task. H1-H4 verdicts were redone with the registered tests (H1 supported as stated but explained by the offset; H2 supported; H3 not supported; H4 supported for TV time only). `results/RESULTS.md` and `results/VERDICT.md` were regenerated.\n\n2. **Major \u2014 \"normalised bonus stays at order one\" (ablations.tex).**\n   The sentence is deleted. Every run now logs bonus diagnostics (max, max over the first 100 steps, median, share of steps with b > 1, share clipped, largest |Q|). Table IV reports them: the guarded bonus has median 0.0005 and exceeds 1 on a share of 0.018 of the steps; the unguarded one reaches 1.44e7. The early blow-up is reported as the cause of the failed seeds of the first version. The remaining explanation of why normalised RND is slower than no bonus is marked as untested (\"may\").\n\n3. **Minor \u2014 abstract: count vs penalty-only \"only on chain_10 and chain_20\".**\n   Rewritten: the penalty-only control is within one standard deviation of the count bonus on every noise-free task, with the test now run (`rh compare --ref \"Step penalty only (optimistic init)\"`, Welch p >= 0.288, Table II). The one task with a difference (room_4_tv, p < 0.001 uncorrected) is reported in H1 with a caveat.\n\n4. **Minor \u2014 conclusion: \"the bonus systems found a sparse reward far faster\".**\n   Now \"the count bonuses and the penalty-only control\"; RND is described separately.\n\n5. **Minor \u2014 H3: \"TV attracts visits (0.10 for RND)\" and framing.**\n   The 0.10 came from the stuck seeds of the unguarded normaliser; it is gone from the paper. With the guard all RND seeds succeed on both TV tasks and the TV share is 0.062 / 0.025 (Table III). The split for the unguarded variant is kept in the repository (`results/tables/tv_frac_unguarded.md`: 0.062 for found seeds, 0.155 for not-found seeds on chain_20_tv). The introduction, related work, H3 and abstract now say that RND is designed to be robust to noisy-TV stochasticity, that our token set is finite, and that no forward-model bonus is among the systems, so non-reproduction is the expected outcome. Two noisy-TV references were added (Mavor-Parker et al. 2021, Jarrett et al. 2022).\n\n6. **Minor \u2014 H2 is not evidence for the count signal.**\n   The H2 paragraph now gives the penalty-only vs RND comparison (Table II, Welch p < 0.05 on five of six noise-free tasks, 0.062 on chain_10) and says so in its heading.\n\n7. **Minor \u2014 Fig. 2 caption and labels, Table I tie marking, Fig. 1 legend.**\n   The harness ablation figure with the delta labels is removed; Fig. 2 is now a per-run scatter (early bonus vs time to first reward) drawn by `method/make_tables.py`. Table I is a compact systems-by-tasks table built from the aggregate that `rh table --group main` writes (`main_agg.csv`); bold marks the lowest mean of a column and all ties are bold. Fig. 1 is redrawn one column wide on a log axis with the individual seeds and a larger legend. All tables are set at footnotesize or close to it (Table I about 7 pt) instead of being shrunk.\n\n8. **Minor \u2014 provenance (261 rows with a commit that lacks the code; pilot not in the registry).**\n   All runs were repeated from commit 24c3e27 after the code was committed; old rows are superseded with `rh supersede`. Non-RND systems reproduce their earlier numbers exactly. The seed-100 pilot is logged in group `pilot` (12 runs: count and RND bonuses without the offset fail on chain_40 and room_6). The README note is updated. Each run now prints its configuration and metrics and records its full config in the registry.\n\n9. **Minor \u2014 VERDICT ablation row \"missing\"; uncited claim in the introduction.**\n   The ablation variants are logged in group `main` and `research.yaml` names the group, so `rh verdict` now matches all four ablation rows. The sentence about published comparisons now cites Taiga et al. (2109.11052) for what that paper reports.\n\nOther changes found in the self-audit:\n- References: 7 -> 13 verified (added Strehl & Littman 2008, Martin et al. 2017, Rashid et al. 2020, Taiga et al. 2021, Mavor-Parker et al. 2021, Jarrett et al. 2022).\n- The beta-sweep table and the K figure were moved out of the paper to stay within six pages; the beta result is one sentence pointing to `results/tables/sweep_beta_perconfig.md`, the K sweep is Table VI with a Welch test added.\n- Sweep cells at the default value (beta 0.1, K 16, clip 5) reuse the `main` runs instead of repeating them; the ablation no longer",
+      "seconds": 2070
+    }
+  ]
+}

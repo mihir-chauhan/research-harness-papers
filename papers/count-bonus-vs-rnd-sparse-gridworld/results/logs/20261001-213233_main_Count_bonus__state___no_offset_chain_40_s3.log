@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:32:33 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system count_state --task chain_40 --seed 3 --out results/raw/r2/main__count-bonus-state-no-offset__chain_40__s3__offset0.0.json --beta 0.1 --offset 0.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 0.0, "out": "results/raw/r2/main__count-bonus-state-no-offset__chain_40__s3__offset0.0.json", "seed": 3, "steps": 0, "system": "count_state", "task": "chain_40", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.0, "bonus_max": 1.0, "bonus_max_early": 1.0, "bonus_median": 0.042257712736425826, "coverage": 0.75, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 0.9371458003151867, "steps_to_first_reward": 30000.0, "tv_time_frac": 0.0}
+runtime 0.6s

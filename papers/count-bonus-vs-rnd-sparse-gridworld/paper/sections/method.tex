@@ -1,0 +1,23 @@
+All systems share one learner: tabular Q-learning with learning rate $\alpha=0.5$, discount $\gamma=0.99$, $Q_0=0$, and $\epsilon$-greedy action selection ($\epsilon=0.1$; the greedy action is drawn uniformly among the maximisers). After a transition $(s,a,r,s')$ with observation $o'$ the update is $Q(s,a)\leftarrow Q(s,a)+\alpha\,(y-Q(s,a))$ with
+\begin{equation}
+y = r + \beta\,\big(b(o') - 1\big) + \gamma \max_{a'} Q(s',a'),\qquad \beta=0.1,\label{eq:target}
+\end{equation}
+and $y=r+\beta(b(o')-1)$ at the goal; episodes cut by the time limit bootstrap as usual. The systems differ only in the bonus $b$:
+
+\textbf{$\epsilon$-greedy.} No intrinsic term at all: $y=r+\gamma\max_{a'}Q(s',a')$. It does \emph{not} receive the constant $-\beta$ that the systems below receive.
+
+\textbf{Penalty only (control).} $b\equiv0$ in (\ref{eq:target}): a constant reward of $-\beta$ per step. With $Q_0=0$ every tried action becomes negative, so untried actions look best; this is optimistic initialisation \cite{rashid2020optimistic} written as a reward shift.
+
+\textbf{Count bonus (state).} $b(o')=1/\sqrt{N(s')}$, with $N$ the visit count of the arrival state including the current visit. The $1/\sqrt{N}$ form is that of MBIE-EB \cite{strehl2008analysis}, which uses state-action counts in a model-based learner, and of the pseudo-count bonus \cite{bellemare2016unifying}. \textbf{Count bonus (obs).} $b(o')=1/\sqrt{N(s',\text{token})}$, counting the full observation including the TV token. \textbf{Count, no offset (control).} $y=r+\beta/\sqrt{N(s')}+\gamma\max_{a'}Q(s',a')$.
+
+The offset $-1$ centres the bonus: with $Q_0=0$ and a non-negative bonus, tried actions have positive value and untried ones zero, so greedy selection does not explore. In a pilot on seed 100 (outside the evaluation seeds, logged in the registry) neither count bonus nor the RND bonus found the reward on chain\_40 or room\_6 without it. Before the first reward the Q-values are linear in $\beta$, so the time to first reward does not depend on $\beta$.
+
+\textbf{RND bonus} \cite{burda2018exploration}. The input $x$ is the concatenation of a one-hot state and a one-hot TV token. The target is a fixed random network $f(x)=W_2\tanh(W_1x)$ (hidden 64, output 16, Gaussian weights with variance $1/\text{fan-in}$, $W_2$ scaled by 2, no biases). The predictor $\hat f_\theta$ has the same layer sizes plus biases and takes one Adam step (learning rate $3\times10^{-3}$) every 8 transitions on the 8 most recent observations, minimising the mean squared error to $f$. With $e=\|\hat f_\theta(x')-f(x')\|^2/16$ the $n$-th error and $\sigma_e$ the running standard deviation of all errors so far (including $e$), the bonus is
+\begin{equation}
+b(o') = \begin{cases}1 & n\leq W,\\ \min\!\big(e/(\sigma_e+10^{-8}),\,c\big) & n>W,\end{cases}\label{eq:rnd}
+\end{equation}
+with warm-up $W=64$ and clip $c=5$. During the warm-up $b-1=0$, so there is no intrinsic signal while $\sigma_e$ is estimated. This is a simplified normaliser: the original RND divides the intrinsic reward by a running standard deviation of intrinsic returns \cite{burda2018exploration} and, to our knowledge, has no offset.
+
+\textbf{Normaliser variants (ablation).} \emph{Unguarded (v1)}: $b=e/(\sigma_e+10^{-8})$ from the first step ($W=0$, no clip; $\sigma_e$ is set to 1 for the very first error), the normaliser of the first version of this study. \emph{Warm-up only}: $W=64$, no clip. \emph{Clip only}: $W=0$, $c=5$. \emph{No normalisation}: $b=e$.
+
+\textbf{Noisy TV.} In the \texttt{\_tv} tasks one cell emits a uniformly random token in $\{0,\dots,K-1\}$ on every visit ($K=16$ by default), carried only in the observation; the state id used by Q and by the state count is unaffected. Count (obs) and RND see the token; Count (state) does not.

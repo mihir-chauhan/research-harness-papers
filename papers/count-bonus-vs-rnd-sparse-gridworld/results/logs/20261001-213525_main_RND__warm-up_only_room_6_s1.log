@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:35:25 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system rnd --task room_6 --seed 1 --out results/raw/r2/main__rnd-warm-up-only__room_6__s1__clip0.0.json --beta 0.1 --offset 1.0 --K 16 --warmup 64 --clip 0.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 0.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/main__rnd-warm-up-only__room_6__s1__clip0.0.json", "seed": 1, "steps": 0, "system": "rnd", "task": "room_6", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.06747, "bonus_max": 16.604165456088968, "bonus_max_early": 4.622726249127956, "bonus_median": 0.04609424515059274, "coverage": 0.9483870967741935, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 11.504444331764475, "steps_to_first_reward": 100000.0, "tv_time_frac": 0.0}
+runtime 4.8s

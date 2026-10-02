@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:33:55 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system egreedy --task room_4_tv --seed 4 --out results/raw/r2/main__epsilon-greedy-q-learning__room_4_tv__s4.json --beta 0.1 --offset 1.0 --K 16 --warmup 64 --clip 5.0
+
+config {"K": 16, "alpha": 0.5, "beta": 0.1, "clip": 5.0, "curve": "", "eps": 0.1, "gamma": 0.99, "hid": 64, "offset": 1.0, "out": "results/raw/r2/main__epsilon-greedy-q-learning__room_4_tv__s4.json", "seed": 4, "steps": 0, "system": "egreedy", "task": "room_4_tv", "warmup": 64}
+metrics {"bonus_clip_frac": 0.0, "bonus_gt1_frac": 0.0, "bonus_max": 0.0, "bonus_max_early": 0.0, "bonus_median": 0.0, "coverage": 0.6078431372549019, "final_return": 0.0, "found_reward": 0.0, "greedy_success": 0.0, "q_abs_max": 0.0, "steps_to_first_reward": 100000.0, "tv_time_frac": 0.03574}
+runtime 1.9s
