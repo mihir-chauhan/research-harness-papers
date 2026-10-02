@@ -1,0 +1,4 @@
+# Results (CartPole, 5 seeds)
+- H1 supported: ret_robust 470.4 (wide DR) vs 386.6 (no DR); curriculum vs no DR paired p=0.003 (results/tables/main.md, compare_main_ret_robust.csv). Wide DR vs no DR directly gives the same ordering with large margin (see main table).
+- H2 refuted in this setup: ret_nominal is 500.0 for every width 0..2 and 499.9 at w=3 (sweep_width_by_w.tex). Robustness saturates at w=1.5-2 (493.3, 493.2) and is slightly lower at w=3 (490.0, within seed noise). No nominal cost was observed; at most a small robustness plateau/decline.
+- H1 supported (wide DR vs no DR, ret_robust 470.4 vs 386.6, paired p=0.0007). H3 supported (equivalence not proven): curriculum 470.8 vs wide DR 470.4 on ret_robust (paired p=0.96), 412.9 vs 412.0 on ret_ood (p=0.97). The ungated linear schedule was as good or better (471.6 / 415.0), so the success gate adds nothing here.

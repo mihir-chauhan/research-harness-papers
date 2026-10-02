@@ -1,0 +1,84 @@
+slug: domain-randomisation-range-robustness
+direction: How wide should domain randomisation be? Train a small policy (e.g. cross-entropy method or
+  a tiny policy gradient on CartPole / Pendulum from gymnasium classic control) under different randomisation
+  ranges of physical parameters (mass, length, force), then evaluate on in-range and out-of-range dynamics.
+  Is there a range beyond which nominal performance drops faster than robustness improves? Compare no
+  randomisation, narrow, wide, and a simple automatic curriculum that widens the range on success.
+problem: Domain randomisation (DR) trains a policy on dynamics sampled from a range of physical parameters;
+  the range width is a design choice that trades nominal performance against robustness to dynamics shift.
+gap: Range width is usually set by hand. We ask, in a controlled small-scale setting, whether there is
+  a width beyond which nominal performance drops faster than robustness grows, and whether a success-gated
+  widening curriculum avoids choosing it.
+contribution: A controlled CPU-scale sweep of DR range width on CartPole (CEM-trained MLP, 5 seeds) comparing
+  no DR, narrow, wide, and a success-gated curriculum on nominal, in-range and out-of-range dynamics,
+  with an honest report of where the trade-off does and does not appear.
+hypotheses:
+- id: H1
+  statement: Wide DR gives higher mean return over shifted dynamics (ret_robust) than no randomisation.
+  test: Paired comparison over 5 seeds on cartpole; refuted if the difference is not positive or not significant
+    at alpha 0.05.
+- id: H2
+  statement: There is a training width beyond which nominal return falls (>5% below the no-DR nominal
+    return) while robustness no longer improves.
+  test: Width sweep 0..3 (log-scale half-width); refuted if nominal return stays within 5% of no-DR for
+    all widths.
+- id: H3
+  statement: A success-gated widening curriculum matches wide DR on shifted-dynamics return and out-of-range
+    return (ret_ood).
+  test: Compare curriculum vs wide DR on ret_robust and ret_ood; refuted if curriculum is significantly
+    worse on either.
+method:
+  name: Success-gated curriculum DR
+  summary: CEM on a 4-8-1 tanh MLP; the log-scale half-width w of the randomisation range starts at 0
+    and grows by 0.05 whenever the best candidate succeeds (500 steps) on >=80% of the sampled environments,
+    capped at 1.0.
+  components:
+  - success gate
+  - range widening step
+  entrypoint: method/run.py
+tasks:
+- cartpole
+metrics:
+  ret_robust:
+    higher_is_better: true
+  ret_nominal:
+    higher_is_better: true
+  ret_ood:
+    higher_is_better: true
+  ret_w50:
+    higher_is_better: true
+  ret_w100:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 30
+baselines:
+- No randomisation
+- Uniform DR narrow (w=0.25)
+- Uniform DR wide (w=1.0)
+ablations:
+- Curriculum, no gate
+- Curriculum, gate 0.5
+- Curriculum, gate 0.95
+- Uniform DR
+ambition:
+  target_tier: 2
+  primary_metric: ret_robust
+  primary_task: cartpole
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

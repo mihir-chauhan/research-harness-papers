@@ -1,0 +1,12 @@
+# rh run | Thu Oct  1 19:44:47 2026
+# cwd: .
+# cmd: python method/run.py --task cartpole --seed 0 --out results/raw/sweep_width-Uniform_DR-0.json --system uniform --width 2
+
+method/run.py:38: RuntimeWarning: overflow encountered in square
+  temp = (force + pml * thd ** 2 * st) / tm
+method/run.py:41: RuntimeWarning: invalid value encountered in add
+  s = np.stack([x + TAU * xd, xd + TAU * xacc, th + TAU * thd, thd + TAU * tacc], -1)
+method/run.py:37: RuntimeWarning: invalid value encountered in cos
+  ct, st = np.cos(th), np.sin(th)
+method/run.py:37: RuntimeWarning: invalid value encountered in sin
+  ct, st = np.cos(th), np.sin(th)

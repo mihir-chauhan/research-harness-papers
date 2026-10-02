@@ -1,0 +1,13 @@
+\textbf{Randomised dynamics.} We use a batched numpy implementation of the gymnasium CartPole-v1 equations (Euler integration, $\tau=0.02$\,s), checked against gymnasium (maximum absolute state difference of order $10^{-7}$ over 30 steps). With nominal parameters $\theta_0=(m_c,m_p,\ell,F)$ = (cart mass, pole mass, pole half-length, force magnitude) the environment parameters are
+\begin{equation}
+\theta_i=\theta_{0,i}\,\exp(u_i),\quad u_i\sim U(-w,w),\ i=1..4,
+\end{equation}
+independently per episode, so $w$ is the log-scale half-width of the range ($w=0$ is the nominal system, $w=1$ spans a factor $e^{\pm1}$). The return of an episode is the number of steps survived, capped at 500.
+
+\textbf{Policy and learner.} The policy is a 4-8-1 tanh MLP (49 parameters) acting through the sign of its output. It is trained by the cross-entropy method: 40 candidates per iteration are drawn from a diagonal Gaussian, each is evaluated on the same 16 randomised episodes (common random numbers), the top 20\% are refit as the new mean and standard deviation, for 60 iterations; a decaying noise floor $0.05(1-t/60)+0.01$ is added to the refit standard deviation.
+
+\textbf{Systems.} \emph{No randomisation}: $w=0$. \emph{Uniform DR} (narrow $w=0.25$, wide $w=1$): fixed $w$. \emph{Success-gated curriculum}: $w$ starts at 0 and after each iteration is updated as
+\begin{equation}
+w\leftarrow\begin{cases}\min(w_{\max},\,w+\delta)&\text{if } s_t\ge\rho\\ w&\text{otherwise,}\end{cases}
+\end{equation}
+where $s_t$ is the fraction of that iteration's sampled environments on which the best candidate reaches the 500-step cap, $\delta=0.05$, $\rho=0.8$ and $w_{\max}=1$ (equal to wide DR). Setting $\rho=0$ gives an ungated linear schedule.

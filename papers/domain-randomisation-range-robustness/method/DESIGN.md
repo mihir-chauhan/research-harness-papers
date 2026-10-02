@@ -1,0 +1,2 @@
+# Design
+`method/run.py`: batched numpy CartPole (gymnasium CartPole-v1 equations, verified by `method/check_dynamics.py`, max abs diff 3e-7), 4-8-1 tanh MLP policy (action = sign of output), CEM (pop 40, 20% elites, 60 iterations, 16 envs per iteration, common random numbers across candidates, std floor decaying from 0.06 to 0.01). Systems: none (w=0), uniform (fixed w), curriculum (w += 0.05 when best candidate success >= gate, cap wmax). Evaluation: 300 episodes per level on a separate RNG stream. Smoke test: group sanity.

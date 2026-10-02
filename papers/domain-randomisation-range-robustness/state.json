@@ -1,0 +1,125 @@
+{
+  "slug": "domain-randomisation-range-robustness",
+  "direction": "How wide should domain randomisation be? Train a small policy (e.g. cross-entropy method or a tiny policy gradient on CartPole / Pendulum from gymnasium classic control) under different randomisation ranges of physical parameters (mass, length, force), then evaluate on in-range and out-of-range dynamics. Is there a range beyond which nominal performance drops faster than robustness improves? Compare no randomisation, narrow, wide, and a simple automatic curriculum that widens the range on success.",
+  "created": "2026-10-01T18:38:25",
+  "updated": "2026-10-01T19:54:05",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T19:28:48",
+      "finished": "2026-10-01T19:53:07",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:07",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:07",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:07",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:07",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:07",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:07",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:07",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:07",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:07",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:08",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:08",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:08",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:08",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:54:05",
+      "notes": [
+        {
+          "t": "2026-10-01T19:54:05",
+          "note": "paper built, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T19:53:07",
+      "phase": "novelty",
+      "decision": "Seeds checked: CartPole only, CEM+MLP, log-scale half-width w; arXiv rate-limited so some refs added through Crossref/DataCite DOIs; OpenAI Rubik's cube paper could not be fetched and is not cited."
+    },
+    {
+      "t": "2026-10-01T19:53:07",
+      "phase": "setup",
+      "decision": "Eval levels extended to w=2.0 and sweep to w=3 after smoke runs (seed 1) showed everything saturated at 500 for w<=1; no other tuning."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

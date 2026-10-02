@@ -1,0 +1,10 @@
+\begin{tabular}{lccccc}
+\toprule
+Method & ret\_nominal $\uparrow$ & ret\_w100 $\uparrow$ & ret\_ood $\uparrow$ & ret\_robust $\uparrow$ & $n$ \\
+\midrule
+No randomisation & \textbf{500.00 $\pm$ 0.00} & 389.12 $\pm$ 28.75 & 243.19 $\pm$ 21.85 & 386.59 $\pm$ 16.59 & 5 \\
+Uniform DR narrow (w=0.25) & \underline{500.00 $\pm$ 0.00} & 440.18 $\pm$ 29.22 & 292.36 $\pm$ 11.34 & 418.10 $\pm$ 10.98 & 5 \\
+Uniform DR wide (w=1.0) & 500.00 $\pm$ 0.00 & \underline{498.47 $\pm$ 1.71} & \underline{411.98 $\pm$ 34.30} & \underline{470.41 $\pm$ 11.70} & 5 \\
+\textbf{Success-gated curriculum DR} & 500.00 $\pm$ 0.00 & \textbf{499.27 $\pm$ 0.75} & \textbf{412.89 $\pm$ 38.93} & \textbf{470.84 $\pm$ 13.07} & 5 \\
+\bottomrule
+\end{tabular}

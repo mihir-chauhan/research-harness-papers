@@ -1,0 +1,4 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+cartpole,Success-gated curriculum DR,No randomisation,ret_nominal,500.0,500.0,0.0,5,5,,,
+cartpole,Success-gated curriculum DR,Uniform DR narrow (w=0.25),ret_nominal,500.0,500.0,0.0,5,5,,,
+cartpole,Success-gated curriculum DR,Uniform DR wide (w=1.0),ret_nominal,500.0,500.0,0.0,5,5,,,
