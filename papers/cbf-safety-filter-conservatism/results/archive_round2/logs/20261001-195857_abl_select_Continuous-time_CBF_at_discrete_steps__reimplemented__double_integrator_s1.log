@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 19:58:57 2026
+# cwd: .
+# cmd: python method/run.py --system ct --task double_integrator --seed 1 --alpha 2 --dt 0.05 --dth 1.0 --select nearest --out results/raw/abl_select_ct_double_integrator__alpha_2_dt_0_05_select_nearest__1.json
+
+{"system": "ct", "task": "double_integrator", "seed": 1, "alpha": 2.0, "dt": 0.05, "select": "nearest", "dth": 1.0, "violation_rate": 0.83, "success_rate": 1.0, "time_to_goal": 6.6405, "min_clearance": -0.2438979749983562, "worst_penetration": 0.6583234000587127}

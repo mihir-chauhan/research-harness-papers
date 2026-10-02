@@ -1,0 +1,369 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 4,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-reproducible and all prose numbers match the tables, but the heuristic and nominal rows of Table I were run at dt=0.1 instead of the captioned 0.05 (heuristic DI violation rate is 0.110 at 0.05, not 0.216). The abstract's claim that CT-CBF never violates over alpha in [0.5,10] and dt in [0.01,0.2] and the H1 refutation rest on two one-factor slices; off-slice cells violate (0.27 at alpha=10, dt=0.1; 0.386 at dt=0.2). The DT-CBF is also not imposed on the exact ZOH successor as described; all of this is fixable by cheap re-runs and text changes.",
+      "reran": [
+        {
+          "run": "Discrete-time CBF (reimplemented)/double_integrator/1",
+          "metric": "violation_rate",
+          "registry": 0.07,
+          "rerun": 0.07
+        },
+        {
+          "run": "Discrete-time CBF (reimplemented)/double_integrator/1",
+          "metric": "time_to_goal",
+          "registry": 7.442,
+          "rerun": 7.442
+        },
+        {
+          "run": "Continuous-time CBF at discrete steps (reimplemented)/double_integrator/1",
+          "metric": "violation_rate",
+          "registry": 0.0,
+          "rerun": 0.0
+        },
+        {
+          "run": "Continuous-time CBF at discrete steps (reimplemented)/double_integrator/1",
+          "metric": "time_to_goal",
+          "registry": 7.851,
+          "rerun": 7.851
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex Table I caption and text; results/runs.jsonl main + sweep_dth commands; method/run.py --dt default",
+          "issue": "Heuristic and nominal runs never pass --dt and run at the script default 0.1 s, while Table I is captioned dt=0.05 s. At dt=0.05 the heuristic DI violation rate is 0.110+/-0.010 (not 0.216+/-0.049), min clearance 0.205 (not 0.131), worst penetration 0.184 (not 0.401); the baseline was handicapped by a doubled control period and the quoted 0.216 in Results/H4/RESULTS.md is wrong for the stated setting.",
+          "fix": "Pass --dt 0.05 explicitly for heur and nominal, re-run main and sweep_dth, regenerate tables and update the text; set the script default to the paper default."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, conclusion.tex, results.tex (H1), results/RESULTS.md, BRIEF.md",
+          "issue": "Claim that CT-CBF never violated safety for alpha in [0.5,10] and dt in [0.01,0.2] is supported only on two one-factor slices (alpha sweep at dt=0.05, dt sweep at alpha=2). With the same code, CT-CBF on the double integrator violates off-slice: 0.27 at alpha=10/dt=0.1, 0.386 at alpha=10/dt=0.2, 0.02 at alpha=5/dt=0.2, 0.006 at alpha=0.5/dt=0.2. The H1 'refuted' verdict is an artifact of the one-at-a-time design.",
+          "fix": "Run the joint alpha x dt grid for CT and DT, report it, and restate the abstract, conclusion and H1 verdict (supported when alpha and dt are large jointly)."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/method.tex (DT-CBF), ablations.tex, limitations.tex; method/run.py di_filter and uni_filter",
+          "issue": "Paper says the DT condition is imposed on the exact ZOH successor. For the double integrator psi1 uses the zero-input predicted position p+dt*v rather than the true successor p+dt*v+0.5*dt^2*a, so the enforced invariant does not imply h(x_{k+1})>=(1-gamma)h(x_k); the unicycle version is an Euler step of the look-ahead point. The paper lists the dropped quadratic term as a candidate cause of violations although dropping a nonnegative term only tightens the constraint. The headline DT-violates result may be an artifact of this undisclosed approximation.",
+          "fix": "Describe psi1 exactly as implemented and drop 'exact', or implement the condition on the true ZOH successor and re-run; remove the dropped quadratic term from the candidate causes and name the successor mismatch."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'Larger gains reduced the time to goal on the double integrator only' is inaccurate: unicycle time falls from 12.84 to 11.86 s between alpha=0.5 and 2 before plateauing. 'Most influential factor was selection' ignores that alpha moves DT-CBF violations from 0 to 0.85, comparable to selection (0.82).",
+          "fix": "Say the unicycle gain effect saturates above alpha=2, and limit the selection claim to 'larger than the effect of dt'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (H3) vs research.yaml",
+          "issue": "Pre-registered H3 covered time to goal and minimum clearance decreasing monotonically; the paper restates only time to goal.",
+          "fix": "State H3 as registered and report the clearance trend from the sweep."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, ablations.tex",
+          "issue": "DT-CBF violations are shallow grazes (median penetration about 7 mm, max 1.7 cm at defaults; mean clearance -0.004 m at alpha=10) versus up to 0.40 m for the heuristic; the binary violation rate alone overstates the DT problem. d_th=2 heuristic has success rate 0.996 on DI (timeouts inflate time to goal), not mentioned. 'Violations rise slowly with dt' has adjacent steps within one std.",
+          "fix": "Report penetration depth alongside violation rate in the sweeps, mention the 0.996 success rate, and limit the dt trend claim to the end-to-end difference."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl provenance, results/logs",
+          "issue": "All 300 rows record git_commit 18d24b6 (scaffold) which does not contain method/run.py, so the code was uncommitted when run; 300 runs share 221 log files because same-second filenames collide; logs contain only the header because the script prints nothing.",
+          "fix": "Commit code before running, make log names unique per config, and print the metrics to stdout so logs carry real output."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "Unicycle CBF filters use the nearest obstacle, not the critical one; the paper only implies this.",
+          "fix": "State the unicycle selection rule explicitly."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf",
+          "issue": "Table I and Fig. 1 are shrunk to near-illegible size by resizebox; page 4 holds only two small tables; Fig. 2/3 error bars use population std while tables use sample std.",
+          "fix": "Shorten method names or use table*, enlarge Fig. 1, rebalance floats, and use ddof=1 in make_sweeps.py."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex",
+          "issue": "Directly relevant sampled-data CBF work (Breeden et al., named in literature/landscape.md) is not cited because the arXiv API was rate-limited.",
+          "fix": "Add and verify the sampled-data CBF references and cite them where sampled-data safety margins are discussed."
+        }
+      ],
+      "commit": "1095270cf697b84af1028449223cb4c33f81c2cd"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "All 600 registry runs re-executed bit-identically, every quoted number matches the generated tables, citations are verified and used in context, and the PDF is clean at 5 pages. Three claims are not supported: the unicycle 'no violations in any cell' result comes from a metric with a ~0.15 m buffer (barrier-level violations reach 46-100% of episodes), DT-CBF penetrations are called 'mostly shallow' while the saturated cells in the registry show 0.11-0.68 m, and 'not caused by sampling alone' is contradicted by a direct probe. All are fixable with text changes and one added metric.",
+      "reran": [
+        {
+          "run": "Discrete-time CBF (reimplemented)/double_integrator/0",
+          "metric": "violation_rate",
+          "registry": 0.01,
+          "rerun": 0.01
+        },
+        {
+          "run": "Discrete-time CBF (reimplemented)/double_integrator/0",
+          "metric": "time_to_goal",
+          "registry": 7.6205,
+          "rerun": 7.6205
+        },
+        {
+          "run": "Continuous-time CBF at discrete steps (reimplemented)/double_integrator/0",
+          "metric": "violation_rate",
+          "registry": 0.0,
+          "rerun": 0.0
+        },
+        {
+          "run": "Continuous-time CBF at discrete steps (reimplemented)/double_integrator/0",
+          "metric": "time_to_goal",
+          "registry": 7.881,
+          "rerun": 7.881
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py:100-102,170-171; paper/sections/abstract.tex, results.tex (grid paragraph, H2), conclusion.tex, setup.tex (Metrics)",
+          "issue": "Unicycle violation_rate is measured at the axle against the raw obstacle radius while the barrier constrains the look-ahead point against radii inflated by L=0.15 m, so the metric has a ~0.13-0.15 m buffer that the double-integrator metric (violation = h<0, 1e-5 m counts) lacks; this is not disclosed. Measured at barrier level, DT-CBF on the unicycle violates in 46% of episodes at the default, 97% at alpha=2,dt=0.2 and ~100% for alpha>=5 (max penetration 0.045 m), and CT-CBF in 86-100% at alpha>=5,dt=0.2 (max 0.095 m). 'On the unicycle neither CBF filter violated in any cell' and 'H2 untestable on the unicycle' are artifacts of the buffer.",
+          "fix": "Add a barrier-level violation metric for the unicycle (look-ahead point vs inflated radius) to run.py, re-run the unicycle grid (about 2 minutes), report both metrics, state the buffer explicitly in the Metrics paragraph, and rewrite the unicycle claims in the abstract, results, H2 verdict and conclusion (H2 is testable and refuted on the unicycle at barrier level)."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, conclusion.tex ('mostly with shallow penetrations'); results.tex ('small in depth where measured ... violation rate and depth at the saturated cells were not tabulated')",
+          "issue": "Depth in the saturated DT-CBF cells is in results/runs.jsonl and is not shallow: mean worst penetration 0.109 m (alpha=10,dt=0.1) and 0.679 m (alpha=5 and 10, dt=0.2; max 0.76 m, same as the unfiltered controller's 0.759 m), with mean min clearance -0.05/-0.18 m and time to goal 5.79 s at dt=0.2. These cells contain more violating episodes than all shallow cells combined, so 'mostly shallow' is false by episode count; the violation rate there (1.00) is in fact tabulated in Table II.",
+          "fix": "Report worst penetration and min clearance for the whole grid (extend Table II or add a table), state that DT-CBF fails with nominal-like penetrations where alpha*dt>=1, and remove 'mostly with shallow penetrations' or restrict it to alpha*dt<1."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex (Period paragraph); limitations.tex ('The DT-CBF violations remain unexplained')",
+          "issue": "The inference 'DT-CBF is non-zero at alpha=10, dt=0.01 (0.36), so its violations are not caused by sampling alone' is unsupported and contradicted by a direct probe: outside the saturated cells violations occur between samples (rate at sample instants <=0.03 with ~1e-14 m depth), and at dt=0.005 s (= plant step, no between-sample check) the rate is exactly 0 for alpha=2,5,10. Median penetration at alpha=10,dt=0.01 is 4e-5 m. The reported DT rates at small dt depend on the 0.005 s check resolution.",
+          "fix": "Replace the sentence with the measured explanation (inter-sample dips of the sample-instant-only condition, vanishing when dt equals the integration step), add the at-sample vs inter-sample breakdown or a dt=0.005 row, note the dependence on check resolution, and update the limitations sentence."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1), results/RESULTS.md, research.yaml",
+          "issue": "The registered test for H1 is the one-factor sweeps, on which CT-CBF is 0.00 everywhere (refuted by the registered criterion); the paper substitutes the full grid post hoc and labels H1 'supported with a qualification' without saying the registered test was the slices.",
+          "fix": "State that H1 is refuted on the registered one-factor test and holds only as a joint alpha-and-dt effect in the post-hoc grid; label it 'partly supported'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "'CT-CBF was safe unless alpha and dt were both large' omits the alpha=0.5, dt=0.2 cell (rate 0.006, 3 of 500 episodes, penetrations up to 0.25 m). Runs are deterministic on fixed scenarios, so this is a real event, not seed noise, and it is deeper than most other CT cells.",
+          "fix": "Mention the small-alpha, large-dt exception and its depth in the abstract or conclusion, and do not describe it as noise."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, results.tex",
+          "issue": "DT-CBF at alpha=2, dt<=0.02 is reported as 0.00 but is 0.004 (2 of 500 episodes, ~1e-5 m).",
+          "fix": "Say 'below 0.005' or show three decimals for these cells."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables (compare files)",
+          "issue": "'DT is faster, not slower' (7.542 vs 7.800 s) has no rh compare output; only violation_rate was compared. The auditor's own test supports the claim (Welch p=0.007, paired p=1e-4).",
+          "fix": "Generate compare_main_time_to_goal.csv and cite the p-value."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.tex, paper/sections/setup.tex, ablations.tex",
+          "issue": "Label sec:setup is defined twice (LaTeX warning), and Tables I and V are scaled very small in the PDF.",
+          "fix": "Remove the duplicate label and enlarge or split the two tables."
+        }
+      ],
+      "commit": "e58d68002f0ffc24cada00d320efd39a9cd6b1dc"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "All 630 runs are real, logged and bit-reproducible, every table matches the registry, citations are in context and the paper reports its negative result honestly. Two statements in the sample-instant analysis are not supported: the saturated-cell at-sample violations (0.760/0.830) called a genuine unexplained failure are floating-point round-off of about 1e-14 m, and the claimed bounds for alpha*dt<1 (any-time rate up to 0.358, penetration below 0.0005 m) contradict Table II (0.618, up to 0.016 m). Both are text or metric fixes that do not require redoing the study.",
+      "reran": [
+        {
+          "run": "Discrete-time CBF/double_integrator/3",
+          "metric": "violation_rate",
+          "registry": 0.01,
+          "rerun": 0.01
+        },
+        {
+          "run": "Continuous-time CBF at discrete steps/unicycle/1",
+          "metric": "time_to_goal",
+          "registry": 11.7835,
+          "rerun": 11.7835
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex (Between samples or at samples?), limitations.tex, Table IV, results/RESULTS.md",
+          "issue": "The DT-CBF sample-instant violation rates in saturated cells (0.760 at alpha=5,dt=0.2; 0.830 at alpha=10,dt=0.1) are presented as evidence that the filter genuinely fails at samples for an unexplained reason. Re-simulation shows the worst at-sample penetration is about 1e-14 m and the rate is 0.000 with a 1e-9 tolerance in every double-integrator DT cell probed, including the 0.028 cell; it is round-off from projecting exactly onto the boundary plus a strict <0 test. The deep penetrations there are inter-sample.",
+          "fix": "Add a small tolerance (e.g. 1e-9) to sample_violation_rate in method/run.py or report at-sample penetration depth, re-run the grid, regenerate Table IV, and rewrite the ablation and limitation sentences to say the saturated-cell failures are also inter-sample (gamma=1 only requires the successor on the boundary)."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex (Between samples or at samples?)",
+          "issue": "For alpha*dt<1 the text says the any-time rate is up to 0.358 and worst penetration is below 0.0005 m (Table II). Table II shows 0.618 at alpha=10,dt=0.05 and mean worst penetrations of 0.002-0.016 m in six unsaturated cells (single-seed max 0.026 m); the bound holds only for dt<=0.02.",
+          "fix": "Restrict the statement to dt<=0.02 or give the correct maxima (0.618; 0.016 m at alpha=2,dt=0.2)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Period)",
+          "issue": "The claim that adjacent steps differ by less than a seed std is false for dt 0.1 to 0.2 (0.018 to 0.070, std about 0.02).",
+          "fix": "Say the last step exceeds a seed std or drop the parenthesis."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, BRIEF.md",
+          "issue": "The hypothesis tally (one supported with a qualification, one refuted, two partly supported) contradicts Results and RESULTS.md, where H1 is partly supported and refuted on the registered test.",
+          "fix": "State one refuted and three partly supported, with H1 refuted on its registered test."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Table II caption",
+          "issue": "The caption says the axle violation rate is zero in all 100 unicycle cells; there are 50 unicycle cells.",
+          "fix": "Change 100 to 50."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "The statement that CT-CBF violates at samples only in the large-alpha, large-dt corner omits alpha=0.5,dt=0.2, which has a real at-sample rate of 0.006 (0.043 m).",
+          "fix": "Scope the sentence to the alphas in Table IV or mention the cell."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Compute)",
+          "issue": "The paper says each run takes a few seconds; registry durations are 0.1-0.6 s.",
+          "fix": "Say under one second."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "Claims that hypotheses were registered before the runs and the default fixed before running cannot be verified: hypotheses are first committed together with results, and the round-1 script default was dt=0.1.",
+          "fix": "Soften to 'stated in the proposal' and note the round-1 default mismatch in Limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex (H2), method.tex",
+          "issue": "CT-CBF on the double integrator is a second-order velocity-aware condition while DT-CBF is first-order on position, so the DT-not-safer result is confounded by design order; the high-order DT-CBF of the cited Xiong et al. was not tried. Disclosed only in Method and Limitations.",
+          "fix": "Name the asymmetry in the H2 verdict and abstract."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "Says both CBF filters reduce to a projection with one linear constraint; the DT condition is a non-convex ball exterior per the Method section.",
+          "fix": "Say one scalar constraint with a closed-form projection."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "Penetrations up to 0.679 m is a mean over seeds of per-seed worst; the actual maximum is 0.760 m.",
+          "fix": "Say mean worst penetration or report the maximum."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex",
+          "issue": "Singletary et al. is described as an empirical comparison; it is primarily analytical with supporting experiments.",
+          "fix": "Say compared analytically and experimentally."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Table I",
+          "issue": "Table I is scaled down to near-illegible size because of the long method names.",
+          "fix": "Use short names (CT-CBF, DT-CBF, Braking, Nominal) or drop a column."
+        }
+      ],
+      "commit": "57db30c63fc4acc47aa8cae2f8936633707978f7"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 660 registry rows have commands, logs and raw files that agree, six re-executed runs reproduce the registry bit-for-bit, and every number and comparative claim in the paper matches the generated tables and compare CSVs. The code implements what the paper describes, the negative outcome and the design-order confound are stated in the abstract, results and limitations, citations are used in context, and the 6-page PDF renders cleanly. Only minor wording, labelling and housekeeping issues were found.",
+      "reran": [
+        {
+          "run": "DT-CBF/double_integrator/1",
+          "metric": "violation_rate",
+          "registry": 0.02,
+          "rerun": 0.02
+        },
+        {
+          "run": "CT-CBF/double_integrator/3",
+          "metric": "time_to_goal",
+          "registry": 7.757999999999999,
+          "rerun": 7.757999999999999
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, results.tex, results/RESULTS.md",
+          "issue": "H1 and H4 are labelled 'partly supported' although both fail their pre-stated tests (H1 'refuted on its test', H4 'fails its test as written'); the label is generous even though the text discloses the failure.",
+          "fix": "Label them 'refuted as stated; a weaker post-hoc form holds' consistently in the introduction, results and RESULTS.md."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "The unicycle time to goal beyond alpha=2 is described as 'slightly larger' (11.86 to 11.88 to 11.92 s) but these differences are well inside the seed std of about 0.12 s.",
+          "fix": "Say the time to goal is flat within seed spread beyond alpha=2, or report a paired test."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/sweep_alpha.tex, paper/generated/sweep_dt.tex",
+          "issue": "Stale generated tables with the old axle-level metric that are not produced by the current make_sweeps.py, have no counterpart in results/tables and are not included in the paper.",
+          "fix": "Delete the two stale files."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/main.tex (Table I)",
+          "issue": "Bold/underline 'best' marks are applied arbitrarily among exact ties (0.000 vs 0.000, 0.205 vs 0.205) and treat higher min_clearance as best although the text uses clearance as a conservatism measure.",
+          "fix": "Drop the highlighting for ties and for min_clearance, or explain it in the caption."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Fig. 1)",
+          "issue": "The heatmap is included at 0.8 column width and its cell annotations are very small at the printed size.",
+          "fix": "Enlarge the figure or the annotation font; Table II already carries the values."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/refs.bib",
+          "issue": "Breeden et al., Taylor et al. and Bahati et al. are cited as arXiv preprints; published versions may exist and were not checked.",
+          "fix": "Check for published versions and cite them if they exist."
+        },
+        {
+          "severity": "minor",
+          "where": "method/DESIGN.md, results/VERDICT.md",
+          "issue": "DESIGN.md's metrics bullet still says a violation is 'clearance ever <0', contradicting its own round-4 paragraph (below -1e-9 m); VERDICT.md lists the ablations as 'missing'.",
+          "fix": "Update the DESIGN.md bullet to the tolerance definition and regenerate or annotate the VERDICT.md ablation table."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "The 'buffer of about 0.13-0.15 m' for the unicycle axle metric is not backed by any table or run.",
+          "fix": "State it as the geometric bound (at most L = 0.15 m) or drop the range."
+        }
+      ],
+      "commit": "b23c6439b43ec2960a2bc9edb4a3bdbd4eac7d7e"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on double_integrator: ours 0.008 vs Continuous-time CBF at discrete steps (reimplemented) 0\nREADY",
+      "response": "# Response to audit findings\n\n1. **Heuristic/nominal run at dt=0.1 (major) \u2014 fixed.** `--dt` is now passed explicitly for every system (driver `experiments/run_all.py`) and the script default is 0.05. All 600 runs were repeated; round-1 runs are archived in `results/archive_round1/`. The main-table heuristic DI violation rate is now 0.110 \u00b1 0.010 (min clearance 0.205, worst penetration 0.184), matching the auditor's value; text, RESULTS.md and tables were regenerated.\n2. **One-factor slices (major) \u2014 fixed.** Added a full 5x5 alpha x dt grid for CT and DT on both plants (`grid_alpha_dt`, Table II / Fig. 1); the one-factor tables and figures are slices of it. The abstract, conclusion and H1 verdict now say CT-CBF violates on the double integrator when alpha and dt are both large (0.27, 0.39, 0.02, 0.01 cells); H1 is reported as supported with a qualification.\n3. **DT-CBF not on the exact successor (major) \u2014 fixed by re-implementing.** The double-integrator DT condition is now imposed on the true ZOH successor z+dt v+0.5dt\u00b2a with a closed-form radial projection; the unicycle is described as an Euler step of the look-ahead point. The \"dropped quadratic term\" candidate cause was removed. All DT results changed (default DI violation 0.056 -> 0.008; H2 conclusion unchanged but H4 and the DT narrative updated). The cause of remaining DT violations (e.g. 0.36 at alpha=10, dt=0.01) is stated as untested.\n4. **Conclusion wording (minor) \u2014 fixed.** Unicycle gain effect described as saturating above alpha=2; selection claim limited to CT-CBF and the effect of dt.\n5. **H3 as registered (minor) \u2014 fixed.** Setup states all four hypotheses as registered; clearance trend reported (Tables III and IV, Results).\n6. **Penetration depth / 0.996 success / dt trend (minor) \u2014 fixed.** Safety tables now report violation rate / worst penetration; the dth table includes success rate (0.970 at d_th=2 in the re-run); the dt trend claim is limited to the end-to-end increase.\n7. **Provenance (minor) \u2014 fixed.** Code was committed before the re-runs; `run.py` prints its metrics; the driver waits so each run gets a unique log file (600 runs, 600 logs).\n8. **Unicycle selection rule (minor) \u2014 fixed.** Stated explicitly in the method section.\n9. **Layout / std (minor) \u2014 fixed.** Main and sweep tables use table*, Fig. 1 is a larger heatmap figure, sweep figures use sample std (ddof=1). Page count is 5.\n10. **Missing sampled-data citations (minor) \u2014 fixed.** Added Breeden et al. (2103.03677), Taylor et al. (2203.11470) and Bahati et al. (2304.08685) via `rh lit cite`, cited in the introduction, related work and method.\n",
+      "seconds": 582
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on double_integrator: ours 0.008 vs Continuous-time CBF at discrete steps (reimplemented) 0\nREADY",
+      "response": "# Response to audit round 2\n\n1. **Unicycle metric buffer (major) - fixed.** `method/run.py` now also reports `barrier_violation_rate`, `barrier_penetration` (look-ahead point vs radius+L; identical to the old metric for the double integrator) and `sample_violation_rate`. Code committed, then all runs (630 incl. new probe) re-executed and registered; round-2 runs are archived in `results/archive_round2/`. Setup (Metrics) states the 0.13-0.15 m buffer; abstract, results, H2 verdict and conclusion rewritten: at barrier level DT-CBF violates on the unicycle (0.464 at the default), CT-CBF at dt=0.2 with alpha>=5 (0.862, 1.000); H2 is refuted on the unicycle, not \"untestable\". Table II (grid) is now barrier-level with rate / worst penetration / min clearance per cell.\n2. **\"Mostly shallow\" DT penetrations (major) - fixed.** Table II reports penetration and clearance for the whole grid; text states that DT-CBF is shallow only where alpha*dt<1 and fails with nominal-like penetrations (0.109 m, 0.679 m vs 0.759 m unfiltered) where alpha*dt>=1. The phrase was removed from abstract and conclusion.\n3. **\"Not caused by sampling alone\" (major) - fixed.** Removed. Added Table IV (any-check vs sample-instant violation rates, plus a dt=0.005 s probe, group `grid_dt005`, 30 runs): small-dt violations are inter-sample dips, 0.000 at dt equal to the plant step; the dependence on the 0.005 s check resolution is stated in Ablations and Limitations.\n4. **H1 registered test (minor) - fixed.** Verdict now \"partly supported\": refuted on the registered one-factor slices, holds only as a post-hoc joint effect.\n5. **CT alpha=0.5, dt=0.2 cell (minor) - fixed.** Mentioned in abstract, results and conclusion with its depth (0.006, mean worst penetration 0.073 m), described as deterministic, not noise.\n6. **DT alpha=2, dt<=0.02 shown as 0.00 (minor) - fixed.** Grid table now has three decimals (0.004).\n7. **Missing compare for time to goal (minor) - fixed.** `results/tables/compare_main_time_to_goal.csv` generated (Welch p=0.007); also compare for barrier_violation_rate.\n8. **Duplicate label, small tables (minor) - partly fixed.** Duplicate `sec:setup` removed; Table II now uses scriptsize without rescaling; the period-sweep conservatism table was dropped and the two sweep figures merged to save space (6 pages). Table I (main) is still scaled because of the long method names in the registry.\n",
+      "seconds": 596
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on double_integrator: ours 0.008 vs CT-CBF 0\nREADY",
+      "response": "# Response to the final audit round\n\nAll 660 runs were re-executed after the metric change (code commit 745cf32, recorded in every run); the previous 630 runs are archived in `results/archive_round3/`. Earlier responses are in the git history of this file.\n\n## Major\n\n1. **Saturated-cell at-sample violations were round-off - fixed in the metric, re-run, text rewritten.** Confirmed by re-simulation (worst at-sample penetration about 1e-14 m in every double-integrator DT-CBF cell that the old table showed as non-zero). `method/run.py` now counts a violation only if clearance < -1e-9 m, for all three violation rates and all systems, and also records `sample_penetration`. With the tolerance the DT-CBF at-sample rate on the double integrator is 0.000 in every cell of Table IV except alpha=10, dt=0.2 (0.002: one real episode in 500, at-sample depth 0.014 m, not investigated and stated as such). Any-time rates are unchanged. Ablations, Limitations, abstract, conclusion and RESULTS.md now say that the saturated-cell failures are inter-sample too (gamma=1 only requires the successor on the boundary; the \"why deep\" mechanism carries \"may\"). Limitations records the earlier wrong reading. The dt=0.005 s probe was extended to the unicycle (30 extra runs), which shows the opposite regime there: DT-CBF violations are at the samples and remain at dt = plant step.\n2. **Wrong bounds for alpha*dt<1 - fixed.** Text now gives the Table II maxima: any-time rate up to 0.618 (alpha=10, dt=0.05), mean worst penetration up to 0.016 m (alpha=2, dt=0.2), and 0.000 m at three decimals only for dt<=0.02. Same numbers in Results, abstract and conclusion.\n\n## Minor\n\n3. **Period, adjacent steps - fixed.** Now: steps up to dt=0.1 are within the seed spread, the last step (0.018 to 0.070) exceeds it.\n4. **Hypothesis tally - fixed.** Introduction, Results, BRIEF.md and RESULTS.md agree: H2 refuted; H1, H3, H4 partly supported, with H1 and H4 failing their stated tests as written and H3 holding on the double integrator only. Each verdict in Results now names the stated test first.\n5. **100 unicycle cells - fixed** (50).\n6. **CT-CBF at-sample sentence - fixed.** Scoped to the gains of Table IV; the alpha=0.5, dt=0.2 cell is mentioned as also having at-sample violations.\n7. **Run time - fixed.** \"typically under one second (a few seconds at most)\"; registry durations in this round: median 0.4 s, one run 4.8 s.\n8. **Pre-registration claims - fixed.** \"as stated in the proposal\"; \"fixed before running\" removed; Limitations states that hypotheses were first committed together with the first results and that the round-1 script default was dt=0.1 s.\n9. **Design-order confound - fixed.** Named in the abstract, the H2 verdict, Method, Limitations and conclusion (\"first-order discrete-time condition\" vs \"second-order continuous-time filter\"). A high-order DT-CBF was not implemented (out of budget for this round); stated.\n10. **\"One linear constraint\" - fixed.** Now one scalar constraint with a closed-form projection (half-space / ball exterior).\n11. **0.679 m - fixed.** Called \"mean worst penetration\" everywhere (table captions define it as the mean over seeds of each seed's deepest violation); the single-seed maximum 0.760 m is in RESULTS.md.\n12. **Singletary et al. - fixed.** \"analytically and with supporting experiments\".\n13. **Table I legibility - fixed.** Systems are registered under short names (Nominal, Braking, CT-CBF, DT-CBF; defined in Setup and the caption); the table now scales to about 85% instead of being unreadable. Tables III and V were transposed to single-column tables at footnotesize.\n\n## Found in the self-audit\n\n- Table V (braking threshold) was captioned \"barrier level\" but used the axle metrics; it now uses the barrier-level metrics (values on these rows are identical).\n- \"DT-CBF was not safer on either plant\" contradicted the one cell where it is lower; abstract and conclusion now say \"lower in one grid cell only\".\n- \"at most 0.035 m\" for unicycle DT-CBF depth ignored the alpha=1, dt=0.2 cell; now \"at most 0.043 m over the whole grid\".\n- \"nearly zero for alpha<=1\" is exactly zero; \"grows\" replaced by \"does not decrease\".\n- Removed an unverifiable anecdote about an early version and two mechanism sentences without a run; the unicycle Euler-successor explanation carries \"may\" and \"consistent with\".\n- PROTOCOL.md said 600 runs; it now lists the groups and 660 runs.\n- Setup now states that time to goal is resolved to dt and how the plants are integrated.\n",
+      "seconds": 1063
+    }
+  ]
+}

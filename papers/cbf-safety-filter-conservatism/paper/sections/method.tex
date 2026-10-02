@@ -1,0 +1,19 @@
+\textbf{Plants.} Double integrator: $\dot p=v$, $\dot v=a$, $p,v\in\mathbb R^2$, nominal $a_0=1.5(g-p)-2.5v$. Unicycle: $\dot x=v\cos\theta$, $\dot y=v\sin\theta$, $\dot\theta=\omega$ with a go-to-goal nominal controller ($v\le1$, $|\omega|\le3$); we control a point at distance $L=0.15$\,m ahead of the axle, $q=x_{1:2}+L(\cos\theta,\sin\theta)$, whose velocity $m$ is mapped to $(v,\omega)$ by an invertible Jacobian, and inflate the obstacle radii by $L$. Inputs are held constant over a period $\Delta t$ (zero-order hold) and the plant is integrated at $0.005$\,s (the double-integrator step is exact for a constant input; the unicycle step is a midpoint rule in the heading).
+
+\textbf{Barrier.} For obstacle $(c,r)$ let $z=p-c$ and $h=\|z\|^2-r^2$.
+
+\textbf{CT-CBF at discrete steps (reimplemented).} Unicycle: $\dot h+\alpha h\ge0$, i.e. $2z^\top m+\alpha h\ge0$. Double integrator (relative degree two): $\ddot h+2\alpha\dot h+\alpha^2h\ge0$,
+\begin{equation}
+2z^\top a \ge -\big(2\|v\|^2+4\alpha z^\top v+\alpha^2 h\big).
+\end{equation}
+The condition is evaluated at the sampled state and the minimum-norm correction $a=a_0+\max(0,-s)\,w/\|w\|^2$ is applied, where $w=2z$ and $s$ is the constraint slack at $a_0$.
+
+\textbf{DT-CBF (reimplemented).} With $\gamma=\min(1,\alpha\Delta t)$ the condition is $h(x_{k+1})\ge(1-\gamma)h(x_k)$. For the double integrator it is imposed on the exact ZOH successor position $z^+=z+\Delta t\,v+\tfrac12\Delta t^2a$, i.e.
+\begin{equation}
+\|z^+\|\ge\rho,\qquad \rho=\sqrt{r^2+(1-\gamma)h(x_k)} .
+\end{equation}
+This is the exterior of a ball (non-convex), so we project $z^+(a_0)$ radially onto the sphere of radius $\rho$ when it lies inside, which is the minimum-norm correction and gives $a=a_0+2\Delta t^{-2}(z^+_{\rm proj}-z^+(a_0))$ in closed form. For the unicycle point the successor is the Euler step $z^+=z+\Delta t\,m$ (not the exact unicycle motion, which also rotates the heading) with the same projection, $\rho=\sqrt{(1-\gamma)\|z\|^2+\gamma\rho_{\rm infl}^2}$ where $\rho_{\rm infl}=r+L$. The condition constrains the successor at sample instants only: it says nothing about the path between samples, which the metrics do check, and it ignores velocity beyond one period. With $\gamma=1$ it only asks the successor to lie on or outside the obstacle boundary. Note the asymmetry on the double integrator: CT-CBF is a second-order (high-order) condition that uses the velocity, whereas our DT-CBF is a first-order condition on the position barrier; a high-order discrete-time condition~\cite{xiong2023discrete} was not implemented.
+
+\textbf{Braking heuristic.} If clearance $d<d_{th}$ and the robot approaches, the inward component of the nominal command is removed and braking is added (double integrator: $-K_b v_n$, $K_b=4$; unicycle: inward point velocity scaled by $d/d_{th}$). It does not use $\alpha$.
+
+\textbf{One constraint.} Only one obstacle constraint is active at a time. For the CBF filters on the double integrator the obstacle with the smallest first-order margin $\psi_1=\dot h+\alpha h$ is chosen (``critical''; the same rule is used for CT-CBF and DT-CBF); the alternative is the nearest obstacle (ablation). On the unicycle all filters, including the heuristic, always use the obstacle nearest to the look-ahead point (no critical-obstacle rule is implemented there), and the braking heuristic uses the nearest obstacle on both plants. There are no input limits, so the filter is always feasible.

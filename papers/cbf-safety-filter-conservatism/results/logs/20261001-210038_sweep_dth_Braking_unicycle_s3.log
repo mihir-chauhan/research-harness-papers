@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 21:00:38 2026
+# cwd: .
+# cmd: python method/run.py --system heur --task unicycle --seed 3 --alpha 2 --dt 0.05 --dth 0.5 --select critical --out results/raw/sweep_dth_heur_unicycle__dth_0_5__3.json
+
+{"system": "heur", "task": "unicycle", "seed": 3, "alpha": 2.0, "dt": 0.05, "select": "critical", "dth": 0.5, "episodes": 100, "plant_step": 0.005, "tol": 1e-09, "violation_rate": 0.0, "success_rate": 1.0, "time_to_goal": 12.096000000000004, "min_clearance": 0.20466888492522767, "worst_penetration": 0.0, "barrier_violation_rate": 0.0, "barrier_penetration": 0.0, "sample_violation_rate": 0.0, "sample_penetration": 0.0}

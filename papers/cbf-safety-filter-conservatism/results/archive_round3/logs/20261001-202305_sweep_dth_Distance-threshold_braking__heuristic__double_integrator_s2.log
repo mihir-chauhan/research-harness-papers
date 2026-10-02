@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:23:05 2026
+# cwd: .
+# cmd: python method/run.py --system heur --task double_integrator --seed 2 --alpha 2 --dt 0.05 --dth 1 --select critical --out results/raw/sweep_dth_heur_double_integrator__dth_1__2.json
+
+{"system": "heur", "task": "double_integrator", "seed": 2, "alpha": 2.0, "dt": 0.05, "select": "critical", "dth": 1.0, "violation_rate": 0.1, "success_rate": 1.0, "time_to_goal": 7.414999999999999, "min_clearance": 0.19966952520481016, "worst_penetration": 0.10863691079169702, "barrier_violation_rate": 0.1, "barrier_penetration": 0.10863691079169702, "sample_violation_rate": 0.1}

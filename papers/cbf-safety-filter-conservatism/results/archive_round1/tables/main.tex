@@ -1,0 +1,15 @@
+\begin{tabular}{llcccccc}
+\toprule
+Method & Task & violation\_rate $\downarrow$ & success\_rate $\uparrow$ & time\_to\_goal $\downarrow$ & min\_clearance $\uparrow$ & worst\_penetration $\downarrow$ & $n$ \\
+\midrule
+Nominal (unfiltered) & double\_integrator & 1.000 $\pm$ 0.000 & \textbf{1.000 $\pm$ 0.000} & \textbf{5.194 $\pm$ 0.003} & -0.517 $\pm$ 0.016 & 0.759 $\pm$ 0.011 & 5 \\
+Distance-threshold braking (heuristic) & double\_integrator & 0.216 $\pm$ 0.049 & 1.000 $\pm$ 0.000 & 7.458 $\pm$ 0.064 & 0.131 $\pm$ 0.015 & 0.401 $\pm$ 0.069 & 5 \\
+Continuous-time CBF at discrete steps (reimplemented) & double\_integrator & \textbf{0.000 $\pm$ 0.000} & \underline{1.000 $\pm$ 0.000} & 7.800 $\pm$ 0.094 & \textbf{0.205 $\pm$ 0.017} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\textbf{Discrete-time CBF (reimplemented)} & double\_integrator & \underline{0.056 $\pm$ 0.021} & 1.000 $\pm$ 0.000 & \underline{7.408 $\pm$ 0.077} & \underline{0.196 $\pm$ 0.017} & \underline{0.011 $\pm$ 0.003} & 5 \\
+\midrule
+Nominal (unfiltered) & unicycle & 1.000 $\pm$ 0.000 & \textbf{1.000 $\pm$ 0.000} & \textbf{9.915 $\pm$ 0.026} & -0.519 $\pm$ 0.015 & 0.777 $\pm$ 0.013 & 5 \\
+Distance-threshold braking (heuristic) & unicycle & \underline{0.000 $\pm$ 0.000} & 1.000 $\pm$ 0.000 & 12.603 $\pm$ 0.114 & \textbf{0.346 $\pm$ 0.005} & \underline{0.000 $\pm$ 0.000} & 5 \\
+Continuous-time CBF at discrete steps (reimplemented) & unicycle & \textbf{0.000 $\pm$ 0.000} & \underline{1.000 $\pm$ 0.000} & 11.859 $\pm$ 0.127 & \underline{0.153 $\pm$ 0.001} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\textbf{Discrete-time CBF (reimplemented)} & unicycle & 0.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & \underline{11.781 $\pm$ 0.118} & 0.145 $\pm$ 0.001 & 0.000 $\pm$ 0.000 & 5 \\
+\bottomrule
+\end{tabular}

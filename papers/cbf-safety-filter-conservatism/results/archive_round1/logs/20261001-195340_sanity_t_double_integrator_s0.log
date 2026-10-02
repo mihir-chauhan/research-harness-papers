@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 19:53:40 2026
+# cwd: .
+# cmd: python method/run.py --system dt --task double_integrator --out results/raw/t.json
+
+{"system": "dt", "task": "double_integrator", "seed": 0, "alpha": 2.0, "dt": 0.05, "select": "critical", "dth": 1.0, "violation_rate": 0.01, "success_rate": 1.0, "time_to_goal": 7.6205, "min_clearance": 0.1291550987672323, "worst_penetration": 0.0004971578534240795}

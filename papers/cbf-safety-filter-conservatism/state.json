@@ -1,0 +1,144 @@
+{
+  "slug": "cbf-safety-filter-conservatism",
+  "direction": "Control barrier function safety filters on top of an unsafe nominal controller for a double integrator and a unicycle avoiding circular obstacles (closed-form QP with one constraint, numpy only). How do the class-K gain and the time discretisation affect safety violations and conservatism (time to goal, minimum distance)? Compare continuous-time CBF applied at discrete steps, a discrete-time CBF condition, and a simple distance-threshold braking heuristic.",
+  "created": "2026-10-01T18:38:40",
+  "updated": "2026-10-01T21:10:02",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T19:29:09",
+      "finished": "2026-10-01T19:44:03",
+      "notes": [
+        {
+          "t": "2026-10-01T19:44:03",
+          "note": "landscape+proposal written; 8 verified refs (arXiv rate-limited)"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T19:44:15",
+      "finished": "2026-10-01T19:44:29",
+      "notes": [
+        {
+          "t": "2026-10-01T19:44:29",
+          "note": "run.py, DESIGN.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T19:44:30",
+      "finished": "2026-10-01T19:46:10",
+      "notes": [
+        {
+          "t": "2026-10-01T19:46:10",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T19:44:30",
+      "finished": "2026-10-01T19:46:10",
+      "notes": [
+        {
+          "t": "2026-10-01T19:46:10",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:46:11",
+      "notes": [
+        {
+          "t": "2026-10-01T19:46:11",
+          "note": "sweeps"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T19:46:49",
+      "finished": "2026-10-01T19:47:39",
+      "notes": [
+        {
+          "t": "2026-10-01T19:47:39",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:46:49",
+      "notes": [
+        {
+          "t": "2026-10-01T19:46:49",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:10:02",
+      "notes": [
+        {
+          "t": "2026-10-01T19:48:50",
+          "note": "paper built, check READY"
+        },
+        {
+          "t": "2026-10-01T21:10:02",
+          "note": "final audit round: tolerance metric, re-run 660 runs, rewritten at-sample analysis, 6 pages, check READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T19:44:15",
+      "phase": "setup",
+      "decision": "Initial nearest-obstacle selection caused violations even at dt=0.005 (switching between obstacles at high closing speed violates the HOCBF initial condition); switched the double-integrator CBF filters to the most-critical obstacle (min psi1) and kept nearest as an ablation. Main setting alpha=2, dt=0.05, braking threshold 1.0 fixed before running; not tuned on results."
+    },
+    {
+      "t": "2026-10-01T19:48:45",
+      "phase": "ablations",
+      "decision": "Ablation runs (groups sweep_alpha, sweep_dt, sweep_dth, abl_select) are named after the system they vary, so research.yaml lists those system names."
+    },
+    {
+      "t": "2026-10-01T20:01:45",
+      "phase": "ablations",
+      "decision": "Audit round: re-implemented DT-CBF on the exact ZOH successor, fixed dt=0.05 for all systems in main, replaced one-factor sweeps by a full 5x5 alpha x dt grid; archived round-1 runs."
+    },
+    {
+      "t": "2026-10-01T20:55:53",
+      "phase": "setup",
+      "decision": "final audit round: violation tests use a 1e-9 m tolerance for all systems (at-sample DT-CBF rates in saturated cells were round-off of ~1e-14 m); sample_penetration added; dt=0.005 probe extended to the unicycle; short registry names; all runs re-executed, round-3 runs archived"
+    },
+    {
+      "t": "2026-10-01T21:08:47",
+      "phase": "results",
+      "decision": "H verdicts use the tests stated in proposal.md: H1 refuted on its test (partly supported post hoc), H2 refuted, H3 partly (DI only), H4 fails as written (DT-CBF 0.008). At-sample analysis redone with 1e-9 m tolerance: DI DT-CBF violations are inter-sample."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

@@ -1,0 +1,7 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+double_integrator,Discrete-time CBF (reimplemented),Continuous-time CBF at discrete steps (reimplemented),violation_rate,0.05600000000000001,0.0,0.05600000000000001,5,5,0.0037922180136553646,0.0037922180136553646,3.819168301034652
+double_integrator,Discrete-time CBF (reimplemented),Distance-threshold braking (heuristic),violation_rate,0.05600000000000001,0.21600000000000003,-0.16000000000000003,5,5,0.000797175068117146,0.004073405985203943,-4.268564228097666
+double_integrator,Discrete-time CBF (reimplemented),Nominal (unfiltered),violation_rate,0.05600000000000001,1.0,-0.944,5,5,5.584455232201198e-08,5.584455232201184e-08,-64.38026564601269
+unicycle,Discrete-time CBF (reimplemented),Continuous-time CBF at discrete steps (reimplemented),violation_rate,0.0,0.0,0.0,5,5,,,
+unicycle,Discrete-time CBF (reimplemented),Distance-threshold braking (heuristic),violation_rate,0.0,0.0,0.0,5,5,,,
+unicycle,Discrete-time CBF (reimplemented),Nominal (unfiltered),violation_rate,0.0,1.0,-1.0,5,5,0.0,0.0,

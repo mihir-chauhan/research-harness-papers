@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 19:54:30 2026
+# cwd: .
+# cmd: python method/run.py --system nominal --task unicycle --seed 1 --alpha 2 --dt 0.05 --dth 1.0 --select critical --out results/raw/main_nominal_unicycle___1.json
+
+{"system": "nominal", "task": "unicycle", "seed": 1, "alpha": 2.0, "dt": 0.05, "select": "critical", "dth": 1.0, "violation_rate": 1.0, "success_rate": 1.0, "time_to_goal": 9.919, "min_clearance": -0.5216103337171151, "worst_penetration": 0.7866271403498858}

@@ -1,0 +1,41 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+main,double_integrator,baseline,Nominal (unfiltered),violation_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,double_integrator,baseline,Nominal (unfiltered),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,double_integrator,baseline,Nominal (unfiltered),time_to_goal,5,5.193800000000001,0.002774887385102544,5.191800000000002,5.196000000000002,5.191000000000002,5.198000000000002
+main,double_integrator,baseline,Nominal (unfiltered),min_clearance,5,-0.5173953781290084,0.016330343675047574,-0.5283365101838238,-0.5030721649686829,-0.5302093380975105,-0.49086587323906505
+main,double_integrator,baseline,Nominal (unfiltered),worst_penetration,5,0.7590587821953877,0.011140415768414869,0.7491637636569716,0.7667171206093182,0.7409628625577424,0.7711000059054658
+main,double_integrator,baseline,Continuous-time CBF at discrete steps (reimplemented),violation_rate,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,double_integrator,baseline,Continuous-time CBF at discrete steps (reimplemented),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,double_integrator,baseline,Continuous-time CBF at discrete steps (reimplemented),time_to_goal,5,7.7996,0.0942857359307337,7.715999999999999,7.8646,7.653,7.881
+main,double_integrator,baseline,Continuous-time CBF at discrete steps (reimplemented),min_clearance,5,0.20486354473663565,0.016913527979808936,0.19247404865090628,0.21997211374714495,0.1849007813776457,0.23164469529592366
+main,double_integrator,baseline,Continuous-time CBF at discrete steps (reimplemented),worst_penetration,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,double_integrator,baseline,Distance-threshold braking (heuristic),violation_rate,5,0.21600000000000003,0.04878524367060187,0.17800000000000002,0.254,0.16,0.27
+main,double_integrator,baseline,Distance-threshold braking (heuristic),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,double_integrator,baseline,Distance-threshold braking (heuristic),time_to_goal,5,7.458,0.06374558808262773,7.4075999999999995,7.5084,7.386,7.53
+main,double_integrator,baseline,Distance-threshold braking (heuristic),min_clearance,5,0.1314663392615676,0.015446644192337575,0.11925800903646108,0.1443445193598077,0.11059755235622248,0.15381546333166757
+main,double_integrator,baseline,Distance-threshold braking (heuristic),worst_penetration,5,0.40084439878762607,0.06903869229561824,0.33972771549860203,0.45247465335505144,0.2941511684619914,0.4860059962767671
+main,double_integrator,method,Discrete-time CBF (reimplemented),violation_rate,5,0.05600000000000001,0.020736441353327723,0.04,0.07200000000000001,0.03,0.08
+main,double_integrator,method,Discrete-time CBF (reimplemented),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,double_integrator,method,Discrete-time CBF (reimplemented),time_to_goal,5,7.4081,0.07695404472800603,7.3404,7.4604,7.2835,7.466499999999999
+main,double_integrator,method,Discrete-time CBF (reimplemented),min_clearance,5,0.19618095172873556,0.017114419458692746,0.18398165316653284,0.21125237397803823,0.17594695684907338,0.2229953841319389
+main,double_integrator,method,Discrete-time CBF (reimplemented),worst_penetration,5,0.011284950806350058,0.003481752162142292,0.009127019153370686,0.014535117841412436,0.008233436295840058,0.01714540687049526
+main,unicycle,baseline,Nominal (unfiltered),violation_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,unicycle,baseline,Nominal (unfiltered),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,unicycle,baseline,Nominal (unfiltered),time_to_goal,5,9.914800000000001,0.026309694030908094,9.896400000000002,9.935200000000002,9.883000000000001,9.953000000000001
+main,unicycle,baseline,Nominal (unfiltered),min_clearance,5,-0.5190685656168552,0.015000189225979833,-0.5297846129680264,-0.5064863817002796,-0.5358834577810492,-0.4960585508889124
+main,unicycle,baseline,Nominal (unfiltered),worst_penetration,5,0.7766722314137466,0.01307702865028588,0.766336760487165,0.7870077023403284,0.7635988832971938,0.7906577421188205
+main,unicycle,baseline,Continuous-time CBF at discrete steps (reimplemented),violation_rate,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,unicycle,baseline,Continuous-time CBF at discrete steps (reimplemented),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,unicycle,baseline,Continuous-time CBF at discrete steps (reimplemented),time_to_goal,5,11.859399999999999,0.12718018713620516,11.771100000000002,11.962200000000001,11.721499999999999,12.058000000000002
+main,unicycle,baseline,Continuous-time CBF at discrete steps (reimplemented),min_clearance,5,0.15279476008006862,0.0014964527005561473,0.1518860717363783,0.15416614605875867,0.15150472677154564,0.15537818891986516
+main,unicycle,baseline,Continuous-time CBF at discrete steps (reimplemented),worst_penetration,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,unicycle,baseline,Distance-threshold braking (heuristic),violation_rate,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,unicycle,baseline,Distance-threshold braking (heuristic),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,unicycle,baseline,Distance-threshold braking (heuristic),time_to_goal,5,12.603400000000002,0.11406051025661776,12.509000000000002,12.689600000000002,12.445,12.758
+main,unicycle,baseline,Distance-threshold braking (heuristic),min_clearance,5,0.34644499177370813,0.005079572411359384,0.34253370664344934,0.3506292727643766,0.3397048008748893,0.353643081569167
+main,unicycle,baseline,Distance-threshold braking (heuristic),worst_penetration,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,unicycle,method,Discrete-time CBF (reimplemented),violation_rate,5,0.0,0.0,0.0,0.0,0.0,0.0
+main,unicycle,method,Discrete-time CBF (reimplemented),success_rate,5,1.0,0.0,1.0,1.0,1.0,1.0
+main,unicycle,method,Discrete-time CBF (reimplemented),time_to_goal,5,11.780700000000001,0.11839636818754032,11.696900000000003,11.8727,11.657000000000004,11.963999999999999
+main,unicycle,method,Discrete-time CBF (reimplemented),min_clearance,5,0.14490642351886124,0.0014419639283510467,0.1440447436477033,0.14623465735398208,0.1437210588059167,0.14741520327106353
+main,unicycle,method,Discrete-time CBF (reimplemented),worst_penetration,5,0.0,0.0,0.0,0.0,0.0,0.0

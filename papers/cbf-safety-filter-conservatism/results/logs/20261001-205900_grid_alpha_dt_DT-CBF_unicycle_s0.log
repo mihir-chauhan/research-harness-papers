@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:59:00 2026
+# cwd: .
+# cmd: python method/run.py --system dt --task unicycle --seed 0 --alpha 2 --dt 0.02 --dth 1.0 --select critical --out results/raw/grid_alpha_dt_dt_unicycle__alpha_2_dt_0_02__0.json
+
+{"system": "dt", "task": "unicycle", "seed": 0, "alpha": 2.0, "dt": 0.02, "select": "critical", "dth": 1.0, "episodes": 100, "plant_step": 0.005, "tol": 1e-09, "violation_rate": 0.0, "success_rate": 1.0, "time_to_goal": 11.826400000000001, "min_clearance": 0.14889781402313146, "worst_penetration": 0.0, "barrier_violation_rate": 0.19, "barrier_penetration": 0.002698107542691064, "sample_violation_rate": 0.19, "sample_penetration": 0.0026979188964826317}

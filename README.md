@@ -14,6 +14,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 
 | Field | Paper | Directory |
 |---|---|---|
+| control-systems | Class-K Gain and Sampling Period in One-Constraint CBF Safety Filters: A Small Empirical Comparison on a Double Integrator and a Unicycle | [`papers/cbf-safety-filter-conservatism`](papers/cbf-safety-filter-conservatism) |
 | reinforcement-learning | How Many Planning Steps? Dyna-Q, Dyna-Q+ and Prioritized Sweeping Under Stale and Stochastic Tabular Models | [`papers/dyna-planning-under-model-error`](papers/dyna-planning-under-model-error) |
 | robotics | How Wide Should Domain Randomisation Be? A Small-Scale CartPole Study of Range Width and a Success-Gated Curriculum | [`papers/domain-randomisation-range-robustness`](papers/domain-randomisation-range-robustness) |
 | robotics | Templated Language versus Learned Vectors for Multi-Robot Rendezvous: A Small CPU Study of Success, Sample Efficiency and Cross-Play | [`papers/language-vs-vector-multi-robot-comm`](papers/language-vs-vector-multi-robot-comm) |

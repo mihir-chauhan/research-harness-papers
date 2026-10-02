@@ -1,0 +1,104 @@
+slug: cbf-safety-filter-conservatism
+direction: Control barrier function safety filters on top of an unsafe nominal controller
+  for a double integrator and a unicycle avoiding circular obstacles (closed-form
+  QP with one constraint, numpy only). How do the class-K gain and the time discretisation
+  affect safety violations and conservatism (time to goal, minimum distance)? Compare
+  continuous-time CBF applied at discrete steps, a discrete-time CBF condition, and
+  a simple distance-threshold braking heuristic.
+problem: A CBF safety filter is designed in continuous time but executed by a sampled-data
+  controller; how the class-K gain alpha and the control period dt trade safety violations
+  against conservatism is rarely quantified side by side for the simple one-constraint
+  closed-form filters.
+gap: Sampled-data and discrete-time CBF theory exists, but a compact, fully reproducible
+  head-to-head of a continuous-time CBF at discrete steps, a discrete-time CBF condition,
+  and a distance-threshold braking heuristic over (alpha, dt) on a double integrator
+  and a unicycle is missing.
+contribution: A small controlled empirical study (numpy, closed-form single-constraint
+  filters, 5 seeds x 100 randomised scenarios) of safety violations, time to goal
+  and clearance as functions of alpha and dt, including cases where the discrete-time
+  condition does NOT help.
+hypotheses:
+- id: H1
+  statement: The violation rate of the continuous-time CBF applied with zero-order
+    hold increases with the control period dt and with the gain alpha, and is ~0 for
+    small dt and alpha.
+  test: sweep_dt and sweep_alpha for CT-CBF; refuted if violations do not grow with
+    dt or alpha.
+- id: H2
+  statement: At the same alpha and large dt, the discrete-time CBF condition has a
+    lower violation rate than the continuous-time CBF, at the price of longer time
+    to goal.
+  test: sweep_dt, both tasks; refuted if DT-CBF violation rate >= CT-CBF at large
+    dt.
+- id: H3
+  statement: 'Larger alpha reduces conservatism: time to goal and minimum clearance
+    decrease monotonically with alpha for the CBF filters.'
+  test: sweep_alpha; refuted if time to goal is not decreasing in alpha.
+- id: H4
+  statement: The braking heuristic has a non-zero violation rate on the double integrator
+    at the default setting while the CBF filters at moderate (alpha, dt) have none.
+  test: main group; refuted if heuristic violation rate is 0 or CBF filters violate.
+method:
+  name: DT-CBF
+  summary: Closed-form one-constraint CBF filter whose condition is imposed on the
+    exact zero-order-hold successor state (discrete-time CBF, h_{k+1}-h_k>=-gamma
+    h_k, gamma=min(1,alpha dt)); compared with a continuous-time CBF applied at discrete
+    steps and a distance-threshold braking heuristic.
+  components:
+  - discrete-time condition
+  - most-critical-obstacle selection
+  entrypoint: method/run.py
+tasks:
+- double_integrator
+- unicycle
+metrics:
+  violation_rate:
+    higher_is_better: false
+  success_rate:
+    higher_is_better: true
+  time_to_goal:
+    higher_is_better: false
+  min_clearance:
+    higher_is_better: true
+  worst_penetration:
+    higher_is_better: false
+  barrier_violation_rate:
+    higher_is_better: false
+  barrier_penetration:
+    higher_is_better: false
+  sample_violation_rate:
+    higher_is_better: false
+  sample_penetration:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- CT-CBF
+- Braking
+- Nominal
+ablations:
+- CT-CBF
+- DT-CBF
+- Braking
+ambition:
+  target_tier: 2
+  primary_metric: violation_rate
+  primary_task: double_integrator
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

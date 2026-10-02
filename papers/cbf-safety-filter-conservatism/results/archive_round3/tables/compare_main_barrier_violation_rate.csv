@@ -1,0 +1,7 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+double_integrator,Discrete-time CBF (reimplemented),Continuous-time CBF at discrete steps (reimplemented),barrier_violation_rate,0.008,0.0,0.008,5,5,0.09930068321372679,0.09930068321372679,1.3522468075656267
+double_integrator,Discrete-time CBF (reimplemented),Distance-threshold braking (heuristic),barrier_violation_rate,0.008,0.10999999999999999,-0.10199999999999998,5,5,1.6376840388602994e-07,3.144296663328229e-05,-11.063453348751464
+double_integrator,Discrete-time CBF (reimplemented),Nominal (unfiltered),barrier_violation_rate,0.008,1.0,-0.992,5,5,1.214281682415656e-09,1.2142816824156611e-09,-167.6786041381377
+unicycle,Discrete-time CBF (reimplemented),Continuous-time CBF at discrete steps (reimplemented),barrier_violation_rate,0.4640000000000001,0.0,0.4640000000000001,5,5,1.0494820877110746e-05,1.0494820877110746e-05,17.352616134556975
+unicycle,Discrete-time CBF (reimplemented),Distance-threshold braking (heuristic),barrier_violation_rate,0.4640000000000001,0.0,0.4640000000000001,5,5,1.0494820877110746e-05,1.0494820877110746e-05,17.352616134556975
+unicycle,Discrete-time CBF (reimplemented),Nominal (unfiltered),barrier_violation_rate,0.4640000000000001,1.0,-0.5359999999999999,5,5,5.906733913018913e-06,5.906733913018913e-06,-20.04526346578133

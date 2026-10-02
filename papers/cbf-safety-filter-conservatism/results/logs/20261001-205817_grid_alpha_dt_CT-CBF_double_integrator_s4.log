@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:58:17 2026
+# cwd: .
+# cmd: python method/run.py --system ct --task double_integrator --seed 4 --alpha 5 --dt 0.2 --dth 1.0 --select critical --out results/raw/grid_alpha_dt_ct_double_integrator__alpha_5_dt_0_2__4.json
+
+{"system": "ct", "task": "double_integrator", "seed": 4, "alpha": 5.0, "dt": 0.2, "select": "critical", "dth": 1.0, "episodes": 100, "plant_step": 0.005, "tol": 1e-09, "violation_rate": 0.03, "success_rate": 1.0, "time_to_goal": 7.55, "min_clearance": 0.038524604479362144, "worst_penetration": 0.002178806849861825, "barrier_violation_rate": 0.03, "barrier_penetration": 0.002178806849861825, "sample_violation_rate": 0.0, "sample_penetration": 0.0}
