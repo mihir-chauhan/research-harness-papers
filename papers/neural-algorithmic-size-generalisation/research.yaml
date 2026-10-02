@@ -1,0 +1,110 @@
+slug: neural-algorithmic-size-generalisation
+direction: 'Size generalisation in neural algorithmic reasoning: train small networks
+  to execute Bellman-Ford shortest paths on random graphs with up to 8 nodes, and
+  test on 16, 32 and 64 nodes. Compare an MLP on the flattened adjacency matrix, a
+  message-passing network with sum aggregation, and one with max aggregation aligned
+  with the algorithm''s min/relaxation step, with and without step-wise supervision
+  of intermediate distances.'
+problem: Do small neural networks trained to execute Bellman-Ford on graphs of at
+  most 8 nodes keep working on graphs of 16, 32 and 64 nodes, and which of aggregation
+  (sum vs max) and step-wise supervision matters?
+gap: Prior work (Velickovic et al. 2019, CLRS) reports that max aggregation and hints
+  help; we run a controlled factorial on one algorithm with a fixed 8-node training
+  budget, two test-graph families (constant degree vs growing degree) and report seed-level
+  variability.
+contribution: A small, fully reproducible CPU factorial study (aggregation x step-wise
+  supervision, plus an MLP baseline) of size extrapolation for Bellman-Ford, with
+  ablations on aggregation type and the number of test-time message-passing steps.
+hypotheses:
+- id: H1
+  statement: Max-aggregation MPNN with step supervision has lower distance MAE at
+    n=64 (sparse graphs) than the sum-aggregation MPNN with step supervision.
+  test: rh compare on mae_sparse_n64, 5 seeds; refuted if max is not lower or the
+    difference is within noise
+- id: H2
+  statement: Step-wise supervision lowers n=64 MAE of the max-aggregation MPNN relative
+    to final-output-only supervision.
+  test: rh compare on mae_sparse_n64, max-hint vs max
+- id: H3
+  statement: The flattened-adjacency MLP, whose input size is fixed, is worse than
+    every MPNN at n>=16.
+  test: rh compare on mae_sparse_n16 and n64
+- id: H4
+  statement: Under growing node degree (dense family) the sum-aggregation MPNN degrades
+    more from n=8 to n=64 than the max-aggregation MPNN.
+  test: ratio mae_dense_n64 / mae_dense_n8 per seed, sum-hint vs max-hint
+method:
+  name: MPNN-max + steps
+  summary: Message passing network with max aggregation, T=n-1 relaxation steps, supervised
+    on Bellman-Ford distances at every step.
+  components:
+  - max aggregation
+  - step-wise supervision
+  entrypoint: method/run.py
+tasks:
+- bellman_ford
+metrics:
+  mae_sparse_n8:
+    higher_is_better: false
+  mae_sparse_n16:
+    higher_is_better: false
+  mae_sparse_n32:
+    higher_is_better: false
+  mae_sparse_n64:
+    higher_is_better: false
+  mae_dense_n8:
+    higher_is_better: false
+  mae_dense_n16:
+    higher_is_better: false
+  mae_dense_n32:
+    higher_is_better: false
+  mae_dense_n64:
+    higher_is_better: false
+  rel_sparse_n64:
+    higher_is_better: false
+  rel_dense_n64:
+    higher_is_better: false
+  acc_sparse_n64:
+    higher_is_better: true
+  acc_dense_n64:
+    higher_is_better: true
+  val_mae_n8:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- MLP (flat adjacency)
+- MPNN-sum
+- MPNN-sum + steps
+- MPNN-max
+ablations:
+- MPNN-mean
+- MPNN-mean + steps
+- max+steps x0.5
+- max+steps x2
+- max+steps x4
+- sum+steps x0.5
+- sum+steps x2
+- sum+steps x4
+ambition:
+  target_tier: 2
+  primary_metric: mae_sparse_n64
+  primary_task: bellman_ford
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

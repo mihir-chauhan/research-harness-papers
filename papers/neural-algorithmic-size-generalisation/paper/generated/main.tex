@@ -1,0 +1,11 @@
+\begin{tabular}{lccccc}
+\toprule
+Method & mae\_sparse\_n8 $\downarrow$ & mae\_sparse\_n16 $\downarrow$ & mae\_sparse\_n32 $\downarrow$ & mae\_sparse\_n64 $\downarrow$ & $n$ \\
+\midrule
+MPNN-sum + steps & 0.04 $\pm$ 0.01 & 0.12 $\pm$ 0.04 & 0.43 $\pm$ 0.24 & 54707.72 $\pm$ 122329.15 & 5 \\
+MPNN-max & \textbf{0.01 $\pm$ 0.00} & \textbf{0.03 $\pm$ 0.01} & 0.25 $\pm$ 0.46 & \underline{0.91 $\pm$ 1.22} & 5 \\
+MPNN-sum & \underline{0.02 $\pm$ 0.00} & \underline{0.03 $\pm$ 0.01} & \textbf{0.08 $\pm$ 0.06} & \textbf{0.23 $\pm$ 0.19} & 5 \\
+MLP (flat adjacency) & 0.24 $\pm$ 0.00 & 0.67 $\pm$ 0.01 & 1.02 $\pm$ 0.02 & 1.33 $\pm$ 0.02 & 5 \\
+\textbf{MPNN-max + steps} & 0.03 $\pm$ 0.01 & 0.08 $\pm$ 0.04 & \underline{0.24 $\pm$ 0.18} & 1.96 $\pm$ 2.05 & 5 \\
+\bottomrule
+\end{tabular}

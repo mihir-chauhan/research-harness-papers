@@ -1,0 +1,5 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+bellman_ford,MPNN-max + steps,MLP (flat adjacency),mae_dense_n64,8.830948242545128,0.5609431147575379,8.27000512778759,5,5,0.28721565151787615,0.28736828191967023,0.7758099465450359
+bellman_ford,MPNN-max + steps,MPNN-max,mae_dense_n64,8.830948242545128,1.2583280516788364,7.572620190866292,5,5,0.325475233294253,0.31149200920268666,0.7057952248735203
+bellman_ford,MPNN-max + steps,MPNN-sum,mae_dense_n64,8.830948242545128,,,5,5,,,
+bellman_ford,MPNN-max + steps,MPNN-sum + steps,mae_dense_n64,8.830948242545128,,,5,5,,,

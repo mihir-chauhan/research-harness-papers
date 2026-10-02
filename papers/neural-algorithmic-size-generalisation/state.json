@@ -1,0 +1,124 @@
+{
+  "slug": "neural-algorithmic-size-generalisation",
+  "direction": "Size generalisation in neural algorithmic reasoning: train small networks to execute Bellman-Ford shortest paths on random graphs with up to 8 nodes, and test on 16, 32 and 64 nodes. Compare an MLP on the flattened adjacency matrix, a message-passing network with sum aggregation, and one with max aggregation aligned with the algorithm's min/relaxation step, with and without step-wise supervision of intermediate distances.",
+  "created": "2026-10-01T18:44:02",
+  "updated": "2026-10-02T00:43:32",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T23:56:54",
+      "finished": "2026-10-02T00:06:19",
+      "notes": [
+        {
+          "t": "2026-10-02T00:06:19",
+          "note": "landscape+proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:06:19",
+          "note": "method/run.py"
+        },
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:43:32",
+      "notes": [
+        {
+          "t": "2026-10-02T00:43:32",
+          "note": "built"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:06:19",
+      "phase": "setup",
+      "decision": "see BRIEF.md decisions; fixed defaults, 1000 steps to fit 30 min CPU budget"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

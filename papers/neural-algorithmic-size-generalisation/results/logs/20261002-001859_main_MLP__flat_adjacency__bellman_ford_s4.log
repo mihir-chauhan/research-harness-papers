@@ -1,0 +1,36 @@
+# rh run | Fri Oct  2 00:18:59 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --seed 4 --out results/raw/main_mlp_4.json
+
+config {"system": "mlp", "task": "bellman_ford", "seed": 4, "steps": 1000, "lr": 0.003, "bs": 32, "step_mult": 1.0, "nmax_train": 8, "out": "results/raw/main_mlp_4.json"}
+it 0 loss 0.7675
+it 500 loss 0.1510
+{
+ "train_loss_last": 0.13017068803310394,
+ "val_mae_n8": 0.23833493888378143,
+ "mae_sparse_n8": 0.23767231404781342,
+ "rel_sparse_n8": 0.3489009439945221,
+ "acc_sparse_n8": 0.193125,
+ "mae_sparse_n16": 0.6905204653739929,
+ "rel_sparse_n16": 0.7332274913787842,
+ "acc_sparse_n16": 0.064375,
+ "mae_sparse_n32": 1.0144990682601929,
+ "rel_sparse_n32": 0.872114360332489,
+ "acc_sparse_n32": 0.02296875,
+ "mae_sparse_n64": 1.3294050693511963,
+ "rel_sparse_n64": 0.9430176019668579,
+ "acc_sparse_n64": 0.00953125,
+ "mae_dense_n8": 0.24172250926494598,
+ "rel_dense_n8": 0.35152482986450195,
+ "acc_dense_n8": 0.184375,
+ "mae_dense_n16": 0.47273537516593933,
+ "rel_dense_n16": 0.6934555172920227,
+ "acc_dense_n16": 0.0953125,
+ "mae_dense_n32": 0.5398062467575073,
+ "rel_dense_n32": 0.8196099400520325,
+ "acc_dense_n32": 0.0471875,
+ "mae_dense_n64": 0.5615148544311523,
+ "rel_dense_n64": 0.9257156848907471,
+ "acc_dense_n64": 0.027578125,
+ "train_seconds": 4.98279595375061
+}

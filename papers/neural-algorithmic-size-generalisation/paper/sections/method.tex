@@ -1,0 +1,22 @@
+\textbf{Task.} A graph has symmetric weighted adjacency $W\in\mathbb{R}^{n\times n}$ ($W_{ij}=0$ if no edge, edge weights in $[0.2,1]$), edge set $E$, and a source $s$. Bellman-Ford maintains $d^{(0)}_s=0$, $d^{(0)}_i=\infty$ otherwise, and for $t=1,\dots,n-1$
+\begin{equation}
+d^{(t)}_i=\min\Big(d^{(t-1)}_i,\ \min_{j:(i,j)\in E}\big(d^{(t-1)}_j+W_{ij}\big)\Big).
+\label{eq:bf}
+\end{equation}
+All graphs are connected, so $d^{(n-1)}$ is finite. The network must output $d^{(n-1)}_i$ for all $i$.
+
+\textbf{MPNN (sum, mean or max).} Node inputs are the source indicator $x_i=\mathbf{1}[i=s]$ (1 if $i$ is the source, else 0); the weight enters only through edges. With $h^{(0)}_i=\mathrm{enc}(x_i)$ and $T=n-1$ steps,
+\begin{align}
+m^{(t)}_{ij}&=\phi\big([h^{(t-1)}_i,h^{(t-1)}_j,W_{ij}]\big),\\
+a^{(t)}_i&=\bigoplus_{j:(i,j)\in E} m^{(t)}_{ij},\quad \bigoplus\in\{\textstyle\sum,\ \mathrm{mean},\ \max\},\\
+h^{(t)}_i&=\psi\big([h^{(t-1)}_i,a^{(t)}_i]\big),\qquad (\hat d^{(t)}_i,\ \ell^{(t)}_i)=\mathrm{dec}(h^{(t)}_i),
+\end{align}
+where $\phi,\psi,\mathrm{enc},\mathrm{dec}$ are two-hidden-layer ReLU MLPs of width 32 (hidden state 32), weights shared across steps. The max aggregator can implement Eq.~\eqref{eq:bf} by letting $\phi$ output $-(d_j+W_{ij})$ coordinates, whereas sum aggregation must compute the minimum from a degree-dependent total. $\ell^{(t)}_i$ is a logit for ``reached at round $t$''.
+
+\textbf{Supervision.} \emph{Final-only}: $\mathcal{L}=\frac1{n}\sum_i(\hat d^{(T)}_i-d^{(T)}_i)^2$. \emph{Step-wise}: with $r^{(t)}_i=\mathbf{1}[d^{(t)}_i<\infty]$,
+\begin{equation}
+\mathcal{L}=\frac1T\sum_{t=1}^{T}\Big[\frac{\sum_i r^{(t)}_i(\hat d^{(t)}_i-d^{(t)}_i)^2}{\sum_i r^{(t)}_i}+\mathrm{BCE}\big(\ell^{(t)},r^{(t)}\big)\Big],
+\end{equation}
+so distances are supervised only where finite, and unreached nodes only through the reached flag.
+
+\textbf{MLP baseline.} The weighted adjacency is zero-padded to $64\times64$, flattened and concatenated with the padded one-hot source (4160 inputs), passed through two hidden layers of width 128 and a 64-way linear output (557,376 parameters, against 12,770 for each MPNN); the first $n$ outputs are the predicted distances, trained with final-only MSE. Its input size forces the 64-node padding, so graphs with $n>8$ put weight on inputs never active in training; this is the intended failure mode of a fixed-size model, not a tuned baseline. The MLP has no recurrent steps and therefore no step-supervised variant. All baselines are reimplemented here; none uses code from the cited papers.

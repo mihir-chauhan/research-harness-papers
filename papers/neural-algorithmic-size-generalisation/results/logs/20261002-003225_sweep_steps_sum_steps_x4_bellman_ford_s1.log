@@ -1,0 +1,36 @@
+# rh run | Fri Oct  2 00:32:25 2026
+# cwd: .
+# cmd: python method/run.py --system sum-hint --seed 1 --step_mult 4.0 --out results/raw/sweep_steps_sum-hint_m4.0_1.json
+
+config {"system": "sum-hint", "task": "bellman_ford", "seed": 1, "steps": 1000, "lr": 0.003, "bs": 32, "step_mult": 4.0, "nmax_train": 8, "out": "results/raw/sweep_steps_sum-hint_m4.0_1.json"}
+it 0 loss 1.2604
+it 500 loss 0.0486
+{
+ "train_loss_last": 0.002374612959101796,
+ "val_mae_n8": 0.03692004084587097,
+ "mae_sparse_n8": 0.3916749656200409,
+ "rel_sparse_n8": 0.5857998132705688,
+ "acc_sparse_n8": 0.1175,
+ "mae_sparse_n16": 0.8004719018936157,
+ "rel_sparse_n16": 0.8603582382202148,
+ "acc_sparse_n16": 0.030625,
+ "mae_sparse_n32": 0.6156704425811768,
+ "rel_sparse_n32": 0.5216727256774902,
+ "acc_sparse_n32": 0.0496875,
+ "mae_sparse_n64": 0.45969146490097046,
+ "rel_sparse_n64": 0.32410433888435364,
+ "acc_sparse_n64": 0.074453125,
+ "mae_dense_n8": 0.3730591833591461,
+ "rel_dense_n8": 0.5215778350830078,
+ "acc_dense_n8": 0.12125,
+ "mae_dense_n16": 4.602127036134195e+16,
+ "rel_dense_n16": 6.721930478904934e+16,
+ "acc_dense_n16": 0.0003125,
+ "mae_dense_n32": NaN,
+ "rel_dense_n32": NaN,
+ "acc_dense_n32": 0.0,
+ "mae_dense_n64": NaN,
+ "rel_dense_n64": NaN,
+ "acc_dense_n64": 0.0,
+ "train_seconds": 97.97316908836365
+}

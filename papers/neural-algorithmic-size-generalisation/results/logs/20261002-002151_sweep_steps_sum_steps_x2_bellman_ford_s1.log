@@ -1,0 +1,40 @@
+# rh run | Fri Oct  2 00:21:51 2026
+# cwd: .
+# cmd: python method/run.py --system sum-hint --seed 1 --step_mult 2.0 --out results/raw/sweep_steps_sum-hint_m2.0_1.json
+
+config {"system": "sum-hint", "task": "bellman_ford", "seed": 1, "steps": 1000, "lr": 0.003, "bs": 32, "step_mult": 2.0, "nmax_train": 8, "out": "results/raw/sweep_steps_sum-hint_m2.0_1.json"}
+it 0 loss 1.2604
+it 500 loss 0.0486
+data/envs/sci/lib/python3.12/site-packages/numpy/_core/_methods.py:132: RuntimeWarning: overflow encountered in reduce
+  ret = umr_sum(arr, axis, dtype, out, keepdims, where=where)
+data/envs/sci/lib/python3.12/site-packages/numpy/_core/_methods.py:49: RuntimeWarning: overflow encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+{
+ "train_loss_last": 0.002374612959101796,
+ "val_mae_n8": 0.03692004084587097,
+ "mae_sparse_n8": 0.07896909862756729,
+ "rel_sparse_n8": 0.1181083545088768,
+ "acc_sparse_n8": 0.3775,
+ "mae_sparse_n16": 0.6077343225479126,
+ "rel_sparse_n16": 0.6532012224197388,
+ "acc_sparse_n16": 0.0596875,
+ "mae_sparse_n32": 0.6134718060493469,
+ "rel_sparse_n32": 0.5198097229003906,
+ "acc_sparse_n32": 0.04984375,
+ "mae_sparse_n64": 0.45969146490097046,
+ "rel_sparse_n64": 0.32410433888435364,
+ "acc_sparse_n64": 0.074453125,
+ "mae_dense_n8": 0.07893183082342148,
+ "rel_dense_n8": 0.11035539209842682,
+ "acc_dense_n8": 0.395625,
+ "mae_dense_n16": 2018140.0,
+ "rel_dense_n16": 2947723.25,
+ "acc_dense_n16": 0.0184375,
+ "mae_dense_n32": NaN,
+ "rel_dense_n32": NaN,
+ "acc_dense_n32": 0.0,
+ "mae_dense_n64": NaN,
+ "rel_dense_n64": NaN,
+ "acc_dense_n64": 0.0,
+ "train_seconds": 56.466428995132446
+}

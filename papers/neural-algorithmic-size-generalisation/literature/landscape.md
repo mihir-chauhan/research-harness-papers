@@ -1,0 +1,5 @@
+# Landscape
+- Neural execution of graph algorithms (Velickovic et al., 2019): step-wise supervised MPNNs imitating BFS/Bellman-Ford/Prim; argues max aggregation aligns with the relaxation step; closest work. We re-run a controlled factorial on Bellman-Ford with explicit size extrapolation to 8x the training size.
+- CLRS benchmark (Velickovic et al. 2022) and triplet-GMPNN (Ibarz et al. 2022), PGN (Velickovic et al. 2020), SALSA-CLRS (Minder et al. 2023): benchmarks/processors; train 16 test 64.
+- Algorithmic alignment (Xu et al. 2020 "What can NNs reason about"), extrapolation (Xu et al. 2021 "How NNs extrapolate"), dynamic-programming GNNs (Dudzik & Velickovic 2022), Neural algorithmic reasoning position (Velickovic & Blundell 2021), size generalisation of GNNs (Yehudai et al. 2021).
+- Gap: the claims "max helps" and "hints help" are rarely separated in a factorial design with seed variance, nor across a degree-preserving versus degree-growing shift. This study fills that at small scale only.

@@ -1,0 +1,36 @@
+# rh run | Fri Oct  2 00:20:47 2026
+# cwd: .
+# cmd: python method/run.py --system mean --seed 2 --out results/raw/abl_agg_mean_2.json
+
+config {"system": "mean", "task": "bellman_ford", "seed": 2, "steps": 1000, "lr": 0.003, "bs": 32, "step_mult": 1.0, "nmax_train": 8, "out": "results/raw/abl_agg_mean_2.json"}
+it 0 loss 0.6762
+it 500 loss 0.0024
+{
+ "train_loss_last": 0.0010887004900723696,
+ "val_mae_n8": 0.014812328852713108,
+ "mae_sparse_n8": 0.013947594910860062,
+ "rel_sparse_n8": 0.020684219896793365,
+ "acc_sparse_n8": 0.965625,
+ "mae_sparse_n16": 0.036671362817287445,
+ "rel_sparse_n16": 0.04045768082141876,
+ "acc_sparse_n16": 0.746875,
+ "mae_sparse_n32": 0.09376198053359985,
+ "rel_sparse_n32": 0.08025781065225601,
+ "acc_sparse_n32": 0.4709375,
+ "mae_sparse_n64": 0.14215557277202606,
+ "rel_sparse_n64": 0.1036628931760788,
+ "acc_sparse_n64": 0.321640625,
+ "mae_dense_n8": 0.013617319986224174,
+ "rel_dense_n8": 0.01999625191092491,
+ "acc_dense_n8": 0.971875,
+ "mae_dense_n16": 0.03167245537042618,
+ "rel_dense_n16": 0.04488779231905937,
+ "acc_dense_n16": 0.7990625,
+ "mae_dense_n32": 0.07819522172212601,
+ "rel_dense_n32": 0.11961943656206131,
+ "acc_dense_n32": 0.4175,
+ "mae_dense_n64": 0.1063014343380928,
+ "rel_dense_n64": 0.17550592124462128,
+ "acc_dense_n64": 0.250078125,
+ "train_seconds": 29.997079133987427
+}
