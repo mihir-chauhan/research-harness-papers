@@ -1,0 +1,7 @@
+# Results (all numbers from results/runs.jsonl; tables in results/tables)
+Main cell (wd=1, f=0.5, 5 seeds), steps_to_95 mean (censored at 4000): uniform 2945, curriculum 3955, anti-curriculum 3990; reached 3/5, 1/5, 1/5. rh compare: curriculum vs uniform Welch p=0.091, paired p=0.086, d=1.39 (curriculum slower); curriculum vs anti p=0.49.
+- H1 (curriculum >=10% faster than uniform): REFUTED. Curriculum is slower in the mean (not significant at 0.05).
+- H2 (anti-curriculum not faster than uniform): SUPPORTED (means 3990 vs 2945; no claim of significance).
+- H3 (wd=0 never reaches 95% in 4000 steps): SUPPORTED, 0/27 runs reached it, but the budget is short.
+- H4 (sign of curriculum-uniform differs across cells): not refuted by the registered rule (f=0.7: curriculum faster at wd=1, 1733 vs 1817, slower at wd=3, 1267 vs 1142) but the differences are far inside seed noise (3 seeds): INCONCLUSIVE. In 5 of 9 cells no run of any system reached 95%.
+Sweeps: shorter T_c converges toward uniform (T_c=250: 2905, 5/5); shuffled order with T_c=1000: 0/5 reached; the 5-seed 0/5 vs 1/5 shuffled-vs-operand-size difference does not show whether operand-size ordering matters. Post hoc: seeds 5-6 (group curves) gave uniform 0/2, curriculum 1/2, anti 1/2; pooled 7 seeds uniform 3246 (3/7), curriculum 3789 (2/7), anti 3993 (2/7); curriculum vs uniform Welch p=0.22, paired p=0.27 (not the registered test; H1 verdict rests on the 5-seed test). Registry note: grid rows were relabelled from group grid to main (see experiments/PROTOCOL.md).

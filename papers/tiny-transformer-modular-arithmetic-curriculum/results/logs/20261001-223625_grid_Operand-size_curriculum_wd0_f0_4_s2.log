@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:36:25 2026
+# cwd: .
+# cmd: python method/run.py --system curriculum --task wd0_f0.4 --seed 2 --wd 0 --frac 0.4 --out results/raw/grid_wd0_f0.4_curriculum_wd0frac0.4_s2.json
+
+config: {"system": "curriculum", "task": "wd0_f0.4", "seed": 2, "p": 23, "frac": 0.4, "wd": 0.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "", "out": "results/raw/grid_wd0_f0.4_curriculum_wd0frac0.4_s2.json"}
+metrics: {"steps_to_95": 4000.0, "reached": 0.0, "final_test_acc": 0.3438485860824585, "final_train_acc": 1.0, "steps_to_train95": 950.0, "wall_s": 30.007121086120605, "grok_gap": 3050.0}

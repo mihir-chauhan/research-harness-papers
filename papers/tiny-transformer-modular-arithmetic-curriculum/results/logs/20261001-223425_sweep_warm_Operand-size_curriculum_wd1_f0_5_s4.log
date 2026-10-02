@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:34:25 2026
+# cwd: .
+# cmd: python method/run.py --system curriculum --task wd1_f0.5 --seed 4 --wd 1 --frac 0.5 --warm 500 --out results/raw/sweep_warm_wd1_f0.5_curriculum_warm500_s4.json
+
+config: {"system": "curriculum", "task": "wd1_f0.5", "seed": 4, "p": 23, "frac": 0.5, "wd": 1.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 500, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "", "out": "results/raw/sweep_warm_wd1_f0.5_curriculum_warm500_s4.json"}
+metrics: {"steps_to_95": 4000.0, "reached": 0.0, "final_test_acc": 0.5169811248779297, "final_train_acc": 1.0, "steps_to_train95": 475.0, "wall_s": 28.52332901954651, "grok_gap": 3525.0}

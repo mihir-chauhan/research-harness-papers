@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:40:15 2026
+# cwd: .
+# cmd: python method/run.py --system uniform --task wd1_f0.4 --seed 0 --wd 1 --frac 0.4 --out results/raw/grid_wd1_f0.4_uniform_wd1frac0.4_s0.json
+
+config: {"system": "uniform", "task": "wd1_f0.4", "seed": 0, "p": 23, "frac": 0.4, "wd": 1.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "", "out": "results/raw/grid_wd1_f0.4_uniform_wd1frac0.4_s0.json"}
+metrics: {"steps_to_95": 4000.0, "reached": 0.0, "final_test_acc": 0.15457412600517273, "final_train_acc": 0.4716981053352356, "steps_to_train95": 100.0, "wall_s": 14.908473014831543, "grok_gap": 3900.0}

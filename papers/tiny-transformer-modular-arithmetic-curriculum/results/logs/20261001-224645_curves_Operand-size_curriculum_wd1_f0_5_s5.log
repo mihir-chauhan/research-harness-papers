@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:46:45 2026
+# cwd: .
+# cmd: python method/run.py --system curriculum --seed 5 --curve results/raw/curve_curriculum_s5.csv --out results/raw/curves_curriculum_s5.json
+
+config: {"system": "curriculum", "task": "modadd", "seed": 5, "p": 23, "frac": 0.5, "wd": 1.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "results/raw/curve_curriculum_s5.csv", "out": "results/raw/curves_curriculum_s5.json"}
+metrics: {"steps_to_95": 2750.0, "reached": 1.0, "final_test_acc": 0.9509434103965759, "final_train_acc": 1.0, "steps_to_train95": 950.0, "wall_s": 8.419667959213257, "grok_gap": 1800.0}

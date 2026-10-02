@@ -1,0 +1,31 @@
+Table~\ref{tab:main} gives the main cell ($\lambda=1$, $f=0.5$, seeds 0--4) and Fig.~\ref{fig:bars} the per-seed values; the table columns are mean $\pm$ std over seeds, \emph{train95} is steps to 95\% training accuracy. Steps to 95\% are censored at 4000, so means are lower bounds for systems that often did not reach it. Hypotheses and tests were registered in the project proposal before the main runs.
+
+\begin{table}[t]\centering\caption{Main cell ($\lambda=1$, $f=0.5$, 5 seeds): mean $\pm$ std over seeds. \emph{reached} is the fraction of seeds with held-out accuracy $\ge0.95$ within 4000 steps; steps\_to\_95 is censored at 4000.}\label{tab:main}
+\resizebox{\columnwidth}{!}{\input{generated/main_cell.tex}}\end{table}
+
+\begin{table}[t]\centering\caption{Paired and Welch tests (\texttt{rh compare}, 5 seeds) on steps\_to\_95 at the main cell: curriculum minus the named system.}\label{tab:tests}
+\footnotesize\input{generated/tests.tex}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=0.7\columnwidth]{main_bars.pdf}
+\caption{Steps to 95\% held-out accuracy at the main cell: bars are means, dots individual seeds (censored at 4000).}\label{fig:bars}\end{figure}
+
+\textbf{H1 (curriculum at least 10\% faster than uniform): refuted.} The curriculum needed 3955 steps on average against 2945 for uniform sampling (Table~\ref{tab:main}); only 1 of 5 curriculum seeds reached 95\% against 3 of 5 for uniform. The registered test (harness comparison, Table~\ref{tab:tests}) gives Welch and paired $p$ of 0.09 in the direction of the curriculum being slower: not significant at the 0.05 level with 5 seeds, so we cannot say the curriculum is slower, only that it was not faster.
+
+\textbf{H2 (anti-curriculum not faster than uniform): supported.} The anti-curriculum averaged 3990 steps with 1 of 5 seeds reaching 95\%; it is indistinguishable from the curriculum (Table~\ref{tab:tests}). The two orderings behave alike, which already suggests that the ordering itself is not the main factor (tested in Section~\ref{sec:ablations}).
+
+\textbf{Where grokking is and is not seen.} Uniform sampling fits the training set to 95\% after about 125 steps and then waits for held-out accuracy, a delayed generalisation of the usual kind: the grok\_gap column of Table~\ref{tab:main} (mean 2820) is a censored lower bound because two uniform seeds never reached 95\%; among the three that did, the gap was 2133 steps on average. Both orderings reach 95\% training accuracy only after about 960 steps, i.e.\ when the pool has grown to the full training set, and their gap after that point (2995 and 3025) is not shorter than uniform's. Fig.~\ref{fig:curves} (two extra seeds, 5 and 6, run in a separate group with the same main-cell configuration) shows held-out accuracy plateauing near 0.47 for all systems before rising in jumps; the curves are noisy, with sharp transient drops, which is a sign that $\eta=3\times10^{-3}$ is on the unstable side. Seed-level variability is large: at the main cell the uniform runs ended at 1700, 2450, 2575 steps or did not reach 95\% (two of five seeds).
+
+\textbf{Post-hoc check with seeds 5 and 6.} The two extra seeds were run for the curves of Fig.~\ref{fig:curves}; their outcomes are in Table~\ref{tab:pooled}. They went against the registered direction: uniform sampling reached 95\% in 0 of 2 seeds, the curriculum in 1 of 2 and the anti-curriculum in 1 of 2 (the anti-curriculum crossing was at the final evaluation, step 4000, so its steps equal the censoring value). Pooled over the 7 seeds the curriculum--uniform gap shrinks from 1010 to 543 steps and is not significant (Welch $p=0.22$, paired $p=0.27$); the anti-curriculum--uniform comparison gives $p=0.09$ (both). This pooled test was chosen after seeing the data and does not replace the registered 5-seed test, which stays the basis of the H1 verdict; it shows that the 5-seed gap is not robust, so the data support ``no benefit found'' and do not establish that the curriculum is slower.
+
+\begin{table}[t]\centering\caption{Main cell, registered seeds 0--4, extra seeds 5--6, and pooled 7 seeds (post hoc). $p$ values compare the named system with uniform sampling.}\label{tab:pooled}
+\resizebox{\columnwidth}{!}{\input{generated/pooled7.tex}}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=0.9\columnwidth]{curves_main.pdf}
+\caption{Held-out accuracy versus step at the main cell, mean over the two extra seeds 5 and 6 (shaded: range). Runs stop once they reach 95\%, so late points average fewer runs. The vertical axis is held-out accuracy.}\label{fig:curves}\end{figure}
+
+\textbf{H3 (no generalisation at $\lambda=0$): supported within the budget.} None of the 27 runs with $\lambda=0$ (3 fractions $\times$ 3 systems $\times$ 3 seeds) reached 95\% (Table~\ref{tab:grid}); training accuracy was reached but held-out accuracy stayed low. This says nothing about longer training: we do not know whether these runs would generalise after 4000 steps.
+
+\textbf{H4 (interaction): inconclusive.} See Table~\ref{tab:grid} and Fig.~\ref{fig:sweep}b. The cells where curriculum and uniform both reached 95\% in every seed are $(\lambda,f)=(1,0.7)$ and $(3,0.7)$; the curriculum is slightly faster at $\lambda=1$ (1733 vs.\ 1817) and slower at $\lambda=3$ (1267 vs.\ 1142). The sign flips, so the registered refutation rule (``same sign in every cell where both reach 95\%'') is not met, but both differences are much smaller than the seed spread with 3 seeds, so we do not claim an interaction. In the remaining cells the curriculum is never the only system to generalise; in $(3,0.5)$ only the anti-curriculum did (1 of 3 seeds). Training fraction and weight decay themselves matter far more than the order: nothing generalised at $f=0.4$ for any $\lambda$, and only the cells with $\lambda\in\{1,3\}$ and $f\ge0.5$ produced successes.
+
+\begin{table}[t]\centering\caption{Weight decay $\lambda$ $\times$ training fraction $f$ grid. Each entry is mean steps to 95\% (censored at 4000) with the number of seeds that reached 95\% in brackets; $n$ is the seed count. The $(1,0.5)$ row is the main group.}\label{tab:grid}
+\footnotesize\input{generated/grid_pivot.tex}\end{table}

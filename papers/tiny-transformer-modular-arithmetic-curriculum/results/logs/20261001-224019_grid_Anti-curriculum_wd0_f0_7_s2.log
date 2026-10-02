@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:40:19 2026
+# cwd: .
+# cmd: python method/run.py --system anticurriculum --task wd0_f0.7 --seed 2 --wd 0 --frac 0.7 --out results/raw/grid_wd0_f0.7_anticurriculum_wd0frac0.7_s2.json
+
+config: {"system": "anticurriculum", "task": "wd0_f0.7", "seed": 2, "p": 23, "frac": 0.7, "wd": 0.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "", "out": "results/raw/grid_wd0_f0.7_anticurriculum_wd0frac0.7_s2.json"}
+metrics: {"steps_to_95": 4000.0, "reached": 0.0, "final_test_acc": 0.5849056839942932, "final_train_acc": 1.0, "steps_to_train95": 975.0, "wall_s": 15.254344940185547, "grok_gap": 3025.0}

@@ -1,0 +1,18 @@
+\subsection{Task and model}
+Let $p=23$ and $\mathcal{P}=\{0,\dots,p-1\}^2$, $|\mathcal{P}|=p^2=529$. The target of $(a,b)$ is $y=(a+b)\bmod p$. A random subset $\mathcal{T}\subset\mathcal{P}$ with $|\mathcal{T}|=\lfloor f p^2\rceil$ ($f$ is the training fraction) is the training set; all remaining pairs form the held-out set $\mathcal{H}=\mathcal{P}\setminus\mathcal{T}$, which is never used for training or tuning. The model is a one-layer pre-LayerNorm transformer~\cite{vaswani2017attention}: the input $[a,b,{=}]$ is embedded as $h^{0}_i=E[x_i]+P_i$ ($d=64$), followed by $h^{1}=h^{0}+\mathrm{MHA}(\mathrm{LN}(h^{0}))$ (4 heads) and $h^{2}=h^{1}+\mathrm{MLP}(\mathrm{LN}(h^{1}))$ (hidden width 256, ReLU); logits are $W\,\mathrm{LN}(h^{2}_{3})$ at the ``='' position. The loss is cross-entropy and the optimiser is AdamW~\cite{loshchilov2017decoupled},
+\begin{equation}
+\theta_{t+1}=\theta_t-\eta\Big(\hat m_t/(\sqrt{\hat v_t}+\epsilon)+\lambda\,\theta_t\Big),
+\end{equation}
+with learning rate $\eta=3\times10^{-3}$, decoupled weight decay $\lambda$ (``wd''), $\beta=(0.9,0.98)$ and mini-batches of 128 pairs drawn with replacement from the current sampling pool $\mathcal{S}_t\subseteq\mathcal{T}$.
+
+\subsection{Samplers}
+Define the difficulty (operand size) of a training pair $s(a,b)=\max(a,b)$, with ties broken by a random key fixed per run. Let $\pi$ be the training pairs sorted by increasing $s$ and $N=|\mathcal{T}|$. With pacing $q(t)=\min\!\big(1,\,q_0+(1-q_0)\,t/T_c\big)$, $q_0=0.15$:
+\begin{align}
+\text{Uniform:}\;& \mathcal{S}_t=\mathcal{T},\\
+\text{Curriculum:}\;& \mathcal{S}_t=\{\pi_1,\dots,\pi_{n(t)}\},\\
+\text{Anti-curriculum:}\;& \mathcal{S}_t=\{\pi_N,\dots,\pi_{N-n(t)+1}\}.
+\end{align}
+with pool size $n(t)=\max(32,\lceil q(t)N\rceil)$. Pools are defined by rank rather than by a threshold on $s$, so curriculum and anti-curriculum expose the same number of examples at every step. After $T_c$ steps (default 1000) all three samplers coincide. A control, \emph{shuffled-order pool growth}, uses the same $q(t)$ with a random key in place of $s$; it separates the effect of the ordering from the effect of starting with a small pool. All three systems are the same code path with a flag; there are no other published baselines to reimplement, so ``Uniform sampling'' (random mini-batches, as in Power et al.~\cite{power2022grokking}) is reimplemented here and the two orderings are the compared interventions, following the easy-to-hard idea of Bengio et al.~\cite{bengio2009curriculum}.
+
+\subsection{Metrics}
+Every 25 steps we evaluate accuracy on $\mathcal{H}$ (and on $\mathcal{T}$). \emph{steps\_to\_95} is the first evaluated step with held-out accuracy $\ge0.95$ (the run then stops); a run that never gets there is censored at the budget of 4000 steps and also has \emph{reached}$=0$. \emph{steps\_to\_train95} is the same for training accuracy and \emph{grok\_gap}$=$steps\_to\_95$-$steps\_to\_train95 measures delayed generalisation. The step resolution is thus 25.

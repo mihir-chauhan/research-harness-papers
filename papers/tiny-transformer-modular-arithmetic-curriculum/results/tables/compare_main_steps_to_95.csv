@@ -1,0 +1,19 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+wd0_f0.4,Operand-size curriculum,Anti-curriculum,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd0_f0.4,Operand-size curriculum,Uniform sampling,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd0_f0.5,Operand-size curriculum,Anti-curriculum,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd0_f0.5,Operand-size curriculum,Uniform sampling,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd0_f0.7,Operand-size curriculum,Anti-curriculum,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd0_f0.7,Operand-size curriculum,Uniform sampling,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd1_f0.4,Operand-size curriculum,Anti-curriculum,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd1_f0.4,Operand-size curriculum,Uniform sampling,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd1_f0.5,Operand-size curriculum,Anti-curriculum,steps_to_95,3955.0,3990.0,-35.0,5,5,0.48640188581060667,0.5102492390442802,-0.48019603839902475
+wd1_f0.5,Operand-size curriculum,Uniform sampling,steps_to_95,3955.0,2945.0,1010.0,5,5,0.09090516958271837,0.08617344316382596,1.3941814130708032
+wd1_f0.7,Operand-size curriculum,Anti-curriculum,steps_to_95,1733.3333333333333,2575.0,-841.6666666666667,3,3,0.2196788944147891,0.172770053218119,-1.3965283953877798
+wd1_f0.7,Operand-size curriculum,Uniform sampling,steps_to_95,1733.3333333333333,1816.6666666666667,-83.33333333333348,3,3,0.7763592169177744,0.7590186536440601,-0.2569174977693544
+wd3_f0.4,Operand-size curriculum,Anti-curriculum,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd3_f0.4,Operand-size curriculum,Uniform sampling,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd3_f0.5,Operand-size curriculum,Anti-curriculum,steps_to_95,4000.0,3358.3333333333335,641.6666666666665,3,3,0.4226497308103743,0.4226497308103743,0.8164965809277258
+wd3_f0.5,Operand-size curriculum,Uniform sampling,steps_to_95,4000.0,4000.0,0.0,3,3,,,
+wd3_f0.7,Operand-size curriculum,Anti-curriculum,steps_to_95,1266.6666666666667,2358.3333333333335,-1091.6666666666667,3,3,0.3255388196490499,0.24143005552471655,-1.0262915825067995
+wd3_f0.7,Operand-size curriculum,Uniform sampling,steps_to_95,1266.6666666666667,1141.6666666666667,125.0,3,3,0.8271303206651178,0.8576070570472065,0.19682395540555422

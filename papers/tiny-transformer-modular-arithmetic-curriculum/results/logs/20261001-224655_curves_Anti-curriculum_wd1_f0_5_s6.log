@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:46:55 2026
+# cwd: .
+# cmd: python method/run.py --system anticurriculum --seed 6 --curve results/raw/curve_anticurriculum_s6.csv --out results/raw/curves_anticurriculum_s6.json
+
+config: {"system": "anticurriculum", "task": "modadd", "seed": 6, "p": 23, "frac": 0.5, "wd": 1.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "results/raw/curve_anticurriculum_s6.csv", "out": "results/raw/curves_anticurriculum_s6.json"}
+metrics: {"steps_to_95": 4000.0, "reached": 0.0, "final_test_acc": 0.4528301954269409, "final_train_acc": 1.0, "steps_to_train95": 950.0, "wall_s": 13.664142847061157, "grok_gap": 3050.0}

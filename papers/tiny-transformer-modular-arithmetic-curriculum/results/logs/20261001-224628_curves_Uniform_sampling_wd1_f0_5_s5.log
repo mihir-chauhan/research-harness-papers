@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:46:28 2026
+# cwd: .
+# cmd: python method/run.py --system uniform --seed 5 --curve results/raw/curve_uniform_s5.csv --out results/raw/curves_uniform_s5.json
+
+config: {"system": "uniform", "task": "modadd", "seed": 5, "p": 23, "frac": 0.5, "wd": 1.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "results/raw/curve_uniform_s5.csv", "out": "results/raw/curves_uniform_s5.json"}
+metrics: {"steps_to_95": 4000.0, "reached": 0.0, "final_test_acc": 0.8603773713111877, "final_train_acc": 1.0, "steps_to_train95": 125.0, "wall_s": 14.250535011291504, "grok_gap": 3875.0}

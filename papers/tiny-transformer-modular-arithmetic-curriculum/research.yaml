@@ -1,0 +1,92 @@
+slug: tiny-transformer-modular-arithmetic-curriculum
+direction: Can a small transformer learn modular addition faster with a curriculum?
+  Train a one- or two-layer transformer (torch, CPU, small modulus such as 23 or 31
+  so that runs finish in minutes) on modular addition with (a) uniform sampling, (b)
+  a curriculum over operand size, (c) an anti-curriculum. Measure steps to reach 95
+  percent held-out accuracy, and how weight decay and training-set fraction interact
+  with the curriculum. Keep within the CPU budget and say so if delayed generalisation
+  (grokking) is not reached.
+problem: Does ordering training examples by operand size speed up (or slow down) generalisation
+  of a one-layer transformer on modular addition, and how does that depend on weight
+  decay and training-set fraction?
+gap: Grokking studies vary weight decay and data fraction under uniform sampling;
+  the effect of data ORDER (curriculum / anti-curriculum) on the time to generalise,
+  and its interaction with those two knobs, is not isolated at small scale.
+contribution: A controlled CPU-scale comparison of uniform, operand-size curriculum
+  and anti-curriculum sampling on (a+b) mod 23 with a 1-layer transformer, a weight-decay
+  x training-fraction grid, and a curriculum-length / shuffled-order sweep; reports
+  negative and mixed results honestly.
+hypotheses:
+- id: H1
+  statement: At the default cell (wd=1, train fraction 0.5) the operand-size curriculum
+    reaches 95% held-out accuracy in at least 10% fewer steps than uniform sampling.
+  test: rh compare on steps_to_95 (5 seeds, alpha 0.05, relative gain >=10%); refuted
+    if curriculum is not faster or slower.
+- id: H2
+  statement: The anti-curriculum is not faster than uniform sampling at the default
+    cell.
+  test: rh compare on steps_to_95; refuted if anti-curriculum is significantly faster.
+- id: H3
+  statement: Without weight decay (wd=0) no ordering reaches 95% held-out accuracy
+    within the 4000-step budget, so curriculum cannot substitute for weight decay.
+  test: reached-rate over all wd=0 cells in the grid (3 seeds each); refuted if any
+    ordering reaches 95% in a majority of seeds in some wd=0 cell.
+- id: H4
+  statement: The sign of the curriculum effect relative to uniform depends on training
+    fraction and weight decay (an interaction), rather than being the same in all
+    grid cells.
+  test: per-cell median steps_to_95 difference curriculum-uniform (3 seeds per cell,
+    descriptive); refuted if the sign is the same in every cell where both reach 95%.
+method:
+  name: Operand-size curriculum
+  summary: Training pairs sorted by max(a,b); the sampling pool grows linearly from
+    the easiest 15% to the full training set over T_c=1000 steps, then uniform.
+  components:
+  - size-ordered growing pool
+  - linear pacing T_c
+  entrypoint: method/run.py
+tasks:
+- wd1_f0.5
+metrics:
+  steps_to_95:
+    higher_is_better: false
+  reached:
+    higher_is_better: true
+  final_test_acc:
+    higher_is_better: true
+  steps_to_train95:
+    higher_is_better: false
+  grok_gap:
+    higher_is_better: false
+  wall_s:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Uniform sampling
+- Anti-curriculum
+ablations:
+- Operand-size curriculum
+- Shuffled-order pool growth
+ambition:
+  target_tier: 2
+  primary_metric: steps_to_95
+  primary_task: wd1_f0.5
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

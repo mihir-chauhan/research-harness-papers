@@ -1,0 +1,16 @@
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{seeds 0--4 (registered)} & \multicolumn{2}{c}{seeds 5--6 only} \\
+System & steps\_to\_95 & reached & steps\_to\_95 & reached \\
+\midrule
+Uniform sampling & 2945 $\pm$ 1020 & 3/5 & 4000 $\pm$ 0 & 0/2 \\
+Operand-size curriculum & 3955 $\pm$ 101 & 1/5 & 3375 $\pm$ 884 & 1/2 \\
+Anti-curriculum & 3990 $\pm$ 22 & 1/5 & 4000 $\pm$ 0 & 1/2 \\
+\midrule
+ & \multicolumn{2}{c}{pooled, 7 seeds (post hoc)} & Welch $p$ & paired $p$ \\
+\midrule
+Uniform sampling & 3246 $\pm$ 979 & 3/7 &  &  \\
+Operand-size curriculum & 3789 $\pm$ 466 & 2/7 & 0.22 & 0.27 \\
+Anti-curriculum & 3993 $\pm$ 19 & 2/7 & 0.09 & 0.09 \\
+\bottomrule
+\end{tabular}

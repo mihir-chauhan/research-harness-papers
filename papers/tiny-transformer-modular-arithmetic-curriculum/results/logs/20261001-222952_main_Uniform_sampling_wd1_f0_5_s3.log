@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:29:52 2026
+# cwd: .
+# cmd: python method/run.py --system uniform --task wd1_f0.5 --seed 3 --wd 1 --frac 0.5 --out results/raw/main_wd1_f0.5_uniform_wd1frac0.5_s3.json
+
+config: {"system": "uniform", "task": "wd1_f0.5", "seed": 3, "p": 23, "frac": 0.5, "wd": 1.0, "lr": 0.003, "bs": 128, "max_steps": 4000, "warm": 1000, "q0": 0.15, "order": "max", "d": 64, "eval_every": 25, "curve": "", "out": "results/raw/main_wd1_f0.5_uniform_wd1frac0.5_s3.json"}
+metrics: {"steps_to_95": 2575.0, "reached": 1.0, "final_test_acc": 0.9584905505180359, "final_train_acc": 1.0, "steps_to_train95": 125.0, "wall_s": 9.912688970565796, "grok_gap": 2450.0}

@@ -1,0 +1,8 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,steps_to_95,20,3553.75,712.0797467906763,3228.75,3831.25,1850.0,4000.0
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,reached,20,0.45,0.5104177855340405,0.25,0.65,0.0,1.0
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,final_test_acc,20,0.7356603860855102,0.2237629402953598,0.6420707576349378,0.8315094471350312,0.4566037654876709,0.9698113203048706
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,final_train_acc,20,1.0,0.0,1.0,1.0,1.0,1.0
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,steps_to_train95,20,1582.5,1421.8015813896484,1000.0,2207.5,250.0,3775.0
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,wall_s,20,18.71584725379944,7.0871374081296645,15.787650080621242,21.783807890713216,8.795920133590698,30.26720690727234
+sweep_warm,wd1_f0.5,ablation,Operand-size curriculum,grok_gap,20,1971.25,1168.6776997057289,1460.0,2456.25,225.0,3600.0

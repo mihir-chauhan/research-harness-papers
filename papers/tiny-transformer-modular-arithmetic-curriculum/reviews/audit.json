@@ -1,0 +1,159 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-reproducible, the code matches the paper, baselines are fair, citations are verified, and every stated number matches the tables; the negative result is framed honestly. One fixable major issue: two extra main-cell seeds (5, 6) were run and plotted but their outcomes, which go against the headline direction (uniform 0/2, curriculum 1/2; pooled 3/7 vs 2/7, p about 0.22), are not reported, and some wording presumes a curriculum 'loss' the data do not establish.",
+      "reran": [
+        {
+          "run": "Operand-size curriculum/wd1_f0.5/1",
+          "metric": "steps_to_95",
+          "registry": 3775.0,
+          "rerun": 3775.0
+        },
+        {
+          "run": "Uniform sampling/wd1_f0.5/4",
+          "metric": "steps_to_95",
+          "registry": 1700.0,
+          "rerun": 1700.0
+        },
+        {
+          "run": "Uniform sampling/wd1_f0.5/0",
+          "metric": "steps_to_95",
+          "registry": 4000.0,
+          "rerun": 4000.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (Fig. 2 paragraph), abstract.tex, ablations.tex, conclusion.tex",
+          "issue": "The 'curves' group ran seeds 5 and 6 with the identical main-cell configuration; outcomes (uniform 0/2 reached, curriculum 1/2 at 2750 steps, anti-curriculum 1/2) are not reported although the runs are used for Fig. 2. Pooled over 7 seeds: uniform 3246 (3/7), curriculum 3789 (2/7), anti 3993 (2/7), Welch p=0.22, paired p=0.27. The omitted runs halve the headline gap and undercut 'so the loss is not specific to operand size' and 'growing a pool slowly is costly regardless of the order', which presume a loss versus uniform that is not significant.",
+          "fix": "Report the seed 5/6 outcomes and the pooled 7-seed numbers as a post-hoc check next to the registered 5-seed test; reword the abstract and ablation sentences to say that no ordering showed a benefit and that the supported pacing effect is within the curriculum family (T_c=250 vs 1000)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, Table IV, Fig. 3a",
+          "issue": "The T_c=2000 and T_c=4000 rows are confounded with the fixed 4000-step budget (pool not full until late; train95 at about 1875 and 3700), so 0/5 and 1/5 reached there is partly by construction, yet they are presented as part of a monotone degradation.",
+          "fix": "State the budget confound explicitly, or report steps after full exposure, or run those rows with a longer budget."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl (commit c0d187c)",
+          "issue": "72 grid rows were relabelled after the fact (group grid to main, kind ablation to method/baseline); metrics and provenance are unchanged, but the registry now disagrees with experiments/run_all.sh, PROTOCOL.md, log filenames, results/tables/grid.md and the paper's description of a separate grid group.",
+          "fix": "Revert the relabel and have analysis/make_tables.py read group grid, or document the relabel in PROTOCOL.md and RESULTS.md and regenerate grid.md."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, BRIEF.md",
+          "issue": "The roughly ten pilot runs (seed 100), including the claim that lr 1e-3 did not generalise within 6000 steps, have no registry rows or logs, so the claim is unverifiable.",
+          "fix": "Re-run the pilot runs through rh run and register them, or remove the specific 6000-step claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex ('Where grokking is and is not seen')",
+          "issue": "'waits about 2820 steps (grok_gap)' is a censored mean that includes two uniform seeds that never generalised (one with final train accuracy 0.795); among the three that reached 95% the gap is 2133.",
+          "fix": "Say the grok_gap means are censored lower bounds and give the gap for runs that reached 95%."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, method.tex",
+          "issue": "'All of these vary weight decay or data size under random mini-batches' and 'the standard recipe in grokking studies [1],[2]' are inaccurate: Gromov's abstract describes vanilla (full-batch) gradient descent, Nanda et al. also train full-batch (from memory, not re-fetched), and Mohamadi et al. is theory.",
+          "fix": "Reword to 'none of these manipulates the order of training examples' and cite only Power et al. for the mini-batch recipe."
+        },
+        {
+          "severity": "minor",
+          "where": "results/RESULTS.md, results/VERDICT.md, Fig. 2",
+          "issue": "RESULTS.md says 'so the ordering by operand size is not what helps or hurts', which is stronger than 0/5 vs 1/5 supports; the VERDICT.md ablation table shows 'missing' for every row; Fig. 2's y-axis is labelled 'value'.",
+          "fix": "Soften the RESULTS.md sentence, fill or remove the ablation table, and label the axis 'held-out accuracy'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/citations.json",
+          "issue": "Running the mandated 'rh lit verify' rewrote the checked_at timestamp, leaving the file modified in git (audit side effect, not an author error).",
+          "fix": "Run 'git checkout paper/citations.json' or commit the refreshed timestamp."
+        }
+      ],
+      "commit": "c0d187c6ae112b07b684dd2f93c69f523730919a"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "The paper honestly reports a negative result: every number in the prose and tables was recomputed from results/runs.jsonl and matches, all 119 runs have commands and logs whose metrics equal the registry, and two re-executed main-cell runs reproduced the registry values exactly. Code matches the described method, baselines share data and budget, citations are used in context, and the 6-page PDF renders cleanly. Only minor issues remain: an untested post-hoc pacing contrast, one ambiguous sentence in the conclusion, a disclosed hand relabel of registry rows, and housekeeping.",
+      "reran": [
+        {
+          "run": "Operand-size curriculum/wd1_f0.5/2",
+          "metric": "steps_to_95",
+          "registry": 4000.0,
+          "rerun": 4000.0
+        },
+        {
+          "run": "Operand-size curriculum/wd1_f0.5/2",
+          "metric": "final_test_acc",
+          "registry": 0.5811320543289185,
+          "rerun": 0.5811320543289185
+        },
+        {
+          "run": "Uniform sampling/wd1_f0.5/1",
+          "metric": "steps_to_95",
+          "registry": 2450.0,
+          "rerun": 2450.0
+        },
+        {
+          "run": "Uniform sampling/wd1_f0.5/1",
+          "metric": "final_test_acc",
+          "registry": 0.9698113203048706,
+          "rerun": 0.9698113203048706
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, conclusion.tex",
+          "issue": "The claim that the pacing sweep 'does support' an effect within the curriculum family (T_c=250 vs 1000) and the sentence 'Shorter curricula are better' are given without any reported test; it is one post-hoc contrast chosen from five pacing levels with 5 seeds (auditor computed Welch p=0.031, paired p=0.029, Fisher p=0.048, uncorrected).",
+          "fix": "Report the test for T_c=250 vs 1000, label it post hoc and uncorrected, and soften 'Shorter curricula are better' to a descriptive statement."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'two further seeds run afterwards reversed its direction' can be read as the pooled effect reversing; the pooled 7-seed means still have the curriculum slower (3789 vs 3246), only seeds 5-6 on their own went the other way.",
+          "fix": "Reword as in the abstract: the two extra seeds went the other way and the pooled gap shrinks from 1010 to 543 steps, not significant."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl, results/tables/grid.md, paper/generated/grid.tex, results/tables/sweep_warm.md",
+          "issue": "72 grid rows in the 'append-only' registry were hand-relabelled from group grid/kind ablation to group main/kind method or baseline (metrics and provenance verified unchanged, and disclosed); rh status now shows main as 9 tasks, and stale or meaningless harness tables remain (grid.md, grid.tex, sweep_warm pooled over all T_c with n=20).",
+          "fix": "Revert the relabel and have analysis/make_tables.py read group grid, or delete the stale tables and drop 'append-only' from the README."
+        },
+        {
+          "severity": "minor",
+          "where": ".gitignore / results/raw",
+          "issue": "results/raw is git-ignored, so the curve CSVs behind Fig. 2 and the raw metric JSONs are not in the repository; analysis/pooled.py cannot regenerate Fig. 2 from a fresh clone.",
+          "fix": "Commit the six curve CSVs or state that Fig. 2 requires re-running the six deterministic curves commands."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "Limitations do not explicitly say the task is a synthetic algorithmic toy whose conclusions may not transfer to natural data.",
+          "fix": "Add one sentence on the synthetic-task scope."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md, state.json",
+          "issue": "PROTOCOL says '<=25 s/run' but the longest run took 32.7 s (the paper says about 30 s); state.json says the paper is 5 pages but the PDF has 6.",
+          "fix": "Update both notes."
+        }
+      ],
+      "commit": "a5e17459c3b2b9bb376c6e5109441861af3c40fb"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (3):\n! numbers in prose not found in any table or run: abstract.tex: 0.05\n! numbers in prose not found in any table or run: results.tex: 0.05\n! verdict tier 0 < target 2: not best on wd1_f0.5: ours 3955 vs Uniform sampling 2945\nREADY",
+      "response": "# Response to audit\n\n1. **Major, seeds 5/6 unreported.** Fixed. New post-hoc Table III (analysis/pooled.py, from runs.jsonl) reports seeds 0-4, seeds 5-6 and pooled 7 seeds (uniform 3246, 3/7; curriculum 3789, 2/7; anti 3993, 2/7; Welch p=0.22, paired p=0.27 for curriculum vs uniform). Results text says the pooled test is post hoc and the registered 5-seed test still decides H1. Abstract, ablations and conclusion reworded: no ordering showed a benefit, a loss is not established, the supported pacing effect is within the curriculum family (T_c=250 vs 1000).\n2. **Minor, T_c=2000/4000 budget confound.** Stated explicitly in the ablation text; the clean contrast is T_c=250 vs 1000. No re-run.\n3. **Minor, relabelled grid rows.** Not reverted; documented in experiments/PROTOCOL.md, results/RESULTS.md and the setup section. grid.md is noted as stale.\n4. **Minor, unregistered pilot.** The 6000-step claim is removed from setup.tex; the paper and BRIEF now say the pilot was exploratory, not kept and not verifiable.\n5. **Minor, censored grok_gap.** Text now says 2820 is a censored lower bound and gives 2133 for the three uniform seeds that reached 95%.\n6. **Minor, related/method wording.** Reworded to \"none of these manipulates the order of examples\"; only Power et al. is cited for the mini-batch recipe.\n7. **Minor, RESULTS/VERDICT/Fig. 2.** RESULTS.md sentence softened; VERDICT.md ablation table replaced by a pointer to the paper tables; Fig. 2 y-axis now \"held-out accuracy\" (regenerated by analysis/pooled.py).\n8. **Minor, citations.json timestamp.** Refreshed by rh lit verify and committed.\n",
+      "seconds": 80
+    }
+  ]
+}

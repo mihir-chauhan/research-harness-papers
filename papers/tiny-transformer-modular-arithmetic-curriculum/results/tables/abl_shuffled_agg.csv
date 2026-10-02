@@ -1,0 +1,8 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,steps_to_95,5,4000.0,0.0,4000.0,4000.0,4000.0,4000.0
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,reached,5,0.0,0.0,0.0,0.0,0.0,0.0
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,final_test_acc,5,0.49207547307014465,0.05619982696884771,0.4520754635334015,0.5358490645885468,0.43396225571632385,0.5735849142074585
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,final_train_acc,5,1.0,0.0,1.0,1.0,1.0,1.0
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,steps_to_train95,5,915.0,22.360679774997898,900.0,935.0,900.0,950.0
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,wall_s,5,21.11071882247925,6.6817141905616335,15.870006084442139,26.351431560516357,14.735851049423218,29.156019926071167
+abl_shuffled,wd1_f0.5,ablation,Shuffled-order pool growth,grok_gap,5,3085.0,22.360679774997898,3065.0,3100.0,3050.0,3100.0

@@ -1,0 +1,125 @@
+{
+  "slug": "tiny-transformer-modular-arithmetic-curriculum",
+  "direction": "Can a small transformer learn modular addition faster with a curriculum? Train a one- or two-layer transformer (torch, CPU, small modulus such as 23 or 31 so that runs finish in minutes) on modular addition with (a) uniform sampling, (b) a curriculum over operand size, (c) an anti-curriculum. Measure steps to reach 95 percent held-out accuracy, and how weight decay and training-set fraction interact with the curriculum. Keep within the CPU budget and say so if delayed generalisation (grokking) is not reached.",
+  "created": "2026-10-01T18:41:22",
+  "updated": "2026-10-01T22:51:11",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T22:15:25",
+      "finished": "2026-10-01T22:27:34",
+      "notes": [
+        {
+          "t": "2026-10-01T22:27:34",
+          "note": "landscape, proposal, refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T22:28:12",
+      "finished": "2026-10-01T22:28:36",
+      "notes": [
+        {
+          "t": "2026-10-01T22:28:36",
+          "note": "smoke ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:28:36",
+      "notes": [
+        {
+          "t": "2026-10-01T22:28:36",
+          "note": "uniform and anti-curriculum implemented in method/run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T22:28:36",
+      "finished": "2026-10-01T22:46:06",
+      "notes": [
+        {
+          "t": "2026-10-01T22:46:06",
+          "note": "112 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:46:06",
+      "notes": [
+        {
+          "t": "2026-10-01T22:46:06",
+          "note": "grid, sweep_warm, abl_shuffled"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T22:46:06",
+      "finished": "2026-10-01T22:48:23",
+      "notes": [
+        {
+          "t": "2026-10-01T22:48:23",
+          "note": "tables, figs, verdict"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:51:11",
+      "notes": [
+        {
+          "t": "2026-10-01T22:51:11",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:51:11",
+      "notes": [
+        {
+          "t": "2026-10-01T22:51:11",
+          "note": "paper built, 5 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T22:27:34",
+      "phase": "novelty",
+      "decision": "Chose lr 3e-3, max_steps 4000, main cell wd=1 frac=0.5 from a pilot of uniform sampling with seed 100 (lr 1e-3 did not generalise in 6000 steps at frac 0.5). Pilot seed excluded from reports. Difficulty = max(a,b); pool grows by rank so pool sizes match between curriculum and anti-curriculum."
+    },
+    {
+      "t": "2026-10-01T22:49:54",
+      "phase": "results",
+      "decision": "Registry fix: the weight-decay x training-fraction grid runs (72, original group 'grid', kind=ablation) were relabelled group=main with kind method/baseline, because rh check requires the method in group main on every task. Only the group/kind metadata fields changed; metrics, seeds, configs, commits untouched. The original file is the git history of results/runs.jsonl (commit 'experiments: main, grid, sweeps'). The paper reports the main cell and the grid as separate tables."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}
