@@ -1,0 +1,20 @@
+\textbf{Model and data.} A ReLU MLP $f_w$ with two hidden layers of width 128 (digits: 64--128--128--10; spirals: 2--128--128--2) is trained with cross-entropy $L(w)=\frac1n\sum_i \ell(f_w(x_i),\tilde y_i)$ on labels $\tilde y_i$ that were flipped with probability $\eta$ to a uniformly chosen other class.
+
+\textbf{SGD (reimplemented, reference).} With momentum $\mu=0.9$ and learning rate $\eta_t$ (cosine decay), $v_{t+1}=\mu v_t+g_t$, $w_{t+1}=w_t-\eta_t v_{t+1}$, where $g_t=\nabla_w L_{B_t}(w_t)$ is the minibatch gradient.
+
+\textbf{SGD+WD.} The same update with $g_t=\nabla_w L_{B_t}(w_t)+\lambda w_t$ (L2 penalty $\tfrac{\lambda}{2}\|w\|^2$).
+
+\textbf{SAM (reimplemented).} Following \cite{foret2020sharpness}, the inner maximum is approximated at each step by one normalised-gradient ascent step,
+\begin{equation}
+\hat\epsilon_t=\rho\,\frac{\nabla_w L_{B_t}(w_t)}{\|\nabla_w L_{B_t}(w_t)\|_2},\qquad g_t=\nabla_w L_{B_t}(w+\hat\epsilon_t)\big|_{w=w_t},
+\end{equation}
+and $g_t$ replaces the gradient in the momentum update above (no weight decay, $\lambda=0$). The norm is global over all parameters. A step costs two forward/backward passes.
+
+\textbf{Ablations.} \emph{SAM random direction}: $\hat\epsilon_t=\rho\,u/\|u\|_2$ with $u\sim\mathcal N(0,I)$, same radius. \emph{SAM+WD}: SAM with $\lambda>0$.
+
+\textbf{Sharpness and gap measures.} At the end of training we measure, on the full noisy training set with a fixed perturbation norm $r=0.5$ for all systems,
+\begin{align}
+S_{\mathrm{adv}}&=L\!\Big(w+r\tfrac{\nabla L(w)}{\|\nabla L(w)\|}\Big)-L(w),\\
+S_{\mathrm{rand}}&=\tfrac1{20}\sum_{k=1}^{20}L\!\Big(w+r\tfrac{u_k}{\|u_k\|}\Big)-L(w).
+\end{align}
+The generalisation gap is $\mathrm{gap\_acc}=\mathrm{acc}_{\text{train, noisy labels}}-\mathrm{acc}_{\text{test, clean}}$ (also $\mathrm{gap\_loss}=L_{\text{test}}-L_{\text{train}}$). Note that against noisy labels a model that does not memorise has a train accuracy below the clean test accuracy, so the gap becomes negative. \texttt{memorised} is the fraction of flipped training samples predicted with their (wrong) noisy label.

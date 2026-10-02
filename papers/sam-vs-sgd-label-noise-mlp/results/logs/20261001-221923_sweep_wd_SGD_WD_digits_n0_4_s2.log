@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:19:23 2026
+# cwd: .
+# cmd: python method/run.py --system sgd_wd --task digits_n0.4 --seed 2 --rho 0.0 --wd 0.0001 --out results/raw/sweep_wd_sgd_wd_digits_n0.4_2_0.0_0.0001.json
+
+config {"system": "sgd_wd", "task": "digits_n0.4", "seed": 2, "rho": 0.0, "wd": 0.0001, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/sweep_wd_sgd_wd_digits_n0.4_2_0.0_0.0001.json"}
+final {"test_acc": 0.5986621975898743, "val_acc": 0.3733333349227905, "train_acc": 1.0, "test_loss": 1.5302677154541016, "train_loss": 0.05742453411221504, "gap_acc": 0.40133780241012573, "gap_loss": 1.4728431813418865, "memorised": 1.0, "sharp_rand": 0.0017797784879803658, "sharp_adv": 0.06069536879658699, "weight_norm": 25.40431785583496, "runtime_s": 1.5640568733215332}

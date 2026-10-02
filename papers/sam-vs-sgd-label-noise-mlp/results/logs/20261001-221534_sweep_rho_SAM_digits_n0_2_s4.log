@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:15:34 2026
+# cwd: .
+# cmd: python method/run.py --system sam --task digits_n0.2 --seed 4 --rho 0.2 --wd 0.0 --out results/raw/sweep_rho_sam_digits_n0.2_4_0.2_0.0.json
+
+config {"system": "sam", "task": "digits_n0.2", "seed": 4, "rho": 0.2, "wd": 0.0, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/sweep_rho_sam_digits_n0.2_4_0.2_0.0.json"}
+final {"test_acc": 0.9007803797721863, "val_acc": 0.7200000286102295, "train_acc": 0.9666666388511658, "test_loss": 0.3876391351222992, "train_loss": 0.17332462966442108, "gap_acc": 0.06588625907897949, "gap_loss": 0.2143145054578781, "memorised": 0.8484848737716675, "sharp_rand": 0.0010225027799606323, "sharp_adv": 0.09677626192569733, "weight_norm": 23.16696548461914, "runtime_s": 2.8315470218658447}

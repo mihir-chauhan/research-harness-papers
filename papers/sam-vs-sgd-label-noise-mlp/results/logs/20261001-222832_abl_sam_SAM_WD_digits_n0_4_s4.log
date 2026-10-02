@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:28:32 2026
+# cwd: .
+# cmd: python method/run.py --system sam_wd --task digits_n0.4 --seed 4 --rho 0.5 --wd 0.01 --out results/raw/abl_sam_sam_wd_digits_n0.4_4_0.5_0.01.json
+
+config {"system": "sam_wd", "task": "digits_n0.4", "seed": 4, "rho": 0.5, "wd": 0.01, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/abl_sam_sam_wd_digits_n0.4_4_0.5_0.01.json"}
+final {"test_acc": 0.10479375720024109, "val_acc": 0.0833333358168602, "train_acc": 0.10833333432674408, "test_loss": 2.306166172027588, "train_loss": 2.2991960048675537, "gap_acc": 0.0035395771265029907, "gap_loss": 0.00697016716003418, "memorised": 0.115079365670681, "sharp_rand": 3.4809112548828124e-06, "sharp_adv": 0.012138128280639648, "weight_norm": 0.2686466872692108, "runtime_s": 2.2972090244293213}

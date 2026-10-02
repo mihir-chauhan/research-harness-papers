@@ -1,0 +1,240 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 381 runs are real and logged, four re-executed main runs reproduce bit-exactly, every reported number matches the registry, the baselines are fair (a finer weight-decay grid probed by the auditor leaves the margins unchanged), citations are in context and the framing is honest about the mixed result. One major text problem: the H2 paragraph says the useful rho range is wider with more noise and that the optimum lies between 0.5 and 1.0, which the paper's own sweep table does not support. The remaining issues are minor wording, selective-reporting and PDF layout fixes.",
+      "reran": [
+        {
+          "run": "SAM/digits_n0.4/1",
+          "metric": "test_acc",
+          "registry": 0.8929765820503235,
+          "rerun": 0.8929765820503235
+        },
+        {
+          "run": "SGD+WD/digits_n0.4/1",
+          "metric": "test_acc",
+          "registry": 0.8550724387168884,
+          "rerun": 0.8550724387168884
+        },
+        {
+          "run": "SGD/digits_n0.2/3",
+          "metric": "test_acc",
+          "registry": 0.8004459142684937,
+          "rerun": 0.8004459142684937
+        },
+        {
+          "run": "SAM/digits_n0.2/3",
+          "metric": "test_acc",
+          "registry": 0.9230769276618958,
+          "rerun": 0.9230769276618958
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (H2 paragraph)",
+          "issue": "Claims the useful rho range is 'wider and larger with more noise' and that the optimum 'lies between 0.5 and 1.0'. Table IV shows the opposite for 'wider': noise-free accuracy is flat for rho 0.02-0.5, while under noise only rho=0.5 recovers the gain (0.862 vs 0.938 at 20%, 0.698 vs 0.901 at 40%); the best rho is the same at 20% and 40%. The grid only brackets the optimum in (0.2, 1.0); an auditor probe at 40% noise gave 0.765 at rho=0.3 and 0.798 +/- 0.169 at rho=0.7, both below 0.901 at 0.5.",
+          "fix": "Rewrite: the best grid value shifts from 0.1-0.2 without noise to 0.5 with noise, the useful window under noise is narrow, and the optimum is only bracketed in (0.2, 1.0). Drop 'wider' and 'between 0.5 and 1.0'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex; results.tex (H3 paragraph); Table II",
+          "issue": "The statement that sharpness ranks SGD as flatter than SAM and SGD+WD holds only for adversarial sharpness. Random-direction sharpness in the registry ranks SAM flattest (20% noise: SAM 0.0006, SGD 0.0011, SGD+WD 0.0018; 40%: 0.0005, 0.0014, 0.0024) and is not reported by system. The H3 verdict is unchanged because SGD+WD is still sharpest.",
+          "fix": "Say 'adversarial sharpness' in the abstract, add a sharp_rand column to Table II and state that the random-direction measure ranks SAM flattest."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'With the same tuning effort for every optimiser' contradicts the setup: 6 rho values vs 4 lambda values, and the learning rate was tuned for none. An auditor probe with a finer weight-decay grid shows the conclusion is robust.",
+          "fix": "Replace with the actual protocol (validation-selected rho from 6 values, lambda from 4, shared untuned learning rate)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2 paragraph)",
+          "issue": "The noise-free gain over SGD is called 'about one seed standard deviation', but 0.974 - 0.959 = 0.015 is about two (SD 0.008); Cohen's d is 1.43 at the selected rho.",
+          "fix": "Correct to 'about two seed standard deviations' or quote the effect size."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex; conclusion.tex",
+          "issue": "'Pooled Spearman 0.12-0.24' covers the accuracy gap only; the adversarial-sharpness/loss-gap correlation is 0.07.",
+          "fix": "Say 'with the accuracy gap' or report 0.07-0.24."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1, 40% noise)",
+          "issue": "'Supported' rests on uncorrected p-values (paired 0.025, Welch 0.0073) over 8 tests with n=5 and one of five seeds negative; the paired p does not survive Holm correction. The lack of correction is disclosed.",
+          "fix": "Add the per-seed differences and call it 'supported uncorrected; not robust to multiple-comparison correction under the paired test'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'Not noise injection' is shown only at matched Euclidean norm; a random direction in about 26k dimensions changes the loss roughly 50-100 times less than the gradient direction, so it is a weak control. SAM+WD at 20% noise (0.223 +/- 0.290) is bimodal: four seeds near 0.09 and one at 0.741.",
+          "fix": "Qualify the claim as holding at matched norm and report the per-seed split for SAM+WD."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex; introduction.tex",
+          "issue": "'A run takes 3-6 s' understates the range (1.3-6.7 s; tuning runs average 1.5-2.0 s) and 'about 50 minutes' is 46 minutes. 'Most of this evidence comes from convolutional networks on GPUs' has no citation.",
+          "fix": "Correct the timing figures and cite or soften the uncited sentence."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (pages 2-4), Tables II and VII",
+          "issue": "Eq. (2) overflows into the right column and overprints '50 minutes'; Table III overflows into Table IV; the Fig. 2 legend covers data points in the right panel; bold 'best' on weight_norm and between the two ablation rows is not meaningful.",
+          "fix": "Break Eq. (2) across lines, resize Table III, move the legend outside the axes, and drop the bolding on weight_norm and in the ablation table."
+        }
+      ],
+      "commit": "e7dd3095d1e97b80d0298a90ccad2408bbb385bb"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "All 381 runs are backed by logs that match the registry exactly, three re-executed main-group runs reproduce bit-identically, the code matches the described method with fairly tuned baselines, and the framing is honest about mixed and negative results. One results-section number is attributed to the wrong rho (0.888 is rho=0.1, not rho=0.2, on spirals), plus minor disclosure and wording issues.",
+      "reran": [
+        {
+          "run": "SAM/digits_n0.4/0",
+          "metric": "test_acc",
+          "registry": 0.9018952250480652,
+          "rerun": 0.9018952250480652
+        },
+        {
+          "run": "SGD+WD/digits_n0.4/0",
+          "metric": "test_acc",
+          "registry": 0.8773689866065979,
+          "rerun": 0.8773689866065979
+        },
+        {
+          "run": "SGD/digits_n0.2/3",
+          "metric": "test_acc",
+          "registry": 0.8004459142684937,
+          "rerun": 0.8004459142684937
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex, 'Where SAM fails'",
+          "issue": "States spirals accuracy is '0.888 at rho=0.2', but Table IV / rho_sweep.md give 0.888 at rho=0.1 and 0.767 at rho=0.2. The conclusion is unaffected (the error understates the degradation).",
+          "fix": "Write '0.888 at rho=0.1, 0.767 at rho=0.2 and 0.518, i.e. chance, at rho=0.5' and rebuild the PDF."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex and limitations.tex; method/run.py make_data",
+          "issue": "Tuning seeds 100-102 re-split the same 1797 digits, so tuning train/validation images overlap the evaluation seeds' test images; 'disjoint seeds' suggests more independence than exists. Symmetric across SAM and SGD+WD and limited to choosing one of 4-6 values.",
+          "fix": "State in setup and limitations that tuning and evaluation seeds re-split the same pool, so selection data are not disjoint from evaluation test images."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "SAM uses two gradient evaluations per step at the same 150 epochs, so the comparison is epoch-matched, not compute-matched; this is stated in the method section but not listed as a limitation.",
+          "fix": "Add one sentence to limitations noting the comparison is epoch-matched and that an SGD/SGD+WD run with 2x steps was not tested."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Fig. 1 caption",
+          "issue": "Says digits runs at rho=1.0 end at near-chance accuracy '(0.103-0.136)'; these are per-task means, individual runs range 0.088-0.197.",
+          "fix": "Say 'task means 0.103-0.136' or give the per-run range."
+        },
+        {
+          "severity": "minor",
+          "where": "results/RESULTS.md",
+          "issue": "Verdict text lags the paper: H1 'supported at n0.4' without the multiple-comparison caveat (Holm-adjusted paired p = 0.10) and H3 pooled Spearman given as 0.12-0.24 where the paper and corr table give 0.07-0.24.",
+          "fix": "Align RESULTS.md with the paper's wording and range."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Table VII (abl_sam.tex) and Table II (main.tex)",
+          "issue": "sharp_rand renders as 0.00 +/- 0.00 in every Table VII row and 0.0000 for digits_n0.0 in Table II, although the ablation text asks the reader to compare sharp_rand with sharp_adv.",
+          "fix": "Print sharpness columns in scientific notation or with more digits."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "SAM+WD is called 'the best system without noise (0.972)', but it is within one SD of SAM (0.970 +/- 0.006) and below SAM at rho=0.2 in the sweep (0.974).",
+          "fix": "Say it is comparable to SAM without noise rather than best."
+        }
+      ],
+      "commit": "32cf802d5a2e61f546ee5d92f92e8d16bbeed081"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 381 registry rows have commands and logs whose final metrics match the registry, aggregates and p-values recompute exactly, and three main-group reruns reproduced the registry test accuracies bit-for-bit. The code implements what the paper describes with no test leakage into selection, citations are used in context, and the paper reports its mixed and negative results with adequate limitations. Only minor wording and disclosure issues remain.",
+      "reran": [
+        {
+          "run": "SAM/digits_n0.4/2",
+          "metric": "test_acc",
+          "registry": 0.9085841774940491,
+          "rerun": 0.9085841774940491
+        },
+        {
+          "run": "SGD+WD/digits_n0.4/2",
+          "metric": "test_acc",
+          "registry": 0.8729097247123718,
+          "rerun": 0.8729097247123718
+        },
+        {
+          "run": "SGD/digits_n0.2/4",
+          "metric": "test_acc",
+          "registry": 0.8260869383811951,
+          "rerun": 0.8260869383811951
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Training)",
+          "issue": "The claim that the learning rate was set once from a smoke test on SGD has no run in the registry; the only pre-tuning run is a SAM sanity run.",
+          "fix": "Log the SGD smoke run or reword to say the learning rate was fixed a priori at 0.1 and not tuned."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Hyper-parameter selection) / experiments/drive.py select()",
+          "issue": "On spirals rho=0.05 and rho=0.1 tie on mean validation accuracy (0.760) and the code silently takes the first; the tie-break is undisclosed and slightly favours SAM (0.912 vs 0.888 test).",
+          "fix": "State the tie and the tie-break rule (smallest rho); the conclusion of no gain on spirals is unaffected."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Compute)",
+          "issue": "SAM is stated as about 1.3-1.6x the time of SGD; main-group registry means give 1.25-1.55x and timings vary several-fold with machine load (reruns 1.2-1.6 s vs 3.5-6.2 s logged).",
+          "fix": "Report roughly 1.25-1.55x and note that timings are noisy on a shared machine."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2)",
+          "issue": "'0.1 and 0.5 are within 0.004 of it' is marginally off for rho=0.1 (0.97369 - 0.96968 = 0.00401).",
+          "fix": "Say 'within about 0.004' or 'within 0.005'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Where SAM fails)",
+          "issue": "'does not memorise noise at all' is stated next to memorised = 0.085-0.102.",
+          "fix": "Reword to 'memorises little noise (0.085-0.102, the level expected from ordinary errors)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "Jiang et al. is cited for 'evidence that sharpness explains generalisation is mixed' although that study found sharpness-based measures among the more promising; the sentence is only accurate when read jointly with Andriushchenko et al. 2023.",
+          "fix": "Add a clause distinguishing the supportive result (Jiang) from the negative one (Andriushchenko 2023)."
+        }
+      ],
+      "commit": "caff28231cdc1ddf2b97025a957d2409a575a20b"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (3):\n! numbers in prose not found in any table or run: ablations.tex: 0.290\n! numbers in prose not found in any table or run: results.tex: 23.708, 8.913\n! verdict tier 1 < target 2: loses on: spirals_n0.2; not significant on: spirals_n0.2\nREADY",
+      "response": "# Response to audit\n\n1. **Major, H2 paragraph (results.tex).** Rewrote: best grid value moves from 0.1-0.2 (no noise) to 0.5 (noise); under noise only rho=0.5 recovers the gain, so the window is narrow; the optimum is only bracketed in (0.2, 1.0). Removed \"wider\" and \"between 0.5 and 1.0\".\n2. **Minor, sharpness ranking.** Abstract now says adversarial sharpness; Table II has a sharp_rand column; text states that random-direction sharpness ranks SAM flattest. Pooled correlation range is now 0.07-0.24 (abstract, conclusion, H3 paragraph).\n3. **Minor, \"same tuning effort\".** Replaced in the introduction with the actual protocol (rho from 6 values, lambda from 4, shared untuned learning rate).\n4. **Minor, \"one seed SD\".** Corrected to about two (0.015 vs SD 0.008); noted accuracy is flat for rho 0.02-0.5 without noise.\n5. **Minor, correlation range.** See 2.\n6. **Minor, H1 at 40%.** Added per-seed differences (one negative at 40%, one at 20%) and the Holm-adjusted paired p (0.10, recomputed over the 8 paired tests); verdict reads \"supported only without multiple-comparison correction\". Abstract and conclusion updated.\n7. **Minor, random-direction ablation.** Qualified as a matched-norm, weak control; added the bimodal per-seed split of SAM+WD at 20% noise (four near 0.09, one 0.741).\n8. **Minor, timing and uncited sentence.** Run time now 1.3-6.7 s (mean 2.7 s); wall-clock 46 min (17 min summed run time). Removed the uncited \"convolutional networks on GPUs\" sentence.\n9. **Minor, layout.** Eq. (2) split into an align block; Table III resized to the column; Fig. 2 legend moved outside the axes; bold/underline removed from the main and ablation tables (and caption).\n",
+      "seconds": 145
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 1 < target 2: loses on: spirals_n0.2; not significant on: spirals_n0.2\nREADY",
+      "response": "# Response to audit\n\n1. **Major, H2 paragraph (results.tex).** Rewrote: best grid value moves from 0.1-0.2 (no noise) to 0.5 (noise); under noise only rho=0.5 recovers the gain, so the window is narrow; the optimum is only bracketed in (0.2, 1.0). Removed \"wider\" and \"between 0.5 and 1.0\".\n2. **Minor, sharpness ranking.** Abstract now says adversarial sharpness; Table II has a sharp_rand column; text states that random-direction sharpness ranks SAM flattest. Pooled correlation range is now 0.07-0.24 (abstract, conclusion, H3 paragraph).\n3. **Minor, \"same tuning effort\".** Replaced in the introduction with the actual protocol (rho from 6 values, lambda from 4, shared untuned learning rate).\n4. **Minor, \"one seed SD\".** Corrected to about two (0.015 vs SD 0.008); noted accuracy is flat for rho 0.02-0.5 without noise.\n5. **Minor, correlation range.** See 2.\n6. **Minor, H1 at 40%.** Added per-seed differences (one negative at 40%, one at 20%) and the Holm-adjusted paired p (0.10, recomputed over the 8 paired tests); verdict reads \"supported only without multiple-comparison correction\". Abstract and conclusion updated.\n7. **Minor, random-direction ablation.** Qualified as a matched-norm, weak control; added the bimodal per-seed split of SAM+WD at 20% noise (four near 0.09, one 0.741).\n8. **Minor, timing and uncited sentence.** Run time now 1.3-6.7 s (mean 2.7 s); wall-clock 46 min (17 min summed run time). Removed the uncited \"convolutional networks on GPUs\" sentence.\n9. **Minor, layout.** Eq. (2) split into an align block; Table III resized to the column; Fig. 2 legend moved outside the axes; bold/underline removed from the main and ablation tables (and caption).\n\n# Response to the second audit (fix round)\n\nNo experiment was re-run and no run was added: all findings concerned text, table formatting or disclosure. The registry still holds 381 runs.\n\n1. **Major, results.tex \"Where SAM fails\" (0.888 attributed to rho=0.2).** Corrected to \"0.888 at rho=0.1, 0.767 at rho=0.2 and 0.518, i.e. chance, at rho=0.5\", copied from Table IV (`rho_sweep.md`). \"Clearly worse\" weakened to \"worse\", since rho=0.1 is only about one seed SD below SGD.\n2. **Minor, tuning seeds re-split the same digits pool.** Setup now states that on digits the tuning train/validation images overlap the evaluation seeds' test images (spirals data are generated fresh per seed) and that this applies equally to SAM and SGD+WD; limitations repeat it. \"Disjoint seeds\" replaced by \"separate tuning seeds\" in the abstract and introduction. Also recorded in `experiments/PROTOCOL.md` and `BRIEF.md`.\n3. **Minor, epoch-matched vs compute-matched.** Added to limitations (no SGD / SGD+WD run with twice the steps was made), to the training paragraph of the setup, to the abstract and to the conclusion.\n4. **Minor, Fig. 1 caption.** Now \"task means 0.103-0.136\".\n5. **Minor, RESULTS.md.** Rewritten to match the paper: H1 at 40% noise \"supported only without multiple-comparison correction (Holm-adjusted paired p 0.101)\", pooled Spearman 0.07-0.24, H2 and ablation wording aligned.\n6. **Minor, sharp_rand printed as 0.00.** Tables II and VII are now typeset by `experiments/analyse.py` from the aggregates that `rh table` writes (`main_agg.csv`, `abl_sam_agg.csv`; same means and stds), with sharp_rand in units of 1e-3 and sharp_adv to 4 decimals, so no sharpness cell prints as zero. Table VII now has the same columns as Table II (3 decimals for accuracies), which also puts every ablation number quoted in the text (0.800, 0.623, 0.998, 0.972, 0.223 +/- 0.290, 0.901) in the table. Prose numbers for sharpness and weight norm were re-copied from the new tables.\n7. **Minor, SAM+WD \"best system without noise\".** Now \"comparable to SAM (0.972 +/- 0.006 vs 0.970 +/- 0.006)\".\n\nChanges from my own re-audit (not in the findings):\n- Table III now carries the Holm-adjusted paired p for all 8 comparisons (the 0.101 quoted in H1 previously had no table cell); the unused Cohen's d column was dropped to keep the table to four numeric columns. Setup and limitations no longer say \"no correction is applied\"; they say the registered tests are uncorrected and the Holm values are given in addition.\n- H2: \"gain 0.015\" was a rounding error (0.974 - 0.959 = 0.014); the sentence now gives the SGD mean and SD and says \"under two seed standard deviations\". \"Flat within about 0.01\" replaced by the actual range 0.960-0.974. The noisy-digits ranges are now given from rho=0.02 (0.807 to 0.938, 0.629 to 0.901) instead of an ambiguous 0.2-to-0.5 pair. \"Best value 0.1-0.2 without noise\" corrected to 0.2 (0.1 and 0.5 within 0.004). \"A rho chosen at the grid edge\" was wrong (0.5 is not the grid edge) and now reads \"one grid step below the collapse\". The verdict states explicitly that the \"wider range under noise\" part of H2 is not supported and that the registered refutation condition (monotone curve) is met on spirals.\n- H3: verdict now refers to the registered criterion (positive pooled and within every task) and reads \"not supported\"; \"lowers the per-task values\" changed to \"leaves\", since the spirals correlation becomes less negative; the collapse threshold used by the exploratory rows is stated.\n- Ablations: \"equal to SGD\" changed to \"within 0.002 of SGD\"; the random-vs-gradient loss change is quoted with numbers; the extreme weight norm of the collapsed SAM+WD runs (0.32 +/- 0.07 at 40% noise) is reported and explained; \"comparable to the sweep resolution\" (no supporting row) deleted; \"untuned SAM\" changed to \"a badly chosen rho\".\n- Abstract and conclusion: the sharpness-ranking and collapse statements are restricted to noisy digits, where the table rows support them.\n- `BRIEF.md` was still the scaffold seed; it now holds the question, hypotheses, method, baselines, tasks, metrics, ablations and out-of-scope list, taken from `proposal.md` (registered before the main runs).\n- Tables II and VII are scaled to the text width (they overflowed by 10 pt and 56 pt after the new columns).\n\nChe",
+      "seconds": 418
+    }
+  ]
+}

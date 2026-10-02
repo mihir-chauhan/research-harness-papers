@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:23:41 2026
+# cwd: .
+# cmd: python method/run.py --system sam --task spirals_n0.2 --seed 3 --rho 0.2 --wd 0.0 --out results/raw/sweep_rho_sam_spirals_n0.2_3_0.2_0.0.json
+
+config {"system": "sam", "task": "spirals_n0.2", "seed": 3, "rho": 0.2, "wd": 0.0, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/sweep_rho_sam_spirals_n0.2_3_0.2_0.0.json"}
+final {"test_acc": 0.7850000262260437, "val_acc": 0.6899999976158142, "train_acc": 0.6974999904632568, "test_loss": 0.4564022123813629, "train_loss": 0.5789110064506531, "gap_acc": -0.08750003576278687, "gap_loss": -0.12250879406929016, "memorised": 0.3048780560493469, "sharp_rand": 0.00019991099834442138, "sharp_adv": 0.028903305530548096, "weight_norm": 11.396718978881836, "runtime_s": 2.3914833068847656}

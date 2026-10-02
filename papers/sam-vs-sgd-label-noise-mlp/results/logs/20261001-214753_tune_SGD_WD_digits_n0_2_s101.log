@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:47:53 2026
+# cwd: .
+# cmd: python method/run.py --system sgd_wd --task digits_n0.2 --seed 101 --rho 0.0 --wd 0.001 --out results/raw/tune_sgd_wd_digits_n0.2_101_0.0_0.001.json
+
+config {"system": "sgd_wd", "task": "digits_n0.2", "seed": 101, "rho": 0.0, "wd": 0.001, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/tune_sgd_wd_digits_n0.2_101_0.0_0.001.json"}
+final {"test_acc": 0.8595317602157593, "val_acc": 0.6700000166893005, "train_acc": 0.9983333349227905, "test_loss": 0.47144725918769836, "train_loss": 0.07307811826467514, "gap_acc": 0.13880157470703125, "gap_loss": 0.3983691409230232, "memorised": 0.9919354915618896, "sharp_rand": 0.0017804037779569626, "sharp_adv": 0.04365549981594086, "weight_norm": 19.864795684814453, "runtime_s": 1.5134978294372559}

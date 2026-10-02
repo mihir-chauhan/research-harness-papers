@@ -1,0 +1,124 @@
+{
+  "slug": "sam-vs-sgd-label-noise-mlp",
+  "direction": "Sharpness-aware minimisation versus SGD on a small MLP with label noise (scikit-learn digits or a synthetic two-spirals / Gaussian-mixture task). Does SAM improve test accuracy under label noise at this scale, how sensitive is it to the neighbourhood size rho, and does the measured sharpness (loss increase under weight perturbation) track the generalisation gap? Compare SGD, SGD with weight decay, and SAM.",
+  "created": "2026-10-01T18:40:01",
+  "updated": "2026-10-02T00:01:48",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T21:39:30",
+      "finished": "2026-10-01T22:32:26",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:26",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:27",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:27",
+          "note": "see results"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:27",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:27",
+          "note": "see results"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:27",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:27",
+          "note": "see results"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:27",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:27",
+          "note": "see results"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:59",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:27",
+          "note": "see results"
+        },
+        {
+          "t": "2026-10-01T22:32:59",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:27",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:27",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:32:59",
+      "notes": [
+        {
+          "t": "2026-10-01T22:32:59",
+          "note": "6 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:01:48",
+      "phase": "paper",
+      "decision": "fix round: main/ablation tables re-typeset from rh-table aggregates with sharp_rand in 1e-3 units so no cell prints as 0; Holm column added to comparison table; tuning/evaluation pool overlap and epoch-matched budget disclosed; BRIEF.md completed from proposal.md"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

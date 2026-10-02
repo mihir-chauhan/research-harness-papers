@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:47:28 2026
+# cwd: .
+# cmd: python method/run.py --system sam --task digits_n0.2 --seed 101 --rho 0.1 --wd 0.0 --out results/raw/tune_sam_digits_n0.2_101_0.1_0.0.json
+
+config {"system": "sam", "task": "digits_n0.2", "seed": 101, "rho": 0.1, "wd": 0.0, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/tune_sam_digits_n0.2_101_0.1_0.0.json"}
+final {"test_acc": 0.8639910817146301, "val_acc": 0.7133333086967468, "train_acc": 0.9983333349227905, "test_loss": 0.4488260746002197, "train_loss": 0.0556943379342556, "gap_acc": 0.1343422532081604, "gap_loss": 0.3931317366659641, "memorised": 0.9919354915618896, "sharp_rand": 0.0007036184892058372, "sharp_adv": 0.07442714646458626, "weight_norm": 23.576114654541016, "runtime_s": 2.069732189178467}

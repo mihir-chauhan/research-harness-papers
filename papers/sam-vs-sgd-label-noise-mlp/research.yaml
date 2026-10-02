@@ -1,0 +1,83 @@
+slug: sam-vs-sgd-label-noise-mlp
+direction: Sharpness-aware minimisation versus SGD on a small MLP with label noise
+  (scikit-learn digits or a synthetic two-spirals / Gaussian-mixture task). Does SAM
+  improve test accuracy under label noise at this scale, how sensitive is it to the
+  neighbourhood size rho, and does the measured sharpness (loss increase under weight
+  perturbation) track the generalisation gap? Compare SGD, SGD with weight decay,
+  and SAM.
+problem: Does SAM improve clean test accuracy of a small MLP trained on symmetric-label-noise
+  data, relative to SGD and SGD+weight decay, and does measured sharpness track the
+  generalisation gap?
+gap: Evidence for SAM under label noise is mostly CNN/GPU scale; no equal-tuning small-scale
+  comparison with weight decay and a rho sweep and a sharpness-gap correlation.
+contribution: A controlled CPU-scale comparison of SGD, SGD+WD and SAM under label
+  noise with validation-selected hyperparameters, a rho and wd sweep, two ablations
+  and a sharpness-gap correlation analysis.
+hypotheses:
+- id: H1
+  statement: SAM has higher clean test accuracy than SGD and SGD+WD on noisy digits
+    (noise 0.2, 0.4).
+  test: paired t-test over 5 seeds per task (rh compare), alpha 0.05
+- id: H2
+  statement: SAM test accuracy has an interior optimum in rho.
+  test: rho sweep with 5 seeds per task
+- id: H3
+  statement: Fixed-norm sharpness is positively rank-correlated with the generalisation
+    gap.
+  test: Spearman correlation over runs, pooled and per task
+method:
+  name: SAM
+  summary: 'Sharpness-aware minimisation: one normalised-gradient ascent step of radius
+    rho, gradient at the perturbed weights, applied with momentum SGD.'
+  components:
+  - adversarial perturbation
+  - rho
+  entrypoint: method/run.py
+tasks:
+- digits_n0.0
+- digits_n0.2
+- digits_n0.4
+- spirals_n0.2
+metrics:
+  test_acc:
+    higher_is_better: true
+  gap_acc:
+    higher_is_better: false
+  gap_loss:
+    higher_is_better: false
+  memorised:
+    higher_is_better: false
+  sharp_rand:
+    higher_is_better: false
+  sharp_adv:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- SGD
+- SGD+WD
+ablations:
+- SAM random direction
+- SAM+WD
+ambition:
+  target_tier: 2
+  primary_metric: test_acc
+  primary_task: digits_n0.4
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

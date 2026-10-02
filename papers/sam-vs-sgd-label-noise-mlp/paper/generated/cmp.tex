@@ -1,0 +1,19 @@
+\begin{tabular}{llrrrr}
+\toprule
+ &  & diff & Welch p & paired p & Holm p \\
+task & vs &  &  &  &  \\
+\midrule
+\multirow[t]{2}{*}{digits\_n0.0} & SGD & 0.010 & 0.056 & 0.00731 & 0.044 \\
+ & SGD+WD & 0.00736 & 0.130 & 0.013 & 0.063 \\
+\cline{1-6}
+\multirow[t]{2}{*}{digits\_n0.2} & SGD & 0.139 & 3.96e-06 & 8.75e-05 & 0.000612 \\
+ & SGD+WD & 0.0078 & 0.294 & 0.049 & 0.148 \\
+\cline{1-6}
+\multirow[t]{2}{*}{digits\_n0.4} & SGD & 0.276 & 1.98e-06 & 3.89e-05 & 0.000311 \\
+ & SGD+WD & 0.027 & 0.0073 & 0.025 & 0.101 \\
+\cline{1-6}
+\multirow[t]{2}{*}{spirals\_n0.2} & SGD & -0.0075 & 0.644 & 0.320 & 0.640 \\
+ & SGD+WD & -0.0025 & 0.884 & 0.606 & 0.640 \\
+\cline{1-6}
+\bottomrule
+\end{tabular}

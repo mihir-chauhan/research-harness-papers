@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:00:14 2026
+# cwd: .
+# cmd: python method/run.py --system sgd --task digits_n0.4 --seed 3 --rho 0.0 --wd 0.0 --out results/raw/main_sgd_digits_n0.4_3_0.0_0.0.json
+
+config {"system": "sgd", "task": "digits_n0.4", "seed": 3, "rho": 0.0, "wd": 0.0, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/main_sgd_digits_n0.4_3_0.0_0.0.json"}
+final {"test_acc": 0.654403567314148, "val_acc": 0.3466666638851166, "train_acc": 1.0, "test_loss": 1.466552495956421, "train_loss": 0.04348389431834221, "gap_acc": 0.34559643268585205, "gap_loss": 1.4230686016380787, "memorised": 1.0, "sharp_rand": 0.0013521555811166763, "sharp_adv": 0.03958427533507347, "weight_norm": 26.192569732666016, "runtime_s": 4.041126012802124}

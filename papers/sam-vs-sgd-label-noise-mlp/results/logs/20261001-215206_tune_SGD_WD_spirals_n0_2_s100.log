@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:52:06 2026
+# cwd: .
+# cmd: python method/run.py --system sgd_wd --task spirals_n0.2 --seed 100 --rho 0.0 --wd 0.0001 --out results/raw/tune_sgd_wd_spirals_n0.2_100_0.0_0.0001.json
+
+config {"system": "sgd_wd", "task": "spirals_n0.2", "seed": 100, "rho": 0.0, "wd": 0.0001, "lr": 0.1, "epochs": 150, "batch": 100, "hidden": 128, "rho_sharp": 0.5, "out": "results/raw/tune_sgd_wd_spirals_n0.2_100_0.0_0.0001.json"}
+final {"test_acc": 0.9200000166893005, "val_acc": 0.7649999856948853, "train_acc": 0.7799999713897705, "test_loss": 0.3455609083175659, "train_loss": 0.4884323179721832, "gap_acc": -0.14000004529953003, "gap_loss": -0.1428714096546173, "memorised": 0.09876543283462524, "sharp_rand": 0.0010681271553039551, "sharp_adv": 0.03457525372505188, "weight_norm": 11.785651206970215, "runtime_s": 1.8126180171966553}
