@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:54:10 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system head --rank 4 --lr 0.001 --task sort_desc --seed 100 --eval_split val --out results/raw/tune_head_0.001_sort_desc.json
+
+config: {"system": "head", "task": "sort_desc", "seed": 100, "out": "results/raw/tune_head_0.001_sort_desc.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": 0.001, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "val"}
+metrics: {"adapt_acc": 0.001500000013038516, "adapt_tok_acc": 0.4830625057220459, "trainable_params": 896, "pretask_acc": 0.0, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9994999766349792, "zero_shot_acc": 0.0, "train_loss": 1.3733798265457153, "seconds": 5.2021849155426025}

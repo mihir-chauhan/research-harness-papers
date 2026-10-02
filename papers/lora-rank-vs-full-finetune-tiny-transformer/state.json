@@ -1,0 +1,120 @@
+{
+  "slug": "lora-rank-vs-full-finetune-tiny-transformer",
+  "direction": "Low-rank adaptation at tiny scale: pretrain a small character-level transformer on one synthetic sequence task (e.g. copying or sorting digits), then adapt it to a related task (reversal, or sorting in the other order) with full fine-tuning, LoRA at ranks 1, 2, 4 and 8, and training only the last layer. Measure adaptation accuracy, number of trained parameters, and forgetting of the pretraining task.",
+  "created": "2026-10-01T18:41:43",
+  "updated": "2026-10-01T23:50:20",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T22:39:34",
+      "finished": "2026-10-01T22:51:57",
+      "notes": [
+        {
+          "t": "2026-10-01T22:51:57",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T22:51:57",
+      "finished": "2026-10-01T23:48:23",
+      "notes": [
+        {
+          "t": "2026-10-01T23:48:23",
+          "note": "see runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:48:23",
+      "notes": [
+        {
+          "t": "2026-10-01T23:48:23",
+          "note": "see runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:48:23",
+      "notes": [
+        {
+          "t": "2026-10-01T23:48:23",
+          "note": "see runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:48:23",
+      "notes": [
+        {
+          "t": "2026-10-01T23:48:23",
+          "note": "see runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T23:48:23",
+      "finished": "2026-10-01T23:50:20",
+      "notes": [
+        {
+          "t": "2026-10-01T23:50:20",
+          "note": "quick study"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:50:20",
+      "notes": [
+        {
+          "t": "2026-10-01T23:50:20",
+          "note": "quick study"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:50:20",
+      "notes": [
+        {
+          "t": "2026-10-01T23:50:20",
+          "note": "quick study"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T22:51:57",
+      "phase": "novelty",
+      "decision": "Pretrain on sort_asc; adapt to sort_desc and reverse; add a task-token prefix so old task remains queryable (otherwise forgetting is trivially total); 5 seeds; LR tuned on val split with seed 100."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

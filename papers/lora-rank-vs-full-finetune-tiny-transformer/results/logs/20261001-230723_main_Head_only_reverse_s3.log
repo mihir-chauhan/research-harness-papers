@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:07:23 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task reverse --seed 3 --out results/raw/main_Head_only_reverse_s3.json --system head
+
+config: {"system": "head", "task": "reverse", "seed": 3, "out": "results/raw/main_Head_only_reverse_s3.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.0, "adapt_tok_acc": 0.24331249296665192, "trainable_params": 896, "pretask_acc": 0.008999999612569809, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9904999770224094, "zero_shot_acc": 0.0005000000237487257, "train_loss": 1.9963215589523315, "seconds": 6.058794975280762}

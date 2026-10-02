@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:54:41 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lastblock --rank 4 --lr 0.01 --task sort_desc --seed 100 --eval_split val --out results/raw/tune_lastblock_0.01_sort_desc.json
+
+config: {"system": "lastblock", "task": "sort_desc", "seed": 100, "out": "results/raw/tune_lastblock_0.01_sort_desc.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": 0.01, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "val"}
+metrics: {"adapt_acc": 0.9735000133514404, "adapt_tok_acc": 0.9962499737739563, "trainable_params": 34496, "pretask_acc": 0.0, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9994999766349792, "zero_shot_acc": 0.0, "train_loss": 0.000857434468343854, "seconds": 9.89445686340332}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:00:49 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task sort_desc --seed 1 --out results/raw/main_LoRA_r1_sort_desc_s1.json --system lora --rank 1
+
+config: {"system": "lora", "task": "sort_desc", "seed": 1, "out": "results/raw/main_LoRA_r1_sort_desc_s1.json", "rank": 1, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.9695000052452087, "adapt_tok_acc": 0.9958750009536743, "trainable_params": 1792, "pretask_acc": 0.0, "pretask_acc_before": 1.0, "forgetting": 1.0, "zero_shot_acc": 0.0, "train_loss": 0.006217167247086763, "seconds": 16.78567409515381}

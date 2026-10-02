@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:29:46 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lora --rank 4 --task sort_desc --seed 1 --curve_csv results/raw/curve_lora4_s1.csv --out results/raw/curve_lora4_s1.json
+
+config: {"system": "lora", "task": "sort_desc", "seed": 1, "out": "results/raw/curve_lora4_s1.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": "results/raw/curve_lora4_s1.csv", "eval_split": "test"}
+metrics: {"adapt_acc": 0.9950000047683716, "adapt_tok_acc": 0.9993125200271606, "trainable_params": 7168, "pretask_acc": 0.0, "pretask_acc_before": 1.0, "forgetting": 1.0, "zero_shot_acc": 0.0, "train_loss": 0.00041088287252932787, "seconds": 25.784222841262817}

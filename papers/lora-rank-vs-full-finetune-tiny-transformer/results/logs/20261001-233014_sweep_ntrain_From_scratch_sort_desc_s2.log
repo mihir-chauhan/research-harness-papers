@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:30:14 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system scratch --rank 4 --n_train 100 --task sort_desc --seed 2 --out results/raw/sweep_ntrain_scratch4_n100_s2.json
+
+config: {"system": "scratch", "task": "sort_desc", "seed": 2, "out": "results/raw/sweep_ntrain_scratch4_n100_s2.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 100, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.1264999955892563, "adapt_tok_acc": 0.7925000190734863, "trainable_params": 70016, "pretask_acc": 0.0, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9994999766349792, "zero_shot_acc": 0.0, "train_loss": 0.00018907997582573444, "seconds": 16.39245891571045}

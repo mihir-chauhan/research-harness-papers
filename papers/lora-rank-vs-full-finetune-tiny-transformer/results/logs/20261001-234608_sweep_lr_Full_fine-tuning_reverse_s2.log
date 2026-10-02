@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:46:08 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system full --lr 0.0003 --task reverse --seed 2 --out results/raw/sweep_lr_full_0.0003_reverse_s2.json
+
+config: {"system": "full", "task": "reverse", "seed": 2, "out": "results/raw/sweep_lr_full_0.0003_reverse_s2.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": 0.0003, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.9965000152587891, "adapt_tok_acc": 0.9995625019073486, "trainable_params": 70016, "pretask_acc": 0.0005000000237487257, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9989999766112305, "zero_shot_acc": 0.0005000000237487257, "train_loss": 0.0022182785905897617, "seconds": 11.432454824447632}

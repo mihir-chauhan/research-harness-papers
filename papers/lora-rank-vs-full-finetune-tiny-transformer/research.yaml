@@ -1,0 +1,99 @@
+slug: lora-rank-vs-full-finetune-tiny-transformer
+direction: 'Low-rank adaptation at tiny scale: pretrain a small character-level transformer
+  on one synthetic sequence task (e.g. copying or sorting digits), then adapt it to
+  a related task (reversal, or sorting in the other order) with full fine-tuning,
+  LoRA at ranks 1, 2, 4 and 8, and training only the last layer. Measure adaptation
+  accuracy, number of trained parameters, and forgetting of the pretraining task.'
+problem: How much of full fine-tuning's adaptation quality is retained by low-rank
+  adapters, and how much of the pretrained skill is forgotten, in a tiny transformer
+  where everything can be measured exactly?
+gap: LoRA's accuracy and forgetting behaviour is reported on large models and natural-language
+  data; a fully controlled synthetic setting with exact-match scoring, a known pretraining
+  task and a task-token confound removed has not been laid out as a rank sweep with
+  forgetting measured at equal protocol.
+contribution: A small, fully reproducible CPU study comparing reimplemented full fine-tuning,
+  LoRA (ranks 1,2,4,8), last-block and head-only tuning on two adaptation tasks (sort
+  descending, reversal) after sort-ascending pretraining, with adaptation accuracy,
+  trainable parameters and forgetting, plus a learning-rate sweep and a target-module
+  ablation.
+hypotheses:
+- id: H1
+  statement: LoRA at rank >=4 on all linear layers matches full fine-tuning on adaptation
+    accuracy (paired difference within 2 points) with under 15% of the trainable parameters.
+  test: Paired Wilcoxon-style comparison of adapt_acc over seeds per task via rh compare;
+    supported if mean difference of LoRA r=4 minus full >= -0.02 on both tasks.
+- id: H2
+  statement: Adaptation accuracy of LoRA increases monotonically with rank from 1
+    to 8 and rank 1 is measurably worse than rank 8 on the harder task.
+  test: Mean adapt_acc per rank on each task; refuted if rank 1 is within 1 point
+    of rank 8 on both tasks.
+- id: H3
+  statement: LoRA forgets less of the pretraining task than full fine-tuning at matched
+    training steps.
+  test: forgetting (drop in sort_asc exact match) LoRA r=4 vs full, rh compare; refuted
+    if LoRA forgetting is not lower on at least one task.
+- id: H4
+  statement: Last-block-only tuning is worse than LoRA on adaptation accuracy at fewer
+    than 5x its parameters on the harder task.
+  test: adapt_acc of last-block vs LoRA r=4 and r=8 on sort_desc.
+method:
+  name: LoRA r=4
+  summary: Low-rank adapters W+(alpha/r)BA on all linear layers of a frozen 2-layer
+    pretrained character transformer, trained at ranks 1,2,4,8.
+  components:
+  - low-rank adapters
+  - frozen base
+  - all-linear targets
+  entrypoint: method/run.py
+tasks:
+- sort_desc
+- reverse
+metrics:
+  adapt_acc:
+    higher_is_better: true
+  adapt_tok_acc:
+    higher_is_better: true
+  trainable_params:
+    higher_is_better: false
+  pretask_acc:
+    higher_is_better: true
+  forgetting:
+    higher_is_better: false
+  zero_shot_acc:
+    higher_is_better: true
+  train_loss:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Full fine-tuning
+- Last-block tuning
+- Head-only tuning
+- Scratch training
+- No adaptation
+ablations:
+- LoRA r=4 (q,v only)
+- LoRA r=4
+- From scratch
+ambition:
+  target_tier: 2
+  primary_metric: adapt_acc
+  primary_task: sort_desc
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

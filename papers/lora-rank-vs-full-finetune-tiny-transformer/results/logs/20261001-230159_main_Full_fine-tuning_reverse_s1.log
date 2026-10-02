@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:01:59 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task reverse --seed 1 --out results/raw/main_Full_fine-tuning_reverse_s1.json --system full
+
+config: {"system": "full", "task": "reverse", "seed": 1, "out": "results/raw/main_Full_fine-tuning_reverse_s1.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 1.0, "adapt_tok_acc": 1.0, "trainable_params": 70016, "pretask_acc": 0.0005000000237487257, "pretask_acc_before": 1.0, "forgetting": 0.9994999999762513, "zero_shot_acc": 0.0005000000237487257, "train_loss": 0.00010992460011038929, "seconds": 13.157740116119385}

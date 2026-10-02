@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:59:10 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task reverse --seed 0 --out results/raw/main_No_adaptation_reverse_s0.json --system pretrained
+
+config: {"system": "pretrained", "task": "reverse", "seed": 0, "out": "results/raw/main_No_adaptation_reverse_s0.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.0005000000237487257, "adapt_tok_acc": 0.19031250476837158, "trainable_params": 0, "pretask_acc": 0.9984999895095825, "pretask_acc_before": 0.9984999895095825, "forgetting": 0.0, "zero_shot_acc": 0.0005000000237487257, "train_loss": NaN, "seconds": 0.24489498138427734}

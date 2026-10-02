@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:05:24 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task sort_desc --seed 3 --out results/raw/main_Head_only_sort_desc_s3.json --system head
+
+config: {"system": "head", "task": "sort_desc", "seed": 3, "out": "results/raw/main_Head_only_sort_desc_s3.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.008999999612569809, "adapt_tok_acc": 0.6050000190734863, "trainable_params": 896, "pretask_acc": 0.0, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9994999766349792, "zero_shot_acc": 0.0, "train_loss": 0.9876607656478882, "seconds": 5.1336493492126465}

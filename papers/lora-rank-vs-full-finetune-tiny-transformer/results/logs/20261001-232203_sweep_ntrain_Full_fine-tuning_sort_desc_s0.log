@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:22:03 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system full --rank 4 --n_train 100 --task sort_desc --seed 0 --out results/raw/sweep_ntrain_full4_n100_s0.json
+
+config: {"system": "full", "task": "sort_desc", "seed": 0, "out": "results/raw/sweep_ntrain_full4_n100_s0.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 100, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.17800000309944153, "adapt_tok_acc": 0.8134999871253967, "trainable_params": 70016, "pretask_acc": 0.0, "pretask_acc_before": 0.9984999895095825, "forgetting": 0.9984999895095825, "zero_shot_acc": 0.0, "train_loss": 0.00012999548926018178, "seconds": 15.106244802474976}

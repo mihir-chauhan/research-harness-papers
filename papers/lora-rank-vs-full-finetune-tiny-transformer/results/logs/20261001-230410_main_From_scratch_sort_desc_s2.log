@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:04:10 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --task sort_desc --seed 2 --out results/raw/main_From_scratch_sort_desc_s2.json --system scratch
+
+config: {"system": "scratch", "task": "sort_desc", "seed": 2, "out": "results/raw/main_From_scratch_sort_desc_s2.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.996999979019165, "adapt_tok_acc": 0.999625027179718, "trainable_params": 70016, "pretask_acc": 0.0, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9994999766349792, "zero_shot_acc": 0.0, "train_loss": 0.00023821300419513136, "seconds": 12.639422178268433}

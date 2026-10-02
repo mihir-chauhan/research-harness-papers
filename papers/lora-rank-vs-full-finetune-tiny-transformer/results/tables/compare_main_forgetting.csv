@@ -1,0 +1,9 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+sort_desc,LoRA r=4,From scratch,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,Full fine-tuning,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,Head only,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,Last block,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,LoRA r=1,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,LoRA r=2,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,LoRA r=8,forgetting,0.9994999885559082,0.9994999885559082,0.0,5,5,1.0,,0.0
+sort_desc,LoRA r=4,No adaptation,forgetting,0.9994999885559082,0.0,0.9994999885559082,5,5,3.3818515141389014e-14,3.3818515141389014e-14,2308.2302065609906

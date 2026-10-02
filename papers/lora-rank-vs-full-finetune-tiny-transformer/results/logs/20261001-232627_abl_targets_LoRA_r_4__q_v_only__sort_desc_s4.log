@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:26:27 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lora --rank 4 --targets q,v --task sort_desc --seed 4 --out results/raw/abl_targets_qv_r4_sort_desc_s4.json
+
+config: {"system": "lora", "task": "sort_desc", "seed": 4, "out": "results/raw/abl_targets_qv_r4_sort_desc_s4.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,v", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.9629999995231628, "adapt_tok_acc": 0.9950624704360962, "trainable_params": 2048, "pretask_acc": 0.0, "pretask_acc_before": 1.0, "forgetting": 1.0, "zero_shot_acc": 0.0, "train_loss": 0.006640576291829348, "seconds": 13.796747922897339}

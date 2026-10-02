@@ -1,0 +1,13 @@
+\textbf{Model.} A decoder-only transformer~\cite{vaswani2017attention} with two pre-LayerNorm blocks, $d=64$, 4 heads, feed-forward width 128, GELU, learned positions and an untied output head (70,016 parameters). The vocabulary has 14 symbols: ten digits, a separator, and three task tokens. A sequence is $[\tau, x_1..x_8, \mathrm{SEP}, y_1..y_8]$ with task token $\tau$; the loss and the metric cover only $y$. Targets are $y=\mathrm{sort}_\uparrow(x)$ (pretraining, $\tau_0$), $y=\mathrm{sort}_\downarrow(x)$ ($\tau_1$) or $y=\mathrm{reverse}(x)$ ($\tau_2$). The task token makes the pretraining task still queryable after adaptation, so forgetting is the loss of a skill and not the trivial consequence of two tasks sharing an input. Exact match requires all eight output tokens to be correct, which equals greedy-decoding exact match because the same argmax is taken at each position under teacher forcing.
+
+\textbf{Full fine-tuning.} All parameters $\theta$ are trained: $\theta \leftarrow \arg\min \mathcal{L}(\theta; D_\mathrm{adapt})$, $\mathcal{L}=-\frac{1}{8|D|}\sum \sum_j \log p_\theta(y_j\mid \tau, x, \mathrm{SEP}, y_{<j})$.
+
+\textbf{LoRA (reimplemented).} For each frozen linear map $h = Wx + b$ in $\mathcal{T}=\{q,k,v,o,\mathrm{ff}_1,\mathrm{ff}_2\}$ of both blocks,
+\begin{equation}
+h = Wx + b + \frac{\alpha}{r} B A x,\quad A\in\mathbb{R}^{r\times d_\mathrm{in}},\ B\in\mathbb{R}^{d_\mathrm{out}\times r},
+\end{equation}
+with $B=0$ and $A$ Kaiming-uniform at initialisation, so the model starts exactly at the pretrained function, and $\alpha=2r$ (a constant scale $\alpha/r=2$ across ranks). Only $A,B$ are trained: $r\sum_{m\in\mathcal{T}}(d_\mathrm{in}^m+d_\mathrm{out}^m)$ per block, i.e.\ 1,792 parameters per unit of rank for $2$ blocks (1,792 / 3,584 / 7,168 / 14,336 for $r=1,2,4,8$). Embeddings, layer norms and the head stay frozen, so the new task token keeps its random initial embedding. The target-module ablation restricts $\mathcal{T}$ to $\{q,v\}$ as in the original paper~\cite{hu2021lora}.
+
+\textbf{Last block.} Only the second block, the final LayerNorm and the head are trained (34,496 parameters). \textbf{Head only.} Only the output projection (896 parameters). \textbf{From scratch.} A freshly initialised model, all parameters trained with the same data and budget; this controls for whether pretraining helps at all. \textbf{No adaptation.} The pretrained model evaluated as is.
+
+\textbf{Metrics.} \emph{adapt\_acc}: exact match on the target task (2000 fresh test sequences); \emph{adapt\_tok\_acc}: per-token accuracy; \emph{trainable\_params}; \emph{pretask\_acc}: exact match on sort ascending (token $\tau_0$) after adaptation; \emph{forgetting} $=$ pretask accuracy before minus after adaptation.

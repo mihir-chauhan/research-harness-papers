@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:58:38 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system head --rank 4 --lr 0.03 --task reverse --seed 100 --eval_split val --out results/raw/tune_head_0.03_reverse.json
+
+config: {"system": "head", "task": "reverse", "seed": 100, "out": "results/raw/tune_head_0.03_reverse.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": 0.03, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "val"}
+metrics: {"adapt_acc": 0.0, "adapt_tok_acc": 0.24562500417232513, "trainable_params": 896, "pretask_acc": 0.007000000216066837, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9924999764189124, "zero_shot_acc": 0.0010000000474974513, "train_loss": 1.9959214925765991, "seconds": 4.756316184997559}

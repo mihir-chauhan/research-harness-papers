@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:26:42 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lora --rank 1 --targets q,v --task reverse --seed 4 --out results/raw/abl_targets_qv_r1_reverse_s4.json
+
+config: {"system": "lora", "task": "reverse", "seed": 4, "out": "results/raw/abl_targets_qv_r1_reverse_s4.json", "rank": 1, "alpha_per_rank": 2.0, "targets": "q,v", "lr": null, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.004000000189989805, "adapt_tok_acc": 0.6077499985694885, "trainable_params": 512, "pretask_acc": 0.0, "pretask_acc_before": 1.0, "forgetting": 1.0, "zero_shot_acc": 0.0005000000237487257, "train_loss": 1.063988208770752, "seconds": 16.549525022506714}

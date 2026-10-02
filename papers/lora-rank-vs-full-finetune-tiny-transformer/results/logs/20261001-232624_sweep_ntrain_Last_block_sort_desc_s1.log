@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:26:24 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lastblock --rank 4 --n_train 100 --task sort_desc --seed 1 --out results/raw/sweep_ntrain_lastblock4_n100_s1.json
+
+config: {"system": "lastblock", "task": "sort_desc", "seed": 1, "out": "results/raw/sweep_ntrain_lastblock4_n100_s1.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 100, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.09449999779462814, "adapt_tok_acc": 0.7511875033378601, "trainable_params": 34496, "pretask_acc": 0.0, "pretask_acc_before": 1.0, "forgetting": 1.0, "zero_shot_acc": 0.0, "train_loss": 0.0002304198278579861, "seconds": 11.522478818893433}

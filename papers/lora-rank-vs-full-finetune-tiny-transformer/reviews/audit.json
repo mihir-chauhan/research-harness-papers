@@ -1,0 +1,183 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 241 runs have commands and logs that match the registry, re-runs reproduce exactly (including a fresh pretraining), every number in the paper matches the tables, and the code, citations, disclosure and PDF are sound. One major problem: the abstract and conclusion claim LoRA r=1 and r=4 are ahead of full fine-tuning at 100 and 300 examples with no test, mostly within one standard deviation on 3 seeds, and auditor probes show the ordering reverses at N=100 when full fine-tuning uses a lower learning rate. The remaining findings are minor wording and disclosure fixes.",
+      "reran": [
+        {
+          "run": "LoRA r=4/sort_desc/0",
+          "metric": "adapt_acc",
+          "registry": 0.9975000023841858,
+          "rerun": 0.9975000023841858
+        },
+        {
+          "run": "Last block/sort_desc/0",
+          "metric": "adapt_acc",
+          "registry": 0.9545000195503235,
+          "rerun": 0.9545000195503235
+        },
+        {
+          "run": "LoRA r=1/reverse/3",
+          "metric": "adapt_acc",
+          "registry": 0.0,
+          "rerun": 0.0
+        },
+        {
+          "run": "Full fine-tuning/sort_desc/3 (fresh pretraining in /tmp copy)",
+          "metric": "adapt_acc",
+          "registry": 0.9925000071525574,
+          "rerun": 0.9925000071525574
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, ablations.tex (Adaptation set size), conclusion.tex, results/RESULTS.md",
+          "issue": "The claim that LoRA r=1 and r=4 are ahead of full fine-tuning at N=100 and N=300 has no test (paired p from registry: 0.24, 0.27, 0.14, 0.065 with 3 seeds), is within about one std at N=100 and for r=1 at N=300, and compares against full fine-tuning at lr 1e-2 tuned for N=2000. Auditor probes with full FT at lr 1e-3 give 0.465 at N=100 (above LoRA 0.385 and 0.337) and 0.831 at N=300 (ties r=1 at 0.838); only r=4 at N=300 (0.938) stays ahead.",
+          "fix": "Tune the learning rate per N for every system on the validation split and re-run the sweep with paired tests, or remove the claim from abstract and conclusion and report only r=4 at N=300 as a non-significant 3-seed observation that is sensitive to the full-FT learning rate."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2, Where the method fails), Table II, abstract.tex",
+          "issue": "Reversal failures at ranks 1, 2, 8 and the rank-8 collapse at small N are artifacts of reusing the r=4 learning rate 3e-2: at lr 1e-2 r=1 seed 3 goes 0.000 to 0.985, r=8 seed 1 goes 0.805 to 1.000, r=8 N=100 seed 0 goes 0.000 to 0.240. The abstract's 'our tuned learning rate' was tuned only at r=4.",
+          "fix": "Tune the rate per rank and regenerate Table II, or say 'tuned at r=4 only' in the abstract and report the lower-rate check."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, limitations.tex",
+          "issue": "After the one grid extension the selected rates for full fine-tuning (1e-2), LoRA (3e-2) and head (3e-2) are still at the upper grid edge with validation accuracy still rising; 'at the edge twice' does not make this clear.",
+          "fix": "State which systems' selected rates remain at the edge, or extend the grid one more step."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3), introduction.tex contribution (i), abstract.tex",
+          "issue": "Retention is at floor for every system including head-only and under-adapted LoRA, so the design cannot discriminate methods; the pretrained model saw only one task token and never learned to condition on it. 'Refuted' and 'do not reproduce' read stronger than an uninformative test supports.",
+          "fix": "Describe H3 as not supported and uninformative because of a floor effect, and soften the claim that the task token makes forgetting well defined."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1) vs research.yaml",
+          "issue": "research.yaml states H1 for 'rank >= 4' but the paper tests only rank 4; rank 8 on reversal is -0.059 vs full fine-tuning, outside the two-point margin (p=0.17).",
+          "fix": "Note under H1 that rank 8 does not meet the margin on reversal at the shared learning rate."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex Table III caption; Tables I and VI",
+          "issue": "'Identical by construction' is wrong (identical empirically). The 0.0005 retention and zero-shot values on reversal are one test input whose reversal equals its ascending sort, not retained skill.",
+          "fix": "Reword the caption and explain the residual 1/2000."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'About 45 minutes' understates compute: registry spans 55 minutes wall clock and 68 minutes summed, above the 45-minute budget in research.yaml. '5-25 s per run' omits six 50-59 s runs that include pretraining.",
+          "fix": "Report the actual wall clock and summed time and mention the pretraining runs."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Fig. 1 caption, Table I",
+          "issue": "Fig. 1 omits the from-scratch system without saying so; bold/underline in Table I separates systems tied within noise (0.997 for LoRA r=4, r=8 and scratch).",
+          "fix": "Mention the omission and drop or caveat the bolding."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'The low-data advantage of a restricted update' is asserted as known prior work with no citation.",
+          "fix": "Cite a source or remove the phrase."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md, research.yaml",
+          "issue": "The ablation table in VERDICT.md shows 'missing' for both rows, and the ablations list in research.yaml was renamed to run names in the final commit.",
+          "fix": "Regenerate the verdict so the ablation entries resolve, or note that the ablation deltas are in the custom tables."
+        }
+      ],
+      "commit": "b3f148d930c06646913537dc5d4e84e397ea42e4"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 241 registry rows have commands and logs whose metrics match exactly, three re-executed main runs and a re-pretrained checkpoint were bit-identical, every number in the prose matches the generated tables, and the 11 citations are used in context. The paper reports its mixed and negative outcomes honestly (ceiling effect, uninformative forgetting test, confounded rank trend, inconclusive low-data comparison). Only minor issues remain: a wrong statement that the last-block learning rate is at the grid edge, undisclosed tune rows where head-only retains the pretraining task at lower learning rates, and a few wording and count slips.",
+      "reran": [
+        {
+          "run": "LoRA r=4/sort_desc/1",
+          "metric": "adapt_acc",
+          "registry": 0.9950000047683716,
+          "rerun": 0.9950000047683716
+        },
+        {
+          "run": "Full fine-tuning/sort_desc/3",
+          "metric": "adapt_acc",
+          "registry": 0.9925000071525574,
+          "rerun": 0.9925000071525574
+        },
+        {
+          "run": "LoRA r=1/reverse/3",
+          "metric": "adapt_acc",
+          "registry": 0.0,
+          "rerun": 0.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results.tex item (v), limitations.tex",
+          "issue": "The paper says the last-block learning rate (1e-2) is at the upper edge of the extended grid and may be under-tuned, but the tune runs show 3e-2 was tried and is slightly worse (mean val 0.984 vs 0.987), so the selected rate is interior. The same Setup sentence has a dangling parenthetical and says four systems hit the first grid edge when five did (head too).",
+          "fix": "State that scratch and last block are interior and only full fine-tuning, LoRA and head are at the upper edge; rewrite the garbled sentence and correct the count."
+        },
+        {
+          "severity": "minor",
+          "where": "abstract, results.tex H3 paragraph, limitations.tex, conclusion.tex",
+          "issue": "The argument that the forgetting test is uninformative leans on head-only tuning sitting at the floor, but the registry tune group shows head-only on reversal retaining 0.98 / 0.84 / 0.13 / 0.007 of the pretraining task at lr 1e-3 / 3e-3 / 1e-2 / 3e-2 (validation seed 100). The floor for head-only is specific to the selected rate, and this is not disclosed; the abstract parenthetical can be read as covering head-only at every rate.",
+          "fix": "Disclose the tune-group head-only retention values, say the head-only floor holds at the selected rate only, and reword the abstract so 'at every learning rate we tried' clearly applies to LoRA and full fine-tuning."
+        },
+        {
+          "severity": "minor",
+          "where": "abstract, results.tex 'Where the method fails' (i), conclusion.tex",
+          "issue": "Rank 8 on reversal is described as a single-seed or whole-run failure alongside ranks 1 and 2, but Table II shows 0/5 failed seeds for rank 8; three seeds are degraded to 0.80-0.96 and none collapsed.",
+          "fix": "Say whole-run failures occur at ranks 1 and 2 (one seed each) and partial degradation in three seeds at rank 8."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "The text says six runs include pretraining (50-60 s), but only five registered runs do; the seed-0 checkpoint was created by an unregistered smoke run before the first registered run. It reproduces bit-exactly from the committed code.",
+          "fix": "Say five registered runs include pretraining and note that the seed-0 checkpoint came from an unregistered smoke run that is deterministic and reproducible."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables/compare_main_adapt_acc.csv, paper/generated/tab_tests.tex",
+          "issue": "The saved rh compare output covers only the reversal task; the two significant p-values (0.0008 and 0.0037 on descending sort) come from scipy in method/report.py. They are correct on recomputation. H1's registered test is described as Wilcoxon-style, under which n=5 cannot reach p<0.0625; the paper uses paired t-tests and says so.",
+          "fix": "Regenerate rh compare for sort_desc including the rank 1 vs rank 8 pair and commit the CSV; note that the registered H1 test wording was Wilcoxon-style while t-tests are reported."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, abstract",
+          "issue": "The claim that pretrained full fine-tuning is ahead of scratch at N=100 and N=300 has no reported test. Paired t-tests over the three seeds give p=0.042 and p=0.046, uncorrected. The abstract's 'no test is significant' is ambiguous about which comparison it covers.",
+          "fix": "Report the two p-values with the three-seed, uncorrected caveat and scope 'no test is significant' to LoRA versus full fine-tuning."
+        },
+        {
+          "severity": "minor",
+          "where": "results.tex H3 paragraph, compare_main_forgetting.csv",
+          "issue": "Forgetting for the from-scratch model is computed against the pretrained model's accuracy although scratch never had the skill, and it is counted among 'every adapted system'.",
+          "fix": "Exclude from-scratch from forgetting statements or mark its retention column as not applicable."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf",
+          "issue": "Overfull hbox of about 20 pt from the repository URL in the author block.",
+          "fix": "Shrink or break the URL."
+        }
+      ],
+      "commit": "571c2a8f1c4b92631489c08a4bac9aee7ed228f9"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 1 < target 2: loses on: reverse; not significant on: reverse, sort_desc\nREADY",
+      "response": "# Response to audit\n\n1. **Major, LoRA vs full FT at N=100/300.** Chose to remove the claim rather than re-tune per N. Abstract, conclusion, ablations text and RESULTS.md now say the comparison is inconclusive: paired t-tests over 3 seeds (recomputed from the registry: p = 0.24, 0.27 at N=100 for r=1, r=4; 0.14, 0.065 at N=300) are all above 0.05, and the full-FT rate was tuned at N=2000 only, so the ordering may depend on it. The auditor's lr 1e-3 probes are not in the registry and are not quoted.\n2. **Minor, rank-failure artifacts.** Abstract, setup, results (H2) now say the LoRA rate was tuned at r=4 only and the failures at ranks 1, 2, 8 may be artifacts of reusing it. No per-rank re-tuning was run.\n3. **Minor, grid edge.** Setup and limitations name the four systems (full, LoRA, last block, head) whose selected rates remain at the upper edge; only scratch is interior.\n4. **Minor, H3.** Re-labelled \"not supported, uninformative because of a floor effect\" in results, abstract, introduction, RESULTS.md; limitations notes the single-task-token pretraining; contribution (i) softened.\n5. **Minor, H1 rank >= 4.** Results H1 now states that rank 8 on reversal (0.941 vs 1.000) misses the margin, so H1 is shown for rank 4 only.\n6. **Minor, Table III caption / 1/2000.** \"By construction\" replaced by \"empirically\"; the 0.0005 residual is explained as one input whose reversal equals its ascending sort.\n7. **Minor, compute.** Setup reports 241 runs, ~54 min wall clock, 68 min summed, median 16 s (6-27 s 5-95th pct), pretraining runs 50-60 s, and that this exceeds the planned 45 min.\n8. **Minor, Fig. 1 / bolding.** Text notes Fig. 1 omits from-scratch; Table I caption says bold/underline does not imply significance (ties at 0.997).\n9. **Minor, uncited phrase.** \"Low-data advantage of a restricted update\" removed; also toned down \"leaves accuracy on the table\".\n10. **Minor, VERDICT/research.yaml.** research.yaml ablation names are kept as run names because `rh check` resolves them against runs; RESULTS.md now notes that the VERDICT ablation rows read \"missing\" for that reason and that the deltas are in the custom tables.\n",
+      "seconds": 666
+    }
+  ]
+}

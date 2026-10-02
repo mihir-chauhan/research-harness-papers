@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:58:21 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lastblock --rank 4 --lr 0.03 --task reverse --seed 100 --eval_split val --out results/raw/tune_lastblock_0.03_reverse.json
+
+config: {"system": "lastblock", "task": "reverse", "seed": 100, "out": "results/raw/tune_lastblock_0.03_reverse.json", "rank": 4, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": 0.03, "n_train": 2000, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "val"}
+metrics: {"adapt_acc": 1.0, "adapt_tok_acc": 1.0, "trainable_params": 34496, "pretask_acc": 0.0010000000474974513, "pretask_acc_before": 0.9994999766349792, "forgetting": 0.9984999765874818, "zero_shot_acc": 0.0010000000474974513, "train_loss": 3.690581797854975e-05, "seconds": 9.943567991256714}

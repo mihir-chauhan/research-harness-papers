@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:25:25 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lora --rank 8 --n_train 300 --task sort_desc --seed 0 --out results/raw/sweep_ntrain_lora8_n300_s0.json
+
+config: {"system": "lora", "task": "sort_desc", "seed": 0, "out": "results/raw/sweep_ntrain_lora8_n300_s0.json", "rank": 8, "alpha_per_rank": 2.0, "targets": "q,k,v,o,ff1,ff2", "lr": null, "n_train": 300, "steps": 1500, "bs": 64, "pre_steps": 4000, "curve_csv": null, "eval_split": "test"}
+metrics: {"adapt_acc": 0.003000000026077032, "adapt_tok_acc": 0.5256875157356262, "trainable_params": 14336, "pretask_acc": 0.0, "pretask_acc_before": 0.9984999895095825, "forgetting": 0.9984999895095825, "zero_shot_acc": 0.0, "train_loss": 0.9779605269432068, "seconds": 20.775699853897095}
