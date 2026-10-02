@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 19:22:55 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system GCE --task flip_p0.3 --seed 2 --n 500 --q 0.3 --out results/raw/sweep_gce_q_GCE_flip_p0.3_q0.3_s2.json
+
+config {'system': 'GCE', 'task': 'flip_p0.3', 'n': 500, 'seed': 2, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.3, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/sweep_gce_q_GCE_flip_p0.3_q0.3_s2.json'}
+metrics {"miou": 0.5681208628077477, "miou_fg": 0.43192906748987697, "iou_bg": 0.9766962487613593, "iou_circle": 0.5604434593336151, "iou_square": 0.3375874672832299, "iou_triangle": 0.397756275852786, "train_fit_noisy": 0.89035009765625, "train_fit_clean": 0.90299560546875, "label_noise_pixels": 0.07906982421875} time 172.7
+
+# rh: exit code 0 after 174.8 s
+# rh metrics: {"iou_bg": 0.9766962487613593, "iou_circle": 0.5604434593336151, "iou_square": 0.3375874672832299, "iou_triangle": 0.397756275852786, "label_noise_pixels": 0.07906982421875, "miou": 0.5681208628077477, "miou_fg": 0.43192906748987697, "train_fit_clean": 0.90299560546875, "train_fit_noisy": 0.89035009765625}

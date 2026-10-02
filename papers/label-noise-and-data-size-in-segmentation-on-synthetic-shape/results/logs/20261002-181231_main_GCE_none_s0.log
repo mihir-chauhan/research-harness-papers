@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:12:31 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system GCE --task none --seed 0 --n 500 --out results/raw/main_GCE_none_n500_s0.json
+
+config {'system': 'GCE', 'task': 'none', 'n': 500, 'seed': 0, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.7, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/main_GCE_none_n500_s0.json'}
+metrics {"miou": 0.805481522932288, "miou_fg": 0.7476967553073623, "iou_bg": 0.9788358258070653, "iou_circle": 0.8184078598981224, "iou_square": 0.7233283843257861, "iou_triangle": 0.7013540216981785, "train_fit_noisy": 0.9690869140625, "train_fit_clean": 0.9690869140625, "label_noise_pixels": 0.0} time 108.7
+
+# rh: exit code 0 after 110.6 s
+# rh metrics: {"iou_bg": 0.9788358258070653, "iou_circle": 0.8184078598981224, "iou_square": 0.7233283843257861, "iou_triangle": 0.7013540216981785, "label_noise_pixels": 0.0, "miou": 0.805481522932288, "miou_fg": 0.7476967553073623, "train_fit_clean": 0.9690869140625, "train_fit_noisy": 0.9690869140625}

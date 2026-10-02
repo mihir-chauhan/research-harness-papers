@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 19:05:48 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system CE --task none --seed 0 --n 250 --out results/raw/size_CE_none_n250_s0.json
+
+config {'system': 'CE', 'task': 'none', 'n': 250, 'seed': 0, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.7, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/size_CE_none_n250_s0.json'}
+metrics {"miou": 0.8011551426564053, "miou_fg": 0.7415747602164527, "iou_bg": 0.9798962899762634, "iou_circle": 0.815257440415494, "iou_square": 0.7100457418205943, "iou_triangle": 0.6994210984132697, "train_fit_noisy": 0.9798408203125, "train_fit_clean": 0.9798408203125, "label_noise_pixels": 0.0} time 68.6
+
+# rh: exit code 0 after 70.3 s
+# rh metrics: {"iou_bg": 0.9798962899762634, "iou_circle": 0.815257440415494, "iou_square": 0.7100457418205943, "iou_triangle": 0.6994210984132697, "label_noise_pixels": 0.0, "miou": 0.8011551426564053, "miou_fg": 0.7415747602164527, "train_fit_clean": 0.9798408203125, "train_fit_noisy": 0.9798408203125}

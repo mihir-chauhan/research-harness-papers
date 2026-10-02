@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:51:58 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system CE --task flip_p0.3 --seed 0 --n 100 --out results/raw/size_CE_flip_p0.3_n100_s0.json
+
+config {'system': 'CE', 'task': 'flip_p0.3', 'n': 100, 'seed': 0, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.7, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/size_CE_flip_p0.3_n100_s0.json'}
+metrics {"miou": 0.46846405321520557, "miou_fg": 0.30021467842109556, "iou_bg": 0.9732121775975358, "iou_circle": 0.27099868498887136, "iou_square": 0.3203181489515546, "iou_triangle": 0.3093272013228607, "train_fit_noisy": 0.97955078125, "train_fit_clean": 0.89975830078125, "label_noise_pixels": 0.08667236328125} time 76.6
+
+# rh: exit code 0 after 78.1 s
+# rh metrics: {"iou_bg": 0.9732121775975358, "iou_circle": 0.27099868498887136, "iou_square": 0.3203181489515546, "iou_triangle": 0.3093272013228607, "label_noise_pixels": 0.08667236328125, "miou": 0.46846405321520557, "miou_fg": 0.30021467842109556, "train_fit_clean": 0.89975830078125, "train_fit_noisy": 0.97955078125}

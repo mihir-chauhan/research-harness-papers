@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 19:34:22 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system BandIgnoreCE --task flip_p0.2 --seed 0 --n 500 --out results/raw/main_BandIgnoreCE_flip_p0.2_n500_s0.json
+
+config {'system': 'BandIgnoreCE', 'task': 'flip_p0.2', 'n': 500, 'seed': 0, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.7, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/main_BandIgnoreCE_flip_p0.2_n500_s0.json'}
+metrics {"miou": 0.5375083717529227, "miou_fg": 0.40071841881986386, "iou_bg": 0.9478782305520987, "iou_circle": 0.5133139848108306, "iou_square": 0.327854358117516, "iou_triangle": 0.36098691353124523, "train_fit_noisy": 0.86687646484375, "train_fit_clean": 0.88369970703125, "label_noise_pixels": 0.0528466796875} time 115.0
+
+# rh: exit code 0 after 116.9 s
+# rh metrics: {"iou_bg": 0.9478782305520987, "iou_circle": 0.5133139848108306, "iou_square": 0.327854358117516, "iou_triangle": 0.36098691353124523, "label_noise_pixels": 0.0528466796875, "miou": 0.5375083717529227, "miou_fg": 0.40071841881986386, "train_fit_clean": 0.88369970703125, "train_fit_noisy": 0.86687646484375}

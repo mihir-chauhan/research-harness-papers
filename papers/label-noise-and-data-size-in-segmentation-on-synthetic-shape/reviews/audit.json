@@ -1,0 +1,73 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers trace to logged runs. Recomputing the analysis script reproduces every derived statistic, and two re-executed runs (CE and band-ignore CE, flip_p0.3, seed 2) match the registry exactly. The code matches the described method and baselines with a shared budget and no test leakage beyond a disclosed budget choice, and negative and mixed results are reported plainly; remaining issues are minor overstatements in the ablation wording, a missing segmentation-specific prior-work citation and small layout problems.",
+      "reran": [
+        {
+          "run": "main/CE/flip_p0.3/seed2",
+          "metric": "miou",
+          "registry": 0.5484,
+          "rerun": 0.548398
+        },
+        {
+          "run": "main/Band-ignore CE/flip_p0.3/seed2",
+          "metric": "miou",
+          "registry": 0.4213,
+          "rerun": 0.421277
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (training-set size paragraph)",
+          "issue": "States 'the gap to clean labels widens with data' as fact; the drop difference is 0.06, smaller than one seed std (0.11), with Welch p=0.25.",
+          "fix": "Describe it as a non-significant point estimate, consistent with the inconclusive H3 verdict."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (GCE exponent paragraph)",
+          "issue": "'The largest q is clearly worst' overstates 0.45+-0.15 vs 0.54+-0.11 / 0.59+-0.09 with three seeds (within one std).",
+          "fix": "Say 'lowest in mean' and drop 'clearly'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'SCE is indistinguishable from CE' glosses over SCE being 0.08 lower under boundary noise and lower on clean labels (paired p=0.023).",
+          "fix": "Say SCE is not better than CE on any task and lower in mean on clean and boundary labels."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex",
+          "issue": "Calls Karimi et al. the 'closest prior work' without support; segmentation-specific studies of label quality vs quantity (e.g. Zlateski et al., CVPR 2018) are not cited.",
+          "fix": "Add the relevant segmentation label-noise/label-quality citations and soften the 'closest prior work' claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2)",
+          "issue": "'the damage is entirely a foreground-class confusion' contradicts the limitations section, which says this is not isolated by any run.",
+          "fix": "Change to 'is consistent with a foreground-class confusion'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex / results/runs.jsonl",
+          "issue": "The two single-seed clean-label runs used to choose the 600-step/lr 1e-2 budget (scored on test) are not in the registry.",
+          "fix": "Log those runs or state explicitly that they were not logged."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf",
+          "issue": "Header URL runs past the page margin; Fig. 1 x-axis labels overlap ('boundary_p0.3flip_p0.3').",
+          "fix": "Break or shorten the URL and rotate or shorten the tick labels."
+        }
+      ],
+      "commit": "29ded12cd906c2915fde0c00d5cb2c9dac412da0"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

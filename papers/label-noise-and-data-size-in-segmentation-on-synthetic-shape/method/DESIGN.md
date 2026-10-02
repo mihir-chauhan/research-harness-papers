@@ -1,0 +1,6 @@
+# Design
+- data.py: numpy generator, 64x64 RGB, textured background (smoothed noise + grating), 3-5 overlapping objects (circle/rotated square/triangle, painter's order, visible-label map + visible-instance map), textured fills. Pool of 2000 (seed 1000), test of 500 (seed 2000), both fixed; a run draws N images from the pool with a seed-dependent permutation.
+- Noise (training labels only; test labels clean): boundary_pP: each pixel within 2 px of a label edge is, with prob P, relabelled with a random pixel label of its 5x5 neighbourhood. flip_pP: each visible object is, with prob P, relabelled to a uniformly random different foreground class. Noise seed 20000+seed.
+- Network: U-Net, 3 down-levels + bottleneck, widths 8/16/32/64, BatchNorm, 2 convs per block except single conv at full resolution (CPU cost), ~110k params.
+- Training: AdamW lr 1e-2 (OneCycle), wd 1e-4, batch 16, 600 steps (fixed for all N), horizontal-flip augmentation, final checkpoint (no model selection, no clean validation set). Torch seed = seed.
+- Losses: CE; GCE (1-p_y^q)/q, q=0.7; SCE alpha*CE + beta*RCE with log0=-4, alpha=0.1, beta=1; Band-ignore CE: CE with zero weight on pixels where the 5x5 max/min filter of the noisy training label differ.

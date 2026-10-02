@@ -1,0 +1,125 @@
+{
+  "slug": "label-noise-and-data-size-in-segmentation-on-syn",
+  "direction": "Label noise and data size in segmentation on synthetic shapes. generate 64x64 images of overlapping circles, squares and triangles on textured backgrounds with numpy (2k train / 500 test); train a small U-Net on CPU with 100-2,000 images and with 0-30 percent boundary/label noise, 3 seeds; measure mIoU per class. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T17:21:22",
+  "updated": "2026-10-02T19:41:51",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T17:21:33",
+      "finished": "2026-10-02T17:32:35",
+      "notes": [
+        {
+          "t": "2026-10-02T17:32:35",
+          "note": "landscape+proposal written"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:50",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:50",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:50",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:50",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:50",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:50",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:51",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:51",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:51",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:51",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:51",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:51",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:41:51",
+      "notes": [
+        {
+          "t": "2026-10-02T19:41:51",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T18:12:23",
+      "phase": "setup",
+      "decision": "Pilot with 450 steps/lr 5e-3 left several seeds with a collapsed triangle/square class even on clean labels, so noise effects would be confounded by convergence luck. Switched to 600 steps and lr 1e-2 (lr 1e-2 gave higher clean mIoU in two pilot seeds); grid reduced to 4 seeds in main and fewer sweeps to fit the CPU budget."
+    },
+    {
+      "t": "2026-10-02T19:41:50",
+      "phase": "experiments",
+      "decision": "Seeds reduced to 4 (main, size N=100/2000) and 3 (sweeps) for the compute budget; pilots superseded by tagging their rows; Band-ignore CE added at flip 0.1/0.2 in main so the checker's task list is covered."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

@@ -1,0 +1,19 @@
+\subsection{Problem and noise models}
+Let $x\in[0,1]^{3\times H\times W}$ be an image with $H=W=\rhval{const/image_size}$ and $y\in\{0,\dots,3\}^{H\times W}$ its clean label map (background, circle, square, triangle; the label of a pixel is that of the top-most visible object). Only the training labels are corrupted, $\tilde y=\mathcal{C}(y)$; test labels are always clean. We define two corruptions at nominal level $p$:
+
+\emph{Boundary noise.} Let $B(y)=\{u: \max_{v\in\mathcal N_5(u)}y_v\neq\min_{v\in\mathcal N_5(u)}y_v\}$ be the set of pixels within $\rhval{const/band_px}$ px of a label edge ($\mathcal N_5$ is the $5\times5$ neighbourhood). Each $u\in B(y)$ independently, with probability $p$, receives the label of a uniformly chosen pixel of $\mathcal N_5(u)$; other pixels are unchanged. At the same $p$ boundary noise changes a tiny fraction of pixels (reported as \texttt{label\_noise\_pixels}).
+
+\emph{Object-flip noise.} Each visible object (instance with at least one visible pixel) is, with probability $p$, assigned a uniformly random class different from its own for all its visible pixels. This is the object-level analogue of symmetric class noise.
+
+\subsection{Network and losses}
+All systems share one U-Net~\cite{ronneberger2015u}: three down-sampling stages (max-pool) and a bottleneck with widths $8,16,32,64$, transposed-convolution up-sampling with skip connections, batch normalisation, a $1\times1$ output convolution to four logits, and \rhval{const/param_count} parameters. Let $p_k(u)$ be the softmax probability of class $k$ at pixel $u$, $\tilde y_u$ the (noisy) training label and $p_{\tilde y}(u)=p_{\tilde y_u}(u)$. The loss is a mean over pixels $\ell=\frac{1}{\sum_u w_u}\sum_u w_u\,\ell_u$ with:
+\begin{align}
+\ell^{\mathrm{CE}}_u &= -\log p_{\tilde y}(u), \quad w_u=1,\\
+\ell^{\mathrm{GCE}}_u &= \frac{1-p_{\tilde y}(u)^{q}}{q}, \quad q=\rhval{const/gce_q:1},\\
+\ell^{\mathrm{SCE}}_u &= \alpha\,\ell^{\mathrm{CE}}_u+\beta\,A\,(p_{\tilde y}(u)-1),\; A=-\rhval{const/sce_logzero},\\
+\ell^{\mathrm{BI}}_u &= \ell^{\mathrm{CE}}_u,\quad w_u=\mathbb 1[u\notin B(\tilde y)].
+\end{align}
+GCE follows Zhang and Sabuncu~\cite{zhang2018generalized}; it tends to CE as $q\to0$ and to the mean absolute error at $q=1$. SCE follows Wang et al.~\cite{wang2019symmetric}: the reverse CE $-\sum_k p_k\log \tilde q_k$ with the one-hot target clipped to $\log 0:=A$ equals $-A(1-p_{\tilde y})$, which is what Eq.~(3) implements, with $\alpha=\rhval{const/sce_alpha:1}$ and $\beta=\rhval{const/sce_beta:1}$. Both are reimplemented here, pixel-wise, with the defaults of the original papers. Band-ignore CE (BI) is our own simple method: it removes the loss on the band $B(\tilde y)$ around the edges of the \emph{noisy} mask, which is computed from the labels alone (no clean information), in the spirit of void/trimap labels. It cannot help against object flips, since the interior of a flipped object stays supervised, and it forfeits supervision of true edges.
+
+\subsection{Metrics}
+IoU of class $k$ on the whole test set (pooled over pixels): $\mathrm{IoU}_k=\frac{|\hat Y=k\wedge Y=k|}{|\hat Y=k\vee Y=k|}$; mIoU is the mean over the four classes (background included), \texttt{miou\_fg} the mean over the three shapes. We also log pixel agreement of the final network with the noisy and with the clean training labels on the training images as a memorisation indicator.

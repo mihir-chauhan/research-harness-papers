@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:44:38 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system GCE --task boundary_p0.3 --seed 3 --n 500 --out results/raw/main_GCE_boundary_p0.3_n500_s3.json
+
+config {'system': 'GCE', 'task': 'boundary_p0.3', 'n': 500, 'seed': 3, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.7, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/main_GCE_boundary_p0.3_n500_s3.json'}
+metrics {"miou": 0.8010602458381095, "miou_fg": 0.7423841919592756, "iou_bg": 0.9770884074746111, "iou_circle": 0.8359026235348449, "iou_square": 0.7262738485388308, "iou_triangle": 0.6649761038041513, "train_fit_noisy": 0.95470849609375, "train_fit_clean": 0.96717333984375, "label_noise_pixels": 0.017630859375} time 80.6
+
+# rh: exit code 0 after 82.5 s
+# rh metrics: {"iou_bg": 0.9770884074746111, "iou_circle": 0.8359026235348449, "iou_square": 0.7262738485388308, "iou_triangle": 0.6649761038041513, "label_noise_pixels": 0.017630859375, "miou": 0.8010602458381095, "miou_fg": 0.7423841919592756, "train_fit_clean": 0.96717333984375, "train_fit_noisy": 0.95470849609375}

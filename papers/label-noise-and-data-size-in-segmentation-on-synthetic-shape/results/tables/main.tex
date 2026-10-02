@@ -1,0 +1,24 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & miou $\uparrow$ & iou\_circle $\uparrow$ & iou\_square $\uparrow$ & iou\_triangle $\uparrow$ & $n$ \\
+\midrule
+CE & none & \textbf{0.80 $\pm$ 0.03} & \textbf{0.82 $\pm$ 0.03} & \underline{0.71 $\pm$ 0.04} & \textbf{0.67 $\pm$ 0.07} & 4 \\
+SCE & none & 0.77 $\pm$ 0.02 & 0.80 $\pm$ 0.02 & 0.69 $\pm$ 0.02 & 0.60 $\pm$ 0.08 & 4 \\
+GCE & none & \underline{0.79 $\pm$ 0.02} & \underline{0.81 $\pm$ 0.01} & \textbf{0.71 $\pm$ 0.01} & \underline{0.67 $\pm$ 0.05} & 4 \\
+\textbf{Band-ignore CE} & none & 0.64 $\pm$ 0.07 & 0.65 $\pm$ 0.07 & 0.47 $\pm$ 0.19 & 0.48 $\pm$ 0.05 & 4 \\
+\midrule
+CE & boundary\_p0.3 & \underline{0.78 $\pm$ 0.04} & \textbf{0.81 $\pm$ 0.04} & \underline{0.69 $\pm$ 0.03} & \textbf{0.65 $\pm$ 0.09} & 4 \\
+SCE & boundary\_p0.3 & 0.70 $\pm$ 0.09 & 0.80 $\pm$ 0.03 & 0.65 $\pm$ 0.07 & 0.38 $\pm$ 0.27 & 4 \\
+GCE & boundary\_p0.3 & \textbf{0.78 $\pm$ 0.02} & \underline{0.81 $\pm$ 0.02} & \textbf{0.70 $\pm$ 0.02} & \underline{0.64 $\pm$ 0.04} & 4 \\
+\textbf{Band-ignore CE} & boundary\_p0.3 & 0.59 $\pm$ 0.08 & 0.63 $\pm$ 0.08 & 0.42 $\pm$ 0.22 & 0.36 $\pm$ 0.13 & 4 \\
+\midrule
+CE & flip\_p0.3 & \underline{0.53 $\pm$ 0.10} & 0.54 $\pm$ 0.09 & 0.28 $\pm$ 0.14 & \underline{0.32 $\pm$ 0.19} & 4 \\
+SCE & flip\_p0.3 & 0.53 $\pm$ 0.13 & \underline{0.57 $\pm$ 0.12} & \underline{0.36 $\pm$ 0.23} & 0.21 $\pm$ 0.25 & 4 \\
+GCE & flip\_p0.3 & \textbf{0.59 $\pm$ 0.09} & \textbf{0.60 $\pm$ 0.07} & \textbf{0.43 $\pm$ 0.08} & \textbf{0.38 $\pm$ 0.25} & 4 \\
+\textbf{Band-ignore CE} & flip\_p0.3 & 0.45 $\pm$ 0.09 & 0.46 $\pm$ 0.06 & 0.23 $\pm$ 0.15 & 0.17 $\pm$ 0.19 & 4 \\
+\midrule
+\textbf{Band-ignore CE} & flip\_p0.1 & \textbf{0.52 $\pm$ 0.12} & \textbf{0.54 $\pm$ 0.10} & \textbf{0.31 $\pm$ 0.25} & \textbf{0.28 $\pm$ 0.15} & 3 \\
+\midrule
+\textbf{Band-ignore CE} & flip\_p0.2 & \textbf{0.44 $\pm$ 0.09} & \textbf{0.46 $\pm$ 0.06} & \textbf{0.22 $\pm$ 0.19} & \textbf{0.14 $\pm$ 0.19} & 3 \\
+\bottomrule
+\end{tabular}

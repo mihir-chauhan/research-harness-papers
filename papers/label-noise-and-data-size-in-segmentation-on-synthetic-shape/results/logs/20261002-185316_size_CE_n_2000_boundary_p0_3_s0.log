@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:53:16 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system CE --task boundary_p0.3 --seed 0 --n 2000 --out results/raw/size_CE_boundary_p0.3_n2000_s0.json
+
+config {'system': 'CE', 'task': 'boundary_p0.3', 'n': 2000, 'seed': 0, 'steps': 600, 'bs': 16, 'lr': 0.01, 'q': 0.7, 'alpha': 0.1, 'beta': 1.0, 'out': 'results/raw/size_CE_boundary_p0.3_n2000_s0.json'}
+metrics {"miou": 0.8205882721704947, "miou_fg": 0.7676433793070984, "iou_bg": 0.9794229507606839, "iou_circle": 0.8378784911974652, "iou_square": 0.7392906453804047, "iou_triangle": 0.7257610013434254, "train_fit_noisy": 0.951619384765625, "train_fit_clean": 0.9637822265625, "label_noise_pixels": 0.017595703125} time 82.1
+
+# rh: exit code 0 after 83.7 s
+# rh metrics: {"iou_bg": 0.9794229507606839, "iou_circle": 0.8378784911974652, "iou_square": 0.7392906453804047, "iou_triangle": 0.7257610013434254, "label_noise_pixels": 0.017595703125, "miou": 0.8205882721704947, "miou_fg": 0.7676433793070984, "train_fit_clean": 0.9637822265625, "train_fit_noisy": 0.951619384765625}

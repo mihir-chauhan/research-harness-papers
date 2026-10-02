@@ -1,0 +1,175 @@
+slug: label-noise-and-data-size-in-segmentation-on-syn
+direction: Label noise and data size in segmentation on synthetic shapes. generate
+  64x64 images of overlapping circles, squares and triangles on textured backgrounds
+  with numpy (2k train / 500 test); train a small U-Net on CPU with 100-2,000 images
+  and with 0-30 percent boundary/label noise, 3 seeds; measure mIoU per class. Keep
+  it a small CPU study with reimplemented baselines, at least 5 seeds where cheap,
+  and report negative or mixed results plainly.
+problem: How do the amount of training data and the kind and level of label noise
+  (boundary jitter vs whole-object class flips) jointly determine the per-class IoU
+  of a small U-Net on synthetic overlapping shapes?
+gap: Label-noise studies focus on classification or large real datasets; the interaction
+  between training-set size (100-2000) and noise type/level in dense prediction, and
+  whether classification-style robust losses help under boundary noise, is rarely
+  measured in a controlled setting where the ground truth is exactly known.
+contribution: A controlled, fully reproducible CPU study (4 seeds in the main grid,
+  3 in sweeps) of data size x noise type x noise level for a small U-Net, with reimplemented
+  CE, GCE and SCE baselines and a band-ignore loss, reporting per-class IoU and including
+  negative results.
+hypotheses:
+- id: H1
+  statement: With clean labels, test mIoU of the U-Net increases from 100 to 2000
+    training images.
+  test: Welch t-test (alpha 0.05) between N=100 and N=2000 over 4 seeds (CE, clean
+    labels).
+- id: H2
+  statement: At the same nominal level p=0.3, object class-flip noise lowers mIoU
+    more than boundary noise (N=500, CE).
+  test: Welch t-test (alpha 0.05) of mIoU under flip_p0.3 vs boundary_p0.3 over 5
+    seeds.
+- id: H3
+  statement: The mIoU loss caused by class-flip noise (p=0.3) is larger at N=100 than
+    at N=2000 (more data dilutes noise).
+  test: Welch t-test (alpha 0.05) of per-seed drops (clean minus flip_p0.3 mIoU) at
+    N=100 vs N=2000.
+- id: H4
+  statement: Robust losses (GCE, SCE, band-ignore CE) beat plain CE under noise at
+    N=500 and do not lose on clean labels.
+  test: Welch t-test (alpha 0.05) per noise task, each robust loss vs CE, 5 seeds
+    (rh compare).
+method:
+  name: Band-ignore CE
+  summary: Cross-entropy that ignores pixels within 2 px of a label edge in the (noisy)
+    training mask, aimed at boundary noise; compared with plain CE and reimplemented
+    GCE and SCE under the same U-Net, optimiser and budget.
+  components:
+  - band ignore
+  entrypoint: method/run.py
+tasks:
+- none
+- boundary_p0.3
+- flip_p0.3
+metrics:
+  miou:
+    higher_is_better: true
+  miou_fg:
+    higher_is_better: true
+  iou_bg:
+    higher_is_better: true
+  iou_circle:
+    higher_is_better: true
+  iou_square:
+    higher_is_better: true
+  iou_triangle:
+    higher_is_better: true
+  train_fit_noisy:
+    higher_is_better: true
+  train_fit_clean:
+    higher_is_better: true
+  label_noise_pixels:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- CE
+- GCE
+- SCE
+ablations:
+- CE n=100
+- CE n=250
+- CE n=1000
+- CE n=2000
+- GCE q=0.3
+- GCE q=0.9
+- CE steps=200
+- CE steps=1200
+- CE
+ambition:
+  target_tier: 2
+  primary_metric: miou
+  primary_task: flip_p0.3
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: image_size
+  value: 64
+  why: image side in pixels
+- name: pool_size
+  value: 2000
+  why: training pool images
+- name: test_size
+  value: 500
+  why: test images
+- name: batch_size
+  value: 16
+  why: mini-batch size
+- name: weight_decay
+  value: 0.0001
+  why: AdamW weight decay
+- name: base_width
+  value: 8
+  why: channels at full resolution of the U-Net
+- name: param_count
+  value: 120356
+  why: trainable parameters of the U-Net
+- name: band_px
+  value: 2
+  why: half-width in pixels of the boundary band
+- name: gce_q
+  value: 0.7
+  why: GCE exponent q (Zhang and Sabuncu default)
+- name: sce_alpha
+  value: 0.1
+  why: SCE alpha
+- name: sce_beta
+  value: 1
+  why: SCE beta
+- name: sce_logzero
+  value: 4
+  why: 'SCE: absolute value of A=log 0 in the reverse CE'
+- name: n_classes
+  value: 4
+  why: background, circle, square, triangle
+- name: pool_seed
+  value: 1000
+  why: generator seed of the training pool
+- name: test_seed
+  value: 2000
+  why: generator seed of the test set
+- name: train_steps
+  value: 600
+  why: optimiser steps for every run of main and size
+- name: learning_rate
+  value: 0.01
+  why: peak AdamW learning rate (OneCycle)
+- name: pilot_steps
+  value: 450
+  why: steps of the superseded pilot
+- name: seeds_main
+  value: 4
+  why: seeds per cell in main
+- name: pilot_lr
+  value: 0.005
+  why: peak learning rate of the superseded pilots
+- name: seeds_sweep
+  value: 3
+  why: seeds per cell in the sweeps and in N=250,1000
+- name: pilot1_steps
+  value: 300
+  why: steps of the first superseded pilot
