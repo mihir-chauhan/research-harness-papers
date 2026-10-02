@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:59:00 2026
+# cwd: .
+# cmd: python method/run.py --system truth --task F20_c4 --seed 3 --out results/raw/floor_Truth__indep__run_F20_c4__s3.json
+
+config {"system": "truth", "task": "F20_c4", "seed": 3, "out": "results/raw/floor_Truth__indep__run_F20_c4__s3.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"mean_err": 0.02335787662821298, "var_err": 0.005408080733202425, "var_ratio": 1.0054080807332024, "w1_pdf": 0.024936596630922285, "spec_err": 0.00551214427057639, "logspec_k1": 0.0007473849974049054, "logspec_k2": 0.002941227962899729, "logspec_k3": 0.0044731500056119046, "logspec_k4": 0.00960814553396238, "runtime_s": 277.53932785987854}

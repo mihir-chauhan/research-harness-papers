@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:50:06 2026
+# cwd: .
+# cmd: python experiments/precheck_dt.py --task F20_c10 --seed 0 --out results/raw/sanity_precheck_dt.json
+
+config {"task": "F20_c10", "seed": 0, "chains": 40, "t_len": 20.0, "out": "results/raw/sanity_precheck_dt.json"}
+metrics {"mean_dt": 3.7767751572753636, "var_dt": 25.734299362738774, "mean_half": 3.7856216640619387, "var_half": 25.739338453893136, "mean_rel_diff": 0.002336870287529713, "var_rel_diff": 0.00019577391871938854, "runtime_s": 15.473895788192749}

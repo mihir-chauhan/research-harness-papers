@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:10:16 2026
+# cwd: .
+# cmd: python method/run.py --system ar1 --task F20_c10 --seed 3 --out results/raw/main_AR_1__stochasticF20_c10__s3.json
+
+config {"system": "ar1", "task": "F20_c10", "seed": 3, "out": "results/raw/main_AR_1__stochasticF20_c10__s3.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"ar1_phi": 0.9819819653736083, "ar1_sigma": 1.8155322515941763, "offline_r2": 0.8485815139351925, "rmse_0p5": 0.1385657965748614, "rmse_member_0p5": 0.2568191322478117, "valid_time": 1.22525, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.05783693280419833, "var_err": 0.0015240386310054754, "var_ratio": 0.9984759613689945, "w1_pdf": 0.08147054561488073, "spec_err": 0.05479192606795546, "logspec_k1": 0.07999746342262869, "logspec_k2": -0.032706951996306195, "logspec_k3": 0.026328962852133354, "logspec_k4": -0.06201667115488142, "runtime_s": 10.526991128921509}

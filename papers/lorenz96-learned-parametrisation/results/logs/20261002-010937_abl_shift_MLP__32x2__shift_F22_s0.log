@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:09:37 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --task F20_c10 --F_test 22 --seed 0 --out results/raw/abl_shift_MLP__32x2_shift_F22__s0.json
+
+config {"system": "mlp", "task": "F20_c10", "seed": 0, "out": "results/raw/abl_shift_MLP__32x2_shift_F22__s0.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": 22.0, "members": 10}
+metrics {"offline_r2": 0.847510453571495, "rmse_0p5": 0.11251899817527328, "rmse_member_0p5": 0.11251899817527328, "valid_time": 1.4360500000000003, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.002284084685407972, "var_err": 0.004531932510529968, "var_ratio": 1.00453193251053, "w1_pdf": 0.030217388683819065, "spec_err": 0.0039008225179265814, "logspec_k1": 0.00468059056655607, "logspec_k2": -0.0005693809968122615, "logspec_k3": 0.006162597771215224, "logspec_k4": -0.0008098957984816815, "runtime_s": 46.94953393936157}

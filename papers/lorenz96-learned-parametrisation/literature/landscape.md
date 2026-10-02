@@ -1,0 +1,11 @@
+# Landscape
+
+Searches (platform library, arXiv, Semantic Scholar, OpenAlex; see literature/candidates.jsonl): "Lorenz 96 machine learning subgrid parametrization", "stochastic parametrization neural network Lorenz 96 two-scale", "online learning stability neural closure climate model", plus targeted look-ups of the canonical papers.
+
+What exists (all cited from paper/refs.bib):
+- The two-scale Lorenz-96 system [lorenz2006predictability] is a standard toy for parametrisation: Wilks (2005) studied the effects of stochastic parametrisations in it [wilks2005effects]; Arnold et al. (2013) studied stochastic parametrisations and model uncertainty in the same system [arnold2013stochastic]; Shutts (2005) proposed a kinetic-energy backscatter algorithm for ensemble prediction systems [shutts2005kinetic].
+- Neural-network parametrisations: Rasp et al. (2018) learned subgrid processes in an aquaplanet multiscale model with stable multi-year runs [rasp2018deep]; Rasp (2020) noted that online runs with offline-trained ML parametrisations in Earth system models were frequently unstable or biased, proposed coupled online learning, and illustrated it in Lorenz-96 [rasp2019coupled]; Frezat et al. (2023) train closures online through a neural emulator of the solver [frezat2023gradient].
+- Stochastic ML: Gagne et al. (2020) GAN-based stochastic parametrisation in L96 [gagne2019machine]; Parthipan et al. (2022) RNN with red noise in L96 [parthipan2022using].
+- Data-driven emulation of multiscale L96 as a whole (rather than closures): Chattopadhyay et al. (2020) [chattopadhyay2020data]; Brajard et al. (2020) combine data assimilation and a network on the 40-variable (single-scale) L96 [brajard2020combining].
+
+Gap: the individual methods are well studied, mostly with different system settings, metrics and forecast/climate protocols. We could not find a single small, fully-specified comparison that scores a regression polynomial, a small MLP with identical local inputs, and an AR(1) closure with the *same* training data and the *same* short-term (valid time), stability and climate (mean, variance, PDF, spectrum) metrics, over several seeds, in two scale-separation regimes and under a forcing shift. This paper is a controlled, small-scale replication-style comparison, not a new method; no claim of novelty beyond that.

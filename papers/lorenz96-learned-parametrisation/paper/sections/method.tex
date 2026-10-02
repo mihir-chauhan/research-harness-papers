@@ -1,0 +1,24 @@
+\textbf{Truth.} The two-scale Lorenz-96 system~\cite{lorenz2006predictability} has here $K{=}8$ slow variables $X_k$ and $J{=}32$ fast variables $Y_{j,k}$ per slow one (Y on a ring of $KJ$ points):
+\begin{align}
+\dot X_k &= -X_{k-1}(X_{k-2}-X_{k+1}) - X_k + F - U_k,\\
+U_k&=\tfrac{hc}{b}\textstyle\sum_{j}Y_{j,k},\\
+\dot Y_i &= -cb\,Y_{i+1}(Y_{i+2}-Y_{i-1}) - c\,Y_i + \tfrac{hc}{b}X_{k(i)},
+\end{align}
+with $h{=}1$, $b{=}10$, $F{=}20$ and $c\in\{10,4\}$ (time-scale ratio). The subgrid tendency $U_k(t)$ is recorded every $\Delta=0.005$ time units.
+
+\textbf{Closed slow model.} Every closure replaces $U_k$ by $\hat U_k=g(X_k\ldots)+e_k$ in $\dot X_k=f_k(X)-\hat U_k$ with $f_k=-X_{k-1}(X_{k-2}-X_{k+1})-X_k+F$, integrated with RK4 at step $\Delta$; $g$ is evaluated at every RK4 stage, $e_k$ is held fixed within a step. The same $g$ is shared by all sectors $k$.
+
+\textbf{No closure.} $\hat U_k=0$ (lower reference).
+
+\textbf{Polynomial (reimplemented).} $g(X_k)=\sum_{p=0}^{n}a_p z^p$, $z=(X_k-\mu)/s$, with $a$ from least squares, $\min_a\sum_{t,k}(U_k(t)-g(X_k(t)))^2$; degree $n{=}4$ fixed a priori.
+
+\textbf{MLP (reimplemented).} $g(x)=W_3\tanh(W_2\tanh(W_1 x+b_1)+b_2)+b_3$ with hidden width 32, input $x=(X_{k-s},\dots,X_{k+s})$ with $s{=}0$ (local, same input as the polynomial) in the main comparison; standardised inputs and targets, MSE loss, Adam (lr $3\!\times\!10^{-3}$, cosine decay), 40 epochs, batch 1024, the epoch with the lowest validation MSE on held-out trajectories is kept.
+
+\textbf{AR(1) stochastic closure (reimplemented in the spirit of~\cite{wilks2005effects}).} $g$ is the polynomial above and, with residual $r_k(t)=U_k(t)-g(X_k(t))$,
+\begin{align}
+e_k^{n+1}&=\phi\,e_k^{n}+\sigma\sqrt{1-\phi^2}\,\xi_k^{n},\ \ \xi_k^n\sim\mathcal N(0,1),\\
+\phi&=\tfrac{\langle r(t)r(t{+}\Delta)\rangle}{\langle r^2\rangle},\ \ \sigma=\mathrm{std}(r),
+\end{align}
+independent for every sector, started from its stationary distribution (the fast state, hence the true residual, is not available at forecast start).
+
+\textbf{Metrics.} Forecast: from $N_{ic}{=}100$ truth initial conditions (10 on each of 10 test trajectories), an $M{=}10$-member ensemble (identical members for deterministic closures) is run for 2 time units; \emph{valid\_time} is the first lead at which the ensemble-mean RMSE over sectors, divided by the standard deviation of $X$ in a long reference run, exceeds 0.5 (mean over initial conditions; capped at 2); \emph{rmse\_0p5} is the normalised ensemble-mean RMSE at lead 0.5. Stability: 20 free runs of 400 time units from random reference states; \emph{stable\_frac} is the fraction that never has non-finite values or $|X|>60$. Climate, pooled over the 8 statistically equivalent sectors and measured against a fixed long truth run: \emph{mean\_err} $=|\bar X_m-\bar X_t|$; \emph{var\_err} $=|\mathrm{Var}_m/\mathrm{Var}_t-1|$; \emph{w1\_pdf} the 1-Wasserstein distance between the marginal distributions of $X$ (computed on every seventh pooled sample of both runs); and \emph{spec\_err}, the RMS over $m{=}1..4$ of $\log_{10}(P_m^{model}/P^{truth}_m)$, with $P_m$ the time-mean power of the spatial Fourier mode $m$ of $X$. Offline skill is $R^2=1-\sum(U-\hat g)^2/\sum(U-\bar U)^2$ on held-out trajectories.

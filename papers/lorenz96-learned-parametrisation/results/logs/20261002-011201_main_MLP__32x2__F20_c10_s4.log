@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:12:01 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --task F20_c10 --seed 4 --out results/raw/main_MLP__32x2_F20_c10__s4.json
+
+config {"system": "mlp", "task": "F20_c10", "seed": 4, "out": "results/raw/main_MLP__32x2_F20_c10__s4.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"offline_r2": 0.8494087675242996, "rmse_0p5": 0.1141327147288498, "rmse_member_0p5": 0.1141327147288498, "valid_time": 1.45405, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.25908787611224193, "var_err": 0.047439486945915155, "var_ratio": 0.9525605130540848, "w1_pdf": 0.2691177343689237, "spec_err": 0.14767049192038467, "logspec_k1": 0.2059842781819408, "logspec_k2": -0.11432722435400017, "logspec_k3": -0.04625497033434628, "logspec_k4": -0.17200737591387577, "runtime_s": 44.427950859069824}

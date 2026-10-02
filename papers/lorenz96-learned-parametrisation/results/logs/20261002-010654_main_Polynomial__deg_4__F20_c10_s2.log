@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:06:54 2026
+# cwd: .
+# cmd: python method/run.py --system poly --task F20_c10 --seed 2 --out results/raw/main_Polynomial__deg_4_F20_c10__s2.json
+
+config {"system": "poly", "task": "F20_c10", "seed": 2, "out": "results/raw/main_Polynomial__deg_4_F20_c10__s2.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"offline_r2": 0.8476072413519145, "rmse_0p5": 0.12799674253179036, "rmse_member_0p5": 0.12799674253179036, "valid_time": 1.40095, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.19324365038782343, "var_err": 0.03372041870857356, "var_ratio": 0.9662795812914264, "w1_pdf": 0.20033828209600396, "spec_err": 0.12156383345693329, "logspec_k1": 0.17605583156834254, "logspec_k2": -0.09067267006487487, "logspec_k3": -0.02208583592680177, "logspec_k4": -0.139305740529528, "runtime_s": 10.097433805465698}

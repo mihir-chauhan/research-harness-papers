@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:10:25 2026
+# cwd: .
+# cmd: python method/run.py --system ar1 --task F20_c10 --F_test 22 --seed 0 --out results/raw/abl_shift_AR_1__stochasticshift_F22__s0.json
+
+config {"system": "ar1", "task": "F20_c10", "seed": 0, "out": "results/raw/abl_shift_AR_1__stochasticshift_F22__s0.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": 22.0, "members": 10}
+metrics {"ar1_phi": 0.9816565777544006, "ar1_sigma": 1.803790910856342, "offline_r2": 0.8443714793437016, "rmse_0p5": 0.150483208596721, "rmse_member_0p5": 0.24360352434993163, "valid_time": 1.27995, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.03136912643504397, "var_err": 0.015877890011932294, "var_ratio": 1.0158778900119323, "w1_pdf": 0.043837429463814435, "spec_err": 0.014568243550870693, "logspec_k1": 0.001181065971573387, "logspec_k2": 0.002670646696635807, "logspec_k3": 0.028773969565649066, "logspec_k4": -0.003530762730285206, "runtime_s": 10.080788135528564}

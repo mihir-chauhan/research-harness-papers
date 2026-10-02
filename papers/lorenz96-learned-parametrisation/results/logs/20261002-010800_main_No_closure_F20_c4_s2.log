@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:08:00 2026
+# cwd: .
+# cmd: python method/run.py --system noclosure --task F20_c4 --seed 2 --out results/raw/main_No_closureF20_c4__s2.json
+
+config {"system": "noclosure", "task": "F20_c4", "seed": 2, "out": "results/raw/main_No_closureF20_c4__s2.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"offline_r2": 0.0, "rmse_0p5": 0.3302021706937747, "rmse_member_0p5": 0.3302021706937747, "valid_time": 0.6872, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.24099030157209622, "var_err": 0.3438833972488611, "var_ratio": 1.343883397248861, "w1_pdf": 0.8526326711821158, "spec_err": 0.14160953940712398, "logspec_k1": 0.11214076286318392, "logspec_k2": 0.09666520020864743, "logspec_k3": 0.16348545845915646, "logspec_k4": 0.17766777943644144, "runtime_s": 7.488691091537476}

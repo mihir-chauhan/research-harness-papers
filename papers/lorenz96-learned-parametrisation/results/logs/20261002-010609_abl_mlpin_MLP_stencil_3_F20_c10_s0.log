@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:06:09 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --task F20_c10 --stencil 3 --seed 0 --out results/raw/abl_mlpin_MLP_stencil_3F20_c10__s0.json
+
+config {"system": "mlp", "task": "F20_c10", "seed": 0, "out": "results/raw/abl_mlpin_MLP_stencil_3F20_c10__s0.json", "deg": 4, "stencil": 3, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"offline_r2": 0.9233073681667848, "rmse_0p5": 0.0870413490833995, "rmse_member_0p5": 0.0870413490833995, "valid_time": 1.5521499999999997, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.10344176239237468, "var_err": 0.016800705954493234, "var_ratio": 0.9831992940455068, "w1_pdf": 0.10843619046832083, "spec_err": 0.06783197735339054, "logspec_k1": 0.10485482944019471, "logspec_k2": -0.0471125515678988, "logspec_k3": -0.010376626194345482, "logspec_k4": -0.07129450514125267, "runtime_s": 55.808371782302856}

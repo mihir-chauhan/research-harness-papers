@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:07:18 2026
+# cwd: .
+# cmd: python method/run.py --system ar1 --task F20_c10 --sigma_scale 1.5 --seed 0 --out results/raw/abl_ar1_AR_1__sigma_x1_5F20_c10__s0.json
+
+config {"system": "ar1", "task": "F20_c10", "seed": 0, "out": "results/raw/abl_ar1_AR_1__sigma_x1_5F20_c10__s0.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.5, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"ar1_phi": 0.9816565777544006, "ar1_sigma": 2.705686366284513, "offline_r2": 0.8469995461456885, "rmse_0p5": 0.16177044311458097, "rmse_member_0p5": 0.3346106747384443, "valid_time": 1.1176, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.07807139017883946, "var_err": 0.002337018992642159, "var_ratio": 1.0023370189926422, "w1_pdf": 0.09924175362358635, "spec_err": 0.06781951820659565, "logspec_k1": 0.09588567855216008, "logspec_k2": -0.03933449679070898, "logspec_k3": 0.036995880883978614, "logspec_k4": -0.07929682848343343, "runtime_s": 10.44537615776062}

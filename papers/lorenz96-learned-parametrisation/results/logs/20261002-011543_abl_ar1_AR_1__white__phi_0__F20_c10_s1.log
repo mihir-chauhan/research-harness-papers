@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:15:43 2026
+# cwd: .
+# cmd: python method/run.py --system ar1 --task F20_c10 --phi 0 --seed 1 --out results/raw/abl_ar1_AR_1__white__phi_0_F20_c10__s1.json
+
+config {"system": "ar1", "task": "F20_c10", "seed": 1, "out": "results/raw/abl_ar1_AR_1__white__phi_0_F20_c10__s1.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": 0.0, "F_test": null, "members": 10}
+metrics {"ar1_phi": 0.0, "ar1_sigma": 1.803730593528469, "offline_r2": 0.8450987824226162, "rmse_0p5": 0.138932365006973, "rmse_member_0p5": 0.14375692674230864, "valid_time": 1.4061499999999998, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.08599480195380194, "var_err": 0.013008939108508644, "var_ratio": 0.9869910608914914, "w1_pdf": 0.09422518413912413, "spec_err": 0.06280963652561708, "logspec_k1": 0.09820704084664394, "logspec_k2": -0.04262606914980466, "logspec_k3": -0.0008616882897038799, "logspec_k4": -0.06571038435585083, "runtime_s": 9.30007815361023}

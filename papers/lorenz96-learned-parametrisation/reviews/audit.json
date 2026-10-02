@@ -1,0 +1,171 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "The runs are real and bit-reproducible (two main-group runs re-executed identically, one also from regenerated data), every result number matches the generated tables, baselines are fair, and the framing honestly reports a mixed outcome. One major issue: Rasp 2019 is cited as reporting unstable or biased offline-trained closures in Lorenz-96, which its abstract does not support; there are also minor text and reproducibility errors.",
+      "reran": [
+        {
+          "run": "AR(1) stochastic/F20_c10/2",
+          "metric": "valid_time",
+          "registry": 1.2628,
+          "rerun": 1.2628
+        },
+        {
+          "run": "AR(1) stochastic/F20_c10/2",
+          "metric": "spec_err",
+          "registry": 0.05725735044645003,
+          "rerun": 0.05725735044645003
+        },
+        {
+          "run": "Polynomial (deg 4)/F20_c10/3",
+          "metric": "valid_time",
+          "registry": 1.4276499999999999,
+          "rerun": 1.4276499999999999
+        },
+        {
+          "run": "Polynomial (deg 4)/F20_c10/3",
+          "metric": "spec_err",
+          "registry": 0.16429507223590992,
+          "rerun": 0.16429507223590992
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/introduction.tex, paper/sections/related.tex (also literature/landscape.md)",
+          "issue": "Wrong-context citation: the text says that in two-scale Lorenz-96 Rasp reported offline-trained network parametrisations produced unstable or biased coupled simulations [rasp2019coupled]. The abstract of arXiv:1907.01351 attributes instabilities and biases to earlier ESM studies and uses Lorenz-96 only to illustrate coupled online learning.",
+          "fix": "Reword to say that offline-trained neural parametrisations in ESMs were frequently unstable or biased and that Rasp proposed coupled online learning, illustrated in Lorenz-96; drop the claim that the instability was reported in Lorenz-96 unless a specific result in the paper body is quoted."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex (Metrics); proposal.md; method/DESIGN.md",
+          "issue": "The paper states N_ic=90 forecast initial conditions; method/run.py uses 10 per chain x 10 test chains = 100 (verified on data/test_s0_F20_c10.npz).",
+          "fix": "Change 90 to 100 in the paper, proposal and design note."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2, H3); results/tables/compare_*.csv",
+          "issue": "Five quoted p-values (valid_time AR(1) vs polynomial 2.9e-4 and 8.1e-5; MLP vs polynomial 0.36 and 0.92; paired 0.051) are not in any committed rh compare output, since compare_main_valid_time.csv only uses the no-closure reference. The auditor recomputed them and they are correct.",
+          "fix": "Run rh compare --metric valid_time --ref 'Polynomial (deg 4)' and commit the CSV."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'a fixed noise amplitude did not transfer to a different forcing' states a cause as fact; the ablation text says this 'may explain it (not isolated by a run)', on 3 seeds.",
+          "fix": "Say that the AR(1) closure no longer had the better climate at F=18 and F=22, possibly because its noise amplitude was fitted at F=20."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Hardware and runtime)",
+          "issue": "'The 18 forcing-shift runs were logged twice' is inaccurate: 24 rows are superseded, because the six AR(1) shift runs were logged three times. 'Metrics files are in the repository' is inaccurate because results/raw/ is gitignored. 'run_all.sh reproduces every run' is not literally true: the script still uses the superseded shift names and task labels, so analysis.py's assertions would fail on its output.",
+          "fix": "Correct the count, point to runs.jsonl and logs for metrics, and update run_all.sh to the final names and task labels."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (step-size pre-check)",
+          "issue": "The claim that mean and variance agree within 1% at half the step has no logged run or script in the repository. The auditor reproduced it (about 0.15% difference).",
+          "fix": "Add the pre-check as a logged sanity run or script."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, method.tex",
+          "issue": "The two-scale Lorenz-96 system is used throughout with no citation to Lorenz (1996); 'operational' for Shutts 2005 is slightly strong.",
+          "fix": "Cite Lorenz (1996) via rh lit cite and soften the Shutts wording."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Fig. 3 caption), results.tex (Fig. 1 caption, H1 paragraph)",
+          "issue": "Fig. 3 says 'every configuration' but omits polynomial degrees 3, 5 and 6. Fig. 1 says 'error bars from the harness' without defining them. 'So the truth's fast variables limit predictability' is an untested inference.",
+          "fix": "Add the missing points or reword the caption, define the error bars, and hedge or drop the predictability sentence."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "Limitations do not state explicitly that Lorenz-96 is an idealised toy system whose closure rankings may not transfer to real atmosphere or ocean models.",
+          "fix": "Add one sentence on the toy-model limitation."
+        }
+      ],
+      "commit": "36a1345c3e6422a84a4b73f7d4ba3948b6e14f60"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper matches the generated tables and the registry, all 124 run rows are backed by logs with identical metrics, and re-executing a method run and a baseline run (also with data regenerated from scratch) reproduced the registry values bit-for-bit. The code matches the described method, baselines share data and protocol with no test leakage, citations are used in context, and the abstract and conclusion report the mixed and negative outcome honestly. Only minor issues remain: one imprecise citation description, a hard-coded placeholder R2 for the no-closure row, two slightly over-read three-seed differences, and cosmetic table and bibliography points.",
+      "reran": [
+        {
+          "run": "AR(1) stochastic/F20_c10/0",
+          "metric": "valid_time",
+          "registry": 1.2185499999999998,
+          "rerun": 1.2185499999999998
+        },
+        {
+          "run": "AR(1) stochastic/F20_c10/0",
+          "metric": "spec_err",
+          "registry": 0.059525229175207556,
+          "rerun": 0.059525229175207556
+        },
+        {
+          "run": "MLP (32x2)/F20_c10/3",
+          "metric": "valid_time",
+          "registry": 1.4428,
+          "rerun": 1.4428
+        },
+        {
+          "run": "MLP (32x2)/F20_c10/3",
+          "metric": "spec_err",
+          "registry": 0.1690164534518585,
+          "rerun": 0.1690164534518585
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex (parthipan2022using)",
+          "issue": "Described as 'recurrent networks with red noise' / 'combined a recurrent network with red noise'; the abstract describes a recurrent network in a probabilistic framework that builds on and outperforms red-noise AR(1) schemes.",
+          "fix": "Reword to 'a recurrent network in a probabilistic framework that builds on red-noise schemes'."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py:147, Table I",
+          "issue": "offline_r2 for No closure is hard-coded to 0.0 and printed as 0.000 +/- 0.000; the true R2 of U=0 would be negative.",
+          "fix": "Compute it or show a dash in the table and say so in the caption."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H4), ablations.tex",
+          "issue": "Two three-seed statements are within about one standard deviation with no test: MLP vs polynomial w1_pdf at F=22 (0.034 +/- 0.004 vs 0.039 +/- 0.002, Welch p about 0.15), and valid time 'increases with degree' although degrees 4-6 are flat (1.372, 1.380, 1.394, std about 0.03).",
+          "fix": "Say the MLP w1_pdf was 'not larger' at F=22 and that valid time plateaus from degree 4."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/main.tex (Table I)",
+          "issue": "Bold and underline are applied to tied columns (stable_frac all 1.000; AR(1) offline_r2 identical to the polynomial by construction but only one is underlined).",
+          "fix": "Suppress best/second markup on ties or note it in the caption."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "'AR(1) has the best climate at c=10' holds only among the four main systems; the three-input MLP ablation has lower spec_err (0.031) and mean_err at equal valid time (3 seeds).",
+          "fix": "Add 'among the main systems'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/refs.bib",
+          "issue": "Lorenz book chapter entered as @article with the book title as journal; Rasp 2018, Gagne and Brajard cited as arXiv preprints although published.",
+          "fix": "Use @incollection for Lorenz and the journal versions for the others."
+        }
+      ],
+      "commit": "7a96f00fd3266b760ef5d4f61db051a2690e49d6"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on F20_c10: ours 1.252 vs MLP (32x2) 1.421\nREADY",
+      "response": "# Response to the audit (single fix round)\n\n## Major\n\n**1. Wrong-context citation of Rasp 2019 (introduction, related work, landscape).**\nFixed. I re-read the abstract of arXiv:1907.01351. The text now says that Rasp noted that online simulations with\noffline-trained ML parametrisations *in Earth system models* were frequently plagued by instabilities and biases,\nproposed coupled online learning, and illustrated the concept in Lorenz-96. The claim that the instability was\nreported in Lorenz-96 is gone from `introduction.tex`, `related.tex` and `literature/landscape.md`. Two further\nsentences that leaned on the same misreading were also changed: the H4 paragraph in `results.tex` (\"unlike the\ninstabilities reported with other inputs and setups\") now says that instabilities were reported for Earth system\nmodels and that our stable runs say nothing about those models; `limitations.tex` no longer says the cited work\n\"shows\" online training \"to matter\", only that it proposes it as a remedy.\n\n## Minor\n\n**2. N_ic = 90.** Fixed: the code uses 10 initial conditions on each of 10 test chains = 100. Changed in\n`method.tex`, `proposal.md`, `method/DESIGN.md`, and stated in `experiments/PROTOCOL.md`.\n\n**3. p-values without a committed `rh compare` output.** Fixed: ran\n`rh compare --metric valid_time --ref 'Polynomial (deg 4)' --group main`; output committed as\n`results/tables/compare_main_valid_time_ref_polynomial.csv` (Welch 2.9e-4, 8.1e-5, 0.36, 0.92; paired 0.051). Because\n`rh compare` writes one file per metric, the no-closure comparison used for H1 is kept both as\n`compare_main_valid_time.csv` and as `compare_main_valid_time_ref_noclosure.csv`. `results/RESULTS.md` names the files.\n\n**4. Abstract stated a cause as fact.** Fixed: the abstract now says the AR(1) closure no longer had the lower\nspectral and PDF error at F=18 and F=22, \"possibly because its noise amplitude was fitted at F=20; not isolated by a\nrun\". The conclusion was hedged the same way, and the ablation text now also gives the F=22 numbers behind the claim.\n\n**5. Hardware and runtime paragraph.** Fixed. The text now says 24 rows are superseded (18 first loggings plus the six\nAR(1) runs logged a second time under an interim name), and that the superseded rows equal the final rows in every\nmetric except runtime (I checked all 24 against the registry). It points to `results/runs.jsonl` and the logs for the\nmetrics and says the per-run JSON files and generated data are not committed. `experiments/run_all.sh` now uses the\nfinal names (\"..., deploy F=18/22\") and the task label F20_c10 for the shift runs, and includes the pre-check; the\npaper says it \"lists the commands\" of the pre-check and of the main, floor and ablation runs. I did not re-execute\nthe whole script (that would duplicate identical runs in the registry).\n\n**6. Step-size pre-check had no logged run.** Fixed: added `experiments/precheck_dt.py` and logged it with `rh run`\nas a sanity run (\"Step-size pre-check\", committed before it ran). 40 trajectories, 20-unit window after a 20-unit\nspin-up, step 0.0025 against 0.00125 from the same initial states: the mean differs by 0.23% and the variance by\n0.02%. The paper keeps the statement \"less than 1%\" and describes this run; the limitations note that it is a single\nrun comparing only the mean and variance.\n\n**7. Lorenz (1996) not cited; \"operational\" for Shutts.** Fixed: added `lorenz2006predictability`\n(DOI 10.1017/CBO9780511617652.004, the published version of the 1996 seminar paper) with `rh lit cite`; cited in the\nintroduction, related work and method. Shutts is now described as having \"proposed a kinetic-energy backscatter\nalgorithm for use in ensemble prediction systems\".\n\n**8. Figure captions and the predictability inference.** Fixed. The trade-off figure now includes polynomial degrees\n3, 5 and 6 (`experiments/analysis.py`), and its caption says \"every configuration run at the training forcing F=20\"\n(the forcing-shift runs are scored against a different truth and are not on it). The Fig. 1 caption defines the error\nbars (standard deviation over seeds, as drawn by `rh fig bars`). The sentence \"so the truth's fast variables limit\npredictability\" was deleted.\n\n**9. Toy-model limitation.** Fixed: the limitations section opens with the statement that two-scale Lorenz-96 is an\nidealised toy system whose closure ranking may not transfer to real atmosphere or ocean models; the abstract and\nconclusion say \"idealised toy system\" as well.\n\n## Other changes from my own audit\n\n- Related work: Brajard et al. was listed under \"emulation of multiscale Lorenz-96\"; their test case is the\n  40-variable single-scale model. Heading and sentence corrected.\n- Introduction: the sentence that temporally correlated noise \"changes the simulated climate\" [Wilks; Arnold] was\n  replaced by a plain description of what the two papers study; Frezat et al. is described by what its abstract says\n  (online training for non-differentiable solvers with a neural emulator).\n- Results H2: \"Where AR(1) wins on climate it loses on skill\" was wrong for c=4 (no climate win there); it now says\n  AR(1) has a shorter valid time in both regimes.\n- Results H3: the explanation that a one-input function is a smooth curve a degree-4 polynomial already fits is now\n  \"may ... we did not isolate this\".\n- Ablations: \"most of the climate benefit comes from adding any noise\" restricted to what the means show; \"no loss of\n  skill\" at half amplitude replaced by \"a valid time close to that of the deterministic closure\"; degree-3 value\n  added to the degree paragraph; the MLP-input paragraph now states that width three did not raise valid time.\n- Method: w1_pdf is computed on every seventh pooled sample (as in the code); now stated.\n- Abstract/conclusion: \"indistinguishable\" replaced by \"not distinguished by the registered tests\".\n- `experiments/PROTOCOL.md` said every run took under 3 minutes; corrected (two MLP runs took 394 s and 552 s).\n\n## State\n`rh paper build` OK (6 pages), `rh ",
+      "seconds": 461
+    }
+  ]
+}

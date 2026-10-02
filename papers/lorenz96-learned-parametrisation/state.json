@@ -1,0 +1,120 @@
+{
+  "slug": "lorenz96-learned-parametrisation",
+  "direction": "Lorenz-96 as a testbed for learned subgrid parametrisation: in the two-scale Lorenz-96 system, replace the fast variables with (a) a polynomial closure fitted by regression, (b) a small MLP, (c) a stochastic AR(1) closure, and compare short-term forecast skill, long-rollout stability and the climate (mean, variance, spectrum) of the slow variables against the full two-scale truth.",
+  "created": "2026-10-01T18:43:41",
+  "updated": "2026-10-02T01:40:14",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T00:44:44",
+      "finished": "2026-10-02T00:54:49",
+      "notes": [
+        {
+          "t": "2026-10-02T00:54:49",
+          "note": "landscape, proposal, 10 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-02T00:54:49",
+      "finished": "2026-10-02T00:55:06",
+      "notes": [
+        {
+          "t": "2026-10-02T00:55:06",
+          "note": "method/ implemented, smoke test ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-02T00:55:33",
+      "finished": "2026-10-02T01:26:38",
+      "notes": [
+        {
+          "t": "2026-10-02T01:26:38",
+          "note": "baselines reimplemented, run with main"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-02T00:55:33",
+      "finished": "2026-10-02T01:26:38",
+      "notes": [
+        {
+          "t": "2026-10-02T01:26:38",
+          "note": "99 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:30:34",
+      "notes": [
+        {
+          "t": "2026-10-02T01:30:34",
+          "note": "abl_deg, abl_ar1, abl_mlpin, abl_shift"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:30:34",
+      "notes": [
+        {
+          "t": "2026-10-02T01:30:34",
+          "note": "tables, compare, RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:30:34",
+      "notes": [
+        {
+          "t": "2026-10-02T01:30:34",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T01:40:14",
+      "notes": [
+        {
+          "t": "2026-10-02T01:40:14",
+          "note": "paper builds, 6 pages, rh check READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:54:47",
+      "phase": "novelty",
+      "decision": "Seed is a comparison study; AR(1) closure labelled the method, others baselines; tasks = scale-separation regimes c=10 and c=4; reference climate from a fixed long truth run; hyperparameters fixed a priori."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

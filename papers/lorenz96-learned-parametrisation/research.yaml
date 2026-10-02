@@ -1,0 +1,56 @@
+direction: 'Lorenz-96 as a testbed for learned subgrid parametrisation: polynomial, MLP and AR(1) closures versus the two-scale truth'
+problem: 'Replace the fast variables of two-scale Lorenz-96 by learned closures of the slow state and compare forecast skill, free-run stability and climate.'
+gap: 'Existing L96 closure studies use different settings and metrics; no small controlled comparison of regression polynomial, MLP and AR(1) closures with identical data, inputs and metrics.'
+contribution: 'A controlled small-scale comparison (not a new method) with 5 seeds, two scale-separation regimes, ablations and a forcing-shift test.'
+hypotheses:
+- id: H1
+  statement: 'All learned closures give higher valid_time than no closure.'
+  test: 'rh compare on valid_time, F20_c10, alpha 0.05'
+- id: H2
+  statement: 'AR(1) has lower var_err and spec_err than the deterministic polynomial.'
+  test: 'rh compare on var_err and spec_err, F20_c10'
+- id: H3
+  statement: 'MLP with the same local input is not better than the polynomial.'
+  test: 'offline R2 gap <0.01 and rh compare p>=0.05 on valid_time and spec_err'
+- id: H4
+  statement: 'Closures are stable in-regime; under forcing shift the MLP has larger w1_pdf than the polynomial.'
+  test: 'stable_frac; w1_pdf in abl_shift'
+- id: H5
+  statement: 'White noise with the same variance gives larger spec_err than AR(1) with fitted phi.'
+  test: 'abl_ar1 group, spec_err'
+method:
+  name: AR(1) stochastic
+  summary: 'Degree-4 polynomial closure of the local slow variable plus per-sector AR(1) red noise fitted to the regression residuals.'
+  components: [polynomial mean closure, AR(1) noise, fitted phi]
+  entrypoint: 'method/run.py'
+tasks: [F20_c10, F20_c4]
+metrics:
+  valid_time: {higher_is_better: true}
+  rmse_0p5: {higher_is_better: false}
+  stable_frac: {higher_is_better: true}
+  mean_err: {higher_is_better: false}
+  var_err: {higher_is_better: false}
+  w1_pdf: {higher_is_better: false}
+  spec_err: {higher_is_better: false}
+  offline_r2: {higher_is_better: true}
+seeds: [0, 1, 2, 3, 4]
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines: [No closure, Polynomial (deg 4), MLP (32x2)]
+ablations: ["Polynomial deg 1", "Polynomial deg 2", "Polynomial deg 3", "Polynomial deg 5", "Polynomial deg 6", "MLP stencil 1", "MLP stencil 3", "AR(1) sigma x0.5", "AR(1) sigma x1.5", "AR(1) white (phi=0)", "Polynomial deg 4, deploy F=18", "MLP 32x2, deploy F=18", "AR(1) stochastic, deploy F=18"]
+ambition:
+  target_tier: 2
+  primary_metric: valid_time
+  primary_task: F20_c10
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

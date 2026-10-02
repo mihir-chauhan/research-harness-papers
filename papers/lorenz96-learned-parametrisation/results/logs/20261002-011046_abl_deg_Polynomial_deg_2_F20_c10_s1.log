@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:10:46 2026
+# cwd: .
+# cmd: python method/run.py --system poly --task F20_c10 --deg 2 --seed 1 --out results/raw/abl_deg_Polynomial_deg_2F20_c10__s1.json
+
+config {"system": "poly", "task": "F20_c10", "seed": 1, "out": "results/raw/abl_deg_Polynomial_deg_2F20_c10__s1.json", "deg": 2, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": null, "members": 10}
+metrics {"offline_r2": 0.8281773603371352, "rmse_0p5": 0.15516016321262177, "rmse_member_0p5": 0.15516016321262177, "valid_time": 1.3349499999999999, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.6304318717298423, "var_err": 0.11643605306987115, "var_ratio": 0.8835639469301289, "w1_pdf": 0.6403081663996716, "spec_err": 0.41133756456974335, "logspec_k1": 0.3904974677043305, "logspec_k2": -0.34165459913537355, "logspec_k3": -0.13410271806640195, "logspec_k4": -0.6241752091504651, "runtime_s": 9.158859968185425}

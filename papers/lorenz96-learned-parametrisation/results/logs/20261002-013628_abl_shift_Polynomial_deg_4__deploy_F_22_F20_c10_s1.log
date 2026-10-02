@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 01:36:28 2026
+# cwd: .
+# cmd: python method/run.py --system poly --task F20_c10 --F_test 22 --seed 1 --out results/raw/abl_shift2_poly_F22_s1.json
+
+config {"system": "poly", "task": "F20_c10", "seed": 1, "out": "results/raw/abl_shift2_poly_F22_s1.json", "deg": 4, "stencil": 0, "hidden": 32, "epochs": 40, "sigma_scale": 1.0, "phi": -1.0, "F_test": 22.0, "members": 10}
+metrics {"offline_r2": 0.8518209412519819, "rmse_0p5": 0.13701411306379863, "rmse_member_0p5": 0.13701411306379863, "valid_time": 1.3576499999999998, "stable_frac": 1.0, "n_valid_samples": 156000, "mean_err": 0.037994387326484524, "var_err": 0.011590547785335747, "var_ratio": 1.0115905477853357, "w1_pdf": 0.03954656046587101, "spec_err": 0.01105740551837065, "logspec_k1": -0.005531993510848516, "logspec_k2": 0.006216590823760785, "logspec_k3": 0.018723767669950476, "logspec_k4": 0.008320843572519646, "runtime_s": 8.910400867462158}
