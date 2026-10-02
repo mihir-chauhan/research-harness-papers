@@ -1,0 +1,148 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & rel\_energy\_error $\downarrow$ & mz\_error $\downarrow$ & infidelity $\downarrow$ & $n$ \\
+\midrule
+Mean-field SGD & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & \textbf{0.000 $\pm$ 0.000} & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N10\_g0.25 & \underline{0.000 $\pm$ 0.000} & 0.000 $\pm$ 0.000 & \textbf{0.500 $\pm$ 0.000} & 5 \\
+Jastrow SGD & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & \underline{0.000 $\pm$ 0.000} & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g0.25 & \textbf{0.000 $\pm$ 0.000} & 0.000 $\pm$ 0.000 & \underline{0.500 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g0.25 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+\midrule
+Mean-field SGD & tfim\_N10\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.000 & 0.502 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g0.50 & 0.001 $\pm$ 0.000 & 0.003 $\pm$ 0.000 & 0.501 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N10\_g0.50 & 0.004 $\pm$ 0.005 & 0.006 $\pm$ 0.005 & 0.505 $\pm$ 0.007 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.001 & 0.501 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N10\_g0.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & \textbf{0.500 $\pm$ 0.000} & 5 \\
+Jastrow SGD & tfim\_N10\_g0.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.001 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g0.50 & 0.001 $\pm$ 0.000 & 0.003 $\pm$ 0.001 & 0.501 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g0.50 & 0.000 $\pm$ 0.000 & \underline{0.001 $\pm$ 0.000} & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g0.50 & \textbf{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & \underline{0.500 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g0.50 & \underline{0.000 $\pm$ 0.000} & 0.001 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+\midrule
+Mean-field SGD & tfim\_N10\_g0.75 & 0.006 $\pm$ 0.000 & 0.030 $\pm$ 0.002 & 0.515 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g0.75 & 0.005 $\pm$ 0.000 & 0.032 $\pm$ 0.001 & 0.514 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N10\_g0.75 & 0.007 $\pm$ 0.001 & 0.028 $\pm$ 0.007 & 0.516 $\pm$ 0.001 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g0.75 & 0.005 $\pm$ 0.000 & 0.031 $\pm$ 0.002 & 0.514 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N10\_g0.75 & 0.001 $\pm$ 0.000 & 0.010 $\pm$ 0.000 & 0.498 $\pm$ 0.000 & 5 \\
+Jastrow SGD & tfim\_N10\_g0.75 & 0.001 $\pm$ 0.000 & 0.012 $\pm$ 0.001 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g0.75 & 0.005 $\pm$ 0.000 & 0.030 $\pm$ 0.002 & 0.513 $\pm$ 0.001 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g0.75 & 0.001 $\pm$ 0.000 & 0.009 $\pm$ 0.001 & 0.497 $\pm$ 0.001 & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g0.75 & \underline{0.001 $\pm$ 0.000} & \underline{0.008 $\pm$ 0.001} & \underline{0.495 $\pm$ 0.001} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g0.75 & \textbf{0.001 $\pm$ 0.000} & \textbf{0.008 $\pm$ 0.001} & \textbf{0.494 $\pm$ 0.001} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N10\_g1.00 & 0.023 $\pm$ 0.000 & 0.154 $\pm$ 0.002 & 0.585 $\pm$ 0.001 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g1.00 & 0.021 $\pm$ 0.000 & 0.158 $\pm$ 0.004 & 0.581 $\pm$ 0.003 & 5 \\
+Mean-field SR & tfim\_N10\_g1.00 & 0.023 $\pm$ 0.001 & 0.153 $\pm$ 0.006 & 0.585 $\pm$ 0.003 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g1.00 & 0.020 $\pm$ 0.000 & 0.153 $\pm$ 0.003 & 0.574 $\pm$ 0.002 & 5 \\
+Jastrow SR & tfim\_N10\_g1.00 & 0.004 $\pm$ 0.001 & 0.025 $\pm$ 0.008 & 0.152 $\pm$ 0.063 & 5 \\
+Jastrow SGD & tfim\_N10\_g1.00 & 0.007 $\pm$ 0.000 & 0.082 $\pm$ 0.007 & 0.484 $\pm$ 0.004 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g1.00 & 0.017 $\pm$ 0.000 & 0.140 $\pm$ 0.006 & 0.560 $\pm$ 0.004 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g1.00 & 0.000 $\pm$ 0.000 & \underline{0.002 $\pm$ 0.001} & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g1.00 & \textbf{0.000 $\pm$ 0.000} & \textbf{0.001 $\pm$ 0.001} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g1.00 & \underline{0.000 $\pm$ 0.000} & 0.002 $\pm$ 0.001 & \underline{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N10\_g1.25 & 0.049 $\pm$ 0.000 & 0.265 $\pm$ 0.007 & 0.645 $\pm$ 0.006 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g1.25 & 0.023 $\pm$ 0.002 & 0.131 $\pm$ 0.006 & 0.426 $\pm$ 0.016 & 5 \\
+Mean-field SR & tfim\_N10\_g1.25 & 0.050 $\pm$ 0.000 & 0.264 $\pm$ 0.014 & 0.646 $\pm$ 0.011 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g1.25 & 0.010 $\pm$ 0.004 & 0.040 $\pm$ 0.024 & 0.209 $\pm$ 0.109 & 5 \\
+Jastrow SR & tfim\_N10\_g1.25 & 0.000 $\pm$ 0.000 & 0.010 $\pm$ 0.001 & 0.001 $\pm$ 0.000 & 5 \\
+Jastrow SGD & tfim\_N10\_g1.25 & 0.000 $\pm$ 0.000 & 0.007 $\pm$ 0.002 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g1.25 & 0.002 $\pm$ 0.000 & 0.005 $\pm$ 0.005 & 0.005 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g1.25 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g1.25 & \textbf{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g1.25 & \underline{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N10\_g1.50 & 0.067 $\pm$ 0.001 & 0.232 $\pm$ 0.029 & 0.593 $\pm$ 0.026 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g1.50 & 0.002 $\pm$ 0.000 & 0.003 $\pm$ 0.002 & 0.005 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N10\_g1.50 & 0.069 $\pm$ 0.001 & 0.228 $\pm$ 0.037 & 0.593 $\pm$ 0.032 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g1.50 & 0.002 $\pm$ 0.000 & 0.004 $\pm$ 0.003 & 0.004 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N10\_g1.50 & 0.000 $\pm$ 0.000 & 0.002 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Jastrow SGD & tfim\_N10\_g1.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g1.50 & 0.001 $\pm$ 0.000 & 0.002 $\pm$ 0.002 & 0.002 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g1.50 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g1.50 & \underline{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g1.50 & \textbf{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N10\_g2.00 & 0.065 $\pm$ 0.003 & 0.091 $\pm$ 0.012 & 0.190 $\pm$ 0.013 & 5 \\
+RBM alpha=1 SGD & tfim\_N10\_g2.00 & 0.001 $\pm$ 0.000 & 0.001 $\pm$ 0.001 & 0.001 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N10\_g2.00 & 0.063 $\pm$ 0.001 & 0.090 $\pm$ 0.007 & 0.183 $\pm$ 0.012 & 5 \\
+RBM alpha=2 SGD & tfim\_N10\_g2.00 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N10\_g2.00 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Jastrow SGD & tfim\_N10\_g2.00 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N10\_g2.00 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.001 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N10\_g2.00 & \textbf{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+RBM alpha=4 SR & tfim\_N10\_g2.00 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N10\_g2.00 & \underline{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N8\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.000 & 0.502 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SGD & tfim\_N8\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.000 & 0.501 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N8\_g0.50 & 0.001 $\pm$ 0.000 & 0.006 $\pm$ 0.000 & 0.502 $\pm$ 0.000 & 5 \\
+RBM alpha=2 SGD & tfim\_N8\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.001 & 0.501 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N8\_g0.50 & 0.000 $\pm$ 0.000 & \textbf{0.000 $\pm$ 0.000} & \textbf{0.499 $\pm$ 0.000} & 5 \\
+Jastrow SGD & tfim\_N8\_g0.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.001 & \underline{0.500 $\pm$ 0.000} & 5 \\
+RBM alpha=4 SGD & tfim\_N8\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.001 & 0.501 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N8\_g0.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N8\_g0.50 & \textbf{0.000 $\pm$ 0.000} & 0.001 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N8\_g0.50 & \underline{0.000 $\pm$ 0.000} & \underline{0.001 $\pm$ 0.000} & 0.500 $\pm$ 0.000 & 5 \\
+\midrule
+Mean-field SGD & tfim\_N8\_g1.00 & 0.025 $\pm$ 0.000 & 0.135 $\pm$ 0.005 & 0.557 $\pm$ 0.002 & 5 \\
+RBM alpha=1 SGD & tfim\_N8\_g1.00 & 0.023 $\pm$ 0.000 & 0.135 $\pm$ 0.003 & 0.550 $\pm$ 0.002 & 5 \\
+Mean-field SR & tfim\_N8\_g1.00 & 0.026 $\pm$ 0.001 & 0.132 $\pm$ 0.016 & 0.557 $\pm$ 0.007 & 5 \\
+RBM alpha=2 SGD & tfim\_N8\_g1.00 & 0.022 $\pm$ 0.000 & 0.133 $\pm$ 0.003 & 0.546 $\pm$ 0.001 & 5 \\
+Jastrow SR & tfim\_N8\_g1.00 & 0.002 $\pm$ 0.000 & 0.025 $\pm$ 0.001 & 0.016 $\pm$ 0.004 & 5 \\
+Jastrow SGD & tfim\_N8\_g1.00 & 0.009 $\pm$ 0.000 & 0.065 $\pm$ 0.004 & 0.451 $\pm$ 0.004 & 5 \\
+RBM alpha=4 SGD & tfim\_N8\_g1.00 & 0.020 $\pm$ 0.000 & 0.127 $\pm$ 0.004 & 0.538 $\pm$ 0.003 & 5 \\
+RBM alpha=1 SR & tfim\_N8\_g1.00 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N8\_g1.00 & \textbf{0.000 $\pm$ 0.000} & \textbf{0.001 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N8\_g1.00 & \underline{0.000 $\pm$ 0.000} & \underline{0.001 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N8\_g1.50 & 0.067 $\pm$ 0.000 & 0.196 $\pm$ 0.018 & 0.527 $\pm$ 0.016 & 5 \\
+RBM alpha=1 SGD & tfim\_N8\_g1.50 & 0.002 $\pm$ 0.001 & 0.003 $\pm$ 0.002 & 0.003 $\pm$ 0.001 & 5 \\
+Mean-field SR & tfim\_N8\_g1.50 & 0.068 $\pm$ 0.001 & 0.187 $\pm$ 0.027 & 0.520 $\pm$ 0.024 & 5 \\
+RBM alpha=2 SGD & tfim\_N8\_g1.50 & 0.001 $\pm$ 0.000 & 0.001 $\pm$ 0.001 & 0.001 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N8\_g1.50 & 0.000 $\pm$ 0.000 & 0.002 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Jastrow SGD & tfim\_N8\_g1.50 & 0.000 $\pm$ 0.000 & 0.002 $\pm$ 0.001 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N8\_g1.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.001 & 0.001 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N8\_g1.50 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N8\_g1.50 & \underline{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N8\_g1.50 & \textbf{0.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N12\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.000 & 0.502 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SGD & tfim\_N12\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.001 & 0.502 $\pm$ 0.000 & 5 \\
+Mean-field SR & tfim\_N12\_g0.50 & 0.001 $\pm$ 0.000 & 0.005 $\pm$ 0.001 & 0.502 $\pm$ 0.000 & 5 \\
+RBM alpha=2 SGD & tfim\_N12\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.001 & 0.502 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N12\_g0.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & \textbf{0.500 $\pm$ 0.000} & 5 \\
+Jastrow SGD & tfim\_N12\_g0.50 & 0.000 $\pm$ 0.000 & 0.002 $\pm$ 0.001 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N12\_g0.50 & 0.001 $\pm$ 0.000 & 0.004 $\pm$ 0.001 & 0.502 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N12\_g0.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & 0.500 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SR & tfim\_N12\_g0.50 & \underline{0.000 $\pm$ 0.000} & \textbf{0.001 $\pm$ 0.000} & 0.500 $\pm$ 0.000 & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N12\_g0.50 & \textbf{0.000 $\pm$ 0.000} & \underline{0.001 $\pm$ 0.000} & \underline{0.500 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N12\_g1.00 & 0.021 $\pm$ 0.000 & 0.177 $\pm$ 0.002 & 0.614 $\pm$ 0.001 & 5 \\
+RBM alpha=1 SGD & tfim\_N12\_g1.00 & 0.019 $\pm$ 0.000 & 0.170 $\pm$ 0.004 & 0.602 $\pm$ 0.003 & 5 \\
+Mean-field SR & tfim\_N12\_g1.00 & 0.022 $\pm$ 0.000 & 0.179 $\pm$ 0.007 & 0.617 $\pm$ 0.004 & 5 \\
+RBM alpha=2 SGD & tfim\_N12\_g1.00 & 0.018 $\pm$ 0.000 & 0.165 $\pm$ 0.005 & 0.594 $\pm$ 0.004 & 5 \\
+Jastrow SR & tfim\_N12\_g1.00 & 0.004 $\pm$ 0.000 & 0.032 $\pm$ 0.014 & 0.396 $\pm$ 0.029 & 5 \\
+Jastrow SGD & tfim\_N12\_g1.00 & 0.006 $\pm$ 0.000 & 0.095 $\pm$ 0.005 & 0.507 $\pm$ 0.002 & 5 \\
+RBM alpha=4 SGD & tfim\_N12\_g1.00 & 0.016 $\pm$ 0.000 & 0.160 $\pm$ 0.004 & 0.585 $\pm$ 0.003 & 5 \\
+RBM alpha=1 SR & tfim\_N12\_g1.00 & 0.000 $\pm$ 0.000 & 0.004 $\pm$ 0.000 & 0.002 $\pm$ 0.001 & 5 \\
+RBM alpha=4 SR & tfim\_N12\_g1.00 & \textbf{0.000 $\pm$ 0.000} & \underline{0.004 $\pm$ 0.001} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N12\_g1.00 & \underline{0.000 $\pm$ 0.000} & \textbf{0.004 $\pm$ 0.001} & \underline{0.000 $\pm$ 0.000} & 5 \\
+\midrule
+Mean-field SGD & tfim\_N12\_g1.50 & 0.067 $\pm$ 0.000 & 0.269 $\pm$ 0.007 & 0.658 $\pm$ 0.007 & 5 \\
+RBM alpha=1 SGD & tfim\_N12\_g1.50 & 0.002 $\pm$ 0.000 & 0.003 $\pm$ 0.002 & 0.005 $\pm$ 0.001 & 5 \\
+Mean-field SR & tfim\_N12\_g1.50 & 0.068 $\pm$ 0.001 & 0.264 $\pm$ 0.011 & 0.657 $\pm$ 0.011 & 5 \\
+RBM alpha=2 SGD & tfim\_N12\_g1.50 & 0.001 $\pm$ 0.000 & 0.003 $\pm$ 0.002 & 0.003 $\pm$ 0.000 & 5 \\
+Jastrow SR & tfim\_N12\_g1.50 & 0.000 $\pm$ 0.000 & 0.002 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Jastrow SGD & tfim\_N12\_g1.50 & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+RBM alpha=4 SGD & tfim\_N12\_g1.50 & 0.001 $\pm$ 0.000 & 0.002 $\pm$ 0.003 & 0.002 $\pm$ 0.000 & 5 \\
+RBM alpha=1 SR & tfim\_N12\_g1.50 & \underline{0.000 $\pm$ 0.000} & 0.000 $\pm$ 0.000 & \underline{0.000 $\pm$ 0.000} & 5 \\
+RBM alpha=4 SR & tfim\_N12\_g1.50 & 0.000 $\pm$ 0.000 & \underline{0.000 $\pm$ 0.000} & 0.000 $\pm$ 0.000 & 5 \\
+\textbf{RBM alpha=2 SR} & tfim\_N12\_g1.50 & \textbf{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 5 \\
+\bottomrule
+\end{tabular}

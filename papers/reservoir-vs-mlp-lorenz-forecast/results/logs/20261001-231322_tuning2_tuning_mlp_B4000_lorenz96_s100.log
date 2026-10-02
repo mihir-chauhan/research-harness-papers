@@ -1,0 +1,9 @@
+# rh run | Thu Oct  1 23:13:22 2026
+# cwd: .
+# cmd: python method/tune.py lorenz96 mlp B 4000 --out results/raw/tuning_lorenz96_mlp_B4000.json
+
+CONFIG {"task": "lorenz96", "system": "mlp", "stage": "B", "base": {"delays": 1, "noise": 0.0}, "grid": {"steps": [4000], "lr": [0.001, 0.002, 0.005]}}
+GRID {"cfg": {"delays": 1, "noise": 0.0, "steps": 4000, "lr": 0.001}, "val_vpt": 1.65015, "fit_seconds": 8.19}
+GRID {"cfg": {"delays": 1, "noise": 0.0, "steps": 4000, "lr": 0.002}, "val_vpt": 1.96281, "fit_seconds": 7.16}
+GRID {"cfg": {"delays": 1, "noise": 0.0, "steps": 4000, "lr": 0.005}, "val_vpt": 2.5360199999999997, "fit_seconds": 7.11}
+METRICS {"val_vpt_best": 2.5360199999999997, "n_configs": 3, "best_delays": 1, "best_noise": 0.0, "best_steps": 4000, "best_lr": 0.005}

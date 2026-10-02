@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:54:19 2026
+# cwd: .
+# cmd: python method/run.py --system gru --task lorenz96 --seed 0 --n_train 5000 --config '{"steps": 3000}' --out results/raw/sweep_steps_gru_lorenz96_s0_n5000_steps3000.json
+
+CONFIG {"system": "gru", "task": "lorenz96", "seed": 0, "n_train": 5000, "hp": {"noise": 0.1, "steps": 3000, "lr": 0.01}}
+METRICS {"vpt": 1.0364099999999998, "vpt_median": 0.8685, "vpt_min": 0.17370000000000002, "clim_w1": 0.0424331693366798, "clim_w1_max": 0.06450948125460255, "clim_ok": 1.0, "blowup": 0.0, "fit_seconds": 22.082050800323486}

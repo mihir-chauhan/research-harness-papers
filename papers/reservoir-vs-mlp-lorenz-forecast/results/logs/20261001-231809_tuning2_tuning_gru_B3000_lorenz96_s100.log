@@ -1,0 +1,9 @@
+# rh run | Thu Oct  1 23:18:09 2026
+# cwd: .
+# cmd: python method/tune.py lorenz96 gru B 3000 --out results/raw/tuning_lorenz96_gru_B3000.json
+
+CONFIG {"task": "lorenz96", "system": "gru", "stage": "B", "base": {"noise": 0.1}, "grid": {"steps": [3000], "lr": [0.001, 0.003, 0.01]}}
+GRID {"cfg": {"noise": 0.1, "steps": 3000, "lr": 0.001}, "val_vpt": 0.5732099999999999, "fit_seconds": 29.07}
+GRID {"cfg": {"noise": 0.1, "steps": 3000, "lr": 0.003}, "val_vpt": 0.82797, "fit_seconds": 23.03}
+GRID {"cfg": {"noise": 0.1, "steps": 3000, "lr": 0.01}, "val_vpt": 0.8106, "fit_seconds": 23.91}
+METRICS {"val_vpt_best": 0.82797, "n_configs": 3, "best_noise": 0.1, "best_steps": 3000, "best_lr": 0.003}

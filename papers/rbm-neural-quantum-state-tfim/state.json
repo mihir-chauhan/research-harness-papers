@@ -1,0 +1,145 @@
+{
+  "slug": "rbm-neural-quantum-state-tfim",
+  "direction": "Neural quantum states at small scale: variational Monte Carlo with a restricted Boltzmann machine wavefunction for the 1D transverse-field Ising model with 8 to 12 spins (numpy; exact diagonalisation as the reference). Compare the RBM at several hidden-unit densities against a mean-field product state and a Jastrow ansatz on ground-state energy error and magnetisation across the phase transition, with plain SGD and with stochastic reconfiguration.",
+  "created": "2026-10-01T18:43:18",
+  "updated": "2026-10-02T00:36:52",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T22:51:20",
+      "finished": "2026-10-01T22:57:22",
+      "notes": [
+        {
+          "t": "2026-10-01T22:57:22",
+          "note": "landscape, proposal, refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T22:57:22",
+      "finished": "2026-10-01T22:58:09",
+      "notes": [
+        {
+          "t": "2026-10-01T22:58:09",
+          "note": "implemented, sanity run ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:58:09",
+      "notes": [
+        {
+          "t": "2026-10-01T22:58:09",
+          "note": "baselines reimplemented in method/run.py, lr tuned"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T22:58:10",
+      "finished": "2026-10-01T23:06:13",
+      "notes": [
+        {
+          "t": "2026-10-01T23:06:13",
+          "note": "650 main runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": "2026-10-01T23:06:13",
+      "finished": "2026-10-01T23:19:32",
+      "notes": [
+        {
+          "t": "2026-10-01T23:19:32",
+          "note": "shift and samples sweeps; curves"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T23:36:57",
+      "finished": "2026-10-01T23:37:32",
+      "notes": [
+        {
+          "t": "2026-10-01T23:37:32",
+          "note": "tables, figs, RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:40:19",
+      "notes": [
+        {
+          "t": "2026-10-01T23:40:19",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:40:20",
+      "notes": [
+        {
+          "t": "2026-10-01T23:40:20",
+          "note": "paper built, 6 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T23:07:27",
+      "phase": "baselines",
+      "decision": "First protocol tuned lr on a single task (N10,g=1); RBM-SGD at lr=0.1 diverged (NaN) on 10 of 130 RBM-SGD main cells-seeds at other fields. Revised protocol: lr chosen by mean error over 3 tasks (N10 g0.25, N10 g1.0, N12 g0.5), divergence counted as infinite error; v1 main runs superseded but reported in the paper as a failed first protocol."
+    },
+    {
+      "t": "2026-10-01T23:19:54",
+      "phase": "baselines",
+      "decision": "Second protocol (v2) still diverged for RBM-SR at lr=0.1 (NaN in 25+ of 650 runs) because a single tuning seed rewards aggressive rates. v3: tune over 3 tasks x 3 tuning seeds (100-102), grid SGD {0.003,0.01,0.03,0.1}, SR {0.02,0.05,0.1}, any divergence = infinite error; main and sweeps rerun, v2 runs superseded and reported as failed protocols."
+    },
+    {
+      "t": "2026-10-01T23:24:10",
+      "phase": "baselines",
+      "decision": "Mean-field runs sometimes end in a domain-wall local minimum (error ~0.2-0.3); checked on seeds 200-203 that a larger init raises its frequency, so init std 0.01 kept for all ansaetze. This is a genuine property of the product-state landscape and is reported, not tuned away."
+    },
+    {
+      "t": "2026-10-01T23:54:04",
+      "phase": "experiments",
+      "decision": "Audit fix round: (1) Jastrow is stored with one J_ij per pair (55 parameters at N=10) instead of an NxN block; all Jastrow tuning, main and curve runs are re-run under the fixed code and the old rows superseded. (2) Every system is additionally run from a symmetry-broken start (a_i=0.5+N(0,0.01^2), group main_b) with the same rate and budget as the symmetric start (group main); the reported state per (system, task, seed) is the start with the lower variational energy. Applied to all ten systems so that no system gets a different restart budget. Rates stay those tuned on the symmetric start."
+    },
+    {
+      "t": "2026-10-02T00:10:00",
+      "phase": "ablations",
+      "decision": "Added a sampling-free reference (group exact_opt): L-BFGS with the exact enumerated gradient, up to 1000 iterations, both starts, seed 0, for mean-field, Jastrow and RBM alpha=2 on all 13 tasks. It bounds what each ansatz can reach, so that VMC errors can be split into ansatz error and optimisation/sampling error; RBM alpha=1 and 4 are left out to bound compute (about 1 minute per N=12 RBM run)."
+    },
+    {
+      "t": "2026-10-02T00:36:52",
+      "phase": "results",
+      "decision": "Fix round: H1/H2 tests reported on selected (two-start) states with means, paired wins and paired t-test as registered; small-field margin over Jastrow attributed to optimisation on the evidence of the L-BFGS reference; tables consolidated to fit six pages (sigma^x errors logged but not tabulated)."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

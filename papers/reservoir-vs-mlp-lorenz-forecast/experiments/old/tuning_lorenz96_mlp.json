@@ -1,0 +1,76 @@
+{
+ "mlp/lorenz96": {
+  "best": {
+   "cfg": {
+    "delays": 1,
+    "noise": 0.01
+   },
+   "val_vpt": 1.9942
+  },
+  "grid": [
+   {
+    "cfg": {
+     "delays": 1,
+     "noise": 0.0
+    },
+    "val_vpt": 1.9883
+   },
+   {
+    "cfg": {
+     "delays": 1,
+     "noise": 0.01
+    },
+    "val_vpt": 1.9942
+   },
+   {
+    "cfg": {
+     "delays": 1,
+     "noise": 0.03
+    },
+    "val_vpt": 1.9293000000000002
+   },
+   {
+    "cfg": {
+     "delays": 2,
+     "noise": 0.0
+    },
+    "val_vpt": 1.9233999999999998
+   },
+   {
+    "cfg": {
+     "delays": 2,
+     "noise": 0.01
+    },
+    "val_vpt": 1.77
+   },
+   {
+    "cfg": {
+     "delays": 2,
+     "noise": 0.03
+    },
+    "val_vpt": 1.7936
+   },
+   {
+    "cfg": {
+     "delays": 4,
+     "noise": 0.0
+    },
+    "val_vpt": 1.6638000000000002
+   },
+   {
+    "cfg": {
+     "delays": 4,
+     "noise": 0.01
+    },
+    "val_vpt": 1.6579000000000002
+   },
+   {
+    "cfg": {
+     "delays": 4,
+     "noise": 0.03
+    },
+    "val_vpt": 1.5516999999999999
+   }
+  ]
+ }
+}

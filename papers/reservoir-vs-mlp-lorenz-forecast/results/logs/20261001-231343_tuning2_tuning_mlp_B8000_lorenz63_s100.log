@@ -1,0 +1,9 @@
+# rh run | Thu Oct  1 23:13:43 2026
+# cwd: .
+# cmd: python method/tune.py lorenz63 mlp B 8000 --out results/raw/tuning_lorenz63_mlp_B8000.json
+
+CONFIG {"task": "lorenz63", "system": "mlp", "stage": "B", "base": {"delays": 1, "noise": 0.0}, "grid": {"steps": [8000], "lr": [0.001, 0.002, 0.005]}}
+GRID {"cfg": {"delays": 1, "noise": 0.0, "steps": 8000, "lr": 0.001}, "val_vpt": 4.87976, "fit_seconds": 14.61}
+GRID {"cfg": {"delays": 1, "noise": 0.0, "steps": 8000, "lr": 0.002}, "val_vpt": 5.30511, "fit_seconds": 13.1}
+GRID {"cfg": {"delays": 1, "noise": 0.0, "steps": 8000, "lr": 0.005}, "val_vpt": 6.14676, "fit_seconds": 10.76}
+METRICS {"val_vpt_best": 6.14676, "n_configs": 3, "best_delays": 1, "best_noise": 0.0, "best_steps": 8000, "best_lr": 0.005}

@@ -1,0 +1,9 @@
+# rh run | Thu Oct  1 23:19:28 2026
+# cwd: .
+# cmd: python method/tune.py lorenz96 gru B 6000 --out results/raw/tuning_lorenz96_gru_B6000.json
+
+CONFIG {"task": "lorenz96", "system": "gru", "stage": "B", "base": {"noise": 0.1}, "grid": {"steps": [6000], "lr": [0.001, 0.003, 0.01]}}
+GRID {"cfg": {"noise": 0.1, "steps": 6000, "lr": 0.001}, "val_vpt": 0.65427, "fit_seconds": 43.56}
+GRID {"cfg": {"noise": 0.1, "steps": 6000, "lr": 0.003}, "val_vpt": 0.7237499999999999, "fit_seconds": 45.93}
+GRID {"cfg": {"noise": 0.1, "steps": 6000, "lr": 0.01}, "val_vpt": 1.07115, "fit_seconds": 46.27}
+METRICS {"val_vpt_best": 1.07115, "n_configs": 3, "best_noise": 0.1, "best_steps": 6000, "best_lr": 0.01}

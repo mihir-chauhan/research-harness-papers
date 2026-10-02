@@ -1,0 +1,14 @@
+\begin{tabular}{lllrrrrr}\toprule
+ &  &  & \multicolumn{3}{c}{vpt} & \multicolumn{2}{c}{clim\_ok}\\
+Task & A & B & A $-$ B & A/B & $p$ & A $-$ B & $p$\\
+\midrule
+L63 & ESN & MLP & +3.97 & 1.71 & 3.6e-06 & +0.04 & 0.654\\
+L63 & ESN & GRU & +5.76 & 2.52 & 3.1e-05 & -0.01 & 0.704\\
+L63 & ESN & ESN no sq. & +1.41 & 1.17 & 0.008 & +0.01 & 0.799\\
+L63 & GRU & GRU no noise & +0.12 & 1.03 & 0.657 & +0.23 & 0.205\\
+\midrule
+L96 & ESN & MLP & -0.77 & 0.73 & 0.018 & +0.00 & n/a\\
+L96 & ESN & GRU & +0.78 & 1.59 & 0.002 & +0.00 & n/a\\
+L96 & ESN & ESN no sq. & +1.15 & 2.20 & 0.002 & +1.00 & n/a\\
+L96 & GRU & GRU no noise & +0.00 & 1.00 & 0.995 & +0.99 & 6.2e-08\\
+\bottomrule\end{tabular}

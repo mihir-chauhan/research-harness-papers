@@ -1,0 +1,17 @@
+lane1    8.8s rc=0 [ok] 523fa9ed17 sanity/tuning esn A lorenz96 seed=100 {'val_vpt_best': 2.1191400000000002, 'n_configs': 27.0, 'best_rho': 0.4, 'best_sigma': 0.1, 'best_ridge': 0.0001} (8.6s) log=~/Donna/Mihir/mihir-s-platform-on-
+lane0   10.0s rc=0 [ok] 3d1cbe19ad sanity/tuning esn A lorenz63 seed=100 {'val_vpt_best': 9.884409999999999, 'n_configs': 27.0, 'best_rho': 0.4, 'best_sigma': 0.3, 'best_ridge': 1e-08} (9.8s) log=~/Donna/Mihir/mihir-s-platform-on-to
+lane0   77.3s rc=0 [ok] a65df4828b sanity/tuning mlp A lorenz63 seed=100 {'val_vpt_best': 4.69152, 'n_configs': 9.0, 'best_delays': 1.0, 'best_noise': 0.0} (77.0s) log=seed/work
+lane1   81.0s rc=0 [ok] 32454df692 sanity/tuning mlp A lorenz96 seed=100 {'val_vpt_best': 1.96281, 'n_configs': 9.0, 'best_delays': 1.0, 'best_noise': 0.0} (80.8s) log=seed/work
+lane0   24.2s rc=0 [ok] 51d6869d19 sanity/tuning mlp B4000 lorenz63 seed=100 {'val_vpt_best': 4.977500000000001, 'n_configs': 3.0, 'best_delays': 1.0, 'best_noise': 0.0, 'best_steps': 4000.0, 'best_lr': 0.005} (24.0s) log=~/Donna/Mi
+lane1   25.4s rc=0 [ok] 216c8808b0 sanity/tuning mlp B4000 lorenz96 seed=100 {'val_vpt_best': 2.5360199999999997, 'n_configs': 3.0, 'best_delays': 1.0, 'best_noise': 0.0, 'best_steps': 4000.0, 'best_lr': 0.005} (25.1s) log=~/Donna/M
+lane0   41.1s rc=0 [ok] 76dac9774c sanity/tuning mlp B8000 lorenz63 seed=100 {'val_vpt_best': 6.14676, 'n_configs': 3.0, 'best_delays': 1.0, 'best_noise': 0.0, 'best_steps': 8000.0, 'best_lr': 0.005} (40.9s) log=~/Donna/Mihir/mihir-
+lane1   42.2s rc=0 [ok] 63abb2a28f sanity/tuning mlp B8000 lorenz96 seed=100 {'val_vpt_best': 2.70393, 'n_configs': 3.0, 'best_delays': 1.0, 'best_noise': 0.0, 'best_steps': 8000.0, 'best_lr': 0.002} (42.0s) log=~/Donna/Mihir/mihir-
+lane0   77.0s rc=0 [ok] 5583a01fb6 sanity/tuning mlp B16000 lorenz63 seed=100 {'val_vpt_best': 6.465320000000001, 'n_configs': 3.0, 'best_delays': 1.0, 'best_noise': 0.0, 'best_steps': 16000.0, 'best_lr': 0.001} (76.8s) log=~/Donna/
+lane1   82.0s rc=0 [ok] 7fdc185ebf sanity/tuning mlp B16000 lorenz96 seed=100 {'val_vpt_best': 2.68077, 'n_configs': 3.0, 'best_delays': 1.0, 'best_noise': 0.0, 'best_steps': 16000.0, 'best_lr': 0.005} (81.8s) log=~/Donna/Mihir/mihi
+lane0  138.0s rc=0 [ok] ec06d5fe4b sanity/tuning gru A lorenz63 seed=100 {'val_vpt_best': 3.4172800000000003, 'n_configs': 5.0, 'best_noise': 0.03} (137.8s) log=seed/work/reserv
+lane1  137.9s rc=0 [ok] 7be4897379 sanity/tuning gru A lorenz96 seed=100 {'val_vpt_best': 0.82797, 'n_configs': 5.0, 'best_noise': 0.1} (137.6s) log=seed/work/reservoir-vs-mlp-l
+lane0   77.6s rc=0 [ok] 0918b140bb sanity/tuning gru B3000 lorenz63 seed=100 {'val_vpt_best': 3.4172800000000003, 'n_configs': 3.0, 'best_noise': 0.03, 'best_steps': 3000.0, 'best_lr': 0.003} (77.4s) log=~/Donna/Mihir/mihir-s-platfo
+lane1   78.6s rc=0 [ok] 933d33be6e sanity/tuning gru B3000 lorenz96 seed=100 {'val_vpt_best': 0.82797, 'n_configs': 3.0, 'best_noise': 0.1, 'best_steps': 3000.0, 'best_lr': 0.003} (78.5s) log=~/Donna/Mihir/mihir-s-platform-on-top-hi
+lane0  138.3s rc=0 [ok] b249e4cf76 sanity/tuning gru B6000 lorenz63 seed=100 {'val_vpt_best': 4.28065, 'n_configs': 3.0, 'best_noise': 0.03, 'best_steps': 6000.0, 'best_lr': 0.003} (138.1s) log=~/Donna/Mihir/mihir-s-platform-on-top-
+lane1  137.9s rc=0 [ok] 092e602d14 sanity/tuning gru B6000 lorenz96 seed=100 {'val_vpt_best': 1.07115, 'n_configs': 3.0, 'best_noise': 0.1, 'best_steps': 6000.0, 'best_lr': 0.01} (137.7s) log=~/Donna/Mihir/mihir-s-platform-on-top-hi
+ALL DONE 594 s

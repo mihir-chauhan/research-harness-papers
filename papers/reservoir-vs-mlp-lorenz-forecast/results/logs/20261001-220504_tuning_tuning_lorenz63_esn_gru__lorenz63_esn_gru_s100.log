@@ -1,0 +1,9 @@
+# rh run | Thu Oct  1 22:05:04 2026
+# cwd: .
+# cmd: python method/tune.py 'lorenz63 esn,gru'
+
+Traceback (most recent call last):
+  File "method/tune.py", line 7, in <module>
+    task = sys.argv[1]; systems = sys.argv[2].split(",")
+                                  ~~~~~~~~^^^
+IndexError: list index out of range

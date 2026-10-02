@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 23:34:39 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 2 --opt sr --task tfim_N10_g1.00 --seed 2 --out results/raw/sweep_samples_s2_64.json --lr 0.1 --samples 64
+
+config: {"ansatz": "rbm", "alpha": 2.0, "opt": "sr", "task": "tfim_N10_g1.00", "N": 10, "G": 1.0, "seed": 2, "lr": 0.1, "shift": 0.01, "samples": 64, "iters": 300, "init": 0.01, "curve": "", "out": "results/raw/sweep_samples_s2_64.json"}
+exact E0 -12.784906  Mz0 0.7072 Mx0 0.6392
+metrics: {"rel_energy_error": 0.0003270591232004364, "mz_error": 0.006112063205767182, "mx_error": 0.0035541778474071917, "infidelity": 0.001029073531547131, "mc_energy_error": 2.0513498591616458e-05, "n_params": 230, "runtime_s": 0.823566198348999}

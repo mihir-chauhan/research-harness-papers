@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:41:48 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --task lorenz96 --seed 1 --n_train 10000 --config '{}' --out results/raw/sweep_ntrain_mlp_lorenz96_s1_n10000_.json
+
+CONFIG {"system": "mlp", "task": "lorenz96", "seed": 1, "n_train": 10000, "hp": {"delays": 1, "noise": 0.01}}
+METRICS {"vpt": 2.9293499999999995, "vpt_median": 2.832, "vpt_min": 1.357, "clim_w1": 0.038762752300512945, "clim_ok": 1.0, "blowup": 0.0, "fit_seconds": 7.926167011260986}

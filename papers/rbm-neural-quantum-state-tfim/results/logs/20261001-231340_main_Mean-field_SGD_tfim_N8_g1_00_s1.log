@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 23:13:40 2026
+# cwd: .
+# cmd: python method/run.py --ansatz mf --alpha 1 --opt sgd --task tfim_N8_g1.00 --seed 1 --out results/raw/main_mf1_sgd_tfim_N8_g1.00_s1.json --lr 0.03
+
+config: {"ansatz": "mf", "alpha": 1.0, "opt": "sgd", "task": "tfim_N8_g1.00", "N": 8, "G": 1.0, "seed": 1, "lr": 0.03, "shift": 0.01, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/main_mf1_sgd_tfim_N8_g1.00_s1.json"}
+exact E0 -10.251662  Mz0 0.7268 Mx0 0.6407
+metrics: {"rel_energy_error": 0.024601529516396447, "mz_error": 0.13985102146718054, "mx_error": 0.1419073635530415, "infidelity": 0.5594030121841911, "mc_energy_error": 0.0246136637498597, "n_params": 8, "runtime_s": 0.351423978805542}

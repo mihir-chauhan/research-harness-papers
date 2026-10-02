@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:59:29 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 2 --opt sr --task tfim_N10_g0.75 --seed 2 --out results/raw/main_rbm2_sr_tfim_N10_g0.75_s2.json --lr 0.05
+
+config: {"ansatz": "rbm", "alpha": 2.0, "opt": "sr", "task": "tfim_N10_g0.75", "N": 10, "G": 0.75, "seed": 2, "lr": 0.05, "shift": 0.01, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/main_rbm2_sr_tfim_N10_g0.75_s2.json"}
+exact E0 -11.472140  Mz0 0.8956 Mx0 0.4182
+metrics: {"rel_energy_error": 6.253493751523333e-05, "mz_error": 0.0007487737203205613, "mx_error": 0.0008707404374080907, "infidelity": 0.00014212528493995347, "mc_energy_error": -8.898841226287714e-06, "n_params": 230, "runtime_s": 1.3051340579986572}

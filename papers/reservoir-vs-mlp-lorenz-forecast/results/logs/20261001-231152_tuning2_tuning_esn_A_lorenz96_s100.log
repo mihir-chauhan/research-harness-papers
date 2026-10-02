@@ -1,0 +1,33 @@
+# rh run | Thu Oct  1 23:11:52 2026
+# cwd: .
+# cmd: python method/tune.py lorenz96 esn A --out results/raw/tuning_lorenz96_esn_A.json
+
+CONFIG {"task": "lorenz96", "system": "esn", "stage": "A", "base": {}, "grid": {"rho": [0.4, 0.9, 1.4], "sigma": [0.1, 0.3, 1.0], "ridge": [1e-08, 1e-06, 0.0001]}}
+GRID {"cfg": {"rho": 0.4, "sigma": 0.1, "ridge": 1e-08}, "val_vpt": 2.04387, "fit_seconds": 0.23}
+GRID {"cfg": {"rho": 0.4, "sigma": 0.1, "ridge": 1e-06}, "val_vpt": 2.04387, "fit_seconds": 0.25}
+GRID {"cfg": {"rho": 0.4, "sigma": 0.1, "ridge": 0.0001}, "val_vpt": 2.1191400000000002, "fit_seconds": 0.23}
+GRID {"cfg": {"rho": 0.4, "sigma": 0.3, "ridge": 1e-08}, "val_vpt": 0.82797, "fit_seconds": 0.22}
+GRID {"cfg": {"rho": 0.4, "sigma": 0.3, "ridge": 1e-06}, "val_vpt": 0.82797, "fit_seconds": 0.24}
+GRID {"cfg": {"rho": 0.4, "sigma": 0.3, "ridge": 0.0001}, "val_vpt": 0.82797, "fit_seconds": 0.2}
+GRID {"cfg": {"rho": 0.4, "sigma": 1.0, "ridge": 1e-08}, "val_vpt": 0.31845, "fit_seconds": 0.23}
+GRID {"cfg": {"rho": 0.4, "sigma": 1.0, "ridge": 1e-06}, "val_vpt": 0.31845, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 0.4, "sigma": 1.0, "ridge": 0.0001}, "val_vpt": 0.31845, "fit_seconds": 0.22}
+GRID {"cfg": {"rho": 0.9, "sigma": 0.1, "ridge": 1e-08}, "val_vpt": 0.82797, "fit_seconds": 0.22}
+GRID {"cfg": {"rho": 0.9, "sigma": 0.1, "ridge": 1e-06}, "val_vpt": 0.82797, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 0.9, "sigma": 0.1, "ridge": 0.0001}, "val_vpt": 0.82797, "fit_seconds": 0.26}
+GRID {"cfg": {"rho": 0.9, "sigma": 0.3, "ridge": 1e-08}, "val_vpt": 0.5905799999999999, "fit_seconds": 0.26}
+GRID {"cfg": {"rho": 0.9, "sigma": 0.3, "ridge": 1e-06}, "val_vpt": 0.5905799999999999, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 0.9, "sigma": 0.3, "ridge": 0.0001}, "val_vpt": 0.5905799999999999, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 0.9, "sigma": 1.0, "ridge": 1e-08}, "val_vpt": 0.31845, "fit_seconds": 0.23}
+GRID {"cfg": {"rho": 0.9, "sigma": 1.0, "ridge": 1e-06}, "val_vpt": 0.31845, "fit_seconds": 0.23}
+GRID {"cfg": {"rho": 0.9, "sigma": 1.0, "ridge": 0.0001}, "val_vpt": 0.31845, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 1.4, "sigma": 0.1, "ridge": 1e-08}, "val_vpt": 0.30687, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 1.4, "sigma": 0.1, "ridge": 1e-06}, "val_vpt": 0.30687, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 1.4, "sigma": 0.1, "ridge": 0.0001}, "val_vpt": 0.30687, "fit_seconds": 0.23}
+GRID {"cfg": {"rho": 1.4, "sigma": 0.3, "ridge": 1e-08}, "val_vpt": 0.30687, "fit_seconds": 0.24}
+GRID {"cfg": {"rho": 1.4, "sigma": 0.3, "ridge": 1e-06}, "val_vpt": 0.30687, "fit_seconds": 0.22}
+GRID {"cfg": {"rho": 1.4, "sigma": 0.3, "ridge": 0.0001}, "val_vpt": 0.30687, "fit_seconds": 0.21}
+GRID {"cfg": {"rho": 1.4, "sigma": 1.0, "ridge": 1e-08}, "val_vpt": 0.21423, "fit_seconds": 0.24}
+GRID {"cfg": {"rho": 1.4, "sigma": 1.0, "ridge": 1e-06}, "val_vpt": 0.21423, "fit_seconds": 0.22}
+GRID {"cfg": {"rho": 1.4, "sigma": 1.0, "ridge": 0.0001}, "val_vpt": 0.21423, "fit_seconds": 0.22}
+METRICS {"val_vpt_best": 2.1191400000000002, "n_configs": 27, "best_rho": 0.4, "best_sigma": 0.1, "best_ridge": 0.0001}

@@ -1,0 +1,5654 @@
+[
+ [
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s0_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s1_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s2_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s3_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s4_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s0_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s1_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s2_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s3_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "GRU",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s4_n5000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz63_s0_n5000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz63_s2_n5000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz63_s4_n5000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz96_s2_n5000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz96_s4_n5000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s1_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s2_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 3,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s3_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 4,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s4_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s0_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s1_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s2_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 3,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s3_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 4,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s4_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz63_s1_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz63_s3_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz96_s0_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz96_s2_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz96_s4_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "steps": 12000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz63_s1_n5000_steps12000.json",
+   "cost": 140.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 12000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "steps": 12000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz96_s0_n5000_steps12000.json",
+   "cost": 140.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 12000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "steps": 12000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz96_s2_n5000_steps12000.json",
+   "cost": 140.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 12000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "steps": 32000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s1_n5000_steps32000.json",
+   "cost": 92.4,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 32000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "steps": 32000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s0_n5000_steps32000.json",
+   "cost": 92.4,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 32000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "steps": 32000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s2_n5000_steps32000.json",
+   "cost": 92.4,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 32000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s0_n2000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s1_n500.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s1_n10000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s2_n2000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s0_n500.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s0_n10000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s1_n2000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s2_n500.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s2_n10000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s0_n2000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s1_n500.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s1_n10000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s2_n2000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "steps": 16000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s0_n5000_steps16000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 16000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "steps": 16000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s2_n5000_steps16000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 16000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "steps": 3000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz63_s1_n5000_steps3000.json",
+   "cost": 41.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 3000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "steps": 3000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz96_s0_n5000_steps3000.json",
+   "cost": 41.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 3000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "steps": 3000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz96_s2_n5000_steps3000.json",
+   "cost": 41.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 3000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "size": 2000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s1_n5000_size2000.json",
+   "cost": 38.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 2000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "size": 2000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s0_n5000_size2000.json",
+   "cost": 38.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 2000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "size": 2000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s2_n5000_size2000.json",
+   "cost": 38.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 2000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "steps": 8000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s1_n5000_steps8000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 8000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s0_n500.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s0_n10000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s1_n2000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s2_n500.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s2_n10000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "steps": 4000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s1_n5000_steps4000.json",
+   "cost": 16.8,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 4000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "steps": 4000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s0_n5000_steps4000.json",
+   "cost": 16.8,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 4000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "steps": 4000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s2_n5000_steps4000.json",
+   "cost": 16.8,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 4000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "size": 1000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s1_n5000_size1000.json",
+   "cost": 14.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 1000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "size": 1000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s0_n5000_size1000.json",
+   "cost": 14.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 1000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "size": 1000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s2_n5000_size1000.json",
+   "cost": 14.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 1000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "rho": 0.7,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s0_n5000_rho0.7.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.7}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "rho": 1.4,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s0_n5000_rho1.4.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.4}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s0_n500.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s0_n10000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "rho": 0.7,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s1_n5000_rho0.7.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.7}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "rho": 1.4,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s1_n5000_rho1.4.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.4}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s1_n500.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s1_n10000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "rho": 0.7,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s2_n5000_rho0.7.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.7}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "rho": 1.4,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s2_n5000_rho1.4.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.4}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s2_n500.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s2_n10000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "rho": 0.7,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s0_n5000_rho0.7.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.7}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "rho": 1.4,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s0_n5000_rho1.4.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.4}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s0_n500.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s0_n10000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "rho": 0.7,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s1_n5000_rho0.7.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.7}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "rho": 1.4,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s1_n5000_rho1.4.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.4}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s1_n500.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s1_n10000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "rho": 0.7,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s2_n5000_rho0.7.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.7}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "rho": 1.4,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s2_n5000_rho1.4.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.4}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s2_n500.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s2_n10000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "size": 250,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s1_n5000_size250.json",
+   "cost": 6.5,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 250}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "size": 250,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s0_n5000_size250.json",
+   "cost": 6.5,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 250}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "size": 250,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s2_n5000_size250.json",
+   "cost": 6.5,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 250}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "size": 100,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s1_n5000_size100.json",
+   "cost": 6.08,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 100}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "size": 100,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s0_n5000_size100.json",
+   "cost": 6.08,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 100}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "size": 100,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s2_n5000_size100.json",
+   "cost": 6.08,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 100}",
+    "--out",
+    "{out}"
+   ]
+  }
+ ],
+ [
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s0_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s1_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s2_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 3,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s3_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 4,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz63_s4_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s0_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s1_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s2_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 3,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s3_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU without input noise",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 4,
+   "config": {
+    "noise": 0.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_gru_lorenz96_s4_n5000_noise0.0.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"noise\": 0.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz63_s1_n5000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz63_s3_n5000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz96_s0_n5000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz96_s1_n5000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "baseline",
+   "name": "MLP delay",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_mlp_lorenz96_s3_n5000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s0_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN without squared features",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "sq": 0,
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s0_n5000_sq0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"sq\": 0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s1_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s2_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s3_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz63_s4_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s0_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s1_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s2_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s3_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "method",
+   "name": "ESN",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_esn_lorenz96_s4_n5000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz63_s0_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz63_s2_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz63",
+   "seed": 4,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz63_s4_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "4",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz96_s1_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "True system",
+   "group": "main",
+   "task": "lorenz96",
+   "seed": 3,
+   "config": {
+    "n_train": 5000
+   },
+   "file": "results/raw/main_truth_lorenz96_s3_n5000.json",
+   "cost": 6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "truth",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "3",
+    "--n_train",
+    "5000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "steps": 12000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz63_s0_n5000_steps12000.json",
+   "cost": 140.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 12000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "steps": 12000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz63_s2_n5000_steps12000.json",
+   "cost": 140.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 12000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "steps": 12000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz96_s1_n5000_steps12000.json",
+   "cost": 140.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 12000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "steps": 32000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s0_n5000_steps32000.json",
+   "cost": 92.4,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 32000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "steps": 32000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s2_n5000_steps32000.json",
+   "cost": 92.4,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 32000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "steps": 32000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s1_n5000_steps32000.json",
+   "cost": 92.4,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 32000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s0_n500.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s0_n10000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s1_n2000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s2_n500.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz63_s2_n10000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s0_n2000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s1_n500.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s1_n10000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_gru_lorenz96_s2_n2000.json",
+   "cost": 74.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s0_n500.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s0_n10000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s1_n2000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s2_n500.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz63_s2_n10000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "steps": 16000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s1_n5000_steps16000.json",
+   "cost": 49.2,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 16000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "steps": 3000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz63_s0_n5000_steps3000.json",
+   "cost": 41.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 3000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "steps": 3000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz63_s2_n5000_steps3000.json",
+   "cost": 41.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 3000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "GRU",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "steps": 3000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_gru_lorenz96_s1_n5000_steps3000.json",
+   "cost": 41.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "gru",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 3000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "size": 2000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s0_n5000_size2000.json",
+   "cost": 38.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 2000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "size": 2000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s2_n5000_size2000.json",
+   "cost": 38.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 2000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "size": 2000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s1_n5000_size2000.json",
+   "cost": 38.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 2000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "steps": 8000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s0_n5000_steps8000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 8000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "steps": 8000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s2_n5000_steps8000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 8000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s0_n2000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 500
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s1_n500.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "500",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 10000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s1_n10000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "10000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_mlp_lorenz96_s2_n2000.json",
+   "cost": 27.6,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "steps": 4000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s0_n5000_steps4000.json",
+   "cost": 16.8,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 4000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "steps": 4000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz63_s2_n5000_steps4000.json",
+   "cost": 16.8,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 4000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "MLP delay",
+   "group": "sweep_steps",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "steps": 4000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_steps_mlp_lorenz96_s1_n5000_steps4000.json",
+   "cost": 16.8,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "mlp",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"steps\": 4000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "size": 1000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s0_n5000_size1000.json",
+   "cost": 14.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 1000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "size": 1000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s2_n5000_size1000.json",
+   "cost": 14.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 1000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "size": 1000,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s1_n5000_size1000.json",
+   "cost": 14.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 1000}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "rho": 0.1,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s0_n5000_rho0.1.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.1}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "rho": 1.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s0_n5000_rho1.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "rho": 2.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s0_n5000_rho2.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 2.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s0_n2000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "rho": 0.1,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s1_n5000_rho0.1.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.1}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "rho": 1.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s1_n5000_rho1.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "rho": 2.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s1_n5000_rho2.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 2.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 1,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s1_n2000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "1",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "rho": 0.1,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s2_n5000_rho0.1.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.1}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "rho": 1.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s2_n5000_rho1.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "rho": 2.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz63_s2_n5000_rho2.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 2.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz63_s2_n2000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "rho": 0.1,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s0_n5000_rho0.1.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.1}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "rho": 1.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s0_n5000_rho1.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "rho": 2.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s0_n5000_rho2.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 2.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 0,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s0_n2000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "0",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "rho": 0.1,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s1_n5000_rho0.1.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.1}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "rho": 1.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s1_n5000_rho1.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "rho": 2.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s1_n5000_rho2.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 2.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s1_n2000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "rho": 0.1,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s2_n5000_rho0.1.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 0.1}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "rho": 1.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s2_n5000_rho1.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 1.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_rho",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "rho": 2.0,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_rho_esn_lorenz96_s2_n5000_rho2.0.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"rho\": 2.0}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_ntrain",
+   "task": "lorenz96",
+   "seed": 2,
+   "config": {
+    "n_train": 2000
+   },
+   "file": "results/raw/sweep_ntrain_esn_lorenz96_s2_n2000.json",
+   "cost": 8.0,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "2",
+    "--n_train",
+    "2000",
+    "--config",
+    "{}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "size": 250,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s0_n5000_size250.json",
+   "cost": 6.5,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 250}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "size": 250,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s2_n5000_size250.json",
+   "cost": 6.5,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 250}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "size": 250,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s1_n5000_size250.json",
+   "cost": 6.5,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 250}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 0,
+   "config": {
+    "size": 100,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s0_n5000_size100.json",
+   "cost": 6.08,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "0",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 100}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz63",
+   "seed": 2,
+   "config": {
+    "size": 100,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz63_s2_n5000_size100.json",
+   "cost": 6.08,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz63",
+    "--seed",
+    "2",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 100}",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "ablation",
+   "name": "ESN",
+   "group": "sweep_size",
+   "task": "lorenz96",
+   "seed": 1,
+   "config": {
+    "size": 100,
+    "n_train": 5000
+   },
+   "file": "results/raw/sweep_size_esn_lorenz96_s1_n5000_size100.json",
+   "cost": 6.08,
+   "cmd": [
+    "{py}",
+    "method/run.py",
+    "--system",
+    "esn",
+    "--task",
+    "lorenz96",
+    "--seed",
+    "1",
+    "--n_train",
+    "5000",
+    "--config",
+    "{\"size\": 100}",
+    "--out",
+    "{out}"
+   ]
+  }
+ ]
+]

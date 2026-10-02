@@ -1,0 +1,27 @@
+All systems learn a one-step map $x_t\mapsto x_{t+1}$ on standardised states $x_t\in\mathbb{R}^D$ and are rolled out in closed loop, $\hat x_{t+1}=F(\hat x_t,\dots)$, after a warm-up on 100 true states. In every rollout the predicted state is clamped componentwise to $[-10^3,10^3]$ (standardised units) so that a diverging model cannot overflow; the clamp is the same for the three systems.
+
+\textbf{Systems and units.} Lorenz-63~\cite{lorenz1963deterministic}: $\dot x=\sigma(y-x)$, $\dot y=x(\rho-z)-y$, $\dot z=xy-\beta z$ with $(\sigma,\rho,\beta)=(10,28,8/3)$, sampled at $\Delta t=0.02$. Lorenz-96~\cite{lorenz1998optimal}: $\dot x_i=(x_{i+1}-x_{i-2})x_{i-1}-x_i+F$, $i=1..D$ (periodic), $D=10$, $F=8$, $\Delta t=0.05$. Both are integrated with RK4 (two sub-steps per sample). The largest Lyapunov exponent $\lambda$ is estimated with the method of Benettin et al.~\cite{benettin1980lyapunov} (\texttt{method/lyap.py}: RK4 step 0.005, total time 4000, separation $10^{-8}$ renormalised every 20 steps; logged in the run registry under group \texttt{lyapunov}), giving $\lambda=0.905$ (L63) and $\lambda=1.158$ (L96). Time is reported in Lyapunov times $\lambda t$.
+
+\textbf{ESN (reimplemented, after~\cite{jaeger2004harnessing,pathak2017using}).} With reservoir state $r_t\in\mathbb{R}^N$,
+\begin{equation}
+r_{t+1}=\tanh\!\big(A r_t+W_{\rm in}x_t+b\big),\qquad \hat x_{t+1}=W_{\rm out}\,\phi(r_{t+1}),
+\end{equation}
+where $A$ is sparse (mean degree 3, weights uniform in $[-1,1]$) rescaled to spectral radius $\rho$ (computed with a dense eigensolver, so that a seed fixes $A$ exactly), $W_{\rm in},b\sim U(-s,s)$ and $\phi$ squares the even-indexed entries of $r$. The readout is the ridge solution
+\begin{equation}
+W_{\rm out}^\top=(\Phi^\top\Phi+\beta I)^{-1}\Phi^\top Y
+\end{equation}
+on the training states after a washout of 100 steps ($\Phi$: rows $\phi(r_{t+1})$, $Y$: rows $x_{t+1}$). The ablation ``no squares'' uses $\phi(r)=r$. Default $N=500$.
+
+\textbf{MLP on delay coordinates (reimplemented baseline).} With $d$ delays,
+\begin{equation}
+\hat x_{t+1}=x_t+S\,g_\theta(x_t,\dots,x_{t-d+1}),
+\end{equation}
+where $g_\theta$ has three hidden layers of 128 GELU units and $S=\mathrm{diag}(\mathrm{std}(x_{t+1}-x_t))$. Training minimises the one-step squared error $\|\hat x_{t+1}-x_{t+1}\|^2$ with Gaussian input noise of standard deviation $\eta$, using Adam~\cite{kingma2014adam} with batch 256 and a cosine learning-rate decay to zero over the run; the number of optimiser steps and the initial learning rate are tuned (Sec.~\ref{sec:setup}).
+
+\textbf{GRU (reimplemented baseline~\cite{cho2014learning}).} One layer of 64 units,
+\begin{equation}
+h_t=\mathrm{GRU}(x_t+\eta\epsilon_t,h_{t-1}),\qquad \hat x_{t+1}=x_t+\eta\epsilon_t+S\,W h_t,
+\end{equation}
+with $\epsilon_t\sim\mathcal N(0,I)$ during training and $\eta=0$ at test time. It is trained by teacher forcing on random windows of 48 steps (the first 20 predictions of each window are not scored), batch 32, Adam with cosine decay and gradient clipping at norm 1; steps and learning rate are tuned. In closed loop the hidden state is carried through the warm-up and the prediction is fed back.
+
+\textbf{Metrics.} VPT is the first time at which $\|\hat x_t-x_t\|_2/\sqrt{D}$ exceeds $0.4$ (standardised units), capped at 15 Lyapunov times, averaged over 20 test initial conditions; \texttt{vpt\_min} is the minimum over the 20. For climate, each of the same 20 warm-ups is continued as a free run of 10000 steps and compared with a 15000-step reference trajectory of the true system: the distance of a run is the mean over components of the Wasserstein-1 distance between the run's and the reference's marginal samples, divided by the reference standard deviation, capped at 1. \texttt{clim\_w1} is the mean distance over the 20 runs, \texttt{clim\_ok} the fraction of runs with distance below $0.1$, and \texttt{blowup} the fraction of runs that leave the attractor region, i.e.\ become non-finite or exceed three times the largest reference magnitude in some component (such a run gets distance 1; it need not be numerically unbounded). The run length was fixed on the validation seed so that free runs of the \emph{true} system pass the $0.1$ threshold; a ``True system'' row (the ODE integrated from the same warm-ups) gives the sampling floor of the climate metrics on the test seeds.

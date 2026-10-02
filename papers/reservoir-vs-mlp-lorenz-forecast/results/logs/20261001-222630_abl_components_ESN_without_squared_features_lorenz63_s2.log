@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:26:30 2026
+# cwd: .
+# cmd: python method/run.py --system esn --task lorenz63 --seed 2 --n_train 5000 --config '{"sq":0}' --out results/raw/abl_components_esn_lorenz63_s2_n5000_sq0.json
+
+CONFIG {"system": "esn", "task": "lorenz63", "seed": 2, "n_train": 5000, "hp": {"rho": 0.4, "sigma": 0.3, "ridge": 1e-08, "sq": 0}}
+METRICS {"vpt": 6.487152, "vpt_median": 6.664140000000001, "vpt_min": 1.15584, "clim_w1": 0.06479399725934246, "clim_ok": 1.0, "blowup": 0.0, "fit_seconds": 0.08445429801940918}

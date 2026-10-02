@@ -1,0 +1,15 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & vpt $\uparrow$ & clim\_ok $\uparrow$ & blowup $\downarrow$ & $n$ \\
+\midrule
+\textbf{ESN} & lorenz63 & \underline{9.55 $\pm$ 0.32} & 0.85 $\pm$ 0.14 & 0.00 $\pm$ 0.00 & 5 \\
+ESN without squared features & lorenz63 & 8.13 $\pm$ 0.75 & 0.84 $\pm$ 0.12 & 0.00 $\pm$ 0.00 & 5 \\
+GRU & lorenz63 & 3.79 $\pm$ 0.61 & \underline{0.86 $\pm$ 0.11} & \textbf{0.00 $\pm$ 0.00} & 5 \\
+GRU without input noise & lorenz63 & 3.67 $\pm$ 0.55 & 0.63 $\pm$ 0.35 & \underline{0.00 $\pm$ 0.00} & 5 \\
+\midrule
+\textbf{ESN} & lorenz96 & 2.11 $\pm$ 0.34 & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+ESN without squared features & lorenz96 & 0.96 $\pm$ 0.11 & 0.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 5 \\
+GRU & lorenz96 & 1.33 $\pm$ 0.23 & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & 5 \\
+GRU without input noise & lorenz96 & 1.33 $\pm$ 0.20 & 0.01 $\pm$ 0.02 & 0.99 $\pm$ 0.02 & 5 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,35 @@
+# rh run | Thu Oct  1 22:05:42 2026
+# cwd: .
+# cmd: python method/tune.py lorenz96 esn,gru
+
+esn lorenz96 {'rho': 0.4, 'sigma': 0.1, 'ridge': 1e-08} 1.782 0.3
+esn lorenz96 {'rho': 0.4, 'sigma': 0.1, 'ridge': 1e-06} 1.758 0.1
+esn lorenz96 {'rho': 0.4, 'sigma': 0.1, 'ridge': 0.0001} 1.823 0.1
+esn lorenz96 {'rho': 0.4, 'sigma': 0.3, 'ridge': 1e-08} 0.791 0.3
+esn lorenz96 {'rho': 0.4, 'sigma': 0.3, 'ridge': 1e-06} 0.791 0.2
+esn lorenz96 {'rho': 0.4, 'sigma': 0.3, 'ridge': 0.0001} 0.791 0.1
+esn lorenz96 {'rho': 0.4, 'sigma': 1.0, 'ridge': 1e-08} 0.36 0.3
+esn lorenz96 {'rho': 0.4, 'sigma': 1.0, 'ridge': 1e-06} 0.36 0.2
+esn lorenz96 {'rho': 0.4, 'sigma': 1.0, 'ridge': 0.0001} 0.36 0.1
+esn lorenz96 {'rho': 0.9, 'sigma': 0.1, 'ridge': 1e-08} 1.027 0.3
+esn lorenz96 {'rho': 0.9, 'sigma': 0.1, 'ridge': 1e-06} 1.027 0.2
+esn lorenz96 {'rho': 0.9, 'sigma': 0.1, 'ridge': 0.0001} 1.027 0.1
+esn lorenz96 {'rho': 0.9, 'sigma': 0.3, 'ridge': 1e-08} 0.62 0.4
+esn lorenz96 {'rho': 0.9, 'sigma': 0.3, 'ridge': 1e-06} 0.62 0.1
+esn lorenz96 {'rho': 0.9, 'sigma': 0.3, 'ridge': 0.0001} 0.62 0.3
+esn lorenz96 {'rho': 0.9, 'sigma': 1.0, 'ridge': 1e-08} 0.301 0.2
+esn lorenz96 {'rho': 0.9, 'sigma': 1.0, 'ridge': 1e-06} 0.301 0.1
+esn lorenz96 {'rho': 0.9, 'sigma': 1.0, 'ridge': 0.0001} 0.301 0.1
+esn lorenz96 {'rho': 1.4, 'sigma': 0.1, 'ridge': 1e-08} 0.301 0.1
+esn lorenz96 {'rho': 1.4, 'sigma': 0.1, 'ridge': 1e-06} 0.295 0.2
+esn lorenz96 {'rho': 1.4, 'sigma': 0.1, 'ridge': 0.0001} 0.301 0.2
+esn lorenz96 {'rho': 1.4, 'sigma': 0.3, 'ridge': 1e-08} 0.389 0.3
+esn lorenz96 {'rho': 1.4, 'sigma': 0.3, 'ridge': 1e-06} 0.389 0.2
+esn lorenz96 {'rho': 1.4, 'sigma': 0.3, 'ridge': 0.0001} 0.389 0.4
+esn lorenz96 {'rho': 1.4, 'sigma': 1.0, 'ridge': 1e-08} 0.236 0.1
+esn lorenz96 {'rho': 1.4, 'sigma': 1.0, 'ridge': 1e-06} 0.236 0.1
+esn lorenz96 {'rho': 1.4, 'sigma': 1.0, 'ridge': 0.0001} 0.236 0.1
+gru lorenz96 {'noise': 0.0} 0.443 28.4
+gru lorenz96 {'noise': 0.01} 0.46 30.3
+gru lorenz96 {'noise': 0.03} 0.478 28.1
+BEST {'esn/lorenz96': {'cfg': {'rho': 0.4, 'sigma': 0.1, 'ridge': 0.0001}, 'val_vpt': 1.8231000000000002}, 'gru/lorenz96': {'cfg': {'noise': 0.03}, 'val_vpt': 0.4779}}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:26:33 2026
+# cwd: .
+# cmd: python method/run.py --system gru --task lorenz63 --seed 2 --n_train 5000 --config '{"noise":0.0}' --out results/raw/abl_components_gru_lorenz63_s2_n5000_noise0.0.json
+
+CONFIG {"system": "gru", "task": "lorenz63", "seed": 2, "n_train": 5000, "hp": {"noise": 0.0}}
+METRICS {"vpt": 2.915787, "vpt_median": 2.81736, "vpt_min": 0.83076, "clim_w1": 0.3616108157814287, "clim_ok": 0.2, "blowup": 0.0, "fit_seconds": 26.90036392211914}

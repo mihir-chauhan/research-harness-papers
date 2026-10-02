@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 23:58:53 2026
+# cwd: .
+# cmd: python method/run.py --ansatz mf --alpha 1 --opt sr --task tfim_N10_g1.25 --seed 0 --out results/raw/main_b_mf1_sr_tfim_N10_g1.25_s0.json --lr 0.1 --field-init 0.5
+
+config: {"ansatz": "mf", "alpha": 1.0, "opt": "sr", "task": "tfim_N10_g1.25", "N": 10, "G": 1.25, "seed": 0, "lr": 0.1, "shift": 0.01, "samples": 256, "iters": 300, "init": 0.01, "field_init": 0.5, "curve": "", "out": "results/raw/main_b_mf1_sr_tfim_N10_g1.25_s0.json"}
+exact E0 -14.613670  Mz0 0.5100 Mx0 0.8030
+metrics: {"energy": -13.879775331566352, "rel_energy_error": 0.05021971452647464, "mz_error": 0.2398347686656913, "mx_error": 0.1420910226041161, "infidelity": 0.6272265696451803, "mc_energy_error": 0.048608186935983975, "n_params": 10, "runtime_s": 0.32439208030700684}

@@ -1,0 +1,15 @@
+# rh run | Thu Oct  1 23:12:02 2026
+# cwd: .
+# cmd: python method/tune.py lorenz63 mlp A --out results/raw/tuning_lorenz63_mlp_A.json
+
+CONFIG {"task": "lorenz63", "system": "mlp", "stage": "A", "base": {}, "grid": {"delays": [1, 2, 4], "noise": [0.0, 0.01, 0.03]}}
+GRID {"cfg": {"delays": 1, "noise": 0.0}, "val_vpt": 4.69152, "fit_seconds": 9.13}
+GRID {"cfg": {"delays": 1, "noise": 0.01}, "val_vpt": 2.3330900000000003, "fit_seconds": 7.93}
+GRID {"cfg": {"delays": 1, "noise": 0.03}, "val_vpt": 1.60547, "fit_seconds": 8.08}
+GRID {"cfg": {"delays": 2, "noise": 0.0}, "val_vpt": 4.40373, "fit_seconds": 8.12}
+GRID {"cfg": {"delays": 2, "noise": 0.01}, "val_vpt": 3.0770000000000004, "fit_seconds": 8.01}
+GRID {"cfg": {"delays": 2, "noise": 0.03}, "val_vpt": 2.61002, "fit_seconds": 8.08}
+GRID {"cfg": {"delays": 4, "noise": 0.0}, "val_vpt": 4.300559999999999, "fit_seconds": 8.39}
+GRID {"cfg": {"delays": 4, "noise": 0.01}, "val_vpt": 2.77111, "fit_seconds": 8.24}
+GRID {"cfg": {"delays": 4, "noise": 0.03}, "val_vpt": 2.75301, "fit_seconds": 8.34}
+METRICS {"val_vpt_best": 4.69152, "n_configs": 9, "best_delays": 1, "best_noise": 0.0}

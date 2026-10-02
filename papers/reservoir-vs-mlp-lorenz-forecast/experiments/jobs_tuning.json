@@ -1,0 +1,362 @@
+[
+ [
+  {
+   "kind": "sanity",
+   "name": "tuning esn A",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "esn",
+    "stage": "A"
+   },
+   "file": "results/raw/tuning_lorenz63_esn_A.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "esn",
+    "A",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp A",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "A"
+   },
+   "file": "results/raw/tuning_lorenz63_mlp_A.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "mlp",
+    "A",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp B4000",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "B",
+    "steps": 4000
+   },
+   "file": "results/raw/tuning_lorenz63_mlp_B4000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "mlp",
+    "B",
+    "4000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp B8000",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "B",
+    "steps": 8000
+   },
+   "file": "results/raw/tuning_lorenz63_mlp_B8000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "mlp",
+    "B",
+    "8000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp B16000",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "B",
+    "steps": 16000
+   },
+   "file": "results/raw/tuning_lorenz63_mlp_B16000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "mlp",
+    "B",
+    "16000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning gru A",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "gru",
+    "stage": "A"
+   },
+   "file": "results/raw/tuning_lorenz63_gru_A.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "gru",
+    "A",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning gru B3000",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "gru",
+    "stage": "B",
+    "steps": 3000
+   },
+   "file": "results/raw/tuning_lorenz63_gru_B3000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "gru",
+    "B",
+    "3000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning gru B6000",
+   "group": "tuning2",
+   "task": "lorenz63",
+   "seed": 100,
+   "config": {
+    "system": "gru",
+    "stage": "B",
+    "steps": 6000
+   },
+   "file": "results/raw/tuning_lorenz63_gru_B6000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz63",
+    "gru",
+    "B",
+    "6000",
+    "--out",
+    "{out}"
+   ]
+  }
+ ],
+ [
+  {
+   "kind": "sanity",
+   "name": "tuning esn A",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "esn",
+    "stage": "A"
+   },
+   "file": "results/raw/tuning_lorenz96_esn_A.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "esn",
+    "A",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp A",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "A"
+   },
+   "file": "results/raw/tuning_lorenz96_mlp_A.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "mlp",
+    "A",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp B4000",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "B",
+    "steps": 4000
+   },
+   "file": "results/raw/tuning_lorenz96_mlp_B4000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "mlp",
+    "B",
+    "4000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp B8000",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "B",
+    "steps": 8000
+   },
+   "file": "results/raw/tuning_lorenz96_mlp_B8000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "mlp",
+    "B",
+    "8000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning mlp B16000",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "mlp",
+    "stage": "B",
+    "steps": 16000
+   },
+   "file": "results/raw/tuning_lorenz96_mlp_B16000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "mlp",
+    "B",
+    "16000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning gru A",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "gru",
+    "stage": "A"
+   },
+   "file": "results/raw/tuning_lorenz96_gru_A.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "gru",
+    "A",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning gru B3000",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "gru",
+    "stage": "B",
+    "steps": 3000
+   },
+   "file": "results/raw/tuning_lorenz96_gru_B3000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "gru",
+    "B",
+    "3000",
+    "--out",
+    "{out}"
+   ]
+  },
+  {
+   "kind": "sanity",
+   "name": "tuning gru B6000",
+   "group": "tuning2",
+   "task": "lorenz96",
+   "seed": 100,
+   "config": {
+    "system": "gru",
+    "stage": "B",
+    "steps": 6000
+   },
+   "file": "results/raw/tuning_lorenz96_gru_B6000.json",
+   "cmd": [
+    "{py}",
+    "method/tune.py",
+    "lorenz96",
+    "gru",
+    "B",
+    "6000",
+    "--out",
+    "{out}"
+   ]
+  }
+ ]
+]

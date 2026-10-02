@@ -1,0 +1,21 @@
+\textbf{Model.} $H=-J\sum_i \sigma^z_i\sigma^z_{i+1}-\Gamma\sum_i\sigma^x_i$ with periodic boundaries and $J=1$. Configurations are $s\in\{\pm1\}^N$; wavefunctions are real and positive, $\psi_\theta(s)=\exp(\log\psi_\theta(s))$.
+
+\textbf{Ansaetze.} Mean-field (MF): $\log\psi=\sum_i a_is_i$ ($N$ parameters). Jastrow: $\log\psi=\sum_i a_is_i+\sum_{i<j}J_{ij}s_is_j$ ($N+N(N-1)/2$ parameters, no translation symmetry imposed). RBM with $H=\alpha N$ hidden units:
+\begin{equation}
+\log\psi=\sum_i a_is_i+\sum_{j=1}^{H}\log 2\cosh\Big(b_j+\sum_iW_{ji}s_i\Big),
+\end{equation}
+with $N+H+HN$ real parameters.
+
+\textbf{Variational Monte Carlo.} The local energy is $E_\mathrm{loc}(s)=-J\sum_is_is_{i+1}-\Gamma\sum_i\psi(s^{(i)})/\psi(s)$, where $s^{(i)}$ flips spin $i$. Samples $s\sim|\psi|^2$ come from 256 persistent Metropolis chains (90\% single-spin flips, 10\% global flips). With $O_k=\partial_{\theta_k}\log\psi$, the energy gradient is
+\begin{equation}
+g_k=2\big(\langle E_\mathrm{loc}O_k\rangle-\langle E_\mathrm{loc}\rangle\langle O_k\rangle\big).\label{eq:grad}
+\end{equation}
+\textbf{SGD:} $\theta\leftarrow\theta-\eta g$. \textbf{SR:} $\theta\leftarrow\theta-\eta(S+\epsilon I)^{-1}g$, with $S_{kl}=\langle O_kO_l\rangle-\langle O_k\rangle\langle O_l\rangle$ and diagonal shift $\epsilon$. Both use the same samples; no momentum, Adam, schedule or step clipping.
+
+\textbf{Two starts.} All parameters are drawn from $\mathcal N(0,0.01^2)$. Start S (symmetric) uses them as drawn; start B (symmetry-broken) adds $0.5$ to every field $a_i$, which biases the initial state towards one of the two ordered configurations. Every (system, task, seed) is optimised from both starts with the same rate and budget, and the \emph{selected} state is the one with the lower variational energy $E$; a diverged start loses to a finite one. The selection needs no reference energy; we apply it to the exactly evaluated $E$.
+
+\textbf{Evaluation.} For each trained state we sum over all $2^N$ configurations to obtain exactly $E=\langle H\rangle$, $\langle|M_z|\rangle$ with $M_z=N^{-1}\sum_is_i$, $\langle\sigma^x\rangle=N^{-1}\sum_i\langle\sigma^x_i\rangle$, and the fidelity $F=|\langle\psi_0|\psi\rangle|^2$ with the ED ground state $\psi_0$ (scipy \texttt{eigsh}). The metrics are $\epsilon_E=(E-E_0)/|E_0|$, $\epsilon_{M_z}$ (absolute difference to ED; likewise for $\langle\sigma^x\rangle$) and $1-F$. ($\langle M_z\rangle=0$ in the symmetric finite-size ground state, hence $|M_z|$.)
+
+\textbf{Sampling-free reference.} To separate what an ansatz can represent from what VMC reaches, we also minimise the enumerated energy $E(\theta)=\sum_sp_\theta(s)E_\mathrm{loc}(s)$, $p_\theta\propto\psi_\theta^2$, with L-BFGS (at most 1000 iterations) and the exact gradient, i.e.\ Eq.~(\ref{eq:grad}) with averages over $p_\theta$ instead of samples. The lower of the two starts is an upper bound on the best $\epsilon_E$ of the ansatz.
+
+\textbf{Hypotheses (registered in \texttt{proposal.md} before the main runs).} \textbf{H1}: RBM-SR ($\alpha{=}2$) has lower $\epsilon_E$ than MF and Jastrow (with SR) on every task. \textbf{H2}: SR beats SGD for the RBM ($\alpha{=}2$) on every task. \textbf{H3}: with SR, $\epsilon_E$ decreases with $\alpha$ ($1>2>4$) at $\Gamma{=}1$ for each $N$. \textbf{H4}: MF energy and $|M_z|$ errors peak within $0.25$ of $\Gamma{=}1$ (for $N{=}10$). \textbf{H5}: RBM-SR error at $\Gamma{=}1$ does not grow from $N{=}8$ to $12$. The registered tests are the per-task ordering of means over the 5 seeds and a paired comparison over seeds. The two-start selection was added after registration (Sec.~\ref{sec:setup}); the tests are applied to the selected states, with per-start results in Table~\ref{tab:start}.

@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 23:29:12 2026
+# cwd: .
+# cmd: python method/run.py --ansatz jastrow --alpha 1 --opt sgd --task tfim_N8_g0.50 --seed 3 --out results/raw/main_jastrow1_sgd_tfim_N8_g0.50_s3.json --lr 0.003
+
+config: {"ansatz": "jastrow", "alpha": 1.0, "opt": "sgd", "task": "tfim_N8_g0.50", "N": 8, "G": 0.5, "seed": 3, "lr": 0.003, "shift": 0.01, "samples": 256, "iters": 300, "init": 0.01, "curve": "", "out": "results/raw/main_jastrow1_sgd_tfim_N8_g0.50_s3.json"}
+exact E0 -8.509082  Mz0 0.9641 Mx0 0.2601
+metrics: {"rel_energy_error": 0.002486655664659751, "mz_error": 0.001748968528242023, "mx_error": 0.008183111826979117, "infidelity": 0.031013722326115545, "mc_energy_error": 0.002503702688416886, "n_params": 72, "runtime_s": 0.4881880283355713}

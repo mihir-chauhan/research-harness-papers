@@ -1,0 +1,108 @@
+slug: rbm-neural-quantum-state-tfim
+direction: 'Neural quantum states at small scale: variational Monte Carlo with a restricted
+  Boltzmann machine wavefunction for the 1D transverse-field Ising model with 8 to
+  12 spins (numpy; exact diagonalisation as the reference). Compare the RBM at several
+  hidden-unit densities against a mean-field product state and a Jastrow ansatz on
+  ground-state energy error and magnetisation across the phase transition, with plain
+  SGD and with stochastic reconfiguration.'
+problem: Small-scale benchmark of neural quantum states (RBM) against mean-field and
+  Jastrow variational states for the 1D TFIM.
+gap: No compact, exactly evaluated optimiser-by-ansatz comparison with order-parameter
+  errors across the critical point at N=8-12.
+contribution: Controlled numpy VMC study (RBM alpha 1,2,4 / Jastrow / mean-field x
+  SGD / SR) with exact-enumeration evaluation and 5 seeds.
+hypotheses:
+- id: H1
+  statement: RBM-SR (alpha=2) beats mean-field and Jastrow in energy error on every
+    task
+  test: per-task paired comparison over 5 seeds (rh compare), mean ordering
+- id: H2
+  statement: SR beats SGD for the RBM (alpha=2) on every task
+  test: per-task mean error ordering, rh compare
+- id: H3
+  statement: With SR, energy error decreases monotonically with alpha at Gamma=1
+  test: mean error alpha=1>2>4 per size
+- id: H4
+  statement: Mean-field energy and |Mz| errors peak near Gamma=1 (N=10)
+  test: argmax over the Gamma sweep within 0.25 of 1
+- id: H5
+  statement: RBM-SR error at Gamma=1 does not grow from N=8 to 12
+  test: descriptive, 3 sizes
+method:
+  name: RBM alpha=2 SR
+  summary: RBM log-amplitude with hidden density 2 trained by VMC with stochastic
+    reconfiguration
+  components:
+  - RBM ansatz
+  - stochastic reconfiguration
+  entrypoint: method/run.py
+tasks:
+- tfim_N10_g0.25
+- tfim_N10_g0.50
+- tfim_N10_g0.75
+- tfim_N10_g1.00
+- tfim_N10_g1.25
+- tfim_N10_g1.50
+- tfim_N10_g2.00
+- tfim_N8_g0.50
+- tfim_N8_g1.00
+- tfim_N8_g1.50
+- tfim_N12_g0.50
+- tfim_N12_g1.00
+- tfim_N12_g1.50
+metrics:
+  rel_energy_error:
+    higher_is_better: false
+  energy:
+    higher_is_better: false
+  mz_error:
+    higher_is_better: false
+  mx_error:
+    higher_is_better: false
+  infidelity:
+    higher_is_better: false
+  mc_energy_error:
+    higher_is_better: false
+  n_params:
+    higher_is_better: false
+  runtime_s:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Mean-field SR
+- Mean-field SGD
+- Jastrow SR
+- Jastrow SGD
+- RBM alpha=1 SR
+- RBM alpha=4 SR
+- RBM alpha=1 SGD
+- RBM alpha=2 SGD
+- RBM alpha=4 SGD
+ablations:
+- RBM alpha=2 SR
+- Mean-field exact-gradient
+- Jastrow exact-gradient
+- RBM alpha=2 exact-gradient
+ambition:
+  target_tier: 2
+  primary_metric: rel_energy_error
+  primary_task: tfim_N10_g1.00
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

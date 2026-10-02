@@ -1,0 +1,56 @@
+direction: 'Forecasting chaos: ESN vs MLP on delay coordinates vs small GRU for Lorenz-63 and Lorenz-96; valid prediction time and attractor statistics; reservoir sensitivity; data requirements.'
+problem: Compare reservoir computing with delay-coordinate MLPs and GRUs for closed-loop forecasting of low-dimensional chaos, under one protocol, with sensitivity and data-scaling analyses.
+gap: Comparisons usually tune or measure model families differently; a small controlled head-to-head including climate metrics and data scaling is cheap to replicate on CPU.
+contribution: A controlled, reproducible CPU-scale comparison (no new method) of ESN, MLP and GRU on Lorenz-63 and Lorenz-96 with sweeps over spectral radius, reservoir size and training length.
+hypotheses:
+- id: H1
+  statement: At tuned defaults and 5000 training steps the ESN has longer mean VPT than MLP and GRU on both tasks.
+  test: Paired comparison over 5 seeds with rh compare, alpha 0.05, plus mean ordering.
+- id: H2
+  statement: VPT and climate fidelity (clim_ok) rank the systems differently on at least one task.
+  test: Compare orderings of seed-mean vpt and clim_ok.
+- id: H3
+  statement: ESN VPT varies by more than a factor 2 across the swept spectral radii on each task.
+  test: Ratio of best to worst seed-mean VPT over the sweep.
+- id: H4
+  statement: ESN VPT at N=1000 exceeds that at N=100 on both tasks.
+  test: Seed-mean comparison (3 seeds).
+- id: H5
+  statement: With 500 training steps the ESN has longer VPT than MLP and GRU on both tasks.
+  test: Seed-mean comparison (3 seeds).
+method:
+  name: ESN
+  summary: Echo state network (sparse tanh reservoir, ridge readout with squared even features) trained for one-step prediction and run in closed loop; the reference system of the comparison, reimplemented from Pathak et al.
+  components: [sparse reservoir, ridge readout, squared even-node features]
+  entrypoint: method/run.py
+tasks: [lorenz63, lorenz96]
+metrics:
+  vpt: {higher_is_better: true}
+  vpt_min: {higher_is_better: true}
+  clim_w1: {higher_is_better: false}
+  clim_ok: {higher_is_better: true}
+  blowup: {higher_is_better: false}
+  clim_w1_max: {higher_is_better: false}
+  fit_seconds: {higher_is_better: false}
+seeds: [0, 1, 2, 3, 4]
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines: [MLP delay, GRU]
+ablations:
+- {name: ESN without squared features, group: main}
+ambition:
+  target_tier: 2
+  primary_metric: vpt
+  primary_task: lorenz63
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

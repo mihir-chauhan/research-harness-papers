@@ -1,0 +1,14 @@
+# rh run | Thu Oct  1 22:07:42 2026
+# cwd: .
+# cmd: python method/tune.py lorenz63 mlp
+
+mlp lorenz63 {'delays': 1, 'noise': 0.0} 4.658 24.2
+mlp lorenz63 {'delays': 1, 'noise': 0.01} 2.44 23.2
+mlp lorenz63 {'delays': 1, 'noise': 0.03} 1.447 21.4
+mlp lorenz63 {'delays': 2, 'noise': 0.0} 4.488 22.5
+mlp lorenz63 {'delays': 2, 'noise': 0.01} 3.319 20.2
+mlp lorenz63 {'delays': 2, 'noise': 0.03} 2.59 20.7
+mlp lorenz63 {'delays': 4, 'noise': 0.0} 3.986 21.0
+mlp lorenz63 {'delays': 4, 'noise': 0.01} 3.161 23.2
+mlp lorenz63 {'delays': 4, 'noise': 0.03} 3.245 17.6
+BEST {'mlp/lorenz63': {'cfg': {'delays': 1, 'noise': 0.0}, 'val_vpt': 4.657674000000001}}

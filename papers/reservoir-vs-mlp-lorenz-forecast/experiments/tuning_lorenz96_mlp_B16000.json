@@ -1,0 +1,44 @@
+{
+ "best": {
+  "cfg": {
+   "delays": 1,
+   "noise": 0.0,
+   "steps": 16000,
+   "lr": 0.005
+  },
+  "val_vpt": 2.68077,
+  "fit_seconds": 28.98
+ },
+ "grid": [
+  {
+   "cfg": {
+    "delays": 1,
+    "noise": 0.0,
+    "steps": 16000,
+    "lr": 0.001
+   },
+   "val_vpt": 2.4665399999999997,
+   "fit_seconds": 24.29
+  },
+  {
+   "cfg": {
+    "delays": 1,
+    "noise": 0.0,
+    "steps": 16000,
+    "lr": 0.002
+   },
+   "val_vpt": 2.4897,
+   "fit_seconds": 26.4
+  },
+  {
+   "cfg": {
+    "delays": 1,
+    "noise": 0.0,
+    "steps": 16000,
+    "lr": 0.005
+   },
+   "val_vpt": 2.68077,
+   "fit_seconds": 28.98
+  }
+ ]
+}

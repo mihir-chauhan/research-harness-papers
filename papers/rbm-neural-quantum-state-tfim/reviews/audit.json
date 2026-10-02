@@ -1,0 +1,213 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real, deterministic and exactly reproducible, and every table matches the registry; framing is honest about divergences and refuted hypotheses. However the Jastrow baseline is stuck at a symmetric stationary point for small fields (a symmetry-broken start under the same budget gives 7-45x lower error, within 1.1-1.3x of the RBM at three tasks), so the H1 margins over Jastrow there are initialisation artefacts, and Table V reports 110 Jastrow parameters where 55 are real. Several minor wording and number issues also need fixing.",
+      "reran": [
+        {
+          "run": "RBM alpha=2 SR/tfim_N10_g1.00/0",
+          "metric": "rel_energy_error",
+          "registry": 3.095799923309527e-05,
+          "rerun": 3.095799923406783e-05
+        },
+        {
+          "run": "Jastrow SR/tfim_N10_g1.00/1",
+          "metric": "rel_energy_error",
+          "registry": 0.001518757024242651,
+          "rerun": 0.0015187570242418185
+        },
+        {
+          "run": "Mean-field SR/tfim_N12_g0.50/0",
+          "metric": "rel_energy_error",
+          "registry": 0.2283094275736011,
+          "rerun": 0.22830942757360184
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py (Jastrow init); paper abstract, results H1, Tables II/III, conclusion; results/RESULTS.md H1",
+          "issue": "Jastrow baseline is under-optimised in the ordered phase: it is reported worse than mean-field (which it contains) at Gamma<=0.5 and the paper does not comment. With the study's own budget and rate but fields started at a_i=0.5, Jastrow-SR reaches 6.3e-5/6.9e-5/6.6e-5 at N10 g0.25, N10 g0.5, N12 g0.5 (paper: 4.2e-4/3.1e-3/2.8e-3; RBM alpha=2 SR: 5.2e-5/5.2e-5/6.1e-5); the exact Jastrow optimum (2.5e-7, 3.0e-5, 1.7e-5) is below the RBM-SR median at those tasks. The 8-60x margins over Jastrow at small field are an initialisation artefact.",
+          "fix": "Re-run Jastrow (and mean-field) with both the symmetric and a symmetry-broken start (or restarts) and report the better per task, runs take under a second; or restrict the H1 claim over Jastrow to Gamma>=1 and state that Jastrow at Gamma<=0.75 is stuck above its own optimum and above mean-field. Update abstract, H1 text, RESULTS.md and conclusion."
+        },
+        {
+          "severity": "major",
+          "where": "paper Table V (results/tables/t_crit.tex, experiments/make_tables.py, method/run.py n_params)",
+          "issue": "Jastrow parameter count is given as 110; the ansatz has N+N(N-1)/2 = 55 parameters as the Method section states. The code allocates an NxN block and counts unused lower-triangle and diagonal entries, making Jastrow look parameter-matched to RBM alpha=1 (120).",
+          "fix": "Report 55 (count only the upper-triangle entries plus fields) and regenerate Table V."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'SR below SGD ... by more than two orders of magnitude at larger fields' holds in 8 of 13 tasks; the ratio is 16-20x at Gamma=0.5, 48x at N10 Gamma=0.75 and 75x at N12 Gamma=1.",
+          "fix": "Say 'by one to more than two orders of magnitude at larger fields' or quote the range 16x-550x."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'Tuning cost: 315 runs, the same for every system' is false: SGD systems got 36 tuning runs (4 rates), SR systems 27 (3 rates).",
+          "fix": "State 36 runs per SGD system and 27 per SR system."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'the full study took well under the 30-minute budget' is unsupported: research.yaml budget is 45 minutes, wall time including superseded protocols was about 38 minutes, summed run durations are 57.6 minutes.",
+          "fix": "Report the actual wall time and summed run time and the correct budget figure."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "'alpha=4 medians exclude 1-2 diverged seeds' at Gamma=1 should be 1, 0, 1 for N=8, 10, 12; the alpha=2 medians exclude 0, 1, 2. At N=12 the alpha=1 vs alpha=2 ordering rests on 3 surviving alpha=2 seeds that overlap the alpha=1 seeds.",
+          "fix": "Correct the counts and note the N=12 alpha=1 vs 2 step is within seed spread."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex; Tables III/V",
+          "issue": "Mean-field domain-wall failures are described as 'a few runs', but the N=12 Gamma=0.5 median (2.3e-1) is itself a domain-wall state (4/5 SR seeds, 3/5 SGD seeds), so that cell's comparison is against a failed optimisation.",
+          "fix": "Flag the cell in the table or text and report the non-failed mean-field value (about 1.0e-3) alongside."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "Only RBM-SGD is said to have its rate inside the grid; six of ten systems were selected at a grid edge (mean-field SGD/SR and RBM alpha=2/4 SR at the top, Jastrow SGD/SR at the bottom).",
+          "fix": "Disclose the grid-edge selections or extend the grids."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "The abstract does not say that the method of record (alpha=2 SR) is beaten by alpha=4 SR on the primary task (0/5 paired wins; rh check tier 0).",
+          "fix": "Add one clause stating alpha=4 SR is lower at the critical field."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex",
+          "issue": "'The exact solution of the TFIM [Pfeuty] is for the infinite chain' is misleading (the finite periodic chain is also exactly solvable), and 'standard simple ansaetze against which NQS accuracy is usually judged' has no citation.",
+          "fix": "Reword the Pfeuty sentence and cite or soften the claim about common practice."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md, BRIEF.md",
+          "issue": "Both still describe the v1 tuning protocol (3-point grid, one task, seed 100), not the v3 protocol used for the reported runs.",
+          "fix": "Update to the v3 protocol."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs (tune_lr, tune_lr2, tune_lr3, sweep_samples)",
+          "issue": "257 tuning rows and 2 sweep rows share a log file with another run started in the same second, so those logs are overwritten; registry metrics come from per-run metrics files and no paper number depends on these logs.",
+          "fix": "Include the rate in the log name or note the limitation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Fig. 1, conclusion.tex",
+          "issue": "Fig. 1 caption refers to (a)/(b) but panels are unlabelled and the legend covers data points; 'unclipped-and-tuned optimiser' in the conclusion is unclear.",
+          "fix": "Label the panels, move the legend, and reword the sentence."
+        }
+      ],
+      "commit": "c11b61a868e69bae6206663178184e5207ad5c63"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper tables regenerate byte-identically from the registry, 11 re-executed runs reproduce to about 1e-11, the code matches the described method with equal budgets and no leakage, and the paper reports its mixed outcome honestly. Remaining issues are minor: the H1 ordering against Jastrow at Gamma<=0.5 is more fragile than stated (an in-grid Jastrow rate reverses it at two tasks and start B alone reverses it at N10 g0.25), plus small wording, logging and stale-file points.",
+      "reran": [
+        {
+          "run": "RBM alpha=2 SR/tfim_N10_g1.00/0 (main)",
+          "metric": "rel_energy_error",
+          "registry": 3.095799923309527e-05,
+          "rerun": 3.0957999232817395e-05
+        },
+        {
+          "run": "Jastrow SR/tfim_N10_g0.50/1 (main_b)",
+          "metric": "rel_energy_error",
+          "registry": 7.578767411572744e-05,
+          "rerun": 7.578767411372336e-05
+        },
+        {
+          "run": "RBM alpha=2 SR/tfim_N12_g1.00/3 (main_b)",
+          "metric": "rel_energy_error",
+          "registry": 8.322419821108145e-05,
+          "rerun": 8.322419820934263e-05
+        },
+        {
+          "run": "Jastrow SR/tfim_N10_g1.00/2 (main)",
+          "metric": "rel_energy_error",
+          "registry": 0.0014520843901701,
+          "rerun": 0.0014520843901705163
+        },
+        {
+          "run": "Mean-field SR/tfim_N12_g0.50/0 (main)",
+          "metric": "rel_energy_error",
+          "registry": 0.2283094275736011,
+          "rerun": 0.2283094275736011
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1), results/RESULTS.md",
+          "issue": "H1 ordering against Jastrow-SR at Gamma<=0.5 is rate-dependent: with the in-grid rate 0.1 and the same two-start selection, Jastrow-SR has a lower mean than RBM alpha=2 SR at N10 g0.5 (4.10e-5 vs 5.04e-5, RBM wins 1/5) and N12 g0.5 (3.19e-5 vs 3.93e-5, RBM wins 2/5), and is tied at rate 0.05; the paper reports p<0.05 in all 13 tasks and concedes only that the margin is an optimisation effect. The paper's tuning rule emulated with two starts still selects 0.02, so the baseline is not unfairly treated.",
+          "fix": "State that the ordering itself is rate-dependent at Gamma=0.5 and soften the 'p<0.05 in all 13 tasks against Jastrow-SR' sentence, or add a per-start re-tune."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (start ablation)",
+          "issue": "At N10 g0.25 the RBM alpha=2 SR win (5/5, p=0.020 vs Jastrow, p=0.043 vs mean-field) arises only from best-of-two selection: from start B alone RBM alpha=2 SR (mean 8.5e-5, median 6.7e-5) is worse than Jastrow-SR (5.7e-5) and mean-field SR (7.3e-5 mean, 6.2e-5 median). The text says H1 holds from start S alone but omits that it fails here from start B alone.",
+          "fix": "Add a sentence saying H1 fails at N10 g0.25 from start B alone and that min-of-two selection favours the higher-variance system."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'From the symmetric start alone, Jastrow stays above mean-field at Gamma<=0.5' holds only against the selected mean-field state; at N12 g0.5 start-S mean-field (2.3e-1) is far above start-S Jastrow (2.8e-3).",
+          "fix": "Write 'above the selected mean-field error', as the ablation text does."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'With start S alone, as registered, H1 also holds on medians' uses medians over non-diverged seeds; the registered mean test is undefined in 7 tasks where RBM alpha=2 SR seeds diverged.",
+          "fix": "State that the start-S check excludes diverged seeds and that the registered mean test cannot be evaluated there."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Table II",
+          "issue": "Significance is from a paired t-test computed in experiments/make_tables.py on selected states, not from rh compare output; the compare CSVs are per start and blank in 7 start-S tasks. Two p-values recomputed independently match.",
+          "fix": "Say in the caption or text that the test is computed by make_tables.py on selected states."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md, results/logs",
+          "issue": "108 current tuning rows (75 in tune_lr3) have logs overwritten by a same-second sibling run; disclosed in PROTOCOL.md but not in the paper. Raw metrics files match the registry and two re-executed tuning rows reproduce.",
+          "fix": "Mention in the limitations or re-run the affected tuning rows with the fixed driver."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md, state.json",
+          "issue": "VERDICT.md is computed on start S only and shows NaN for the method on 7 tasks; state.json still notes '650 main runs'.",
+          "fix": "Regenerate or annotate VERDICT.md as start-S only and update the note."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex",
+          "issue": "Sorella 1998 introduces stochastic reconfiguration inside Green-function Monte Carlo; the description as a covariance-preconditioned energy-gradient optimiser matches Sorella's later work.",
+          "fix": "Reword to 'SR, introduced in [sorella1998green] and later used as an optimiser' or add the later reference."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, introduction.tex",
+          "issue": "'Jastrow is at the best energy L-BFGS finds' is loose (within about 30%, e.g. 1.7e-3 vs 1.3e-3 at N12 g1); 'pre-registered' refers to a proposal.md commit 35 seconds before the main runs in the same session.",
+          "fix": "Use 'within about 30% of' and 'registered in proposal.md before the main runs'."
+        }
+      ],
+      "commit": "84586edaaa1e4ab951a56a772e516c6a47b1c6d1"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on tfim_N10_g1.00: ours nan vs RBM alpha=4 SR 2.78e-05\nREADY",
+      "response": "# Response to the audit (fix round)\n\nAll numbers below are in the regenerated tables (`results/tables/t_*.tex`, built by `experiments/make_tables.py` from `results/runs.jsonl`). New runs: Jastrow tuning re-run (63), Jastrow main and curve re-runs (130 + 6), symmetry-broken-start main runs for all ten systems (650, group `main_b`), sampling-free reference (78, group `exact_opt`). Code was committed before each batch.\n\n## Major\n\n**1. Jastrow baseline stuck at a symmetric stationary point (H1 margins an initialisation artefact).** Accepted; fixed at the cause.\n- `method/run.py` has a new `--field-init` option. Every system (not only Jastrow and mean-field) is now run from two starts with the same rate and budget: S (symmetric, as before, group `main`) and B (fields a_i = 0.5 + noise, group `main_b`). The reported state per (system, task, seed) is the lower-energy start. Giving all ten systems the same two starts keeps the restart budget equal.\n- Result: Jastrow-SR is now 5.6e-5 / 7.4e-5 / 6.0e-5 at N10 g0.25 / N10 g0.5 / N12 g0.5 (was 4.2e-4 / 3.1e-3 / 2.8e-3). The RBM alpha=2 SR margin over Jastrow at Gamma<=0.5 is 1.47-2.37x on means (Table II), not 8-60x. The mean-field N12 g0.5 cell is now 1.0e-3 (the domain-wall value 2.3e-1 appears only in the start-S row of the start ablation).\n- I also added a sampling-free reference (L-BFGS on the enumerated energy, exact gradient; group `exact_opt`) for mean-field, Jastrow and RBM alpha=2. It reproduces the auditor's Jastrow optima (2.5e-7, 3.0e-5, 1.7e-5) and shows that for Gamma<=0.5 the Jastrow optimum is below the RBM-SR Monte Carlo result in 3 of 4 tasks. The abstract, H1 text, conclusion, limitations and `results/RESULTS.md` now say that the small-field margin reflects optimisation, not the ansatz, and that the Jastrow baseline is still under-optimised there; the claim that the RBM's advantage is an ansatz effect is restricted to Gamma>=0.75, where Jastrow VMC is within about 30% of its optimum.\n- The per-start medians are reported as the start ablation (Table VI, SR systems; all systems in `results/tables/main.md` and `main_b.md`).\n- Side effect worth knowing: all 28 diverged runs come from start S; no start-B run diverged. The paper reports per-start divergence counts (Table VIII) rather than only the selected-state count.\n- Caveats stated in the paper: the two-start selection is post-registration, uses the exactly evaluated energy, and rates were tuned from start S only.\n\n**2. Jastrow parameter count 110 instead of 55.** Accepted. The ansatz is now stored with one parameter per pair (N + N(N-1)/2), so `n_params` is 55 at N=10 by construction. Because this changes the random stream, all Jastrow runs were repeated under the fixed code (tuning, main, curves) and the old rows superseded. Under the unchanged selection rule the Jastrow SGD rate moved from 0.003 to 0.03 (the three lowest rates are within noise of each other). The count is shown in the P10 column of Table I.\n\n## Minor\n\n- **Abstract, \"more than two orders of magnitude at larger fields\".** Replaced by the ratios of means from Table II: 2.07 at Gamma=0.25 and 68-496 for Gamma>=1 (results text adds 15-23 at Gamma=0.5 and 0.75).\n- **\"Tuning cost: 315 runs, the same for every system\".** Corrected: 36 runs per SGD system, 27 per SR system (setup text, Table VIII).\n- **\"well under the 30-minute budget\".** Removed. Table VIII gives summed run time (47 min for reported runs, 82 min for all runs including superseded ones), wall-clock with a run executing (47 min) and the longest run (115 s); the setup says the brief's target of about 30 minutes was exceeded. `research.yaml` (45 min) is also exceeded and is left as it was.\n- **H3 diverged-seed counts and N=12 overlap.** The Gamma=1 cells now have no seed without a finite state (the diverged start-S runs are replaced by their start-B run; per-start counts are in Table VI). A new Table III gives mean, median, min and max over seeds, and the text states that the alpha=1 vs 2 ranges overlap at N=12 and the alpha=2 vs 4 ranges at N=10.\n- **Mean-field domain-wall cell.** The start-S value (2.3e-1) and the start-B value (1.0e-3) are both in Table VI and named in the text; the main table uses the selected state. Table VIII counts runs with error above 0.1 per start (13 / 0) and among selected states (0).\n- **Grid-edge selections.** Disclosed in the limitations: five of ten rates are on a grid edge (mean-field SGD and SR, RBM alpha=2 and 4 SR at the top; Jastrow SR at the bottom). After the Jastrow re-tune, Jastrow SGD is no longer on an edge. The grids were not extended (compute).\n- **Abstract should say alpha=4 SR beats the method of record at the critical field.** Added, and repeated in H3 and the conclusion (0/5 paired wins at Gamma=1 for every N; 31/65 overall).\n- **Related work: Pfeuty sentence and uncited \"standard ansaetze\" claim.** Reworded: the chain is exactly solvable by a free-fermion mapping, and ED is used because it gives the ground-state vector; the claim about common practice is removed.\n- **PROTOCOL.md and BRIEF.md described the v1 protocol.** Both rewritten for the final protocol (v3 rates, two starts, reference runs, history). `method/DESIGN.md` and `proposal.md` (amendments section; hypotheses unchanged) updated as well.\n- **Overwritten log files in tuning groups.** Not repairable for the existing rows without re-running 250+ runs; noted as a limitation in `experiments/PROTOCOL.md`. The driver now orders tuning runs so that two runs with the same name, task and seed cannot start in the same second (used for the Jastrow re-tune).\n- **Fig. 1 panels and legend; \"unclipped-and-tuned optimiser\".** Fig. 1 is redrawn with labelled panels (a), (b) and the legend below the axes; the training-curve figure's legend is also moved below the plot. The conclusion sentence now reads \"an adaptive optimiser, per-start tuning, symmetric ansaetze and larger systems\".\n\n## Other changes from my own audit of the paper\n- The registered tests use per-ta",
+      "seconds": 2766
+    }
+  ]
+}

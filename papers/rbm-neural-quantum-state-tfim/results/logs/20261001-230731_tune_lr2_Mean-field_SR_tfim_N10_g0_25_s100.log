@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 23:07:31 2026
+# cwd: .
+# cmd: python method/run.py --ansatz mf --alpha 1 --opt sr --task tfim_N10_g0.25 --seed 100 --out results/raw/tune_lr2_mf1_sr_0.03_tfim_N10_g0.25.json --lr 0.03coconfig: {"ansatz": "mf", "alpha": 1.0, "opt": "sr", "task": "tfim_N10_g0.25", "N": 10, "G": 0.25, "seed": 100, "lr": 0.03, "shift": 0.01, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/tune_lr2_mf1_sr_0.03_tfim_N10_g0.25.jsoexacexact E0 -10.156870  Mz0 0.9920 Mx0 0.1260
+metrics: {"rel_energy_error": 0.341924135021009, "mz_error": 0.8841735431833099, "mx_error": 0.2208941224956159, "infidelity": 0.9999990501137862, "mc_energy_error": 0.34212144661014693, "n_params": 10, "runtime_s": 0.3948209285736084}
+174316406}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:29:57 2026
+# cwd: .
+# cmd: python method/run.py --system esn --task lorenz63 --seed 0 --n_train 10000 --config '{}' --out results/raw/sweep_ntrain_esn_lorenz63_s0_n10000_.json
+
+CONFIG {"system": "esn", "task": "lorenz63", "seed": 0, "n_train": 10000, "hp": {"rho": 0.4, "sigma": 0.3, "ridge": 1e-08}}
+METRICS {"vpt": 9.774975000000001, "vpt_median": 9.797550000000001, "vpt_min": 4.37052, "clim_w1": 0.06134450414010204, "clim_ok": 1.0, "blowup": 0.0, "fit_seconds": 0.1765141487121582}

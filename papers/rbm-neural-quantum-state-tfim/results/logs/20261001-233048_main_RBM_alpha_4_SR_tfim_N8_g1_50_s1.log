@@ -1,0 +1,15 @@
+# rh run | Thu Oct  1 23:30:48 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 4 --opt sr --task tfim_N8_g1.50 --seed 1 --out results/raw/main_rbm4_sr_tfim_N8_g1.50_s1.json --lr 0.1
+
+config: {"ansatz": "rbm", "alpha": 4.0, "opt": "sr", "task": "tfim_N8_g1.50", "N": 8, "G": 1.5, "seed": 1, "lr": 0.1, "shift": 0.01, "samples": 256, "iters": 300, "init": 0.01, "curve": "", "out": "results/raw/main_rbm4_sr_tfim_N8_g1.50_s1.json"}
+method/run.py:75: RuntimeWarning: overflow encountered in exp
+  return diag - G * np.sum(np.exp(model.flips(S)), axis=1)
+method/run.py:155: RuntimeWarning: invalid value encountered in subtract
+  Ec = El - El.mean(); Oc = O - O.mean(0)
+method/run.py:42: RuntimeWarning: invalid value encountered in logaddexp
+  return S @ a + np.sum(np.logaddexp(th, -th), axis=1)
+method/run.py:55: RuntimeWarning: invalid value encountered in logaddexp
+  lc = lambda x: np.logaddexp(x, -x)
+exact E0 -13.385005  Mz0 0.4677 Mx0 0.8723
+metrics: {"rel_energy_error": NaN, "mz_error": NaN, "mx_error": NaN, "infidelity": NaN, "mc_energy_error": NaN, "n_params": 296, "runtime_s": 1.2694289684295654}

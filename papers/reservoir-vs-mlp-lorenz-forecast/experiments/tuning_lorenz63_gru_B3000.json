@@ -1,0 +1,40 @@
+{
+ "best": {
+  "cfg": {
+   "noise": 0.03,
+   "steps": 3000,
+   "lr": 0.003
+  },
+  "val_vpt": 3.4172800000000003,
+  "fit_seconds": 24.39
+ },
+ "grid": [
+  {
+   "cfg": {
+    "noise": 0.03,
+    "steps": 3000,
+    "lr": 0.001
+   },
+   "val_vpt": 2.91772,
+   "fit_seconds": 28.78
+  },
+  {
+   "cfg": {
+    "noise": 0.03,
+    "steps": 3000,
+    "lr": 0.003
+   },
+   "val_vpt": 3.4172800000000003,
+   "fit_seconds": 24.39
+  },
+  {
+   "cfg": {
+    "noise": 0.03,
+    "steps": 3000,
+    "lr": 0.01
+   },
+   "val_vpt": 3.2942,
+   "fit_seconds": 22.08
+  }
+ ]
+}

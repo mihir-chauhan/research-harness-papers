@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:26:19 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --task lorenz63 --seed 1 --n_train 5000 --config '{"noise":0.0}' --out results/raw/abl_components_mlp_lorenz63_s1_n5000_noise0.0.json
+
+CONFIG {"system": "mlp", "task": "lorenz63", "seed": 1, "n_train": 5000, "hp": {"delays": 1, "noise": 0.0}}
+METRICS {"vpt": 4.389483, "vpt_median": 4.04544, "vpt_min": 2.0769, "clim_w1": 0.07560731187178775, "clim_ok": 0.6, "blowup": 0.0, "fit_seconds": 7.748642921447754}

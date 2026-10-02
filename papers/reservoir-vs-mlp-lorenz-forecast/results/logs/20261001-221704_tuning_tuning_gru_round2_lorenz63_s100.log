@@ -1,0 +1,9 @@
+# rh run | Thu Oct  1 22:17:04 2026
+# cwd: .
+# cmd: python method/tune.py lorenz63 gru
+
+gru lorenz63 {'noise': 0.0} 3.179 29.7
+gru lorenz63 {'noise': 0.01} 3.251 28.3
+gru lorenz63 {'noise': 0.03} 3.142 29.6
+gru lorenz63 {'noise': 0.1} 3.33 30.0
+BEST {'gru/lorenz63': {'cfg': {'noise': 0.1}, 'val_vpt': 3.3302640000000006}}

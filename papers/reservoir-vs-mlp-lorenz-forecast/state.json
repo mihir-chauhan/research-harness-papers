@@ -1,0 +1,165 @@
+{
+  "slug": "reservoir-vs-mlp-lorenz-forecast",
+  "direction": "Forecasting chaos: echo state networks (reservoir computing) versus an MLP on delay coordinates versus a small LSTM or GRU for Lorenz-63 and Lorenz-96, measured by valid prediction time in Lyapunov times and by whether long rollouts reproduce the attractor's statistics. How sensitive is the reservoir to spectral radius and size, and how much training data does each need?",
+  "created": "2026-10-01T18:43:13",
+  "updated": "2026-10-02T00:24:36",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T21:53:11",
+      "finished": "2026-10-01T22:20:19",
+      "notes": [
+        {
+          "t": "2026-10-01T22:20:19",
+          "note": "landscape, proposal, 14 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:22:19",
+      "notes": [
+        {
+          "t": "2026-10-01T22:22:19",
+          "note": "code, tuning, protocol done"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T22:22:20",
+      "finished": "2026-10-01T22:44:47",
+      "notes": [
+        {
+          "t": "2026-10-01T22:44:47",
+          "note": "MLP, GRU reimplemented, run in main"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:44:47",
+      "notes": [
+        {
+          "t": "2026-10-01T22:44:47",
+          "note": "main 5 seeds x 3 systems x 2 tasks"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:44:47",
+      "notes": [
+        {
+          "t": "2026-10-01T22:44:47",
+          "note": "components, rho, size, ntrain sweeps"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T22:44:47",
+      "finished": "2026-10-01T22:47:59",
+      "notes": [
+        {
+          "t": "2026-10-01T22:47:59",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:48:00",
+      "notes": [
+        {
+          "t": "2026-10-01T22:48:00",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:47:59",
+      "notes": [
+        {
+          "t": "2026-10-01T22:47:59",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T22:05:42",
+      "phase": "setup",
+      "decision": "First two tuning launches failed immediately (shell word-splitting bug in my launcher, IndexError in tune.py, no computation done); they are logged as failed runs and relaunched unchanged."
+    },
+    {
+      "t": "2026-10-01T22:11:22",
+      "phase": "setup",
+      "decision": "GRU round 1 (1200 steps, noise grid 0/0.01/0.03) gave val VPT 2.32 (L63) and 0.48 (L96), clearly undertrained; round 2 uses 3000 steps and adds noise 0.1 (same validation trajectory). Round-1 results stay in experiments/tuning_*_esn_gru.json and are reported. ESN and MLP tuning unchanged."
+    },
+    {
+      "t": "2026-10-01T22:20:19",
+      "phase": "setup",
+      "decision": "GRU steps raised to 3000 and noise grid extended to 0.1 after round-1 tuning showed GRU undertrained; ESN best rho=0.4 is at the lower edge of the grid (reported as a caveat); tuned.json merged from experiments/tuning_*.json (GRU entries from the round-2 files override the round-1 ones)."
+    },
+    {
+      "t": "2026-10-01T22:21:31",
+      "phase": "experiments",
+      "decision": "Three timing smoke runs were mistakenly logged with the placeholder name X in group main; they were removed from the registry (results/runs.jsonl) and the same configurations are rerun under their proper names."
+    },
+    {
+      "t": "2026-10-01T22:47:59",
+      "phase": "results",
+      "decision": "H2 judged by registered clim_ok ranking; ties on L96 -> not supported. Kept main ESN row at tuned rho=0.4 though sweep shows rho=0.1 better on L96; reported as limitation, no retuning on test seeds."
+    },
+    {
+      "t": "2026-10-01T22:47:59",
+      "phase": "experiments",
+      "decision": "Registry config field is empty due to launch.sh quoting bug; configs recovered from recorded commands in analysis/sweeps.py."
+    },
+    {
+      "t": "2026-10-01T23:11:49",
+      "phase": "setup",
+      "decision": "Audit fix round: all runs are redone. (1) ESN spectral radius now from a dense eigensolver, so a seed fixes the reservoir exactly; ESN rollouts are clamped per rollout like MLP/GRU. (2) Lyapunov constants set to the logged Benettin values 0.905/1.158 (group lyapunov). (3) Climate metric uses all 20 test initial conditions and 10000-step free runs; the length was chosen on validation seed 100 so that free runs of the true system pass the 0.1 threshold (at 5000 steps 20% of true Lorenz-63 runs failed it). A 'True system' row gives the sampling floor on test seeds. (4) MLP and GRU optimiser steps and learning rate are tuned on the validation seed (stage B grid after the model grid); GRU noise grid extended to 0.3. ESN grid unchanged (extending it after seeing the test-seed rho sweep would be tuning on test data). (5) Component ablations are logged in group main so rh compare/verdict can pair them with their full system. Old rows are superseded, not deleted."
+    },
+    {
+      "t": "2026-10-01T23:22:06",
+      "phase": "experiments",
+      "decision": "Fix-round compute: tuned budgets are MLP 16000 (L63) / 8000 (L96) Adam steps and GRU 6000 steps, so rerunning every group costs about 40 min of wall-clock at two processes, above the nominal 30 min; accepted because the audit requires the reruns. To limit it, n_train=1000 is dropped from the training-length sweep (grid 500, 2000, 5000, 10000 for all systems). A new sweep_steps group measures MLP and GRU at other optimiser budgets on test seeds 0-2 to show whether the tuned budget is binding."
+    },
+    {
+      "t": "2026-10-02T00:24:35",
+      "phase": "results",
+      "decision": "H2: with the rerun data the registered rule (clim_ok order differs from VPT order on >=1 task) is met on Lorenz-63 by GRU 0.860 / ESN 0.850 / MLP 0.810, differences inside one seed std (paired p 0.65-0.70); reported as 'rule met formally, not evidence of a dissociation' instead of 'supported'. H1 refuted (Lorenz-96 MLP ahead, p=0.018), H3, H4 supported, H5 supported by mean ordering only."
+    },
+    {
+      "t": "2026-10-02T00:24:36",
+      "phase": "paper",
+      "decision": "Fix round 2: Lyapunov runs re-logged at a commit containing lyap.py; five main runs repeated (group repro) as determinism evidence; old tuning rows superseded; GRU ablation not added to research.yaml because rh verdict would compare it with the ESN. To fit 6 pages the bar chart, rho figure and clim-vs-ntrain table are left out of the paper; Times New Roman is loaded through fontspec (fallback Latin Modern) so that bold and italic render."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

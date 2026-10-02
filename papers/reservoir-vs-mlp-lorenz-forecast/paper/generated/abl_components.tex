@@ -1,0 +1,13 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & vpt $\uparrow$ & clim\_w1 $\downarrow$ & clim\_ok $\uparrow$ & $n$ \\
+\midrule
+ESN without squared features & lorenz63 & \textbf{7.846 $\pm$ 0.846} & \textbf{0.059 $\pm$ 0.017} & \textbf{0.960 $\pm$ 0.089} & 5 \\
+MLP without input noise & lorenz63 & \underline{4.229 $\pm$ 0.248} & \underline{0.073 $\pm$ 0.006} & \underline{0.680 $\pm$ 0.110} & 5 \\
+GRU without input noise & lorenz63 & 2.734 $\pm$ 0.440 & 0.263 $\pm$ 0.190 & 0.240 $\pm$ 0.167 & 5 \\
+\midrule
+ESN without squared features & lorenz96 & \underline{0.947 $\pm$ 0.161} & \underline{1.000 $\pm$ 0.000} & \underline{0.000 $\pm$ 0.000} & 5 \\
+MLP without input noise & lorenz96 & \textbf{2.341 $\pm$ 0.156} & \textbf{0.044 $\pm$ 0.003} & \textbf{1.000 $\pm$ 0.000} & 5 \\
+GRU without input noise & lorenz96 & 0.833 $\pm$ 0.167 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+\bottomrule
+\end{tabular}

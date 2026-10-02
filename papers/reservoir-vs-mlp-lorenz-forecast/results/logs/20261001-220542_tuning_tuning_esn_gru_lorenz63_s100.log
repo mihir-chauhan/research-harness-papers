@@ -1,0 +1,35 @@
+# rh run | Thu Oct  1 22:05:42 2026
+# cwd: .
+# cmd: python method/tune.py lorenz63 esn,gru
+
+esn lorenz63 {'rho': 0.4, 'sigma': 0.1, 'ridge': 1e-08} 9.61 0.3
+esn lorenz63 {'rho': 0.4, 'sigma': 0.1, 'ridge': 1e-06} 6.933 0.2
+esn lorenz63 {'rho': 0.4, 'sigma': 0.1, 'ridge': 0.0001} 4.392 0.2
+esn lorenz63 {'rho': 0.4, 'sigma': 0.3, 'ridge': 1e-08} 10.141 0.2
+esn lorenz63 {'rho': 0.4, 'sigma': 0.3, 'ridge': 1e-06} 6.456 0.5
+esn lorenz63 {'rho': 0.4, 'sigma': 0.3, 'ridge': 0.0001} 4.943 0.3
+esn lorenz63 {'rho': 0.4, 'sigma': 1.0, 'ridge': 1e-08} 9.205 0.3
+esn lorenz63 {'rho': 0.4, 'sigma': 1.0, 'ridge': 1e-06} 6.565 0.3
+esn lorenz63 {'rho': 0.4, 'sigma': 1.0, 'ridge': 0.0001} 5.512 0.3
+esn lorenz63 {'rho': 0.9, 'sigma': 0.1, 'ridge': 1e-08} 9.53 0.3
+esn lorenz63 {'rho': 0.9, 'sigma': 0.1, 'ridge': 1e-06} 7.137 0.3
+esn lorenz63 {'rho': 0.9, 'sigma': 0.1, 'ridge': 0.0001} 6.099 0.2
+esn lorenz63 {'rho': 0.9, 'sigma': 0.3, 'ridge': 1e-08} 9.084 0.2
+esn lorenz63 {'rho': 0.9, 'sigma': 0.3, 'ridge': 1e-06} 6.989 0.2
+esn lorenz63 {'rho': 0.9, 'sigma': 0.3, 'ridge': 0.0001} 5.893 0.3
+esn lorenz63 {'rho': 0.9, 'sigma': 1.0, 'ridge': 1e-08} 6.711 0.4
+esn lorenz63 {'rho': 0.9, 'sigma': 1.0, 'ridge': 1e-06} 6.279 0.2
+esn lorenz63 {'rho': 0.9, 'sigma': 1.0, 'ridge': 0.0001} 5.302 0.4
+esn lorenz63 {'rho': 1.4, 'sigma': 0.1, 'ridge': 1e-08} 5.264 0.3
+esn lorenz63 {'rho': 1.4, 'sigma': 0.1, 'ridge': 1e-06} 3.764 0.4
+esn lorenz63 {'rho': 1.4, 'sigma': 0.1, 'ridge': 0.0001} 2.088 0.3
+esn lorenz63 {'rho': 1.4, 'sigma': 0.3, 'ridge': 1e-08} 5.564 0.3
+esn lorenz63 {'rho': 1.4, 'sigma': 0.3, 'ridge': 1e-06} 5.595 0.3
+esn lorenz63 {'rho': 1.4, 'sigma': 0.3, 'ridge': 0.0001} 3.682 0.3
+esn lorenz63 {'rho': 1.4, 'sigma': 1.0, 'ridge': 1e-08} 4.235 0.4
+esn lorenz63 {'rho': 1.4, 'sigma': 1.0, 'ridge': 1e-06} 4.237 0.2
+esn lorenz63 {'rho': 1.4, 'sigma': 1.0, 'ridge': 0.0001} 4.143 0.2
+gru lorenz63 {'noise': 0.0} 1.828 28.0
+gru lorenz63 {'noise': 0.01} 1.741 29.5
+gru lorenz63 {'noise': 0.03} 2.319 27.9
+BEST {'esn/lorenz63': {'cfg': {'rho': 0.4, 'sigma': 0.3, 'ridge': 1e-08}, 'val_vpt': 10.140690000000001}, 'gru/lorenz63': {'cfg': {'noise': 0.03}, 'val_vpt': 2.3189040000000003}}

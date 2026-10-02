@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 23:22:24 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 4 --opt sgd --task tfim_N12_g0.50 --seed 100 --out results/raw/tune_lr3_rbm4_sgd_0.01_tfim_N12_g0.50_s100.json --lr 0.01
+
+config: {"ansatz": "rbm", "alpha": 4.0, "opt": "sgd", "task": "tfim_N12_g0.50", "N": 12, "G": 0.5, "seed": 100, "lr": 0.01, "shift": 0.01, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/tune_lr3_rbm4_sgd_0.01_tfim_N12_g0.50_s100.json"}
+exact E0 -12.762569  Mz0 0.9646 Mx0 0.2587
+metrics: {"rel_energy_error": 0.0013612737548299079, "mz_error": 0.007532987457245066, "mx_error": 0.026195861108348845, "infidelity": 0.497434912941478, "mc_energy_error": 0.002338682763615556, "n_params": 636, "runtime_s": 2.986582040786743}

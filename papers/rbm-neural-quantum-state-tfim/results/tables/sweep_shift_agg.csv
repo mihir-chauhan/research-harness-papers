@@ -1,0 +1,8 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,rel_energy_error,25,,,,,,
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,mz_error,25,,,,,,
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,mx_error,25,,,,,,
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,infidelity,25,,,,,,
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,mc_energy_error,25,,,,,,
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,n_params,25,230.0,0.0,230.0,230.0,230.0,230.0
+sweep_shift,tfim_N10_g1.00,ablation,RBM alpha=2 SR,runtime_s,25,1.4613720321655272,0.3620304146843383,1.318541204929352,1.597918419599533,1.028320074081421,1.8702480792999268

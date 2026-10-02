@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:06:49 2026
+# cwd: .
+# cmd: python method/lyap.py lorenz63 --out results/raw/lyap_lorenz63.json
+
+CONFIG {"task": "lorenz63", "T": 4000.0, "h": 0.005, "eps": 1e-08, "renorm_every": 20, "seed": 0}
+METRICS {"lyapunov": 0.9051709809102385, "lyapunov_time": 1.1047636535965852}

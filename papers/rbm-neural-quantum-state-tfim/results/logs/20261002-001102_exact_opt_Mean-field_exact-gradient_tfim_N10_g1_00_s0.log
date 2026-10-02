@@ -1,0 +1,7 @@
+# rh run | Fri Oct  2 00:11:02 2026
+# cwd: .
+# cmd: python method/run.py --ansatz mf --alpha 1 --opt exact --task tfim_N10_g1.00 --seed 0 --out results/raw/exact_opt_mf1_S_tfim_N10_g1.00.json --field-init 0.0
+
+config: {"ansatz": "mf", "alpha": 1.0, "opt": "exact", "exact_maxiter": 1000, "task": "tfim_N10_g1.00", "N": 10, "G": 1.0, "seed": 0, "lr": 0.05, "shift": 0.01, "samples": 256, "iters": 300, "init": 0.01, "field_init": 0.0, "curve": "", "out": "results/raw/exact_opt_mf1_S_tfim_N10_g1.00.json"}
+exact E0 -12.784906  Mz0 0.7072 Mx0 0.6392
+metrics: {"energy": -12.5, "rel_energy_error": 0.0222845934985578, "mz_error": 0.1588107109027287, "mx_error": 0.13924532020178493, "infidelity": 0.5874761061901577, "n_params": 10, "lbfgs_iters": 27, "lbfgs_evals": 44, "runtime_s": 0.4621591567993164}

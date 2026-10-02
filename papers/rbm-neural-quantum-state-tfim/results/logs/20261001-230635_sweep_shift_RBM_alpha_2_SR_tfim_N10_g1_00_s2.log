@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 23:06:35 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 2 --opt sr --task tfim_N10_g1.00 --seed 2 --out results/raw/sweep_shift_s2_0.1.json --lr 0.05 --shift 0.1
+
+config: {"ansatz": "rbm", "alpha": 2.0, "opt": "sr", "task": "tfim_N10_g1.00", "N": 10, "G": 1.0, "seed": 2, "lr": 0.05, "shift": 0.1, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/sweep_shift_s2_0.1.json"}
+exact E0 -12.784906  Mz0 0.7072 Mx0 0.6392
+metrics: {"rel_energy_error": 0.00010610522772216354, "mz_error": 0.000997457818346259, "mx_error": 0.0008106762216067986, "infidelity": 0.00019874976246125886, "mc_energy_error": 0.0001684807498932579, "n_params": 230, "runtime_s": 1.5417561531066895}

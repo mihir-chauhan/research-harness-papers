@@ -1,0 +1,34 @@
+{
+ "esn/lorenz63": {
+  "rho": 0.4,
+  "sigma": 0.3,
+  "ridge": 1e-08
+ },
+ "mlp/lorenz63": {
+  "delays": 1,
+  "noise": 0.0,
+  "steps": 16000,
+  "lr": 0.001
+ },
+ "gru/lorenz63": {
+  "noise": 0.03,
+  "steps": 6000,
+  "lr": 0.003
+ },
+ "esn/lorenz96": {
+  "rho": 0.4,
+  "sigma": 0.1,
+  "ridge": 0.0001
+ },
+ "mlp/lorenz96": {
+  "delays": 1,
+  "noise": 0.0,
+  "steps": 8000,
+  "lr": 0.002
+ },
+ "gru/lorenz96": {
+  "noise": 0.1,
+  "steps": 6000,
+  "lr": 0.01
+ }
+}

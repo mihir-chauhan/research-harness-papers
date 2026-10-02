@@ -1,0 +1,15 @@
+# rh run | Thu Oct  1 23:21:34 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 2 --opt sgd --task tfim_N12_g0.50 --seed 102 --out results/raw/tune_lr3_rbm2_sgd_0.1_tfim_N12_g0.50_s102.json --lr 0.1
+
+config: {"ansatz": "rbm", "alpha": 2.0, "opt": "sgd", "task": "tfim_N12_g0.50", "N": 12, "G": 0.5, "seed": 102, "lr": 0.1, "shift": 0.01, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/tune_lr3_rbm2_sgd_0.1_tfim_N12_g0.50_s102.json"}
+/Useexact E0 -12.762569  Mz0 0.9646 Mx0 0.2587
+metrics: {"rel_energy_error": 0.0009825093217923715, "mz_error": 0.004499179890375515, "mx_error": 0.01325232884631894, "infidelity": 0.5007397934067473, "mc_energy_error": 0.0008213521140094053, "n_params": 324, "runtime_s": 1.3584949970245361}
+xisting-git/seed/work/rbm-neural-quantum-state-tfim/method/run.py:154: RuntimeWarning: invalid value encountered in subtract
+  Ec = El - El.mean(); Oc = O - O.mean(0)
+method/run.py:42: RuntimeWarning: invalid value encountered in logaddexp
+  return S @ a + np.sum(np.logaddexp(th, -th), axis=1)
+method/run.py:55: RuntimeWarning: invalid value encountered in logaddexp
+  lc = lambda x: np.logaddexp(x, -x)
+exact E0 -12.762569  Mz0 0.9646 Mx0 0.2587
+metrics: {"rel_energy_error": NaN, "mz_error": NaN, "mx_error": NaN, "infidelity": NaN, "mc_energy_error": NaN, "n_params": 324, "runtime_s": 0.9552860260009766}

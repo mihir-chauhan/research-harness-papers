@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:53:07 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --task lorenz96 --seed 0 --n_train 5000 --config '{"steps": 16000}' --out results/raw/sweep_steps_mlp_lorenz96_s0_n5000_steps16000.json
+
+CONFIG {"system": "mlp", "task": "lorenz96", "seed": 0, "n_train": 5000, "hp": {"delays": 1, "noise": 0.0, "steps": 16000, "lr": 0.002}}
+METRICS {"vpt": 3.251085, "vpt_median": 3.0397499999999997, "vpt_min": 1.2159, "clim_w1": 0.0367264541322109, "clim_w1_max": 0.07664434951261666, "clim_ok": 1.0, "blowup": 0.0, "fit_seconds": 18.906090021133423}

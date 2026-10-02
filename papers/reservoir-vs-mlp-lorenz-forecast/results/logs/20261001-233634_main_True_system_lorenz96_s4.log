@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:36:34 2026
+# cwd: .
+# cmd: python method/run.py --system truth --task lorenz96 --seed 4 --n_train 5000 --config '{}' --out results/raw/main_truth_lorenz96_s4_n5000.json
+
+CONFIG {"system": "truth", "task": "lorenz96", "seed": 4, "n_train": 5000, "hp": {}}
+METRICS {"vpt": 14.996100000000002, "vpt_median": 14.9961, "vpt_min": 14.9961, "clim_w1": 0.03596058203320488, "clim_w1_max": 0.05565536762061415, "clim_ok": 1.0, "blowup": 0.0, "fit_seconds": 8.821487426757812e-06}

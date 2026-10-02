@@ -1,0 +1,15 @@
+# rh run | Thu Oct  1 23:18:31 2026
+# cwd: .
+# cmd: python method/run.py --ansatz rbm --alpha 2 --opt sr --task tfim_N10_g1.00 --seed 2 --out results/raw/sweep_shift_s2_0.01.json --lr 0.1 --shift 0.01
+
+config: {"ansatz": "rbm", "alpha": 2.0, "opt": "sr", "task": "tfim_N10_g1.00", "N": 10, "G": 1.0, "seed": 2, "lr": 0.1, "shift": 0.01, "samples": 256, "iters": 300, "curve": "", "out": "results/raw/sweep_shift_s2_0.01.json"}
+method/run.py:75: RuntimeWarning: overflow encountered in exp
+  return diag - G * np.sum(np.exp(model.flips(S)), axis=1)
+method/run.py:154: RuntimeWarning: invalid value encountered in subtract
+  Ec = El - El.mean(); Oc = O - O.mean(0)
+method/run.py:42: RuntimeWarning: invalid value encountered in logaddexp
+  return S @ a + np.sum(np.logaddexp(th, -th), axis=1)
+method/run.py:55: RuntimeWarning: invalid value encountered in logaddexp
+  lc = lambda x: np.logaddexp(x, -x)
+exact E0 -12.784906  Mz0 0.7072 Mx0 0.6392
+metrics: {"rel_energy_error": NaN, "mz_error": NaN, "mx_error": NaN, "infidelity": NaN, "mc_energy_error": NaN, "n_params": 230, "runtime_s": 0.9035570621490479}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:23:16 2026
+# cwd: .
+# cmd: python method/run.py --system gru --task lorenz63 --seed 0 --n_train 5000 --config '{}' --out results/raw/main_gru_lorenz63_s0_n5000_.json
+
+CONFIG {"system": "gru", "task": "lorenz63", "seed": 0, "n_train": 5000, "hp": {"noise": 0.1}}
+METRICS {"vpt": 2.3676660000000003, "vpt_median": 2.1762300000000003, "vpt_min": 1.15584, "clim_w1": 0.06925447972323394, "clim_ok": 0.8, "blowup": 0.0, "fit_seconds": 34.100419998168945}
