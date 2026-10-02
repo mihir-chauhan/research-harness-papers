@@ -1,0 +1,2 @@
+# Proposal
+See BRIEF.md and research.yaml. Question: four channels in hidden-target rendezvous. Hypotheses H1-H4 (research.yaml). Refutation: H1 refuted if any channel's success is not above none; H2 refuted if language success_auc is not higher than both learned channels; H3 refuted if continuous success <= language; H4 refuted if language xplay is below self-play by a comparable amount to learned channels or learned channels show no drop. Baselines are reimplemented. Gap: see literature/landscape.md.

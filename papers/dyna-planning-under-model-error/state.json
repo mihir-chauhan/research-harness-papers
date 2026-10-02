@@ -1,0 +1,125 @@
+{
+  "slug": "dyna-planning-under-model-error",
+  "direction": "Model-based RL under model error: Dyna-Q with a learned tabular model on gridworlds whose dynamics change mid-training or are stochastic. How does the number of planning steps trade sample efficiency against the damage from a stale or wrong model? Compare Q-learning (no planning), Dyna-Q, Dyna-Q+ (exploration bonus for stale transitions) and prioritized sweeping.",
+  "created": "2026-10-01T18:39:09",
+  "updated": "2026-10-01T20:28:58",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:12:59",
+      "finished": "2026-10-01T20:18:38",
+      "notes": [
+        {
+          "t": "2026-10-01T20:18:38",
+          "note": "landscape+proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:18:38",
+      "notes": [
+        {
+          "t": "2026-10-01T20:18:38",
+          "note": "method/run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:18:38",
+      "notes": [
+        {
+          "t": "2026-10-01T20:18:38",
+          "note": "reimplemented"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:24:44",
+      "notes": [
+        {
+          "t": "2026-10-01T20:24:44",
+          "note": "main 5x4x20, sweeps complete"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:24:44",
+      "notes": [
+        {
+          "t": "2026-10-01T20:24:44",
+          "note": "abl_dynaq_plus, sweep_n, sweep_kappa"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T20:24:44",
+      "finished": "2026-10-01T20:28:51",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:51",
+          "note": "tables figs RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:28:51",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:51",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:28:58",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:58",
+          "note": "5-page paper, citations verified"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T20:18:38",
+      "phase": "novelty",
+      "decision": "Method under study is Dyna-Q over n; Dyna-Q+, PS, Q-learning are reimplemented baselines; arXiv API unreachable so refs added via DataCite/Crossref DOIs"
+    },
+    {
+      "t": "2026-10-01T20:24:39",
+      "phase": "experiments",
+      "decision": "Earlier interrupted job kept running while I relaunched a resume script with a buggy skip check; 412 duplicate registry rows (bit-identical metrics, deterministic seeds, verified) were removed from results/runs.jsonl, leaving exactly one row per system/task/seed/config. Skip check in run_all.sh fixed."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

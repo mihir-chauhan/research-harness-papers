@@ -1,0 +1,10 @@
+\begin{tabular}{lccccc}
+\toprule
+Method & success\_rate $\uparrow$ & success\_auc $\uparrow$ & final\_dist $\downarrow$ & episodes\_to\_50 $\downarrow$ & $n$ \\
+\midrule
+No communication & 0.071 $\pm$ 0.006 & 0.068 $\pm$ 0.009 & 0.765 $\pm$ 0.005 & 128000.000 $\pm$ 0.000 & 5 \\
+Continuous vector (DIAL-style, reimplemented) & \textbf{1.000 $\pm$ 0.000} & \textbf{0.951 $\pm$ 0.001} & \textbf{0.085 $\pm$ 0.002} & \textbf{6400.000 $\pm$ 0.000} & 5 \\
+Discrete tokens (Gumbel-softmax, reimplemented) & 0.678 $\pm$ 0.059 & 0.619 $\pm$ 0.039 & 0.249 $\pm$ 0.015 & 12800.000 $\pm$ 4525.483 & 5 \\
+\textbf{Templated language (proxy)} & \underline{0.931 $\pm$ 0.010} & \underline{0.887 $\pm$ 0.005} & \underline{0.195 $\pm$ 0.002} & \underline{6400.000 $\pm$ 0.000} & 5 \\
+\bottomrule
+\end{tabular}

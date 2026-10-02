@@ -1,0 +1,183 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and deterministic (64 re-executions, including one method and one baseline main row, matched the registry exactly), the code matches the paper, baselines are fair, citations are verified and used in context, and negative results are reported. One headline claim is unsupported: that Dyna-Q under slip falls 'below Q-learning at n>=50' / is 'worse than no planning' rests on gaps within one standard deviation on 10 seeds (paired p=0.44 and 0.14). The remaining issues are minor wording, untested ablation and mechanism statements, a missing textbook citation and provenance warts.",
+      "reran": [
+        {
+          "run": "Dyna-Q/blocking/3",
+          "metric": "cum_reward",
+          "registry": 26.0,
+          "rerun": 26.0
+        },
+        {
+          "run": "Q-learning/static/7",
+          "metric": "cum_reward",
+          "registry": 16.0,
+          "rerun": 16.0
+        },
+        {
+          "run": "Dyna-Q+/shortcut/11",
+          "metric": "cum_reward",
+          "registry": 299.0,
+          "rerun": 299.0
+        },
+        {
+          "run": "Prioritized sweeping/stochastic/5",
+          "metric": "cum_reward",
+          "registry": 83.0,
+          "rerun": 83.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, results.tex (H4 and 'Where the method fails'), conclusion.tex; results/RESULTS.md H4",
+          "issue": "Claim that Dyna-Q on the stochastic maze is 'below Q-learning at n>=50' / 'worse than no planning' is not supported: 45.8\u00b120.0 and 39.6\u00b114.2 vs Q-learning 55.4\u00b133.6 on 10 seeds, paired p=0.44 and 0.14, gaps within one std, and no rh compare output backs it. Only the decline with n is significant (n=1 vs n=100 paired p=0.0016).",
+          "fix": "Reword to 'the benefit of planning disappears: at n>=50 Dyna-Q is no longer distinguishable from Q-learning (means 45.8/39.6 vs 55.4, paired p=0.44/0.14, 10 seeds)' in abstract, H4, failure paragraph and conclusion, and restrict the H4 verdict to 'shrinks'; or rerun the stochastic sweep with many more seeds (runs take about 0.1 s) and report the rh compare result."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'Removing the bonus lowers post-change reward on blocking (36.8 versus 51.9)' is within one std (paired p=0.069), and 'w/o untried is the worst variant everywhere / worse than plain Dyna-Q' is significant only on static and stochastic (p=0.13-0.30 on blocking, shortcut, stoch-blocking). No ablation tests are reported and VERDICT.md lists ablation deltas as 'missing'.",
+          "fix": "Run rh compare for the abl_dynaq_plus group, report the p-values, and state the blocking bonus effect and the non-significant w/o-untried gaps as trends rather than findings."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "Early-reward 'paired p=0.015' is correct by recomputation (0.0153) but is in no results/tables/compare_*.csv, and RESULTS.md says early reward was 'not tested separately'.",
+          "fix": "Generate compare_main_early_reward.csv with rh compare and make RESULTS.md consistent with the paper."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex (PS)",
+          "issue": "'Prioritized sweeping was statistically indistinguishable from Dyna-Q at equal n' holds for cumulative reward at every n but not for early reward (18.6 vs 7.9 on static and blocking, paired p=0.014); tests were only reported at n=10.",
+          "fix": "Scope the statement to cumulative and post-change reward and mention the early-reward advantage with its test."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, ablations.tex, limitations.tex",
+          "issue": "Mechanism statements asserted without a run that tests them: Dyna-Q+ at n=1 losing 'because its bonus-inflated planning values mislead', PS being flatter 'because its queue empties', a count-based model 'would fix the slip failure', and attribution of the slip decline to the last-outcome model with no correct-model control. Text also says Dyna-Q's curve 'flattens' in Fig. 2 while its mean keeps rising.",
+          "fix": "Mark these as conjectures or add the controls (log queue length, run a count/sample model under slip); reword the Fig. 2 description."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex, method.tex; paper/refs.bib",
+          "issue": "The Sutton and Barto textbook is named as the source of Dyna-Q+, the blocking/shortcut mazes and the textbook comparisons the paper positions against, but it is not in the bibliography (nor is Sutton 1990, where Dyna-Q+ originates).",
+          "fix": "Add and cite the textbook and/or Sutton 1990 through rh lit cite."
+        },
+        {
+          "severity": "minor",
+          "where": "results/raw, results/logs, results/runs.jsonl provenance",
+          "issue": "590 sweep_n rows no longer match their raw JSON because the five n values per seed wrote to the same file; logs contain only the harness header because run.py prints nothing; every run records git_commit bba253a, which does not contain method/run.py. Registry values were nonetheless confirmed by exact re-execution.",
+          "fix": "Note the overwritten raw files in the README or regenerate with the current run_all.sh naming, have run.py print its metrics, and commit code before running."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (Table I, Figs. 2-3)",
+          "issue": "Table I caption says 'italic: second best' but the table underlines; its last column 'n' is the seed count and collides with n = planning steps; the curve figures label the y-axis 'value' and do not define the band.",
+          "fix": "Change the caption to 'underlined', rename the column to 'seeds', label the y-axis 'cumulative reward' and define the band."
+        }
+      ],
+      "commit": "b273db37da0fe542c9253e43e928298be5f90153"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper matches the generated tables and compare CSVs, and all 1851 registry runs reproduce bit-for-bit from the recorded commands with the current code; the methods match the paper, the baselines are fair, there is no leakage or hard-coding, and all 13 citations are used in context. Negative and mixed results are stated honestly and the limitations are adequate. The remaining issues are minor: an over-general early-reward claim for prioritized sweeping, an uncited and partly inaccurate textbook claim, H1 reworded from its registered form, two untested sweep claims, and small text and provenance blemishes.",
+      "reran": [
+        {
+          "run": "Dyna-Q/blocking/7",
+          "metric": "cum_reward",
+          "registry": 99.0,
+          "rerun": 99.0
+        },
+        {
+          "run": "Q-learning/static/4",
+          "metric": "cum_reward",
+          "registry": 35.0,
+          "rerun": 35.0
+        },
+        {
+          "run": "Dyna-Q+/shortcut/13",
+          "metric": "cum_reward",
+          "registry": 313.0,
+          "rerun": 313.0
+        },
+        {
+          "run": "Prioritized sweeping/stochastic/11",
+          "metric": "cum_reward",
+          "registry": 81.0,
+          "rerun": 81.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex (H5), conclusion.tex",
+          "issue": "The claim that prioritized sweeping earned more in the first 500 steps (paired p=0.014) holds only on the static layout; blocking and static are identical trajectories for the first 1000 steps, so 'three tasks' double-counts one comparison, while shortcut is p=0.62 and the slip mazes tie at 4.30 (p=1.0).",
+          "fix": "Scope the claim to the static layout in the abstract, H5 and conclusion, and state that early-reward entries for blocking/static and stochastic/stoch_blocking are the same runs."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, method.tex",
+          "issue": "The sentence 'Textbook comparisons ... do not sweep the number of planning steps ... do not report variability' has no citation and is partly inaccurate (Sutton & Barto compare n=0, 5, 50 averaged over 30 runs, from the auditor's recollection). BRIEF.md and the limitations name the textbook as a source for the untried-action initialisation, but method.tex attributes it to Sutton 1990 only, which could not be confirmed.",
+          "fix": "Cite Sutton & Barto, correct the sentence, and attribute the untried-action rule to its actual source."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results.tex (H1)",
+          "issue": "H1 in BRIEF.md and research.yaml concerns reward in the first 500 steps rising with n; the paper rewords it to 'planning raises reward' and labels it 'supported' on full-run cumulative reward. The registered form is only weakly supported (n=10 early reward p=0.015; n=1 vs n=100 early reward p=0.052 on 10 seeds) and early reward versus n is never reported. The claim that hypotheses were fixed before the final runs is not verifiable from git because BRIEF.md was committed with the results.",
+          "fix": "State H1 as registered, report early reward versus n, and give the verdict as weakly supported for the registered form."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1, failure paragraph)",
+          "issue": "'Cumulative reward keeps rising with n up to 100' on static is untested (auditor's paired test p=0.037 uncorrected on 10 seeds, gap under one standard deviation, and the n=10 mean of 190.2 on the same seeds is below n=5 at 205.1). 'Dyna-Q+ at n=1 is worse than Dyna-Q on static' is also untested (auditor's paired test p=0.011).",
+          "fix": "Add the paired tests or hedge both statements as trends in means."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2), limitations.tex",
+          "issue": "'Some seeds reaching the goal rarely after the wall moves' understates the failure: 11 of 20 Dyna-Q seeds and 6 of 20 prioritized-sweeping seeds have exactly zero post-change goals on blocking. The data are bimodal, so the t-tests are approximate.",
+          "fix": "Report the zero-recovery seed counts and add a caveat about the t-tests or use a nonparametric test."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H5)",
+          "issue": "'Its dependence on n is flatter than Dyna-Q's' holds on static and shortcut only; on the stochastic maze prioritized sweeping falls from 95.8 to 45.7.",
+          "fix": "Scope the statement to the deterministic mazes."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Table II)",
+          "issue": "Table II reports means only, although the H4 claims rest on it and per-cell standard deviations are 14 to 34; the cumulative-reward sweep figure exists but is not included.",
+          "fix": "Add standard deviations or errors to Table II, or include sweep_n_cum.pdf."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, setup.tex, ablations.tex, abstract.tex",
+          "issue": "Small inaccuracies: 33.6 should be 33.5 (CSV 33.547); 'each run takes under a second' is false for 28 runs (maximum 3.3 s); Table I shows first_goal_step, pre_reward and runtime_s without defining them; the kappa-collapse mechanism is stated as fact without a test; the abstract's 'only non-significant trends elsewhere' is true against Dyna-Q but not against Dyna-Q+.",
+          "fix": "Correct the number and the runtime statement, define or drop the extra columns, mark the mechanism as a conjecture, and reword the abstract clause."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs, results/raw, results/runs.jsonl provenance",
+          "issue": "Logs contain only the harness header, 117 registry rows share a log file, 590 raw JSON files hold a different n than their registry row (disclosed in README), 306 log files are from unregistered re-executions, and every row records commit bba253a, which predates method/run.py. Mitigated: all 1851 rows reproduce exactly from the current code.",
+          "fix": "Note the provenance gap in the paper or regenerate raw files to distinct paths, make run.py print its metrics to the log, and commit the code before running."
+        }
+      ],
+      "commit": "0b26e263e0b77e93643c7ca1d49e50dc7dc47510"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (4):\n! numbers in prose not found in any table or run: ablations.tex: 0.002\n! numbers in prose not found in any table or run: abstract.tex: 0.0016\n! numbers in prose not found in any table or run: results.tex: 0.0016, 33.6, 84.2\n! verdict tier 0 < target 2: not best on blocking: ours 64.5 vs Dyna-Q+ 92.55\nREADY",
+      "response": "# Response to audit\n\n1. **Major, H4 \"below Q-learning\"**: accepted. Added `method/tests_stochastic.py` -> `results/tables/tests_stochastic_n.csv` (paired tests). Abstract, H4, failure paragraph, conclusion and limitations now say the advantage of planning shrinks (n=1 vs 100 p=0.0016) and that at n>=50 Dyna-Q is not distinguishable from Q-learning (p=0.44, 0.14). The H4 verdict is restricted to \"shrinks\"; harm is not claimed. Did not add seeds.\n2. **Ablation tests**: ran `rh compare` on abl_dynaq_plus (ref Dyna-Q+ and ref Dyna-Q, CSVs in results/tables). Text now reports p-values; the blocking bonus effect (p=0.069) and w/o-untried gaps on blocking/shortcut/stoch-blocking are called trends.\n3. **Early-reward p**: generated `compare_main_early_reward.csv`; RESULTS.md made consistent.\n4. **PS claim**: scoped to cumulative and post-change reward; early-reward advantage (p=0.014) now reported in abstract, H5 and conclusion.\n5. **Mechanism statements**: marked as conjectures (Dyna-Q+ at n=1, PS queue, noise-driven re-exploration); count-based-model claim softened and the missing correct-model control stated; Fig. 2 wording changed to \"rises more steeply\".\n6. **Citations**: added Sutton 1990 (`sutton1990integrated`, via DOI) for Dyna-Q+ and the mazes; textbook is no longer named as a source (no verifiable record to cite).\n7. **Provenance**: noted in README (overwritten raw files, empty logs, registry authoritative). Not regenerated: re-running would create duplicate registry rows; registry values were already confirmed by exact re-execution.\n8. **Presentation**: caption says \"underlined\"; column renamed \"seeds\"; curve figures regenerated (`method/curves.py`) with y-axis \"cumulative reward\" and the s.e. band defined; Table I widened to full text width.\n",
+      "seconds": 261
+    }
+  ]
+}

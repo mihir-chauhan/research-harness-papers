@@ -1,0 +1,21 @@
+\begin{table*}[t]\centering\caption{Main results (mean $\pm$ std over 5 seeds). Bold best, underline second.}\label{tab:main}
+\resizebox{0.8\textwidth}{!}{\input{generated/main.tex}}\end{table*}
+
+\begin{table}[t]\centering\caption{Cross-play: listener of seed $i$ with speakers of the other seeds.}\label{tab:xplay}
+\resizebox{\columnwidth}{!}{\input{generated/xplay.tex}}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{curves_main.pdf}
+\caption{Validation success during training (mean $\pm$ std over 5 seeds). Left: main runs, evaluated every 6400 episodes; right: dense re-runs (Table~\ref{tab:dense}), first 40000 episodes.}\label{fig:curves}\end{figure}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{bars_xplay_xplay_success.pdf}
+\caption{Cross-play success per system.}\label{fig:xplay}\end{figure}
+
+\textbf{H1 (communication helps): supported.} All three channels exceed no communication (success 0.071) by a wide margin (Table~\ref{tab:main}); the weakest, the (untuned) discrete channel, reaches 0.678.
+
+\textbf{H2 (fixed language more sample-efficient than both learned channels): not supported against the continuous vector, supported against the discrete channel; inconclusive on speed between language and continuous.} In the main runs the language has a higher success\_auc than the discrete channel (0.887 vs 0.619) but lower than the continuous vector (0.951), but this area largely tracks final success, because both continuous and language are at plateau by the first evaluation (6400 episodes), so these runs cannot measure learning speed. In the dense re-runs (Table~\ref{tab:dense}), the language reaches 50\% validation success in 1024 $\pm$ 351 episodes versus 896 $\pm$ 351 for the continuous vector (not distinguishable with 5 seeds) and 9984 $\pm$ 3282 for the discrete channel; it reaches 90\% in 3200 $\pm$ 1280 versus 2048 $\pm$ 286 for the continuous vector. The continuous vector is nominally faster, but the effect is within about one standard deviation at 50\% and we ran no test, so we claim no speed ranking between them.
+
+\textbf{H3 (continuous beats language at final success): supported.} 1.000 versus 0.931 with very small seed variance; the language is capped by its 4$\times$4 grid. At larger grids (Table~\ref{tab:sweeps}) the language also reaches 1.000, so this gap is a resolution effect of the particular proxy, not a property of fixed languages.
+
+\textbf{H4 (cross-play): supported, with a caveat.} Learned channels fall to the level of no communication under partner swap (0.066 for both, Table~\ref{tab:xplay}), i.e.\ they converge to private conventions. The language keeps its self-play success (0.931). This is largely true by construction, because the speaker's lexicon is fixed and only the listener's interpretation is learned; the experiment confirms that the learned listeners agree on that fixed lexicon but is not a surprising finding. We also did not test partner adaptation, population training or Other-Play, which could close the gap for learned channels.
+
+\textbf{What the numbers do not show.} A single toy task with an exactly two-dimensional message-relevant state, 5 seeds, gradient-based training and reimplemented baselines; the continuous vector wins partly because a 4-d real vector carries far more than the 16 messages of nominal capacity. Nothing here speaks to natural language.

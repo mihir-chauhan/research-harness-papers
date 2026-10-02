@@ -1,0 +1,4 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+rendezvous,Templated language (proxy),"Continuous vector (DIAL-style, reimplemented)",success_auc,0.8868285715846078,0.95089524262363,-0.0640666710390222,5,5,3.3121378452200934e-06,7.694994007085592e-06,-18.205201815618572
+rendezvous,Templated language (proxy),"Discrete tokens (Gumbel-softmax, reimplemented)",success_auc,0.8868285715846078,0.619047618098557,0.2677809534860508,5,5,8.413652879327725e-05,7.194029298400895e-05,9.740159555681775
+rendezvous,Templated language (proxy),No communication,success_auc,0.8868285715846078,0.06767619046426955,0.8191523811203383,5,5,3.963365476002977e-13,4.6257524652887326e-10,118.37014563192962

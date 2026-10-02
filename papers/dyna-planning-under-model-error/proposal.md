@@ -1,0 +1,2 @@
+# Proposal
+See BRIEF.md for the question, hypotheses H1-H5, systems, tasks and metrics. Refutation criteria: H1 refuted if Dyna-Q n=10 early_reward <= Q-learning on static; H2 if post_reward on blocking does not fall with n for Dyna-Q or Dyna-Q+ <= Dyna-Q; H3 if Dyna-Q+ post_reward <= Dyna-Q on shortcut; H4 if cum_reward on stochastic is monotone increasing in n; H5 if PS differs from Dyna-Q by a large margin in the opposite direction. Paired-seed tests via `rh compare`.

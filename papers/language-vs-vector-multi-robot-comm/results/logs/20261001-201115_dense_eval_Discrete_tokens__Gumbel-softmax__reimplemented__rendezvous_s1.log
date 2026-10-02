@@ -1,0 +1,10 @@
+# rh run | Thu Oct  1 20:11:15 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system discrete --seed 1 --eval_every 10 --tag _dense --out results/raw/dense_discrete_1.json
+
+step 0 val_success 0.061
+step 500 val_success 0.682
+step 1000 val_success 0.696
+step 1500 val_success 0.722
+step 2000 val_success 0.676
+{"success_rate": 0.6919999718666077, "final_dist": 0.24466021358966827, "success_auc": 0.658820898063592, "episodes_to_50": 10880, "episodes_to_90": 128000, "val_success_final": 0.6759999990463257, "msgs_used": 12}

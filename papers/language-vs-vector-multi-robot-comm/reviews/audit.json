@@ -1,0 +1,165 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Results are real and reproduce exactly from the logged commands, numbers match the tables with one small exception, and the framing is mostly honest. Two headline claims overreach: the discrete baseline is under-optimised (uses 10-13 of 16 messages; a one-seed probe with Gumbel temperature 0.5 lifts it from 0.636 to 0.867), and 'most sample-efficient / H2 refuted' rests on an area metric that only reflects final success because both systems plateau by the first evaluation.",
+      "reran": [
+        {
+          "run": "Templated language (proxy)/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 0.9367499947547913,
+          "rerun": 0.9367499947547913
+        },
+        {
+          "run": "Continuous vector (DIAL-style, reimplemented)/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 1.0,
+          "rerun": 1.0
+        },
+        {
+          "run": "Discrete tokens (Gumbel-softmax, reimplemented)/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 0.6357499957084656,
+          "rerun": 0.6357499957084656
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py:33; paper/sections/abstract.tex, ablations.tex, conclusion.tex",
+          "issue": "Discrete baseline is under-optimised: Gumbel temperature hard-coded at 1.0 with no annealing or tuning, and stored checkpoints use only 10-13 of 16 messages, so 'matched capacity' is not realised. A one-seed probe with temperature 0.5 at the same budget raised seed-0 success from 0.636 to 0.867 (language 0.937). The ranking 'language second, discrete third' and 'language ahead at every V' is stated without this caveat outside the limitations.",
+          "fix": "Sweep or anneal the temperature for the discrete channel and re-run 5 seeds (minutes), report message usage, or qualify the ranking as 'untuned discrete baseline' in the abstract, ablations and conclusion."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, results.tex (H2), conclusion.tex; results/RESULTS.md",
+          "issue": "'Continuous vector is most sample-efficient' and 'H2 refuted' rest on success_auc, which here only reflects final success: both continuous and language are at plateau by the first evaluation (6400 episodes: 0.972 vs 0.933), and at V=6 the language area (0.953) is at least that of continuous (0.951). Learning speed was not measured.",
+          "fix": "State H2 as unresolved at this evaluation granularity, or evaluate more densely early in training / normalise by final success; drop 'most sample-efficient' from abstract and conclusion."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex:12; results/RESULTS.md",
+          "issue": "Prose says continuous success is 0.303 at sigma=1.0; Table III and the registry give 0.301 (0.3009).",
+          "fix": "Change 0.303 to 0.301 in both files."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl; results/tables/sweep_vocab.*, sweep_noise.*; paper/generated/sweep_vocab.tex, sweep_noise.tex",
+          "issue": "Duplicate rows were deleted from the registry by hand (disclosed in setup), leaving 36 orphan logs; the pooled per-group sweep tables are stale (n=38 and n=40, pre-cleanup) though not used in the PDF.",
+          "fix": "Regenerate or delete the stale tables and note the orphan logs; prefer the harness supersede mechanism over hand deletion."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs/*; .gitignore; provenance.git_commit",
+          "issue": "Logs contain only the harness header because run.py prints nothing; all runs record commit a3ca150, which predates method/run.py; results/raw (curve data for Fig. 1) is git-ignored.",
+          "fix": "Print per-evaluation progress and final metrics to stdout, commit code before running, and track the raw curve files."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, results.tex, limitations.tex",
+          "issue": "Lowe et al. 2019 is cited to justify judging by task success only, though that paper argues task success is a coarse measure; 'population training (Other-Play-style)' mischaracterises Other-Play; 'where discrete channels usually suffer' is uncited.",
+          "fix": "Reword the Lowe sentence (e.g. the no-communication and cross-play controls are the causal checks), describe Other-Play correctly, and cite or soften the discrete-channel claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, method.tex",
+          "issue": "'Capacity-matched channels' is claimed although the continuous channel is a 4-d real vector, which the results section itself says far exceeds 16 messages.",
+          "fix": "Say 'nominally matched for the two symbolic channels' and drop the claim for the continuous channel."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, method.tex; paper/main.pdf",
+          "issue": "Fig. 1 caption says seeds are separate curves but the plot is a mean with band and its x-axis 'step' is episodes; Table I caption says 'italic second' but it is underlined; Fig. 2 and Table I render very small; episodes_to_50 is silently capped at 128000 when never reached.",
+          "fix": "Correct the captions and axis label, enlarge Fig. 2 and Table I, and state the cap in the metric definition."
+        }
+      ],
+      "commit": "d157f5b32e7c25bdc4b986b9c278cfcaa75d94be"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 20 main and 20 cross-play runs plus 5 sweep/ablation spot checks were re-executed in /tmp and reproduce the registry exactly (max abs diff 0); every number in the paper matches the registry and tables, and the code matches the described method with no leakage or hard-coded results. The paper reports its negative/mixed outcome honestly (method is second on success, cross-play advantage is by construction, discrete baseline provisional). Only minor issues remain: a noise-robustness statement for symbolic channels that was never tested, header-only logs for the early runs, README inaccuracies and cosmetic table/figure problems.",
+      "reran": [
+        {
+          "run": "Templated language (proxy)/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 0.9367499947547913,
+          "rerun": 0.9367499947547913
+        },
+        {
+          "run": "Continuous vector (DIAL-style, reimplemented)/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 1.0,
+          "rerun": 1.0
+        },
+        {
+          "run": "Discrete tokens (Gumbel-softmax, reimplemented)/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 0.6357499957084656,
+          "rerun": 0.6357499957084656
+        },
+        {
+          "run": "No communication/rendezvous/0",
+          "metric": "success_rate",
+          "registry": 0.07374999672174454,
+          "rerun": 0.07374999672174454
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, abstract.tex, conclusion.tex",
+          "issue": "The claims that quantised channels are 'by design robust to small perturbations' and that the ranking depends on channel noise rest on a sweep that perturbs only the continuous channel; the discrete and language channels are noise-free in every run, so their robustness is untested.",
+          "fix": "State that noise was applied only to the continuous channel and that symbolic-channel robustness is untested, or add a token-noise sweep for the discrete and language channels."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs, results/runs.jsonl provenance",
+          "issue": "Logs for 115 of 150 rows (main, xplay, sweep_vocab, sweep_noise) contain only the rh header and no program output, and their git_commit a3ca150 predates method/run.py being committed; exact re-execution by the auditor mitigates this.",
+          "fix": "Note in the setup section that early logs are header-only, or re-log those runs with the current code, which reproduces them exactly."
+        },
+        {
+          "severity": "minor",
+          "where": "README.md",
+          "issue": "Calls runs.jsonl an append-only registry although duplicate rows were removed by hand (disclosed in setup.tex), and references experiments/PROTOCOL.md which does not exist.",
+          "fix": "Remove 'append-only' or mention the disclosed de-duplication, and remove or add the PROTOCOL.md file."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/main.tex (Table I)",
+          "issue": "episodes_to_50 is tied at 6400 +- 0 for continuous and language but marked best and second; values printed as 6400.000 +- 0.000.",
+          "fix": "Mark ties equally (or drop the emphasis in that column) and format episode counts as integers."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, abstract.tex",
+          "issue": "'Far faster than the discrete channel' and the dense-evaluation comparisons have no rh compare output; the auditor's Welch test gives p=0.003 so the claim holds but is untested in the workspace.",
+          "fix": "Add a Welch test for dense_eval episodes_to_50 or state explicitly that it was not tested."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Fig. 1 and Fig. 3",
+          "issue": "Fig. 3 legend overlaps the plotted curves and the Fig. 1 left-panel x tick labels overlap.",
+          "fix": "Move the legend outside the data region and reduce tick density."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex, related.tex",
+          "issue": "The 'DIAL-style' baseline keeps real-valued noisy messages at test time, whereas DIAL discretises at execution; the difference is covered only by the generic 'simplified reimplementation' wording.",
+          "fix": "Add one clause stating that messages stay continuous at test time, unlike DIAL."
+        }
+      ],
+      "commit": "bfa9cb3e4af4e65543e34f1c2f520375a2eb619a"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on rendezvous: ours 0.9309 vs Continuous vector (DIAL-style, reimplemented) 1\nREADY",
+      "response": "# Response to audit\n\n1. **Discrete baseline under-optimised (major).** Added `--tau` and ran a 5-seed Gumbel-temperature sweep (group `abl_tau`, tau in {0.3,0.5,1,2}, with `msgs_used` and `val_success_final`). Best by validation is tau=0.5: 0.721 +- 0.090 test success vs 0.678 at tau=1; differences are within one std, and all stay below the language (0.931). The one-seed 0.867 probe is within the seed spread. The abstract, ablations, limitations and conclusion now say the discrete baseline is untuned, uses ~11 of 16 messages, and its rank is provisional. The \"matched capacity\" claim is restricted to the two symbolic channels. Annealing/longer training were not run.\n2. **H2 / \"most sample-efficient\" (major).** Re-ran continuous, discrete and language with validation every 640 episodes (group `dense_eval`, 5 seeds). Language vs continuous episodes_to_50: 1024+-351 vs 896+-351 (not distinguishable); both far faster than discrete (9984+-3282). H2 is now stated as not supported vs continuous, supported vs discrete, speed ranking inconclusive; \"most sample-efficient\" removed from abstract and conclusion; success_auc is described as tracking final success.\n3. **0.303 vs 0.301 (minor).** Fixed in ablations.tex and RESULTS.md.\n4. **Stale tables / hand-deleted rows (minor).** Deleted the stale pooled sweep_vocab/sweep_noise tables (results and paper/generated); setup now discloses the orphan logs. The hand-deleted registry rows were not restored (rh supersede would not remove the duplicates cleanly now); the disclosure stands.\n5. **Logs/commit/raw (minor).** run.py now prints progress and final metrics; code was committed before the new runs; `results/raw` is no longer git-ignored. The earlier main runs keep their old provenance commit; setup says the new code reproduces the main discrete run exactly (checked: 0.63575 for seed 0).\n6. **Citations (minor).** Lowe et al. sentence reworded (task success is coarse; no-comm and cross-play are the causal checks); Other-Play described correctly and noted as not implemented; \"where discrete channels usually suffer\" removed; \"Other-Play-style\" population wording removed.\n7. **Capacity-matched wording (minor).** Introduction and method now say nominally matched for the symbolic channels only.\n8. **Figures/captions (minor).** Fig. 1 regenerated by `experiments/make_figs.py` (mean +- std, x-axis \"training episodes\", plus a dense panel) with corrected caption; Table I caption says underline and the table now spans both columns; cross-play figure redrawn larger; the episodes_to_50 cap is stated in the metric definition.\n",
+      "seconds": 552
+    }
+  ]
+}

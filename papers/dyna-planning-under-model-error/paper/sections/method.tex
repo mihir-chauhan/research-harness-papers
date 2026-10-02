@@ -1,0 +1,17 @@
+All agents are $\epsilon$-greedy tabular learners ($\epsilon=0.1$) with step size $\alpha$ and discount $\gamma$. After each real transition $(s,a,r,s')$ they apply the direct update
+\begin{equation}
+Q(s,a)\leftarrow Q(s,a)+\alpha\big[r+\gamma\max_{b}Q(s',b)-Q(s,a)\big],
+\end{equation}
+with a zero bootstrap at the goal. \textbf{Q-learning}~\cite{watkins1992q} stops there ($n=0$).
+
+\textbf{Dyna-Q}~\cite{sutton1991dyna} (the method under study) stores the last observed outcome $\mathcal M(s,a)=(r,s')$ and, per real step, performs $n$ planning updates: sample $(\tilde s,\tilde a)$ uniformly from previously taken pairs, read $(\tilde r,\tilde s')=\mathcal M(\tilde s,\tilde a)$ and apply the update above with that transition. Because $\mathcal M$ is overwritten only when a pair is revisited, it is wrong after an environment change until the pair is retried, and it is wrong in expectation under slip.
+
+\textbf{Dyna-Q+} changes the planning target to
+\begin{equation}
+\tilde r+\kappa\sqrt{\tau(\tilde s,\tilde a)}+\gamma\max_b Q(\tilde s',b),
+\end{equation}
+where $\tau$ is the number of real steps since the pair was last tried, and, the first time a state is visited, adds its untried actions to the model as self-loops with reward 0 (``untried'' initialisation), so planning can value them. We use $\kappa=10^{-3}$.
+
+\textbf{Prioritized sweeping}~\cite{moore1993prioritized} keeps a priority queue. After a real transition the pair is queued with priority $p=|r+\gamma\max_bQ(s',b)-Q(s,a)|$ if $p>\theta$ ($\theta=10^{-4}$). Each of the $n$ planning updates pops the highest-priority pair, updates it from the model, and for every predecessor $(\bar s,\bar a)$ of its state (pairs whose model outcome leads there) queues it with its new priority if above $\theta$. It stops early when the queue empties, so it can use fewer than $n$ updates.
+
+All four are reimplemented here from the original descriptions (not the authors' code); Dyna-Q+ and the mazes follow the description in~\cite{sutton1990integrated}. Ablations of Dyna-Q+ switch off the bonus ($\kappa=0$) and/or the untried initialisation by flags; with both off, the agent is exactly Dyna-Q, which our runs confirm (identical rows).

@@ -1,0 +1,135 @@
+{
+  "slug": "language-vs-vector-multi-robot-comm",
+  "direction": "Natural-language-like versus learned-vector communication for multi-robot coordination. At CPU scale: two or three simulated point robots on a 2D cooperative task (e.g. rendezvous or cooperative coverage with partial observability). Compare (a) no communication, (b) a learned continuous message vector, (c) a learned discrete token channel, and (d) a fixed, human-readable templated language of symbolic utterances (the small-scale stand-in for natural language; no LLM). Measure task success, sample efficiency and whether a receiver trained with one sender can work with another (cross-play). Be explicit that the templated language is a proxy for natural language.",
+  "created": "2026-10-01T18:37:54",
+  "updated": "2026-10-01T20:14:41",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T18:51:03",
+      "finished": "2026-10-01T19:35:16",
+      "notes": [
+        {
+          "t": "2026-10-01T19:35:16",
+          "note": "landscape and proposal written"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:50:54",
+      "notes": [
+        {
+          "t": "2026-10-01T19:50:54",
+          "note": "method/run.py, 4 systems"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:50:54",
+      "notes": [
+        {
+          "t": "2026-10-01T19:50:54",
+          "note": "reimplemented baselines run"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:50:55",
+      "notes": [
+        {
+          "t": "2026-10-01T19:50:55",
+          "note": "main+xplay 5 seeds"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:50:55",
+      "notes": [
+        {
+          "t": "2026-10-01T19:50:55",
+          "note": "vocab and noise sweeps, 5 seeds"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:39",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:39",
+          "note": "tables, figs, RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:40",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:40",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:53:52",
+      "notes": [
+        {
+          "t": "2026-10-01T19:53:52",
+          "note": "paper built, citations verified"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T19:35:16",
+      "phase": "novelty",
+      "decision": "Chose hidden-target 2-robot rendezvous with 16-message matched-capacity channels and pathwise-gradient training for CPU feasibility; templated language = 4x4 grid row/col words, fixed speaker."
+    },
+    {
+      "t": "2026-10-01T19:51:26",
+      "phase": "ablations",
+      "decision": "Harness matches research.yaml ablation entries to run names, so ablations are listed by system display name; the swept parameters (vocab for language/discrete, noise for continuous) are in groups sweep_vocab and sweep_noise with --config."
+    },
+    {
+      "t": "2026-10-01T19:51:37",
+      "phase": "ablations",
+      "decision": "Two sweep launchers overlapped after the interruption and logged 41 bit-identical duplicate rows (same seed/config, same metrics); removed the later duplicates from results/runs.jsonl so every (system, config, seed) appears once (backup in /tmp only)."
+    },
+    {
+      "t": "2026-10-01T20:14:41",
+      "phase": "paper",
+      "decision": "audit round: added tau sweep and dense-eval runs; softened H2 and discrete-baseline claims"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

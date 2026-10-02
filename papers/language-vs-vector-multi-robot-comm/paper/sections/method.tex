@@ -1,0 +1,15 @@
+\textbf{Task.} Two point robots start at the origin and move for $T$ steps with velocity control, $p_{t+1}=p_t+\Delta t\,\tanh(\pi(\cdot))$. A target $x^\star\sim\mathcal U[-1,1]^2$ is observed only by robot~0 (the speaker). Robot~1 (the listener) observes only its own position, the time step, and a message. The episode succeeds if both robots end within radius $0.3$ of $x^\star$. The speaker's own motion policy $\pi_0(p,x^\star)$ is learned in all systems.
+
+\textbf{Channels.} The two symbolic channels have the same nominal capacity of 16 messages ($V{=}4$); the continuous channel has no such limit:
+\emph{None}: the listener receives no message.
+\emph{Continuous}: $m=\tanh(f_\phi(x^\star))\in\mathbb R^4$ plus Gaussian noise $\sigma$ during training and evaluation (DIAL-style, reimplemented).
+\emph{Discrete}: two slots of $V$ tokens; $m$ is a straight-through Gumbel-softmax sample during training and an argmax at test time (reimplemented).
+\emph{Templated language (proxy)}: the speaker is \emph{fixed}. It maps $x^\star$ to the grid cell $(r,c)\in\{0..g-1\}^2$ with $g=V$ and utters the template ``target is $\langle w_r\rangle\ \langle w_c\rangle$'' (e.g.\ ``north far-east''), encoded as two one-hot words. Only the listener learns to interpret it, so the channel resolution is limited to the grid cell.
+
+\textbf{Learning.} All systems minimise the same objective by Adam through the differentiable dynamics,
+\begin{equation}
+\mathcal L=\mathbb E_{x^\star}\big[\lVert p^{(0)}_T-x^\star\rVert^2+\lVert p^{(1)}_T-x^\star\rVert^2\big],
+\end{equation}
+with trainable speaker action policy, listener, and (for learned channels) message encoder. This is supervised-by-simulator learning, not reinforcement learning, and so isolates the channel effect from exploration.
+
+\textbf{Metrics.} \emph{success\_rate}: fraction of 4000 held-out targets solved. \emph{success\_auc}: mean validation success over the learning curve (sample efficiency; higher is faster). \emph{episodes\_to\_50} and \emph{episodes\_to\_90}: training episodes until validation success first reaches 0.5 or 0.9 (checked every 6400 episodes in the main runs, so 6400 is the floor; set to the full 128000 episodes when never reached). \emph{msgs\_used}: number of distinct discrete messages the trained speaker emits on test targets. \emph{final\_dist}: mean of the larger final robot--target distance. \emph{xplay\_success}: the listener trained with seed $i$ is paired with the speakers of the four other seeds on held-out targets and the success averaged.

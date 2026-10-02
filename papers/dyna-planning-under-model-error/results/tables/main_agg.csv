@@ -1,0 +1,141 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+main,blocking,baseline,Q-learning,cum_reward,20,5.8,6.622131951188179,3.45,8.9,0.0,29.0
+main,blocking,baseline,Q-learning,pre_reward,20,4.3,7.064365729341504,1.8,7.6,0.0,29.0
+main,blocking,baseline,Q-learning,post_reward,20,1.5,1.670171752907624,0.8,2.25,0.0,5.0
+main,blocking,baseline,Q-learning,late_reward,20,0.25,0.4442616583193193,0.1,0.45,0.0,1.0
+main,blocking,baseline,Q-learning,first_goal_step,20,515.65,760.0716915632297,236.645,879.4549999999999,34.0,3000.0
+main,blocking,baseline,Q-learning,early_reward,20,1.55,1.190974832912761,1.05,2.05,0.0,4.0
+main,blocking,baseline,Q-learning,runtime_s,20,0.004564607143402099,0.00015954711034425309,0.004502043128013611,0.004635322988033295,0.004318952560424805,0.004991054534912109
+main,blocking,method,Dyna-Q,cum_reward,20,64.5,39.90185327446386,47.85,81.55,0.0,133.0
+main,blocking,method,Dyna-Q,pre_reward,20,36.25,26.550597178336986,25.15,47.40124999999998,0.0,78.0
+main,blocking,method,Dyna-Q,post_reward,20,28.25,37.35022722399705,13.1,44.70124999999999,0.0,99.0
+main,blocking,method,Dyna-Q,late_reward,20,11.05,13.705454158261611,5.5,16.75124999999998,0.0,29.0
+main,blocking,method,Dyna-Q,first_goal_step,20,766.9,788.2209081215747,458.9375,1125.1062499999998,56.0,3000.0
+main,blocking,method,Dyna-Q,early_reward,20,7.9,10.557611372594506,3.75,12.70124999999998,0.0,36.0
+main,blocking,method,Dyna-Q,runtime_s,20,0.021488022804260255,0.0009325311378420019,0.021111818850040435,0.02191368818283081,0.020421981811523438,0.023775815963745117
+main,blocking,baseline,Dyna-Q+,cum_reward,20,92.55,14.33609724473597,86.15,98.5,61.0,114.0
+main,blocking,baseline,Dyna-Q+,pre_reward,20,40.7,13.677103417563853,34.95,46.6,15.0,65.0
+main,blocking,baseline,Dyna-Q+,post_reward,20,51.85,18.155106574648414,43.95,59.35,16.0,82.0
+main,blocking,baseline,Dyna-Q+,late_reward,20,23.75,2.6332889181242134,22.598750000000003,24.8,16.0,28.0
+main,blocking,baseline,Dyna-Q+,first_goal_step,20,426.45,168.97445306753824,356.24875,499.00249999999994,166.0,726.0
+main,blocking,baseline,Dyna-Q+,early_reward,20,4.75,6.536335686799318,2.2,7.8,0.0,21.0
+main,blocking,baseline,Dyna-Q+,runtime_s,20,0.025047409534454345,0.0007982320460630647,0.02471826434135437,0.025397440791130065,0.023775100708007812,0.027054786682128906
+main,blocking,baseline,Prioritized sweeping,cum_reward,20,84.25,38.80569003313004,67.49875,100.75,0.0,157.0
+main,blocking,baseline,Prioritized sweeping,pre_reward,20,54.45,27.25604713202481,41.8,65.4,0.0,83.0
+main,blocking,baseline,Prioritized sweeping,post_reward,20,29.8,34.78293592523419,15.4,45.05,0.0,103.0
+main,blocking,baseline,Prioritized sweeping,late_reward,20,13.35,12.807378629853224,7.95,18.8,0.0,28.0
+main,blocking,baseline,Prioritized sweeping,first_goal_step,20,515.65,760.0716915632297,236.645,879.4549999999999,34.0,3000.0
+main,blocking,baseline,Prioritized sweeping,early_reward,20,18.6,12.675712374873703,12.95,24.0,0.0,38.0
+main,blocking,baseline,Prioritized sweeping,runtime_s,20,0.06827123165130615,0.019062870812233294,0.05916368842124939,0.07528653860092163,0.006867885589599609,0.08523273468017578
+main,shortcut,baseline,Q-learning,cum_reward,20,115.1,38.941116141114776,98.1,130.65124999999998,14.0,162.0
+main,shortcut,baseline,Q-learning,pre_reward,20,3.1,1.99736668746891,2.25,3.95,0.0,6.0
+main,shortcut,baseline,Q-learning,post_reward,20,112.0,38.78415303079068,94.95,127.50124999999998,9.0,159.0
+main,shortcut,baseline,Q-learning,late_reward,20,38.0,10.55312375804584,32.95,41.85,1.0,46.0
+main,shortcut,baseline,Q-learning,first_goal_step,20,1165.5,1135.2866783791937,723.62875,1683.8737499999995,103.0,4034.0
+main,shortcut,baseline,Q-learning,early_reward,20,0.3,0.4701623459816272,0.1,0.5,0.0,1.0
+main,shortcut,baseline,Q-learning,runtime_s,20,0.009260141849517822,0.0005597423107981061,0.009038243293762207,0.009511093497276305,0.008674860000610352,0.010521888732910156
+main,shortcut,method,Dyna-Q,cum_reward,20,256.75,46.289563448044376,237.0,276.2,174.0,322.0
+main,shortcut,method,Dyna-Q,pre_reward,20,91.0,46.48825544948791,71.0,110.35124999999998,9.0,156.0
+main,shortcut,method,Dyna-Q,post_reward,20,165.75,1.996707816698066,164.85,166.55,161.0,169.0
+main,shortcut,method,Dyna-Q,late_reward,20,27.55,0.8255779474818964,27.2,27.9,26.0,29.0
+main,shortcut,method,Dyna-Q,first_goal_step,20,1194.2,826.6106828807813,850.75,1550.4025000000001,97.0,2685.0
+main,shortcut,method,Dyna-Q,early_reward,20,1.8,4.33589667773576,0.3,3.9,0.0,18.0
+main,shortcut,method,Dyna-Q,runtime_s,20,0.043067526817321775,0.0017615065267418348,0.042342390418052676,0.043852029144763945,0.040375709533691406,0.048066139221191406
+main,shortcut,baseline,Dyna-Q+,cum_reward,20,315.9,16.823855243764964,308.55,322.85,280.0,345.0
+main,shortcut,baseline,Dyna-Q+,pre_reward,20,86.25,14.201093360427533,80.2,92.2,56.0,112.0
+main,shortcut,baseline,Dyna-Q+,post_reward,20,229.65,8.29251406231453,225.9,232.95,206.0,240.0
+main,shortcut,baseline,Dyna-Q+,late_reward,20,40.85,2.207046132634963,39.9,41.8,36.0,45.0
+main,shortcut,baseline,Dyna-Q+,first_goal_step,20,1043.15,353.15007619394544,891.79625,1190.7549999999999,389.0,1694.0
+main,shortcut,baseline,Dyna-Q+,early_reward,20,0.05,0.22360679774997894,0.0,0.15,0.0,1.0
+main,shortcut,baseline,Dyna-Q+,runtime_s,20,0.05098258256912232,0.0025869957804550195,0.04995287567377091,0.05216969579458237,0.04810285568237305,0.058451175689697266
+main,shortcut,baseline,Prioritized sweeping,cum_reward,20,266.4,45.53125011288516,245.54875,284.75,158.0,318.0
+main,shortcut,baseline,Prioritized sweeping,pre_reward,20,100.25,51.08493958723626,77.14875,120.85,0.0,155.0
+main,shortcut,baseline,Prioritized sweeping,post_reward,20,166.15,16.1775510475083,160.7,174.05,149.0,230.0
+main,shortcut,baseline,Prioritized sweeping,late_reward,20,28.8,5.346912537550106,26.85,31.35,24.0,44.0
+main,shortcut,baseline,Prioritized sweeping,first_goal_step,20,1165.5,1135.2866783791937,723.62875,1683.8737499999995,103.0,4034.0
+main,shortcut,baseline,Prioritized sweeping,early_reward,20,2.65,5.6964901474504455,0.5,5.35,0.0,21.0
+main,shortcut,baseline,Prioritized sweeping,runtime_s,20,0.08735775947570801,0.02520588363647273,0.0770302203297615,0.098368621468544,0.03946328163146973,0.13336896896362305
+main,static,baseline,Q-learning,cum_reward,20,86.25,55.71721363041086,62.74875,109.70124999999999,1.0,195.0
+main,static,baseline,Q-learning,pre_reward,20,10.6,19.112960606821087,3.9,19.8,0.0,70.0
+main,static,baseline,Q-learning,post_reward,20,75.65,43.2961345059567,56.84875,93.10124999999998,0.0,128.0
+main,static,baseline,Q-learning,late_reward,20,34.4,13.91856011911698,27.95,39.65,0.0,47.0
+main,static,baseline,Q-learning,first_goal_step,20,457.6,580.6688883475133,237.99625,731.90375,34.0,2215.0
+main,static,baseline,Q-learning,early_reward,20,1.55,1.190974832912761,1.05,2.05,0.0,4.0
+main,static,baseline,Q-learning,runtime_s,20,0.0048512697219848635,0.0007801182238193201,0.004595183730125427,0.005238312184810638,0.0043451786041259766,0.007925987243652344
+main,static,method,Dyna-Q,cum_reward,20,200.15,48.52918275581578,177.95,219.15,56.0,255.0
+main,static,method,Dyna-Q,pre_reward,20,71.75,38.827384530427544,55.0,87.9,0.0,121.0
+main,static,method,Dyna-Q,post_reward,20,128.4,17.3884414119507,120.0,133.3,56.0,137.0
+main,static,method,Dyna-Q,late_reward,20,44.15,0.9880869341680845,43.7,44.55,41.0,45.0
+main,static,method,Dyna-Q,first_goal_step,20,652.1,562.4476490258777,428.1,911.0574999999999,56.0,2318.0
+main,static,method,Dyna-Q,early_reward,20,7.9,10.557611372594506,3.75,12.70124999999998,0.0,36.0
+main,static,method,Dyna-Q,runtime_s,20,0.021485280990600587,0.000859677226101869,0.021147440969944,0.02188172549009323,0.020215749740600586,0.023267030715942383
+main,static,baseline,Dyna-Q+,cum_reward,20,207.8,12.593231264620313,202.2,212.9,179.0,227.0
+main,static,baseline,Dyna-Q+,pre_reward,20,82.85,14.368368035375486,76.65,88.85,53.0,106.0
+main,static,baseline,Dyna-Q+,post_reward,20,124.95,3.363503812207865,123.45,126.3,115.0,129.0
+main,static,baseline,Dyna-Q+,late_reward,20,41.25,3.4773704523904114,39.65,42.6,30.0,45.0
+main,static,baseline,Dyna-Q+,first_goal_step,20,426.45,168.97445306753824,356.24875,499.00249999999994,166.0,726.0
+main,static,baseline,Dyna-Q+,early_reward,20,4.75,6.536335686799318,2.2,7.8,0.0,21.0
+main,static,baseline,Dyna-Q+,runtime_s,20,0.02575211524963379,0.0010921291927171713,0.025323061048984526,0.02624588340520859,0.024520158767700195,0.028637170791625977
+main,static,baseline,Prioritized sweeping,cum_reward,20,220.6,49.98252326142556,197.25,239.35,70.0,257.0
+main,static,baseline,Prioritized sweeping,pre_reward,20,92.85,39.96745386462656,74.24875,108.35,0.0,126.0
+main,static,baseline,Prioritized sweeping,post_reward,20,127.75,14.20479904079863,120.9,132.05,70.0,137.0
+main,static,baseline,Prioritized sweeping,late_reward,20,44.1,1.4473205733717953,43.45,44.7,40.0,47.0
+main,static,baseline,Prioritized sweeping,first_goal_step,20,457.6,580.6688883475133,237.99625,731.90375,34.0,2215.0
+main,static,baseline,Prioritized sweeping,early_reward,20,18.6,12.675712374873703,12.95,24.0,0.0,38.0
+main,static,baseline,Prioritized sweeping,runtime_s,20,0.03968456983566284,0.013752827087108883,0.03405924290418625,0.045772925317287445,0.017899751663208008,0.07044792175292969
+main,stochastic,baseline,Q-learning,cum_reward,20,49.05,34.01466402040527,34.6,63.9,3.0,104.0
+main,stochastic,baseline,Q-learning,pre_reward,20,6.6,7.029262145900483,3.8,9.85,0.0,27.0
+main,stochastic,baseline,Q-learning,post_reward,20,42.45,28.324203895534108,30.2,54.65,2.0,84.0
+main,stochastic,baseline,Q-learning,late_reward,20,17.3,10.188228501560022,12.8,21.55,0.0,29.0
+main,stochastic,baseline,Q-learning,first_goal_step,20,501.3,493.16252258683494,299.0975,721.8525,28.0,1569.0
+main,stochastic,baseline,Q-learning,early_reward,20,1.1,1.1192102478745307,0.65,1.6,0.0,4.0
+main,stochastic,baseline,Q-learning,runtime_s,20,0.0050471901893615724,0.0001979031050876011,0.004966342151165008,0.005137781798839569,0.004815816879272461,0.0054819583892822266
+main,stochastic,method,Dyna-Q,cum_reward,20,71.05,28.759392058577095,58.55,82.9,8.0,110.0
+main,stochastic,method,Dyna-Q,pre_reward,20,24.95,14.954228411002056,18.55,31.3,0.0,49.0
+main,stochastic,method,Dyna-Q,post_reward,20,46.1,16.976454282328806,38.75,53.0,7.0,74.0
+main,stochastic,method,Dyna-Q,late_reward,20,15.4,6.133600299300481,12.65,17.9,1.0,23.0
+main,stochastic,method,Dyna-Q,first_goal_step,20,634.75,678.7629518004368,376.2425,947.8612499999998,51.0,2516.0
+main,stochastic,method,Dyna-Q,early_reward,20,4.3,4.953467684891379,2.3,6.5,0.0,15.0
+main,stochastic,method,Dyna-Q,runtime_s,20,0.022130286693572997,0.0006916205858540565,0.021858702301979064,0.02244700402021408,0.02117609977722168,0.024115800857543945
+main,stochastic,baseline,Dyna-Q+,cum_reward,20,65.6,10.38419852214741,61.1,70.0,45.0,87.0
+main,stochastic,baseline,Dyna-Q+,pre_reward,20,29.05,8.049027401199671,25.5,32.4,10.0,42.0
+main,stochastic,baseline,Dyna-Q+,post_reward,20,36.55,7.0968858997227935,33.55,39.65,25.0,52.0
+main,stochastic,baseline,Dyna-Q+,late_reward,20,11.25,5.300198606010712,9.1,13.65,4.0,25.0
+main,stochastic,baseline,Dyna-Q+,first_goal_step,20,386.75,207.15869203152093,296.99875,474.45124999999996,31.0,641.0
+main,stochastic,baseline,Dyna-Q+,early_reward,20,4.05,4.394673809822163,2.2,6.0,0.0,11.0
+main,stochastic,baseline,Dyna-Q+,runtime_s,20,0.02601921558380127,0.0007575655852726024,0.025696513056755067,0.026348907947540284,0.02478194236755371,0.027426958084106445
+main,stochastic,baseline,Prioritized sweeping,cum_reward,20,74.15,12.712509380009994,68.8,79.35,53.0,94.0
+main,stochastic,baseline,Prioritized sweeping,pre_reward,20,25.45,13.23661190550067,19.55,31.0,0.0,46.0
+main,stochastic,baseline,Prioritized sweeping,post_reward,20,48.7,9.59769709220312,44.8,52.9,31.0,74.0
+main,stochastic,baseline,Prioritized sweeping,late_reward,20,17.05,4.260899336747436,15.25,18.9,9.0,26.0
+main,stochastic,baseline,Prioritized sweeping,first_goal_step,20,501.3,493.16252258683494,299.0975,721.8525,28.0,1569.0
+main,stochastic,baseline,Prioritized sweeping,early_reward,20,4.3,5.027293925217255,2.35,6.65,0.0,19.0
+main,stochastic,baseline,Prioritized sweeping,runtime_s,20,0.15547960996627808,0.024461309309184397,0.1448266080021858,0.16559595346450806,0.10852265357971191,0.19303297996520996
+main,stoch_blocking,baseline,Q-learning,cum_reward,20,5.05,4.148239956516752,3.55,7.05,1.0,20.0
+main,stoch_blocking,baseline,Q-learning,pre_reward,20,2.7,2.430074722697789,1.7,3.8,0.0,9.0
+main,stoch_blocking,baseline,Q-learning,post_reward,20,2.35,3.602265369107846,1.25,4.1,0.0,17.0
+main,stoch_blocking,baseline,Q-learning,late_reward,20,0.7,1.625455401774498,0.15,1.5,0.0,7.0
+main,stoch_blocking,baseline,Q-learning,first_goal_step,20,583.4,644.5146194903899,324.49875,876.7562499999999,28.0,1956.0
+main,stoch_blocking,baseline,Q-learning,early_reward,20,1.1,1.1192102478745307,0.65,1.6,0.0,4.0
+main,stoch_blocking,baseline,Q-learning,runtime_s,20,0.005185854434967041,0.0002536777983337449,0.0050782918930053714,0.005296055376529694,0.004769802093505859,0.0055539608001708984
+main,stoch_blocking,method,Dyna-Q,cum_reward,20,22.0,15.711209541698496,15.5,28.8,1.0,65.0
+main,stoch_blocking,method,Dyna-Q,pre_reward,20,13.8,10.42567680498994,9.5,18.4,0.0,37.0
+main,stoch_blocking,method,Dyna-Q,post_reward,20,8.2,12.002631290460306,3.5,13.55,0.0,38.0
+main,stoch_blocking,method,Dyna-Q,late_reward,20,4.0,5.656854249492381,1.75,6.5,0.0,15.0
+main,stoch_blocking,method,Dyna-Q,first_goal_step,20,610.0,647.4139650218114,367.8,912.8174999999997,51.0,2745.0
+main,stoch_blocking,method,Dyna-Q,early_reward,20,4.3,4.953467684891379,2.3,6.5,0.0,15.0
+main,stoch_blocking,method,Dyna-Q,runtime_s,20,0.022250890731811523,0.0007048965558360286,0.021962260901927946,0.02256964772939682,0.021418094635009766,0.024013042449951172
+main,stoch_blocking,baseline,Dyna-Q+,cum_reward,20,33.9,8.717194140559824,30.2,37.65,20.0,47.0
+main,stoch_blocking,baseline,Dyna-Q+,pre_reward,20,15.5,6.676746765335724,12.55,18.35,3.0,26.0
+main,stoch_blocking,baseline,Dyna-Q+,post_reward,20,18.4,5.275564325014758,16.1,20.6,8.0,29.0
+main,stoch_blocking,baseline,Dyna-Q+,late_reward,20,7.7,3.147262804071935,6.4,9.1,3.0,15.0
+main,stoch_blocking,baseline,Dyna-Q+,first_goal_step,20,386.75,207.15869203152093,296.99875,474.45124999999996,31.0,641.0
+main,stoch_blocking,baseline,Dyna-Q+,early_reward,20,4.05,4.394673809822163,2.2,6.0,0.0,11.0
+main,stoch_blocking,baseline,Dyna-Q+,runtime_s,20,0.02588658332824707,0.0007194705996594254,0.025572927594184874,0.02619953900575638,0.024751663208007812,0.0272219181060791
+main,stoch_blocking,baseline,Prioritized sweeping,cum_reward,20,22.55,10.918236796151755,17.85,27.2,2.0,44.0
+main,stoch_blocking,baseline,Prioritized sweeping,pre_reward,20,13.25,10.083206465781554,9.0,17.55,0.0,33.0
+main,stoch_blocking,baseline,Prioritized sweeping,post_reward,20,9.3,11.868135134845211,4.5,14.8,0.0,40.0
+main,stoch_blocking,baseline,Prioritized sweeping,late_reward,20,4.8,5.662433919679491,2.45,7.3,0.0,17.0
+main,stoch_blocking,baseline,Prioritized sweeping,first_goal_step,20,583.4,644.5146194903899,324.49875,876.7562499999999,28.0,1956.0
+main,stoch_blocking,baseline,Prioritized sweeping,early_reward,20,4.3,5.027293925217255,2.35,6.65,0.0,19.0
+main,stoch_blocking,baseline,Prioritized sweeping,runtime_s,20,0.14281054735183715,0.03421792936425884,0.12759474068880083,0.1569082573056221,0.07056903839111328,0.20018935203552246

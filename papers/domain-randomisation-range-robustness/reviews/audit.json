@@ -1,198 +1,201 @@
 {
-  "auditor": "independent AI auditor (did not write the paper)",
-  "first_audit": {
-    "verdict": "FIX",
-    "summary": "Runs are real and deterministic (three re-executions reproduce the registry exactly), every number in the paper matches the generated tables, baselines are fair, and the negative/null outcome is framed honestly. One major issue: Xie et al. 2021 is cited as support for DR being a standard ingredient of legged locomotion although its headline finding is that transfer works without dynamics randomisation; the rest are minor (untested H1 and gate-ablation comparisons, a wrong figure caption, omitted CEM detail, missing ADR citation).",
-    "reran": [
-      {
-        "run": "Success-gated curriculum DR/cartpole/0",
-        "metric": "ret_robust",
-        "registry": 457.02833333333336,
-        "rerun": 457.02833333333336
-      },
-      {
-        "run": "Uniform DR wide (w=1.0)/cartpole/3",
-        "metric": "ret_robust",
-        "registry": 484.7144444444445,
-        "rerun": 484.7144444444445
-      },
-      {
-        "run": "No randomisation/cartpole/0",
-        "metric": "ret_robust",
-        "registry": 410.78,
-        "rerun": 410.78
-      }
-    ],
-    "findings": [
-      {
-        "severity": "major",
-        "where": "paper/sections/introduction.tex and related.tex (cite xie2021dynamics)",
-        "issue": "Xie et al. 2021 is cited for 'DR is now a standard ingredient of legged-locomotion pipelines', but its main result is that direct sim-to-real transfer on Laikago is possible without dynamics randomisation; the related-work sentence also omits this finding, which bears directly on the paper's question.",
-        "fix": "Reword to state what Xie et al. found (DR widely used but shown unnecessary in their case study) and use it as the citation for the possible cost or non-necessity of DR; cite a different verified source for 'standard ingredient' or drop that claim."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/results.tex (Hypotheses), results/RESULTS.md, results/tables/compare_*.csv",
-        "issue": "H1 (wide DR vs no DR, paired, alpha 0.05) is declared supported but no rh compare output exists for that pair; only curriculum-vs-others was compared. Auditor's paired t-test gives p=0.0007, so the claim is true but unbacked by a generated artifact.",
-        "fix": "Run rh compare with Uniform DR wide as reference against No randomisation and report that p-value for H1."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/ablations.tex (Curriculum gate), Table III",
-        "issue": "'Ungated is best; stricter gates (0.5, 0.95) are slightly worse, probably because the final width is reached later' rests on ~7-unit gaps within one seed std with no test (auditor paired p=0.07 and 0.10; vs gate 0.8 p=0.85), and the pattern is non-monotone (gate 0.8 = 470.8 > gate 0.5 = 464.7), which contradicts the offered explanation. Table III omits the gate-0.8 row.",
-        "fix": "State that gate variants are indistinguishable at 5 seeds, drop the speculative explanation, and add the gate-0.8 row to Table III."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/ablations.tex Fig. 3 caption",
-        "issue": "Caption says 'one curve per seed' but the figure shows a mean line with a shaded band.",
-        "fix": "Change the caption to 'mean and spread over 5 seeds' or plot the five per-seed curves."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/method.tex",
-        "issue": "CEM description omits the additive decaying std noise floor (0.05*(1-it/iters)+0.01) present in method/run.py and DESIGN.md.",
-        "fix": "Add one sentence describing the std floor."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/introduction.tex, related.tex",
-        "issue": "The 'folklore' that wide DR makes policies conservative is uncited, and the closest prior work to a success-gated widening rule (Automatic Domain Randomization, OpenAI 2019) is not cited; landscape.md admits it could not be fetched but the paper does not say so.",
-        "fix": "Cite a source for the conservativeness claim (Xie et al. is one) and add a verified ADR reference, or state explicitly that ADR is related work that could not be verified."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/setup.tex (Protocol), results/runs.jsonl",
-        "issue": "Evaluation levels and sweep range were chosen after 'seed-1 smoke runs', but seed 1 is a reported seed and those runs are not in the registry (only a seed-0 sanity row exists).",
-        "fix": "Record the smoke runs in the registry or correct the description, and note in limitations that the evaluation design was adapted after seeing a reported seed."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/results.tex",
-        "issue": "'The ranking is preserved at every level' overstates: all systems tie at w=0.25, three tie at w=0.5, and curriculum vs wide differ by under 1.3 return units at the remaining levels.",
-        "fix": "Say the ordering no DR < narrow < wide \u2248 curriculum holds wherever systems separate (w>=0.75)."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/main.pdf Tables I and III",
-        "issue": "Tables are shrunk to near-illegible size by resizebox, and Table III carries a meaningless down-arrow on train_width_end.",
-        "fix": "Drop or abbreviate columns so the tables fit at readable size and remove the direction arrow."
-      },
-      {
-        "severity": "minor",
-        "where": "results/logs, results/VERDICT.md, provenance",
-        "issue": "Logs contain no program output because run.py prints nothing; VERDICT.md lists ablation deltas as 'missing'; provenance git_commit is the scaffold commit, so runs were made from an uncommitted tree (they do reproduce exactly from the current code).",
-        "fix": "Print final metrics to stdout in run.py, regenerate VERDICT.md with ablation deltas, and commit code before running in future."
-      }
-    ],
-    "commit": "46ff0b16f469839e1073173cf51e674d848c5c05"
-  },
-  "fix_round": {
-    "ready": true,
-    "check": "HARD FAILS: none\nWARNINGS (5):\n! numbers in prose not found in any table or run: ablations.tex: 0.18, 0.19, 0.22\n! numbers in prose not found in any table or run: abstract.tex: 470.8\n! numbers in prose not found in any table or run: method.tex: 0.01, 0.02, 0.05\n! numbers in prose not found in any table or run: results.tex: 0.0007, 0.003, 0.004, 412.9, 470.8\n! verdict tier 1 < target 2: not significant on: cartpole\nREADY",
-    "response": "# Response to audit\n\n1. **Major, Xie et al. mis-cited.** Fixed. Introduction and related work now say Xie et al. report direct transfer without dynamics randomisation; the \"standard ingredient\" claim is removed. Automatic Domain Randomization (OpenAI et al. 2019, `openai2019solving`, added with `rh lit cite`) is cited as the closest prior work to the success-gated widening, and the paper says we did not reimplement ADR.\n2. **H1 untested.** Ran `rh compare` with wide DR as reference: ret_robust 470.4 vs 386.6, paired p=0.0007. Added to results.tex and RESULTS.md.\n3. **Gate ablation.** Added gate-0.8 rows to the ablation group (5 registered runs; they reproduce the main curriculum runs exactly) and regenerated Table III. Text now says the variants are indistinguishable at 5 seeds (paired p vs gate 0.8: 0.19, 0.22, 0.85); the speculative explanation is dropped.\n4. **Fig. 3 caption.** Now \"mean and spread over 5 seeds\".\n5. **CEM std floor.** Added to method.tex.\n6. **Uncited folklore / ADR.** The conservativeness claim is now worded as \"often argued\" with a note that no source measuring it was found; ADR cited (see 1).\n7. **Smoke runs.** Not recorded in the registry; setup.tex now says so plainly, and limitations notes the design was adapted after seeing a reported seed.\n8. **Ranking overstatement.** Reworded: all tie at w=0.25; ordering no DR < narrow < wide \u2248 curriculum where systems separate (w>=0.75).\n9. **Table legibility.** Main table reduced to 5 columns (dropped ret_w50) and the ablation table to 4 (dropped ret_w100 and train_width_end, removing the meaningless arrow).\n10. **Logs/VERDICT/provenance.** run.py now prints the final metrics (used by the new gate-0.8 runs; older runs were not re-executed, since their outputs are unchanged by this print). VERDICT.md was regenerated but still lists ablation deltas as missing, because the ablation group's reference name for the method differs from the main-group method name; the comparison is given in the compare CSV and text instead. Provenance commit hashes for the earlier runs remain the scaffold commit and cannot be repaired retroactively; the code is now committed.\n",
-    "seconds": 170
-  },
-  "second_audit": {
-    "verdict": "PASS",
-    "summary": "The paper honestly reports a negative/null result on a saturated CartPole task; every headline number matches the tables or registry and all quoted paired p-values were recomputed and agree. Four re-executed runs reproduced the registry metrics bit-for-bit, the code matches the described method with fair baselines and no leakage or hard-coding. Only minor issues remain: one slightly wrong ablation number, weak provenance, undisclosed duplicate rows, and a simulator check that does not exercise the batched code; arXiv abstracts could not be fetched, so citation checks rest on titles.",
-    "reran": [
-      {
-        "run": "Success-gated curriculum DR/cartpole/3",
-        "metric": "ret_robust",
-        "registry": 470.25444444444446,
-        "rerun": 470.25444444444446
-      },
-      {
-        "run": "Uniform DR wide (w=1.0)/cartpole/2",
-        "metric": "ret_robust",
-        "registry": 459.1588888888889,
-        "rerun": 459.1588888888889
-      },
-      {
-        "run": "No randomisation/cartpole/4",
-        "metric": "ret_robust",
-        "registry": 365.3544444444444,
-        "rerun": 365.3544444444444
-      },
-      {
-        "run": "sweep_width Uniform DR w=3/cartpole/2",
-        "metric": "ret_robust",
-        "registry": 477.77666666666664,
-        "rerun": 477.77666666666664
-      }
-    ],
-    "findings": [
-      {
-        "severity": "minor",
-        "where": "paper/sections/ablations.tex (Curriculum gate)",
-        "issue": "Says ret_robust differs by under 8 units, within one seed standard deviation; the spread across the four variants is 8.11 (471.62 vs 463.51), which exceeds the std of three of the four variants (7.13, 7.30, 8.04).",
-        "fix": "Write 'by about 8 units (at most 7.3 against gate 0.8), comparable to one seed standard deviation'."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/results.tex; results/tables/",
-        "issue": "Paired p=0.003 and p=0.004 (curriculum vs no DR / narrow DR) have no compare CSV on disk because compare_main_ret_robust.csv was regenerated with wide DR as reference; recomputation gives 0.0030 and 0.0038, so the values are correct but untraceable.",
-        "fix": "Save the curriculum-referenced rh compare output under a separate filename and keep both CSVs."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/results.tex and abstract.tex",
-        "issue": "'The gap here is below one return unit' and 'matched wide fixed DR' rest on a mean that hides per-seed differences of -14.5 to +30.4; the 95% CI of the paired difference is about [-21.8, +22.7].",
-        "fix": "Report the confidence interval of the paired difference alongside the mean gap and p-value."
-      },
-      {
-        "severity": "minor",
-        "where": "results/runs.jsonl; paper/sections/setup.tex; ablations.tex",
-        "issue": "20 registry rows are bit-identical duplicates (sweep w=0, 0.25, 1 equal the main baselines; ablation gate 0.8 equals the main method), so there are about 55 distinct trainings rather than 'about 70 runs', and the sweep is not independent of Table I. Some gate variants are also identical to gate 0.8 on individual seeds.",
-        "fix": "State in setup and the Table II/III captions that these rows are the same runs as the main table, and correct the run count."
-      },
-      {
-        "severity": "minor",
-        "where": "results/logs/, results/runs.jsonl provenance",
-        "issue": "71 of 76 logs contain only the rh header with no program output; every row records git_commit b040fad, which predates method/run.py; all sweep widths for a seed write to the same --out file so raw JSONs are overwritten.",
-        "fix": "Re-run the registry from the committed code so logs carry the printed metrics and the commit hash is correct, and put the width in the sweep --out filename."
-      },
-      {
-        "severity": "minor",
-        "where": "method/check_dynamics.py; paper/sections/method.tex",
-        "issue": "The gymnasium check validates a hand-copied scalar version of the equations, not the batched rollout() used in the experiments. An independent test of rollout() against gymnasium gave identical episode lengths, so the simulator is correct but the stated check is weaker than described.",
-        "fix": "Make check_dynamics.py call run.rollout() and compare episode lengths or states against gymnasium."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/introduction.tex",
-        "issue": "'It is often argued that the policy becomes conservative or fails to learn' is a claim about prior work with no citation (the paper admits none was found), and the sentence has a stray comma.",
-        "fix": "Cite a source that states this or rephrase it as the authors' own hypothesis; fix the grammar."
-      },
-      {
-        "severity": "minor",
-        "where": "paper/sections/method.tex",
-        "issue": "CEM initialisation (mean ~ N(0, 0.5), std 0.5) and the initial-state distribution are not stated.",
-        "fix": "Add one sentence giving the initialisation."
-      },
-      {
-        "severity": "minor",
-        "where": "paper tables I and III, Fig. 2",
-        "issue": "Bold/underline 'best' marks are applied to exact ties (500.00) and to non-significant differences; Fig. 2's shaded band is unexplained and its left panel is zoomed to 499.8-500.",
-        "fix": "Drop the bolding on ties, say in the caption what the band is, and note the axis range."
-      },
-      {
-        "severity": "minor",
-        "where": "results/RESULTS.md; results/VERDICT.md; literature/landscape.md",
-        "issue": "RESULTS.md has two H1 bullets, the first quoting the curriculum-vs-no-DR p-value; VERDICT.md lists all ablation deltas as 'missing'; landscape.md still says OpenAI 2019 is not cited.",
-        "fix": "Merge the H1 bullets, align ablation reference names so VERDICT.md fills in the deltas, and update landscape.md."
-      },
-      {
-        "severity": "minor",
-        "where": "citations (audit limitation)",
-        "issue": "The arXiv API returned 503 / rate-limit errors, so abstracts for Xie et al. and Chen et al. could not be fetched; context checks rest on resolved titles and the auditor's knowledge.",
-        "fix": "Re-check those two abstracts against the citing sentences when the API is available."
-      }
-    ],
-    "commit": "195fa65008b70cceae11e007238da2caa7d130ef"
-  },
-  "second_fix_round": null,
-  "third_audit": null,
-  "final": "PASS"
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and deterministic (three re-executions reproduce the registry exactly), every number in the paper matches the generated tables, baselines are fair, and the negative/null outcome is framed honestly. One major issue: Xie et al. 2021 is cited as support for DR being a standard ingredient of legged locomotion although its headline finding is that transfer works without dynamics randomisation; the rest are minor (untested H1 and gate-ablation comparisons, a wrong figure caption, omitted CEM detail, missing ADR citation).",
+      "reran": [
+        {
+          "run": "Success-gated curriculum DR/cartpole/0",
+          "metric": "ret_robust",
+          "registry": 457.02833333333336,
+          "rerun": 457.02833333333336
+        },
+        {
+          "run": "Uniform DR wide (w=1.0)/cartpole/3",
+          "metric": "ret_robust",
+          "registry": 484.7144444444445,
+          "rerun": 484.7144444444445
+        },
+        {
+          "run": "No randomisation/cartpole/0",
+          "metric": "ret_robust",
+          "registry": 410.78,
+          "rerun": 410.78
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/introduction.tex and related.tex (cite xie2021dynamics)",
+          "issue": "Xie et al. 2021 is cited for 'DR is now a standard ingredient of legged-locomotion pipelines', but its main result is that direct sim-to-real transfer on Laikago is possible without dynamics randomisation; the related-work sentence also omits this finding, which bears directly on the paper's question.",
+          "fix": "Reword to state what Xie et al. found (DR widely used but shown unnecessary in their case study) and use it as the citation for the possible cost or non-necessity of DR; cite a different verified source for 'standard ingredient' or drop that claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Hypotheses), results/RESULTS.md, results/tables/compare_*.csv",
+          "issue": "H1 (wide DR vs no DR, paired, alpha 0.05) is declared supported but no rh compare output exists for that pair; only curriculum-vs-others was compared. Auditor's paired t-test gives p=0.0007, so the claim is true but unbacked by a generated artifact.",
+          "fix": "Run rh compare with Uniform DR wide as reference against No randomisation and report that p-value for H1."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Curriculum gate), Table III",
+          "issue": "'Ungated is best; stricter gates (0.5, 0.95) are slightly worse, probably because the final width is reached later' rests on ~7-unit gaps within one seed std with no test (auditor paired p=0.07 and 0.10; vs gate 0.8 p=0.85), and the pattern is non-monotone (gate 0.8 = 470.8 > gate 0.5 = 464.7), which contradicts the offered explanation. Table III omits the gate-0.8 row.",
+          "fix": "State that gate variants are indistinguishable at 5 seeds, drop the speculative explanation, and add the gate-0.8 row to Table III."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex Fig. 3 caption",
+          "issue": "Caption says 'one curve per seed' but the figure shows a mean line with a shaded band.",
+          "fix": "Change the caption to 'mean and spread over 5 seeds' or plot the five per-seed curves."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "CEM description omits the additive decaying std noise floor (0.05*(1-it/iters)+0.01) present in method/run.py and DESIGN.md.",
+          "fix": "Add one sentence describing the std floor."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex",
+          "issue": "The 'folklore' that wide DR makes policies conservative is uncited, and the closest prior work to a success-gated widening rule (Automatic Domain Randomization, OpenAI 2019) is not cited; landscape.md admits it could not be fetched but the paper does not say so.",
+          "fix": "Cite a source for the conservativeness claim (Xie et al. is one) and add a verified ADR reference, or state explicitly that ADR is related work that could not be verified."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Protocol), results/runs.jsonl",
+          "issue": "Evaluation levels and sweep range were chosen after 'seed-1 smoke runs', but seed 1 is a reported seed and those runs are not in the registry (only a seed-0 sanity row exists).",
+          "fix": "Record the smoke runs in the registry or correct the description, and note in limitations that the evaluation design was adapted after seeing a reported seed."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex",
+          "issue": "'The ranking is preserved at every level' overstates: all systems tie at w=0.25, three tie at w=0.5, and curriculum vs wide differ by under 1.3 return units at the remaining levels.",
+          "fix": "Say the ordering no DR < narrow < wide \u2248 curriculum holds wherever systems separate (w>=0.75)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Tables I and III",
+          "issue": "Tables are shrunk to near-illegible size by resizebox, and Table III carries a meaningless down-arrow on train_width_end.",
+          "fix": "Drop or abbreviate columns so the tables fit at readable size and remove the direction arrow."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs, results/VERDICT.md, provenance",
+          "issue": "Logs contain no program output because run.py prints nothing; VERDICT.md lists ablation deltas as 'missing'; provenance git_commit is the scaffold commit, so runs were made from an uncommitted tree (they do reproduce exactly from the current code).",
+          "fix": "Print final metrics to stdout in run.py, regenerate VERDICT.md with ablation deltas, and commit code before running in future."
+        }
+      ],
+      "commit": "46ff0b16f469839e1073173cf51e674d848c5c05"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "The paper honestly reports a negative/null result on a saturated CartPole task; every headline number matches the tables or registry and all quoted paired p-values were recomputed and agree. Four re-executed runs reproduced the registry metrics bit-for-bit, the code matches the described method with fair baselines and no leakage or hard-coding. Only minor issues remain: one slightly wrong ablation number, weak provenance, undisclosed duplicate rows, and a simulator check that does not exercise the batched code; arXiv abstracts could not be fetched, so citation checks rest on titles.",
+      "reran": [
+        {
+          "run": "Success-gated curriculum DR/cartpole/3",
+          "metric": "ret_robust",
+          "registry": 470.25444444444446,
+          "rerun": 470.25444444444446
+        },
+        {
+          "run": "Uniform DR wide (w=1.0)/cartpole/2",
+          "metric": "ret_robust",
+          "registry": 459.1588888888889,
+          "rerun": 459.1588888888889
+        },
+        {
+          "run": "No randomisation/cartpole/4",
+          "metric": "ret_robust",
+          "registry": 365.3544444444444,
+          "rerun": 365.3544444444444
+        },
+        {
+          "run": "sweep_width Uniform DR w=3/cartpole/2",
+          "metric": "ret_robust",
+          "registry": 477.77666666666664,
+          "rerun": 477.77666666666664
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Curriculum gate)",
+          "issue": "Says ret_robust differs by under 8 units, within one seed standard deviation; the spread across the four variants is 8.11 (471.62 vs 463.51), which exceeds the std of three of the four variants (7.13, 7.30, 8.04).",
+          "fix": "Write 'by about 8 units (at most 7.3 against gate 0.8), comparable to one seed standard deviation'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex; results/tables/",
+          "issue": "Paired p=0.003 and p=0.004 (curriculum vs no DR / narrow DR) have no compare CSV on disk because compare_main_ret_robust.csv was regenerated with wide DR as reference; recomputation gives 0.0030 and 0.0038, so the values are correct but untraceable.",
+          "fix": "Save the curriculum-referenced rh compare output under a separate filename and keep both CSVs."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex and abstract.tex",
+          "issue": "'The gap here is below one return unit' and 'matched wide fixed DR' rest on a mean that hides per-seed differences of -14.5 to +30.4; the 95% CI of the paired difference is about [-21.8, +22.7].",
+          "fix": "Report the confidence interval of the paired difference alongside the mean gap and p-value."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl; paper/sections/setup.tex; ablations.tex",
+          "issue": "20 registry rows are bit-identical duplicates (sweep w=0, 0.25, 1 equal the main baselines; ablation gate 0.8 equals the main method), so there are about 55 distinct trainings rather than 'about 70 runs', and the sweep is not independent of Table I. Some gate variants are also identical to gate 0.8 on individual seeds.",
+          "fix": "State in setup and the Table II/III captions that these rows are the same runs as the main table, and correct the run count."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs/, results/runs.jsonl provenance",
+          "issue": "71 of 76 logs contain only the rh header with no program output; every row records git_commit b040fad, which predates method/run.py; all sweep widths for a seed write to the same --out file so raw JSONs are overwritten.",
+          "fix": "Re-run the registry from the committed code so logs carry the printed metrics and the commit hash is correct, and put the width in the sweep --out filename."
+        },
+        {
+          "severity": "minor",
+          "where": "method/check_dynamics.py; paper/sections/method.tex",
+          "issue": "The gymnasium check validates a hand-copied scalar version of the equations, not the batched rollout() used in the experiments. An independent test of rollout() against gymnasium gave identical episode lengths, so the simulator is correct but the stated check is weaker than described.",
+          "fix": "Make check_dynamics.py call run.rollout() and compare episode lengths or states against gymnasium."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'It is often argued that the policy becomes conservative or fails to learn' is a claim about prior work with no citation (the paper admits none was found), and the sentence has a stray comma.",
+          "fix": "Cite a source that states this or rephrase it as the authors' own hypothesis; fix the grammar."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "CEM initialisation (mean ~ N(0, 0.5), std 0.5) and the initial-state distribution are not stated.",
+          "fix": "Add one sentence giving the initialisation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper tables I and III, Fig. 2",
+          "issue": "Bold/underline 'best' marks are applied to exact ties (500.00) and to non-significant differences; Fig. 2's shaded band is unexplained and its left panel is zoomed to 499.8-500.",
+          "fix": "Drop the bolding on ties, say in the caption what the band is, and note the axis range."
+        },
+        {
+          "severity": "minor",
+          "where": "results/RESULTS.md; results/VERDICT.md; literature/landscape.md",
+          "issue": "RESULTS.md has two H1 bullets, the first quoting the curriculum-vs-no-DR p-value; VERDICT.md lists all ablation deltas as 'missing'; landscape.md still says OpenAI 2019 is not cited.",
+          "fix": "Merge the H1 bullets, align ablation reference names so VERDICT.md fills in the deltas, and update landscape.md."
+        },
+        {
+          "severity": "minor",
+          "where": "citations (audit limitation)",
+          "issue": "The arXiv API returned 503 / rate-limit errors, so abstracts for Xie et al. and Chen et al. could not be fetched; context checks rest on resolved titles and the auditor's knowledge.",
+          "fix": "Re-check those two abstracts against the citing sentences when the API is available."
+        }
+      ],
+      "commit": "195fa65008b70cceae11e007238da2caa7d130ef"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (5):\n! numbers in prose not found in any table or run: ablations.tex: 0.18, 0.19, 0.22\n! numbers in prose not found in any table or run: abstract.tex: 470.8\n! numbers in prose not found in any table or run: method.tex: 0.01, 0.02, 0.05\n! numbers in prose not found in any table or run: results.tex: 0.0007, 0.003, 0.004, 412.9, 470.8\n! verdict tier 1 < target 2: not significant on: cartpole\nREADY",
+      "response": "# Response to audit\n\n1. **Major, Xie et al. mis-cited.** Fixed. Introduction and related work now say Xie et al. report direct transfer without dynamics randomisation; the \"standard ingredient\" claim is removed. Automatic Domain Randomization (OpenAI et al. 2019, `openai2019solving`, added with `rh lit cite`) is cited as the closest prior work to the success-gated widening, and the paper says we did not reimplement ADR.\n2. **H1 untested.** Ran `rh compare` with wide DR as reference: ret_robust 470.4 vs 386.6, paired p=0.0007. Added to results.tex and RESULTS.md.\n3. **Gate ablation.** Added gate-0.8 rows to the ablation group (5 registered runs; they reproduce the main curriculum runs exactly) and regenerated Table III. Text now says the variants are indistinguishable at 5 seeds (paired p vs gate 0.8: 0.19, 0.22, 0.85); the speculative explanation is dropped.\n4. **Fig. 3 caption.** Now \"mean and spread over 5 seeds\".\n5. **CEM std floor.** Added to method.tex.\n6. **Uncited folklore / ADR.** The conservativeness claim is now worded as \"often argued\" with a note that no source measuring it was found; ADR cited (see 1).\n7. **Smoke runs.** Not recorded in the registry; setup.tex now says so plainly, and limitations notes the design was adapted after seeing a reported seed.\n8. **Ranking overstatement.** Reworded: all tie at w=0.25; ordering no DR < narrow < wide \u2248 curriculum where systems separate (w>=0.75).\n9. **Table legibility.** Main table reduced to 5 columns (dropped ret_w50) and the ablation table to 4 (dropped ret_w100 and train_width_end, removing the meaningless arrow).\n10. **Logs/VERDICT/provenance.** run.py now prints the final metrics (used by the new gate-0.8 runs; older runs were not re-executed, since their outputs are unchanged by this print). VERDICT.md was regenerated but still lists ablation deltas as missing, because the ablation group's reference name for the method differs from the main-group method name; the comparison is given in the compare CSV and text instead. Provenance commit hashes for the earlier runs remain the scaffold commit and cannot be repaired retroactively; the code is now committed.\n",
+      "seconds": 170
+    }
+  ]
 }

@@ -1,0 +1,10 @@
+# rh run | Thu Oct  1 20:13:13 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system language --seed 4 --eval_every 10 --tag _dense --out results/raw/dense_language_4.json
+
+step 0 val_success 0.040
+step 500 val_success 0.925
+step 1000 val_success 0.938
+step 1500 val_success 0.945
+step 2000 val_success 0.954
+{"success_rate": 0.9307500123977661, "final_dist": 0.19479815661907196, "success_auc": 0.9262686553063677, "episodes_to_50": 1280, "episodes_to_90": 1920, "val_success_final": 0.9539999961853027}

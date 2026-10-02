@@ -1,0 +1,30 @@
+\begin{tabular}{llcccccccc}
+\toprule
+Method & Task & cum\_reward $\uparrow$ & post\_reward $\uparrow$ & early\_reward $\uparrow$ & late\_reward $\uparrow$ & first\_goal\_step $\downarrow$ & pre\_reward $\uparrow$ & runtime\_s $\downarrow$ & seeds \\
+\midrule
+Q-learning & blocking & 5.80 $\pm$ 6.62 & 1.50 $\pm$ 1.67 & 1.55 $\pm$ 1.19 & 0.25 $\pm$ 0.44 & \underline{515.65 $\pm$ 760.07} & 4.30 $\pm$ 7.06 & \textbf{0.00 $\pm$ 0.00} & 20 \\
+Dyna-Q+ & blocking & \textbf{92.55 $\pm$ 14.34} & \textbf{51.85 $\pm$ 18.16} & 4.75 $\pm$ 6.54 & \textbf{23.75 $\pm$ 2.63} & \textbf{426.45 $\pm$ 168.97} & \underline{40.70 $\pm$ 13.68} & 0.03 $\pm$ 0.00 & 20 \\
+Prioritized sweeping & blocking & \underline{84.25 $\pm$ 38.81} & \underline{29.80 $\pm$ 34.78} & \textbf{18.60 $\pm$ 12.68} & \underline{13.35 $\pm$ 12.81} & 515.65 $\pm$ 760.07 & \textbf{54.45 $\pm$ 27.26} & 0.07 $\pm$ 0.02 & 20 \\
+\textbf{Dyna-Q} & blocking & 64.50 $\pm$ 39.90 & 28.25 $\pm$ 37.35 & \underline{7.90 $\pm$ 10.56} & 11.05 $\pm$ 13.71 & 766.90 $\pm$ 788.22 & 36.25 $\pm$ 26.55 & \underline{0.02 $\pm$ 0.00} & 20 \\
+\midrule
+Q-learning & shortcut & 115.10 $\pm$ 38.94 & 112.00 $\pm$ 38.78 & 0.30 $\pm$ 0.47 & \underline{38.00 $\pm$ 10.55} & \underline{1165.50 $\pm$ 1135.29} & 3.10 $\pm$ 2.00 & \textbf{0.01 $\pm$ 0.00} & 20 \\
+Dyna-Q+ & shortcut & \textbf{315.90 $\pm$ 16.82} & \textbf{229.65 $\pm$ 8.29} & 0.05 $\pm$ 0.22 & \textbf{40.85 $\pm$ 2.21} & \textbf{1043.15 $\pm$ 353.15} & 86.25 $\pm$ 14.20 & 0.05 $\pm$ 0.00 & 20 \\
+Prioritized sweeping & shortcut & \underline{266.40 $\pm$ 45.53} & \underline{166.15 $\pm$ 16.18} & \textbf{2.65 $\pm$ 5.70} & 28.80 $\pm$ 5.35 & 1165.50 $\pm$ 1135.29 & \textbf{100.25 $\pm$ 51.08} & 0.09 $\pm$ 0.03 & 20 \\
+\textbf{Dyna-Q} & shortcut & 256.75 $\pm$ 46.29 & 165.75 $\pm$ 2.00 & \underline{1.80 $\pm$ 4.34} & 27.55 $\pm$ 0.83 & 1194.20 $\pm$ 826.61 & \underline{91.00 $\pm$ 46.49} & \underline{0.04 $\pm$ 0.00} & 20 \\
+\midrule
+Q-learning & static & 86.25 $\pm$ 55.72 & 75.65 $\pm$ 43.30 & 1.55 $\pm$ 1.19 & 34.40 $\pm$ 13.92 & \underline{457.60 $\pm$ 580.67} & 10.60 $\pm$ 19.11 & \textbf{0.00 $\pm$ 0.00} & 20 \\
+Dyna-Q+ & static & \underline{207.80 $\pm$ 12.59} & 124.95 $\pm$ 3.36 & 4.75 $\pm$ 6.54 & 41.25 $\pm$ 3.48 & \textbf{426.45 $\pm$ 168.97} & \underline{82.85 $\pm$ 14.37} & 0.03 $\pm$ 0.00 & 20 \\
+Prioritized sweeping & static & \textbf{220.60 $\pm$ 49.98} & \underline{127.75 $\pm$ 14.20} & \textbf{18.60 $\pm$ 12.68} & \underline{44.10 $\pm$ 1.45} & 457.60 $\pm$ 580.67 & \textbf{92.85 $\pm$ 39.97} & 0.04 $\pm$ 0.01 & 20 \\
+\textbf{Dyna-Q} & static & 200.15 $\pm$ 48.53 & \textbf{128.40 $\pm$ 17.39} & \underline{7.90 $\pm$ 10.56} & \textbf{44.15 $\pm$ 0.99} & 652.10 $\pm$ 562.45 & 71.75 $\pm$ 38.83 & \underline{0.02 $\pm$ 0.00} & 20 \\
+\midrule
+Q-learning & stochastic & 49.05 $\pm$ 34.01 & 42.45 $\pm$ 28.32 & 1.10 $\pm$ 1.12 & \textbf{17.30 $\pm$ 10.19} & \underline{501.30 $\pm$ 493.16} & 6.60 $\pm$ 7.03 & \textbf{0.01 $\pm$ 0.00} & 20 \\
+Dyna-Q+ & stochastic & 65.60 $\pm$ 10.38 & 36.55 $\pm$ 7.10 & 4.05 $\pm$ 4.39 & 11.25 $\pm$ 5.30 & \textbf{386.75 $\pm$ 207.16} & \textbf{29.05 $\pm$ 8.05} & 0.03 $\pm$ 0.00 & 20 \\
+Prioritized sweeping & stochastic & \textbf{74.15 $\pm$ 12.71} & \textbf{48.70 $\pm$ 9.60} & \underline{4.30 $\pm$ 5.03} & \underline{17.05 $\pm$ 4.26} & 501.30 $\pm$ 493.16 & \underline{25.45 $\pm$ 13.24} & 0.16 $\pm$ 0.02 & 20 \\
+\textbf{Dyna-Q} & stochastic & \underline{71.05 $\pm$ 28.76} & \underline{46.10 $\pm$ 16.98} & \textbf{4.30 $\pm$ 4.95} & 15.40 $\pm$ 6.13 & 634.75 $\pm$ 678.76 & 24.95 $\pm$ 14.95 & \underline{0.02 $\pm$ 0.00} & 20 \\
+\midrule
+Q-learning & stoch\_blocking & 5.05 $\pm$ 4.15 & 2.35 $\pm$ 3.60 & 1.10 $\pm$ 1.12 & 0.70 $\pm$ 1.63 & \underline{583.40 $\pm$ 644.51} & 2.70 $\pm$ 2.43 & \textbf{0.01 $\pm$ 0.00} & 20 \\
+Dyna-Q+ & stoch\_blocking & \textbf{33.90 $\pm$ 8.72} & \textbf{18.40 $\pm$ 5.28} & 4.05 $\pm$ 4.39 & \textbf{7.70 $\pm$ 3.15} & \textbf{386.75 $\pm$ 207.16} & \textbf{15.50 $\pm$ 6.68} & 0.03 $\pm$ 0.00 & 20 \\
+Prioritized sweeping & stoch\_blocking & \underline{22.55 $\pm$ 10.92} & \underline{9.30 $\pm$ 11.87} & \underline{4.30 $\pm$ 5.03} & \underline{4.80 $\pm$ 5.66} & 583.40 $\pm$ 644.51 & 13.25 $\pm$ 10.08 & 0.14 $\pm$ 0.03 & 20 \\
+\textbf{Dyna-Q} & stoch\_blocking & 22.00 $\pm$ 15.71 & 8.20 $\pm$ 12.00 & \textbf{4.30 $\pm$ 4.95} & 4.00 $\pm$ 5.66 & 610.00 $\pm$ 647.41 & \underline{13.80 $\pm$ 10.43} & \underline{0.02 $\pm$ 0.00} & 20 \\
+\bottomrule
+\end{tabular}

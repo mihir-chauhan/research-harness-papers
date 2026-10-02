@@ -1,0 +1,10 @@
+# rh run | Thu Oct  1 20:08:11 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system discrete --seed 2 --tau 1.0 --tag _tau1.0 --out results/raw/tau_1.0_2.json
+
+step 0 val_success 0.000
+step 500 val_success 0.637
+step 1000 val_success 0.653
+step 1500 val_success 0.638
+step 2000 val_success 0.644
+{"success_rate": 0.6414999961853027, "final_dist": 0.25691118836402893, "success_auc": 0.6003333301771254, "episodes_to_50": 6400, "episodes_to_90": 128000, "val_success_final": 0.6439999938011169, "msgs_used": 10}

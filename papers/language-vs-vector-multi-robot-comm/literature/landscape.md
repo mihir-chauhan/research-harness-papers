@@ -1,0 +1,5 @@
+# Landscape
+- Learned continuous communication trained by backprop: CommNet (sukhbaatar2016learning), DIAL (foerster2016learning; also discrete channel with noise), TarMAC (das2018tarmac).
+- Emergent discrete languages: Lazaridou et al. (lazaridou2016multi), Mordatch & Abbeel (mordatch2017emergence), Havrylov & Titov (havrylov2017emergence) with Gumbel-softmax (jang2016categorical). Kottur et al. (kottur2017natural) show emergent language need not be natural/compositional; Lowe et al. (lowe2019pitfalls) show that positive-signalling metrics can mislead.
+- Partner robustness: Other-Play (hu2020other) and Any-Play show that self-play conventions break under cross-play; zero-shot emergent communication work targets partner generalisation.
+- Gap: controlled embodied comparison at matched capacity of none/continuous/discrete/fixed human-readable language on success, sample efficiency and cross-play. Closest work compares channel types but not against a fixed legible language proxy with cross-play.

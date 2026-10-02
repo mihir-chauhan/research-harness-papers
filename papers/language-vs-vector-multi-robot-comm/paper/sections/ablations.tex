@@ -1,0 +1,23 @@
+Table~\ref{tab:sweeps} and Figs.~\ref{fig:sweepv}--\ref{fig:sweepn} show capacity and noise sweeps (5 seeds each; $V{=}4$ and $\sigma{=}0.1$ coincide with the main runs).
+
+\begin{table}[t]\centering\caption{Sweeps: success\_rate and success\_auc (mean $\pm$ std over 5 seeds). $V$: grid words per axis / tokens per slot; $\sigma$: continuous channel noise.}\label{tab:sweeps}
+\resizebox{\columnwidth}{!}{\input{generated/sweeps_summary.tex}}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{sweep_vocab_success.pdf}
+\caption{Success versus $V$ for the discrete and language channels.}\label{fig:sweepv}\end{figure}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{sweep_noise_success.pdf}
+\caption{Success of the continuous vector versus channel noise $\sigma$.}\label{fig:sweepn}\end{figure}
+
+Both symbolic channels improve monotonically with $V$; the fixed language is ahead of the (untuned, see below) discrete channel at every $V$ except $V{=}2$, where they are equal (0.288 for both). The continuous vector degrades quickly with noise, from 1.000 at $\sigma{=}0$ to 0.301 at $\sigma{=}1.0$: its advantage in the main table depends on a low-noise channel, whereas the quantised channels are by design robust to small perturbations. Hence the headline ranking is sensitive to channel capacity and noise, and the single main setting should not be generalised.
+
+
+\textbf{Discrete-channel temperature.} The discrete baseline uses a Gumbel-softmax temperature $\tau{=}1$ without annealing, and its trained speakers emit only 10--13 of the 16 possible messages. An auditor's single-seed probe suggested a lower temperature might help a lot, so we swept $\tau\in\{0.3,0.5,1,2\}$ with 5 seeds each (Table~\ref{tab:tau}; \texttt{val\_success\_final} is the last validation success, the quantity one would select on, \texttt{msgs\_used} the number of distinct messages emitted on test targets). The best setting by validation, $\tau{=}0.5$, reaches 0.721 test success with a large seed spread (std 0.090) versus 0.678 at $\tau{=}1$; the differences between temperatures are within one standard deviation, so the 5-seed data do not show a reliable temperature effect, and even the best setting stays below the language (0.931). Individual seeds can be much better (the probe's seed reached 0.867), so the discrete baseline's rank is sensitive to seed and optimisation details; annealing, longer training or other estimators were not tried and could change it.
+
+\begin{table}[t]\centering\caption{Discrete channel, Gumbel temperature $\tau$ (mean $\pm$ std over 5 seeds, $V{=}4$).}\label{tab:tau}
+\resizebox{\columnwidth}{!}{\input{generated/abl_tau.tex}}\end{table}
+
+\textbf{Dense early evaluation.} To check the sample-efficiency claim at finer granularity we re-trained the three learned channels with validation every 640 episodes (Table~\ref{tab:dense}; the metrics here are computed on this finer grid, \texttt{episodes\_to\_90} is capped at 128000 when 90\% is never reached, as for the discrete channel).
+
+\begin{table}[t]\centering\caption{Dense evaluation (every 640 episodes), mean $\pm$ std over 5 seeds.}\label{tab:dense}
+\resizebox{\columnwidth}{!}{\input{generated/dense_eval.tex}}\end{table}

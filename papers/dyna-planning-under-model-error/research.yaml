@@ -1,0 +1,109 @@
+slug: dyna-planning-under-model-error
+direction: 'Model-based RL under model error: Dyna-Q with a learned tabular model
+  on gridworlds whose dynamics change mid-training or are stochastic. How does the
+  number of planning steps trade sample efficiency against the damage from a stale
+  or wrong model? Compare Q-learning (no planning), Dyna-Q, Dyna-Q+ (exploration bonus
+  for stale transitions) and prioritized sweeping.'
+problem: How planning-step count trades sample efficiency against stale or wrong learned
+  tabular models in Dyna-style agents.
+gap: Textbook comparisons (Sutton & Barto) show single runs of Dyna-Q/Dyna-Q+ on two
+  mazes; no paired-seed sweep of n across staleness, shortcut, and stochastic regimes
+  with prioritized sweeping.
+contribution: A controlled small-scale reimplementation study of Q-learning, Dyna-Q,
+  Dyna-Q+ and prioritized sweeping over planning steps n on five maze regimes, with
+  10-20 seeds and ablations of the Dyna-Q+ components.
+hypotheses:
+- id: H1
+  statement: On a static maze, planning raises early reward over Q-learning.
+  test: early_reward, static task, Dyna-Q n=10 vs Q-learning, 20 seeds
+- id: H2
+  statement: On the blocking maze larger n hurts recovery for Dyna-Q; Dyna-Q+ recovers
+    better.
+  test: post_reward on blocking vs n and vs Dyna-Q+
+- id: H3
+  statement: On the shortcut maze Dyna-Q+ gets more post-change reward than Dyna-Q.
+  test: post_reward on shortcut
+- id: H4
+  statement: Under slip 0.3 the benefit of planning shrinks or reverses at large n.
+  test: cum_reward on stochastic vs n
+- id: H5
+  statement: Prioritized sweeping matches Dyna-Q on static tasks and shares its staleness
+    failure.
+  test: cum_reward static, post_reward blocking
+method:
+  name: Dyna-Q
+  summary: Tabular Dyna-Q with last-outcome deterministic model and n uniform planning
+    updates per real step, studied over n and compared against reimplemented Q-learning,
+    Dyna-Q+, prioritized sweeping.
+  components:
+  - last-outcome model
+  - uniform planning
+  entrypoint: method/run.py
+tasks:
+- blocking
+- shortcut
+- static
+- stochastic
+- stoch_blocking
+metrics:
+  cum_reward:
+    higher_is_better: true
+  post_reward:
+    higher_is_better: true
+  early_reward:
+    higher_is_better: true
+  late_reward:
+    higher_is_better: true
+  first_goal_step:
+    higher_is_better: false
+  pre_reward:
+    higher_is_better: true
+  runtime_s:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- Q-learning
+- Dyna-Q+
+- Prioritized sweeping
+ablations:
+- Dyna-Q+ w/o bonus
+- Dyna-Q+ w/o untried
+- Dyna-Q+ w/o both
+ambition:
+  target_tier: 2
+  primary_metric: cum_reward
+  primary_task: blocking
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

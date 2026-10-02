@@ -1,0 +1,89 @@
+slug: language-vs-vector-multi-robot-comm
+direction: 'Natural-language-like versus learned-vector communication for multi-robot coordination. At
+  CPU scale: two or three simulated point robots on a 2D cooperative task (e.g. rendezvous or cooperative
+  coverage with partial observability). Compare (a) no communication, (b) a learned continuous message
+  vector, (c) a learned discrete token channel, and (d) a fixed, human-readable templated language of
+  symbolic utterances (the small-scale stand-in for natural language; no LLM). Measure task success, sample
+  efficiency and whether a receiver trained with one sender can work with another (cross-play). Be explicit
+  that the templated language is a proxy for natural language.'
+problem: Do multi-robot teams coordinate better through a learned continuous vector, a learned discrete
+  token channel, a fixed human-readable templated language, or nothing, and do these channels survive
+  partner swap (cross-play)?
+gap: Emergent-communication work compares channel types in games, rarely in a controlled embodied task
+  with matched capacity, and rarely measures sample efficiency and partner-swap robustness together against
+  a fixed human-readable language.
+contribution: A small, fully reproducible CPU comparison of four channels (none, continuous, discrete,
+  templated-language proxy) in a hidden-target two-robot rendezvous, with success, sample efficiency and
+  cross-play, 5 seeds, plus capacity and noise sweeps. The templated language is a proxy for natural language,
+  not natural language.
+hypotheses:
+- id: H1
+  statement: Every communicating system beats no communication on success rate.
+  test: 'main: success_rate vs No communication'
+- id: H2
+  statement: The fixed templated language is more sample-efficient (higher success_auc) than both learned
+    channels, because only the listener must learn.
+  test: 'main: success_auc'
+- id: H3
+  statement: At matched capacity (16 messages) the learned continuous vector reaches higher final success
+    than the templated language, which is capped by its grid resolution.
+  test: 'main: success_rate'
+- id: H4
+  statement: Cross-play success of the templated language equals its self-play success, while learned
+    channels lose success when paired with a speaker from another seed.
+  test: 'xplay vs main: success_rate'
+method:
+  name: Templated language (proxy)
+  summary: Speaker utters a fixed 2-word template naming the row and column word of a g x g grid cell
+    containing the target; listener learns to interpret it. Compared with no communication, a continuous
+    message vector and a discrete Gumbel-softmax token channel, all trained with the same pathwise-gradient
+    objective.
+  components:
+  - fixed lexicon
+  - learned listener
+  entrypoint: method/run.py
+tasks:
+- rendezvous
+metrics:
+  success_rate:
+    higher_is_better: true
+  success_auc:
+    higher_is_better: true
+  final_dist:
+    higher_is_better: false
+  episodes_to_50:
+    higher_is_better: false
+  xplay_success:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- No communication
+- Continuous vector (DIAL-style, reimplemented)
+- Discrete tokens (Gumbel-softmax, reimplemented)
+ablations:
+- Templated language (proxy)
+- Discrete tokens (Gumbel-softmax, reimplemented)
+- Continuous vector (DIAL-style, reimplemented)
+ambition:
+  target_tier: 2
+  primary_metric: success_rate
+  primary_task: rendezvous
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
