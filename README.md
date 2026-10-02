@@ -15,6 +15,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 | Field | Paper | Directory |
 |---|---|---|
 | computer-vision | Label noise robustness of a small CNN on 8x8 digits: cross-entropy, label smoothing, mixup and small-loss selection | [`papers/label-noise-augmentation-small-cnn`](papers/label-noise-augmentation-small-cnn) |
+| computer-vision | Does Self-Supervised Pretraining Help with Few Labels at Toy Scale? A Multi-Seed Study on 8$\times$8 Digits | [`papers/self-supervised-few-labels-digits`](papers/self-supervised-few-labels-digits) |
 | control-systems | Class-K Gain and Sampling Period in One-Constraint CBF Safety Filters: A Small Empirical Comparison on a Double Integrator and a Unicycle | [`papers/cbf-safety-filter-conservatism`](papers/cbf-safety-filter-conservatism) |
 | control-systems | Energy-Deviation Running Costs for iLQR Model-Predictive Swing-Up: A Small Controlled Comparison on Pendulum and Cart-Pole | [`papers/energy-cost-trajectory-optimisation`](papers/energy-cost-trajectory-optimisation) |
 | control-systems | Sparse Regression, Neural ODEs and Linear Least Squares for Identification Under Measurement Noise: Prediction Error and Closed-Loop LQR/MPC Cost | [`papers/sindy-vs-neural-ode-sysid-noise`](papers/sindy-vs-neural-ode-sysid-noise) |

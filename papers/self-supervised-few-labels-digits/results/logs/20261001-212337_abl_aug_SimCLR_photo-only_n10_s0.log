@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:23:37 2026
+# cwd: .
+# cmd: python method/run.py --task n10 --seed 0 --out results/raw/abl_aug_photo_n10_s0.json --system simclr --aug photo
+
+config: {"system": "simclr", "task": "n10", "seed": 0, "out": "results/raw/abl_aug_photo_n10_s0.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "photo", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+loaded cached encoder simclr_s0_e60_b128_lr0.001_t0.5_photo_w32
+metrics: {"pretrain_loss": 3.6985834360122682, "test_acc": 0.6277665995975855, "train_acc": 1.0, "seconds": 0.06727313995361328}

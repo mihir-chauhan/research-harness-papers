@@ -1,0 +1,23 @@
+\begin{tabular}{llrrr}
+\toprule
+Task & Baseline & $\Delta$ acc & paired $p$ & $d$ \\
+\midrule
+n10 & PCA + LR & 0.321 & 0.0002 & 6.2 \\
+n10 & Pixels + LR & 0.262 & 0.0001 & 5.2 \\
+n10 & Random CNN + probe & 0.280 & 0.0026 & 3.2 \\
+n10 & Rotation (reimplemented) & 0.386 & 0.0001 & 11.0 \\
+n10 & Supervised scratch & 0.164 & 0.0003 & 4.1 \\
+\midrule
+n50 & PCA + LR & 0.135 & 0.0006 & 5.8 \\
+n50 & Pixels + LR & 0.124 & 0.0012 & 4.2 \\
+n50 & Random CNN + probe & 0.099 & 0.0006 & 5.6 \\
+n50 & Rotation (reimplemented) & 0.183 & 0.0004 & 6.6 \\
+n50 & Supervised scratch & 0.037 & 0.0019 & 2.5 \\
+\midrule
+n200 & PCA + LR & 0.065 & 0.0001 & 6.5 \\
+n200 & Pixels + LR & 0.047 & 0.0002 & 4.0 \\
+n200 & Random CNN + probe & 0.035 & 0.0006 & 2.7 \\
+n200 & Rotation (reimplemented) & 0.070 & 0.0002 & 7.1 \\
+n200 & Supervised scratch & 0.002 & 0.1778 & 0.2 \\
+\bottomrule
+\end{tabular}

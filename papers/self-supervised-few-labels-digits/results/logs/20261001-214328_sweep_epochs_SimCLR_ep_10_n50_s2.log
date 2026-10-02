@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:43:28 2026
+# cwd: .
+# cmd: python method/run.py --task n50 --seed 2 --out results/raw/sweep_epochs_ep10_n50_s2.json --system simclr --epochs 10
+
+config: {"system": "simclr", "task": "n50", "seed": 2, "out": "results/raw/sweep_epochs_ep10_n50_s2.json", "epochs": 10, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "full", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+metrics: {"pretrain_loss": 4.1006875991821286, "test_acc": 0.9275653923541247, "train_acc": 1.0, "seconds": 9.58151912689209}

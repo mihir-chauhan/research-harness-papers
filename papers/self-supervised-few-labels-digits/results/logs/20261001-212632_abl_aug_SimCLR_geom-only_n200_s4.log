@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:26:32 2026
+# cwd: .
+# cmd: python method/run.py --task n200 --seed 4 --out results/raw/abl_aug_geom_n200_s4.json --system simclr --aug geom
+
+config: {"system": "simclr", "task": "n200", "seed": 4, "out": "results/raw/abl_aug_geom_n200_s4.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "geom", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+loaded cached encoder simclr_s4_e60_b128_lr0.001_t0.5_geom_w32
+metrics: {"pretrain_loss": 3.7516836881637574, "test_acc": 0.9859154929577465, "train_acc": 1.0, "seconds": 0.07596516609191895}

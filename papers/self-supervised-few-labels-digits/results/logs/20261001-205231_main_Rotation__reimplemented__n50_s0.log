@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:52:31 2026
+# cwd: .
+# cmd: python method/run.py --task n50 --seed 0 --out results/raw/main_rot_n50_s0.json --system rotation
+
+config: {"system": "rotation", "task": "n50", "seed": 0, "out": "results/raw/main_rot_n50_s0.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "full", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+metrics: {"pretrain_loss": 0.0014639148081187158, "test_acc": 0.7806841046277666, "train_acc": 1.0, "seconds": 164.05930018424988}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:26:26 2026
+# cwd: .
+# cmd: python method/run.py --task n10 --seed 4 --out results/raw/abl_supaug_supaug_n10_s4.json --system supervised --sup_aug full
+
+config: {"system": "supervised", "task": "n10", "seed": 4, "out": "results/raw/abl_supaug_supaug_n10_s4.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "full", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "full"}
+metrics: {"test_acc": 0.7645875251509054, "train_acc": 1.0, "seconds": 2.65700101852417}

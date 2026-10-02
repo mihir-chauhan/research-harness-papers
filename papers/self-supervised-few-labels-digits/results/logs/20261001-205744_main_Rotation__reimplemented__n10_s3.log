@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 20:57:44 2026
+# cwd: .
+# cmd: python method/run.py --task n10 --seed 3 --out results/raw/main_rot_n10_s3.json --system rotation
+
+config: {"system": "rotation", "task": "n10", "seed": 3, "out": "results/raw/main_rot_n10_s3.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "full", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+loaded cached encoder rotation_s3_e60_b128_lr0.001_t0.5_full_w32
+metrics: {"pretrain_loss": 0.023881248850375413, "test_acc": 0.47484909456740443, "train_acc": 1.0, "seconds": 0.18504905700683594}

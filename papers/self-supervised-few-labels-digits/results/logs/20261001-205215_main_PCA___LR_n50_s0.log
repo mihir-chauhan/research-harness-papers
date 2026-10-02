@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:52:15 2026
+# cwd: .
+# cmd: python method/run.py --task n50 --seed 0 --out results/raw/main_pca_n50_s0.json --system pca_lr
+
+config: {"system": "pca_lr", "task": "n50", "seed": 0, "out": "results/raw/main_pca_n50_s0.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "full", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+metrics: {"test_acc": 0.8289738430583501, "train_acc": 1.0, "seconds": 0.01946282386779785}

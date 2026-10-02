@@ -1,0 +1,26 @@
+\begin{tabular}{llcc}
+\toprule
+Method & Task & test\_acc $\uparrow$ & $n$ \\
+\midrule
+Pixels + LR & n50 & 0.831 $\pm$ 0.040 & 5 \\
+Random CNN + probe & n50 & 0.856 $\pm$ 0.022 & 5 \\
+Supervised scratch & n50 & \underline{0.918 $\pm$ 0.017} & 5 \\
+Rotation (reimplemented) & n50 & 0.772 $\pm$ 0.037 & 5 \\
+PCA + LR & n50 & 0.820 $\pm$ 0.031 & 5 \\
+\textbf{SimCLR-style probe} & n50 & \textbf{0.955 $\pm$ 0.012} & 5 \\
+\midrule
+Pixels + LR & n10 & 0.564 $\pm$ 0.061 & 5 \\
+Random CNN + probe & n10 & 0.546 $\pm$ 0.118 & 5 \\
+Supervised scratch & n10 & \underline{0.662 $\pm$ 0.043} & 5 \\
+Rotation (reimplemented) & n10 & 0.441 $\pm$ 0.033 & 5 \\
+PCA + LR & n10 & 0.505 $\pm$ 0.063 & 5 \\
+\textbf{SimCLR-style probe} & n10 & \textbf{0.826 $\pm$ 0.037} & 5 \\
+\midrule
+Pixels + LR & n200 & 0.932 $\pm$ 0.013 & 5 \\
+Random CNN + probe & n200 & 0.944 $\pm$ 0.015 & 5 \\
+Supervised scratch & n200 & \underline{0.976 $\pm$ 0.010} & 5 \\
+Rotation (reimplemented) & n200 & 0.908 $\pm$ 0.010 & 5 \\
+PCA + LR & n200 & 0.914 $\pm$ 0.010 & 5 \\
+\textbf{SimCLR-style probe} & n200 & \textbf{0.979 $\pm$ 0.010} & 5 \\
+\bottomrule
+\end{tabular}

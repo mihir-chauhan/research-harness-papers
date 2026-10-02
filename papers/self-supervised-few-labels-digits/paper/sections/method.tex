@@ -1,0 +1,14 @@
+\textbf{Encoder.} A shared encoder $f_\theta:\mathbb{R}^{8\times8}\to\mathbb{R}^{256}$: three $3\times3$ convolutions (32, 64, 64 channels) with batch norm and ReLU, one $2\times2$ max-pool, and adaptive average pooling to $2\times2$.
+
+\textbf{SimCLR-style (the studied method).} For an unlabeled batch $\{x_i\}_{i=1}^B$, two views $\tilde x_i=t(x_i)$, $\tilde x_i'=t'(x_i)$ are drawn with $t,t'$ from the augmentation family, and $z=g_\phi(f_\theta(\tilde x))$ is normalised by $\ell_2$, where $g_\phi$ is a 256--128--64 MLP. With $s_{jk}=z_j^\top z_k/\tau$ over the $2B$ views, the NT-Xent loss is
+\begin{equation}
+\mathcal{L}=-\frac{1}{2B}\sum_{j=1}^{2B}\log\frac{\exp(s_{j,p(j)})}{\sum_{k\neq j}\exp(s_{jk})},
+\end{equation}
+where $p(j)$ is the other view of the same image. Augmentations are \emph{geometric} (rotation $\pm15^\circ$, shift $\pm1$ px, scale $\pm10\%$, bilinear, zero padding, no flips) and \emph{photometric} (brightness $\times(1\pm0.2)$, Gaussian noise $\sigma=0.1$, clamp to $[0,1]$).
+
+\textbf{Rotation prediction (reimplemented).} Each image is rotated by $k\cdot90^\circ$, $k\in\{0,1,2,3\}$, and a linear head $h$ predicts $k$:
+$\mathcal{L}_{\mathrm{rot}}=-\frac{1}{4B}\sum_{i,k}\log \mathrm{softmax}(h(f_\theta(R_k x_i)))_k$.
+
+\textbf{Linear probe.} For every frozen encoder the 256-d features of the $n$ labeled images are standardised and fed to multinomial logistic regression, $\min_W \; \frac{1}{2C}\lVert W\rVert^2+\sum_i \mathrm{CE}(Wu_i,y_i)$ with $C=1$.
+
+\textbf{Baselines (all reimplemented).} \emph{Supervised scratch}: the same encoder with a linear head, trained end to end with cross-entropy on the $n$ labels (300 Adam steps, no augmentation). \emph{PCA + LR}: $u=P^\top(x-\mu)$ with $P$ the top 16 principal directions of the unlabeled pool pixels, then the same probe. \emph{Pixels + LR}: the probe on the 64 raw pixels. \emph{Random CNN + probe}: an untrained encoder with the same probe, which isolates the effect of pretraining from the architecture.

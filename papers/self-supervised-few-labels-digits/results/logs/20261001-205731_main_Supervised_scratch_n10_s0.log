@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 20:57:31 2026
+# cwd: .
+# cmd: python method/run.py --task n10 --seed 0 --out results/raw/main_sup_n10_s0.json --system supervised
+
+config: {"system": "supervised", "task": "n10", "seed": 0, "out": "results/raw/main_sup_n10_s0.json", "epochs": 60, "batch": 128, "lr": 0.001, "tau": 0.5, "aug": "full", "C": 1.0, "pca_dim": 16, "width": 32, "sup_steps": 300, "sup_lr": 0.001, "sup_wd": 0.0001, "sup_aug": "none"}
+metrics: {"test_acc": 0.607645875251509, "train_acc": 1.0, "seconds": 5.683801889419556}
+

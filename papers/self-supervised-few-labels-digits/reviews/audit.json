@@ -1,0 +1,195 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-for-bit reproducible (SimCLR re-pretrained from scratch and a supervised baseline both match the registry exactly), the code matches the paper, and there is no leakage or hard-coding. The abstract and results overstate or misstate the rotation-vs-PCA/random comparison, and the abstract's claim that the sweeps show the defaults are not optimal contradicts the ablation section; several smaller claims rest on effects within one standard deviation. All are text fixes plus running rh compare on the ablations.",
+      "reran": [
+        {
+          "run": "SimCLR-style probe/n50/0",
+          "metric": "test_acc",
+          "registry": 0.9758551307847082,
+          "rerun": 0.9758551307847082
+        },
+        {
+          "run": "Supervised scratch/n50/0",
+          "metric": "test_acc",
+          "registry": 0.9396378269617707,
+          "rerun": 0.9396378269617707
+        },
+        {
+          "run": "SimCLR-style probe/n10/3",
+          "metric": "test_acc",
+          "registry": 0.8169014084507042,
+          "rerun": 0.8169014084507042
+        },
+        {
+          "run": "PCA + LR/n200/1",
+          "metric": "test_acc",
+          "registry": 0.8993963782696177,
+          "rerun": 0.8993963782696177
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (H2 paragraph)",
+          "issue": "States rotation is 'below PCA + LR at 10 and 200 labels, and about equal to it at 50'. Table I shows the opposite: at n50 rotation is 0.772 vs 0.820 (-0.048), at n200 it is 0.908 vs 0.914 (-0.006, paired p=0.35, rotation wins 2/5 seeds). The budgets are swapped.",
+          "fix": "Rewrite as: below PCA at 10 and 50 labels (paired p=0.05 and 0.10, not resolved with five seeds) and about equal at 200."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex",
+          "issue": "Claims rotation 'is worse than a random frozen encoder and than PCA at every budget, because the pretext task is solved almost perfectly without learning digit-discriminative features'. Versus PCA the n200 gap is 0.006 (under one std, p=0.35) and n50 is p=0.095; versus random at n10 the gap is 0.106 against a std of 0.118 (p=0.09). The causal 'because' is untested; results.tex itself says 'apparently' and that no remedies were tried.",
+          "fix": "Say rotation is below the random encoder at 50 and 200 labels and not better than PCA at any budget; replace 'because' with a hedged hypothesis, or run a fewer-epochs rotation control to test it."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'the temperature and epoch sweeps show that the default settings are not optimal' contradicts ablations.tex ('we make no claim about the optimum') and the data: 30 epochs equals 60 (0.955 both), so no epoch setting beats the default; the tau=1.0 gain is 0.008, about one std, and is a post hoc test-split comparison.",
+          "fix": "Replace with: accuracy is sensitive to temperature and pretraining length at about one standard deviation; tau=1.0 was nominally higher (0.963 vs 0.955) and accuracy saturates by 30 epochs."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (H4), abstract, results/VERDICT.md",
+          "issue": "'both drops are 0.03 or more' is wrong for geometric-only (0.9549-0.9268=0.028). H4 has no rh compare output (VERDICT.md lists ablations as 'missing / NO'). Auditor's paired tests: photo-only p=0.003, geom-only p=0.09.",
+          "fix": "Run rh compare for abl_aug against the main SimCLR row, report the paired p-values, correct the number to 0.028 and 0.037, and state that the geometric-only drop is not resolved at five seeds."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex ('Is the gain just augmentation?')",
+          "issue": "'It helps at 10 labels (0.713 vs 0.662)' is +0.051 with std 0.099 (paired p=0.12, 3/5 seeds), within one standard deviation, so it is not a finding; the 'explains only a part' conclusion builds on it.",
+          "fix": "Say scratch+augmentation is not distinguishable from scratch at any budget and remains below SimCLR at n10 (paired p=0.02)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex ('Where the method is unreliable')",
+          "issue": "'the random frozen encoder already beats pixels and PCA at 50 and 200 labels': versus pixels at n50 the gap is 0.026 with pixels std 0.040 (p=0.12, 3/5 seeds), not resolved.",
+          "fix": "Restrict the claim to PCA at 50 and 200 and pixels at 200."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, method.tex, limitations.tex",
+          "issue": "PCA(16)+LR is called a 'strong classical competitor' but is below raw pixels + LR at every budget in Table I, so the PCA baseline is weak and untuned (dimension fixed at 16, features standardised).",
+          "fix": "Drop 'strong', note that pixels + LR is the stronger classical baseline here, or add a small PCA-dimension sweep."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex",
+          "issue": "BYOL is listed among 'contrastive methods' in the introduction; 'linear-probe conclusions are fragile' is a loose paraphrase of Kolesnikov et al.; Su et al. use jigsaw as well as rotation; 'a few thousand 8x8 images' although the dataset has 1797; uncited claims ('strong classical competitor', 'standard semi-supervised protocols', 'rarely reported'); published papers cited only as arXiv preprints.",
+          "fix": "Tighten the wording, correct the dataset size, add or soften the uncited claims, and cite the published venues."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Compute)",
+          "issue": "'Two driver processes briefly executed identical runs' understates it: 75 of 90 main runs were duplicated. The failed sanity run is not mentioned. Wall-clock was about 52 min against a 45 min budget and one rotation run took 792 s against a 10 min per-run cap. The dropped last partial batch in pretraining is not stated.",
+          "fix": "State the duplicate count, the failed sanity run, the budget overrun and the drop-last detail."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Table II",
+          "issue": "Fifteen paired tests with no multiple-comparison note; the three budgets share one encoder and test split per seed, so they are not independent replications.",
+          "fix": "Add one sentence noting uncorrected p-values and the shared encoder and split across budgets."
+        }
+      ],
+      "commit": "1297b00f31c2ddfe131a35c83c19c8f19310c706"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All tables and prose numbers match the registry, all 161 rows have commands and matching logs, and from-scratch reruns in /tmp reproduced the registry values exactly. The code matches the paper, there is no leakage or hard-coding, the supervised baseline is robust to steps, learning rate and weight decay, citations are used in context, and the framing reports the mixed and negative results. Only minor wording, bookkeeping and rendering issues remain.",
+      "reran": [
+        {
+          "run": "SimCLR-style probe/n50/0",
+          "metric": "test_acc",
+          "registry": 0.9758551307847082,
+          "rerun": 0.9758551307847082
+        },
+        {
+          "run": "Supervised scratch/n50/0",
+          "metric": "test_acc",
+          "registry": 0.9396378269617707,
+          "rerun": 0.9396378269617707
+        },
+        {
+          "run": "Rotation (reimplemented)/n50/2",
+          "metric": "test_acc",
+          "registry": 0.7344064386317908,
+          "rerun": 0.7344064386317908
+        },
+        {
+          "run": "SimCLR-style probe/n10/0",
+          "metric": "test_acc",
+          "registry": 0.8048289738430584,
+          "rerun": 0.8048289738430584
+        },
+        {
+          "run": "SimCLR-style probe/n200/0",
+          "metric": "test_acc",
+          "registry": 0.9798792756539235,
+          "rerun": 0.9798792756539235
+        },
+        {
+          "run": "PCA + LR/n10/3",
+          "metric": "test_acc",
+          "registry": 0.5915492957746479,
+          "rerun": 0.5915492957746479
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'Both augmentation families contribute' is unqualified, but the ablation section rates the geometric-only drop as inconclusive (-0.028, paired p=0.09 at n50; p=0.064 at n10).",
+          "fix": "Reword to match the abstract: removing the geometric family clearly lowers accuracy (p=0.003); removing the photometric family lowers it nominally (0/5 seeds higher) but is not resolved with five seeds."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Compute)",
+          "issue": "States one rotation run (seed 1, n50, 792 s) exceeded the 10-minute cap; the registry shows two (seed 1: 792.4 s and seed 4: 790.2 s).",
+          "fix": "Say two rotation runs (seeds 1 and 4, n50, about 790 s each) exceeded the cap."
+        },
+        {
+          "severity": "minor",
+          "where": "results/RESULTS.md",
+          "issue": "H4 is 'SUPPORTED modestly' while the paper says 'partly supported' (geometric-only inconclusive); H2 says rotation is below the random encoder at all budgets without noting p=0.09 at n10.",
+          "fix": "Align the RESULTS.md verdicts with the paper wording and add the n10 caveat."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Reports p=0.024 for SimCLR vs supervised scratch at n50, whereas rh compare, the paper and an independent recomputation give paired p=0.0019; ablation rows read 'missing / NO' although the ablations were run. The paper does not use this file.",
+          "fix": "Regenerate the verdict with seeds aligned for the paired test, or annotate that compare_main_test_acc.csv and stats_extra.tex are authoritative."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (Tables I, V-VII, Fig. 1)",
+          "issue": "Bold font is substituted with regular (main.log: TU/ptm/bx/n undefined), so 'best bold' in captions is not visible; budgets are ordered n50, n10, n200; Fig. 1 caption says 'mean' although error bars are drawn.",
+          "fix": "Fix the bold font or compile with pdflatex, order budgets 10/50/200, and describe the error bars in the Fig. 1 caption."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, limitations.tex, refs.bib",
+          "issue": "The scikit-learn digits dataset has no reference and 'as is common in semi-supervised protocols' has no citation; all references cite arXiv preprints rather than published venues.",
+          "fix": "Add a scikit-learn / UCI digits citation, cite or drop the protocol remark, and optionally update venues."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Sensitivity)",
+          "issue": "The temperature and epoch comparisons are argued from unpaired std only, while all other comparisons use paired tests; the paired tests (tau=0.1 p=0.010, tau=0.2 p=0.004, tau=1.0 +0.009 p=0.028 5/5 seeds, 10 epochs p=0.002) are not reported. The current wording is conservative.",
+          "fix": "Add the sweep rows to Table IV via stats_extra.py and state the paired results, keeping the post hoc caveat for tau=1.0."
+        }
+      ],
+      "commit": "d71ff6ecbb6e14ea5b8d135034a1df4e81b3cfaf"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (3):\n! 1 failed runs in registry (fine, but check they were rerun)\n! numbers in prose not found in any table or run: results.tex: 0.05\n! verdict tier 1 < target 2: not significant on: n200\nREADY",
+      "response": "# Response to audit\nAdded `method/stats_extra.py` (paired t-tests read from `results/runs.jsonl`) -> `results/tables/stats_extra.tex`, shown as Table \"Additional paired comparisons\" in the results section. `rh compare` cannot compare ablation groups against the main rows, hence the script.\n\n1. (major) H2 budgets swapped: fixed. Text now says rotation is below PCA at 10 and 50 labels (p=0.05, 0.10, unresolved) and about equal at 200.\n2. (major) Abstract rotation claim: rewritten. Rotation is below random at 50/200 labels, not better than PCA at any budget; the causal \"because\" is now an explicitly untested hypothesis. Random-vs-rotation at 10 labels given as p=0.09 in results.\n3. (major) Abstract \"defaults not optimal\": replaced with sensitivity at ~1 std, tau=1.0 nominally higher, saturation by 30 epochs; ablations text notes the tau comparison is post hoc.\n4. (minor) H4: numbers corrected (0.028, 0.037), paired p reported (geom 0.09, photo 0.003); H4 now \"partly supported\".\n5. (minor) Supervised+aug: now stated as indistinguishable from scratch (p=0.12 at n10) and below SimCLR at n10 (p=0.02).\n6. (minor) Random-vs-pixels claim restricted (PCA at 50/200, pixels at 200 only).\n7. (minor) \"strong\" PCA dropped; limitations note that pixels + LR is the stronger classical baseline and PCA is untuned. No PCA-dimension sweep was run.\n8. (minor) BYOL wording, Kolesnikov paraphrase, Su et al. (rotation and jigsaw), dataset size (about 1800), uncited claims softened. Not changed: citing arXiv preprints rather than published venues (the harness generates the BibTeX from arXiv ids; we did not hand-edit it).\n9. (minor) Compute paragraph now gives the 75/90 duplicates, the failed sanity run, ~52 min wall-clock vs 45 min plan, the 792 s rotation run, and drop-last batching.\n10. (minor) Added a note that p-values are uncorrected and that budgets share the encoder and test split per seed.\n",
+      "seconds": 72
+    }
+  ]
+}

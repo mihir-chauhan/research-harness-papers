@@ -1,0 +1,85 @@
+slug: self-supervised-few-labels-digits
+direction: Does self-supervised pretraining help when labels are scarce, at tiny scale?
+  On the scikit-learn 8x8 digits images, pretrain a small CNN encoder with (a) rotation
+  prediction and (b) a SimCLR-style contrastive loss with small augmentations, then
+  train a linear probe with 10, 50 and 200 labels. Compare against supervised training
+  from scratch on the same labels and against PCA features plus logistic regression.
+problem: Whether self-supervised pretraining of a small CNN on an unlabeled pool of
+  8x8 digits improves a linear probe when only 10, 50 or 200 labels are available.
+gap: Label-efficiency evidence for SSL is almost all at ImageNet scale; matched, multi-seed
+  comparisons against PCA+logistic regression and scratch training at toy scale are
+  rarely reported.
+contribution: A small controlled CPU measurement (5 seeds, 3 label budgets) of rotation
+  and SimCLR-style pretraining against scratch, PCA and random-encoder baselines,
+  with augmentation, temperature and epoch ablations.
+hypotheses:
+- id: H1
+  statement: SimCLR linear probe beats supervised scratch at every label budget.
+  test: paired difference over 5 seeds per budget
+- id: H2
+  statement: SimCLR beats rotation pretraining at every budget.
+  test: paired difference over 5 seeds
+- id: H3
+  statement: SSL probes beat PCA+LR at 10 labels and the gap shrinks to within 2 points
+    at 200 labels.
+  test: per-budget gap
+- id: H4
+  statement: Removing either augmentation family lowers SimCLR accuracy.
+  test: ablation at 50 labels
+method:
+  name: SimCLR-style probe
+  summary: Small CNN encoder pretrained with NT-Xent on augmented views of the unlabeled
+    pool, frozen, then a standardized logistic-regression probe on the labeled subset.
+  components:
+  - geometric augmentation
+  - photometric augmentation
+  - NT-Xent loss
+  entrypoint: method/run.py
+tasks:
+- n10
+- n50
+- n200
+metrics:
+  test_acc:
+    higher_is_better: true
+  train_acc:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Rotation prediction (reimplemented)
+- Supervised scratch
+- PCA + LR
+- Pixels + LR
+- Random CNN + probe
+ablations:
+- SimCLR geom-only
+- SimCLR photo-only
+- Supervised + aug
+- SimCLR tau=0.1
+- SimCLR tau=0.2
+- SimCLR tau=1.0
+- SimCLR ep=10
+- SimCLR ep=30
+ambition:
+  target_tier: 2
+  primary_metric: test_acc
+  primary_task: n50
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

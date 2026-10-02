@@ -1,0 +1,125 @@
+{
+  "slug": "self-supervised-few-labels-digits",
+  "direction": "Does self-supervised pretraining help when labels are scarce, at tiny scale? On the scikit-learn 8x8 digits images, pretrain a small CNN encoder with (a) rotation prediction and (b) a SimCLR-style contrastive loss with small augmentations, then train a linear probe with 10, 50 and 200 labels. Compare against supervised training from scratch on the same labels and against PCA features plus logistic regression.",
+  "created": "2026-10-01T18:39:39",
+  "updated": "2026-10-01T21:48:27",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:45:28",
+      "finished": "2026-10-01T21:47:29",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:29",
+          "note": "landscape, proposal, 11 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:47:29",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:29",
+          "note": "see runs registry"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:47:30",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:30",
+          "note": "see runs registry"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:47:30",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:30",
+          "note": "see runs registry"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:47:30",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:30",
+          "note": "see runs registry"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:47:30",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:30",
+          "note": "see runs registry"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:47:30",
+      "notes": [
+        {
+          "t": "2026-10-01T21:47:30",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:48:27",
+      "notes": [
+        {
+          "t": "2026-10-01T21:48:27",
+          "note": "5 pages, 11 refs verified"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T21:45:31",
+      "phase": "experiments",
+      "decision": "Two driver processes (a leftover from the interrupted session plus mine) executed the same main runs concurrently, giving 75 duplicate registry rows with identical metrics (deterministic seeds). Kept the first row per (group,name,task,seed,config); the full original file is kept as results/runs_raw_with_duplicates.jsonl."
+    },
+    {
+      "t": "2026-10-01T21:47:29",
+      "phase": "ablations",
+      "decision": "Ran geom-only/photo-only, scratch+aug, tau and epoch sweeps on all 5 seeds; sweeps at n50 only to fit the CPU budget; no tuning on test split, defaults fixed in advance."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

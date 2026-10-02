@@ -1,0 +1,21 @@
+All ablations change one setting of the SimCLR-style pretraining and keep the probe, splits and seeds fixed; they are run on the same five seeds. The full method (both augmentation families, $\tau=0.5$, 60 epochs) is the \texttt{SimCLR-style probe} row of Table~\ref{tab:main}.
+
+\begin{table}[t]\centering\caption{Augmentation ablation: test accuracy of SimCLR with one augmentation family only (5 seeds).}\label{tab:abl}
+\resizebox{0.85\columnwidth}{!}{\input{generated/abl_aug.tex}}\end{table}
+
+\begin{table}[t]\centering\caption{Supervised scratch with the full SimCLR augmentation applied to the labeled examples (5 seeds).}\label{tab:supaug}
+\resizebox{0.85\columnwidth}{!}{\input{generated/abl_supaug.tex}}\end{table}
+
+\textbf{H4 (augmentations matter): partly supported.} At 50 labels the full augmentation reaches 0.955 (Table~\ref{tab:main}), geometric-only 0.927 and photometric-only 0.918 (Table~\ref{tab:abl}); the drops are 0.028 (geometric-only; paired $p=0.09$, 0/5 seeds higher, not resolved with five seeds) and 0.037 (photometric-only; $p=0.003$) (Table~\ref{tab:extra}). Only the photometric drop is clearly resolved, so H4 is supported for photometric-only and inconclusive for geometric-only. At 10 labels the ordering is the same, but the seed std of geometric-only is 0.116, so that comparison is inconclusive. Geometric-only is not distinguishable from photometric-only.
+
+\textbf{Is the gain just augmentation?} Table~\ref{tab:supaug} gives scratch training with the same augmentations. It is not distinguishable from plain scratch at any budget (10 labels: 0.713 vs 0.662, std 0.099, $p=0.12$, 3/5 seeds) and remains below SimCLR at 10 labels ($p=0.02$; Table~\ref{tab:extra}). So in this setup augmentation of the labeled examples alone does not reproduce the SimCLR advantage.
+
+\begin{figure}[t]\centering
+\includegraphics[width=\columnwidth]{sensitivity_n50.pdf}
+\caption{Sensitivity at 50 labels: temperature $\tau$ (left) and pretraining epochs (right); mean $\pm$ std over 5 seeds, including the defaults from the main runs.}\label{fig:sweep}\end{figure}
+
+\begin{table}[t]\centering\caption{Temperature and epoch sweeps at 50 labels (5 seeds). Defaults, $\tau=0.5$ and 60 epochs, are in Table~\ref{tab:main}.}\label{tab:sweep}
+\resizebox{0.85\columnwidth}{!}{\input{generated/sweep_tau.tex}}\\[3pt]
+\resizebox{0.85\columnwidth}{!}{\input{generated/sweep_epochs.tex}}\end{table}
+
+\textbf{Sensitivity.} A higher temperature ($\tau=1.0$: 0.963) is slightly better than the default (0.955) and lower values (0.942) are worse (Table~\ref{tab:sweep}, Fig.~\ref{fig:sweep}); the differences are about one seed standard deviation, so we make no claim about the optimum; the $\tau=1.0$ comparison is post hoc on the test split, and the default was not tuned on it. Shortening pretraining to 10 epochs costs about 0.015 compared with 60; 30 epochs matches the default (0.955), so accuracy saturates early at this scale.
