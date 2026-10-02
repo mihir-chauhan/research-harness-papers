@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:47:19 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --h 0.4 --mu 1.0 --seed 4 --out results/raw/sweep_deg_mlp2_h0.4_mu1.0_s4.json --deg 2
+
+config {"system": "mlp", "h": 0.4, "mu": 1.0, "seed": 4, "n": 900, "k": 3, "deg": 2.0, "dim": 16, "hid": 32, "dropout": 0.5, "lr": 0.01, "wd": 0.005, "epochs": 300, "patience": 100, "sep": 1, "twohop": 0, "out": "results/raw/sweep_deg_mlp2_h0.4_mu1.0_s4.json"}
+metrics {"accuracy": 0.5740740895271301, "val_accuracy": 0.5888888835906982, "realized_h": 0.41713014460511677, "seconds": 0.6793608665466309}

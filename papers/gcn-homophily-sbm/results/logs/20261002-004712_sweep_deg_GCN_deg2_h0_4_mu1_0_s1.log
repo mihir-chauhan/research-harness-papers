@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:47:12 2026
+# cwd: .
+# cmd: python method/run.py --system gcn --h 0.4 --mu 1.0 --seed 1 --out results/raw/sweep_deg_gcn2_h0.4_mu1.0_s1.json --deg 2
+
+config {"system": "gcn", "h": 0.4, "mu": 1.0, "seed": 1, "n": 900, "k": 3, "deg": 2.0, "dim": 16, "hid": 32, "dropout": 0.5, "lr": 0.05, "wd": 0.0005, "epochs": 300, "patience": 100, "sep": 1, "twohop": 0, "out": "results/raw/sweep_deg_gcn2_h0.4_mu1.0_s1.json"}
+metrics {"accuracy": 0.49444442987442017, "val_accuracy": 0.5111111402511597, "realized_h": 0.3807390817469205, "seconds": 0.8003747463226318}

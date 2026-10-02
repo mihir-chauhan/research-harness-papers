@@ -1,0 +1,97 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers, tables and p-values were reproduced independently from the 736-run registry; four re-executed runs and the full tuning grid are bit-identical to the registry and log, with no leakage, hard-coding or hand-logged metrics. The paper reports its mixed and negative hypothesis outcomes honestly with adequate limitations; only minor wording, attribution and disclosure issues remain.",
+      "reran": [
+        {
+          "run": "GCN (reimplemented)/h0.3_mu1.0/2",
+          "metric": "accuracy",
+          "registry": 0.42407408356666565,
+          "rerun": 0.42407408356666565
+        },
+        {
+          "run": "MLP/h0.3_mu1.0/2",
+          "metric": "accuracy",
+          "registry": 0.5166666507720947,
+          "rerun": 0.5166666507720947
+        },
+        {
+          "run": "H2GCN-style (reimplemented)/h0.0_mu1.0/4",
+          "metric": "accuracy",
+          "registry": 0.9444444179534912,
+          "rerun": 0.9444444179534912
+        },
+        {
+          "run": "H2GCN tied weights/h0.1_mu1.0/1",
+          "metric": "accuracy",
+          "registry": 0.3462963104248047,
+          "rerun": 0.3462963104248047
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, contribution (iii)",
+          "issue": "Claims the ablation shows ego/neighbour separation 'not extra capacity' is what matters, but no capacity-matched control was run; the tied model also has fewer parameters. An auditor-side check (tied with hidden 64 still 0.32-0.36; full with hidden 16 still 0.72-0.75 at h=0.1, mu=1) suggests the claim is true but it is untested in the paper.",
+          "fix": "Add the capacity control (tied with wider hidden, full with narrower hidden) to the ablation, or drop 'not extra capacity'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, H3",
+          "issue": "The second clause of H3 (LP below MLP for h<=0.5) is reported only at mu=1 where it holds; at mu=0.5, h=0.5 LP beats the MLP (0.501 vs 0.390) and at h=0.4 they tie. Verdict (refuted) is unchanged.",
+          "fix": "State that the second clause also fails at mu=0.5, h=0.5."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'Label propagation wins only at the highest homophily' is loose: LP is best from h>=0.6 at mu=0.5.",
+          "fix": "Say 'high-homophily corner (h>=0.6 with weak features, h>=0.9 otherwise)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, 'Where the methods fail'",
+          "issue": "'GCN: h in [0.2,0.4] for mu>=1' understates mu=2, where GCN is also below the MLP at h=0.1 (-10.0 points) and h=0.5 (-4.3, p=0.058).",
+          "fix": "Give the range as h in [0.1,0.5] for mu=2."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, degree sweep",
+          "issue": "MLP accuracy varies with degree (0.539 to 0.602) only because changing d shifts the random stream and redraws features and split; this is not explained. The 'denser graphs rescue GCN' conclusion is attached to the H2GCN comparison rather than the GCN row.",
+          "fix": "Add a sentence that features and split differ across d so the MLP variation is sampling noise, and tie the conclusion to the GCN-MLP row."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex and limitations.tex",
+          "issue": "Ablation variants (tied, 2-hop) and the degree sweep reuse the d=10 H2GCN/GCN/MLP hyperparameters without retuning; not stated.",
+          "fix": "Add this to limitation (iv)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex and introduction.tex",
+          "issue": "Label propagation (Zhou-style in the code and brief) has no citation, and the 'GCN drops below the MLP at mid homophily' claim tested in contribution (ii) is not attributed to a source.",
+          "fix": "Cite Zhou et al. 2004 for label propagation and a source for the mid-homophily claim, or rephrase it as the authors' own hypothesis."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/main_mu1.tex (Table I)",
+          "issue": "p-values are printed as 0.000.",
+          "fix": "Print '<0.001'."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md and results/tables/compare_main_accuracy.csv",
+          "issue": "The harness verdict lists ablations as 'missing' and reports 'TARGET NOT REACHED' because GCN is designated the method; rh compare output covers only h0.3_mu1.0, with the other p-values coming from experiments/analyze.py (reproduced by the auditor).",
+          "fix": "Annotate VERDICT.md as a harness artefact and generate rh compare output for the other cells whose p-values are quoted (h=0.2, 0.4, 0.5 at mu=1)."
+        }
+      ],
+      "commit": "a65445e67ca819d8af794274c33ecf9d9aa1b356"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

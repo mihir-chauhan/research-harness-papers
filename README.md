@@ -22,6 +22,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 | control-systems | Sparse Regression, Neural ODEs and Linear Least Squares for Identification Under Measurement Noise: Prediction Error and Closed-Loop LQR/MPC Cost | [`papers/sindy-vs-neural-ode-sysid-noise`](papers/sindy-vs-neural-ode-sysid-noise) |
 | generative-models | What Does Classifier-Free Guidance Trade Away? A Controlled 2D Mixture Study Against Low-Temperature Sampling | [`papers/classifier-free-guidance-2d`](papers/classifier-free-guidance-2d) |
 | generative-models | Flow Matching versus Denoising Diffusion on 2D Toy Distributions: Few-Step Sample Quality and What One Reflow Round Adds | [`papers/flow-matching-vs-diffusion-2d`](papers/flow-matching-vs-diffusion-2d) |
+| graph-learning | When Does Message Passing Help? A Small Controlled Study on Contextual Stochastic Block Models | [`papers/gcn-homophily-sbm`](papers/gcn-homophily-sbm) |
 | ml-theory-optimization | Does In-Distribution Temperature Scaling Stay Calibrated Under Shift? A Small Study on Digits | [`papers/calibration-under-shift-digits`](papers/calibration-under-shift-digits) |
 | ml-theory-optimization | Where the Peak Sits and Whether Ridge Removes It: A Small Study of Double Descent in Random-ReLU-Features Regression | [`papers/double-descent-random-features`](papers/double-descent-random-features) |
 | ml-theory-optimization | Replay Memory versus EWC Strength on Permuted and Split Digits: A Small Controlled CPU Study | [`papers/ewc-vs-replay-permuted-digits`](papers/ewc-vs-replay-permuted-digits) |

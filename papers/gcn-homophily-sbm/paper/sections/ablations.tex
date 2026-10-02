@@ -1,0 +1,13 @@
+\textbf{Ego/neighbour separation (H5).} Table~\ref{tab:abl} compares the full H2GCN-style model (main-grid rows) with tied self/neighbour weights and with an added 2-hop term at $\mu=1$. Tying the weights is catastrophic under heterophily: 0.724 drops to 0.356 at $h=0.1$ ($p<10^{-5}$ in the paired test, 5 seeds) and also costs accuracy at $h=0.9$ (0.994 to 0.930). At $h=0.4$ it makes no measurable difference (0.536 vs 0.547, $p=0.550$). H5 is therefore supported at $h=0.1$ and not supported at $h=0.4$; with tied weights the model can only add or average neighbour features with the ego features, so it cannot flip the sign of neighbour information, which is consistent with the heterophilous failure but not a separately tested mechanism. Adding 2-hop neighbours helps slightly at $h=0.1$ and $h=0.9$ (see $\Delta$ in the table, nominal $p<0.05$ each, not corrected for the six tests in this table) and does not at $h=0.4$; with 5 seeds we call this suggestive only.
+
+\begin{table*}[t]\centering\caption{Ablation of H2GCN-style at $\mu=1$ (test accuracy mean $\pm$ std over 5 seeds; $p$ from a paired $t$-test against the full model; $\Delta$ vs the full model in brackets for 2-hop).}\label{tab:abl}
+\input{generated/abl_h2gcn_custom.tex}\end{table*}
+
+\textbf{Mean-degree sensitivity.} Table~\ref{tab:deg} and Figure~\ref{fig:deg} vary the mean degree at the cell $h=0.4$, $\mu=1$. GCN stays below the MLP at all four degrees, by 0.059, 0.084, 0.033 and 0.048 (for $d=2,5,10,20$; the $d=10$ cell is the non-significant main-grid cell, the others have $p<0.01$ uncorrected). H2GCN-style is level with the MLP at $d=10$ and $d=20$ in the means (0.536 vs 0.539, 0.604 vs 0.602) and below it at $d=2$ and $d=5$ (0.527 vs 0.584, 0.550 vs 0.583), so the picture that denser graphs rescue GCN at this homophily is not supported here; the degree trend is non-monotone and we do not interpret it.
+
+\begin{table}[t]\centering\caption{Mean-degree sweep at $h=0.4$, $\mu=1$ (accuracy mean $\pm$ std, 5 seeds).}\label{tab:deg}
+\resizebox{\columnwidth}{!}{\input{generated/sweep_deg_custom.tex}}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=0.85\columnwidth]{sweep_degree.pdf}\caption{Accuracy versus mean degree at $h=0.4$, $\mu=1$.}\label{fig:deg}\end{figure}
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{gain_vs_mlp.pdf}\caption{Accuracy gain over the MLP for GCN, H2GCN-style and LP versus $h$ (mean over 5 seeds). Values below zero mark where message passing hurts.}\label{fig:gain}\end{figure*}

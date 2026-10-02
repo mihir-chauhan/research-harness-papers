@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:23:03 2026
+# cwd: .
+# cmd: python method/run.py --system mlp --h 0.6 --mu 0.5 --seed 4 --out results/raw/main_mlp_h0.6_mu0.5_s4.json
+
+config {"system": "mlp", "h": 0.6, "mu": 0.5, "seed": 4, "n": 900, "k": 3, "deg": 10.0, "dim": 16, "hid": 32, "dropout": 0.5, "lr": 0.01, "wd": 0.005, "epochs": 300, "patience": 100, "sep": 1, "twohop": 0, "out": "results/raw/main_mlp_h0.6_mu0.5_s4.json"}
+metrics {"accuracy": 0.41296297311782837, "val_accuracy": 0.47777777910232544, "realized_h": 0.5968140004487323, "seconds": 1.1689038276672363}

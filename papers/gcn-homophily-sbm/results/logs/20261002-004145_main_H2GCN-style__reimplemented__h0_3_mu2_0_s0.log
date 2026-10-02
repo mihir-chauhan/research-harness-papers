@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:41:45 2026
+# cwd: .
+# cmd: python method/run.py --system h2gcn --h 0.3 --mu 2.0 --seed 0 --out results/raw/main_h2gcn_h0.3_mu2.0_s0.json
+
+config {"system": "h2gcn", "h": 0.3, "mu": 2.0, "seed": 0, "n": 900, "k": 3, "deg": 10.0, "dim": 16, "hid": 32, "dropout": 0.5, "lr": 0.05, "wd": 0.005, "epochs": 300, "patience": 100, "sep": 1, "twohop": 0, "out": "results/raw/main_h2gcn_h0.3_mu2.0_s0.json"}
+metrics {"accuracy": 0.7888888716697693, "val_accuracy": 0.8388888835906982, "realized_h": 0.2928683210373351, "seconds": 0.8389461040496826}

@@ -1,0 +1,120 @@
+{
+  "slug": "gcn-homophily-sbm",
+  "direction": "When does message passing help? On synthetic stochastic block model graphs with controlled homophily (from strongly heterophilous to strongly homophilous) and node features of controlled informativeness, compare an MLP on features, a 2-layer GCN, a GCN with separate self and neighbour weights (the H2GCN idea) and label propagation, all written in plain torch. Map the regions where each wins and test the mid-homophily regime where GCN is known to fall below the MLP.",
+  "created": "2026-10-01T18:43:52",
+  "updated": "2026-10-02T00:51:12",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T23:56:12",
+      "finished": "2026-10-02T00:47:58",
+      "notes": [
+        {
+          "t": "2026-10-02T00:47:58",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:11",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:11",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:11",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:11",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:12",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:12",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:12",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:12",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:12",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:12",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:12",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:12",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:51:12",
+      "notes": [
+        {
+          "t": "2026-10-02T00:51:12",
+          "note": "built, 6 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:06:22",
+      "phase": "novelty",
+      "decision": "K=3 classes, N=900, deg 10; method.name=GCN since no new method; H2GCN simplified to ego/neighbour separation; tests registered in proposal.md"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

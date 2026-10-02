@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:38:50 2026
+# cwd: .
+# cmd: python method/run.py --system lp --h 0.8 --mu 1.0 --seed 0 --out results/raw/main_lp_h0.8_mu1.0_s0.json
+
+config {"system": "lp", "h": 0.8, "mu": 1.0, "seed": 0, "n": 900, "k": 3, "deg": 10.0, "dim": 16, "hid": 32, "dropout": null, "lr": null, "wd": null, "epochs": 300, "patience": 100, "sep": 1, "twohop": 0, "out": "results/raw/main_lp_h0.8_mu1.0_s0.json"}
+metrics {"accuracy": 0.9555555582046509, "val_accuracy": 0.9444444179534912, "realized_h": 0.7942831420211569, "seconds": 0.04099607467651367, "lp_alpha": 0.9}

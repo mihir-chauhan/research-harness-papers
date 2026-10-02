@@ -1,0 +1,6 @@
+# rh run | Fri Oct  2 00:25:32 2026
+# cwd: .
+# cmd: python method/run.py --system gcn --h 0.9 --mu 0.5 --seed 3 --out results/raw/main_gcn_h0.9_mu0.5_s3.json
+
+config {"system": "gcn", "h": 0.9, "mu": 0.5, "seed": 3, "n": 900, "k": 3, "deg": 10.0, "dim": 16, "hid": 32, "dropout": 0.5, "lr": 0.05, "wd": 0.0005, "epochs": 300, "patience": 100, "sep": 1, "twohop": 0, "out": "results/raw/main_gcn_h0.9_mu0.5_s3.json"}
+metrics {"accuracy": 0.9425926208496094, "val_accuracy": 0.9666666388511658, "realized_h": 0.9006337709370756, "seconds": 1.3190639019012451}

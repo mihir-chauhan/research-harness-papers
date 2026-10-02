@@ -1,0 +1,17 @@
+\textbf{Data model.} There are $n=900$ nodes, $K=3$ balanced classes $y_i$ and $n d/2$ sampled edges ($d=10$ unless stated). For each edge a source node is drawn uniformly; the target is drawn from the source's own class with probability $h$ and otherwise uniformly from one of the other $K-1$ classes; self loops are dropped and duplicates collapse, so realised mean degree is slightly below $d$ and realised edge homophily deviates from $h$ by at most 0.016 in any graph (mean 0.004). Features are $x_i=\mu\, m_{y_i}+\epsilon_i$ with $m_c$ random unit vectors in $\mathbb{R}^{16}$ and $\epsilon_i\sim\mathcal{N}(0,I)$. The uninformative-graph point is $h=1/K$. For a fixed seed the features, labels and split are identical for all $h$ (only edges change).
+
+\textbf{Notation.} $A$ is the symmetric adjacency matrix, $\tilde A=A+I$, $S=D^{-1/2}AD^{-1/2}$ and $\hat A=\tilde D^{-1/2}\tilde A\tilde D^{-1/2}$.
+
+\textbf{MLP.} $\hat Y = W_2\,\sigma(W_1 X)$ with dropout on the inputs of both layers.
+
+\textbf{GCN (reimplemented).} $H^{(1)}=\sigma(\hat A X W_1)$, $\hat Y=\hat A H^{(1)}W_2$~\cite{kipf2016semi}.
+
+\textbf{H2GCN-style (reimplemented).} Each layer keeps a separate self weight and neighbour weight and no self loop in the aggregation:
+\begin{equation}
+H^{(l+1)}=\sigma\!\big(H^{(l)}W_{\rm self}^{(l)}+ S\,H^{(l)}W_{\rm nb}^{(l)}\big),
+\end{equation}
+two layers, the last without $\sigma$. This keeps only the ego/neighbour separation of~\cite{zhu2020beyond}; it omits the intermediate-representation concatenation. Two ablation flags: tied weights $W_{\rm nb}=W_{\rm self}$, and adding a strict 2-hop term $S_2 H W^{(l)}_{{\rm nb},2}$ where $S_2$ is the symmetric normalisation of the pairs at distance exactly two.
+
+\textbf{Label propagation (reimplemented).} With $Y_0$ the one-hot training labels (zero rows elsewhere), iterate $F\leftarrow \alpha S F+(1-\alpha)Y_0$ for 50 steps and predict $\arg\max_c F_{ic}$, with $\alpha\in\{0.5,0.9,0.99\}$ selected on validation accuracy. It uses no features.
+
+\textbf{Training.} Full-batch Adam on cross entropy over the training nodes, 300 epochs with early stopping (patience 100) on validation accuracy; the reported test accuracy is taken at the best-validation epoch.

@@ -1,0 +1,7 @@
+We ask when message passing beats a feature-only classifier, using contextual stochastic block model graphs (3 classes, 900 nodes, mean degree 10) where edge homophily $h$ runs from 0 to 1 and feature informativeness $\mu\in\{0.5,1,2\}$.
+We compare four reimplemented, plain-torch systems: an MLP, a 2-layer GCN, a GCN with separate self and neighbour weights (the H2GCN idea) and label propagation, over 33 cells with 5 seeds each (660 runs).
+GCN falls below the MLP in a band of low-to-mid homophily, but the band sits around $h=0.2$--$0.3$ rather than only at the middle; at $\mu=1$ the deficit is significant at $h=0.3$ (paired $t$-test, 5 seeds) and not at $h=0.4$, so our pre-registered mid-homophily hypothesis is only partly supported.
+The dip deepens as features get stronger.
+Separating self and neighbour weights removes most of the dip and is by far the best system under strong heterophily, but it is not uniformly at least as good as GCN or MLP: it trails the better of the two by more than 0.02 in 6 of 33 cells, and a tied-weights ablation collapses accuracy at $h=0.1$.
+Label propagation wins only at the highest homophily and we found it also wins at stronger features, contradicting our hypothesis.
+This is a small CPU study on one synthetic family with fixed degree, class count and untuned depth, so the maps should be read as controlled illustrations, not as claims about real graphs.
