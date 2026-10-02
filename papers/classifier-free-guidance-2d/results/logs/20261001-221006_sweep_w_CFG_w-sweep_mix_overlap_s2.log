@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:10:06 2026
+# cwd: .
+# cmd: python method/run.py --task mix_overlap --seed 2 --w 2 --out results/raw/sweep_w_w2_mix_overlap_s2.json
+
+config: {"task": "mix_overlap", "seed": 2, "w": 2.0, "tau": 1.0, "p_uncond": 0.1, "steps": 5000, "lo": 0.0, "hi": 1.0, "n": 1500, "real": false, "ckpt_dir": "results/raw/ckpt", "out": "results/raw/sweep_w_w2_mix_overlap_s2.json"}
+loaded cached model results/raw/ckpt/mix_overlap_s2_p0.1_n5000.pt
+metrics: {"class_acc": 0.9996666666666667, "support_prec": 0.9968333333333333, "mode_cov": 0.9166666666666666, "mode_tv": 0.080233902322721, "std_ratio": 0.7363928982906881, "off_support": 0.003166666666666667, "swd": 0.5529706944705407, "wall_s": 5.08772087097168}

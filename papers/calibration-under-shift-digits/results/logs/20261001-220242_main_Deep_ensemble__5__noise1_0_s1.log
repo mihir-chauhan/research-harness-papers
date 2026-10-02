@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:02:42 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ens --task noise1.0 --seed 1 --out results/raw/main_ens_noise1.0_s1.json
+
+config: {'system': 'ens', 'task': 'noise1.0', 'seed': 1, 'out': 'results/raw/main_ens_noise1.0_s1.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.21777777777777776, "ece": 0.5863860401842329, "nll": 8.116978645324707, "brier": 1.306552815915044, "conf": 0.8041638135910034}

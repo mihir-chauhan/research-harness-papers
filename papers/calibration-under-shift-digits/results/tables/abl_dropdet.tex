@@ -1,0 +1,27 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & accuracy $\uparrow$ & ece $\downarrow$ & nll $\downarrow$ & brier $\downarrow$ & $n$ \\
+\midrule
+Dropout-trained MLP, deterministic & rot0 & \textbf{0.98 $\pm$ 0.00} & \textbf{0.02 $\pm$ 0.01} & \textbf{0.08 $\pm$ 0.02} & \textbf{0.04 $\pm$ 0.01} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & rot10 & \textbf{0.84 $\pm$ 0.01} & \textbf{0.07 $\pm$ 0.01} & \textbf{0.54 $\pm$ 0.06} & \textbf{0.24 $\pm$ 0.02} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & rot20 & \textbf{0.65 $\pm$ 0.03} & \textbf{0.20 $\pm$ 0.04} & \textbf{1.59 $\pm$ 0.31} & \textbf{0.54 $\pm$ 0.06} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & rot30 & \textbf{0.41 $\pm$ 0.06} & \textbf{0.43 $\pm$ 0.06} & \textbf{3.73 $\pm$ 0.58} & \textbf{0.97 $\pm$ 0.12} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & rot45 & \textbf{0.14 $\pm$ 0.04} & \textbf{0.79 $\pm$ 0.08} & \textbf{10.58 $\pm$ 1.37} & \textbf{1.61 $\pm$ 0.13} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & rot60 & \textbf{0.14 $\pm$ 0.03} & \textbf{0.82 $\pm$ 0.06} & \textbf{12.70 $\pm$ 1.95} & \textbf{1.66 $\pm$ 0.10} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & noise0.25 & \textbf{0.86 $\pm$ 0.03} & \textbf{0.08 $\pm$ 0.02} & \textbf{0.56 $\pm$ 0.11} & \textbf{0.22 $\pm$ 0.04} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & noise0.5 & \textbf{0.51 $\pm$ 0.03} & \textbf{0.36 $\pm$ 0.03} & \textbf{3.06 $\pm$ 0.42} & \textbf{0.82 $\pm$ 0.07} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & noise0.75 & \textbf{0.31 $\pm$ 0.03} & \textbf{0.55 $\pm$ 0.03} & \textbf{5.87 $\pm$ 0.70} & \textbf{1.20 $\pm$ 0.05} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & noise1.0 & \textbf{0.23 $\pm$ 0.02} & \textbf{0.64 $\pm$ 0.03} & \textbf{7.79 $\pm$ 0.87} & \textbf{1.36 $\pm$ 0.05} & 5 \\
+\midrule
+Dropout-trained MLP, deterministic & rot30\_noise0.5 & \textbf{0.20 $\pm$ 0.04} & \textbf{0.65 $\pm$ 0.05} & \textbf{7.71 $\pm$ 1.08} & \textbf{1.40 $\pm$ 0.09} & 5 \\
+\bottomrule
+\end{tabular}

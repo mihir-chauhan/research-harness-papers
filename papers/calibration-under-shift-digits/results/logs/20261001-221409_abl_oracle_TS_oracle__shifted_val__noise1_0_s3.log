@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:14:09 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts_oracle --task noise1.0 --seed 3 --out results/raw/abl_oracle_noise1.0_s3.json
+
+config: {'system': 'ts_oracle', 'task': 'noise1.0', 'seed': 3, 'out': 'results/raw/abl_oracle_noise1.0_s3.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 17.342561721801758, "accuracy": 0.22, "ece": 0.0454213837120268, "nll": 2.1462466716766357, "brier": 0.8663136599402419, "conf": 0.22298385202884674}

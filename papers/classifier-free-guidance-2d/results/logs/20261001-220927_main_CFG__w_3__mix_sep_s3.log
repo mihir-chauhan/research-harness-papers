@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:09:27 2026
+# cwd: .
+# cmd: python method/run.py --task mix_sep --seed 3 --w 3 --out results/raw/main_w3_mix_sep_s3.json
+
+config: {"task": "mix_sep", "seed": 3, "w": 3.0, "tau": 1.0, "p_uncond": 0.1, "steps": 5000, "lo": 0.0, "hi": 1.0, "n": 1500, "real": false, "ckpt_dir": "results/raw/ckpt", "out": "results/raw/main_w3_mix_sep_s3.json"}
+loaded cached model results/raw/ckpt/mix_sep_s3_p0.1_n5000.pt
+metrics: {"class_acc": 0.9998333333333334, "support_prec": 0.996, "mode_cov": 0.9166666666666666, "mode_tv": 0.13656886697696966, "std_ratio": 0.6905409270966238, "off_support": 0.004, "swd": 0.692720064311071, "wall_s": 4.527397155761719}

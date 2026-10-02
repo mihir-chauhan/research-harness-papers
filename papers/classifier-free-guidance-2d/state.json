@@ -1,0 +1,114 @@
+{
+  "slug": "classifier-free-guidance-2d",
+  "direction": "What does classifier-free guidance trade away? Train a small conditional diffusion model on a 2D conditional mixture (each class a multi-modal distribution) and sweep the guidance scale. Measure class-conditional precision (samples in the right class region), recall or mode coverage within each class, and variance collapse. Compare with unguided conditional sampling and with a low-temperature sampling baseline.",
+  "created": "2026-10-01T18:41:02",
+  "updated": "2026-10-01T22:26:36",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T21:53:02",
+      "finished": "2026-10-01T22:04:06",
+      "notes": [
+        {
+          "t": "2026-10-01T22:04:06",
+          "note": "landscape, proposal, 12 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T22:04:06",
+      "finished": "2026-10-01T22:04:32",
+      "notes": [
+        {
+          "t": "2026-10-01T22:04:32",
+          "note": "smoke ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T22:04:32",
+      "finished": "2026-10-01T22:04:32",
+      "notes": [
+        {
+          "t": "2026-10-01T22:04:32",
+          "note": "baselines are sampling modes of the same network"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T22:04:33",
+      "finished": "2026-10-01T22:17:49",
+      "notes": [
+        {
+          "t": "2026-10-01T22:17:49",
+          "note": "121 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": "2026-10-01T22:17:49",
+      "finished": "2026-10-01T22:17:50",
+      "notes": [
+        {
+          "t": "2026-10-01T22:17:50",
+          "note": "sweeps, interval, dropout"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-01T22:17:50",
+      "finished": "2026-10-01T22:26:36",
+      "notes": [
+        {
+          "t": "2026-10-01T22:26:36",
+          "note": "tables, tests"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:26:36",
+      "notes": [
+        {
+          "t": "2026-10-01T22:26:36",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:26:36",
+      "notes": [
+        {
+          "t": "2026-10-01T22:26:36",
+          "note": "5 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

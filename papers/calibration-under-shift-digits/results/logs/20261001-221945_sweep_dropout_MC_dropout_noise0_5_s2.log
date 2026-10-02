@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:19:45 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mcd --p 0.2 --task noise0.5 --seed 2 --out results/raw/sw_p0.2_noise0.5_s2.json
+
+config: {'system': 'mcd', 'task': 'noise0.5', 'seed': 2, 'out': 'results/raw/sw_p0.2_noise0.5_s2.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.4622222222222222, "ece": 0.3392380250162549, "nll": 2.9681055545806885, "brier": 0.8452848271460948, "conf": 0.801326334476471}

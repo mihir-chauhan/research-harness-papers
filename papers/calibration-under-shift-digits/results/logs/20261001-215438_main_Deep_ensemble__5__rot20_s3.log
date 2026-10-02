@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:54:38 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ens --task rot20 --seed 3 --out results/raw/main_ens_rot20_s3.json
+
+config: {'system': 'ens', 'task': 'rot20', 'seed': 3, 'out': 'results/raw/main_ens_rot20_s3.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.6222222222222222, "ece": 0.23425994442568884, "nll": 1.9194697141647339, "brier": 0.5781289250181101, "conf": 0.8455818891525269}

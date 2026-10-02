@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:55:16 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts --task rot45 --seed 3 --out results/raw/main_ts_rot45_s3.json
+
+config: {'system': 'ts', 'task': 'rot45', 'seed': 3, 'out': 'results/raw/main_ts_rot45_s3.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.2985808849334717, "accuracy": 0.11333333333333333, "ece": 0.8573104304075242, "nll": 12.72753620147705, "brier": 1.7289009289589, "conf": 0.9706436991691589}

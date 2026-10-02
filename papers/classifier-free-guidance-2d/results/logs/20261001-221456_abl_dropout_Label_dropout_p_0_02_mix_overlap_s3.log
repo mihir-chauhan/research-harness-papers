@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:14:56 2026
+# cwd: .
+# cmd: python method/run.py --task mix_overlap --seed 3 --w 3 --p_uncond 0.02 --out results/raw/abl_dropout_p0.02_mix_overlap_s3.json
+
+config: {"task": "mix_overlap", "seed": 3, "w": 3.0, "tau": 1.0, "p_uncond": 0.02, "steps": 5000, "lo": 0.0, "hi": 1.0, "n": 1500, "real": false, "ckpt_dir": "results/raw/ckpt", "out": "results/raw/abl_dropout_p0.02_mix_overlap_s3.json"}
+trained model, last-batch loss 0.3232, 30s
+metrics: {"class_acc": 0.999, "support_prec": 0.9888333333333333, "mode_cov": 0.9166666666666666, "mode_tv": 0.139274737391692, "std_ratio": 0.8994149889833549, "off_support": 0.011166666666666667, "swd": 0.8734746804980211, "wall_s": 33.069307804107666}

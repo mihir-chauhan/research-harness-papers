@@ -1,0 +1,31 @@
+\begin{table*}[t]\centering\caption{Main comparison, five seeds (mean $\pm$ sd). CFG $w=3$ is the registered ``method'' of the study; the other two rows are baselines on the same networks.}\label{tab:main}
+\resizebox{\textwidth}{!}{\input{generated/main.tex}}
+\end{table*}
+
+\begin{table*}[t]\centering\caption{Overlapping task: all sampling configurations, mean of five seeds (\texttt{acc}: class\_acc, \texttt{prec}: support\_prec, \texttt{cov}: mode\_cov, \texttt{tv}: mode\_tv, \texttt{std}: std\_ratio, \texttt{off}: off\_support). The separated task is Table~\ref{tab:sep}.}\label{tab:sweep}
+\input{generated/sweep_overlap.tex}
+\end{table*}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{cfg_vs_w.pdf}\caption{Metrics versus guidance scale on \texttt{mix\_overlap} (mean $\pm$ sd over five seeds; dotted: real samples).}\label{fig:w}\end{figure}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{frontier.pdf}\caption{CFG and temperature sweeps plotted against the variance they retain (\texttt{std\_ratio}); each point is a seed-mean.}\label{fig:frontier}\end{figure}
+
+\begin{table}[t]\centering\caption{Registered hypothesis tests (five seeds). $d_z$: mean difference over the sd of the paired differences.}\label{tab:hyp}
+\resizebox{\columnwidth}{!}{\input{generated/hyp.tex}}
+\end{table}
+
+\textbf{H1: CFG raises class accuracy (supported).} On \texttt{mix\_overlap}, CFG $w=3$ gives 1.000 against 0.926 for unguided sampling (Table~\ref{tab:main}, mean difference +0.0736, $p=5.6\times10^{-8}$, Table~\ref{tab:hyp}). Real samples score 0.915 there, so the guided samples are \emph{more} class-typical than the data themselves: the metric measures separation from other classes, not fidelity to $p(x|c)$. On the separated task there is little to gain (unguided 0.993, Table~\ref{tab:sep}).
+
+\textbf{H2: CFG distorts mode weights and reduces spread (supported, with a caveat).} At $w=3$ mode\_tv rises from 0.017 to 0.129 and std\_ratio drops from 0.917 to 0.800 (both $p<10^{-3}$). Mode coverage falls from 1.000 to 0.850, and the cost increases with $w$ (coverage 0.633 and mode\_tv 0.229 at $w=8$, Table~\ref{tab:sweep}). Table~\ref{tab:permode} shows where the mass goes: the minor mode (weight 0.2) keeps 0.63 of its mass at $w=3$ and 0.34 at $w=8$, while the major mode is inflated to 1.18 and 1.36. The sliced Wasserstein distance to the true class distribution grows monotonically with $w$ (0.120 to 1.473). However, the variance is \emph{not} monotonically collapsed: std\_ratio is lowest around $w=1$--2 (0.748, 0.752; not distinguishable) and rises to 1.083 at $w=8$ (Fig.~\ref{fig:w}). std\_ratio is computed on in-support samples only, so this rise coincides with samples being pushed to the rim of the $3\sigma$ ball and off the support (off\_support 0.055 at $w=8$); we did not isolate the cause.
+
+\textbf{H3: CFG's gain is not reproduced by temperature (supported for the registered comparison, qualified).} CFG $w=3$ has higher class accuracy than $\tau=0.5$ (1.000 vs 0.993, $p=3.8\times10^{-6}$). But the two retain very different variance (std\_ratio 0.800 vs 0.527), so this test alone is not a matched comparison. In the exploratory matched-spread view (Fig.~\ref{fig:frontier}), CFG $w=0.5$ (std 0.789, acc 0.990, tv 0.030) beats $\tau=0.8$ (std 0.757, acc 0.966, tv 0.050), and CFG $w=1$ (std 0.748, acc 0.999, tv 0.052) beats $\tau=0.8$ in accuracy at similar mode\_tv. Temperature is not free either: it also removes the minor mode (0.44 of its mass at $\tau=0.5$, coverage 0.700) and its swd rises to 0.899. Temperature keeps full mode coverage down to $\tau=0.7$ (std 0.676, lower than any CFG point with full coverage) and has coverage 0.700 at $\tau=0.5$; with only the grid points shown we cannot say where the transition lies. At $w\ge2$ guidance gives up coverage (0.950 at $w=2$) while temperature at $\tau=0.7$ (std 0.676) has not yet; i.e.\ if one wants accuracy $\ge0.98$ with full coverage, $\tau=0.7$ (0.982, coverage 1.000) is a competitive point on this grid, while CFG $w\le1$ reaches 0.999 with coverage 1.000. We make no claim beyond this grid.
+
+\textbf{H4: the cost depends on class overlap (refuted).} The increase in mode\_tv from $w=0$ to $w=3$ is practically identical on the two tasks (0.017 to 0.129 on overlap; 0.018 to 0.129 on separation, Tables~\ref{tab:sweep},\ref{tab:sep}); the difference of differences is $-0.0004$ ($p=0.935$; Welch test, although the two tasks share seeds, so this ignores pairing). Mode loss is therefore not an artefact of class overlap in our setting; what the overlap changes is the benefit (H1) and the variance: the std\_ratio drop from $w=0$ to $w=3$ is larger on the separated task ($-0.173$ vs $-0.117$, Welch $p=0.012$) and the swd rise is smaller ($+0.560$ vs $+0.663$, $p=0.0013$); these are post hoc, uncorrected comparisons.
+
+\textbf{H5: very large $w$ leaves the support (supported, small sample).} Off-support mass at $w=8$ is 0.055 vs 0.007 unguided (mean difference +0.0476, $p=0.020$, $d_z=1.7$, uncorrected). On \texttt{mix\_sep} it is 0.058. The $w=8$ run also has the lowest in-support precision (0.945 and 0.942). At $w=3$ off-support mass (0.006) is close to the unguided value (0.007); we did not test this difference.
+
+\textbf{Failure case.} The study's clearest failure of CFG: at $w=8$ (1) the minor modes are largely lost, (2) 5.5\% of samples fall off the support, and (3) swd to the true class distribution is $>10\times$ the unguided value, while class accuracy is saturated at 1.000, so accuracy alone would call this the best setting.
+
+\begin{table*}[t]\centering\caption{Separated task (mean of five seeds); columns as in Table~\ref{tab:sweep}.}\label{tab:sep}
+\input{generated/sweep_sep.tex}
+\end{table*}

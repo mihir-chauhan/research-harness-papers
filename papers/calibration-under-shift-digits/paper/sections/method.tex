@@ -1,0 +1,21 @@
+Let $f_\theta(x)\in\mathbb{R}^{K}$ be the logits of an MLP ($K=10$) and $p_\theta(y|x)=\mathrm{softmax}(f_\theta(x))$. All networks are trained with cross-entropy, $\mathcal{L}(\theta)=-\tfrac1N\sum_i\log p_\theta(y_i|x_i)$.
+
+\textbf{Single MLP.} Prediction $\hat p(y|x)=p_\theta(y|x)$ with a single trained network.
+
+\textbf{Temperature scaling (reimplemented from~\cite{guo2017calibration}).} A scalar $T>0$ rescales logits, $\hat p_T(y|x)=\mathrm{softmax}(f_\theta(x)/T)$. With the network frozen, $T=\arg\min_{T}-\tfrac1{N_v}\sum_{j\in\mathcal V}\log \hat p_T(y_j|x_j)$, optimised over $\log T$ by L-BFGS on an in-distribution validation split $\mathcal V$. The argmax, and hence accuracy, is unchanged. The same $T$ is applied to every shifted test condition. 
+
+\textbf{Oracle TS (ablation).} Identical, but $\mathcal V$ is replaced by the validation images transformed by the same shift $s$ as the test condition, $T_s=\arg\min_T \mathrm{NLL}(\hat p_T; s(\mathcal V))$. This uses information (the shift) that is unavailable in deployment and serves only to isolate the mechanism.
+
+\textbf{MC dropout (reimplemented from~\cite{gal2015dropout}).} The network is trained with dropout (rate $p$) after each hidden layer; at test time dropout stays active and $\hat p(y|x)=\tfrac1S\sum_{s=1}^S p_{\theta,\epsilon_s}(y|x)$ with $S=20$ masks $\epsilon_s$.
+
+\textbf{Deep ensemble (reimplemented from~\cite{lakshminarayanan2016simple}).} $M=5$ networks differing in initialisation and minibatch order, $\hat p(y|x)=\tfrac1M\sum_m p_{\theta_m}(y|x)$. We use no adversarial training and no proper-scoring-rule variants beyond cross-entropy.
+
+\textbf{Metrics.} With confidence $c_i=\max_k\hat p(k|x_i)$, prediction $\hat y_i$ and bins $B_b$ ($15$ equal-width bins on $(0,1]$),
+\begin{align}
+\mathrm{ECE}&=\sum_{b}\tfrac{|B_b|}{n}\,\big|\mathrm{acc}(B_b)-\mathrm{conf}(B_b)\big|,\\
+\mathrm{NLL}&=-\tfrac1n\sum_i\log\hat p(y_i|x_i),\\
+\mathrm{Brier}&=\tfrac1n\sum_i\sum_k\big(\hat p(k|x_i)-\mathbb 1[k=y_i]\big)^2 .
+\end{align}
+We also report accuracy and the mean confidence $\bar c$. NLL and Brier are proper scoring rules; ECE depends on binning and is reported alongside them, not instead of them.
+
+\textbf{Shift.} For a test image $x\in[0,1]^{64}$, rotation by $\alpha$ degrees (bilinear interpolation, zero fill, no resize) gives $R_\alpha x$, and noise gives $\mathrm{clip}(x+\sigma\varepsilon,0,1)$ with $\varepsilon\sim\mathcal N(0,I)$; the combined condition applies rotation, then noise. Rotation by $\alpha=0$ with no noise is the in-distribution condition.

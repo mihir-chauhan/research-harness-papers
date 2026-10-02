@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:03:21 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mlp --task rot30_noise0.5 --seed 4 --out results/raw/main_mlp_rot30_noise0.5_s4.json
+
+config: {'system': 'mlp', 'task': 'rot30_noise0.5', 'seed': 4, 'out': 'results/raw/main_mlp_rot30_noise0.5_s4.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.0, "accuracy": 0.19555555555555557, "ece": 0.6733623986111746, "nll": 8.605856895446777, "brier": 1.4199917119757726, "conf": 0.8689180016517639}

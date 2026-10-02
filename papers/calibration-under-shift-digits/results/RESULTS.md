@@ -1,0 +1,10 @@
+# Results (5 seeds; tables in results/tables, tests in results/tables/hyp.csv, analysis in results/analysis.py)
+- H1 (TS lowers NLL in distribution): NOT SUPPORTED by the registered paired test. rot0 NLL 0.104 vs 0.117 (p=0.094), ECE 0.016 vs 0.018 (p=0.268). Direction as predicted.
+- H2 (ID-fitted TS not calibrated under shift): SUPPORTED for ECE (ratio to rot0 about 50 at rot60, about 39 at noise1.0; criterion was 2x). The registered clause "NLL gain over MLP shrinks with intensity" is REFUTED: TS lowers NLL at all shifted conditions (p<=0.020) and the absolute gain grows. Relative ECE gain shrinks (-33% at rot10 to -3% at rot60, p=0.099).
+- H3 (ensemble best NLL and Brier at rot60, noise1.0): REFUTED; MC dropout is best.
+- H4 (ensemble ECE < MC dropout at severe shift): REFUTED, opposite sign (rot60 p=0.071, noise1.0 p rounds to 0.000).
+- H5 (oracle TS lowers ECE at severe shifts): SUPPORTED (p rounds to 0.000 at rot45, rot60, noise0.75, noise1.0); but oracle NLL at rot60 is 2.279 (about ln 10): near-uniform predictions.
+- Exploratory (not registered): a dropout-trained net evaluated deterministically has ECE between MLP and MC dropout at most conditions, so training regularisation and MC averaging both appear to contribute.
+- Sweeps: ensemble size 1-10 and dropout rate 0.1-0.5 on rot0, rot30, noise0.5 (seeds 0-2); M=10 ensemble still worse than MC dropout p=0.2 on shifted ECE/NLL; larger p improves shifted calibration but worsens rot0 ECE.
+
+Note on VERDICT.md: the ablation rows read "missing" because the advisory verdict tool matches ablation rows against the method's own rows in the main group; our ablation groups (abl_oracle, abl_dropdet, sweep_members, sweep_dropout) compare other systems and are reported in paper Section on ablations. All paired p-values in the paper come from results/analysis.py (scipy paired t-test; output in results/analysis_out.txt), not from rh compare.

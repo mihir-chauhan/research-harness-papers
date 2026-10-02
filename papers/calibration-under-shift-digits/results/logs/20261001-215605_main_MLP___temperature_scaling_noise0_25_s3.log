@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:56:05 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts --task noise0.25 --seed 3 --out results/raw/main_ts_noise0.25_s3.json
+
+config: {'system': 'ts', 'task': 'noise0.25', 'seed': 3, 'out': 'results/raw/main_ts_noise0.25_s3.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.2985808849334717, "accuracy": 0.8711111111111111, "ece": 0.0641918416817983, "nll": 0.5872216820716858, "brier": 0.2086636394321154, "conf": 0.9278125166893005}

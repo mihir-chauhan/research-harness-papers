@@ -1,0 +1,75 @@
+project: classifier-free-guidance-2d
+direction: >-
+  What does classifier-free guidance trade away? Train a small conditional diffusion model on a 2D
+  conditional mixture (each class a multi-modal distribution) and sweep the guidance scale. Measure
+  class-conditional precision, within-class mode coverage and variance collapse; compare with unguided
+  conditional sampling and with a low-temperature sampling baseline.
+problem: >-
+  Classifier-free guidance (CFG) raises class fidelity of conditional diffusion samples, but it is
+  folklore that it costs diversity. Which parts of the class-conditional distribution does it give up
+  (minor modes, within-mode spread, support), and is this different from simply sampling at a lower temperature?
+gap: >-
+  Guidance is mostly evaluated with FID/IS/precision/recall on images, where mode structure and
+  variance are not observable. A 2D mixture with known modes, weights and posterior makes each
+  cost directly measurable.
+contribution: >-
+  A small controlled CPU study on a labelled 2D mixture with known ground truth that sweeps the
+  guidance scale and measures class accuracy, in-support precision, mode coverage, mode-weight
+  distortion, variance ratio and off-support mass against unguided and low-temperature sampling.
+hypotheses:
+- id: H1
+  statement: CFG (w=3) raises class accuracy over unguided conditional sampling on the overlapping task.
+  test: paired t-test over 5 seeds (rh compare, class_acc, mix_overlap, CFG w=3 vs Unguided), alpha 0.05
+- id: H2
+  statement: CFG (w=3) distorts within-class mode weights (mode_tv up) and collapses within-mode spread (std_ratio down) relative to unguided sampling.
+  test: paired t-test over 5 seeds on mode_tv and std_ratio, mix_overlap, alpha 0.05 each
+- id: H3
+  statement: Low-temperature sampling (tau=0.5) raises class accuracy less than CFG (w=3), i.e. the precision gain of CFG is not reproduced by variance shrinkage.
+  test: paired t-test over 5 seeds on class_acc, mix_overlap, CFG w=3 vs Low-temperature tau=0.5, alpha 0.05
+- id: H4
+  statement: The cost of guidance depends on class overlap - the mode_tv increase from w=0 to w=3 is smaller on the well separated task than on the overlapping task.
+  test: difference of paired differences, 5 seeds, Welch t-test on per-seed (mode_tv(w=3)-mode_tv(w=0)) across the two tasks, alpha 0.05
+- id: H5
+  statement: Very large guidance (w=8) pushes samples off the support of the data (off_support up) relative to unguided sampling.
+  test: paired t-test over 5 seeds on off_support, mix_overlap, w=8 vs w=0, alpha 0.05
+method:
+  name: CFG (w=3)
+  summary: >-
+    Ho & Salimans classifier-free guidance on an eps-prediction DDPM MLP with label dropout 0.1:
+    eps = (1+w) eps(x,t,c) - w eps(x,t,null), w=3, ancestral sampling with 100 steps.
+  components: [label dropout, guidance scale, guidance interval]
+  entrypoint: method/run.py
+tasks: [mix_overlap, mix_sep]
+metrics:
+  class_acc: {higher_is_better: true}
+  support_prec: {higher_is_better: true}
+  mode_cov: {higher_is_better: true}
+  mode_tv: {higher_is_better: false}
+  std_ratio: {higher_is_better: true}
+  off_support: {higher_is_better: false}
+  swd: {higher_is_better: false}
+seeds: [0, 1, 2, 3, 4]
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- name: Unguided conditional
+  summary: conditional model, w=0, tau=1 (Ho et al. DDPM ancestral sampling)
+- name: Low-temperature (tau=0.5)
+  summary: conditional model, w=0, initial noise and ancestral noise scaled by tau=0.5
+ablations: [CFG w-sweep, Temperature sweep, 'Label dropout p=0.02', 'Label dropout p=0.3', 'Guidance on t/T in [0,0.5]', 'Guidance on t/T in [0.5,1]', 'Guidance on t/T in [0.2,0.6]']
+ambition:
+  target_tier: 2
+  primary_metric: class_acc
+  primary_task: mix_overlap
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

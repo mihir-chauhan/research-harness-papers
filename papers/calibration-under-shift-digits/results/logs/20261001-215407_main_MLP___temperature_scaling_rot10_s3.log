@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:54:07 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts --task rot10 --seed 3 --out results/raw/main_ts_rot10_s3.json
+
+config: {'system': 'ts', 'task': 'rot10', 'seed': 3, 'out': 'results/raw/main_ts_rot10_s3.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.2985808849334717, "accuracy": 0.78, "ece": 0.09827444732189178, "nll": 0.7434476613998413, "brier": 0.3092676080561063, "conf": 0.8782744407653809}

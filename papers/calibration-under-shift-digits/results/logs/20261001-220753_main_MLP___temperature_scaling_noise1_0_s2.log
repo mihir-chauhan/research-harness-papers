@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:07:53 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts --task noise1.0 --seed 2 --out results/raw/main_ts_noise1.0_s2.json
+
+config: {'system': 'ts', 'task': 'noise1.0', 'seed': 2, 'out': 'results/raw/main_ts_noise1.0_s2.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.6957783699035645, "accuracy": 0.18222222222222223, "ece": 0.6583232867717743, "nll": 8.157567977905273, "brier": 1.4066759235812374, "conf": 0.8405455350875854}

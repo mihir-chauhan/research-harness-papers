@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:58:32 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mlp --task rot10 --seed 1 --out results/raw/main_mlp_rot10_s1.json
+
+config: {'system': 'mlp', 'task': 'rot10', 'seed': 1, 'out': 'results/raw/main_mlp_rot10_s1.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.0, "accuracy": 0.8333333333333334, "ece": 0.07602634926637011, "nll": 0.628186821937561, "brier": 0.2460336806850661, "conf": 0.9082472324371338}

@@ -1,0 +1,13 @@
+\begin{tabular}{llccccccc}
+\toprule
+Method & Task & class\_acc $\uparrow$ & support\_prec $\uparrow$ & mode\_cov $\uparrow$ & mode\_tv $\downarrow$ & std\_ratio $\uparrow$ & off\_support $\downarrow$ & $n$ \\
+\midrule
+Unguided conditional & mix\_overlap & 0.926 $\pm$ 0.002 & 0.982 $\pm$ 0.001 & \textbf{1.000 $\pm$ 0.000} & \textbf{0.017 $\pm$ 0.005} & \textbf{0.917 $\pm$ 0.009} & 0.007 $\pm$ 0.002 & 5 \\
+Low-temperature (tau=0.5) & mix\_overlap & \underline{0.993 $\pm$ 0.001} & \textbf{0.996 $\pm$ 0.001} & 0.700 $\pm$ 0.046 & 0.176 $\pm$ 0.007 & 0.527 $\pm$ 0.005 & \textbf{0.002 $\pm$ 0.001} & 5 \\
+\textbf{CFG (w=3)} & mix\_overlap & \textbf{1.000 $\pm$ 0.001} & \underline{0.994 $\pm$ 0.002} & \underline{0.850 $\pm$ 0.037} & \underline{0.129 $\pm$ 0.008} & \underline{0.800 $\pm$ 0.023} & \underline{0.006 $\pm$ 0.002} & 5 \\
+\midrule
+Unguided conditional & mix\_sep & 0.993 $\pm$ 0.001 & 0.987 $\pm$ 0.001 & \textbf{1.000 $\pm$ 0.000} & \textbf{0.018 $\pm$ 0.006} & \textbf{0.890 $\pm$ 0.004} & 0.010 $\pm$ 0.001 & 5 \\
+Low-temperature (tau=0.5) & mix\_sep & \underline{0.999 $\pm$ 0.000} & \textbf{0.998 $\pm$ 0.001} & 0.700 $\pm$ 0.046 & 0.177 $\pm$ 0.009 & 0.474 $\pm$ 0.004 & \textbf{0.002 $\pm$ 0.000} & 5 \\
+\textbf{CFG (w=3)} & mix\_sep & \textbf{1.000 $\pm$ 0.000} & \underline{0.994 $\pm$ 0.003} & \underline{0.850 $\pm$ 0.037} & \underline{0.129 $\pm$ 0.009} & \underline{0.717 $\pm$ 0.030} & \underline{0.006 $\pm$ 0.003} & 5 \\
+\bottomrule
+\end{tabular}

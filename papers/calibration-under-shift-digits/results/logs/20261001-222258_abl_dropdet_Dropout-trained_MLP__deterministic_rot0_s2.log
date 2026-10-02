@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:22:58 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mcd_det --task rot0 --seed 2 --out results/raw/abl_dropdet_rot0_s2.json
+
+config: {'system': 'mcd_det', 'task': 'rot0', 'seed': 2, 'out': 'results/raw/abl_dropdet_rot0_s2.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.9777777777777777, "ece": 0.019794150590896606, "nll": 0.0680985152721405, "brier": 0.02822098272720135, "conf": 0.9829710721969604}

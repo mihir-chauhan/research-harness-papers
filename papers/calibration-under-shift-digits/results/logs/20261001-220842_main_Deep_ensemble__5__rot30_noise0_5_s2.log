@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:08:42 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ens --task rot30_noise0.5 --seed 2 --out results/raw/main_ens_rot30_noise0.5_s2.json
+
+config: {'system': 'ens', 'task': 'rot30_noise0.5', 'seed': 2, 'out': 'results/raw/main_ens_rot30_noise0.5_s2.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.17777777777777778, "ece": 0.6776005056831571, "nll": 10.261188507080078, "brier": 1.44887034394463, "conf": 0.8536338806152344}

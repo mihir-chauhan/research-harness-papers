@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:07:07 2026
+# cwd: .
+# cmd: python method/run.py --task mix_sep --seed 2 --w 0 --tau 1 --out results/raw/main_w0_mix_sep_s2.json
+
+config: {"task": "mix_sep", "seed": 2, "w": 0.0, "tau": 1.0, "p_uncond": 0.1, "steps": 5000, "lo": 0.0, "hi": 1.0, "n": 1500, "real": false, "ckpt_dir": "results/raw/ckpt", "out": "results/raw/main_w0_mix_sep_s2.json"}
+trained model, last-batch loss 0.3042, 46s
+metrics: {"class_acc": 0.9925, "support_prec": 0.9858333333333333, "mode_cov": 1.0, "mode_tv": 0.01185626558730829, "std_ratio": 0.8840028250857397, "off_support": 0.009833333333333333, "swd": 0.1100699667502632, "wall_s": 49.02010202407837}

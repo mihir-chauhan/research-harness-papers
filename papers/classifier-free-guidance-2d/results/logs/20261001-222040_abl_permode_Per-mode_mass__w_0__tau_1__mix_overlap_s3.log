@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:20:40 2026
+# cwd: .
+# cmd: python method/permode.py --seed 3 --w 0 --tau 1 --out results/raw/permode_w0_tau1_s3.json
+
+config: {"task": "mix_overlap", "seed": 3, "w": 0.0, "tau": 1.0, "n": 1500, "out": "results/raw/permode_w0_tau1_s3.json"}
+metrics: {"ratio_major": 1.0016972165648337, "ratio_mid": 1.0369993211133741, "ratio_minor": 0.9402579769178546}

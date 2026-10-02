@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:25:33 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mcd_det --task noise0.75 --seed 4 --out results/raw/abl_dropdet_noise0.75_s4.json
+
+config: {'system': 'mcd_det', 'task': 'noise0.75', 'seed': 4, 'out': 'results/raw/abl_dropdet_noise0.75_s4.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.32222222222222224, "ece": 0.5428321105904049, "nll": 5.6276984214782715, "brier": 1.1855485017312852, "conf": 0.8646554946899414}

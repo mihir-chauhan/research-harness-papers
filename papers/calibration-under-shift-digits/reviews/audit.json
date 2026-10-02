@@ -1,0 +1,159 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 412 runs are real, logged and bit-for-bit reproducible (three re-executions, including fresh retraining, match the registry exactly), the code matches the paper, there is no leakage, and every table and p-value matches the registry. The framing is honest about negative results, but the abstract's unqualified claim that MC dropout beat the ensemble on all metrics in all conditions exceeds what 5 seeds support in 6 of 33 cells, and the stated split sizes (270 val / 449 test) are wrong (actual 269 / 450). These and a few minor wording and citation issues are text-only fixes; nothing needs re-running.",
+      "reran": [
+        {
+          "run": "MLP + temperature scaling/rot60/3",
+          "metric": "ece",
+          "registry": 0.8784419569704267,
+          "rerun": 0.8784419569704267
+        },
+        {
+          "run": "MC dropout/noise1.0/2",
+          "metric": "ece",
+          "registry": 0.6087090177668466,
+          "rerun": 0.6087090177668466
+        },
+        {
+          "run": "Deep ensemble (5)/rot60/1",
+          "metric": "ece",
+          "registry": 0.8274513696299659,
+          "rerun": 0.8274513696299659
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex (also the H4 paragraph of results.tex and the bolding in Tables I-II)",
+          "issue": "The abstract says MC dropout 'beat the deep ensemble on ECE, NLL and Brier in all conditions'. Means favour MC dropout in all 33 cells, but the paired test is not significant in 6: ECE at r0 (0.0156 vs 0.0172, p=0.34, within one SD) and r60 (p=0.071), Brier at r10 (0.063), r20 (0.20), r30 (0.055), r45 (0.053). The paper applies the strict test to H1 (p=0.094, 'not supported') but not to this claim.",
+          "fix": "Reword to 'MC dropout had lower mean ECE, NLL and Brier than the ensemble in all conditions (paired differences significant at alpha=0.05, uncorrected, for NLL in all 11 conditions, ECE in 9 of 11 and Brier in 7 of 11; in distribution the ECE difference is within seed noise)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results.tex (H1), ablations.tex, limitations.tex; method/DESIGN.md; comment in method/run.py",
+          "issue": "Split sizes are stated as 1078 train / 270 validation / 449 test. The code actually produces 1078 / 269 / 450 for every seed (accuracies are multiples of 1/450). No conclusion changes.",
+          "fix": "Replace 270 with 269 and 449 with 450 everywhere."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, first paragraph",
+          "issue": "Hendrycks and Dietterich is cited alongside Ovadia et al. for benchmarks that studied whether a fitted temperature transfers to shifted inputs. That paper benchmarks corruption robustness, not temperature-scaling transfer.",
+          "fix": "Cite only Ovadia et al. (and Tomani et al.) for the transfer question, and cite Hendrycks and Dietterich for the corruption benchmark itself."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, decomposition paragraph",
+          "issue": "'At r0 the three are within 0.002 of each other': the ECE values are 0.0182, 0.0179 and 0.0156, a spread of 0.0026. Also 'both dropout regularisation and MC averaging appear to contribute' rests on Det vs MLP ECE differences that are not significant at r0 (p=0.95), r30 (p=0.086) or r60 (p=0.37), only at n1.0 (p=0.004).",
+          "fix": "Say 'within 0.003' and report the Det vs MLP paired p-values from results/analysis_out.txt next to the claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, Compute",
+          "issue": "'Roughly an hour of wall-clock time': registry start times span 21:53 to 22:25 (about 32 minutes) and summed run durations are 40 minutes.",
+          "fix": "State 'about 40 minutes of summed run time (about 32 minutes wall-clock)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Tables I-II",
+          "issue": "The main tables show means only, with 'best in bold' and no standard deviations or significance marks; the reader is pointed to results/tables/main.md, which is not in the paper. Bold at ECE r0 marks a three-decimal tie with TS.",
+          "fix": "Add plus-or-minus SD (or a note on which bolded cells are significant) to Tables I-II, or state in the captions that bold marks the lowest mean only."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md; results/tables/compare_main_ece.csv",
+          "issue": "VERDICT.md lists the three ablations as 'missing / Matters? NO' because the ablation names were changed after it was configured. compare_main_ece.csv covers only noise1.0 against the ensemble; all other reported p-values come from results/analysis.py (scipy paired t-test), not rh compare. They reproduce exactly.",
+          "fix": "Regenerate VERDICT.md with the current ablation names, and say in the setup that p-values are computed by results/analysis.py (or export the rh compare tables for the tested pairs)."
+        }
+      ],
+      "commit": "f14c5ef1e3fe5812de936952e8ac0567cdf331fe"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers, tables and significance counts were recomputed from the 412-run registry and match; two main runs (plus one extra) retrained from an empty cache reproduce the registry values bit-for-bit, and the code has no leakage, hard-coding or crippled baseline. The framing is honest about negative and mixed results, citations are used in context, and the 6-page PDF renders; only minor issues remain (bold not rendering in the PDF, a few loosely worded claims, significance counts not emitted by a script).",
+      "reran": [
+        {
+          "run": "MLP + temperature scaling/rot60/1",
+          "metric": "ece",
+          "registry": 0.7896610930893156,
+          "rerun": 0.7896610930893156
+        },
+        {
+          "run": "MLP + temperature scaling/rot60/1",
+          "metric": "nll",
+          "registry": 8.7412109375,
+          "rerun": 8.7412109375
+        },
+        {
+          "run": "MC dropout/noise1.0/3",
+          "metric": "ece",
+          "registry": 0.5480531840191947,
+          "rerun": 0.5480531840191947
+        },
+        {
+          "run": "MC dropout/noise1.0/3",
+          "metric": "nll",
+          "registry": 5.847180366516113,
+          "rerun": 5.847180366516113
+        },
+        {
+          "run": "Deep ensemble (5)/rot30/2",
+          "metric": "ece",
+          "registry": 0.4611779601044126,
+          "rerun": 0.4611779601044126
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (Tables I-II captions, paragraph headings)",
+          "issue": "No bold or italic font is embedded (TU/ptm/bx falls back to regular), so the captions' 'bold marks the lowest mean' refers to formatting that does not appear, and headings and emphasis render as plain text.",
+          "fix": "Compile with a font setup that provides bold and italic, or remove the bold clause from the captions."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "Says MC dropout 'had the lowest ECE, NLL and Brier' without the 'mean' qualifier; against TS the MC dropout ECE difference is not significant at 9 of 11 conditions and is within one SD at e.g. r60 (0.792 vs 0.803).",
+          "fix": "Say 'lowest mean' and state that significance is shown only against the ensemble, not against TS."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, abstract.tex, conclusion.tex",
+          "issue": "The 'partly dropout regularisation' attribution is not metric-specific and is tested only on ECE at 4 conditions. The registry shows the deterministic dropout-trained net beats the MLP on NLL at all 11 conditions (p<=0.022) and the ensemble at 10 of 11, but on ECE it is significantly worse than the ensemble at n0.5, n0.75, n1.0 and r30+n0.5, so the ECE advantage there comes from MC averaging alone.",
+          "fix": "Report Det-vs-MLP and Det-vs-ensemble paired tests for both NLL and ECE, add an MLP NLL column to Table VI, and word the attribution per metric."
+        },
+        {
+          "severity": "minor",
+          "where": "results/analysis.py, results/tables",
+          "issue": "The significance counts in the abstract and results (NLL 11/11, ECE 9/11, Brier 7/11 for MC dropout vs ensemble) are correct but are not produced by any committed script or table; compare_main_ece.csv covers only noise1.0, and r45 ECE is borderline at p=0.0496.",
+          "fix": "Emit the per-condition MC-dropout-vs-ensemble paired p-values from analysis.py into a table and reference it."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results.tex, limitations.tex",
+          "issue": "Accuracy at r45/r60 is 0.13-0.14, above the 0.10 chance level, yet is described as 'at chance'; ECE there is described as 'essentially the mean confidence' when it is confidence minus accuracy.",
+          "fix": "Say 'near chance (0.13-0.14 vs 0.10)' and 'mean confidence minus accuracy'."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py",
+          "issue": "Trained weights are cached in /tmp/calib_cache keyed by hyperparameters only, so the recorded provenance commands silently reuse cached weights when the cache exists; this did not affect results here because a fresh retrain is bit-identical.",
+          "fix": "Add a --no-cache flag or a README note on clearing the cache for a true reproduction."
+        }
+      ],
+      "commit": "d508aa09fcc11a76c489dc4ff15feeb9cb0f8587"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (2):\n! numbers in prose not found in any table or run: ablations.tex: 0.003, 0.004\n! verdict tier 0 < target 2: not best on rot60: ours 0.8025 vs MC dropout 0.7921\nREADY",
+      "response": "# Response to audit\n1. (major) Abstract/H4 claim: reworded to \"lower mean ECE, NLL, Brier in all 11 conditions\", with the uncorrected paired-test counts (NLL 11/11, ECE 9/11, Brier 7/11) and a note that the in-distribution ECE difference is within seed noise. Same qualification added to the H4 paragraph; table captions now say bold marks the lowest mean only (no significance).\n2. (minor) Split sizes corrected to 1078/269/450 in setup, results, ablations, limitations, DESIGN.md and the run.py comment.\n3. (minor) Hendrycks and Dietterich now cited only as the corruption benchmark; the transfer question cites Ovadia et al. and Tomani et al.\n4. (minor) \"within 0.003\"; Det-vs-MLP and Det-vs-MCD paired p-values added; the mechanism wording now says the MC-averaging evidence is clearer and dropout regularisation \"may\" contribute.\n5. (minor) Compute: about 40 min summed run time, about 32 min wall-clock.\n6. (minor) Tables I-II: SDs not added (width); captions state bold = lowest mean only, and significance is given in the text.\n7. (minor) Setup states p-values come from results/analysis.py. VERDICT.md regenerated with the current ablation names but the advisory tool still reports \"missing\", because it matches ablation rows against the method's rows in the main group, whereas our ablation groups compare other systems; explained in RESULTS.md. No numbers changed; no runs repeated.\n",
+      "seconds": 69
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:13:19 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ens --members 10 --task rot30 --seed 2 --out results/raw/sw_members10_rot30_s2.json
+
+config: {'system': 'ens', 'task': 'rot30', 'seed': 2, 'out': 'results/raw/sw_members10_rot30_s2.json', 'members': 10, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.36444444444444446, "ece": 0.4527579477098253, "nll": 4.136157989501953, "brier": 1.0159224190540366, "conf": 0.8104298114776611}

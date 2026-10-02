@@ -1,0 +1,5 @@
+# Response to audit
+- Major (overlap claim): abstract/conclusion now restrict "no dependence" to mode_tv (H4) and report the post hoc std_ratio (-0.173 vs -0.117, p=0.012) and swd (+0.560 vs +0.663, p=0.0013) differences, labelled uncorrected. These derived differences come from the registry (per-seed differences), not a table, so rh check lists them as warnings.
+- Major (temperature related work): related.tex now cites Dhariwal & Nichol App. G and Ho & Salimans for noise-reduced sampling, drops the "gap we fill" claim, and notes the toy/image difference is untested.
+- Minor: 1.35/1.36 and "between w=3 and w=8" fixed; 0.999 -> 1.000 at w=3; std_ratio minimum stated as around w=1-2, "comparable spread" removed; 8 frequencies, 120 runs, shared seeds for H4 noted; GLIDE described as CLIP vs CFG; interval disagreement with Kynkaanniemi et al. stated; pre-registration caveat disclosed; H5 vs Bonferroni stated; PROTOCOL seeds 0-4; Table I wrapped in resizebox.
+- Not re-run: no experiments changed.

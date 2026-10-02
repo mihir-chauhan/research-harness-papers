@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 22:06:52 2026
+# cwd: .
+# cmd: python method/run.py --task mix_sep --seed 1 --w 8 --out results/raw/sweep_w_w8_mix_sep_s1.json
+
+config: {"task": "mix_sep", "seed": 1, "w": 8.0, "tau": 1.0, "p_uncond": 0.1, "steps": 5000, "lo": 0.0, "hi": 1.0, "n": 1500, "real": false, "ckpt_dir": "results/raw/ckpt", "out": "results/raw/sweep_w_w8_mix_sep_s1.json"}
+loaded cached model results/raw/ckpt/mix_sep_s1_p0.1_n5000.pt
+metrics: {"class_acc": 1.0, "support_prec": 0.92, "mode_cov": 0.6666666666666666, "mode_tv": 0.24683045376537313, "std_ratio": 1.054475084775307, "off_support": 0.08, "swd": 1.265149334380507, "wall_s": 5.615985870361328}

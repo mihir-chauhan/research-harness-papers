@@ -1,0 +1,125 @@
+{
+  "slug": "calibration-under-shift-digits",
+  "direction": "Uncertainty calibration under distribution shift at small scale: on scikit-learn digits with increasing rotation and Gaussian noise as the shift, compare a single MLP, temperature scaling, MC dropout and a deep ensemble of 5 members. Report accuracy, expected calibration error, negative log-likelihood and Brier score as functions of shift intensity. Does temperature scaling fitted in-distribution stay calibrated under shift?",
+  "created": "2026-10-01T18:40:13",
+  "updated": "2026-10-01T22:28:48",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T21:43:32",
+      "finished": "2026-10-01T21:52:25",
+      "notes": [
+        {
+          "t": "2026-10-01T21:52:25",
+          "note": "8+ refs cited"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:53:24",
+      "notes": [
+        {
+          "t": "2026-10-01T21:53:24",
+          "note": "run.py built, smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T21:53:25",
+      "finished": "2026-10-01T22:09:01",
+      "notes": [
+        {
+          "t": "2026-10-01T22:09:01",
+          "note": "main group run"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:09:02",
+      "notes": [
+        {
+          "t": "2026-10-01T22:09:02",
+          "note": "220 main runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": "2026-10-01T22:09:02",
+      "finished": "2026-10-01T22:20:06",
+      "notes": [
+        {
+          "t": "2026-10-01T22:20:06",
+          "note": "oracle TS, members sweep, dropout sweep"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:28:24",
+      "notes": [
+        {
+          "t": "2026-10-01T22:28:24",
+          "note": "tables, hyp tests"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:28:24",
+      "notes": [
+        {
+          "t": "2026-10-01T22:28:24",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": "2026-10-01T22:28:24",
+      "finished": "2026-10-01T22:28:48",
+      "notes": [
+        {
+          "t": "2026-10-01T22:28:48",
+          "note": "6 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T21:52:25",
+      "phase": "novelty",
+      "decision": "Seed has no new method; TS is the method in focus, others baselines; hypotheses registered in proposal.md before any run."
+    },
+    {
+      "t": "2026-10-01T22:28:48",
+      "phase": "results",
+      "decision": "MC dropout beat the ensemble against the registered expectation; reported as refuted H3/H4 and added an exploratory dropout decomposition, flagged as post hoc."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

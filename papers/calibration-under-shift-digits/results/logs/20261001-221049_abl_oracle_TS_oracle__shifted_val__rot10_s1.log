@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:10:49 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts_oracle --task rot10 --seed 1 --out results/raw/abl_oracle_rot10_s1.json
+
+config: {'system': 'ts_oracle', 'task': 'rot10', 'seed': 1, 'out': 'results/raw/abl_oracle_rot10_s1.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 2.015214204788208, "accuracy": 0.8333333333333334, "ece": 0.07958164466751948, "nll": 0.5152075886726379, "brier": 0.23300301329688902, "conf": 0.7993106842041016}

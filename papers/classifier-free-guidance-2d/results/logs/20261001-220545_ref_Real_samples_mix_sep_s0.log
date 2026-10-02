@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:05:45 2026
+# cwd: .
+# cmd: python method/run.py --task mix_sep --seed 0 --real --out results/raw/ref_real_mix_sep_s0.json
+
+config: {"task": "mix_sep", "seed": 0, "w": 0.0, "tau": 1.0, "p_uncond": 0.1, "steps": 5000, "lo": 0.0, "hi": 1.0, "n": 1500, "real": true, "ckpt_dir": "results/raw/ckpt", "out": "results/raw/ref_real_mix_sep_s0.json"}
+metrics: {"class_acc": 0.9963333333333334, "support_prec": 0.9878333333333333, "mode_cov": 1.0, "mode_tv": 0.012716344921677815, "std_ratio": 0.979944334653033, "off_support": 0.010666666666666666, "swd": 0.08306606633744978, "wall_s": 0.15225720405578613}

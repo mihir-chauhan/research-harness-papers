@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:03:28 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ts --task rot30_noise0.5 --seed 4 --out results/raw/main_ts_rot30_noise0.5_s4.json
+
+config: {'system': 'ts', 'task': 'rot30_noise0.5', 'seed': 4, 'out': 'results/raw/main_ts_rot30_noise0.5_s4.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.731710433959961, "accuracy": 0.19555555555555557, "ece": 0.5759819565216702, "nll": 5.243568420410156, "brier": 1.2889810145645562, "conf": 0.7715375423431396}

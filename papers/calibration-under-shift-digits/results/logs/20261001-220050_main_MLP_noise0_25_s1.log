@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:00:50 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mlp --task noise0.25 --seed 1 --out results/raw/main_mlp_noise0.25_s1.json
+
+config: {'system': 'mlp', 'task': 'noise0.25', 'seed': 1, 'out': 'results/raw/main_mlp_noise0.25_s1.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.0, "accuracy": 0.8177777777777778, "ece": 0.1185731895764669, "nll": 0.7241085767745972, "brier": 0.27843725699174543, "conf": 0.9334492087364197}

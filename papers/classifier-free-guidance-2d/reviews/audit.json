@@ -1,0 +1,195 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-reproducible (two main runs re-executed, including retraining from scratch, match the registry exactly), all tables regenerate identically from runs.jsonl, the code matches the paper and the baselines are fair. Two major text problems remain: the abstract/conclusion claim that the cost of guidance is unrelated to class overlap is contradicted by std_ratio and swd in the paper's own data, and the related-work gap claim on temperature sampling is uncited and ignores that cited refs [1] and [2] already discuss and test noise-scaling low-temperature sampling. Several minor wording and number slips.",
+      "reran": [
+        {
+          "run": "CFG (w=3)/mix_overlap/1",
+          "metric": "class_acc",
+          "registry": 1.0,
+          "rerun": 1.0
+        },
+        {
+          "run": "CFG (w=3)/mix_overlap/1",
+          "metric": "mode_tv",
+          "registry": 0.12451437817195016,
+          "rerun": 0.12451437817195016
+        },
+        {
+          "run": "Unguided conditional/mix_sep/1",
+          "metric": "class_acc",
+          "registry": 0.994,
+          "rerun": 0.994
+        },
+        {
+          "run": "Unguided conditional/mix_sep/1",
+          "metric": "mode_tv",
+          "registry": 0.011516600617761122,
+          "rerun": 0.011516600617761122
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, paper/sections/conclusion.tex",
+          "issue": "Claims 'the cost of guidance did not depend measurably on class overlap' / 'the cost is unrelated to class overlap', but H4 tested only mode_tv. In the registry the std_ratio drop w=0->3 is -0.117 on overlap vs -0.173 on sep (Welch p=0.012) and the swd rise is +0.663 vs +0.560 (p=0.0013); results.tex itself notes the std_ratio difference.",
+          "fix": "Restrict the claim to mode-weight distortion and mode coverage, and state that variance loss was larger and swd growth smaller on the separated task (post hoc, uncorrected)."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/related.tex (Measuring diversity paragraph)",
+          "issue": "'Temperature scaling is a common alternative...' is uncited, and the gap claim rests on 'not aware of a comparison in the cited papers' abstracts'. Cited Ho & Salimans [1] (intro and Sec. 2) state that decreasing sampling noise is ineffective, citing Dhariwal & Nichol [2], whose Appendix G 'Reduced Temperature Sampling' tests exactly this noise-scaling baseline and reports low precision and recall.",
+          "fix": "Cite [1] and [2] Appendix G for temperature sampling in diffusion models, drop or narrow 'the gap we fill', and discuss why the toy result (temperature raises class accuracy) differs from their image findings."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Per-mode mass)",
+          "issue": "Says major-mode inflation is '1.36 at tau=0.5 and at w=8'; Table VI gives 1.35 for tau=0.5. Also calls the minor mode at tau=0.5 (0.44+-0.01) 'similar to' w=8 (0.34+-0.03), a gap of several sd.",
+          "fix": "Write 1.35 and 1.36; say the minor mode under tau=0.5 lies between CFG w=3 and w=8."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1, H3)",
+          "issue": "Text gives CFG w=3 class accuracy as 0.999 while Tables I, II and V print 1.000 (mean 0.9995).",
+          "fix": "Use 1.000 in the text or print 0.9995 consistently."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2, H3), abstract",
+          "issue": "'std_ratio is lowest at w=1 (0.748)' is not distinguishable from w=2 (0.752, sd 0.013); tau=0.7 (std 0.676) is called 'comparable spread' to w=2 (0.752).",
+          "fix": "Say the minimum is around w=1-2 and drop or soften 'comparable spread'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'16-frequency sinusoidal time embedding' but the code uses 8 frequencies (16 sin/cos features); '110 grid runs' while the registry has 120 ok non-per-mode rows (110 plus 10 real-sample reference runs); H4 uses a Welch test on per-seed differences that share seeds and sampling noise across tasks.",
+          "fix": "Correct to 8 frequencies, state 120 runs including the reference rows, and note the shared seeds or use a paired test for H4."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "GLIDE [3] is grouped under 'the earlier classifier-guided models'; GLIDE compares CLIP guidance with CFG and is not an earlier classifier-guided model.",
+          "fix": "Cite only Dhariwal & Nichol for classifier guidance and describe GLIDE as CLIP guidance vs CFG."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (interval)",
+          "issue": "States agreement with Kynkaanniemi et al. on high-noise harm but omits that the toy result disagrees with their finding that guidance is largely unnecessary at low noise and beneficial in the middle (here the low-noise half carries the accuracy gain and [0.2,0.6] is worse at 0.977).",
+          "fix": "State both the agreement and the disagreement."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, setup.tex (pre-registration)",
+          "issue": "'Tests registered before the runs': proposal.md was committed at 22:04:32, one second before the first main run but after a smoke run of CFG w=3 on seed 0 (22:04:06) and after the seed-0 mix_overlap network was trained in an unregistered timing trial (checkpoint dated 22:03).",
+          "fix": "Disclose that a seed-0 smoke run of the main configuration preceded registration and that the seed-0 network was trained outside the registry."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "H5 (p=0.020) would not survive Bonferroni correction over the six tests (threshold 0.0083); the paper says 'uncorrected' and 'borderline' but not this.",
+          "fix": "State explicitly that H5 does not survive multiplicity correction."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md",
+          "issue": "Says label-dropout ablation used seeds 0-2; five seeds were run.",
+          "fix": "Update to seeds 0-4."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Table I",
+          "issue": "The n column of the main table is clipped at the right margin.",
+          "fix": "Wrap the table in a resizebox to textwidth or drop the n column."
+        }
+      ],
+      "commit": "bc51718637d90bfb441082a123e24b0026b9bdc2"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers, tables and hypothesis tests were independently recomputed from the registry and match; all 141 ok runs have commands and logs whose metrics equal the registry, and reruns (cached and retrained from scratch) are bit-identical. Code matches the described method, baselines share network, sampler and grid size, citations are used in context, and the framing reports the refuted and qualified hypotheses with adequate limitations. Only minor wording, related-work and bookkeeping issues were found.",
+      "reran": [
+        {
+          "run": "CFG (w=3)/mix_overlap/0",
+          "metric": "class_acc",
+          "registry": 0.9985,
+          "rerun": 0.9985
+        },
+        {
+          "run": "Unguided conditional/mix_sep/2",
+          "metric": "class_acc",
+          "registry": 0.9925,
+          "rerun": 0.9925
+        },
+        {
+          "run": "Low-temperature (tau=0.5)/mix_overlap/3",
+          "metric": "class_acc",
+          "registry": 0.9931666666666666,
+          "rerun": 0.9931666666666666
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex",
+          "issue": "The gap statement omits prior toy/Gaussian-mixture analyses of guidance (e.g. Chidambaram et al. 2024 'What does guidance do? A fine-grained analysis in a simple setting'; Wu et al. 2024 on Gaussian mixtures; Bradley & Nakkiran 2024; Karras et al. 2024 autoguidance), so the implied gap is overstated, though no novelty is claimed.",
+          "fix": "Verify and cite these works and narrow the gap statement to the metric-by-metric accounting against a temperature baseline."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3 heading)",
+          "issue": "Heading 'CFG's gain is not reproduced by temperature' is stronger than the data: tau=0.5 recovers about 91% of the class-accuracy gain (0.926 to 0.993 vs 0.9995), the registered difference is 0.006 near ceiling, and tau=0.2 reaches 0.998.",
+          "fix": "Reword to 'CFG reaches slightly higher class accuracy than tau=0.5' and state the magnitude relative to the unguided gap."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H4 post hoc numbers)",
+          "issue": "The post hoc values -0.173/-0.117 (p=0.012) and +0.560/+0.663 (p=0.0013) are correct from the registry but appear in no generated table, which triggers the rh check warning.",
+          "fix": "Add these rows to hyp.tex or a small post hoc table generated by analysis/analyze.py, labelled exploratory."
+        },
+        {
+          "severity": "minor",
+          "where": "results/RESULTS.md vs paper",
+          "issue": "CFG w=3 class_acc (0.9995) is shown as 1.000 in the paper and 0.999 in RESULTS.md.",
+          "fix": "Use one rounding consistently."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'About 21 minutes' is 21.9 min by summed durations; 'training takes about 50 s' is 20-50 s in the logs; the 192-to-128-unit / 8000-to-5000-step timing trial and the first seed-0 mix_overlap training have no registry log (disclosed; a from-scratch retrain reproduces the registry exactly).",
+          "fix": "Correct the timings and state that the seed-0 network was trained outside the registry but is reproducible from the recorded command."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'Beyond w=5 samples start leaving the support' rests on a single tested point (w=8, p=0.020, not Bonferroni-robust); w=5 is untested.",
+          "fix": "Say 'at w=8 (borderline, uncorrected)'."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Auto-generated 'tier 2 - TARGET REACHED' with ablations marked 'missing' does not fit a characterisation study; RESULTS.md already calls it advisory.",
+          "fix": "Annotate VERDICT.md as not applicable or regenerate it with the ablation mapping."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/citations.json (audit side effect)",
+          "issue": "The mandated 'rh lit verify' rewrote the checked_at timestamp, leaving the file modified in git; no other content changed.",
+          "fix": "Run 'git checkout paper/citations.json' or commit the refreshed timestamp."
+        }
+      ],
+      "commit": "307a887f598d261f209afff1f83b0e12656ca2c1"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (3):\n! 20 failed runs in registry (fine, but check they were rerun)\n! numbers in prose not found in any table or run: limitations.tex: 0.0083\n! numbers in prose not found in any table or run: results.tex: 0.0013, 0.117, 0.173, 0.560, 0.663\nREADY",
+      "response": "# Response to audit\n- Major (overlap claim): abstract/conclusion now restrict \"no dependence\" to mode_tv (H4) and report the post hoc std_ratio (-0.173 vs -0.117, p=0.012) and swd (+0.560 vs +0.663, p=0.0013) differences, labelled uncorrected. These derived differences come from the registry (per-seed differences), not a table, so rh check lists them as warnings.\n- Major (temperature related work): related.tex now cites Dhariwal & Nichol App. G and Ho & Salimans for noise-reduced sampling, drops the \"gap we fill\" claim, and notes the toy/image difference is untested.\n- Minor: 1.35/1.36 and \"between w=3 and w=8\" fixed; 0.999 -> 1.000 at w=3; std_ratio minimum stated as around w=1-2, \"comparable spread\" removed; 8 frequencies, 120 runs, shared seeds for H4 noted; GLIDE described as CLIP vs CFG; interval disagreement with Kynkaanniemi et al. stated; pre-registration caveat disclosed; H5 vs Bonferroni stated; PROTOCOL seeds 0-4; Table I wrapped in resizebox.\n- Not re-run: no experiments changed.\n",
+      "seconds": 44
+    }
+  ]
+}

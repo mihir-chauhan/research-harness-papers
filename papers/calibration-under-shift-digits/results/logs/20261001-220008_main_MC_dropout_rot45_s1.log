@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:00:08 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mcd --task rot45 --seed 1 --out results/raw/main_mcd_rot45_s1.json
+
+config: {'system': 'mcd', 'task': 'rot45', 'seed': 1, 'out': 'results/raw/main_mcd_rot45_s1.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.13111111111111112, "ece": 0.7721902134021124, "nll": 8.595070838928223, "brier": 1.5855894840239337, "conf": 0.9033012986183167}

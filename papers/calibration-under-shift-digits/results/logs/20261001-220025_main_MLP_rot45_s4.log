@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:00:25 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mlp --task rot45 --seed 4 --out results/raw/main_mlp_rot45_s4.json
+
+config: {'system': 'mlp', 'task': 'rot45', 'seed': 4, 'out': 'results/raw/main_mlp_rot45_s4.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"temperature": 1.0, "accuracy": 0.12444444444444444, "ece": 0.8096694797277451, "nll": 12.952302932739258, "brier": 1.653630972456357, "conf": 0.9311282634735107}

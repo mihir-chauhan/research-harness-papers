@@ -1,0 +1,96 @@
+slug: calibration-under-shift-digits
+direction: 'Uncertainty calibration under distribution shift at small scale: on scikit-learn
+  digits with increasing rotation and Gaussian noise as the shift, compare a single
+  MLP, temperature scaling, MC dropout and a deep ensemble of 5 members. Report accuracy,
+  expected calibration error, negative log-likelihood and Brier score as functions
+  of shift intensity. Does temperature scaling fitted in-distribution stay calibrated
+  under shift?'
+problem: Does ID-fitted temperature scaling remain calibrated under rotation and noise
+  shift, and how do MC dropout and a 5-member deep ensemble compare, on scikit-learn
+  digits?
+gap: Calibration-under-shift results are GPU-scale (CIFAR-10-C/ImageNet-C); a small
+  controlled study with a mechanism ablation (oracle temperature) is missing.
+contribution: A small CPU replication of the shift-calibration comparison with two
+  shift families, 5 seeds, and an oracle-temperature ablation. No new method is claimed.
+hypotheses:
+- id: H1
+  statement: In distribution, TS lowers NLL relative to the uncalibrated MLP.
+  test: paired comparison over 5 seeds at rot0, alpha 0.05 (rh compare)
+- id: H2
+  statement: 'ID-fitted TS does not stay calibrated: ECE at rot60 and noise1.0 is
+    >=2x its rot0 ECE.'
+  test: ratio of mean ECE over seeds
+- id: H3
+  statement: Deep ensemble has lowest NLL and Brier of four systems at rot60 and noise1.0.
+  test: mean over seeds
+- id: H4
+  statement: Ensemble ECE < MC dropout ECE at rot60 and noise1.0.
+  test: paired comparison, alpha 0.05
+- id: H5
+  statement: Oracle TS (T fitted on shift-matched validation data) has lower ECE than
+    ID-fitted TS at severe shifts.
+  test: paired comparison, alpha 0.05
+method:
+  name: MLP + temperature scaling
+  summary: Single MLP whose logits are divided by a scalar T fitted by NLL minimisation
+    on an in-distribution validation split; evaluated unchanged under shift.
+  components:
+  - MLP
+  - temperature scalar fitted on ID validation
+  entrypoint: method/run.py
+tasks:
+- rot0
+- rot10
+- rot20
+- rot30
+- rot45
+- rot60
+- noise0.25
+- noise0.5
+- noise0.75
+- noise1.0
+- rot30_noise0.5
+metrics:
+  accuracy:
+    higher_is_better: true
+  ece:
+    higher_is_better: false
+  nll:
+    higher_is_better: false
+  brier:
+    higher_is_better: false
+  conf:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- MLP
+- MC dropout
+- Deep ensemble (5)
+ablations:
+- TS oracle (shifted val)
+- Deep ensemble
+- MC dropout
+- Dropout-trained MLP, deterministic
+ambition:
+  target_tier: 2
+  primary_metric: ece
+  primary_task: rot60
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

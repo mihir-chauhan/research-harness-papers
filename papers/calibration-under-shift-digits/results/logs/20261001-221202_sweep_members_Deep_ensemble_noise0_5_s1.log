@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:12:02 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system ens --members 2 --task noise0.5 --seed 1 --out results/raw/sw_members2_noise0.5_s1.json
+
+config: {'system': 'ens', 'task': 'noise0.5', 'seed': 1, 'out': 'results/raw/sw_members2_noise0.5_s1.json', 'members': 2, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.5, "ece": 0.35477744513087806, "nll": 3.4757614135742188, "brier": 0.8160195458611805, "conf": 0.8537753820419312}

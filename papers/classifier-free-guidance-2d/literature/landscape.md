@@ -1,0 +1,8 @@
+# Landscape
+
+- Classifier-free guidance [ho2022classifier] jointly trains conditional and unconditional scores and extrapolates at sampling time; the paper itself reports the FID/IS trade-off as the guidance weight grows. Classifier guidance [dhariwal2021diffusion] and GLIDE [nichol2021glide] showed the same fidelity/diversity trade-off in image models.
+- Diversity is typically measured through improved precision/recall [kynknniemi2019improved; sajjadi2018assessing] on image features, where mode structure is not observable.
+- Limited-interval guidance [kynknniemi2024applying] reports guidance is harmful at high noise levels and unnecessary at low ones and restricts it to a middle interval. [moufad2025conditional] shows CFG does not sample the tilted distribution its limiting score suggests and that it reduces diversity; [patel2023bridging] reports out-of-distribution samples and mode collapse at high w.
+- Sampler/architecture context: DDPM [ho2020denoising], improved DDPM [nichol2021improved], DDIM [song2020denoising], EDM [karras2022elucidating].
+
+Closest work: [kynknniemi2024applying] and [moufad2025conditional], which study guidance's sampling distribution and interval but, as far as the abstracts show, do not account for its costs metric by metric against a temperature baseline on a fixed-ground-truth mixture. Gap: a controlled, fully measurable accounting (class accuracy, in-support precision, mode coverage, mode-weight distortion, variance ratio, off-support mass) of what is lost, versus low-temperature sampling, at small scale. This is a replication-style small study, not a new method.

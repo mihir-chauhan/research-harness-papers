@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:15:50 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mcd --p 0.3 --task rot30 --seed 0 --out results/raw/sw_p0.3_rot30_s0.json
+
+config: {'system': 'mcd', 'task': 'rot30', 'seed': 0, 'out': 'results/raw/sw_p0.3_rot30_s0.json', 'members': 5, 'p': 0.3, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.4577777777777778, "ece": 0.2746505175034205, "nll": 2.0650503635406494, "brier": 0.7571093411331491, "conf": 0.732428252696991}

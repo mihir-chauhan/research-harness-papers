@@ -1,0 +1,37 @@
+oracle==TS at rot0: True
+                TS T (ID-fit)  Oracle T  Oracle T min  Oracle T max
+task                                                               
+rot0                     1.52      1.52          1.11          1.77
+rot10                    1.52      2.20          2.02          2.49
+rot20                    1.52      3.44          3.07          3.92
+rot30                    1.52      6.74          5.37          8.28
+rot45                    1.52     33.36         22.49         40.90
+rot60                    1.52     57.59         36.08         99.19
+noise0.25                1.52      2.52          2.24          3.29
+noise0.5                 1.52      5.69          4.31          8.46
+noise0.75                1.52     10.68          7.48         17.01
+noise1.0                 1.52     16.21         10.89         26.63
+rot30_noise0.5           1.52     18.45         10.60         30.13
+Det-dropout ECE vs MCD rot0 0.0179 0.0156 p= 0.4721
+Det-dropout ECE vs MLP rot0 0.0179 0.0182 p= 0.949
+Det-dropout ECE vs MCD rot30 0.4267 0.3606 p= 0.0
+Det-dropout ECE vs MLP rot30 0.4267 0.4573 p= 0.0862
+Det-dropout ECE vs MCD rot60 0.8202 0.7921 p= 0.0227
+Det-dropout ECE vs MLP rot60 0.8202 0.8269 p= 0.3684
+Det-dropout ECE vs MCD noise1.0 0.6432 0.5547 p= 0.0
+Det-dropout ECE vs MLP noise1.0 0.6432 0.6737 p= 0.0044
+   hyp                        quantity       task        A        B      A-B  paired_p
+0   H1                      TS-MLP nll       rot0   0.1036   0.1166  -0.0130    0.0942
+1   H1                      TS-MLP ece       rot0   0.0160   0.0182  -0.0022    0.2683
+2   H2  TS ECE shifted vs rot0 (ratio)      rot60   0.8025   0.0160  50.2450       NaN
+3   H2  TS ECE shifted vs rot0 (ratio)   noise1.0   0.6180   0.0160  38.6891       NaN
+4   H3                nll: best system      rot60  13.8745  10.4424   3.4321       NaN
+5   H3              brier: best system      rot60   1.6597   1.6158   0.0439       NaN
+6   H3                nll: best system   noise1.0   8.6890   5.9930   2.6961       NaN
+7   H3              brier: best system   noise1.0   1.3067   1.2461   0.0606       NaN
+8   H4                     Ens-MCD ece      rot60   0.8203   0.7921   0.0281    0.0711
+9   H4                     Ens-MCD ece   noise1.0   0.5932   0.5547   0.0385    0.0001
+10  H5                   Oracle-TS ece      rot45   0.0525   0.7845  -0.7320    0.0000
+11  H5                   Oracle-TS ece      rot60   0.0291   0.8025  -0.7734    0.0000
+12  H5                   Oracle-TS ece  noise0.75   0.0666   0.5237  -0.4571    0.0001
+13  H5                   Oracle-TS ece   noise1.0   0.0452   0.6180  -0.5728    0.0000

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:08:35 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system mcd --task rot30_noise0.5 --seed 2 --out results/raw/main_mcd_rot30_noise0.5_s2.json
+
+config: {'system': 'mcd', 'task': 'rot30_noise0.5', 'seed': 2, 'out': 'results/raw/main_mcd_rot30_noise0.5_s2.json', 'members': 5, 'p': 0.2, 'mc': 20} epochs=100 lr=0.001 bs=64 hidden=128
+metrics: {"accuracy": 0.1622222222222222, "ece": 0.6608451449871063, "nll": 7.415727615356445, "brier": 1.4205573823752935, "conf": 0.8224325180053711}
