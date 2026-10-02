@@ -1,10 +1,10 @@
 \begin{tabular}{llrrrrr}\toprule
 Task & & $q{=}0.01$ & 0.1 & 1 & 10 & 100 \\\midrule
-pend. & $\Delta$ effort & 4.2 & 4.2 & 4.7 & 4.4 & 2.8 \\
- & paired $p$ & 0.059 & 0.057 & 0.047 & $<$0.001 & 0.044 \\
- & Quad success & 0.83 & 0.83 & 0.83 & 0.92 & 1.00 \\
-cart-p. & $\Delta$ effort & 6.7 & 6.9 & 31.5 & 55.4 & 59.1 \\
- & paired $p$ & 0.046 & 0.090 & 0.027 & 0.003 & 0.008 \\
- & Quad success & 0.98 & 1.00 & 1.00 & 1.00 & 1.00 \\
+pend. & $\Delta$ effort & \rhval{cmp/pair_q0.01/ilqr-energy-ours/pendulum/control_effort/delta:1} & \rhval{cmp/pair_q0.1/ilqr-energy-ours/pendulum/control_effort/delta:1} & \rhval{cmp/pair_q1/ilqr-energy-ours/pendulum/control_effort/delta:1} & \rhval{cmp/pair_q10/ilqr-energy-ours/pendulum/control_effort/delta:1} & \rhval{cmp/pair_q100/ilqr-energy-ours/pendulum/control_effort/delta:1} \\
+ & paired $p$ & \rhval{cmp/pair_q0.01/ilqr-energy-ours/pendulum/control_effort/paired_p:3} & \rhval{cmp/pair_q0.1/ilqr-energy-ours/pendulum/control_effort/paired_p:3} & \rhval{cmp/pair_q1/ilqr-energy-ours/pendulum/control_effort/paired_p:3} & \rhval{cmp/pair_q10/ilqr-energy-ours/pendulum/control_effort/paired_p:4} & \rhval{cmp/pair_q100/ilqr-energy-ours/pendulum/control_effort/paired_p:3} \\
+ & Quad success & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=1/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=10/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=100/pendulum/success_rate/mean:2} \\
+cart-p. & $\Delta$ effort & \rhval{cmp/pair_q0.01/ilqr-energy-ours/cartpole/control_effort/delta:1} & \rhval{cmp/pair_q0.1/ilqr-energy-ours/cartpole/control_effort/delta:1} & \rhval{cmp/pair_q1/ilqr-energy-ours/cartpole/control_effort/delta:1} & \rhval{cmp/pair_q10/ilqr-energy-ours/cartpole/control_effort/delta:1} & \rhval{cmp/pair_q100/ilqr-energy-ours/cartpole/control_effort/delta:1} \\
+ & paired $p$ & \rhval{cmp/pair_q0.01/ilqr-energy-ours/cartpole/control_effort/paired_p:3} & \rhval{cmp/pair_q0.1/ilqr-energy-ours/cartpole/control_effort/paired_p:3} & \rhval{cmp/pair_q1/ilqr-energy-ours/cartpole/control_effort/paired_p:3} & \rhval{cmp/pair_q10/ilqr-energy-ours/cartpole/control_effort/paired_p:3} & \rhval{cmp/pair_q100/ilqr-energy-ours/cartpole/control_effort/paired_p:3} \\
+ & Quad success & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=1/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=10/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=100/cartpole/success_rate/mean:2} \\
 \bottomrule
 \end{tabular}

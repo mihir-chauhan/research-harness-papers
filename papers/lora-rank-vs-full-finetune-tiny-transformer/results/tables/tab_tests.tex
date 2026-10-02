@@ -2,15 +2,13 @@
 \toprule
 A & B & metric & task & mean A$-$B & paired $p$ \\
 \midrule
-LoRA r=4 & Full fine-tuning & adapt\_acc & sort\_desc & +0.0003 & 0.816 \\
-LoRA r=4 & Full fine-tuning & adapt\_acc & reverse & -0.0007 & 0.374 \\
-LoRA r=4 & Last block & adapt\_acc & sort\_desc & +0.0314 & 0.000793 \\
-LoRA r=4 & Last block & adapt\_acc & reverse & -0.0005 & 0.546 \\
-LoRA r=1 & LoRA r=8 & adapt\_acc & sort\_desc & -0.0190 & 0.00369 \\
-LoRA r=1 & LoRA r=8 & adapt\_acc & reverse & -0.1419 & 0.523 \\
-LoRA r=4 & From scratch & adapt\_acc & sort\_desc & +0.0000 & 1 \\
-LoRA r=4 & From scratch & adapt\_acc & reverse & -0.0007 & 0.374 \\
-LoRA r=4 & Full fine-tuning & pretask\_acc & sort\_desc & +0.0000 & n/a \\
-LoRA r=4 & Full fine-tuning & pretask\_acc & reverse & +0.0000 & n/a \\
+LoRA r=4 & Full fine-tuning & adapt\_acc & sort\_desc & \rhval{cmp/main/full-fine-tuning/sort_desc/adapt_acc/delta:4} & \rhval{cmp/main/full-fine-tuning/sort_desc/adapt_acc/paired_p} \\
+LoRA r=4 & Full fine-tuning & adapt\_acc & reverse & \rhval{cmp/main/full-fine-tuning/reverse/adapt_acc/delta:4} & \rhval{cmp/main/full-fine-tuning/reverse/adapt_acc/paired_p} \\
+LoRA r=4 & Last block & adapt\_acc & sort\_desc & \rhval{cmp/main/last-block/sort_desc/adapt_acc/delta:4} & \rhval{cmp/main/last-block/sort_desc/adapt_acc/paired_p} \\
+LoRA r=4 & Last block & adapt\_acc & reverse & \rhval{cmp/main/last-block/reverse/adapt_acc/delta:4} & \rhval{cmp/main/last-block/reverse/adapt_acc/paired_p} \\
+LoRA r=4 & From scratch & adapt\_acc & sort\_desc & \rhval{cmp/main/from-scratch/sort_desc/adapt_acc/delta:4} & \rhval{cmp/main/from-scratch/sort_desc/adapt_acc/paired_p} \\
+LoRA r=4 & From scratch & adapt\_acc & reverse & \rhval{cmp/main/from-scratch/reverse/adapt_acc/delta:4} & \rhval{cmp/main/from-scratch/reverse/adapt_acc/paired_p} \\
+LoRA r=4 & Full fine-tuning & pretask\_acc & sort\_desc & \rhval{cmp/main/full-fine-tuning/sort_desc/pretask_acc/delta:4} & \rhval{cmp/main/full-fine-tuning/sort_desc/pretask_acc/paired_p} \\
+LoRA r=4 & Full fine-tuning & pretask\_acc & reverse & \rhval{cmp/main/full-fine-tuning/reverse/pretask_acc/delta:4} & \rhval{cmp/main/full-fine-tuning/reverse/pretask_acc/paired_p} \\
 \bottomrule
 \end{tabular}

@@ -1,30 +1,27 @@
-"""Paired-by-seed t-tests from results/runs.jsonl for ablation and baseline pairs -> results/tables/stats_extra.tex."""
-import json, numpy as np
-from scipy import stats
-R = [json.loads(l) for l in open("results/runs.jsonl")]
-R = [r for r in R if r["status"] == "ok" and r["kind"] != "sanity"]
-def acc(group, name, task, tag=None):
-    d = {r["seed"]: r["metrics"]["test_acc"] for r in R if r["group"] == group and r["name"] == name and r["task"] == task
-         and (tag is None or all(r["config"].get(k) == v for k, v in tag.items()))}
-    return d
-pairs = [("abl_aug", "SimCLR geom-only", "main", "SimCLR-style probe"),
-         ("abl_aug", "SimCLR photo-only", "main", "SimCLR-style probe"),
-         ("abl_supaug", "Supervised + aug", "main", "Supervised scratch"),
-         ("abl_supaug", "Supervised + aug", "main", "SimCLR-style probe"),
-         ("main", "Rotation (reimplemented)", "main", "PCA + LR"),
-         ("main", "Rotation (reimplemented)", "main", "Random CNN + probe"),
-         ("main", "Random CNN + probe", "main", "PCA + LR"),
-         ("main", "Random CNN + probe", "main", "Pixels + LR")]
-L = [r"\begin{tabular}{llrrrr}", r"\toprule", r"Task & A $-$ B & $\Delta$ acc & paired $p$ & A wins \\", r"\midrule"]
-L[0] = r"\begin{tabular}{llrrr}"
-for ga, na, gb, nb in pairs:
+"""Layout of the additional paired-comparison table -> results/tables/stats_extra.tex.
+
+No statistic is computed here. Every cell is a \\rhval key of `rh compare` (delta = A minus B, paired-by-seed p):
+  rh compare --group cmp_aug      --metric test_acc --ref "SimCLR-style probe"
+  rh compare --group cmp_supaug   --metric test_acc --ref "Supervised + aug"
+  rh compare --group cmp_rotation --metric test_acc --ref "Rotation (reimplemented)"
+  rh compare --group cmp_random   --metric test_acc --ref "Random CNN + probe"
+The cmp_* groups hold copies (`rh log --from-run`) of the main and ablation rows, so that systems of
+different groups can be compared by `rh compare`; they are not additional runs.
+"""
+# (group, A = reference system, B, slug of B)
+pairs = [("cmp_aug", "SimCLR-style probe", "SimCLR geom-only", "simclr-geom-only"),
+         ("cmp_aug", "SimCLR-style probe", "SimCLR photo-only", "simclr-photo-only"),
+         ("cmp_supaug", "Supervised + aug", "Supervised scratch", "supervised-scratch"),
+         ("cmp_supaug", "Supervised + aug", "SimCLR-style probe", "simclr-style-probe"),
+         ("cmp_rotation", "Rotation (reimplemented)", "PCA + LR", "pca-+-lr"),
+         ("cmp_rotation", "Rotation (reimplemented)", "Random CNN + probe", "random-cnn-+-probe"),
+         ("cmp_random", "Random CNN + probe", "PCA + LR", "pca-+-lr"),
+         ("cmp_random", "Random CNN + probe", "Pixels + LR", "pixels-+-lr")]
+L = [r"\begin{tabular}{llrr}", r"\toprule", r"Task & A $-$ B & $\Delta$ acc & paired $p$ \\", r"\midrule"]
+for g, a, b, sb in pairs:
     for t in ["n10", "n50", "n200"]:
-        a, b = acc(ga, na, t), acc(gb, nb, t)
-        s = sorted(set(a) & set(b)); x = np.array([a[i] for i in s]); y = np.array([b[i] for i in s])
-        p = stats.ttest_rel(x, y).pvalue
-        L.append(f"{t} & {na} $-$ {nb} & {np.mean(x-y):.3f} & {p:.3f} & {int((x>y).sum())}/{len(s)} \\\\")
+        key = f"cmp/{g}/{sb}/{t}/test_acc"
+        L.append(f"{t} & {a} $-$ {b} & \\rhval{{{key}/delta:3}} & \\rhval{{{key}/paired_p:3}} \\\\")
     L.append(r"\midrule")
 L[-1] = r"\bottomrule"; L.append(r"\end{tabular}")
 open("results/tables/stats_extra.tex", "w").write("\n".join(L) + "\n"); print("\n".join(L))
-ts = sorted(r["provenance"]["started"] for r in R); print(ts[0], ts[-1])
-print(max((r["provenance"]["duration_s"], r["name"], r["task"], r["seed"]) for r in R))

@@ -1,21 +1,20 @@
 \begin{tabular}{lrrrrr}
 \toprule
- & n & rand-acc & rand-loss & adv-acc & adv-loss \\
-subset &  &  &  &  &  \\
+subset & n & rand-acc & rand-loss & adv-acc & adv-loss \\
 \midrule
-all tasks pooled & 260 & 0.24 & 0.24 & 0.12 & 0.07 \\
-pooled, collapsed runs removed & 219 & 0.27 & 0.24 & 0.15 & 0.09 \\
-digits\_n0.0 & 65 & 0.13 & -0.07 & -0.20 & -0.65 \\
-digits\_n0.2 & 65 & 0.35 & 0.31 & 0.04 & 0.05 \\
-digits\_n0.4 & 65 & 0.37 & 0.32 & 0.38 & 0.37 \\
-spirals\_n0.2 & 65 & -0.72 & -0.85 & -0.34 & -0.40 \\
-digits\_n0.0 no collapsed & 62 & 0.08 & -0.22 & -0.16 & -0.62 \\
-digits\_n0.2 no collapsed & 56 & 0.23 & 0.15 & -0.15 & -0.14 \\
-digits\_n0.4 no collapsed & 51 & 0.10 & 0.02 & 0.09 & 0.09 \\
-spirals\_n0.2 no collapsed & 50 & -0.43 & -0.69 & -0.39 & -0.54 \\
-SAM-sweep digits pooled & 90 & 0.74 & 0.76 & 0.63 & 0.61 \\
-SAM only digits\_n0.0 & 30 & 0.33 & 0.57 & 0.06 & -0.46 \\
-SAM only digits\_n0.2 & 30 & 0.56 & 0.56 & 0.73 & 0.71 \\
-SAM only digits\_n0.4 & 30 & 0.56 & 0.56 & 0.51 & 0.51 \\
+all tasks pooled & \rhval{derived/corr-pooled-all/digits_n0.4/n_runs/mean} & \rhval{derived/corr-pooled-all/digits_n0.4/rand_acc/mean:2} & \rhval{derived/corr-pooled-all/digits_n0.4/rand_loss/mean:2} & \rhval{derived/corr-pooled-all/digits_n0.4/adv_acc/mean:2} & \rhval{derived/corr-pooled-all/digits_n0.4/adv_loss/mean:2} \\
+pooled, collapsed runs removed & \rhval{derived/corr-pooled-no-collapsed/digits_n0.4/n_runs/mean} & \rhval{derived/corr-pooled-no-collapsed/digits_n0.4/rand_acc/mean:2} & \rhval{derived/corr-pooled-no-collapsed/digits_n0.4/rand_loss/mean:2} & \rhval{derived/corr-pooled-no-collapsed/digits_n0.4/adv_acc/mean:2} & \rhval{derived/corr-pooled-no-collapsed/digits_n0.4/adv_loss/mean:2} \\
+digits\_n0.0 & \rhval{derived/corr-all/digits_n0.0/n_runs/mean} & \rhval{derived/corr-all/digits_n0.0/rand_acc/mean:2} & \rhval{derived/corr-all/digits_n0.0/rand_loss/mean:2} & \rhval{derived/corr-all/digits_n0.0/adv_acc/mean:2} & \rhval{derived/corr-all/digits_n0.0/adv_loss/mean:2} \\
+digits\_n0.2 & \rhval{derived/corr-all/digits_n0.2/n_runs/mean} & \rhval{derived/corr-all/digits_n0.2/rand_acc/mean:2} & \rhval{derived/corr-all/digits_n0.2/rand_loss/mean:2} & \rhval{derived/corr-all/digits_n0.2/adv_acc/mean:2} & \rhval{derived/corr-all/digits_n0.2/adv_loss/mean:2} \\
+digits\_n0.4 & \rhval{derived/corr-all/digits_n0.4/n_runs/mean} & \rhval{derived/corr-all/digits_n0.4/rand_acc/mean:2} & \rhval{derived/corr-all/digits_n0.4/rand_loss/mean:2} & \rhval{derived/corr-all/digits_n0.4/adv_acc/mean:2} & \rhval{derived/corr-all/digits_n0.4/adv_loss/mean:2} \\
+spirals\_n0.2 & \rhval{derived/corr-all/spirals_n0.2/n_runs/mean} & \rhval{derived/corr-all/spirals_n0.2/rand_acc/mean:2} & \rhval{derived/corr-all/spirals_n0.2/rand_loss/mean:2} & \rhval{derived/corr-all/spirals_n0.2/adv_acc/mean:2} & \rhval{derived/corr-all/spirals_n0.2/adv_loss/mean:2} \\
+digits\_n0.0 no collapsed & \rhval{derived/corr-no-collapsed/digits_n0.0/n_runs/mean} & \rhval{derived/corr-no-collapsed/digits_n0.0/rand_acc/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.0/rand_loss/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.0/adv_acc/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.0/adv_loss/mean:2} \\
+digits\_n0.2 no collapsed & \rhval{derived/corr-no-collapsed/digits_n0.2/n_runs/mean} & \rhval{derived/corr-no-collapsed/digits_n0.2/rand_acc/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.2/rand_loss/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.2/adv_acc/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.2/adv_loss/mean:2} \\
+digits\_n0.4 no collapsed & \rhval{derived/corr-no-collapsed/digits_n0.4/n_runs/mean} & \rhval{derived/corr-no-collapsed/digits_n0.4/rand_acc/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.4/rand_loss/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.4/adv_acc/mean:2} & \rhval{derived/corr-no-collapsed/digits_n0.4/adv_loss/mean:2} \\
+spirals\_n0.2 no collapsed & \rhval{derived/corr-no-collapsed/spirals_n0.2/n_runs/mean} & \rhval{derived/corr-no-collapsed/spirals_n0.2/rand_acc/mean:2} & \rhval{derived/corr-no-collapsed/spirals_n0.2/rand_loss/mean:2} & \rhval{derived/corr-no-collapsed/spirals_n0.2/adv_acc/mean:2} & \rhval{derived/corr-no-collapsed/spirals_n0.2/adv_loss/mean:2} \\
+SAM-sweep digits pooled & \rhval{derived/corr-pooled-sam-digits/digits_n0.4/n_runs/mean} & \rhval{derived/corr-pooled-sam-digits/digits_n0.4/rand_acc/mean:2} & \rhval{derived/corr-pooled-sam-digits/digits_n0.4/rand_loss/mean:2} & \rhval{derived/corr-pooled-sam-digits/digits_n0.4/adv_acc/mean:2} & \rhval{derived/corr-pooled-sam-digits/digits_n0.4/adv_loss/mean:2} \\
+SAM only digits\_n0.0 & \rhval{derived/corr-sam/digits_n0.0/n_runs/mean} & \rhval{derived/corr-sam/digits_n0.0/rand_acc/mean:2} & \rhval{derived/corr-sam/digits_n0.0/rand_loss/mean:2} & \rhval{derived/corr-sam/digits_n0.0/adv_acc/mean:2} & \rhval{derived/corr-sam/digits_n0.0/adv_loss/mean:2} \\
+SAM only digits\_n0.2 & \rhval{derived/corr-sam/digits_n0.2/n_runs/mean} & \rhval{derived/corr-sam/digits_n0.2/rand_acc/mean:2} & \rhval{derived/corr-sam/digits_n0.2/rand_loss/mean:2} & \rhval{derived/corr-sam/digits_n0.2/adv_acc/mean:2} & \rhval{derived/corr-sam/digits_n0.2/adv_loss/mean:2} \\
+SAM only digits\_n0.4 & \rhval{derived/corr-sam/digits_n0.4/n_runs/mean} & \rhval{derived/corr-sam/digits_n0.4/rand_acc/mean:2} & \rhval{derived/corr-sam/digits_n0.4/rand_loss/mean:2} & \rhval{derived/corr-sam/digits_n0.4/adv_acc/mean:2} & \rhval{derived/corr-sam/digits_n0.4/adv_loss/mean:2} \\
 \bottomrule
 \end{tabular}

@@ -23,20 +23,19 @@ order = ["MLP (flat adjacency)", "MPNN-sum", "MPNN-sum + steps", "MPNN-max", "MP
 rows = []
 for n in order:
     c = [f(med(get("main", n, f"mae_sparse_n{k}"))) for k in (8, 16, 32, 64)]
-    c += [f(med(get("main", n, "mae_dense_n64")))] + [f(med(get("main", n, f"rel_{x}_n64"))) for x in ("sparse", "dense")]
+    c += [f(med(get("main", n, f"mae_dense_n{k}"))) for k in (8, 64)] + [f(med(get("main", n, f"rel_{x}_n64"))) for x in ("sparse", "dense")]
     fs = int((get("main", n, "mae_sparse_n64") > 1).sum()); fd = int((get("main", n, "mae_dense_n64") > 1).sum())
-    r = med(get("main", n, "mae_dense_n64") / get("main", n, "mae_dense_n8"))
-    rows.append(f"{n} & " + " & ".join(c) + f" & {fs}/5 & {fd}/5 & {f(r)} \\\\")
+    rows.append(f"{n} & " + " & ".join(c) + f" & {fs}/5 & {fd}/5 \\\\")
 open("results/tables/robust.tex", "w").write(
-    "\\begin{tabular}{lcccccccccc}\\toprule\n System & S8 & S16 & S32 & S64 & D64 & rS64 & rD64 & fail S64 & fail D64 & D64/D8 \\\\\\midrule\n".replace("cccccccccc", "cccccccccc") + "\n".join(rows) + "\n\\bottomrule\\end{tabular}\n")
-# Per-seed table (main group): S64, D64 and the D64/D8 ratio for every seed
+    "\\begin{tabular}{lcccccccccc}\\toprule\n System & S8 & S16 & S32 & S64 & D8 & D64 & rS64 & rD64 & fail S64 & fail D64 \\\\\\midrule\n" + "\n".join(rows) + "\n\\bottomrule\\end{tabular}\n")
+# Per-seed table (main group): S64, D64 and D8 for every seed (registry values only; no ratio is computed here)
 S5 = (0, 1, 2, 3, 4); prow = []
 for n in order:
     s64 = byseed("main", n, "mae_sparse_n64", S5); d64 = byseed("main", n, "mae_dense_n64", S5); d8 = byseed("main", n, "mae_dense_n8", S5)
-    prow.append(f"{n} & " + " & ".join(f2(x) for x in list(s64) + list(d64) + list(d64 / d8)) + " \\\\")
+    prow.append(f"{n} & " + " & ".join(f2(x) for x in list(s64) + list(d64) + list(d8)) + " \\\\")
 hdr = " & ".join(str(s) for s in S5)
 open("results/tables/perseed.tex", "w").write(
-    "\\begin{tabular}{l" + "|ccccc" * 3 + "}\\toprule\n & \\multicolumn{5}{c|}{S64 MAE, seed} & \\multicolumn{5}{c|}{D64 MAE, seed} & \\multicolumn{5}{c}{D64/D8, seed} \\\\\n System & "
+    "\\begin{tabular}{l" + "|ccccc" * 3 + "}\\toprule\n & \\multicolumn{5}{c|}{S64 MAE, seed} & \\multicolumn{5}{c|}{D64 MAE, seed} & \\multicolumn{5}{c}{D8 MAE, seed} \\\\\n System & "
     + hdr + " & " + hdr + " & " + hdr + " \\\\\\midrule\n" + "\n".join(prow) + "\n\\bottomrule\\end{tabular}\n")
 # Sweep table
 sw = ["max", "sum"]; mults = [0.5, 1.0, 2.0, 4.0]

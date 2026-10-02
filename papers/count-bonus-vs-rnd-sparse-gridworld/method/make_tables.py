@@ -1,7 +1,7 @@
 """Tables and figures built from results/runs.jsonl (live rows only; superseded rows are skipped).
 
 Run after `rh table --group main` and `rh compare` (see experiments/build_results.sh):
-  - main_compact (from results/tables/main_agg.csv), tests (from the rh compare files)
+  - main_compact (from results/tables/main_agg.csv), tests (the `rh compare` values, as \rhval keys in the tex)
   - tv_frac, abl_norm, abl_diag, sweep_beta/K/clip tables (tex + md)
   - bars_main_steps, spike_vs_steps, sweepK_tv figures
 """
@@ -77,29 +77,33 @@ for n in [CLP, WUP, V1, NON]:
     body.append([SHORT[n]] + [f"{agg[(n, t, 'steps_to_first_reward')][0]:.0f} ({round(agg[(n, t, 'found_reward')][0] * 5)})" for t in TASKS])
 write("main_compact", ["System"] + [tx(t) for t in TASKS], body)
 
-# ---- 2. TV tasks: TV time fraction, and steps to first reward against the noise-free twin (Welch test over seeds)
-from scipy import stats
+# ---- 2. TV tasks: TV time fraction, and steps to first reward against the noise-free twin
+# (no test here: `rh compare` compares systems on one task, and the paper reports only statistics rh computes)
 body, v1 = [], []
 for t, twin in [("chain_20_tv", "chain_20"), ("room_4_tv", "room_4")]:
-    body += [None, ["\\multicolumn{5}{l}{\\emph{" + tx(t) + " (twin: " + tx(twin) + ")}}"]]
+    body += [None, ["\\multicolumn{4}{l}{\\emph{" + tx(t) + " (twin: " + tx(twin) + ")}}"]]
     for n in [EPS, PEN, CST, COB, RND]:
         a_, b_ = M(n, twin, "steps_to_first_reward"), M(n, t, "steps_to_first_reward")
-        p = stats.ttest_ind(a_, b_, equal_var=False).pvalue if (a_.std() > 0 or b_.std() > 0) else float("nan")
-        body.append([SHORT[n], pm(M(n, t, "tv_time_frac"), 3), f"{a_.mean():.0f}", f"{b_.mean():.0f}", "--" if np.isnan(p) else f"{p:.3f}"])
+        body.append([SHORT[n], pm(M(n, t, "tv_time_frac"), 3), f"{a_.mean():.0f}", f"{b_.mean():.0f}"])
     f, x = M(V1, t, "found_reward"), M(V1, t, "tv_time_frac")  # unguarded variant: TV share by outcome
     v1.append([tx(t), pm(x, 3)] + [f"{np.mean(x[f == flag]):.3f} ($n$={int((f == flag).sum())})" for flag in (1.0, 0.0)])
-write("tv_frac", ["System", "TV share", "twin", "TV", "$p$"], body[1:])
+write("tv_frac", ["System", "TV share", "twin", "TV"], body[1:])
 write("tv_frac_unguarded", ["Task", "TV share, all seeds", "found seeds", "not-found seeds"], v1)
 
-# ---- 2b. tests on steps to first reward, from the rh compare files
-def pv(ref_slug, ref, name, task, col):
-    for r in csv.DictReader(open(T + f"compare_steps_ref_{ref_slug}.csv")):
-        if r["task"] == task and r["name"] == name and r["ref"] == ref:
-            v = float(r[col]); return "$<$0.001" if v < 0.001 else f"{v:.3f}"
-    raise KeyError((ref, name, task))
-body = [[tx(t), pv("rnd_bonus", RND, CST, t, "paired_p"), pv("rnd_bonus", RND, PEN, t, "welch_p"),
-         pv("step_penalty", PEN, CST, t, "welch_p"), pv("epsilongreed", EPS, RND, t, "welch_p")] for t in TASKS]
-write("tests", ["Task", "cnt / RND", "pen / RND", "cnt / pen", "RND / $\\epsilon$-gr"], body)
+# ---- 2b. tests on steps to first reward: every cell is a value recorded by `rh compare`, printed through its \rhval key
+# (group main, reference RND bonus; group offset_control, reference penalty only: copies of the main rows of the two
+# systems, made with `rh log --from-run`, so that this second reference has its own compare file). The md shows the numbers.
+def cmp_rows(path):
+    return {(r["name"], r["task"]): r for r in csv.DictReader(open(T + path))}
+c_rnd, c_pen = cmp_rows("compare_main_steps_to_first_reward.csv"), cmp_rows("compare_offset_control_steps_to_first_reward.csv")
+assert all(r["ref"] == RND for r in c_rnd.values()) and all(r["ref"] == PEN for r in c_pen.values())
+SLUG = {CST: "count-bonus-state", PEN: "step-penalty-only-optimistic-init", EPS: "epsilon-greedy-q-learning"}
+CELLS = [("main", c_rnd, CST, "paired_p"), ("main", c_rnd, PEN, "welch_p"), ("offset_control", c_pen, CST, "welch_p"), ("main", c_rnd, EPS, "welch_p")]
+head = ["Task", "cnt / RND", "pen / RND", "cnt / pen", "RND / $\\epsilon$-gr"]
+write("tests", head, [[tx(t)] + [f"{float(c[(n, t)][col]):.4g}" for g, c, n, col in CELLS] for t in TASKS])
+md = open(T + "tests.md").read()
+write("tests", head, [[tx(t)] + ["\\rhval{cmp/%s/%s/%s/steps_to_first_reward/%s}" % (g, SLUG[n], t, col) for g, c, n, col in CELLS] for t in TASKS])
+open(T + "tests.md", "w").write(md)
 
 # ---- 3. normaliser ablation: mean steps to first reward (seeds that found the reward, of 5), all tasks
 ABL = [RND, CLP, WUP, V1, NON, PEN]
@@ -112,16 +116,25 @@ write("abl_norm_long", ["System", "Task", "steps", "found", "return"], body)
 # ---- 4. bonus diagnostics over the 40 runs of each variant (spike: bonus above 1e4 in the first 100 steps)
 SPIKE = 1e4
 DS = [RND, CLP, WUP, V1, NON]
+DSLUG = {RND: "rnd-bonus", CLP: "rnd-clip-only", WUP: "rnd-warm-up-only", V1: "rnd-unguarded-normaliser-v1", NON: "no-bonus-normalisation-rnd_nonorm"}
 col = {}
 for n in DS:
     rs = [r["metrics"] for t in TASKS for r in d[(n, t)]]
     sp = [m for m in rs if m["bonus_max_early"] > SPIKE]; ns = [m for m in rs if m["bonus_max_early"] <= SPIKE]
     fo = lambda ms: f"{int(sum(m['found_reward'] for m in ms))}/{len(ms)}" if ms else "--"
-    col[n] = [str(len(sp)), fo(sp), fo(ns), f"{np.median([m['bonus_median'] for m in rs]):.4f}", f"{max(m['bonus_max'] for m in rs):.3g}".replace("e+0", "e"),
-              f"{np.mean([m['bonus_gt1_frac'] for m in rs]):.3f}", f"{max(m['q_abs_max'] for m in rs):.3g}".replace("e+0", "e")]
+    col[n] = [str(len(sp)), fo(sp), fo(ns)]
+    # the four statistics below are per-task statistics that rh records (over the 5 seeds of a task); the table shows the
+    # task with the largest one, as its \rhval key in the tex and as a number in the md
+    for met, stat, fn in [("bonus_median", "median", np.median), ("bonus_max", "max", np.max), ("bonus_gt1_frac", "mean", np.mean), ("q_abs_max", "max", np.max)]:
+        v, t = max((float(fn(M(n, t, met))), t) for t in TASKS)
+        col[n].append((f"{v:.4g}", "\\rhval{main/%s/%s/%s/%s}" % (DSLUG[n], t, met, stat)))
 labs = ["spike runs (of 40)", "found, spike runs", "found, other runs", "median $b$", "max $b$", "share $b>1$", "max $|Q|$"]
-body = [[lab] + [col[n][i] for n in DS] for i, lab in enumerate(labs)]
-write("abl_diag", ["", "guarded", "clip only", "warm-up", "v1", "no norm."], body)
+head = ["", "guarded", "clip only", "warm-up", "v1", "no norm."]
+cell = lambda c, i: c if isinstance(c, str) else c[i]
+write("abl_diag", head, [[lab] + [cell(col[n][i], 0) for n in DS] for i, lab in enumerate(labs)])
+md = open(T + "abl_diag.md").read()
+write("abl_diag", head, [[lab] + [cell(col[n][i], 1) for n in DS] for i, lab in enumerate(labs)])
+open(T + "abl_diag.md", "w").write(md)
 # per-run listing for the record (markdown only)
 with open(T + "abl_diag_per_run.md", "w") as f:
     f.write("| system | task | seed | found | steps | bonus_max_early | bonus_max | q_abs_max |\n|---|---|---|---|---|---|---|---|\n")
@@ -150,14 +163,6 @@ def sweep(group, param, vals, default, names, task, metrics, fname, head0):
                 x = [r["metrics"][m] for r in rs]
                 c.append(pm(x, 0 if m.startswith("steps") else 3 if m.startswith("tv") else 2))
         body.append(c)
-    if param == "K":  # Welch test between the smallest and the largest K, per column
-        c = ["$p$"]
-        for n in names:
-            lo, hi = cell_runs(group, n, task, param, vals[0], default), cell_runs(group, n, task, param, vals[-1], default)
-            for m in metrics:
-                pval = stats.ttest_ind([r['metrics'][m] for r in lo], [r['metrics'][m] for r in hi], equal_var=False).pvalue
-                c.append("$<$0.001" if pval < 0.001 else f"{pval:.3f}")
-        body += [None, c]
     write(fname, [head0] + [f"{sh[n]} {sh[m]}" for n in names for m in metrics], body)
 
 

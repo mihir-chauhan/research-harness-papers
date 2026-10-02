@@ -11,4 +11,6 @@ for task in perm_dil split_cil split_til; do
     mv $T/compare_main_average_accuracy.csv $T/compare_main_average_accuracy_${task}_ref-${tag}.csv
   done
 done
+# Default reference (the method, Experience replay (M=100)): this CSV stays in place, the paper's \rhval{cmp/...} values read it.
+rh compare --metric average_accuracy --group main | grep -v '^wrote' > $T/compare_main_average_accuracy.txt
 $PY experiments/paired_stats.py average_accuracy > $T/paired_main_average_accuracy.txt

@@ -1,4 +1,6 @@
-"""Matched-seed ablation tables and extra figures; every number is read from results/runs.jsonl."""
+"""Ablation tables and extra figures; every number is read from results/runs.jsonl.
+The tables hold only whole ablation groups (all logged seeds of a system), i.e. registry aggregates;
+the main-group systems are reported in the rh-generated main table, not as seed subsets here."""
 import json, numpy as np, matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 R = [json.loads(l) for l in open("results/runs.jsonl")]
 R = [r for r in R if r["kind"] not in ("sanity", "control") and r["status"] == "ok"]
@@ -11,24 +13,21 @@ def table(path, spec, cols, head):
     for label, rs in spec: out.append(label + " & " + " & ".join(ms(rs, k) for k in cols) + " \\\\")
     out += ["\\bottomrule", "\\end{tabular}"]; open(path, "w").write("\n".join(out) + "\n")
 T = "F20_c10"
-# AR(1) amplitude / memory (matched seeds 0-2)
-spec = [("Deterministic ($\\sigma\\!=\\!0$)", rows("main", "Polynomial (deg 4)", T)),
-        ("AR(1) $\\sigma\\times0.5$", rows("abl_ar1", "AR(1) sigma x0.5", T)),
-        ("AR(1) fitted ($\\sigma\\times1$)", rows("main", "AR(1) stochastic", T)),
+# AR(1) amplitude / memory (ablation group, seeds 0-2)
+spec = [("AR(1) $\\sigma\\times0.5$", rows("abl_ar1", "AR(1) sigma x0.5", T)),
         ("AR(1) $\\sigma\\times1.5$", rows("abl_ar1", "AR(1) sigma x1.5", T)),
         ("White noise ($\\phi\\!=\\!0$)", rows("abl_ar1", "AR(1) white (phi=0)", T))]
 assert all(len(r) == 3 for _, r in spec)
 table("results/tables/ar1_matched.tex", spec, ["valid_time", "var_ratio", "w1_pdf", "spec_err"], "Closure noise & valid\\_time & var\\_ratio & w1\\_pdf & spec\\_err")
 # MLP inputs
-spec = [("Local $X_k$ (3 inputs: 1)", rows("main", "MLP (32x2)", T)), ("$X_{k-1},X_k,X_{k+1}$", rows("abl_mlpin", "MLP stencil 1", T)),
+spec = [("$X_{k-1},X_k,X_{k+1}$", rows("abl_mlpin", "MLP stencil 1", T)),
         ("$X_{k-3..k+3}$", rows("abl_mlpin", "MLP stencil 3", T))]
-spec[0] = ("Local $X_k$", spec[0][1])
 table("results/tables/mlp_in.tex", spec, ["offline_r2", "valid_time", "mean_err", "w1_pdf", "spec_err"], "MLP input & offline\\_r2 & valid\\_time & mean\\_err & w1\\_pdf & spec\\_err")
-# forcing shift (matched seeds)
+# forcing shift (ablation group, seeds 0-2)
 out = ["\\begin{tabular}{llccccc}", "\\toprule", "Deploy $F$ & System & valid\\_time & mean\\_err & var\\_err & w1\\_pdf & spec\\_err \\\\", "\\midrule"]
-for lab, F in [("20 (trained)", None), ("18", 18), ("22", 22)]:
+for lab, F in [("18", 18), ("22", 22)]:
     for nm, sh in [("Polynomial (deg 4)", "Polynomial deg 4"), ("MLP (32x2)", "MLP 32x2"), ("AR(1) stochastic", "AR(1) stochastic")]:
-        rs = rows("main", nm, T) if F is None else rows("abl_shift", f"{sh}, deploy F={F}", T); assert len(rs) == 3
+        rs = rows("abl_shift", f"{sh}, deploy F={F}", T); assert len(rs) == 3
         out.append(f"{lab} & {nm} & " + " & ".join(ms(rs, k) for k in ["valid_time", "mean_err", "var_err", "w1_pdf", "spec_err"]) + " \\\\")
     out.append("\\midrule")
 out[-1] = "\\bottomrule"; out.append("\\end{tabular}"); open("results/tables/shift.tex", "w").write("\n".join(out) + "\n")
@@ -51,8 +50,8 @@ for a, (k, lab) in zip(ax, [("offline_r2", "offline $R^2$"), ("valid_time", "val
     a.set_xlabel("degree", fontsize=7); a.set_title(lab.replace("\\_", "_"), fontsize=7); a.tick_params(labelsize=6)
 plt.tight_layout(); plt.savefig("results/figures/degree_sweep.pdf"); plt.close()
 print("ok")
-# degree table (matched seeds 0-2)
-spec = [(f"Degree {d}", drow(d)) for d in degs]
+# degree table (ablation group, seeds 0-2; degree 4 is the main-group polynomial, see the main table)
+spec = [(f"Degree {d}", drow(d)) for d in degs if d != 4]
 table("results/tables/degree.tex", spec, ["offline_r2", "valid_time", "mean_err", "w1_pdf", "spec_err"], "Polynomial & offline\\_r2 & valid\\_time & mean\\_err & w1\\_pdf & spec\\_err")
 # skill vs climate trade-off over every F20_c10 configuration run at the training forcing (3 matched seeds)
 cfgs = [("No closure", "main", "No closure", "#999999"), ("Poly d4", "main", "Polynomial (deg 4)", "#1b6ca8"), ("MLP local", "main", "MLP (32x2)", "#d98c00"),

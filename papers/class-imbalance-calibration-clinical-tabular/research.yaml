@@ -1,43 +1,112 @@
 slug: class-imbalance-calibration-clinical-tabular
-direction: 'Handling class imbalance without breaking calibration on small public clinical tabular data (breast cancer Wisconsin, artificially imbalanced 1:5, 1:20, 1:50): no correction, class reweighting, random oversampling, SMOTE, threshold moving, for logistic regression and gradient boosting; AUROC, AUPRC, Brier score, calibration slope.'
-problem: 'Imbalance corrections are routinely applied to clinical risk models, but they shift the training prevalence and may distort predicted risks while adding little discrimination.'
-gap: 'Existing simulation and real-data studies already cover several learners and event fractions; a CPU-sized check on a public bundled dataset that adds a threshold-moving arm and the analytic prior-shift offset is the narrow addition.'
-contribution: 'A controlled small-scale comparison of five imbalance handling strategies x two learners x four prevalences with discrimination and calibration metrics, plus an ablation of the analytic prior-shift correction and a SMOTE target-ratio sweep.'
+direction: 'Handling class imbalance without breaking calibration on small public
+  clinical tabular data (breast cancer Wisconsin, artificially imbalanced 1:5, 1:20,
+  1:50): no correction, class reweighting, random oversampling, SMOTE, threshold moving,
+  for logistic regression and gradient boosting; AUROC, AUPRC, Brier score, calibration
+  slope.'
+problem: Imbalance corrections are routinely applied to clinical risk models, but
+  they shift the training prevalence and may distort predicted risks while adding
+  little discrimination.
+gap: Existing simulation and real-data studies already cover several learners and
+  event fractions; a CPU-sized check on a public bundled dataset that adds a threshold-moving
+  arm and the analytic prior-shift offset is the narrow addition.
+contribution: A controlled small-scale comparison of five imbalance handling strategies
+  x two learners x four prevalences with discrimination and calibration metrics, plus
+  an ablation of the analytic prior-shift correction and a SMOTE target-ratio sweep.
 hypotheses:
 - id: H1
-  statement: 'Reweighting, random oversampling and SMOTE do not improve AUROC or AUPRC over no correction (no mean paired gain >= 0.01 at any imbalance level, for either learner).'
-  test: 'Paired difference over 10 seeds vs no correction (rh compare); refuted if a correction has a mean gain >= 0.01 in AUROC or AUPRC with paired p<0.05.'
+  statement: Reweighting, random oversampling and SMOTE do not improve AUROC or AUPRC
+    over no correction (no mean paired gain >= 0.01 at any imbalance level, for either
+    learner).
+  test: Paired difference over 10 seeds vs no correction (rh compare); refuted if
+    a correction has a mean gain >= 0.01 in AUROC or AUPRC with paired p<0.05.
 - id: H2
-  statement: 'Reweighting, oversampling and SMOTE worsen Brier score and increase |calibration-in-the-large| relative to no correction at 1:20 and 1:50 (prevalence-matched evaluation).'
-  test: 'Paired rh compare on brier and citl_abs vs no correction at bc_1to20 and bc_1to50, per learner.'
+  statement: Reweighting, oversampling and SMOTE worsen Brier score and increase |calibration-in-the-large|
+    relative to no correction at 1:20 and 1:50 (prevalence-matched evaluation).
+  test: Paired rh compare on brier and citl_abs vs no correction at bc_1to20 and bc_1to50,
+    per learner.
 - id: H3
-  statement: 'Threshold moving leaves AUROC, AUPRC, Brier and calibration slope identical to no correction and raises sensitivity at the cost of specificity.'
-  test: 'Exact equality of probability metrics; paired comparison of balanced accuracy and sensitivity.'
+  statement: Threshold moving leaves AUROC, AUPRC, Brier and calibration slope identical
+    to no correction and raises sensitivity at the cost of specificity.
+  test: Exact equality of probability metrics; paired comparison of balanced accuracy
+    and sensitivity.
 - id: H4
-  statement: 'An analytic logit-offset prior correction removes most of the Brier degradation caused by reweighting/ROS/SMOTE (Brier within 0.005 of no correction on average).'
-  test: 'Ablation group abl_priorcorr: mean Brier difference to no correction per task and learner.'
+  statement: An analytic logit-offset prior correction removes most of the Brier degradation
+    caused by reweighting/ROS/SMOTE (Brier within 0.005 of no correction on average).
+  test: 'Ablation group abl_priorcorr: mean Brier difference to no correction per
+    task and learner.'
 method:
   name: LR + no correction
-  summary: 'Study design rather than a new algorithm. The reference ("method") arm is logistic regression without correction; all corrections are compared against it. Prior-corrected variants form the ablation.'
-  components: [none, reweight, ros, smote, threshold, prior_corr]
-  entrypoint: 'method/run.py'
-tasks: [bc_natural, bc_1to5, bc_1to20, bc_1to50]
+  summary: Study design rather than a new algorithm. The reference ("method") arm
+    is logistic regression without correction; all corrections are compared against
+    it. Prior-corrected variants form the ablation.
+  components:
+  - none
+  - reweight
+  - ros
+  - smote
+  - threshold
+  - prior_corr
+  entrypoint: method/run.py
+tasks:
+- bc_natural
+- bc_1to5
+- bc_1to20
+- bc_1to50
 metrics:
-  auroc: {higher_is_better: true}
-  auprc: {higher_is_better: true}
-  brier: {higher_is_better: false}
-  slope_dev: {higher_is_better: false}
-  citl_abs: {higher_is_better: false}
-  bal_acc: {higher_is_better: true}
-  sens: {higher_is_better: true}
-  spec: {higher_is_better: true}
-seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  auroc:
+    higher_is_better: true
+  auprc:
+    higher_is_better: true
+  brier:
+    higher_is_better: false
+  slope_dev:
+    higher_is_better: false
+  citl_abs:
+    higher_is_better: false
+  bal_acc:
+    higher_is_better: true
+  sens:
+    higher_is_better: true
+  spec:
+    higher_is_better: true
+  runtime_s:
+    higher_is_better: false
+    nondeterministic: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
 compute:
   gpus: 0
   max_minutes_per_run: 6
   max_total_minutes: 30
-baselines: ['LR + reweight', 'LR + ROS', 'LR + SMOTE', 'LR + threshold', 'GB + none', 'GB + reweight', 'GB + ROS', 'GB + SMOTE', 'GB + threshold']
-ablations: ['LR + reweight + prior corr', 'LR + ROS + prior corr', 'LR + SMOTE + prior corr', 'GB + reweight + prior corr', 'GB + ROS + prior corr', 'GB + SMOTE + prior corr', 'LR + SMOTE', 'GB + SMOTE']
+baselines:
+- LR + reweight
+- LR + ROS
+- LR + SMOTE
+- LR + threshold
+- GB + none
+- GB + reweight
+- GB + ROS
+- GB + SMOTE
+- GB + threshold
+ablations:
+- LR + reweight + prior corr
+- LR + ROS + prior corr
+- LR + SMOTE + prior corr
+- GB + reweight + prior corr
+- GB + ROS + prior corr
+- GB + SMOTE + prior corr
+- LR + SMOTE
+- GB + SMOTE
 ambition:
   target_tier: 2
   primary_metric: brier
@@ -52,3 +121,51 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_patients
+  value: 569
+  why: rows in the scikit-learn breast cancer Wisconsin (diagnostic) dataset
+- name: n_malignant
+  value: 212
+  why: malignant (positive) cases in the dataset
+- name: n_benign
+  value: 357
+  why: benign (negative) cases in the dataset
+- name: n_test_benign
+  value: 107
+  why: benign cases in every stratified 30% held-out split (the 64 held-out malignant
+    cases are the logged n_test_pos)
+- name: prob_clip_eps
+  value: 1.0e-06
+  why: 'EPS in method/run.py: predicted probabilities are clipped to [EPS, 1-EPS]
+    before the logit'
+- name: calib_fit_C
+  value: 1000000
+  why: inverse regularisation strength C of the logistic recalibration fit that gives
+    the calibration slope (effectively unpenalised)
+- name: n_features
+  value: 30
+  why: number of features in the dataset
+- name: gb_n_trees
+  value: 100
+  why: 'gradient boosting: number of trees (fixed hyperparameter)'
+- name: gb_learning_rate
+  value: 0.1
+  why: 'gradient boosting: learning rate (fixed hyperparameter)'
+- name: default_cutoff
+  value: 0.5
+  why: default decision cut-off; also the effective training prevalence of a 1:1 correction
+    target
+- name: alpha
+  value: 0.05
+  why: significance level of the unadjusted paired t-tests
+- name: h1_gain_threshold
+  value: 0.01
+  why: registered H1 refutation threshold on the mean paired AUROC/AUPRC gain
+- name: h4_brier_tolerance
+  value: 0.005
+  why: registered H4 tolerance on the Brier gap to no correction
+- name: interval_level_pct
+  value: 95
+  why: level (percent) of the normal-approximation interval drawn in the SMOTE-ratio
+    figure

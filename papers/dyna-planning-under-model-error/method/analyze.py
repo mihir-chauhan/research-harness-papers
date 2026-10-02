@@ -1,9 +1,13 @@
-"""Sweep tables/figures built only from results/runs.jsonl (ok rows)."""
-import json, collections
+"""Sweep tables/figures built only from results/runs.jsonl (ok rows).
+The tables hold no numbers: every cell is a \\rhval{<key>} macro that `rh paper build` fills from the registry."""
+import json, collections, re
 import numpy as np, matplotlib
 matplotlib.use("Agg"); import matplotlib.pyplot as plt
 rows = [json.loads(l) for l in open("results/runs.jsonl")]
-rows = [r for r in rows if r["status"] == "ok" and r["kind"] != "sanity"]
+rows = [r for r in rows if r.get("status") == "ok" and r["kind"] != "sanity"]
+def slug(s): return re.sub(r"[^a-z0-9_.+-]+", "-", str(s).lower()).strip("-")    # key parts as `rh values --list` prints them
+def rv(group, name, task, metric, stat="mean", param=None, prec=1):
+    return "\\rhval{%s/%s%s/%s/%s/%s:%d}" % (slug(group), slug(name), "@%s=%s" % (slug(param[0]), slug(param[1])) if param else "", slug(task), slug(metric), stat, prec)
 def get(group, name, task, cfgkey, metric, seeds=None):
     d = collections.defaultdict(list)
     for r in rows:
@@ -35,18 +39,18 @@ with open("results/tables/sweep_n_tab.tex", "w") as f:
     f.write("\\begin{tabular}{llrrrrrr}\n\\toprule\nTask & System & n=0 & n=1 & n=5 & n=20 & n=50 & n=100 \\\\\n\\midrule\n")
     for task in ["static", "blocking", "shortcut", "stochastic"]:
         for i, s in enumerate(SYS):
-            d = get("sweep_n", s, task, "n", "cum_reward"); qv = np.mean([r["metrics"]["cum_reward"] for r in rows if r["group"] == "main" and r["name"] == "Q-learning" and r["task"] == task and r["seed"] < 10])
+            qv = rv("sweep_n", "Q-learning", task, "cum_reward")    # Q-learning runs of seeds 0-9, listed in the sweep_n group
             lab = {"Prioritized sweeping": "PS"}.get(s, s)
-            f.write(("\\multirow{3}{*}{%s}" % task.replace("_", " ") if i == 0 else "") + f" & {lab} & " + (("\\multirow{3}{*}{%.1f} & " % qv) if i == 0 else " & ") + " & ".join(f"{np.mean(d[n]):.1f}" for n in NS) + " \\\\\n")
+            f.write(("\\multirow{3}{*}{%s}" % task.replace("_", " ") if i == 0 else "") + f" & {lab} & " + (("\\multirow{3}{*}{%s} & " % qv) if i == 0 else " & ") + " & ".join(rv("sweep_n", s, task, "cum_reward", param=("n", n)) for n in NS) + " \\\\\n")
         f.write("\\midrule\n" if task != "stochastic" else "")
     f.write("\\bottomrule\n\\end{tabular}\n")
 with open("results/tables/sweep_n_post_tab.tex", "w") as f:
     f.write("\\begin{tabular}{llrrrrrr}\n\\toprule\nTask & System & n=0 & n=1 & n=5 & n=20 & n=50 & n=100 \\\\\n\\midrule\n")
     for task in ["blocking", "shortcut", "stoch_blocking"]:
         for i, s in enumerate(SYS):
-            d = get("sweep_n", s, task, "n", "post_reward"); qv = np.mean([r["metrics"]["post_reward"] for r in rows if r["group"] == "main" and r["name"] == "Q-learning" and r["task"] == task and r["seed"] < 10])
+            qv = rv("sweep_n", "Q-learning", task, "post_reward")    # Q-learning runs of seeds 0-9, listed in the sweep_n group
             lab = {"Prioritized sweeping": "PS"}.get(s, s)
-            f.write(("\\multirow{3}{*}{%s}" % task.replace("_", " ") if i == 0 else "") + f" & {lab} & " + (("\\multirow{3}{*}{%.1f} & " % qv) if i == 0 else " & ") + " & ".join(f"{np.mean(d[n]):.1f}" for n in NS) + " \\\\\n")
+            f.write(("\\multirow{3}{*}{%s}" % task.replace("_", " ") if i == 0 else "") + f" & {lab} & " + (("\\multirow{3}{*}{%s} & " % qv) if i == 0 else " & ") + " & ".join(rv("sweep_n", s, task, "post_reward", param=("n", n)) for n in NS) + " \\\\\n")
         f.write("\\midrule\n" if task != "stoch_blocking" else "")
     f.write("\\bottomrule\n\\end{tabular}\n")
 # kappa sweep figure
@@ -59,23 +63,19 @@ for ax, task, m in zip(axs, ["blocking", "shortcut", "stochastic"], ["post_rewar
     ax.set_title(f"{task}: {m.replace('_',' ')}", fontsize=7); ax.set_xlabel("kappa", fontsize=7); ax.tick_params(labelsize=6)
 fig.tight_layout(); fig.savefig("results/figures/sweep_kappa_fig.pdf")
 print("ok")
-# kappa table: Dyna-Q+ (n=10) mean +- sem over seeds 0-9; kappa=0.001 row is the main-group Dyna-Q+ on the same seeds
+# kappa table: Dyna-Q+ (n=10) mean over seeds 0-9; the last column is Dyna-Q on the same seeds (main runs listed in the sweep_kappa group)
 with open("results/tables/sweep_kappa_tab.tex", "w") as f:
     f.write("\\begin{tabular}{lrrrrr}\n\\toprule\nTask (metric) & $10^{-4}$ & $10^{-3}$ & $10^{-2}$ & $3{\\cdot}10^{-2}$ & Dyna-Q \\\\\n\\midrule\n")
     for task, m in [("blocking", "post_reward"), ("shortcut", "post_reward"), ("static", "cum_reward"), ("stochastic", "cum_reward")]:
-        d = get("sweep_kappa", "Dyna-Q+", task, "kappa", m)
-        mid = [r["metrics"][m] for r in rows if r["group"] == "main" and r["name"] == "Dyna-Q+" and r["task"] == task and r["seed"] < 10]
-        dq = [r["metrics"][m] for r in rows if r["group"] == "main" and r["name"] == "Dyna-Q" and r["task"] == task and r["seed"] < 10]
-        cells = [d[0.0001], mid, d[0.01], d[0.03], dq]
-        f.write(f"{task.replace('_',' ')} ({m.split('_')[0]}) & " + " & ".join(f"{np.mean(c):.1f}" for c in cells) + " \\\\\n")
+        cells = [rv("sweep_kappa", "Dyna-Q+", task, m, param=("kappa", k)) for k in (0.0001, 0.001, 0.01, 0.03)] + [rv("sweep_kappa", "Dyna-Q", task, m)]
+        f.write(f"{task.replace('_',' ')} ({m.split('_')[0]}) & " + " & ".join(cells) + " \\\\\n")
     f.write("\\bottomrule\n\\end{tabular}\n")
-# compact ablation table: post_reward mean (sem), 20 seeds, n=10
+# compact ablation table: post_reward mean (std), 20 seeds, n=10
 with open("results/tables/abl_compact.tex", "w") as f:
     f.write("\\begin{tabular}{lccccc}\n\\toprule\nVariant & blocking & shortcut & static & stoch. & stoch.\\,blk \\\\\n\\midrule\n")
     for v in ["Dyna-Q+", "Dyna-Q+ w/o bonus", "Dyna-Q+ w/o untried", "Dyna-Q+ w/o both"]:
         cells = []
         for task in TASKS_ORDER if False else ["blocking", "shortcut", "static", "stochastic", "stoch_blocking"]:
-            x = [r["metrics"]["post_reward"] for r in rows if r["group"] == "abl_dynaq_plus" and r["name"] == v and r["task"] == task]
-            m, s = ms(x); cells.append(f"{m:.1f} ({s:.1f})")
+            cells.append(rv("abl_dynaq_plus", v, task, "post_reward") + " (" + rv("abl_dynaq_plus", v, task, "post_reward", "std") + ")")
         f.write(v.replace("w/o", "w/o ") .replace("w/o  ", "w/o ") + " & " + " & ".join(cells) + " \\\\\n")
     f.write("\\bottomrule\n\\end{tabular}\n")

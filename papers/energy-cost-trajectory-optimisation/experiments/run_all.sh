@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: run_all.sh <part>   part in main|sweeps_wE|sweeps_q|tuned|diag
+# usage: run_all.sh <part>   part in main|sweeps_wE|sweeps_q|tuned|diag|groups
 source seed/env.sh
 export RH_PROJECT=$PWD OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
 mkdir -p results/raw
@@ -25,4 +25,6 @@ tuned) for s in 3 4; do
 # diag: closed-loop size of the energy and quadratic state-cost terms under the combined cost (default weights)
 diag) for s in 0 1 2; do for t in pendulum cartpole; do
   run ablation "iLQR-Quad+Energy" diag_terms $t $s iLQR-Quad+Energy "--diag" "{\"diag\": 1}"; done; done;;
+# groups: list existing runs in the comparison groups (pair_q<q>, tuned_all) with `rh log --from-run` and run `rh compare`; no new runs
+groups) $PY experiments/compare_groups.py;;
 esac

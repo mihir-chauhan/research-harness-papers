@@ -1,5 +1,10 @@
-"""Builds the custom tables and figures from results/runs.jsonl (all numbers come from the run registry)."""
-import json, collections, numpy as np, matplotlib
+"""Builds the custom tables and figures from results/runs.jsonl (all numbers come from the run registry).
+
+The .tex tables hold no typed numbers: every cell is a \\rhval{<key>} macro (`rh values --list`), so the paper prints
+what the registry recorded. The .md copies hold the same statistics as plain numbers for reading in the repository.
+Ratios and paired tests are not computed here: they are the `rh compare` statistics (results/tables/compare_*.csv).
+"""
+import json, collections, re, numpy as np, matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 R = [json.loads(l) for l in open("results/runs.jsonl") if l.strip()]
@@ -13,23 +18,56 @@ def vals(group, name, task, key, cond=lambda c: True, seeds=None):
 def ms(v, p=3):
     return f"{np.mean(v):.{p}f} $\\pm$ {np.std(v, ddof=1):.{p}f}"
 
+def slug(s):   # key component, as in rh/numbers.py
+    return re.sub(r"[^a-z0-9_.+-]+", "-", str(s).lower()).strip("-") or "x"
+
+def key(group, name, task, metric, cfg=None):
+    """Registry key of one (group, system, task, metric) cell; cfg=(param, value) selects one value of a swept setting."""
+    at = f"@{slug(cfg[0])}={slug(cfg[1])}" if cfg else ""
+    return f"{slug(group)}/{slug(name)}{at}/{slug(task)}/{slug(metric)}"
+
+def rv(k, spec=""):
+    return f"\\rhval{{{k}{':' + spec if spec else ''}}}"
+
+def ms_tex(k, p=3):
+    return f"{rv(k + '/mean', str(p))} $\\pm$ {rv(k + '/std', str(p))}"
+
+class C(str):
+    """A table cell: the plain text goes to the .md copy, `.tex` (an \\rhval macro) to the .tex table."""
+    def __new__(cls, text, tex=None):
+        c = super().__new__(cls, text); c.tex = text if tex is None else tex
+        return c
+
 def write(name, header, rows, align):
     tex = "\\begin{tabular}{" + align + "}\n\\toprule\n" + " & ".join(header) + " \\\\\n\\midrule\n"
     for r in rows:
-        tex += " & ".join(r) + " \\\\\n" if r != "mid" else "\\midrule\n"
+        tex += " & ".join(getattr(x, "tex", x) for x in r) + " \\\\\n" if r != "mid" else "\\midrule\n"
     tex += "\\bottomrule\n\\end{tabular}\n"
     open(f"results/tables/{name}.tex", "w").write(tex)
-    open(f"results/tables/{name}.md", "w").write("\n".join(" | ".join(x for x in r) if r != "mid" else "---" for r in [header] + rows) + "\n")
+    open(f"results/tables/{name}.md", "w").write("\n".join(" | ".join(str(x) for x in r) if r != "mid" else "---" for r in [header] + rows) + "\n")
+
+CMP = {}
+def cmp_stat(metric, name, task, stat):
+    """A statistic of `rh compare --group main --metric <metric>` (the reference system is the one in the CSV)."""
+    import pandas as pd
+    if metric not in CMP: CMP[metric] = pd.read_csv(f"results/tables/compare_main_{metric}.csv")
+    d = CMP[metric]; r = d[(d.name == name) & (d.task == task)].iloc[0]
+    return {"delta": r["delta"], "paired_p": r["paired_p"], "inv_ratio": r["mean"] / r["ref_mean"], "ref": r["ref"]}[stat]
 
 # ---- rank / parameter table (main group)
 systems = ["Head only", "Last block", "From scratch", "Full fine-tuning", "LoRA r=1", "LoRA r=2", "LoRA r=4", "LoRA r=8"]
-full_p = vals("main", "Full fine-tuning", "reverse", "trainable_params")[0]
+assert cmp_stat("trainable_params", "LoRA r=4", "reverse", "ref") == "Full fine-tuning"   # rh compare --metric trainable_params --ref "Full fine-tuning"
 rows = []
 for s in systems:
     p = vals("main", s, "reverse", "trainable_params")[0]
     a = [vals("main", s, t, "adapt_acc") for t in TASKS]
-    nfail = sum(x < 0.5 for x in a[1]) 
-    rows.append([s, f"{int(p)}", f"{100 * p / full_p:.1f}", ms(a[0]), f"{np.min(a[0]):.3f}", ms(a[1]), f"{np.min(a[1]):.3f}", f"{nfail}/5"])
+    k = [key("main", s, t, "adapt_acc") for t in TASKS]
+    nfail = sum(x < 0.5 for x in a[1])
+    share = C("100.0") if s == "Full fine-tuning" else C(f"{100 * cmp_stat('trainable_params', s, 'reverse', 'inv_ratio'):.1f}",
+                                                         rv(f"cmp/main/{slug(s)}/reverse/trainable_params/inv_ratio", "pct1"))
+    rows.append([s, C(f"{int(p)}", rv(key("main", s, "reverse", "trainable_params") + "/mean")), share,
+                 C(ms(a[0]), ms_tex(k[0])), C(f"{np.min(a[0]):.3f}", rv(k[0] + "/min", "3")),
+                 C(ms(a[1]), ms_tex(k[1])), C(f"{np.min(a[1]):.3f}", rv(k[1] + "/min", "3")), f"{nfail}/5"])
 write("tab_rank", ["System", "Params", "\\% full", "sort\\_desc", "min", "reverse", "min", "fail"], rows, "lrrccccr")
 
 # ---- target modules ablation
@@ -38,18 +76,19 @@ for k in [1, 4]:
     for lab, g, nm in [("all linear", "main", f"LoRA r={k}"), ("q,v only", "abl_targets", f"LoRA r={k} (q,v only)")]:
         p = vals(g, nm, "reverse", "trainable_params")[0]
         a = [vals(g, nm, t, "adapt_acc") for t in TASKS]
-        rows.append([str(k), lab, f"{int(p)}", ms(a[0]), ms(a[1])])
+        rows.append([str(k), lab, C(f"{int(p)}", rv(key(g, nm, "reverse", "trainable_params") + "/mean"))]
+                    + [C(ms(a[i]), ms_tex(key(g, nm, t, "adapt_acc"))) for i, t in enumerate(TASKS)])
 write("tab_targets", ["Rank", "Targets", "Params", "sort\\_desc acc", "reverse acc"], rows, "llrcc")
 
-# ---- training-set size sweep (sort_desc), seeds 0-2 for every cell
+# ---- training-set size sweep (sort_desc), seeds 0-2; the N=2000 runs are the main group (five seeds, Table main)
 SD = [0, 1, 2]
 names = [("Full fine-tuning", "Full fine-tuning"), ("From scratch", "From scratch"), ("Last block", "Last block"),
          ("LoRA r=1", "LoRA r=1"), ("LoRA r=4", "LoRA r=4"), ("LoRA r=8", "LoRA r=8")]
 rows = []
 for lab, nm in names:
-    rows.append([lab] + [ms(vals("sweep_ntrain", nm, "sort_desc", "adapt_acc", lambda c, n=n: c["n_train"] == n)) for n in (100, 300)]
-                + [ms(vals("main", nm, "sort_desc", "adapt_acc", seeds=SD))])
-write("tab_ntrain", ["System", "$N$=100", "$N$=300", "$N$=2000"], rows, "lccc")
+    rows.append([lab] + [C(ms(vals("sweep_ntrain", nm, "sort_desc", "adapt_acc", lambda c, n=n: c["n_train"] == n)),
+                           ms_tex(key("sweep_ntrain", nm, "sort_desc", "adapt_acc", ("n_train", n)))) for n in (100, 300)])
+write("tab_ntrain", ["System", "$N$=100", "$N$=300"], rows, "lcc")
 
 # ---- lr sweep
 lrs = {"Full fine-tuning": [3e-4, 1e-3, 3e-3, 1e-2], "LoRA r=4": [3e-4, 1e-3, 3e-3, 1e-2, 3e-2]}
@@ -58,10 +97,12 @@ def lr_vals(nm, t, lr, key="adapt_acc"):
     if lr == default[nm]:
         return vals("main", nm, t, key, seeds=SD)
     return vals("sweep_lr", nm, t, key, lambda c: abs(c["lr"] - lr) < 1e-12)
-rows = []
+rows = []   # table: the swept rates only (group sweep_lr); the default rate of each system is the main group (Table main)
 for nm in lrs:
     for lr in lrs[nm]:
-        rows.append([nm, f"{lr:g}"] + [ms(lr_vals(nm, t, lr)) for t in TASKS] + [ms(lr_vals(nm, "reverse", lr, "pretask_acc"))])
+        if lr == default[nm]: continue
+        rows.append([nm, f"{lr:g}"] + [C(ms(lr_vals(nm, t, lr)), ms_tex(key("sweep_lr", nm, t, "adapt_acc", ("lr", lr)))) for t in TASKS]
+                    + [C(ms(lr_vals(nm, "reverse", lr, "pretask_acc")), ms_tex(key("sweep_lr", nm, "reverse", "pretask_acc", ("lr", lr))))])
 write("tab_lr", ["System", "LR", "sort\\_desc", "reverse", "reverse retention"], rows, "llccc")
 fig, ax = plt.subplots(1, 2, figsize=(5.4, 2.1), sharey=True)
 for i, t in enumerate(TASKS):
@@ -108,16 +149,13 @@ for sy in ["full", "lora-r1", "lora-r4", "lastblock"]:
     g = d[(d.sys == sy) & (d.kind == "target")].groupby("step").value.mean()
     print(sy, "first step with mean target acc >= 0.9:", g[g >= 0.9].index.min())
 
-# ---- paired tests over seeds (same as `rh compare`: scipy paired t-test on per-seed values)
-from scipy import stats
-def seedvec(name, task, key="adapt_acc"):
-    d = {r["seed"]: r["metrics"][key] for r in R if r["group"] == "main" and r["name"] == name and r["task"] == task}
-    return np.array([d[s] for s in sorted(d)])
+# ---- paired tests over seeds: the statistics of `rh compare --group main --metric <metric>` (reference LoRA r=4)
 rows = []
-for a, b, key in [("LoRA r=4", "Full fine-tuning", "adapt_acc"), ("LoRA r=4", "Last block", "adapt_acc"), ("LoRA r=1", "LoRA r=8", "adapt_acc"),
-                  ("LoRA r=4", "From scratch", "adapt_acc"), ("LoRA r=4", "Full fine-tuning", "pretask_acc")]:
+for b, metric in [("Full fine-tuning", "adapt_acc"), ("Last block", "adapt_acc"), ("From scratch", "adapt_acc"), ("Full fine-tuning", "pretask_acc")]:
     for t in TASKS:
-        x, y = seedvec(a, t, key), seedvec(b, t, key)
-        p = stats.ttest_rel(x, y).pvalue
-        rows.append([a, b, key.replace("_", "\\_"), t.replace("_", "\\_"), f"{np.mean(x) - np.mean(y):+.4f}", "n/a" if np.isnan(p) else f"{p:.3g}"])
+        a = cmp_stat(metric, b, t, "ref")
+        d, p = cmp_stat(metric, b, t, "delta"), cmp_stat(metric, b, t, "paired_p")
+        k = f"cmp/main/{slug(b)}/{slug(t)}/{slug(metric)}"
+        rows.append([a, b, metric.replace("_", "\\_"), t.replace("_", "\\_"), C(f"{d:.4f}", rv(k + "/delta", "4")),
+                     C("n/a" if np.isnan(p) else f"{p:.4g}", rv(k + "/paired_p"))])
 write("tab_tests", ["A", "B", "metric", "task", "mean A$-$B", "paired $p$"], rows, "lllllr")

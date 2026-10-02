@@ -1,0 +1,8 @@
+# rh run | Fri Oct  2 16:45:00 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot experiments/derive.py corr --scope all --task digits_n0.2 --collapse-digits 0.15 --collapse-spirals 0.55 --out results/raw/derived_corr_all_digits_n0.2.json
+
+final {"n_runs": 65, "rand_acc": 0.35295531885626896, "rand_loss": 0.30598776223776225, "adv_acc": 0.041611574433581176, "adv_loss": 0.04925699300699301}
+
+# rh: exit code 0 after 1.0 s
+# rh metrics: {"adv_acc": 0.041611574433581176, "adv_loss": 0.04925699300699301, "n_runs": 65.0, "rand_acc": 0.35295531885626896, "rand_loss": 0.30598776223776225}

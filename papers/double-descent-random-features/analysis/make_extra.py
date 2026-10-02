@@ -21,6 +21,11 @@ def P(*a): print(*a); print(*a, file=out)
 def ms(x, p=3): return f"{np.mean(x):.{p}f} $\\pm$ {np.std(x, ddof=1):.{p}f}"
 def sh(task): return task.replace("synth_n", "syn ").replace("digits_n", "dig ")
 def g(name, task, m, d=main): return d[(d.name == name) & (d.task == task)].sort_values("seed")[m].values
+def rv(key, spec=""): return "\\rhval{" + key + (":" + spec if spec else "") + "}"   # paper cells print registry values (rh values), never a number formatted here
+def lamkey(L, t, m, st):   # registry key of a fixed-ridge cell: lam=0 is MinNorm, 1e-2 the main FixedRidge, the rest the sweep
+    if L == 0: return f"main/minnorm/{t}/{m}/{st}"
+    if L == 1e-2: return f"main/fixedridge/{t}/{m}/{st}"
+    return f"sweep_lambda/fixedridge-sweep@lam={json.dumps(int(L) if float(L).is_integer() else L)}/{t}/{m}/{st}"
 def wr(path, header, body, align):
     with open(path, "w") as f:
         f.write("\\begin{tabular}{" + align + "}\\hline\n" + " & ".join(header) + " \\\\ \\hline\n")
@@ -31,7 +36,9 @@ def wr(path, header, body, align):
 body = []
 for t in TASKS:
     pk, lg, bs = g("MinNorm", t, "peak_mse"), g("MinNorm", t, "log10_peak_mse"), g("MinNorm", t, "best_mse")
-    body.append([sh(t), f"{np.median(g('MinNorm', t, 'peak_pos')):.2f}", ms(lg, 2), f"{np.mean(pk):.3g}", f"{np.median(pk):.3g}", f"{np.mean(bs):.3f}"])
+    k = f"main/minnorm/{t}/"
+    body.append([sh(t), rv(k + "peak_pos/median", "2"), rv(k + "log10_peak_mse/mean", "2") + " $\\pm$ " + rv(k + "log10_peak_mse/std", "2"),
+                 rv(k + "peak_mse/mean"), rv(k + "peak_mse/median"), rv(k + "best_mse/mean", "3")])
     P("H1/H2", t, "peak_pos all", set(g("MinNorm", t, "peak_pos")), "mean peak", np.mean(pk), "median", np.median(pk))
 wr("results/tables/noise_minnorm.tex", ["Task", "pos", "$\\log_{10}$ peak", "mean peak", "median peak", "best"], body, "lccccc")
 for ds in (SYN, DIG):
@@ -40,11 +47,7 @@ for ds in (SYN, DIG):
     P("H2 wilcoxon one-sided hi>lo on log10 peak", ds[0], "p=", w.pvalue, "paired t p=", tt.pvalue, "means", [np.mean(g("MinNorm", t, "peak_mse")) for t in ds])
     P("   raw peak paired wilcoxon", stats.wilcoxon(g("MinNorm", ds[-1], "peak_mse"), g("MinNorm", ds[0], "peak_mse"), alternative="greater").pvalue)
 
-ps = []
-for ds in (SYN, DIG):
-    ps.append(stats.wilcoxon(g("MinNorm", ds[-1], "log10_peak_mse"), g("MinNorm", ds[0], "log10_peak_mse"), alternative="greater").pvalue)
-t_ = open("results/tables/noise_minnorm.tex").read().replace("\\hline\\end{tabular}", "\\hline\\multicolumn{6}{l}{one-sided Wilcoxon, highest vs lowest noise: syn $p=%.3f$, dig $p=%.3f$}\\\\\\hline\\end{tabular}" % tuple(ps))
-open("results/tables/noise_minnorm.tex", "w").write(t_)
+# the Wilcoxon p-values stay in results/analysis.md only: `rh compare` has no cross-task test, so the paper does not print them
 
 # --- H3: sweep over fixed lambda (+ MinNorm as lam=0 and FixedRidge main as 1e-2)
 LAMS = [0, 1e-6, 1e-4, 1e-3, 1e-2, 1e-1, 1, 10]
@@ -59,7 +62,7 @@ def lamrows(t):
 body, body2 = [], []
 sweep = {t: lamrows(t) for t in TASKS}
 for t in TASKS:
-    body.append([sh(t)] + [f"{sweep[t][L].peak_mse.mean():.3g}" for L in LAMS])
+    body.append([sh(t)] + [rv(lamkey(L, t, "peak_mse", "mean")) for L in LAMS])
     body2.append([sh(t)] + [f"{sweep[t][L].peak_pos.median():.2f}" for L in LAMS])
     m = [sweep[t][L].peak_mse.mean() for L in LAMS]
     P("H3", t, "mean peak by lam", [round(x, 4) for x in m], "nonincreasing:", all(m[i + 1] <= m[i] for i in range(len(m) - 1)),
@@ -81,7 +84,9 @@ for t in TASKS:
     tu, gl, mn = g("TunedRidge", t, "bump_rel"), g("GlobalRidge", t, "bump_rel"), g("MinNorm", t, "bump_rel")
     lo, v5 = g("TunedRidge-LOO", t, "bump_rel", abl), g("TunedRidge-val50", t, "bump_rel", abl)
     p_b = stats.ttest_rel(tu, mn).pvalue; p_l = stats.ttest_rel(g("TunedRidge", t, "log10_peak_mse"), g("MinNorm", t, "log10_peak_mse")).pvalue
-    body.append([sh(t), f"{tu.mean():.4f}", f"{tu.max():.4f}", f"{gl.mean():.4f}", f"{lo.mean():.4f}", f"{v5.mean():.4f}", f"{p_b:.2f}", f"{p_l:.4f}"])
+    body.append([sh(t), rv(f"main/tunedridge/{t}/bump_rel/mean", "4"), rv(f"main/tunedridge/{t}/bump_rel/max", "4"), rv(f"main/globalridge/{t}/bump_rel/mean", "4"),
+                 rv(f"abl_tuning/tunedridge-loo/{t}/bump_rel/mean", "4"), rv(f"abl_tuning/tunedridge-val50/{t}/bump_rel/mean", "4"),
+                 rv(f"cmp/main/minnorm/{t}/bump_rel/paired_p", "2"), rv(f"cmp/main/minnorm/{t}/log10_peak_mse/paired_p", "4")])   # p-values: `rh compare` (ref TunedRidge)
     P("H4", t, "tuned bump mean/max", tu.mean(), tu.max(), tu.round(4), "global", gl.mean(), "loo", lo.mean(), lo.max(), "val50", v5.mean(), v5.max(), "p_bump", p_b, "p_logpeak", p_l)
 wr("results/tables/h4.tex", ["Task", "Tuned", "Tuned max", "Global", "LOO", "val50", "$p_{bump}$", "$p_{peak}$"], body, "l" + "c" * 7)
 

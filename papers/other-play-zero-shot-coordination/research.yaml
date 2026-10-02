@@ -1,43 +1,83 @@
 slug: other-play-zero-shot-coordination
-direction: 'Zero-shot coordination in small symmetric games: independently trained self-play agents often fail to coordinate with each other. Reproduce this in the lever game and a small matrix or signalling game, and compare self-play, other-play (training under the game''s symmetries) and population-based training on cross-play score between independently trained agents.'
-problem: 'Agents trained by self-play in symmetric cooperative games settle on arbitrary conventions; independently trained agents then miscoordinate (low cross-play) although self-play is near-perfect.'
-gap: 'Other-play is usually shown on the lever game or Hanabi; small-scale studies that compare it to population training on the same exact-evaluation footing, and that probe where tabular policy-gradient other-play itself fails, are rare.'
-contribution: 'A small, exactly evaluated reproduction on three games (lever, safe-option matrix, signalling) comparing reimplemented self-play, other-play and a population (FCP-style) method on cross-play between independently trained agents, with ablations on the symmetry group, population size and initialisation scale.'
+direction: 'Zero-shot coordination in small symmetric games: independently trained
+  self-play agents often fail to coordinate with each other. Reproduce this in the
+  lever game and a small matrix or signalling game, and compare self-play, other-play
+  (training under the game''s symmetries) and population-based training on cross-play
+  score between independently trained agents.'
+problem: Agents trained by self-play in symmetric cooperative games settle on arbitrary
+  conventions; independently trained agents then miscoordinate (low cross-play) although
+  self-play is near-perfect.
+gap: Other-play is usually shown on the lever game or Hanabi; small-scale studies
+  that compare it to population training on the same exact-evaluation footing, and
+  that probe where tabular policy-gradient other-play itself fails, are rare.
+contribution: A small, exactly evaluated reproduction on three games (lever, safe-option
+  matrix, signalling) comparing reimplemented self-play, other-play and a population
+  (FCP-style) method on cross-play between independently trained agents, with ablations
+  on the symmetry group, population size and initialisation scale.
 hypotheses:
 - id: H1
-  statement: 'Self-play agents reach near-perfect self-play payoff but their cross-play payoff with independently trained agents is far lower (large gap).'
-  test: 'Paired over seeds, cross_play of SP is well below self_play on all three tasks.'
+  statement: Self-play agents reach near-perfect self-play payoff but their cross-play
+    payoff with independently trained agents is far lower (large gap).
+  test: Paired over seeds, cross_play of SP is well below self_play on all three tasks.
 - id: H2
-  statement: 'Other-play has higher cross-play than self-play on every task.'
-  test: 'Per-task cross_play(OP) > cross_play(SP), 5 seeds, Welch t-test; refuted on a task if not higher.'
+  statement: Other-play has higher cross-play than self-play on every task.
+  test: Per-task cross_play(OP) > cross_play(SP), 5 seeds, Welch t-test; refuted on
+    a task if not higher.
 - id: H3
-  statement: 'A population (FCP-style) best-response agent has higher cross-play than self-play but below other-play, and its cross-play grows with population size.'
-  test: 'Compare cross_play(PBT) with SP and OP per task; sweep pop size K.'
+  statement: A population (FCP-style) best-response agent has higher cross-play than
+    self-play but below other-play, and its cross-play grows with population size.
+  test: Compare cross_play(PBT) with SP and OP per task; sweep pop size K.
 - id: H4
-  statement: 'Other-play needs the correct symmetry group: symmetrising over a group that includes the distinct lever removes the advantage in the lever game.'
-  test: 'Ablation OP vs OP-full on the lever and safe games.'
+  statement: 'Other-play needs the correct symmetry group: symmetrising over a group
+    that includes the distinct lever removes the advantage in the lever game.'
+  test: Ablation OP vs OP-full on the lever and safe games.
 method:
   name: Other-play
-  summary: 'Tabular softmax policies trained by REINFORCE where the partner plays a uniformly random symmetry-relabelled copy of the shared policy.'
-  components: [symmetry-permuted partner, shared policy gradient]
+  summary: Tabular softmax policies trained by REINFORCE where the partner plays a
+    uniformly random symmetry-relabelled copy of the shared policy.
+  components:
+  - symmetry-permuted partner
+  - shared policy gradient
   entrypoint: method/run.py
-tasks: [lever, safe, signal]
+tasks:
+- lever
+- safe
+- signal
 metrics:
-  cross_play: {higher_is_better: true}
-  self_play: {higher_is_better: true}
-  cross_play_min: {higher_is_better: true}
-  gap: {higher_is_better: false}
-  entropy: {higher_is_better: false}
-  frac_special: {higher_is_better: true}
-  frac_safe: {higher_is_better: true}
-  runtime_s: {higher_is_better: false}
-seeds: [0, 1, 2, 3, 4]
+  cross_play:
+    higher_is_better: true
+  self_play:
+    higher_is_better: true
+  cross_play_min:
+    higher_is_better: true
+  gap:
+    higher_is_better: false
+  entropy:
+    higher_is_better: false
+  frac_special:
+    higher_is_better: true
+  frac_safe:
+    higher_is_better: true
+  runtime_s:
+    higher_is_better: false
+    nondeterministic: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
 compute:
   gpus: 0
   max_minutes_per_run: 6
   max_total_minutes: 30
-baselines: [Self-play, Population (FCP-style)]
-ablations: [OP-full (wrong group), Population (FCP-style), Other-play]
+baselines:
+- Self-play
+- Population (FCP-style)
+ablations:
+- OP-full (wrong group)
+- Population (FCP-style)
+- Other-play
 ambition:
   target_tier: 2
   primary_metric: cross_play
@@ -53,3 +93,56 @@ gates: []
 profile: quick
 venue: ieee-icra
 project: other-play-zero-shot-coordination
+constants:
+- name: pair_payoffs_per_seed
+  value: 380
+  why: 'ordered agent pairs evaluated per run: 20 agents x 19 partners (cross-play
+    matrix off-diagonal)'
+- name: train_updates
+  value: 1500
+  why: default number of policy-gradient updates (method/run.py --steps default),
+    main configuration
+- name: n_agents
+  value: 20
+  why: independently trained agents (or populations) per run (method/run.py --n_agents
+    default)
+- name: batch_size
+  value: 64
+  why: REINFORCE batch size (method/run.py --batch default)
+- name: adam_lr
+  value: 0.05
+  why: Adam learning rate (method/run.py --lr default)
+- name: init_std_default
+  value: 1
+  why: std of initial logits in the main configuration (method/run.py --init_std default)
+- name: lever_distinct_payoff
+  value: 0.9
+  why: payoff when both players pick the distinct lever in the lever game (game definition)
+- name: safe_action_payoff
+  value: 0.5
+  why: payoff of the safe action in the safe game (game definition)
+- name: card_prior_0
+  value: 0.4
+  why: signalling game prior probability of card 0 (game definition)
+- name: card_prior_1
+  value: 0.3
+  why: signalling game prior probability of card 1 (game definition)
+- name: card_prior_2
+  value: 0.2
+  why: signalling game prior probability of card 2 (game definition)
+- name: card_prior_3
+  value: 0.1
+  why: signalling game prior probability of card 3 (game definition)
+- name: basin_threshold
+  value: 0.11
+  why: initial-probability threshold on the distinct lever used in experiments/init_check.py
+    (stationary point of the stated OP objective)
+- name: smoke_test_seed
+  value: 99
+  why: seed of the unlogged OP lever smoke test described in the protocol
+- name: smoke_test_configs
+  value: 6
+  why: number of configurations in the unlogged OP lever smoke test
+- name: cpu_threads
+  value: 2
+  why: torch.set_num_threads value in method/run.py

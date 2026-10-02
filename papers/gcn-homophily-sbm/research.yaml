@@ -78,6 +78,9 @@ metrics:
     higher_is_better: true
   val_accuracy:
     higher_is_better: true
+  seconds:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -109,3 +112,23 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_nodes
+  value: 900
+  why: number of nodes in every generated CSBM graph (method/run.py --n default)
+- name: max_epochs
+  value: 300
+  why: maximum training epochs per run (method/run.py --epochs default)
+- name: tuning_seed_last
+  value: 102
+  why: last of the three seeds (100-102) used for the separate tuning graphs in method/tune.py
+- name: tuning_seed_first
+  value: 100
+  why: first of the three seeds (100-102) used for the separate tuning graphs in method/tune.py
+- name: early_stopping_patience
+  value: 100
+  why: early-stopping patience in epochs (method/run.py --patience default)
+- name: h2_tolerance
+  value: 0.02
+  why: registered tolerance of hypothesis H2 (within 0.02 of max(MLP, GCN)), fixed
+    in proposal.md before the main runs

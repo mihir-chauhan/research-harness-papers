@@ -1,10 +1,10 @@
 \begin{tabular}{lccc}
 \toprule
-System & 1000 steps & 3000 steps & 12000 steps \\
+System & 1000 steps & 3000 steps (main) & 12000 steps \\
 \midrule
-Sorted dist MLP & 0.89$\pm$0.05 & 0.65$\pm$0.03 & 0.54$\pm$0.02 \\
-\ \ $p$ vs.\ 3000 steps & 0.003 & & 0.006 \\
-SymFn-sum MLP & 4.81$\pm$0.23 & 4.61$\pm$0.06 & 4.39$\pm$0.11 \\
-\ \ $p$ vs.\ 3000 steps & 0.264 & & 0.056 \\
+Sorted dist MLP & \rhval{sweep_steps/sorted-dist-mlp@steps=1000/lj_clusters/energy_mae/mean} $\pm$ \rhval{sweep_steps/sorted-dist-mlp@steps=1000/lj_clusters/energy_mae/std} & \rhval{main/sorted-dist-mlp/lj_clusters/energy_mae/mean} $\pm$ \rhval{main/sorted-dist-mlp/lj_clusters/energy_mae/std} & \rhval{sweep_steps/sorted-dist-mlp@steps=12000/lj_clusters/energy_mae/mean} $\pm$ \rhval{sweep_steps/sorted-dist-mlp@steps=12000/lj_clusters/energy_mae/std} \\
+\ \ seeds & \rhval{sweep_steps/sorted-dist-mlp@steps=1000/lj_clusters/energy_mae/n} & \rhval{main/sorted-dist-mlp/lj_clusters/energy_mae/n} & \rhval{sweep_steps/sorted-dist-mlp@steps=12000/lj_clusters/energy_mae/n} \\
+SymFn-sum MLP & \rhval{sweep_steps/symfn-sum-mlp@steps=1000/lj_clusters/energy_mae/mean} $\pm$ \rhval{sweep_steps/symfn-sum-mlp@steps=1000/lj_clusters/energy_mae/std} & \rhval{main/symfn-sum-mlp/lj_clusters/energy_mae/mean} $\pm$ \rhval{main/symfn-sum-mlp/lj_clusters/energy_mae/std} & \rhval{sweep_steps/symfn-sum-mlp@steps=12000/lj_clusters/energy_mae/mean} $\pm$ \rhval{sweep_steps/symfn-sum-mlp@steps=12000/lj_clusters/energy_mae/std} \\
+\ \ seeds & \rhval{sweep_steps/symfn-sum-mlp@steps=1000/lj_clusters/energy_mae/n} & \rhval{main/symfn-sum-mlp/lj_clusters/energy_mae/n} & \rhval{sweep_steps/symfn-sum-mlp@steps=12000/lj_clusters/energy_mae/n} \\
 \bottomrule
 \end{tabular}

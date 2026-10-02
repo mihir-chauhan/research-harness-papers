@@ -67,6 +67,7 @@ metrics:
     higher_is_better: false
   runtime_s:
     higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -106,3 +107,45 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: main_runs
+  value: 1300
+  why: 'planned number of main runs: 13 tasks x 10 systems x 5 seeds x 2 starts (registry
+    groups main and main_b, 650 runs each)'
+- name: iterations
+  value: 300
+  why: optimisation iterations of every VMC run (the --iters default of method/run.py;
+    no run overrides it)
+- name: hilbert_dim_max
+  value: 4096
+  why: 2^12, the number of basis states of the largest system studied (N=12 spins)
+- name: init_std
+  value: 0.01
+  why: standard deviation of the normal initialisation of all parameters (the --init
+    default of method/run.py; no run overrides it)
+- name: start_b_field
+  value: 0.5
+  why: constant added to the initial fields a_i in the symmetry-broken start B (--field-init
+    0.5)
+- name: single_flip_fraction
+  value: 0.9
+  why: share of Metropolis proposals that flip one spin (hard-coded in method/run.py)
+- name: global_flip_fraction
+  value: 0.1
+  why: share of Metropolis proposals that flip all spins (hard-coded in method/run.py)
+- name: lbfgs_max_iterations
+  value: 1000
+  why: iteration cap of the sampling-free L-BFGS reference (the --exact-maxiter default
+    of method/run.py)
+- name: significance_level
+  value: 0.05
+  why: threshold against which the uncorrected paired tests are read (research.yaml
+    ambition.alpha)
+- name: h4_window
+  value: 0.25
+  why: 'registered window of hypothesis H4: the mean-field error peak must lie within
+    this distance of Gamma=1'
+- name: large_error_threshold
+  value: 0.1
+  why: relative energy error above which a run is counted as a poor state in the checks
+    table

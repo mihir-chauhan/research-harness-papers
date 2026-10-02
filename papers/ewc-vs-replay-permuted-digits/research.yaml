@@ -83,3 +83,25 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_images
+  value: 1797
+  why: number of images in the scikit-learn digits dataset (load_digits)
+- name: n_train_per_permuted_task
+  value: 1078
+  why: 'training images per permuted task: the 60% stratified training split of the
+    1797 images'
+- name: n_train_per_split_task
+  value: 215
+  why: approximate training images per two-class split task (the 1078 training images
+    over five tasks; 211-219 depending on seed and class pair)
+- name: h2_ewc_gain_threshold
+  value: 0.05
+  why: registered H2 threshold for the EWC gain over fine-tuning (proposal.md); also
+    the significance level alpha
+- name: h2_er_gain_threshold
+  value: 0.2
+  why: registered H2 threshold for the ER gain over fine-tuning (proposal.md)
+- name: h3_gap_threshold
+  value: 0.1
+  why: registered H3 threshold for the fine-tuning to joint-training gap (proposal.md)

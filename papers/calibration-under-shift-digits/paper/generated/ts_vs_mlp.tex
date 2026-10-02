@@ -2,16 +2,16 @@
 \toprule
 Shift & ECE MLP & ECE TS & $\Delta$ECE\% & $p$ & NLL MLP & NLL TS & $p$ \\
 \midrule
-r0 & 0.018 & 0.016 & -12 & 0.268 & 0.117 & 0.104 & 0.094 \\
-r10 & 0.104 & 0.070 & -33 & 0.018 & 0.745 & 0.614 & 0.009 \\
-r20 & 0.226 & 0.161 & -28 & 0.017 & 1.954 & 1.450 & 0.012 \\
-r30 & 0.457 & 0.388 & -15 & 0.016 & 4.747 & 3.365 & 0.009 \\
-r45 & 0.816 & 0.785 & -4 & 0.038 & 13.431 & 9.490 & 0.011 \\
-r60 & 0.827 & 0.803 & -3 & 0.099 & 15.266 & 11.101 & 0.012 \\
-n0.25 & 0.105 & 0.067 & -36 & 0.016 & 0.763 & 0.587 & 0.020 \\
-n0.5 & 0.392 & 0.335 & -14 & 0.017 & 4.109 & 2.903 & 0.016 \\
-n0.75 & 0.584 & 0.524 & -10 & 0.012 & 7.746 & 5.468 & 0.011 \\
-n1.0 & 0.674 & 0.618 & -8 & 0.017 & 10.145 & 7.230 & 0.010 \\
-r30+n0.5 & 0.674 & 0.612 & -9 & 0.020 & 9.953 & 7.048 & 0.010 \\
+r0 & \rhval{main/mlp/rot0/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot0/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot0/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot0/ece/paired_p:3} & \rhval{main/mlp/rot0/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot0/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot0/nll/paired_p:3} \\
+r10 & \rhval{main/mlp/rot10/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot10/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot10/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot10/ece/paired_p:3} & \rhval{main/mlp/rot10/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot10/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot10/nll/paired_p:3} \\
+r20 & \rhval{main/mlp/rot20/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot20/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot20/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot20/ece/paired_p:3} & \rhval{main/mlp/rot20/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot20/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot20/nll/paired_p:3} \\
+r30 & \rhval{main/mlp/rot30/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot30/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot30/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot30/ece/paired_p:3} & \rhval{main/mlp/rot30/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot30/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot30/nll/paired_p:3} \\
+r45 & \rhval{main/mlp/rot45/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot45/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot45/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot45/ece/paired_p:3} & \rhval{main/mlp/rot45/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot45/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot45/nll/paired_p:3} \\
+r60 & \rhval{main/mlp/rot60/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot60/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot60/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot60/ece/paired_p:3} & \rhval{main/mlp/rot60/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot60/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot60/nll/paired_p:3} \\
+n0.25 & \rhval{main/mlp/noise0.25/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise0.25/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/noise0.25/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/noise0.25/ece/paired_p:3} & \rhval{main/mlp/noise0.25/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise0.25/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/noise0.25/nll/paired_p:3} \\
+n0.5 & \rhval{main/mlp/noise0.5/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise0.5/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/noise0.5/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/noise0.5/ece/paired_p:3} & \rhval{main/mlp/noise0.5/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise0.5/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/noise0.5/nll/paired_p:3} \\
+n0.75 & \rhval{main/mlp/noise0.75/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise0.75/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/noise0.75/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/noise0.75/ece/paired_p:3} & \rhval{main/mlp/noise0.75/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise0.75/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/noise0.75/nll/paired_p:3} \\
+n1.0 & \rhval{main/mlp/noise1.0/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise1.0/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/noise1.0/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/noise1.0/ece/paired_p:3} & \rhval{main/mlp/noise1.0/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/noise1.0/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/noise1.0/nll/paired_p:3} \\
+r30+n0.5 & \rhval{main/mlp/rot30_noise0.5/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot30_noise0.5/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot30_noise0.5/ece/rel_delta:pct0} & \rhval{cmp/abl_oracle/mlp/rot30_noise0.5/ece/paired_p:3} & \rhval{main/mlp/rot30_noise0.5/nll/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot30_noise0.5/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot30_noise0.5/nll/paired_p:3} \\
 \bottomrule
 \end{tabular}

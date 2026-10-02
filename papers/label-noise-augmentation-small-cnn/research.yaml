@@ -50,6 +50,9 @@ metrics:
     higher_is_better: true
   mem_gap:
     higher_is_better: false
+  runtime_s:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -80,3 +83,37 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_images
+  value: 1797
+  why: number of images in the scikit-learn digits dataset
+- name: split_random_state
+  value: 1234
+  why: random_state of the fixed stratified train/test split in method/run.py
+- name: n_train
+  value: 1078
+  why: training images in the fixed split
+- name: n_test
+  value: 719
+  why: test images in the fixed split
+- name: fc_in
+  value: 256
+  why: input width of the first fully connected layer (64 channels x 2 x 2)
+- name: noise_rate_20
+  value: 20
+  why: symmetric noise rate in percent of task digits_noise20
+- name: noise_rate_40
+  value: 40
+  why: symmetric noise rate in percent of task digits_noise40
+- name: noise_rate_60
+  value: 60
+  why: symmetric noise rate in percent of task digits_noise60
+- name: learning_rate
+  value: 0.05
+  why: SGD learning rate (method/run.py default --lr)
+- name: momentum
+  value: 0.9
+  why: SGD momentum in method/run.py
+- name: ls_eps_main
+  value: 0.1
+  why: label smoothing epsilon of the main grid (method/run.py default --ls_eps)

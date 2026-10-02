@@ -51,6 +51,9 @@ metrics:
     higher_is_better: false
   sharp_adv:
     higher_is_better: false
+  runtime_s:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -81,3 +84,59 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: epochs
+  value: 150
+  why: training epochs per run (method/run.py default --epochs, same for every system)
+- name: hidden_width
+  value: 128
+  why: hidden-layer width of the MLP (method/run.py default --hidden)
+- name: batch_size
+  value: 100
+  why: minibatch size (method/run.py default --batch)
+- name: learning_rate
+  value: 0.1
+  why: base learning rate, fixed for every system (method/run.py default --lr)
+- name: momentum
+  value: 0.9
+  why: SGD momentum, fixed for every system (method/run.py)
+- name: digits_images
+  value: 1797
+  why: number of images in the scikit-learn digits dataset
+- name: digits_train
+  value: 600
+  why: digits training-split size (method/run.py make_data)
+- name: digits_val
+  value: 300
+  why: digits validation-split size (method/run.py make_data)
+- name: digits_test
+  value: 897
+  why: 'digits test-split size: the 1797 images minus 600 train and 300 validation'
+- name: digits_steps
+  value: 900
+  why: 'optimiser steps per digits run: 150 epochs of 6 minibatches (600 training
+    points, batch 100)'
+- name: spirals_train
+  value: 400
+  why: two-spirals training-split size (method/run.py make_data); the test split has
+    the same size
+- name: spirals_val
+  value: 200
+  why: two-spirals validation-split size (method/run.py make_data)
+- name: spiral_turns
+  value: 1.5
+  why: number of turns of the two-spirals generator (method/run.py spirals)
+- name: sharpness_radius
+  value: 0.5
+  why: fixed Euclidean perturbation norm r of the sharpness measurement (method/run.py
+    default --rho_sharp)
+- name: noise_low
+  value: 0.2
+  why: symmetric label-noise rate of the 20 percent tasks (task names digits_n0.2,
+    spirals_n0.2)
+- name: noise_high
+  value: 0.4
+  why: symmetric label-noise rate of the 40 percent task (task name digits_n0.4)
+- name: alpha
+  value: 0.05
+  why: significance level of the registered tests (research.yaml ambition.alpha)

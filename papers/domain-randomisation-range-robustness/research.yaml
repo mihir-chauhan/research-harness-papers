@@ -1,37 +1,41 @@
 slug: domain-randomisation-range-robustness
-direction: How wide should domain randomisation be? Train a small policy (e.g. cross-entropy method or
-  a tiny policy gradient on CartPole / Pendulum from gymnasium classic control) under different randomisation
-  ranges of physical parameters (mass, length, force), then evaluate on in-range and out-of-range dynamics.
-  Is there a range beyond which nominal performance drops faster than robustness improves? Compare no
-  randomisation, narrow, wide, and a simple automatic curriculum that widens the range on success.
-problem: Domain randomisation (DR) trains a policy on dynamics sampled from a range of physical parameters;
-  the range width is a design choice that trades nominal performance against robustness to dynamics shift.
-gap: Range width is usually set by hand. We ask, in a controlled small-scale setting, whether there is
-  a width beyond which nominal performance drops faster than robustness grows, and whether a success-gated
-  widening curriculum avoids choosing it.
-contribution: A controlled CPU-scale sweep of DR range width on CartPole (CEM-trained MLP, 5 seeds) comparing
-  no DR, narrow, wide, and a success-gated curriculum on nominal, in-range and out-of-range dynamics,
-  with an honest report of where the trade-off does and does not appear.
+direction: How wide should domain randomisation be? Train a small policy (e.g. cross-entropy
+  method or a tiny policy gradient on CartPole / Pendulum from gymnasium classic control)
+  under different randomisation ranges of physical parameters (mass, length, force),
+  then evaluate on in-range and out-of-range dynamics. Is there a range beyond which
+  nominal performance drops faster than robustness improves? Compare no randomisation,
+  narrow, wide, and a simple automatic curriculum that widens the range on success.
+problem: Domain randomisation (DR) trains a policy on dynamics sampled from a range
+  of physical parameters; the range width is a design choice that trades nominal performance
+  against robustness to dynamics shift.
+gap: Range width is usually set by hand. We ask, in a controlled small-scale setting,
+  whether there is a width beyond which nominal performance drops faster than robustness
+  grows, and whether a success-gated widening curriculum avoids choosing it.
+contribution: A controlled CPU-scale sweep of DR range width on CartPole (CEM-trained
+  MLP, 5 seeds) comparing no DR, narrow, wide, and a success-gated curriculum on nominal,
+  in-range and out-of-range dynamics, with an honest report of where the trade-off
+  does and does not appear.
 hypotheses:
 - id: H1
-  statement: Wide DR gives higher mean return over shifted dynamics (ret_robust) than no randomisation.
-  test: Paired comparison over 5 seeds on cartpole; refuted if the difference is not positive or not significant
-    at alpha 0.05.
+  statement: Wide DR gives higher mean return over shifted dynamics (ret_robust) than
+    no randomisation.
+  test: Paired comparison over 5 seeds on cartpole; refuted if the difference is not
+    positive or not significant at alpha 0.05.
 - id: H2
-  statement: There is a training width beyond which nominal return falls (>5% below the no-DR nominal
-    return) while robustness no longer improves.
-  test: Width sweep 0..3 (log-scale half-width); refuted if nominal return stays within 5% of no-DR for
-    all widths.
+  statement: There is a training width beyond which nominal return falls (>5% below
+    the no-DR nominal return) while robustness no longer improves.
+  test: Width sweep 0..3 (log-scale half-width); refuted if nominal return stays within
+    5% of no-DR for all widths.
 - id: H3
-  statement: A success-gated widening curriculum matches wide DR on shifted-dynamics return and out-of-range
-    return (ret_ood).
-  test: Compare curriculum vs wide DR on ret_robust and ret_ood; refuted if curriculum is significantly
-    worse on either.
+  statement: A success-gated widening curriculum matches wide DR on shifted-dynamics
+    return and out-of-range return (ret_ood).
+  test: Compare curriculum vs wide DR on ret_robust and ret_ood; refuted if curriculum
+    is significantly worse on either.
 method:
   name: Success-gated curriculum DR
-  summary: CEM on a 4-8-1 tanh MLP; the log-scale half-width w of the randomisation range starts at 0
-    and grows by 0.05 whenever the best candidate succeeds (500 steps) on >=80% of the sampled environments,
-    capped at 1.0.
+  summary: CEM on a 4-8-1 tanh MLP; the log-scale half-width w of the randomisation
+    range starts at 0 and grows by 0.05 whenever the best candidate succeeds (500
+    steps) on >=80% of the sampled environments, capped at 1.0.
   components:
   - success gate
   - range widening step
@@ -82,3 +86,92 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: eval_episodes_per_level
+  value: 300
+  why: number of evaluation episodes per shift level (method/run.py evaluate)
+- name: euler_step_tau
+  value: 0.02
+  why: Euler integration step of the CartPole dynamics in seconds (TAU in method/run.py)
+- name: dynamics_check_steps
+  value: 30
+  why: number of steps in the simulator-vs-gymnasium check (method/check_dynamics.py)
+- name: mlp_inputs
+  value: 4
+  why: policy input size = CartPole state dimension; also the number of randomised
+    parameters and of main systems
+- name: mlp_hidden_units
+  value: 8
+  why: hidden units of the policy MLP (H in method/run.py)
+- name: mlp_outputs
+  value: 1
+  why: policy output size
+- name: mlp_parameters
+  value: 49
+  why: parameter count of the 4-8-1 MLP (NP in method/run.py)
+- name: cem_population
+  value: 40
+  why: CEM candidates per iteration (--pop default)
+- name: cem_envs_per_iteration
+  value: 16
+  why: randomised episodes each CEM candidate is evaluated on (--n_env default)
+- name: cem_elite_percent
+  value: 20
+  why: CEM elite fraction in percent (pop // 5 in method/run.py)
+- name: cem_iterations
+  value: 60
+  why: CEM training iterations (--iters default)
+- name: cem_noise_floor_decay
+  value: 0.05
+  why: coefficient of the decaying noise floor added to the refit std (method/run.py
+    train)
+- name: cem_noise_floor_const
+  value: 0.01
+  why: constant part of the noise floor added to the refit std (method/run.py train)
+- name: curriculum_step_delta
+  value: 0.05
+  why: curriculum widening step delta (--step default)
+- name: curriculum_gate_rho
+  value: 0.8
+  why: success threshold rho of the main curriculum (--thresh)
+- name: curriculum_w_max
+  value: 1
+  why: curriculum cap on the half-width, equal to wide DR (--wmax 1.0)
+- name: ungated_rho
+  value: 0
+  why: threshold that turns the curriculum into an ungated linear schedule; also the
+    nominal width w=0
+- name: return_cap
+  value: 500
+  why: maximum episode length / return of CartPole-v1 (T_MAX in method/run.py)
+- name: width_narrow
+  value: 0.25
+  why: training half-width of narrow DR; also an evaluation shift level
+- name: width_half
+  value: 0.5
+  why: evaluation shift level and sweep width 0.5; also gate threshold 0.5 in the
+    ablation
+- name: eval_level_075
+  value: 0.75
+  why: evaluation shift level w=0.75
+- name: width_1p5
+  value: 1.5
+  why: evaluation shift level and sweep width 1.5
+- name: width_2
+  value: 2
+  why: largest evaluation shift level and sweep width 2
+- name: width_3
+  value: 3
+  why: largest sweep training width
+- name: gate_high
+  value: 0.95
+  why: gate threshold 0.95 in the curriculum ablation
+- name: n_seeds
+  value: 5
+  why: seeds per system (seeds 0-4 in research.yaml)
+- name: eval_shift_levels
+  value: 6
+  why: number of shifted evaluation levels averaged in ret_robust
+- name: sweep_widths
+  value: 7
+  why: number of training widths in the sweep

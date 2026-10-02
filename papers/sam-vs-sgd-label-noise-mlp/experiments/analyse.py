@@ -1,6 +1,8 @@
-"""Reads results/runs.jsonl and the aggregates written by `rh table` / `rh compare` (run those first).
-Writes results/figures/*.pdf, results/tables/{corr,rho_sweep,wd_sweep}.{md,tex}, cmp.tex, sel.tex, and re-typesets
-results/tables/{main,abl_sam}.tex from {main,abl_sam}_agg.csv (same means and stds, sharp_rand in units of 1e-3)."""
+"""Reads results/runs.jsonl (run `rh compare --metric test_acc --group main` and `experiments/drive.py derived` first).
+Writes results/figures/*.pdf and results/tables/{main,abl_sam,rho_sweep,wd_sweep,corr,cmp,sel}.tex.
+No table cell is a typed number: every result cell is a \\rhval{<key>} macro that `rh paper build` fills from the
+registry (correlations, Holm-adjusted p-values: rows of group `derived`, logged by experiments/derive.py).
+The .csv/.md copies next to the tables are for reading only."""
 import json, collections, numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from scipy.stats import spearmanr
@@ -12,7 +14,6 @@ TASKS = ["digits_n0.0", "digits_n0.2", "digits_n0.4", "spirals_n0.2"]
 def save(t, name, prec=3):
     t.to_csv(f"results/tables/{name}.csv")
     open(f"results/tables/{name}.md", "w").write(t.to_string())
-    open(f"results/tables/{name}.tex", "w").write(t.to_latex(float_format=lambda x: f"{x:.{prec}f}", escape=True))
 # --- sweeps: SAM rows = main SAM + sweep_rho ; SGD+WD rows = main SGD+WD + sweep_wd
 sam = df[(df.name == "SAM")]; wdd = df[(df.name == "SGD+WD")]
 rs = sam.groupby(["task", "rho"]).test_acc.agg(["mean", "std", "count"]).reset_index()
@@ -63,37 +64,55 @@ h = [Line2D([], [], marker="o", ls="", color=c, label=t.replace("_n", " n"), ms=
     [Line2D([], [], marker=m, ls="", color="gray", label=n, ms=4) for n, m in mk.items()]
 ax[1].legend(handles=h, fontsize=6, loc="center left", bbox_to_anchor=(1.02, 0.5), ncol=1)
 plt.tight_layout(); plt.savefig("results/figures/sharp_gap.pdf"); plt.close()
-# --- paired comparison table (from rh compare csv) and selected hyper-parameters
-c = pd.read_csv("results/tables/compare_main_test_acc.csv")
-# Holm step-down adjustment of the 8 paired p-values (not a registered test; reported next to the uncorrected ones)
-o = np.argsort(c.paired_p.values); m = len(o); adj = np.empty(m); run = 0.0
-for k, i in enumerate(o):
-    run = max(run, min(1.0, (m - k) * c.paired_p.values[i])); adj[i] = run
-c["holm"] = adj
-c = c[["task", "name", "delta", "welch_p", "paired_p", "holm"]]
-c.columns = ["task", "vs", "diff", "Welch p", "paired p", "Holm p"]
-c = c.set_index(["task", "vs"])
-open("results/tables/cmp.tex", "w").write(c.to_latex(float_format=lambda x: f"{x:.3g}" if abs(x) < 0.01 else f"{x:.3f}", escape=True))
+# --- tables: every result cell is \rhval{<key>} (the keys of `rh values --list`), nothing is typed
+import re
+def slug(x): return re.sub(r"[^a-z0-9_.+-]+", "-", str(x).lower()).strip("-") or "x"
+def rv(*parts, fmt="3"): return "\\rhval{" + "/".join(slug(q) if "@" not in str(q) else q for q in parts) + (":" + fmt if fmt else "") + "}"
+def esc(x): return str(x).replace("_", "\\_")
+def tabular(name, spec, head, body):
+    open(f"results/tables/{name}.tex", "w").write("\n".join([f"\\begin{{tabular}}{{{spec}}}", "\\toprule", head + " \\\\", "\\midrule"] + body + ["\\bottomrule", "\\end{tabular}"]) + "\n")
 sel = json.load(open("experiments/selected.json"))
+RHOS = sorted(sam.rho.unique()); WDS = sorted(wdd.wd.unique())
+def sweep_key(t, name, param, v):
+    """mean test accuracy of `name` on task t at param=v: the selected value was run in group main, the others in the sweep group"""
+    if v == sel[f"{t}|{name}"]: return rv("main", name, t, "test_acc", "mean")
+    return rv(f"sweep_{param}", f"{slug(name)}@{param}={slug(json.loads(json.dumps(float(v))))}", t, "test_acc", "mean")
+tabular("rho_sweep", "l" + "r" * (len(RHOS) + 1), "task & SGD & " + " & ".join(f"{v:g}" for v in RHOS),
+        [f"{esc(t)} & " + rv("main", "SGD", t, "test_acc", "mean") + " & " + " & ".join(sweep_key(t, "SAM", "rho", v) for v in RHOS) + " \\\\" for t in TASKS])
+tabular("wd_sweep", "l" + "r" * len(WDS), "task & " + " & ".join(f"{v:g}" for v in WDS),
+        [f"{esc(t)} & " + " & ".join(sweep_key(t, "SGD+WD", "wd", v) for v in WDS) + " \\\\" for t in TASKS])
+# correlations: rows of group `derived` (experiments/derive.py corr); pooled rows are filed under the primary task
+PRIMARY = "digits_n0.4"
+CORR = [("all tasks pooled", "corr pooled all", PRIMARY), ("pooled, collapsed runs removed", "corr pooled no-collapsed", PRIMARY)] + \
+       [(esc(t), "corr all", t) for t in TASKS] + [(esc(t) + " no collapsed", "corr no-collapsed", t) for t in TASKS] + \
+       [("SAM-sweep digits pooled", "corr pooled SAM digits", PRIMARY)] + [("SAM only " + esc(t), "corr SAM", t) for t in TASKS[:3]]
+tabular("corr", "lrrrrr", "subset & n & rand-acc & rand-loss & adv-acc & adv-loss",
+        [f"{lab} & " + rv("derived", nm, t, "n_runs", "mean", fmt="") + " & " +
+         " & ".join(rv("derived", nm, t, m, "mean", fmt="2") for m in ["rand_acc", "rand_loss", "adv_acc", "adv_loss"]) + " \\\\" for lab, nm, t in CORR])
+# paired comparison: statistics of `rh compare` (ref SAM), Holm-adjusted paired p from experiments/derive.py paired
+c = pd.read_csv("results/tables/compare_main_test_acc.csv").set_index(["task", "name"])
+dfmt = lambda x: "3" if abs(x) >= 0.01 else "4"
+pfmt = lambda x: "3" if x >= 0.01 else "sci2"
+holm = {(r["task"], r["name"]): r["metrics"]["holm_p"] for r in map(json.loads, open("results/runs.jsonl"))
+        if r["group"] == "derived" and "holm_p" in r["metrics"] and r["status"] == "ok"}
+body = []
+for t in TASKS:
+    for b in ["SGD", "SGD+WD"]:
+        k = lambda st: ("cmp", "main", b, t, "test_acc", st)
+        body.append(f"{esc(t)} & {b} & " + rv(*k("delta"), fmt=dfmt(c.loc[(t, b), "delta"])) + " & " + rv(*k("welch_p"), fmt=pfmt(c.loc[(t, b), "welch_p"]))
+                    + " & " + rv(*k("paired_p"), fmt=pfmt(c.loc[(t, b), "paired_p"])) + " & "
+                    + rv("derived", f"SAM minus {b}", t, "holm_p", "mean", fmt=pfmt(holm[(t, f"SAM minus {b}")])) + " \\\\")
+tabular("cmp", "llrrrr", "task & vs & diff & Welch p & paired p & Holm p", body)
 st = pd.DataFrame({t: {"SAM rho": sel[f"{t}|SAM"], "SGD+WD wd": sel[f"{t}|SGD+WD"]} for t in TASKS}).T
 open("results/tables/sel.tex", "w").write(st.to_latex(float_format=lambda x: f"{x:g}", escape=True))
-# --- main and ablation tables: typeset the rh-table aggregates with per-column precision (sharp_rand x 1e3)
-COLS = [("test_acc", "test\\_acc", 1, 3), ("gap_acc", "gap\\_acc", 1, 3), ("memorised", "memorised", 1, 3),
-        ("sharp_adv", "sharp\\_adv", 1, 4), ("sharp_rand", "sharp\\_rand ($\\times10^{-3}$)", 1e3, 3),
-        ("weight_norm", "weight\\_norm", 1, 2)]
+# --- main and ablation tables: mean +- std over seeds, sharp_rand in scientific notation (its values are of order 1e-3)
+COLS = [("test_acc", "3", "3"), ("gap_acc", "3", "3"), ("memorised", "3", "3"), ("sharp_adv", "4", "4"), ("sharp_rand", "sci2", "sci1"), ("weight_norm", "2", "2")]
 def typeset(group, order):
-    a = pd.read_csv(f"results/tables/{group}_agg.csv").set_index(["task", "name", "metric"])
-    L = ["\\begin{tabular}{ll" + "c" * len(COLS) + "}", "\\toprule",
-         "Method & Task & " + " & ".join(h for _, h, _, _ in COLS) + " \\\\"]
-    md = ["| Method | Task | " + " | ".join(k + (" (x1e-3)" if sc != 1 else "") for k, _, sc, _ in COLS) + " |", "|---" * (len(COLS) + 2) + "|"]
+    body = []
     for t in TASKS:
-        L.append("\\midrule")
+        if body: body.append("\\midrule")
         for n in order:
-            cells = [f"{a.loc[(t, n, k), 'mean'] * sc:.{pr}f} $\\pm$ {a.loc[(t, n, k), 'std'] * sc:.{pr}f}" for k, _, sc, pr in COLS]
-            L.append(f"{n} & {t} & ".replace("_", "\\_") + " & ".join(cells) + " \\\\")
-            md.append(f"| {n} | {t} | " + " | ".join(x.replace(" $\\pm$ ", " ± ") for x in cells) + " |")
-    L += ["\\bottomrule", "\\end{tabular}"]
-    open(f"results/tables/{group}.tex", "w").write("\n".join(L) + "\n")
-    open(f"results/tables/{group}_fmt.md", "w").write("\n".join(md) + "\n"); print("\n".join(md))
+            body.append(f"{n} & {esc(t)} & " + " & ".join(rv(group, n, t, k, "mean", fmt=fm) + " $\\pm$ " + rv(group, n, t, k, "std", fmt=fs) for k, fm, fs in COLS) + " \\\\")
+    tabular(group, "ll" + "c" * len(COLS), "Method & Task & " + " & ".join(esc(k) for k, _, _ in COLS), body)
 typeset("main", ["SGD", "SGD+WD", "SAM"])
 typeset("abl_sam", ["SAM random direction", "SAM+WD"])

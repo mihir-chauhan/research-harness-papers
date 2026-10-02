@@ -94,3 +94,47 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_images
+  value: 1797
+  why: number of images in the scikit-learn digits dataset (load_digits)
+- name: n_train
+  value: 1078
+  why: 'training images per seed: stratified 60 percent split of the dataset (method/run.py
+    split)'
+- name: n_val
+  value: 269
+  why: validation images per seed, used only to fit the temperature (method/run.py
+    split)
+- name: n_test
+  value: 450
+  why: test images per seed (method/run.py split)
+- name: hidden_units
+  value: 128
+  why: width of each of the two hidden layers of the MLP (HID in method/run.py)
+- name: epochs
+  value: 100
+  why: training epochs for every network (EPOCHS in method/run.py)
+- name: learning_rate
+  value: 0.001
+  why: Adam learning rate for every network (LR in method/run.py)
+- name: alpha
+  value: 0.05
+  why: significance level registered for the paired tests (research.yaml ambition.alpha,
+    proposal.md)
+- name: dropout_p
+  value: 0.2
+  why: dropout rate of the MC-dropout network in the main configuration (default --p
+    in method/run.py)
+- name: noise_sigma_1
+  value: 0.25
+  why: standard deviation of the Gaussian noise shift, condition noise0.25
+- name: noise_sigma_2
+  value: 0.5
+  why: standard deviation of the Gaussian noise shift, conditions noise0.5 and rot30_noise0.5
+- name: noise_sigma_3
+  value: 0.75
+  why: standard deviation of the Gaussian noise shift, condition noise0.75
+- name: noise_sigma_4
+  value: 1
+  why: standard deviation of the Gaussian noise shift, condition noise1.0

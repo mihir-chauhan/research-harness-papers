@@ -60,6 +60,7 @@ metrics:
     higher_is_better: true
   runtime_s:
     higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -107,3 +108,47 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: grid_rows
+  value: 6
+  why: number of rows of every maze grid (H in method/run.py)
+- name: grid_cols
+  value: 9
+  why: number of columns of every maze grid (W in method/run.py)
+- name: horizon_steps
+  value: 3000
+  why: real steps per run on the static, blocking, stochastic and stochastic-blocking
+    mazes (T in method/run.py)
+- name: shortcut_horizon_steps
+  value: 6000
+  why: real steps per run on the shortcut maze (T in method/run.py)
+- name: blocking_change_step
+  value: 1000
+  why: step at which the wall layout changes on the blocking and stochastic-blocking
+    mazes
+- name: shortcut_change_step
+  value: 3000
+  why: step at which the extra gap opens on the shortcut maze
+- name: reward_window_steps
+  value: 500
+  why: length in steps of the early (first) and late (last) reward windows of the
+    metrics
+- name: slip_prob
+  value: 0.3
+  why: probability that the chosen action is replaced by a uniformly random one on
+    the stochastic mazes
+- name: alpha
+  value: 0.5
+  why: step size of all agents, fixed a priori (default of method/run.py)
+- name: gamma
+  value: 0.95
+  why: discount factor of all agents, fixed a priori (default of method/run.py)
+- name: epsilon
+  value: 0.1
+  why: exploration rate of the epsilon-greedy policy, fixed a priori (default of method/run.py)
+- name: kappa_default
+  value: 0.001
+  why: default Dyna-Q+ bonus weight, fixed a priori (default of method/run.py)
+- name: theta
+  value: 0.0001
+  why: priority threshold of prioritized sweeping, fixed a priori (default of method/run.py)

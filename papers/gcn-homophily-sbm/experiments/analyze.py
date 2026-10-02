@@ -1,4 +1,6 @@
-"""Aggregates results/runs.jsonl (group main): cell means, paired tests, win map, accuracy-vs-h curves."""
+"""Aggregates results/runs.jsonl (group main): cell means, paired tests, win map, accuracy-vs-h curves.
+Derived cells (differences, p-values) are not typed into the tables: they are emitted as \\rhval{<key>} (see `rh values --list`)."""
+CMP = lambda mu, h, stat: f'\\rhval{{cmp/main/mlp/h{h:.1f}_mu{mu:.1f}/accuracy/{stat}}}'  # GCN (ref) minus MLP
 import json, numpy as np, pandas as pd
 from scipy import stats
 import matplotlib; matplotlib.use('Agg')
@@ -57,7 +59,7 @@ open('results/tables/winners.tex', 'w').write('\n'.join(wt))
 # GCN-MLP gap table
 gt = ['\\begin{tabular}{l' + 'c' * len(hs) + '}', '\\toprule', '$\\mu$ \\textbackslash\\ $h$ & ' + ' & '.join(f'{h:.1f}' for h in hs) + ' \\\\', '\\midrule']
 for mu in mus:
-    gt.append(f'{mu:g} & ' + ' & '.join(f'{T[(T.mu==mu)&(T.h==h)].gcn_minus_mlp.values[0]*100:+.1f}' for h in hs) + ' \\\\')
+    gt.append(f'{mu:g} & ' + ' & '.join(CMP(mu, h, 'delta') for h in hs) + ' \\\\')
 gt += ['\\bottomrule', '\\end{tabular}']
 open('results/tables/gcn_mlp_gap.tex', 'w').write('\n'.join(gt))
 # --- figures
@@ -84,14 +86,14 @@ tex = ['\\begin{tabular}{rccccc}', '\\toprule', '$h$ & MLP & GCN & H2GCN & LP & 
 for h in hs:
     r = m.loc[(1.0, h)]; s = sd.loc[(1.0, h)]; best = r.idxmax()
     cl = [(f'\\textbf{{{r[k]:.3f}}}' if k == best else f'{r[k]:.3f}') + f'$\\pm${s[k]:.3f}' for k in SYS]
-    tex.append(f'{h:.1f} & ' + ' & '.join(cl) + f' & {T[(T.mu==1.0)&(T.h==h)].p_gcn_mlp.values[0]:.3f} \\\\')
+    tex.append(f'{h:.1f} & ' + ' & '.join(cl) + f' & {CMP(1.0, h, "paired_p")} \\\\')
 tex += ['\\bottomrule', '\\end{tabular}']
 open('results/tables/main_mu1.tex', 'w').write('\n'.join(tex))
 # --- H2 violations table
 V = T[T.h2_vs_max < -0.02]
-tex = ['\\begin{tabular}{rrcccc}', '\\toprule', '$\\mu$ & $h$ & MLP & GCN & H2GCN & H2GCN$-$best \\\\', '\\midrule']
+tex = ['\\begin{tabular}{rrccc}', '\\toprule', '$\\mu$ & $h$ & MLP & GCN & H2GCN \\\\', '\\midrule']
 for _, r in V.iterrows():
     c = m.loc[(r.mu, r.h)]
-    tex.append(f'{r.mu:g} & {r.h:.1f} & {c.MLP:.3f} & {c.GCN:.3f} & {c.H2GCN:.3f} & {r.h2_vs_max:+.3f} \\\\')
+    tex.append(f'{r.mu:g} & {r.h:.1f} & {c.MLP:.3f} & {c.GCN:.3f} & {c.H2GCN:.3f} \\\\')
 tex += ['\\bottomrule', '\\end{tabular}']
 open('results/tables/h2_viol.tex', 'w').write('\n'.join(tex))

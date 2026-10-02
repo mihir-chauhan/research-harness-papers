@@ -44,6 +44,9 @@ metrics:
     higher_is_better: true
   train_acc:
     higher_is_better: true
+  seconds:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -83,3 +86,55 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: dataset_images
+  value: 1797
+  why: number of images in the scikit-learn digits dataset (load_digits)
+- name: test_split_images
+  value: 497
+  why: size of the stratified held-out test split per seed (N_TEST in method/run.py)
+- name: unlabeled_pool_images
+  value: 1300
+  why: images left for the unlabeled pool after the test split (1797 minus 497)
+- name: label_budget_max
+  value: 200
+  why: largest label budget, task n200 (20 labeled images per class)
+- name: encoder_feature_dim
+  value: 256
+  why: output dimension of the CNN encoder (64 channels times 2x2 pooled map); input
+    width of the projection MLP
+- name: projection_hidden_dim
+  value: 128
+  why: hidden width of the SimCLR projection MLP in method/run.py
+- name: pretrain_batch_size
+  value: 128
+  why: batch size of SimCLR and rotation pretraining (default --batch in method/run.py)
+- name: supervised_steps
+  value: 300
+  why: number of Adam steps of the supervised-from-scratch baseline (default --sup_steps)
+- name: pretrain_lr
+  value: 0.001
+  why: Adam learning rate for pretraining and for supervised training (defaults --lr
+    and --sup_lr)
+- name: pretrain_weight_decay
+  value: 1.0e-05
+  why: Adam weight decay during SimCLR and rotation pretraining
+- name: supervised_weight_decay
+  value: 0.0001
+  why: Adam weight decay of the supervised baseline (default --sup_wd)
+- name: simclr_temperature_default
+  value: 0.5
+  why: default NT-Xent temperature tau of the SimCLR-style method (default --tau)
+- name: aug_scale_range
+  value: 0.1
+  why: 'geometric augmentation: scale is drawn within plus or minus 10 percent'
+- name: aug_brightness_range
+  value: 0.2
+  why: 'photometric augmentation: brightness factor is drawn in 1 plus or minus 0.2'
+- name: aug_noise_sigma
+  value: 0.1
+  why: 'photometric augmentation: standard deviation of the added Gaussian noise'
+- name: raw_registry_rows
+  value: 236
+  why: rows in results/runs_raw_with_duplicates.jsonl, the registry file before duplicate
+    rows from two concurrent drivers were removed

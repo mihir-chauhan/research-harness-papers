@@ -1,11 +1,11 @@
 \begin{tabular}{llrrrr}\toprule
 Task & Cost (weight) & success & effort & time (s) & eff.\ 3--4 \\\midrule
-pend. & Energy ($w_E$=100) & 0.99$\pm$0.02 & 10.9$\pm$1.5 & 2.29$\pm$0.18 & 12.0 \\
-pend. & Quad ($q$=100) & 1.00$\pm$0.00 & 14.4$\pm$1.2 & 2.26$\pm$0.15 & 15.3 \\
- & paired $p$ ($n{=}5$) & 0.374 & $<$0.001 & 0.374 & \\
+pend. & Energy ($w_E$=100) & \rhval{tuned_all/ilqr-energy-ours/pendulum/success_rate/mean:2}$\pm$\rhval{tuned_all/ilqr-energy-ours/pendulum/success_rate/std:2} & \rhval{tuned_all/ilqr-energy-ours/pendulum/control_effort/mean:1}$\pm$\rhval{tuned_all/ilqr-energy-ours/pendulum/control_effort/std:1} & \rhval{tuned_all/ilqr-energy-ours/pendulum/time_to_upright/mean:2}$\pm$\rhval{tuned_all/ilqr-energy-ours/pendulum/time_to_upright/std:2} & \rhval{tuned/ilqr-energy-ours/pendulum/control_effort/mean:1} \\
+pend. & Quad ($q$=100) & \rhval{tuned_all/ilqr-quad/pendulum/success_rate/mean:2}$\pm$\rhval{tuned_all/ilqr-quad/pendulum/success_rate/std:2} & \rhval{tuned_all/ilqr-quad/pendulum/control_effort/mean:1}$\pm$\rhval{tuned_all/ilqr-quad/pendulum/control_effort/std:1} & \rhval{tuned_all/ilqr-quad/pendulum/time_to_upright/mean:2}$\pm$\rhval{tuned_all/ilqr-quad/pendulum/time_to_upright/std:2} & \rhval{tuned/ilqr-quad/pendulum/control_effort/mean:1} \\
+ & paired $p$ ($n{=}5$) & \rhval{cmp/tuned_all/ilqr-energy-ours/pendulum/success_rate/paired_p:3} & \rhval{cmp/tuned_all/ilqr-energy-ours/pendulum/control_effort/paired_p:4} & \rhval{cmp/tuned_all/ilqr-energy-ours/pendulum/time_to_upright/paired_p:3} & \\
 \midrule
-cart-p. & Energy ($w_E$=1) & 1.00$\pm$0.00 & 42.0$\pm$6.0 & 1.79$\pm$0.06 & 40.1 \\
-cart-p. & Quad ($q$=0.1) & 1.00$\pm$0.00 & 48.6$\pm$5.5 & 1.75$\pm$0.08 & 46.2 \\
- & paired $p$ ($n{=}5$) & -- & 0.009 & 0.103 & \\
+cart-p. & Energy ($w_E$=1) & \rhval{tuned_all/ilqr-energy-ours/cartpole/success_rate/mean:2}$\pm$\rhval{tuned_all/ilqr-energy-ours/cartpole/success_rate/std:2} & \rhval{tuned_all/ilqr-energy-ours/cartpole/control_effort/mean:1}$\pm$\rhval{tuned_all/ilqr-energy-ours/cartpole/control_effort/std:1} & \rhval{tuned_all/ilqr-energy-ours/cartpole/time_to_upright/mean:2}$\pm$\rhval{tuned_all/ilqr-energy-ours/cartpole/time_to_upright/std:2} & \rhval{tuned/ilqr-energy-ours/cartpole/control_effort/mean:1} \\
+cart-p. & Quad ($q$=0.1) & \rhval{tuned_all/ilqr-quad/cartpole/success_rate/mean:2}$\pm$\rhval{tuned_all/ilqr-quad/cartpole/success_rate/std:2} & \rhval{tuned_all/ilqr-quad/cartpole/control_effort/mean:1}$\pm$\rhval{tuned_all/ilqr-quad/cartpole/control_effort/std:1} & \rhval{tuned_all/ilqr-quad/cartpole/time_to_upright/mean:2}$\pm$\rhval{tuned_all/ilqr-quad/cartpole/time_to_upright/std:2} & \rhval{tuned/ilqr-quad/cartpole/control_effort/mean:1} \\
+ & paired $p$ ($n{=}5$) & -- & \rhval{cmp/tuned_all/ilqr-energy-ours/cartpole/control_effort/paired_p:3} & \rhval{cmp/tuned_all/ilqr-energy-ours/cartpole/time_to_upright/paired_p:3} & \\
 \bottomrule
 \end{tabular}

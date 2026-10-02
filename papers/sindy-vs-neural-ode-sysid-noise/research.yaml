@@ -5,43 +5,91 @@ direction: 'System identification for control under measurement noise: sparse re
   a damped pendulum and the Van der Pol oscillator. Measure multi-step prediction
   error and the closed-loop cost of an LQR or MPC controller designed on each identified
   model, as noise level and data quantity vary.'
-problem: Choosing a model class (sparse polynomial/trig regression, small MLP ODE, linear least squares) for identifying nonlinear dynamics from noisy state measurements when the model is used to design LQR/MPC controllers.
-gap: Sparse-regression and neural identification are usually compared by prediction error on one system; closed-loop cost of controllers designed on the identified model, jointly varying noise and data size on matched small benchmarks, is rarely reported.
-contribution: A controlled small-scale comparison (reimplemented SINDy-STLSQ, MLP neural ODE, DMDc) on a pendulum and Van der Pol oscillator measuring multi-step prediction error and closed-loop LQR/MPC cost versus measurement noise and data quantity.
+problem: Choosing a model class (sparse polynomial/trig regression, small MLP ODE,
+  linear least squares) for identifying nonlinear dynamics from noisy state measurements
+  when the model is used to design LQR/MPC controllers.
+gap: Sparse-regression and neural identification are usually compared by prediction
+  error on one system; closed-loop cost of controllers designed on the identified
+  model, jointly varying noise and data size on matched small benchmarks, is rarely
+  reported.
+contribution: A controlled small-scale comparison (reimplemented SINDy-STLSQ, MLP
+  neural ODE, DMDc) on a pendulum and Van der Pol oscillator measuring multi-step
+  prediction error and closed-loop LQR/MPC cost versus measurement noise and data
+  quantity.
 hypotheses:
 - id: H1
-  statement: With a library containing the true terms, SINDy has lower multi-step prediction error than the MLP and DMDc at low noise and small data, and the gap shrinks or reverses as noise grows.
+  statement: With a library containing the true terms, SINDy has lower multi-step
+    prediction error than the MLP and DMDc at low noise and small data, and the gap
+    shrinks or reverses as noise grows.
   test: group main and sweep_ntrain, metric pred_nrmse
 - id: H2
-  statement: Lower prediction error does not translate monotonically into lower closed-loop cost; LQR cost differences between identified models are small compared to prediction-error differences near the equilibrium.
+  statement: Lower prediction error does not translate monotonically into lower closed-loop
+    cost; LQR cost differences between identified models are small compared to prediction-error
+    differences near the equilibrium.
   test: group main, metrics lqr_cost and mpc_cost vs pred_nrmse
 - id: H3
-  statement: SINDy's prediction accuracy under noise depends on the sparsity threshold and on a correct library (trig terms for the pendulum).
+  statement: SINDy's prediction accuracy under noise depends on the sparsity threshold
+    and on a correct library (trig terms for the pendulum).
   test: groups sweep_lam_* and abl_sindy
 method:
   name: SINDy (STLSQ)
-  summary: Sequentially thresholded least squares on a polynomial(+sin/cos) library with control input, finite-difference derivatives; model used for LQR (linearisation) and sampling MPC.
-  components: [library, stlsq, finite-difference derivative, optional savgol smoothing]
+  summary: Sequentially thresholded least squares on a polynomial(+sin/cos) library
+    with control input, finite-difference derivatives; model used for LQR (linearisation)
+    and sampling MPC.
+  components:
+  - library
+  - stlsq
+  - finite-difference derivative
+  - optional savgol smoothing
   entrypoint: method/run.py
-tasks: [pendulum_noise0.0, pendulum_noise0.02, pendulum_noise0.05, pendulum_noise0.1, vdp_noise0.0, vdp_noise0.02, vdp_noise0.05, vdp_noise0.1]
+tasks:
+- pendulum_noise0.0
+- pendulum_noise0.02
+- pendulum_noise0.05
+- pendulum_noise0.1
+- vdp_noise0.0
+- vdp_noise0.02
+- vdp_noise0.05
+- vdp_noise0.1
 metrics:
-  pred_nrmse: {higher_is_better: false}
-  pred_nrmse_h5: {higher_is_better: false}
-  lqr_cost: {higher_is_better: false}
-  lqr_fail: {higher_is_better: false}
-  mpc_cost: {higher_is_better: false}
-  mpc_fail: {higher_is_better: false}
-  support_f1: {higher_is_better: true}
-seeds: [0, 1, 2, 3, 4]
+  pred_nrmse:
+    higher_is_better: false
+  pred_nrmse_h5:
+    higher_is_better: false
+  lqr_cost:
+    higher_is_better: false
+  lqr_fail:
+    higher_is_better: false
+  mpc_cost:
+    higher_is_better: false
+  mpc_fail:
+    higher_is_better: false
+  support_f1:
+    higher_is_better: true
+  seconds:
+    higher_is_better: false
+    nondeterministic: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
 compute:
   gpus: 0
   max_minutes_per_run: 10
   max_total_minutes: 45
-baselines: [Neural ODE (MLP), DMDc (linear LS), True model (oracle)]
+baselines:
+- Neural ODE (MLP)
+- DMDc (linear LS)
+- True model (oracle)
 ablations:
-- {name: SINDy w/o trig library, group: abl_sindy}
-- {name: SINDy + SG smoothing, group: abl_sindy}
-- {name: "SINDy + SG smoothing, lam 0.3", group: abl_sindy}
+- name: SINDy w/o trig library
+  group: abl_sindy
+- name: SINDy + SG smoothing
+  group: abl_sindy
+- name: SINDy + SG smoothing, lam 0.3
+  group: abl_sindy
 ambition:
   target_tier: 2
   primary_metric: pred_nrmse
@@ -56,3 +104,46 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: dt
+  value: 0.05
+  why: integration and sampling time step in seconds (DT in method/run.py)
+- name: pendulum_damping
+  value: 0.5
+  why: damping coefficient of the pendulum dynamics (f_pend in method/run.py)
+- name: vdp_train_ic_bound
+  value: 1.5
+  why: bound of the uniform training initial states for Van der Pol (SYS vdp ic in
+    method/run.py)
+- name: pendulum_cl_ic_bound
+  value: 0.5
+  why: bound of the uniform closed-loop initial states for the pendulum (SYS pendulum
+    cl_ic in method/run.py)
+- name: lqr_input_weight
+  value: 0.1
+  why: input weight R of the quadratic cost, same for both systems (SYS R in method/run.py)
+- name: sindy_default_lambda
+  value: 0.05
+  why: default STLSQ threshold (--lam default in method/run.py), used by every run
+    without a --lam flag
+- name: mlp_learning_rate
+  value: 0.003
+  why: Adam learning rate of the MLP neural ODE (fit_node in method/run.py)
+- name: mlp_weight_decay
+  value: 1.0e-05
+  why: Adam weight decay of the MLP neural ODE (fit_node in method/run.py)
+- name: mlp_batch_size
+  value: 128
+  why: mini-batch size of the MLP neural ODE training (fit_node in method/run.py)
+- name: mlp_gradient_steps
+  value: 2500
+  why: fixed number of gradient steps of the MLP neural ODE training at every data
+    size (fit_node steps)
+- name: cost_cap
+  value: 1000
+  why: closed-loop cost assigned to an episode stopped for leaving the state bound
+    (JCAP in method/run.py)
+- name: fail_norm
+  value: 0.5
+  why: final state norm above which a closed-loop episode counts as failed (episode_cost
+    in method/run.py)

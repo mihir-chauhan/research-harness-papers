@@ -63,6 +63,11 @@ metrics:
     higher_is_better: true
   train_loss:
     higher_is_better: false
+  pretask_acc_before:
+    higher_is_better: true
+  seconds:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -97,3 +102,59 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: pretrain_sequences
+  value: 20000
+  why: number of fixed sort-ascending training sequences per seed used for pretraining
+    (method/run.py)
+- name: pretrain_data_seed_offset
+  value: 1000
+  why: 'data seed offset: pretraining data for seed s are drawn with seed 1000+s'
+- name: adapt_data_seed_offset
+  value: 2000
+  why: 'data seed offset: the adaptation set for seed s is drawn with seed 2000+s'
+- name: eval_sequences
+  value: 2000
+  why: number of sequences in the shared test set and in the validation set
+- name: adapt_set_size
+  value: 2000
+  why: default number of adaptation training sequences N (n_train default in method/run.py)
+- name: test_data_seed
+  value: 5000
+  why: data seed of the shared test sets
+- name: val_data_seed
+  value: 7000
+  why: data seed of the validation set used only for learning-rate tuning
+- name: input_space_size
+  value: 100000000
+  why: 'number of possible inputs: 10 digit values at 8 positions, 10^8'
+- name: pretrain_steps
+  value: 4000
+  why: number of pretraining optimiser steps (pre_steps default)
+- name: pretrain_batch_size
+  value: 128
+  why: pretraining batch size
+- name: pretrain_lr
+  value: 0.002
+  why: pretraining learning rate (AdamW), fixed in method/run.py
+- name: ff_width
+  value: 128
+  why: feed-forward hidden width of each transformer block
+- name: adapt_steps
+  value: 1500
+  why: number of adaptation optimiser steps for every adapted system (steps default)
+- name: curve_eval_sequences
+  value: 500
+  why: number of test sequences evaluated at each point of the adaptation curves
+- name: tuning_seed
+  value: 100
+  why: seed of the separate pretrained model and validation runs used for learning-rate
+    tuning
+- name: h1_param_budget_pct
+  value: 15
+  why: 'H1 threshold registered before the runs: LoRA must use under 15 percent of
+    the full parameter count'
+- name: fail_threshold
+  value: 0.5
+  why: threshold on reversal exact match below which a seed is counted as a failed
+    run in the rank table

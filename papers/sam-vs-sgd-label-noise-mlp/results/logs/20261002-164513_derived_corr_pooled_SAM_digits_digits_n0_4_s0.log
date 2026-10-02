@@ -1,0 +1,8 @@
+# rh run | Fri Oct  2 16:45:13 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot experiments/derive.py corr --scope sam --task pooled --collapse-digits 0.15 --collapse-spirals 0.55 --out results/raw/derived_corr_pooled_SAM_digits_digits_n0.4.json
+
+final {"n_runs": 90, "rand_acc": 0.7392437180716266, "rand_loss": 0.7571881302218381, "adv_acc": 0.6315429879654897, "adv_loss": 0.6060912869901633}
+
+# rh: exit code 0 after 1.0 s
+# rh metrics: {"adv_acc": 0.6315429879654897, "adv_loss": 0.6060912869901633, "n_runs": 90.0, "rand_acc": 0.7392437180716266, "rand_loss": 0.7571881302218381}

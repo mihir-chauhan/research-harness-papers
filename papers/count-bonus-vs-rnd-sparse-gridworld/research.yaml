@@ -4,45 +4,89 @@ direction: 'Exploration bonuses in sparse-reward gridworlds: epsilon-greedy Q-le
   (small numpy or torch networks), on chain and multi-room gridworlds of increasing
   size. Measure steps to first reward and final return, and test the known failure
   case of novelty bonuses under a ''noisy TV'' state.'
-problem: Sparse-reward exploration in tabular gridworlds with three exploration schemes, and the noisy-TV failure of novelty bonuses.
-gap: Count bonuses and RND are usually compared on large deep-RL benchmarks where much besides the bonus varies; a tabular testbed with a fixed learner, offset controls, growing size and a parametrised noisy-TV cell isolates what each bonus adds beyond optimistic initialisation.
-contribution: A small, reproducible numpy comparison (reimplemented) of epsilon-greedy, count-based and RND-style bonuses on chains and multi-room grids, with penalty-only and no-offset controls, an ablation of the RND normaliser that documents and isolates a divide-by-zero failure, and a noisy-TV cell whose token cardinality is swept.
+problem: Sparse-reward exploration in tabular gridworlds with three exploration schemes,
+  and the noisy-TV failure of novelty bonuses.
+gap: Count bonuses and RND are usually compared on large deep-RL benchmarks where
+  much besides the bonus varies; a tabular testbed with a fixed learner, offset controls,
+  growing size and a parametrised noisy-TV cell isolates what each bonus adds beyond
+  optimistic initialisation.
+contribution: A small, reproducible numpy comparison (reimplemented) of epsilon-greedy,
+  count-based and RND-style bonuses on chains and multi-room grids, with penalty-only
+  and no-offset controls, an ablation of the RND normaliser that documents and isolates
+  a divide-by-zero failure, and a noisy-TV cell whose token cardinality is swept.
 hypotheses:
 - id: H1
-  statement: Without noise, both bonuses reach the first reward in fewer steps than epsilon-greedy on the larger tasks, and the gap grows with task size.
-  test: steps_to_first_reward on chain_40 and room_6 over 5 seeds; refuted if epsilon-greedy is not slower.
+  statement: Without noise, both bonuses reach the first reward in fewer steps than
+    epsilon-greedy on the larger tasks, and the gap grows with task size.
+  test: steps_to_first_reward on chain_40 and room_6 over 5 seeds; refuted if epsilon-greedy
+    is not slower.
 - id: H2
-  statement: Without noise, the exact count bonus is at least as fast as the RND bonus (RND only approximates visit counts).
-  test: paired comparison of steps_to_first_reward, count_state vs RND, on noise-free tasks.
+  statement: Without noise, the exact count bonus is at least as fast as the RND bonus
+    (RND only approximates visit counts).
+  test: paired comparison of steps_to_first_reward, count_state vs RND, on noise-free
+    tasks.
 - id: H3
-  statement: A noisy-TV state increases the time RND spends on the TV and delays first reward relative to the noise-free version of the same task, while the count bonus on state ids is unaffected.
-  test: tv_time_frac and steps_to_first_reward, _tv tasks vs noise-free tasks, per system.
+  statement: A noisy-TV state increases the time RND spends on the TV and delays first
+    reward relative to the noise-free version of the same task, while the count bonus
+    on state ids is unaffected.
+  test: tv_time_frac and steps_to_first_reward, _tv tasks vs noise-free tasks, per
+    system.
 - id: H4
-  statement: The TV distraction of the observation-count and RND bonuses depends on token cardinality K.
+  statement: The TV distraction of the observation-count and RND bonuses depends on
+    token cardinality K.
   test: sweep K in {1,4,16,64} on room_4_tv; tv_time_frac and steps_to_first_reward.
 method:
   name: RND bonus
-  summary: Tabular Q-learning with intrinsic reward equal to the prediction error of a small numpy MLP trained to match a fixed random target network on a one-hot observation, divided by the running std of the errors, with a warm-up (64 errors) and a clip (5) guarding the normaliser (reimplemented RND-style bonus).
-  components: [random target network, trained predictor, bonus normalisation by running std, normaliser warm-up, bonus clip]
+  summary: Tabular Q-learning with intrinsic reward equal to the prediction error
+    of a small numpy MLP trained to match a fixed random target network on a one-hot
+    observation, divided by the running std of the errors, with a warm-up (64 errors)
+    and a clip (5) guarding the normaliser (reimplemented RND-style bonus).
+  components:
+  - random target network
+  - trained predictor
+  - bonus normalisation by running std
+  - normaliser warm-up
+  - bonus clip
   entrypoint: method/run.py
-tasks: [chain_10, chain_20, chain_40, room_2, room_4, room_6, chain_20_tv, room_4_tv]
+tasks:
+- chain_10
+- chain_20
+- chain_40
+- room_2
+- room_4
+- room_6
+- chain_20_tv
+- room_4_tv
 metrics:
-  steps_to_first_reward: {higher_is_better: false}
-  final_return: {higher_is_better: true}
-  greedy_success: {higher_is_better: true}
-  found_reward: {higher_is_better: true}
-  tv_time_frac: {higher_is_better: false}
-  coverage: {higher_is_better: true}
+  steps_to_first_reward:
+    higher_is_better: false
+  final_return:
+    higher_is_better: true
+  greedy_success:
+    higher_is_better: true
+  found_reward:
+    higher_is_better: true
+  tv_time_frac:
+    higher_is_better: false
+  coverage:
+    higher_is_better: true
 compute:
   gpus: 0
   max_minutes_per_run: 10
   max_total_minutes: 45
-baselines: [Epsilon-greedy Q-learning, Count bonus (state), Count bonus (obs)]
+baselines:
+- Epsilon-greedy Q-learning
+- Count bonus (state)
+- Count bonus (obs)
 ablations:
-- {name: "no bonus normalisation (rnd_nonorm)", group: main}
-- {name: "RND, unguarded normaliser (v1)", group: main}
-- {name: "RND, warm-up only", group: main}
-- {name: "RND, clip only", group: main}
+- name: no bonus normalisation (rnd_nonorm)
+  group: main
+- name: RND, unguarded normaliser (v1)
+  group: main
+- name: RND, warm-up only
+  group: main
+- name: RND, clip only
+  group: main
 ambition:
   target_tier: 2
   primary_metric: steps_to_first_reward
@@ -57,3 +101,59 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: alpha
+  value: 0.5
+  why: Q-learning learning rate, shared by all systems (method/run.py --alpha)
+- name: gamma
+  value: 0.99
+  why: discount factor, shared by all systems (method/run.py --gamma)
+- name: epsilon
+  value: 0.1
+  why: epsilon of the epsilon-greedy action selection, shared by all systems (method/run.py
+    --eps)
+- name: beta
+  value: 0.1
+  why: bonus scale beta at its default; also the per-step penalty beta*offset (run
+    setting beta)
+- name: beta_sweep_low
+  value: 0.03
+  why: smallest bonus scale in the beta sweep (run setting, group sweep_beta)
+- name: beta_sweep_mid
+  value: 0.3
+  why: bonus scale 0.3 in the beta sweep (run setting, group sweep_beta)
+- name: predictor_lr
+  value: 0.003
+  why: Adam learning rate of the RND predictor (method/run.py, class RND, lr=3e-3)
+- name: normaliser_eps
+  value: 1.0e-08
+  why: epsilon added to the running std in the RND normaliser e/(sd + 1e-8) (method/run.py)
+- name: spike_threshold
+  value: 10000
+  why: threshold on the early raw bonus above which a run is counted as a spike run
+    (method/make_tables.py, SPIKE = 1e4); an analysis setting, chosen after seeing
+    the gap
+- name: early_window_steps
+  value: 100
+  why: number of first steps over which the diagnostic bonus_max_early is taken (method/run.py)
+- name: pilot_seed
+  value: 100
+  why: seed of the pilot runs, outside the evaluation seeds 0-4 (group pilot)
+- name: budget_chain_steps
+  value: 30000
+  why: step budget of the chain tasks; steps_to_first_reward is censored at it (method/run.py)
+- name: budget_room_steps
+  value: 100000
+  why: step budget of the room tasks; steps_to_first_reward is censored at it (method/run.py)
+- name: final_return_window_pct
+  value: 20
+  why: final return is the mean return over the last 20 percent of training episodes
+    (method/run.py, n_last = episodes // 5)
+- name: significance_level
+  value: 0.05
+  why: conventional significance level the p-values are compared against (research.yaml
+    ambition.alpha)
+- name: room6_cells
+  value: 155
+  why: number of non-wall cells of the largest task room_6 (35 x 5 grid minus 5 walls
+    of 4 cells), computed by method/run.py Env

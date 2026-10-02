@@ -1,10 +1,35 @@
-"""Win-rule analysis from results/runs.jsonl -> results/tables/wins.md, win_*.tex"""
-import json, pandas as pd, numpy as np
+"""Win-rule analysis from results/runs.jsonl -> results/tables/wins.csv, budget_wins.csv and the custom .tex tables.
+
+The .tex tables contain no typed or computed result: every numeric cell is a \\rhval{<key>} macro, which
+`rh paper build` expands from the registry (`rh values --list` shows the keys; the ratio cells need the
+`rh compare --group main --metric mse_<H> --ref DLinear` files). This script only lays the tables out and
+adds the two verdicts of the registered win rule that are not numbers `rh` records: the count of seeds in
+which a model is better than DLinear and the win mark. Percent changes are printed to the console and the
+CSVs for the analysis notes only; they are not used in the paper."""
+import json, re, pandas as pd, numpy as np
 rows = [json.loads(l) for l in open('results/runs.jsonl')]
 rows = [r for r in rows if r.get('status', 'ok') == 'ok' and r['kind'] != 'sanity']
 def df(group, m):
     return pd.DataFrame([dict(name=r['name'], task=r['task'], seed=r['seed'], cfg=json.dumps(r.get('config', {}), sort_keys=True), v=r['metrics'][m])
                          for r in rows if r['group'] == group and m in r['metrics']])
+def slug(s):  # key component, as rh/numbers.py
+    return re.sub(r"[^a-z0-9_.+-]+", "-", str(s).lower()).strip("-") or "x"
+def V(group, name, task, metric, stat='mean', spec='3', **cfg):
+    """\\rhval macro of an aggregate over seeds. cfg selects one value of a swept setting, e.g. steps=2000;
+    the key carries it (system@param=value) when that setting varies inside (group, system, task), as in rh."""
+    cell = [r for r in rows if r['group'] == group and r['name'] == name and r['task'] == task]
+    sub = [r for r in cell if all(r.get('config', {}).get(k) == v for k, v in cfg.items())]
+    assert sub and all(metric in r['metrics'] for r in sub), (group, name, task, metric, cfg)
+    vary = [k for k, v in cfg.items() if len({json.dumps(r.get('config', {}).get(k)) for r in cell}) > 1]
+    assert len(vary) <= 1 and (vary or len(sub) == len(cell)), (group, name, task, cfg)
+    sysk = slug(name) + (f"@{slug(vary[0])}={slug(cfg[vary[0]])}" if vary else "")
+    return f"\\rhval{{{slug(group)}/{sysk}/{slug(task)}/{slug(metric)}/{stat}" + (f":{spec}" if spec else "") + "}"
+def R(name, task, metric, spec='4'):
+    """\\rhval macro of the MSE ratio to DLinear in the main grid (`rh compare`: inv_ratio = system mean / DLinear mean)."""
+    return f"\\rhval{{cmp/main/{slug(name)}/{slug(task)}/{slug(metric)}/inv_ratio:{spec}}}"
+def mark(x, ref):  # seeds in which x is better than ref, and the win mark
+    n = int((x.sort_index().values < ref.sort_index().values).sum())
+    return f"$^{{{n}" + ("\\ast" if win(x, ref) else "") + "}$"
 def rel(a, b):  # relative change of a vs b (negative = a better)
     return (a.mean() - b.mean()) / b.mean()
 def win(x, ref):  # x beats ref: >=5% lower seed-mean and lower in every seed
@@ -25,9 +50,7 @@ print(w[w.system == 'Seasonal naive'].round(1).to_string())
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 def cfgval(c, k): return json.loads(c).get(k)
 SYS = ['DLinear', 'PatchTST', 'GRU']
-def relcell(x, ref):
-    r = 100 * rel(x, ref); n = int((x.sort_index().values < ref.sort_index().values).sum())
-    return f"{x.mean():.3f} & {r:+.1f}" + ("$^\\ast$" if win(x, ref) else "") + f" & {n}/3"
+SWEEP_HEAD = " & DLinear & PatchTST & GRU\\\\"
 def sweep_frame(group, key, default_val, base_task='regime'):
     d = df(group, 'mse_96'); d['x'] = d.cfg.map(lambda c: cfgval(c, key))
     m = df('main', 'mse_96'); m = m[m.task == base_task].copy(); m['x'] = default_val
@@ -36,31 +59,32 @@ lines = []
 sw = {}
 for group, key, dv, label in (('sweep_dwell', 'dwell', 500, 'dwell'), ('sweep_noise', 'noise', 0.3, 'noise')):
     f = sweep_frame(group, key, dv); sw[key] = f
-    L = ["\\begin{tabular}{lrrrrrrr}", "\\toprule", f"{label} & DLinear & \\multicolumn{{3}}{{c}}{{PatchTST}} & \\multicolumn{{3}}{{c}}{{GRU}}\\\\",
-         " & MSE & MSE & vs DL (\\%) & seeds & MSE & vs DL (\\%) & seeds\\\\", "\\midrule"]
+    L = ["\\begin{tabular}{lrrr}", "\\toprule", label + SWEEP_HEAD, "\\midrule"]
     for xv in sorted(f.x.unique()):
         p = f[f.x == xv].pivot(index='seed', columns='name', values='v')
-        L.append(f"{xv:g} & {p['DLinear'].mean():.3f} & {relcell(p['PatchTST'], p['DLinear'])} & {relcell(p['GRU'], p['DLinear'])}\\\\")
+        cell = lambda s_: V('main', s_, 'regime', 'mse_96') if xv == dv else V(group, s_, 'regime', 'mse_96', **{key: xv})
+        L.append(f"{xv:g} & {cell('DLinear')} & " + " & ".join(cell(s_) + mark(p[s_], p['DLinear']) for s_ in ('PatchTST', 'GRU')) + "\\\\")
     L += ["\\bottomrule", "\\end{tabular}"]
     open(f'results/tables/sw_{key}.tex', 'w').write("\n".join(L))
     print(group); print("\n".join(L))
-def fmtp(r): return f"{r:+.0f}" if abs(r) >= 100 else f"{r:+.1f}"
 # design ablation: H=96, with-norm reference from main
 a = df('abl_design', 'mse_96'); m = df('main', 'mse_96')
 def medrel(x, ref):  # median over seeds of the per-seed relative change (robust to one outlier dataset)
     x, ref = x.sort_index(), ref.sort_index()
     return 100 * float(np.median((x.values - ref.values) / ref.values))
-L = ["\\begin{tabular}{llrrrrr}", "\\toprule", "Task & System & Full & No norm & mean (\\%) & median (\\%) & No decomp\\\\", "\\midrule"]
+L = ["\\begin{tabular}{llrrrrr}", "\\toprule", " & & \\multicolumn{2}{c}{seed mean} & \\multicolumn{2}{c}{seed median} & No decomp\\\\",
+     "Task & System & Full & No norm & Full & No norm & (seed mean)\\\\", "\\midrule"]
 for t in ('trend', 'regime', 'etth1'):
     for s in SYS:
         full = m[(m.task == t) & (m.name == s)].set_index('seed').v
         nn_ = a[(a.task == t) & (a.name == f'{s} no norm')].set_index('seed').v
-        nd = ''
+        nd = V('abl_design', 'Linear (no decomp)', t, 'mse_96') if s == 'DLinear' else '--'
         if s == 'DLinear':
-            nd = f"{a[(a.task == t) & (a.name == 'Linear (no decomp)')].v.mean():.3f}"
             r_nd = 100 * rel(a[(a.task == t) & (a.name == 'Linear (no decomp)')].set_index('seed').v, full)
-            nd += f" ({r_nd:+.1f}\\%)"
-        L.append(f"{t} & {s} & {full.mean():.3f} & {nn_.mean():.3f} & {fmtp(100 * rel(nn_, full))} & {fmtp(medrel(nn_, full))} & {nd or '--'}\\\\")
+            print(f"no decomp {t}: {r_nd:+.1f}%")
+        print(f"no norm {t} {s}: mean {100 * rel(nn_, full):+.1f}%, median per-seed {medrel(nn_, full):+.1f}%")
+        L.append(f"{t} & {s} & {V('main', s, t, 'mse_96')} & {V('abl_design', s + ' no norm', t, 'mse_96')} & "
+                 f"{V('main', s, t, 'mse_96', 'median', '4')} & {V('abl_design', s + ' no norm', t, 'mse_96', 'median', '4')} & {nd}\\\\")
 L += ["\\bottomrule", "\\end{tabular}"]
 open('results/tables/abl_design_full.tex', 'w').write("\n".join(L)); print("\n".join(L))
 # win table (H=96 and 192, relative to DLinear), compact
@@ -70,18 +94,17 @@ for t in ['seas1', 'trend', 'multiseas', 'noisy', 'regime', 'etth1']:
     for s in ('PatchTST', 'GRU'):
         for H in (24, 96, 192):
             r = w[(w.task == t) & (w.system == s) & (w.H == H)].iloc[0]
-            c.append(f"{r.rel_vs_dlinear:+.2f}" + ("$^\\ast$" if r.win else "") + f"$^{{{r.seeds_better}}}$")
+            c.append(R(s, t, f'mse_{H}') + f"$^{{{r.seeds_better}" + ("\\ast" if r.win else "") + "}$")
     L.append(f"{t} & " + " & ".join(c) + "\\\\")
 L += ["\\bottomrule", "\\end{tabular}"]
 open('results/tables/rel.tex', 'w').write("\n".join(L)); print("\n".join(L))
-# size / runtime table (runs that train all three horizons: main grid at 400 steps, sweep_steps regime/etth1 at 2000 steps)
-pm = pd.DataFrame([dict(name=r['name'], rt=r['metrics']['runtime_s'], npar=r['metrics'].get('n_params_h96', np.nan)) for r in rows if r['group'] == 'main'])
-p2 = pd.DataFrame([dict(name=r['name'], rt=r['metrics']['runtime_s']) for r in rows
-                   if r['group'] == 'sweep_steps' and r['config'].get('steps') == 2000 and 'mse_192' in r['metrics']])
+# size / runtime table: parameter count and the median over the three seeds of the run time on the regime task
+# (runs that train all three horizons: main grid at 400 steps, sweep_steps at 2000 steps)
 L = ["\\begin{tabular}{lrrr}", "\\toprule", " & Params & \\multicolumn{2}{c}{Median run (s)}\\\\", "System & ($H$=96) & 400 steps & 2000 steps\\\\", "\\midrule"]
 for s_ in ['Seasonal naive', 'DLinear', 'PatchTST', 'GRU']:
-    g = pm[pm.name == s_]; g2 = p2[p2.name == s_]
-    L.append(f"{s_} & {'--' if np.isnan(g.npar.iloc[0]) else int(g.npar.iloc[0])} & {g.rt.median():.1f} & {'--' if not len(g2) else format(g2.rt.median(), '.1f')}\\\\")
+    learned = s_ != 'Seasonal naive'
+    L.append(f"{s_} & {V('main', s_, 'regime', 'n_params_h96', 'mean', '') if learned else '--'} & {V('main', s_, 'regime', 'runtime_s', 'median', '1')} & "
+             f"{V('sweep_steps', s_, 'regime', 'runtime_s', 'median', '1', steps=2000) if learned else '--'}\\\\")
 L += ["\\bottomrule", "\\end{tabular}"]
 open('results/tables/size.tex', 'w').write("\n".join(L)); print("\n".join(L))
 
@@ -91,9 +114,8 @@ def budget_frame(H):
     m = df('main', f'mse_{H}'); m['steps'] = 400
     d = df('sweep_steps', f'mse_{H}'); d['steps'] = d.cfg.map(lambda c: cfgval(c, 'steps'))
     return pd.concat([m[m.name.isin(SYS)], d])
-def relshort(x, ref):
-    r = 100 * rel(x, ref); n = int((x.sort_index().values < ref.sort_index().values).sum())
-    return f"{r:+.1f}$^{{{n}" + ("\\ast" if win(x, ref) else "") + "}$"
+def bcell(s_, t, H, st):  # 400 steps: the main-grid row; 1000/2000 steps: sweep_steps
+    return V('main', s_, t, f'mse_{H}') if st == 400 else V('sweep_steps', s_, t, f'mse_{H}', steps=st)
 B = {H: budget_frame(H) for H in (24, 96, 192)}
 bw = []  # machine-readable version of the budget table
 def budget_rows(tasks, Hs, first_col=True):
@@ -104,14 +126,13 @@ def budget_rows(tasks, Hs, first_col=True):
             for st in sorted(f.steps.unique()):
                 p = f[f.steps == st].pivot(index='seed', columns='name', values='v')
                 if len(p) < 3 or p.isna().any().any(): continue
-                L.append(f"{t} & {H} & {st} & {p['DLinear'].mean():.3f} & {p['PatchTST'].mean():.3f} & {relshort(p['PatchTST'], p['DLinear'])} & {p['GRU'].mean():.3f} & {relshort(p['GRU'], p['DLinear'])}\\\\")
+                L.append(f"{t} & {H} & {st} & {bcell('DLinear', t, H, st)} & " + " & ".join(bcell(s_, t, H, st) + mark(p[s_], p['DLinear']) for s_ in ('PatchTST', 'GRU')) + "\\\\")
                 for s_ in ('PatchTST', 'GRU'):
                     bw.append(dict(task=t, H=H, steps=st, system=s_, dlinear=p['DLinear'].mean(), mse=p[s_].mean(), rel=100 * rel(p[s_], p['DLinear']),
                                    seeds_better=int((p[s_] < p['DLinear']).sum()), win=win(p[s_], p['DLinear'])))
         L.append("\\midrule")
     return L[:-1]
-HEAD = ["\\begin{tabular}{lrrrrrrr}", "\\toprule", " & & & DLinear & \\multicolumn{2}{c}{PatchTST} & \\multicolumn{2}{c}{GRU}\\\\",
-        "Task & $H$ & steps & MSE & MSE & vs DL & MSE & vs DL\\\\", "\\midrule"]
+HEAD = ["\\begin{tabular}{lrrrrr}", "\\toprule", "Task & $H$ & steps & DLinear & PatchTST & GRU\\\\", "\\midrule"]
 L = HEAD + budget_rows(['regime', 'etth1'], (24, 96, 192)) + ["\\midrule"] + budget_rows(['seas1', 'trend', 'multiseas', 'noisy'], (96,)) + ["\\bottomrule", "\\end{tabular}"]
 open('results/tables/budget.tex', 'w').write("\n".join(L)); print("\n".join(L))
 bw = pd.DataFrame(bw); bw.to_csv('results/tables/budget_wins.csv', index=False)
@@ -121,12 +142,12 @@ if True:
     d2['x'] = d2.cfg.map(lambda c: cfgval(c, 'dwell'))
     r5 = B[96]; r5 = r5[(r5.task == 'regime') & (r5.steps == 2000)].copy(); r5['x'] = 500
     f2 = pd.concat([d2, r5])
-    L = ["\\begin{tabular}{lrrrrrrr}", "\\toprule", "dwell & DLinear & \\multicolumn{3}{c}{PatchTST} & \\multicolumn{3}{c}{GRU}\\\\",
-         " & MSE & MSE & vs DL (\\%) & seeds & MSE & vs DL (\\%) & seeds\\\\", "\\midrule"]
+    L = ["\\begin{tabular}{lrrr}", "\\toprule", "dwell" + SWEEP_HEAD, "\\midrule"]
     for xv in sorted(f2.x.unique()):
         p = f2[f2.x == xv].pivot(index='seed', columns='name', values='v')
         if len(p) < 3 or p.isna().any().any(): continue
-        L.append(f"{xv:g} & {p['DLinear'].mean():.3f} & {relcell(p['PatchTST'], p['DLinear'])} & {relcell(p['GRU'], p['DLinear'])}\\\\")
+        cell = lambda s_: V('sweep_steps', s_, 'regime', 'mse_96', steps=2000) if xv == 500 else V('sweep_dwell_2000', s_, 'regime', 'mse_96', dwell=xv)
+        L.append(f"{xv:g} & {cell('DLinear')} & " + " & ".join(cell(s_) + mark(p[s_], p['DLinear']) for s_ in ('PatchTST', 'GRU')) + "\\\\")
     L += ["\\bottomrule", "\\end{tabular}"]
     open('results/tables/sw_dwell2000.tex', 'w').write("\n".join(L)); print("\n".join(L))
 # figure: H=96 relative MSE per task at 400 and 2000 steps (drawn at column width so fonts keep their size)

@@ -1,30 +1,33 @@
-"""Pooled 7-seed check at the main cell (seeds 0-4 from group main, 5-6 from group curves) and the Fig. 2 curves."""
+"""Pooled 7-seed check at the main cell and the Fig. 2 curves.
+Seeds 0-4 are group main, 5-6 group curves; group pooled7 holds copies of these 21 runs (rh log --from-run), so every
+number in the table is a registry value (\rhval key, see `rh values --list --group pooled7`). The anti-curriculum vs
+uniform p-values are read from results/tables/compare_pooled7_steps_to_95_ref_uniform.csv, written by
+`rh compare --group pooled7 --metric steps_to_95 --ref "Uniform sampling"`; nothing is computed here."""
 import json, numpy as np, csv
-from scipy import stats
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 R = [json.loads(l) for l in open("results/runs.jsonl")]
-R = [r for r in R if r["status"] == "ok" and r["task"] == "wd1_f0.5" and r["group"] in ("main", "curves")]
+R = [r for r in R if r["status"] == "ok" and r["task"] == "wd1_f0.5" and r["group"] in ("main", "curves", "pooled7")]
 SYS = ["Uniform sampling", "Operand-size curriculum", "Anti-curriculum"]
-def get(s, m, groups):
-    d = {r["seed"]: r["metrics"][m] for r in R if r["name"] == s and r["group"] in groups}
-    return [d[k] for k in sorted(d)]
+T = "wd1_f0.5"
+slug = lambda s: s.lower().replace(" ", "-")
 def row(s, g):
-    v = get(s, "steps_to_95", g); rc = get(s, "reached", g)
-    return v, f"{np.mean(v):.0f} $\\pm$ {np.std(v, ddof=1):.0f} & {int(round(sum(rc)))}/{len(v)}"
+    rc = [r["metrics"]["reached"] for r in R if r["name"] == s and r["group"] == g]
+    k = f"{g}/{slug(s)}/{T}/steps_to_95"
+    return f"\\rhval{{{k}/mean:0}} $\\pm$ \\rhval{{{k}/std:0}} & {int(round(sum(rc)))}/{len(rc)}"
+ref = {r["name"]: r for r in csv.DictReader(open("results/tables/compare_pooled7_steps_to_95_ref_uniform.csv")) if r["task"] == T}
 with open("results/tables/pooled7.tex", "w") as fh:
     fh.write("\\begin{tabular}{lcccc}\n\\toprule\n & \\multicolumn{2}{c}{seeds 0--4 (registered)} & \\multicolumn{2}{c}{seeds 5--6 only} \\\\\nSystem & steps\\_to\\_95 & reached & steps\\_to\\_95 & reached \\\\\n\\midrule\n")
     for s in SYS:
-        fh.write(f"{s} & {row(s,('main',))[1]} & {row(s,('curves',))[1]} \\\\\n")
+        fh.write(f"{s} & {row(s, 'main')} & {row(s, 'curves')} \\\\\n")
     fh.write("\\midrule\n & \\multicolumn{2}{c}{pooled, 7 seeds (post hoc)} & Welch $p$ & paired $p$ \\\\\n\\midrule\n")
-    u = get(SYS[0], "steps_to_95", ("main", "curves")); c = get(SYS[1], "steps_to_95", ("main", "curves"))
     for s in SYS:
-        v, txt = row(s, ("main", "curves"))
         if s == SYS[0]: ps = " & "
         elif s == SYS[1]:
-            ps = f"{stats.ttest_ind(c, u, equal_var=False).pvalue:.2f} & {stats.ttest_rel(c, u).pvalue:.2f}"
+            k = f"cmp/pooled7/{slug(SYS[0])}/{T}/steps_to_95"
+            ps = f"\\rhval{{{k}/welch_p:2}} & \\rhval{{{k}/paired_p:2}}"
         else:
-            ps = f"{stats.ttest_ind(v, u, equal_var=False).pvalue:.2f} & {stats.ttest_rel(v, u).pvalue:.2f}"
-        fh.write(f"{s} & {txt} & {ps} \\\\\n")
+            ps = f"{float(ref[s]['welch_p']):.2f} & {float(ref[s]['paired_p']):.2f}"
+        fh.write(f"{s} & {row(s, 'pooled7')} & {ps} \\\\\n")
     fh.write("\\bottomrule\n\\end{tabular}\n")
 print(open("results/tables/pooled7.tex").read())
 col = {"uniform": "#4c78a8", "curriculum": "#e45756", "anticurriculum": "#72b7b2"}

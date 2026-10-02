@@ -2,9 +2,9 @@
 \toprule
 Rank & Targets & Params & sort\_desc acc & reverse acc \\
 \midrule
-1 & all linear & 1792 & 0.978 $\pm$ 0.007 & 0.799 $\pm$ 0.447 \\
-1 & q,v only & 512 & 0.577 $\pm$ 0.153 & 0.056 $\pm$ 0.091 \\
-4 & all linear & 7168 & 0.997 $\pm$ 0.001 & 0.999 $\pm$ 0.002 \\
-4 & q,v only & 2048 & 0.971 $\pm$ 0.005 & 1.000 $\pm$ 0.000 \\
+1 & all linear & \rhval{main/lora-r-1/reverse/trainable_params/mean} & \rhval{main/lora-r-1/sort_desc/adapt_acc/mean:3} $\pm$ \rhval{main/lora-r-1/sort_desc/adapt_acc/std:3} & \rhval{main/lora-r-1/reverse/adapt_acc/mean:3} $\pm$ \rhval{main/lora-r-1/reverse/adapt_acc/std:3} \\
+1 & q,v only & \rhval{abl_targets/lora-r-1-q-v-only/reverse/trainable_params/mean} & \rhval{abl_targets/lora-r-1-q-v-only/sort_desc/adapt_acc/mean:3} $\pm$ \rhval{abl_targets/lora-r-1-q-v-only/sort_desc/adapt_acc/std:3} & \rhval{abl_targets/lora-r-1-q-v-only/reverse/adapt_acc/mean:3} $\pm$ \rhval{abl_targets/lora-r-1-q-v-only/reverse/adapt_acc/std:3} \\
+4 & all linear & \rhval{main/lora-r-4/reverse/trainable_params/mean} & \rhval{main/lora-r-4/sort_desc/adapt_acc/mean:3} $\pm$ \rhval{main/lora-r-4/sort_desc/adapt_acc/std:3} & \rhval{main/lora-r-4/reverse/adapt_acc/mean:3} $\pm$ \rhval{main/lora-r-4/reverse/adapt_acc/std:3} \\
+4 & q,v only & \rhval{abl_targets/lora-r-4-q-v-only/reverse/trainable_params/mean} & \rhval{abl_targets/lora-r-4-q-v-only/sort_desc/adapt_acc/mean:3} $\pm$ \rhval{abl_targets/lora-r-4-q-v-only/sort_desc/adapt_acc/std:3} & \rhval{abl_targets/lora-r-4-q-v-only/reverse/adapt_acc/mean:3} $\pm$ \rhval{abl_targets/lora-r-4-q-v-only/reverse/adapt_acc/std:3} \\
 \bottomrule
 \end{tabular}

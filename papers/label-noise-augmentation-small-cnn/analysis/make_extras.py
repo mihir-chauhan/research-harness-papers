@@ -1,4 +1,4 @@
-"""Builds the paired-test table and custom figures strictly from results/runs.jsonl."""
+"""Builds the custom figures and the sensitivity table strictly from results/runs.jsonl."""
 import json, collections, numpy as np
 from scipy import stats
 import matplotlib; matplotlib.use("Agg")
@@ -17,19 +17,8 @@ tasks = ["digits_noise20", "digits_noise40", "digits_noise60"]
 names = ["Label smoothing", "Mixup", "Small-loss (1 net)"]
 short = {"Label smoothing": "LS", "Mixup": "Mixup", "Small-loss (1 net)": "Small-loss"}
 
-# paired table: delta test_acc vs CE (system - CE), paired t-test over seeds
-lines = [r"\begin{tabular}{llrrr}", r"\toprule", r"Noise & System & $\Delta$acc & $\Delta$mem\_rate & $p_{\rm acc}$ \\", r"\midrule"]
-for t in tasks:
-    for n in names:
-        ce = get("main", "CE", t, "test_acc"); x = get("main", n, t, "test_acc")
-        cm = get("main", "CE", t, "mem_rate"); xm = get("main", n, t, "mem_rate")
-        ss = sorted(ce)
-        d = np.array([x[s] - ce[s] for s in ss]); dm = np.array([xm[s] - cm[s] for s in ss])
-        p = stats.ttest_rel([x[s] for s in ss], [ce[s] for s in ss]).pvalue
-        lines.append(f"{t[-2:]}\\% & {short[n]} & {d.mean():+.3f} & {dm.mean():+.3f} & {p:.4f} \\\\" if p>=1e-4 else f"{t[-2:]}\\% & {short[n]} & {d.mean():+.3f} & {dm.mean():+.3f} & $<$0.0001 \\\\")
-    if t != tasks[-1]: lines.append(r"\midrule")
-lines += [r"\bottomrule", r"\end{tabular}"]
-open("results/tables/paired.tex", "w").write("\n".join(lines) + "\n")
+# The paired table (differences to CE, p-values) is no longer built here: the paper takes those values
+# from the registry comparison (`rh compare --group main --metric test_acc|mem_rate --ref CE`) via \rhval.
 
 # fig 1: test acc and mem_rate vs noise
 noise = [0, 20, 40, 60]

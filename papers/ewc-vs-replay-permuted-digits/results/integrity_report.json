@@ -1,0 +1,189 @@
+{
+ "traced": 631,
+ "untraced": [],
+ "run_problems": [],
+ "hand_logged": [],
+ "reexecuted": [
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "average_accuracy",
+   "logged": 0.8405555605888366,
+   "rerun": 0.8405555605888366,
+   "match": true
+  },
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "backward_transfer",
+   "logged": -0.16111111640930176,
+   "rerun": -0.16111111640930176,
+   "match": true
+  },
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "forgetting",
+   "logged": 0.16111111640930176,
+   "rerun": 0.16111111640930176,
+   "match": true
+  },
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "last_task_accuracy",
+   "logged": 0.9750000238418579,
+   "rerun": 0.9750000238418579,
+   "match": true
+  },
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "mean_seen_accuracy",
+   "logged": 0.900703706741333,
+   "rerun": 0.900703706741333,
+   "match": true
+  },
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "val_average_accuracy",
+   "logged": 0.838997220993042,
+   "rerun": 0.838997220993042,
+   "match": true
+  },
+  {
+   "run_id": "9778790f72",
+   "system": "Experience replay (M=100)",
+   "task": "perm_dil",
+   "seed": 3,
+   "metric": "val_forgetting",
+   "logged": 0.16922004520893097,
+   "rerun": 0.16922004520893097,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "average_accuracy",
+   "logged": 0.28944444209337233,
+   "rerun": 0.28944444209337233,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "backward_transfer",
+   "logged": -0.6277777757495642,
+   "rerun": -0.6277777757495642,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "forgetting",
+   "logged": 0.6277777757495642,
+   "rerun": 0.6277777757495642,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "last_task_accuracy",
+   "logged": 0.0,
+   "rerun": 0.0,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "mean_seen_accuracy",
+   "logged": 0.49458862214659655,
+   "rerun": 0.49458862214659655,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "val_average_accuracy",
+   "logged": 0.30582941472530367,
+   "rerun": 0.30582941472530367,
+   "match": true
+  },
+  {
+   "run_id": "ea0d32d38d",
+   "system": "EWC",
+   "task": "split_cil",
+   "seed": 2,
+   "metric": "val_forgetting",
+   "logged": 0.60729655995965,
+   "rerun": 0.60729655995965,
+   "match": true
+  }
+ ],
+ "constants": [
+  {
+   "name": "n_images",
+   "value": 1797,
+   "why": "number of images in the scikit-learn digits dataset (load_digits)"
+  },
+  {
+   "name": "n_train_per_permuted_task",
+   "value": 1078,
+   "why": "training images per permuted task: the 60% stratified training split of the 1797 images"
+  },
+  {
+   "name": "n_train_per_split_task",
+   "value": 215,
+   "why": "approximate training images per two-class split task (the 1078 training images over five tasks; 211-219 depending on seed and class pair)"
+  },
+  {
+   "name": "h2_ewc_gain_threshold",
+   "value": 0.05,
+   "why": "registered H2 threshold for the EWC gain over fine-tuning (proposal.md); also the significance level alpha"
+  },
+  {
+   "name": "h2_er_gain_threshold",
+   "value": 0.2,
+   "why": "registered H2 threshold for the ER gain over fine-tuning (proposal.md)"
+  },
+  {
+   "name": "h3_gap_threshold",
+   "value": 0.1,
+   "why": "registered H3 threshold for the fine-tuning to joint-training gap (proposal.md)"
+  }
+ ],
+ "by_type": {
+  "aggregate": 557,
+  "compare": 33,
+  "config": 30,
+  "constant": 5,
+  "count": 6
+ },
+ "nondeterministic_metrics": [],
+ "ok": true
+}

@@ -1,0 +1,13 @@
+     task                       ref                     name           metric  ref_mean   mean     delta  n_ref  n   welch_p  paired_p  cohen_d
+ perm_dil Experience replay (M=100)                      EWC average_accuracy    0.8467 0.6951    0.1516      5  5  9.83e-06 0.0001225    10.52
+ perm_dil Experience replay (M=100) Experience replay (M=20) average_accuracy    0.8467 0.6698    0.1769      5  5 0.0005662 0.0009128    5.845
+ perm_dil Experience replay (M=100)              Fine-tuning average_accuracy    0.8467 0.4982    0.3484      5  5 4.253e-07 9.966e-07    21.67
+ perm_dil Experience replay (M=100)           Joint training average_accuracy    0.8467 0.9537    -0.107      5  5  1.78e-07 1.561e-05   -11.88
+split_cil Experience replay (M=100)                      EWC average_accuracy    0.8961 0.2459    0.6501      5  5 6.384e-07 8.117e-06    16.79
+split_cil Experience replay (M=100) Experience replay (M=20) average_accuracy    0.8961  0.728    0.1681      5  5 0.0008392  0.005248    4.265
+split_cil Experience replay (M=100)              Fine-tuning average_accuracy    0.8961 0.2137    0.6823      5  5 1.019e-09 9.783e-08    25.79
+split_cil Experience replay (M=100)           Joint training average_accuracy    0.8961 0.9567  -0.06057      5  5   0.00117  0.003029   -3.305
+split_til Experience replay (M=100)                      EWC average_accuracy    0.9839 0.9728   0.01103      5  5    0.1938    0.1548   0.9436
+split_til Experience replay (M=100) Experience replay (M=20) average_accuracy    0.9839 0.9728   0.01109      5  5   0.09154    0.1196     1.26
+split_til Experience replay (M=100)              Fine-tuning average_accuracy    0.9839 0.9463   0.03753      5  5   0.02537   0.05043    2.086
+split_til Experience replay (M=100)           Joint training average_accuracy    0.9839   0.99 -0.006097      5  5    0.2392    0.2576  -0.8126

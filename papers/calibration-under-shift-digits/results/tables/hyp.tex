@@ -1,20 +1,20 @@
-\begin{tabular}{llcccc}
+\begin{tabular}{lllcccc}
 \toprule
-Hyp. & Quantity & Shift & A & B & A$-$B / ratio, $p$ \\
+Hyp. & Quantity (A $-$ B) & Shift & A & B & A$-$B & $p$ \\
 \midrule
-H1 & TS-MLP nll & r0 & 0.104 & 0.117 & -0.013, $p$=0.094 \\
-H1 & TS-MLP ece & r0 & 0.016 & 0.018 & -0.002, $p$=0.268 \\
-H2 & TS ECE shifted vs rot0 (ratio) & r60 & 0.803 & 0.016 & 50.245 \\
-H2 & TS ECE shifted vs rot0 (ratio) & n1.0 & 0.618 & 0.016 & 38.689 \\
-H3 & nll: best system & r60 & 13.874 & 10.442 & 3.432 \\
-H3 & brier: best system & r60 & 1.660 & 1.616 & 0.044 \\
-H3 & nll: best system & n1.0 & 8.689 & 5.993 & 2.696 \\
-H3 & brier: best system & n1.0 & 1.307 & 1.246 & 0.061 \\
-H4 & Ens-MCD ece & r60 & 0.820 & 0.792 & 0.028, $p$=0.071 \\
-H4 & Ens-MCD ece & n1.0 & 0.593 & 0.555 & 0.039, $p$=0.000 \\
-H5 & Oracle-TS ece & r45 & 0.053 & 0.785 & -0.732, $p$=0.000 \\
-H5 & Oracle-TS ece & r60 & 0.029 & 0.803 & -0.773, $p$=0.000 \\
-H5 & Oracle-TS ece & n0.75 & 0.067 & 0.524 & -0.457, $p$=0.000 \\
-H5 & Oracle-TS ece & n1.0 & 0.045 & 0.618 & -0.573, $p$=0.000 \\
+H1 & NLL: TS $-$ MLP & r0 & \rhval{main/mlp-+-temperature-scaling/rot0/nll/mean:3} & \rhval{main/mlp/rot0/nll/mean:3} & \rhval{cmp/abl_oracle/mlp/rot0/nll/delta:3} & \rhval{cmp/abl_oracle/mlp/rot0/nll/paired_p:3} \\
+H1 & ECE: TS $-$ MLP & r0 & \rhval{main/mlp-+-temperature-scaling/rot0/ece/mean:3} & \rhval{main/mlp/rot0/ece/mean:3} & \rhval{cmp/abl_oracle/mlp/rot0/ece/delta:3} & \rhval{cmp/abl_oracle/mlp/rot0/ece/paired_p:3} \\
+H2 & TS ECE: shifted (A), r0 (B) & r60 & \rhval{main/mlp-+-temperature-scaling/rot60/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot0/ece/mean:3} & -- & -- \\
+H2 & TS ECE: shifted (A), r0 (B) & n1.0 & \rhval{main/mlp-+-temperature-scaling/noise1.0/ece/mean:3} & \rhval{main/mlp-+-temperature-scaling/rot0/ece/mean:3} & -- & -- \\
+H3 & NLL: MCD $-$ Ens & r60 & \rhval{main/mc-dropout/rot60/nll/mean:3} & \rhval{main/deep-ensemble-5/rot60/nll/mean:3} & \rhval{cmp/main/deep-ensemble-5/rot60/nll/delta:3} & -- \\
+H3 & Brier: MCD $-$ Ens & r60 & \rhval{main/mc-dropout/rot60/brier/mean:3} & \rhval{main/deep-ensemble-5/rot60/brier/mean:3} & \rhval{cmp/main/deep-ensemble-5/rot60/brier/delta:3} & -- \\
+H3 & NLL: MCD $-$ Ens & n1.0 & \rhval{main/mc-dropout/noise1.0/nll/mean:3} & \rhval{main/deep-ensemble-5/noise1.0/nll/mean:3} & \rhval{cmp/main/deep-ensemble-5/noise1.0/nll/delta:3} & -- \\
+H3 & Brier: MCD $-$ Ens & n1.0 & \rhval{main/mc-dropout/noise1.0/brier/mean:3} & \rhval{main/deep-ensemble-5/noise1.0/brier/mean:3} & \rhval{cmp/main/deep-ensemble-5/noise1.0/brier/delta:3} & -- \\
+H4 & ECE: MCD $-$ Ens & r60 & \rhval{main/mc-dropout/rot60/ece/mean:3} & \rhval{main/deep-ensemble-5/rot60/ece/mean:3} & \rhval{cmp/main/deep-ensemble-5/rot60/ece/delta:3} & \rhval{cmp/main/deep-ensemble-5/rot60/ece/paired_p:3} \\
+H4 & ECE: MCD $-$ Ens & n1.0 & \rhval{main/mc-dropout/noise1.0/ece/mean:3} & \rhval{main/deep-ensemble-5/noise1.0/ece/mean:3} & \rhval{cmp/main/deep-ensemble-5/noise1.0/ece/delta:3} & \rhval{cmp/main/deep-ensemble-5/noise1.0/ece/paired_p:sci1} \\
+H5 & ECE: TS $-$ Oracle & r45 & \rhval{main/mlp-+-temperature-scaling/rot45/ece/mean:3} & \rhval{abl_oracle/ts-oracle-shifted-val/rot45/ece/mean:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/rot45/ece/delta:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/rot45/ece/paired_p:sci1} \\
+H5 & ECE: TS $-$ Oracle & r60 & \rhval{main/mlp-+-temperature-scaling/rot60/ece/mean:3} & \rhval{abl_oracle/ts-oracle-shifted-val/rot60/ece/mean:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/rot60/ece/delta:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/rot60/ece/paired_p:sci1} \\
+H5 & ECE: TS $-$ Oracle & n0.75 & \rhval{main/mlp-+-temperature-scaling/noise0.75/ece/mean:3} & \rhval{abl_oracle/ts-oracle-shifted-val/noise0.75/ece/mean:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/noise0.75/ece/delta:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/noise0.75/ece/paired_p:sci1} \\
+H5 & ECE: TS $-$ Oracle & n1.0 & \rhval{main/mlp-+-temperature-scaling/noise1.0/ece/mean:3} & \rhval{abl_oracle/ts-oracle-shifted-val/noise1.0/ece/mean:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/noise1.0/ece/delta:3} & \rhval{cmp/abl_oracle/ts-oracle-shifted-val/noise1.0/ece/paired_p:sci1} \\
 \bottomrule
 \end{tabular}

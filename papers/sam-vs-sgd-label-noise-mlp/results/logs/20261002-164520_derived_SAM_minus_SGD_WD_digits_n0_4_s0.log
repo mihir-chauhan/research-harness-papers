@@ -1,0 +1,8 @@
+# rh run | Fri Oct  2 16:45:20 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot experiments/derive.py paired --task digits_n0.4 --baseline SGD+WD --out results/raw/derived_SAM_minus_SGD+WD_digits_n0.4.json
+
+final {"holm_p": 0.10101506362417075, "diff_seed0": 0.024526238441467285, "diff_seed1": 0.03790414333343506, "diff_seed2": 0.035674452781677246, "diff_seed3": 0.03901892900466919, "diff_seed4": -0.002229630947113037}
+
+# rh: exit code 0 after 1.0 s
+# rh metrics: {"diff_seed0": 0.024526238441467285, "diff_seed1": 0.03790414333343506, "diff_seed2": 0.035674452781677246, "diff_seed3": 0.03901892900466919, "diff_seed4": -0.002229630947113037, "holm_p": 0.10101506362417075}

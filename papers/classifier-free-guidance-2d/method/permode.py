@@ -1,14 +1,20 @@
 """Per-mode mass ratio on the cached networks of method/run.py: share of in-support samples that fall in the
 major (true weight 0.5), middle (0.3) and minor (0.2) mode of each class, divided by the true weight."""
-import argparse, json, sys, numpy as np, torch
+import argparse, json, os, sys, numpy as np, torch
 sys.path.insert(0, 'method')
 import run as R
 ap = argparse.ArgumentParser()
 ap.add_argument('--task', default='mix_overlap'); ap.add_argument('--seed', type=int, default=0)
 ap.add_argument('--w', type=float, default=0.0); ap.add_argument('--tau', type=float, default=1.0)
 ap.add_argument('--n', type=int, default=1500); ap.add_argument('--out', required=True)
-a = ap.parse_args(); print('config:', json.dumps(vars(a)))
-net = R.Net(); net.load_state_dict(torch.load(f'results/raw/ckpt/{a.task}_s{a.seed}_p0.1_n5000.pt')); net.eval()
+ap.add_argument('--ckpt_dir', default='results/raw/ckpt')
+a = ap.parse_args(); print('config:', json.dumps({k: v for k, v in vars(a).items() if k != 'ckpt_dir'}))
+f = f'{a.ckpt_dir}/{a.task}_s{a.seed}_p0.1_n5000.pt'
+if os.path.exists(f):
+    net = R.Net(); net.load_state_dict(torch.load(f))
+else:                                                # cache missing (fresh checkout): train exactly as run.py does
+    os.makedirs(a.ckpt_dir, exist_ok=True); net, _ = R.train(a.task, a.seed, 0.1, 5000); torch.save(net.state_dict(), f)
+net.eval()
 gen = torch.Generator().manual_seed(7000 + a.seed)   # same generator seed as run.py
 mu, cls, w = R.layout(); sig = R.SIGMA[a.task]
 cnt = np.zeros(3); tot = 0

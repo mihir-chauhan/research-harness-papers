@@ -95,3 +95,105 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_train
+  value: 200
+  why: number of training points n in every task (N_TRAIN in method/run.py)
+- name: n_val
+  value: 200
+  why: number of held-out validation points used for ridge tuning (N_VAL in method/run.py)
+- name: n_test_synth
+  value: 2000
+  why: number of test points of the synthetic task (N_TEST_SYNTH in method/run.py)
+- name: d_synth
+  value: 50
+  why: input dimension of the synthetic task (D_SYNTH in method/run.py)
+- name: digits_images
+  value: 1797
+  why: number of images in scikit-learn's digits dataset
+- name: digits_test
+  value: 1397
+  why: 'digits test-set size: the 1797 images minus 200 training and 200 validation
+    points'
+- name: n_widths
+  value: 24
+  why: number of widths N/n in the sweep grid (RATIOS in method/run.py)
+- name: max_features
+  value: 5000
+  why: largest number of random features, N = 25 n, and number of columns of the nested
+    feature matrix
+- name: pinv_rtol
+  value: 1.0e-10
+  why: relative singular-value cutoff of the minimum-norm pseudo-inverse (tol in fit_all_lams)
+- name: lam_grid_size
+  value: 15
+  why: number of ridge values in the tuning grid (LAM_GRID in method/run.py)
+- name: hump_threshold
+  value: 0.05
+  why: registered threshold on the hump statistic bump_rel for H4/H5 (proposal.md)
+- name: alpha
+  value: 0.05
+  why: significance level of the registered paired test (research.yaml ambition.alpha)
+- name: grid_step_threshold
+  value: 0.05
+  why: spacing of the width grid N/n next to the interpolation threshold
+- name: window_lo
+  value: 0.4
+  why: lower edge N/n of the threshold window used for the peak statistics
+- name: window_hi
+  value: 4
+  why: upper edge N/n of the threshold window used for the peak statistics
+- name: val50_size
+  value: 50
+  why: validation-set size of the TunedRidge-val50 ablation (--val-size 50)
+- name: ratio_min
+  value: 0.05
+  why: smallest width ratio N/n of the sweep grid
+- name: ratio_max
+  value: 25
+  why: largest width ratio N/n of the sweep grid
+- name: ratio_0.1
+  value: 0.1
+  why: width ratio N/n = 0.1, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_0.2
+  value: 0.2
+  why: width ratio N/n = 0.2, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_0.6
+  value: 0.6
+  why: width ratio N/n = 0.6, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_0.8
+  value: 0.8
+  why: width ratio N/n = 0.8, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_0.9
+  value: 0.9
+  why: width ratio N/n = 0.9, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_0.95
+  value: 0.95
+  why: width ratio N/n = 0.95, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_1.05
+  value: 1.05
+  why: width ratio N/n = 1.05, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_1.1
+  value: 1.1
+  why: width ratio N/n = 1.1, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_1.25
+  value: 1.25
+  why: width ratio N/n = 1.25, one point of the sweep grid (RATIOS in method/run.py)
+- name: ratio_1.5
+  value: 1.5
+  why: width ratio N/n = 1.5, one point of the sweep grid (RATIOS in method/run.py)
+- name: noise_synth_0.25
+  value: 0.25
+  why: label-noise sd of task synth_n0.25
+- name: noise_synth_0.5
+  value: 0.5
+  why: label-noise sd of task synth_n0.5
+- name: noise_digits_0.15
+  value: 0.15
+  why: label-noise sd of task digits_n0.15
+- name: noise_digits_0.3
+  value: 0.3
+  why: label-noise sd of task digits_n0.3
+- name: noise_digits_0.6
+  value: 0.6
+  why: label-noise sd of task digits_n0.6

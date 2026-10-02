@@ -9,11 +9,7 @@ rh table --group main --metrics mmd_k1,mmd_k4,mmd_k16,mmd_k100,straight --prec 4
 rh table --group abl_schedule --metrics sw_k1,sw_k4,sw_k16,sw_k100,mmd_k100 --prec 3
 rh table --group abl_reflow --metrics sw_k1,sw_k4,sw_k16,sw_k100,straight --prec 3
 $PY method/postprocess_tables.py          # headers, labels, best/second marks (values untouched)
-$PY experiments/analyze.py > /dev/null    # registered tests, exploratory tests, paired reflow table, figures
-# rh compare (paired tests against Flow Matching (Euler)); one CSV per task and metric
-for t in eight_gaussians two_moons checkerboard; do
-  for m in sw_k1 sw_k4 sw_k100 mmd_k1 mmd_k4 straight; do
-    rh compare --group main --metric $m --task $t > /dev/null
-    mv results/tables/compare_main_$m.csv results/tables/compare_main_${m}_$t.csv
-  done
-done
+$PY experiments/analyze.py > /dev/null    # figures; by-product test tables go to results/analysis/ (not used by the paper)
+# rh compare: the paired tests and ratios the paper prints with \rhval{cmp/...} (one CSV per metric; the reference is the first system of each difference)
+for m in sw_k1 sw_k100 mmd_k1 straight; do rh compare --group main --metric $m --ref "Flow Matching (Euler)" > /dev/null; done
+for m in sw_k4 mmd_k4; do rh compare --group main --metric $m --ref "DDIM" > /dev/null; done

@@ -39,61 +39,10 @@ axs[1].set_xlabel("training pairs", fontsize=8); axs[1].legend(fontsize=6, frame
 for a in axs: a.tick_params(labelsize=7)
 fig.tight_layout(); fig.savefig("results/figures/sweeps.pdf"); plt.close(fig)
 
-# Derived table (tex): zero-shot ratios and sweeps summary
 def ms_(v): return f"{v.mean():.4f} $\\pm$ {v.std(ddof=1):.4f}"
-rows = []
-for s in sysn:
-    a, b, c = (get("main", s, m) for m in ("rel_l2", "rel_l2_256", "rel_l2_512"))
-    rows.append((s, f"{(b / a).mean():.2f}", f"{(c / a).mean():.2f}"))
-with open("results/tables/ratios.tex", "w") as f:
-    f.write("\\begin{tabular}{lrr}\n\\toprule\nSystem & 256/128 & 512/128 \\\\\n\\midrule\n")
-    for r in rows: f.write(" & ".join(r) + " \\\\\n")
-    f.write("\\bottomrule\n\\end{tabular}\n")
-print(rows)
-for m, v in zip(ms, [get("sweep_modes", f"FNO modes={m}", "rel_l2") if m != 16 else get("main", "FNO", "rel_l2", seeds=S3) for m in ms]): print("modes", m, v.mean(), v.std(ddof=1), len(v))
-for n in ns:
-    for s in ("FNO", "DeepONet"):
-        v = get("sweep_ntrain", f"{s} n={n}", "rel_l2") if n != 400 else get("main", s, "rel_l2", seeds=S3)
-        print("ntrain", s, n, v.mean(), v.std(ddof=1), len(v))
-
-# Ablation summary table (seeds 0-2); reference rows are the main-group runs restricted to seeds 0-2.
-# "change" and Welch p compare each row with the default row of the same model (same three seeds, unpaired Welch test).
-from scipy import stats as sps
-def g2(group, name, seeds=None): return get(group, name, "rel_l2", seeds=seeds), get(group, name, "train_rel_l2", seeds=seeds)
-D = {m: g2("main", m, S3) for m in ("FNO", "DeepONet", "MLP")}
-rows = [("FNO", "4 modes", g2("sweep_modes", "FNO modes=4")),
-        ("FNO", "8 modes", g2("sweep_modes", "FNO modes=8")),
-        ("FNO", "default (16 modes, $n$=400)", None),
-        ("FNO", "32 modes", g2("sweep_modes", "FNO modes=32")),
-        ("FNO", "no grid channel", g2("abl_grid", "FNO no grid channel")),
-        ("FNO", "$n$=100", g2("sweep_ntrain", "FNO n=100")),
-        ("FNO", "$n$=200", g2("sweep_ntrain", "FNO n=200")),
-        ("DeepONet", "$n$=100", g2("sweep_ntrain", "DeepONet n=100")),
-        ("DeepONet", "$n$=200", g2("sweep_ntrain", "DeepONet n=200")),
-        ("DeepONet", "default ($n$=400, 100 epochs)", None),
-        ("DeepONet", "500 epochs", g2("sweep_epochs", "DeepONet ep=500")),
-        ("DeepONet", "2000 epochs", g2("sweep_epochs", "DeepONet ep=2000")),
-        ("MLP", "default (100 epochs)", None),
-        ("MLP", "500 epochs", g2("sweep_epochs", "MLP ep=500")),
-        ("MLP", "2000 epochs", g2("sweep_epochs", "MLP ep=2000"))]
-md = ["| Model | Setting | test rel L2 | train rel L2 | change vs default | Welch p |", "|---|---|---|---|---|---|"]
-with open("results/tables/ablsum.tex", "w") as f:
-    f.write("\\begin{tabular}{llcccc}\n\\toprule\nModel & Setting & test & train & change & Welch $p$ \\\\\n\\midrule\n")
-    prev = None
-    for a, b, v in rows:
-        if prev and a != prev: f.write("\\midrule\n")
-        prev = a
-        if v is None:
-            te, tr = D[a]; ch, pv = "--", "--"
-        else:
-            te, tr = v; assert len(te) == 3 and len(D[a][0]) == 3
-            ch = f"{100 * (te.mean() / D[a][0].mean() - 1):+.0f}\\%".replace("-", "$-$")
-            pv = f"{sps.ttest_ind(te, D[a][0], equal_var=False).pvalue:.3f}"
-        f.write(f"{a} & {b} & {ms_(te)} & {ms_(tr)} & {ch} & {pv} \\\\\n")
-        md.append(f"| {a} | {b} | {ms_(te)} | {ms_(tr)} | {ch} | {pv} |".replace("$\\pm$", "±").replace("\\%", "%").replace("$", ""))
-        print(a, b, te.mean(), tr.mean(), ch, pv)
-    f.write("\\bottomrule\n\\end{tabular}\n")
-open("results/tables/ablsum.md", "w").write("\n".join(md) + "\n")
+# Zero-shot ratios and the ablation summary are no longer written here: a ratio or a p-value computed in this script
+# cannot be traced by `rh numbers`. The ablation table in paper/sections/ablations.tex is built from \rhval keys
+# (`rh agg` statistics and `rh compare --group <sweep> --ref <default>`).
 
 # Main table with readable headers (same registry rows and the same means/stds as `rh table --group main --prec 4`)
 with open("results/tables/maintab.tex", "w") as f:
@@ -101,7 +50,7 @@ with open("results/tables/maintab.tex", "w") as f:
     for s in sysn:
         c = [ms_(get("main", s, m)) for m in ("rel_l2", "train_rel_l2", "rel_l2_256", "rel_l2_512", "rel_l2_256_resamp")]
         npar = get("main", s, "params"); t = get("main", s, "train_s"); assert len(set(npar)) == 1 and len(t) == 5
-        f.write(f"{s} & " + " & ".join(c) + f" & {int(npar[0]):,}".replace(",", "\\,") + f" & {t.mean():.1f} $\\pm$ {t.std(ddof=1):.1f} \\\\\n")
+        f.write(f"{s} & " + " & ".join(c) + f" & {int(npar[0])}" + f" & {t.mean():.1f} $\\pm$ {t.std(ddof=1):.1f} \\\\\n")
     f.write("\\bottomrule\n\\end{tabular}\n")
 
 # Learning-rate tuning table (group tune, seed 100, validation rel. L2; successful runs only)

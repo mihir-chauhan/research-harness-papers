@@ -1,0 +1,289 @@
+{
+ "traced": 450,
+ "untraced": [],
+ "run_problems": [],
+ "hand_logged": [],
+ "reexecuted": [
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "adapt_acc",
+   "logged": 0.9959999918937683,
+   "rerun": 0.9959999918937683,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "adapt_tok_acc",
+   "logged": 0.9994375109672546,
+   "rerun": 0.9994375109672546,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "forgetting",
+   "logged": 0.9994999766349792,
+   "rerun": 0.9994999766349792,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "pretask_acc",
+   "logged": 0.0,
+   "rerun": 0.0,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "pretask_acc_before",
+   "logged": 0.9994999766349792,
+   "rerun": 0.9994999766349792,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "seconds",
+   "logged": 16.18181300163269,
+   "rerun": 28.45833992958069,
+   "match": null,
+   "skipped": "declared non-deterministic in research.yaml: not compared"
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "train_loss",
+   "logged": 0.00027270143618807197,
+   "rerun": 0.00027270143618807197,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "trainable_params",
+   "logged": 7168.0,
+   "rerun": 7168.0,
+   "match": true
+  },
+  {
+   "run_id": "5a7f54ba2a",
+   "system": "LoRA r=4",
+   "task": "sort_desc",
+   "seed": 3,
+   "metric": "zero_shot_acc",
+   "logged": 0.0,
+   "rerun": 0.0,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "adapt_acc",
+   "logged": 0.9994999766349792,
+   "rerun": 0.9994999766349792,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "adapt_tok_acc",
+   "logged": 0.9999374747276306,
+   "rerun": 0.9999374747276306,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "forgetting",
+   "logged": 0.9979999894858338,
+   "rerun": 0.9979999894858338,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "pretask_acc",
+   "logged": 0.0005000000237487257,
+   "rerun": 0.0005000000237487257,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "pretask_acc_before",
+   "logged": 0.9984999895095825,
+   "rerun": 0.9984999895095825,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "seconds",
+   "logged": 9.251131057739258,
+   "rerun": 17.029890060424805,
+   "match": null,
+   "skipped": "declared non-deterministic in research.yaml: not compared"
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "train_loss",
+   "logged": 0.00013296521501615644,
+   "rerun": 0.00013296521501615644,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "trainable_params",
+   "logged": 34496.0,
+   "rerun": 34496.0,
+   "match": true
+  },
+  {
+   "run_id": "f5fe868571",
+   "system": "Last block",
+   "task": "reverse",
+   "seed": 0,
+   "metric": "zero_shot_acc",
+   "logged": 0.0005000000237487257,
+   "rerun": 0.0005000000237487257,
+   "match": true
+  }
+ ],
+ "constants": [
+  {
+   "name": "pretrain_sequences",
+   "value": 20000,
+   "why": "number of fixed sort-ascending training sequences per seed used for pretraining (method/run.py)"
+  },
+  {
+   "name": "pretrain_data_seed_offset",
+   "value": 1000,
+   "why": "data seed offset: pretraining data for seed s are drawn with seed 1000+s"
+  },
+  {
+   "name": "adapt_data_seed_offset",
+   "value": 2000,
+   "why": "data seed offset: the adaptation set for seed s is drawn with seed 2000+s"
+  },
+  {
+   "name": "eval_sequences",
+   "value": 2000,
+   "why": "number of sequences in the shared test set and in the validation set"
+  },
+  {
+   "name": "adapt_set_size",
+   "value": 2000,
+   "why": "default number of adaptation training sequences N (n_train default in method/run.py)"
+  },
+  {
+   "name": "test_data_seed",
+   "value": 5000,
+   "why": "data seed of the shared test sets"
+  },
+  {
+   "name": "val_data_seed",
+   "value": 7000,
+   "why": "data seed of the validation set used only for learning-rate tuning"
+  },
+  {
+   "name": "input_space_size",
+   "value": 100000000,
+   "why": "number of possible inputs: 10 digit values at 8 positions, 10^8"
+  },
+  {
+   "name": "pretrain_steps",
+   "value": 4000,
+   "why": "number of pretraining optimiser steps (pre_steps default)"
+  },
+  {
+   "name": "pretrain_batch_size",
+   "value": 128,
+   "why": "pretraining batch size"
+  },
+  {
+   "name": "pretrain_lr",
+   "value": 0.002,
+   "why": "pretraining learning rate (AdamW), fixed in method/run.py"
+  },
+  {
+   "name": "ff_width",
+   "value": 128,
+   "why": "feed-forward hidden width of each transformer block"
+  },
+  {
+   "name": "adapt_steps",
+   "value": 1500,
+   "why": "number of adaptation optimiser steps for every adapted system (steps default)"
+  },
+  {
+   "name": "curve_eval_sequences",
+   "value": 500,
+   "why": "number of test sequences evaluated at each point of the adaptation curves"
+  },
+  {
+   "name": "tuning_seed",
+   "value": 100,
+   "why": "seed of the separate pretrained model and validation runs used for learning-rate tuning"
+  },
+  {
+   "name": "h1_param_budget_pct",
+   "value": 15,
+   "why": "H1 threshold registered before the runs: LoRA must use under 15 percent of the full parameter count"
+  },
+  {
+   "name": "fail_threshold",
+   "value": 0.5,
+   "why": "threshold on reversal exact match below which a seed is counted as a failed run in the rank table"
+  }
+ ],
+ "by_type": {
+  "aggregate": 386,
+  "compare": 36,
+  "config": 8,
+  "constant": 11,
+  "count": 7,
+  "run": 2
+ },
+ "nondeterministic_metrics": [
+  "seconds"
+ ],
+ "ok": true
+}

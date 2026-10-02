@@ -1,0 +1,27 @@
+# rh run | Fri Oct  2 16:36:51 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system sf_krr --seed 99 --n_train 100 --out results/raw/sanity.json
+
+config: {"system": "sf_krr", "seed": 99, "n_train": 100, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/sanity.json"}
+{
+ "energy_mae": 1.4776468676896393,
+ "energy_mae_per_atom": 0.16524784648046412,
+ "mae_perturbed": 1.3468253343498684,
+ "mae_random": 1.6084684010294104,
+ "mae_rotated": 1.4776477577996068,
+ "mae_permuted": 1.4776453099971967,
+ "mae_rot_perm": 1.4776535435143943,
+ "inv_defect": 2.269780416660838e-05,
+ "inv_defect_max": 0.0035604398692754557,
+ "test_energy_std": 15.537928510492742,
+ "val_mae": 1.5008248356873466,
+ "runtime_s": 1.507958173751831,
+ "hp_lambda": 1e-13,
+ "hp_n_skipped": 0,
+ "hp_lambda_at_edge": 1,
+ "hp_gamma": 0.0001,
+ "hp_gamma_at_edge": 0
+}
+
+# rh: exit code 0 after 2.0 s
+# rh metrics: {"energy_mae": 1.4776468676896393, "energy_mae_per_atom": 0.16524784648046412, "hp_gamma": 0.0001, "hp_gamma_at_edge": 0.0, "hp_lambda": 1e-13, "hp_lambda_at_edge": 1.0, "hp_n_skipped": 0.0, "inv_defect": 2.269780416660838e-05, "inv_defect_max": 0.0035604398692754557, "mae_permuted": 1.4776453099971967, "mae_perturbed": 1.3468253343498684, "mae_random": 1.6084684010294104, "mae_rot_perm": 1.4776535435143943, "mae_rotated": 1.4776477577996068, "runtime_s": 1.507958173751831, "test_energy_std": 15.537928510492742, "val_mae": 1.5008248356873466}

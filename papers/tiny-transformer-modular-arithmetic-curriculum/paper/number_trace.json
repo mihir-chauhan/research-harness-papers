@@ -1,0 +1,6119 @@
+{
+ "numbers": [
+  {
+   "section": "ablations.tex",
+   "literal": "1000",
+   "context": "g.~\\ref{fig:sweep}a; 5 seeds each; $T_c=1000$ is the main-group row). \\begin{table}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": "t accuracy when the run stopped (at the 95\\% crossing or at 4000 steps).}\\label{tab:",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "4000",
+   "context": "run stopped (at the 95\\% crossing or at 4000 steps).}\\label{tab:tc} \\footnotesize\\in",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": "]{sweep_grid.pdf} \\caption{(a) Steps to 95\\% against curriculum length $T_c$ (black",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": "rences). (b) Fraction of seeds reaching 95\\% in each weight-decay/training-fraction",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.5",
+   "context": "training-fraction cell (3 seeds; 5 at 1/0.5).}\\label{fig:sweep}\\end{figure*} Short",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "250",
+   "context": "Shorter curricula are better: with $T_c=250$ the curriculum reaches 95\\% in 5 of 5",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": ": with $T_c=250$ the curriculum reaches 95\\% in 5 of 5 seeds in 2905 steps on averag",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "2905",
+   "context": "riculum reaches 95\\% in 5 of 5 seeds in 2905 steps on average, close to uniform (294",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 2905.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "2945",
+   "context": "905 steps on average, close to uniform (2945, 3 of 5), and the means degrade monoton",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "4000",
+   "context": "$ grows, down to 0 of 5 reached at $T_c=4000$. The two longest curricula are confoun",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "4000",
+   "context": "curricula are confounded with the fixed 4000-step budget: the pool is not full until",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1875",
+   "context": "he training set is fitted only at about 1875 ($T_c=2000$) and 3700 ($T_c=4000$) step",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "min",
+    "run_ids": [
+     "baece09a87",
+     "d2370dad2c",
+     "226f53f33a",
+     "92ef6a22f6",
+     "15a24c8e7e"
+    ],
+    "value": 1875.0,
+    "config": {
+     "warm": 2000
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=2000/wd1_f0.5/steps_to_train95/min",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "3700",
+   "context": "ted only at about 1875 ($T_c=2000$) and 3700 ($T_c=4000$) steps, so little time is l",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "min",
+    "run_ids": [
+     "00866daf08",
+     "0db0688a48",
+     "d020d6a57d",
+     "1fdfe1d437",
+     "ee5ec04eea"
+    ],
+    "value": 3700.0,
+    "config": {
+     "warm": 4000
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=4000/wd1_f0.5/steps_to_train95/min",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "4000",
+   "context": "about 1875 ($T_c=2000$) and 3700 ($T_c=4000$) steps, so little time is left for gen",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "250",
+   "context": "onstruction. The clean contrast is $T_c=250$ against $T_c=1000$. The shuffled-order",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1000",
+   "context": "lean contrast is $T_c=250$ against $T_c=1000$. The shuffled-order run with $T_c=1000",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1000",
+   "context": "1000$. The shuffled-order run with $T_c=1000$ reached 95\\% in 0 of 5 seeds against 1",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": "ffled-order run with $T_c=1000$ reached 95\\% in 0 of 5 seeds against 1 of 5 for the",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": "um family, a slower pool growth reached 95\\% less often (5 of 5 at $T_c=250$ against",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "250",
+   "context": "reached 95\\% less often (5 of 5 at $T_c=250$ against 1 of 5 at $T_c=1000$). Relativ",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1000",
+   "context": "f 5 at $T_c=250$ against 1 of 5 at $T_c=1000$). Relative to uniform sampling, howeve",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "960",
+   "context": "on; the training-accuracy column (about 960 steps to fit the training set under bot",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 960.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_train95/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "125",
+   "context": "ing set under both orderings vs.\\ about 125 for uniform) is consistent with this bu",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "af7c3c89b4",
+     "9975a641a0"
+    ],
+    "value": 125.0,
+    "key": "curves/uniform-sampling/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "4000",
+   "context": "gainst H3 and H4: generalisation within 4000 steps needed both a nonzero weight deca",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.7",
+   "context": "ce compared with these two knobs. At $f=0.7$ the anti-curriculum was slower than un",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "2575",
+   "context": "was slower than uniform at $\\lambda=1$ (2575 vs.\\ 1817) and at $\\lambda=3$ (2358 vs.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "bd497cc629",
+     "4953117695",
+     "3acf84b15b"
+    ],
+    "value": 2575.0,
+    "key": "main/anti-curriculum/wd1_f0.7/steps_to_95/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1817",
+   "context": "than uniform at $\\lambda=1$ (2575 vs.\\ 1817) and at $\\lambda=3$ (2358 vs.\\ 1142, wi",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "b348111a87",
+     "ffe33eeece",
+     "8f36af78c4"
+    ],
+    "value": 1816.6666666666667,
+    "key": "main/uniform-sampling/wd1_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "2358",
+   "context": "1$ (2575 vs.\\ 1817) and at $\\lambda=3$ (2358 vs.\\ 1142, with 2 of 3 seeds reaching 9",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "7f5e85f5bd",
+     "652d771943",
+     "a31744c252"
+    ],
+    "value": 2358.3333333333335,
+    "key": "main/anti-curriculum/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1142",
+   "context": "s.\\ 1817) and at $\\lambda=3$ (2358 vs.\\ 1142, with 2 of 3 seeds reaching 95\\%), whic",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 1141.6666666666667,
+    "key": "main/uniform-sampling/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "95\\%",
+   "context": "8 vs.\\ 1142, with 2 of 3 seeds reaching 95\\%), which is the clearest ordering effect",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "4000",
+   "context": "ction change the answer. On CPU, with a 4000-step budget, 5 seeds at the main cell (",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.5",
+   "context": "cell (weight decay 1, training fraction 0.5) and 3 seeds in a weight-decay by train",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "95\\%",
+   "context": "curriculum did not help: mean steps to 95\\% held-out accuracy (censored at 4000) we",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "4000",
+   "context": "to 95\\% held-out accuracy (censored at 4000) were 2945 for uniform sampling, 3955 f",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "2945",
+   "context": "ld-out accuracy (censored at 4000) were 2945 for uniform sampling, 3955 for the curr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "3955",
+   "context": "t 4000) were 2945 for uniform sampling, 3955 for the curriculum and 3990 for the ant",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "3990",
+   "context": "m sampling, 3955 for the curriculum and 3990 for the anti-curriculum, with 3, 1 and",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 3990.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "95\\%",
+   "context": "um, with 3, 1 and 1 of 5 seeds reaching 95\\%. The curriculum--uniform difference is",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.05",
+   "context": "niform difference is not significant at 0.05 (Welch and paired tests, 5 seeds). Two",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.5",
+    "metric": "final_test_acc",
+    "stat": "std",
+    "run_ids": [
+     "29b26b5556",
+     "6aa19830ef",
+     "bfc91ea271"
+    ],
+    "value": 0.04575227756152423,
+    "key": "main/uniform-sampling/wd3_f0.5/final_test_acc/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "95\\%",
+   "context": "form 0 of 2, curriculum 1 of 2 reaching 95\\%); pooled over 7 seeds the means are \\rh",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean}",
+   "context": "5\\%); pooled over 7 seeds the means are \\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean} (uniform) and \\rhval{pooled7/operand-si",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 3246.4285714285716,
+    "key": "pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean}",
+   "context": "d1_f0.5/steps_to_95/mean} (uniform) and \\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean} (curriculum), again not significant, so",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34"
+    ],
+    "value": 3789.285714285714,
+    "key": "pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "250",
+   "context": "eep shows that a short curriculum ($T_c=250$) reached 95\\% in all 5 seeds where $T_",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "95\\%",
+   "context": "a short curriculum ($T_c=250$) reached 95\\% in all 5 seeds where $T_c=1000$ reached",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "1000",
+   "context": "reached 95\\% in all 5 seeds where $T_c=1000$ reached it in 1 of 5; a shuffled-order",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "95\\%",
+   "context": "ere curriculum and uniform both reached 95\\% in all seeds, by amounts well inside se",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "95\\%",
+   "context": "n operand-size curriculum did not reach 95\\% held-out accuracy faster than uniform s",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "3955",
+   "context": "than uniform sampling at the main cell (3955 vs.\\ 2945 mean censored steps; 1 vs.\\ 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "2945",
+   "context": "rm sampling at the main cell (3955 vs.\\ 2945 mean censored steps; 1 vs.\\ 3 of 5 seed",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean}",
+   "context": "reversed its direction (pooled 7 seeds: \\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean} vs.\\ \\rhval{pooled7/uniform-sampling/wd",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34"
+    ],
+    "value": 3789.285714285714,
+    "key": "pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean}",
+   "context": "riculum/wd1_f0.5/steps_to_95/mean} vs.\\ \\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean} steps, 2 vs.\\ 3 of 7 reaching 95\\%, not",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 3246.4285714285716,
+    "key": "pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "95\\%",
+   "context": "_95/mean} steps, 2 vs.\\ 3 of 7 reaching 95\\%, not significant), so no ordering showe",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "250",
+   "context": "fect within the curriculum family ($T_c=250$ against $T_c=1000$), which we hypothes",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "1000",
+   "context": "rriculum family ($T_c=250$ against $T_c=1000$), which we hypothesise, without an iso",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "0.4",
+   "context": "no run generalised at $\\lambda=0$ or $f=0.4$ within 4000 steps, and the curriculum-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "4000",
+   "context": "alised at $\\lambda=0$ or $f=0.4$ within 4000 steps, and the curriculum-versus-unifor",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.4",
+   "context": "& Unif. & Curr. & Anti \\\\ \\midrule 0 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "Curr. & Anti \\\\ \\midrule 0 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "\\\\ \\midrule 0 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 & 0.5 & 3 & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "0 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 & 0.5 & 3 & 4000 (0/3) & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.5",
+   "context": "(0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) & 4000 (0/3) \\\\ 0 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) \\\\ 0 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 & 0.7 & 3 & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "0 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 & 0.7 & 3 & 4000 (0/3) & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.7",
+   "context": "(0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 0 & 0.7 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) & 4000 (0/3) \\\\ 0 & 0.7 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) \\\\ 0 & 0.7 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 & 0.4 & 3 & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "0 & 0.7 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 & 0.4 & 3 & 4000 (0/3) & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.4",
+   "context": "(0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) & 4000 (0/3) \\\\ 1 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) \\\\ 1 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 & 0.5 & 5 & 294",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "1 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 & 0.5 & 5 & 2945 (3/5) & 395",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.5",
+   "context": "(0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 1 & 0.5 & 5 & 2945 (3/5) & 3955 (1/5) & 3990 (1",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "2945",
+   "context": "000 (0/3) & 4000 (0/3) \\\\ 1 & 0.5 & 5 & 2945 (3/5) & 3955 (1/5) & 3990 (1/5) \\\\ 1 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "3955",
+   "context": "000 (0/3) \\\\ 1 & 0.5 & 5 & 2945 (3/5) & 3955 (1/5) & 3990 (1/5) \\\\ 1 & 0.7 & 3 & 181",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "3990",
+   "context": "1 & 0.5 & 5 & 2945 (3/5) & 3955 (1/5) & 3990 (1/5) \\\\ 1 & 0.7 & 3 & 1817 (3/3) & 173",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 3990.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.7",
+   "context": "(3/5) & 3955 (1/5) & 3990 (1/5) \\\\ 1 & 0.7 & 3 & 1817 (3/3) & 1733 (3/3) & 2575 (3",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "1817",
+   "context": "955 (1/5) & 3990 (1/5) \\\\ 1 & 0.7 & 3 & 1817 (3/3) & 1733 (3/3) & 2575 (3/3) \\\\ 3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "b348111a87",
+     "ffe33eeece",
+     "8f36af78c4"
+    ],
+    "value": 1816.6666666666667,
+    "key": "main/uniform-sampling/wd1_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "1733",
+   "context": "990 (1/5) \\\\ 1 & 0.7 & 3 & 1817 (3/3) & 1733 (3/3) & 2575 (3/3) \\\\ 3 & 0.4 & 3 & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "6d24fabc1a",
+     "42af65531b",
+     "8f32a18ce9"
+    ],
+    "value": 1733.3333333333333,
+    "key": "main/operand-size-curriculum/wd1_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "2575",
+   "context": "1 & 0.7 & 3 & 1817 (3/3) & 1733 (3/3) & 2575 (3/3) \\\\ 3 & 0.4 & 3 & 4000 (0/3) & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "bd497cc629",
+     "4953117695",
+     "3acf84b15b"
+    ],
+    "value": 2575.0,
+    "key": "main/anti-curriculum/wd1_f0.7/steps_to_95/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.4",
+   "context": "(3/3) & 1733 (3/3) & 2575 (3/3) \\\\ 3 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "733 (3/3) & 2575 (3/3) \\\\ 3 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "575 (3/3) \\\\ 3 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 3 & 0.5 & 3 & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "3 & 0.4 & 3 & 4000 (0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 3 & 0.5 & 3 & 4000 (0/3) & 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.5",
+   "context": "(0/3) & 4000 (0/3) & 4000 (0/3) \\\\ 3 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 3358 (1",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) & 4000 (0/3) \\\\ 3 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 3358 (1/3) \\\\ 3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "4000",
+   "context": "000 (0/3) \\\\ 3 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 3358 (1/3) \\\\ 3 & 0.7 & 3 & 114",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "3358",
+   "context": "3 & 0.5 & 3 & 4000 (0/3) & 4000 (0/3) & 3358 (1/3) \\\\ 3 & 0.7 & 3 & 1142 (3/3) & 126",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd3_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "59a7b56016",
+     "e693227777",
+     "13a2a6bbd2"
+    ],
+    "value": 3358.3333333333335,
+    "key": "main/anti-curriculum/wd3_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "0.7",
+   "context": "(0/3) & 4000 (0/3) & 3358 (1/3) \\\\ 3 & 0.7 & 3 & 1142 (3/3) & 1267 (3/3) & 2358 (2",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "1142",
+   "context": "000 (0/3) & 3358 (1/3) \\\\ 3 & 0.7 & 3 & 1142 (3/3) & 1267 (3/3) & 2358 (2/3) \\\\ \\bot",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 1141.6666666666667,
+    "key": "main/uniform-sampling/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "1267",
+   "context": "358 (1/3) \\\\ 3 & 0.7 & 3 & 1142 (3/3) & 1267 (3/3) & 2358 (2/3) \\\\ \\bottomrule \\end{",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "8ec9ef93e4",
+     "d4ded30b31",
+     "392a9d281e"
+    ],
+    "value": 1266.6666666666667,
+    "key": "main/operand-size-curriculum/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/grid_pivot.tex",
+   "literal": "2358",
+   "context": "3 & 0.7 & 3 & 1142 (3/3) & 1267 (3/3) & 2358 (2/3) \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "7f5e85f5bd",
+     "652d771943",
+     "a31744c252"
+    ],
+    "value": 2358.3333333333335,
+    "key": "main/anti-curriculum/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "2945",
+   "context": "rok\\_gap \\\\ \\midrule Uniform sampling & 2945 $\\pm$ 1020 & 3/5 & 125 $\\pm$ 25 & 2820",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "1020",
+   "context": "\\midrule Uniform sampling & 2945 $\\pm$ 1020 & 3/5 & 125 $\\pm$ 25 & 2820 $\\pm$ 996 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 1019.5587280779857,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "125",
+   "context": "form sampling & 2945 $\\pm$ 1020 & 3/5 & 125 $\\pm$ 25 & 2820 $\\pm$ 996 \\\\ Operand-si",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "af7c3c89b4",
+     "9975a641a0"
+    ],
+    "value": 125.0,
+    "key": "curves/uniform-sampling/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "2820",
+   "context": "2945 $\\pm$ 1020 & 3/5 & 125 $\\pm$ 25 & 2820 $\\pm$ 996 \\\\ Operand-size curriculum &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2820.0,
+    "key": "main/uniform-sampling/wd1_f0.5/grok_gap/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "996",
+   "context": "1020 & 3/5 & 125 $\\pm$ 25 & 2820 $\\pm$ 996 \\\\ Operand-size curriculum & 3955 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 995.9919678390986,
+    "key": "main/uniform-sampling/wd1_f0.5/grok_gap/std"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "3955",
+   "context": "$\\pm$ 996 \\\\ Operand-size curriculum & 3955 $\\pm$ 101 & 1/5 & 960 $\\pm$ 14 & 2995 $",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "101",
+   "context": "\\\\ Operand-size curriculum & 3955 $\\pm$ 101 & 1/5 & 960 $\\pm$ 14 & 2995 $\\pm$ 110 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 100.62305898749054,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "960",
+   "context": "ize curriculum & 3955 $\\pm$ 101 & 1/5 & 960 $\\pm$ 14 & 2995 $\\pm$ 110 \\\\ Anti-curri",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 960.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_train95/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "2995",
+   "context": "& 3955 $\\pm$ 101 & 1/5 & 960 $\\pm$ 14 & 2995 $\\pm$ 110 \\\\ Anti-curriculum & 3990 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 2995.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/grok_gap/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "110",
+   "context": "$ 101 & 1/5 & 960 $\\pm$ 14 & 2995 $\\pm$ 110 \\\\ Anti-curriculum & 3990 $\\pm$ 22 & 1/",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "std",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 109.54451150103323,
+    "key": "main/operand-size-curriculum/wd1_f0.5/grok_gap/std"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "3990",
+   "context": "4 & 2995 $\\pm$ 110 \\\\ Anti-curriculum & 3990 $\\pm$ 22 & 1/5 & 965 $\\pm$ 14 & 3025 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 3990.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "965",
+   "context": "Anti-curriculum & 3990 $\\pm$ 22 & 1/5 & 965 $\\pm$ 14 & 3025 $\\pm$ 31 \\\\ \\bottomrule",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 965.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_train95/mean"
+   }
+  },
+  {
+   "section": "generated/main_cell.tex",
+   "literal": "3025",
+   "context": "& 3990 $\\pm$ 22 & 1/5 & 965 $\\pm$ 14 & 3025 $\\pm$ 31 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd0_f0.5",
+    "metric": "grok_gap",
+    "stat": "mean",
+    "run_ids": [
+     "76b5b9f28e",
+     "d750434f1c",
+     "5dcc14db92"
+    ],
+    "value": 3025.0,
+    "key": "main/anti-curriculum/wd0_f0.5/grok_gap/mean",
+    "candidates": 39
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{main/uniform-sampling/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "reached \\\\ \\midrule Uniform sampling & \\rhval{main/uniform-sampling/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{main/uniform-sampling/wd1_",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{main/uniform-sampling/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ling/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{main/uniform-sampling/wd1_f0.5/steps_to_95/std:0} & 3/5 & \\rhval{curves/uniform-sampling/",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 1019.5587280779857,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{curves/uniform-sampling/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "ing/wd1_f0.5/steps_to_95/std:0} & 3/5 & \\rhval{curves/uniform-sampling/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{curves/uniform-sampling/wd",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "af7c3c89b4",
+     "9975a641a0"
+    ],
+    "value": 4000.0,
+    "key": "curves/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{curves/uniform-sampling/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ling/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{curves/uniform-sampling/wd1_f0.5/steps_to_95/std:0} & 0/2 \\\\ Operand-size curriculum & \\rhv",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "af7c3c89b4",
+     "9975a641a0"
+    ],
+    "value": 0.0,
+    "key": "curves/uniform-sampling/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "d:0} & 0/2 \\\\ Operand-size curriculum & \\rhval{main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{main/operand-size-curricul",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{main/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ulum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{main/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/5 & \\rhval{curves/operand-size-curr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 100.62305898749054,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{curves/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "lum/wd1_f0.5/steps_to_95/std:0} & 1/5 & \\rhval{curves/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{curves/operand-size-curric",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "438c90562e",
+     "ebc440ef75"
+    ],
+    "value": 3375.0,
+    "key": "curves/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{curves/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ulum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{curves/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/2 \\\\ Anti-curriculum & \\rhval{main/",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "438c90562e",
+     "ebc440ef75"
+    ],
+    "value": 883.8834764831844,
+    "key": "curves/operand-size-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{main/anti-curriculum/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "to_95/std:0} & 1/2 \\\\ Anti-curriculum & \\rhval{main/anti-curriculum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{main/anti-curriculum/wd1_f",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 3990.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{main/anti-curriculum/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ulum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{main/anti-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/5 & \\rhval{curves/anti-curriculum/w",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 22.360679774997898,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{curves/anti-curriculum/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "lum/wd1_f0.5/steps_to_95/std:0} & 1/5 & \\rhval{curves/anti-curriculum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{curves/anti-curriculum/wd1",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 4000.0,
+    "key": "curves/anti-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{curves/anti-curriculum/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ulum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{curves/anti-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/2 \\\\ \\midrule & \\multicolumn{2}{c}",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.0,
+    "key": "curves/anti-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "ired $p$ \\\\ \\midrule Uniform sampling & \\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{pooled7/uniform-sampling/w",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 3246.4285714285716,
+    "key": "pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ling/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/std:0} & 3/7 & & \\\\ Operand-size curriculum",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 978.7777849854135,
+    "key": "pooled7/uniform-sampling/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "3/7 & & \\\\ Operand-size curriculum & \\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{pooled7/operand-size-curri",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34"
+    ],
+    "value": 3789.285714285714,
+    "key": "pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ulum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0} & 2/7 & \\rhval{cmp/pooled7/uniform-samp",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34"
+    ],
+    "value": 465.8900851365818,
+    "key": "pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2}",
+   "context": "lum/wd1_f0.5/steps_to_95/std:0} & 2/7 & \\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2} & \\rhval{cmp/pooled7/uniform-sampling/w",
+   "source": {
+    "type": "compare",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "welch_p",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34",
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 0.21935816111155318,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2}",
+   "context": "pling/wd1_f0.5/steps_to_95/welch_p:2} & \\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2} \\\\ Anti-curriculum & \\rhval{pooled7/ant",
+   "source": {
+    "type": "compare",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "paired_p",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34",
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 0.27487983703957625,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{pooled7/anti-curriculum/wd1_f0.5/steps_to_95/mean:0}",
+   "context": "_to_95/paired_p:2} \\\\ Anti-curriculum & \\rhval{pooled7/anti-curriculum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{pooled7/anti-curriculum/wd",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "396056a1b0",
+     "3c9d99e187",
+     "b7402ac22b",
+     "7155929102",
+     "2d250928a5",
+     "0bbcafcbf9",
+     "fa7e030e81"
+    ],
+    "value": 3992.8571428571427,
+    "key": "pooled7/anti-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "\\rhval{pooled7/anti-curriculum/wd1_f0.5/steps_to_95/std:0}",
+   "context": "ulum/wd1_f0.5/steps_to_95/mean:0} $\\pm$ \\rhval{pooled7/anti-curriculum/wd1_f0.5/steps_to_95/std:0} & 2/7 & 0.09 & 0.09 \\\\ \\bottomrule \\end",
+   "source": {
+    "type": "aggregate",
+    "group": "pooled7",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "396056a1b0",
+     "3c9d99e187",
+     "b7402ac22b",
+     "7155929102",
+     "2d250928a5",
+     "0bbcafcbf9",
+     "fa7e030e81"
+    ],
+    "value": 18.89822365046136,
+    "key": "pooled7/anti-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "0.09",
+   "context": "lum/wd1_f0.5/steps_to_95/std:0} & 2/7 & 0.09 & 0.09 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.09147550090062571,
+    "key": "main/uniform-sampling/wd1_f0.5/final_train_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/pooled7.tex",
+   "literal": "0.09",
+   "context": "_f0.5/steps_to_95/std:0} & 2/7 & 0.09 & 0.09 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.09147550090062571,
+    "key": "main/uniform-sampling/wd1_f0.5/final_train_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "250",
+   "context": "final acc \\\\ \\midrule curriculum, $T_c=250$ & 2905 $\\pm$ 727 & 5/5 & 0.96 \\\\ curri",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "2905",
+   "context": "acc \\\\ \\midrule curriculum, $T_c=250$ & 2905 $\\pm$ 727 & 5/5 & 0.96 \\\\ curriculum, $",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 2905.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "727",
+   "context": "rule curriculum, $T_c=250$ & 2905 $\\pm$ 727 & 5/5 & 0.96 \\\\ curriculum, $T_c=500$ &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "std",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 727.0230395248833,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/grok_gap/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.96",
+   "context": "lum, $T_c=250$ & 2905 $\\pm$ 727 & 5/5 & 0.96 \\\\ curriculum, $T_c=500$ & 3320 $\\pm$ 8",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "final_train_acc",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.9590909123420716,
+    "key": "main/uniform-sampling/wd1_f0.5/final_train_acc/mean",
+    "candidates": 47
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "500",
+   "context": "m$ 727 & 5/5 & 0.96 \\\\ curriculum, $T_c=500$ & 3320 $\\pm$ 893 & 3/5 & 0.84 \\\\ curri",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warm",
+    "run_ids": [
+     "1c80729d32",
+     "0aa1316f19",
+     "1861218447",
+     "14e0539f06",
+     "97bd492a4d"
+    ],
+    "value": 500.0,
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "3320",
+   "context": "& 5/5 & 0.96 \\\\ curriculum, $T_c=500$ & 3320 $\\pm$ 893 & 3/5 & 0.84 \\\\ curriculum, $",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "1c80729d32",
+     "0aa1316f19",
+     "1861218447",
+     "14e0539f06",
+     "97bd492a4d"
+    ],
+    "value": 3320.0,
+    "config": {
+     "warm": 500
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=500/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "893",
+   "context": "6 \\\\ curriculum, $T_c=500$ & 3320 $\\pm$ 893 & 3/5 & 0.84 \\\\ curriculum, $T_c=1000$",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "std",
+    "run_ids": [
+     "1c80729d32",
+     "0aa1316f19",
+     "1861218447",
+     "14e0539f06",
+     "97bd492a4d"
+    ],
+    "value": 893.4483756770729,
+    "config": {
+     "warm": 500
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=500/wd1_f0.5/grok_gap/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.84",
+   "context": "lum, $T_c=500$ & 3320 $\\pm$ 893 & 3/5 & 0.84 \\\\ curriculum, $T_c=1000$ & 3955 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "1c80729d32",
+     "0aa1316f19",
+     "1861218447",
+     "14e0539f06",
+     "97bd492a4d"
+    ],
+    "value": 0.8422641634941102,
+    "config": {
+     "warm": 500
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=500/wd1_f0.5/final_test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "1000",
+   "context": "m$ 893 & 3/5 & 0.84 \\\\ curriculum, $T_c=1000$ & 3955 $\\pm$ 101 & 1/5 & 0.75 \\\\ curri",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "3955",
+   "context": "3/5 & 0.84 \\\\ curriculum, $T_c=1000$ & 3955 $\\pm$ 101 & 1/5 & 0.75 \\\\ curriculum, $",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "101",
+   "context": "\\\\ curriculum, $T_c=1000$ & 3955 $\\pm$ 101 & 1/5 & 0.75 \\\\ curriculum, $T_c=2000$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 100.62305898749054,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.75",
+   "context": "um, $T_c=1000$ & 3955 $\\pm$ 101 & 1/5 & 0.75 \\\\ curriculum, $T_c=2000$ & 3990 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 0.7456603825092316,
+    "key": "main/operand-size-curriculum/wd1_f0.5/final_test_acc/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "3990",
+   "context": "1/5 & 0.75 \\\\ curriculum, $T_c=2000$ & 3990 $\\pm$ 22 & 1/5 & 0.59 \\\\ curriculum, $T",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 3990.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.59",
+   "context": "lum, $T_c=2000$ & 3990 $\\pm$ 22 & 1/5 & 0.59 \\\\ curriculum, $T_c=4000$ & 4000 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "baece09a87",
+     "d2370dad2c",
+     "226f53f33a",
+     "92ef6a22f6",
+     "15a24c8e7e"
+    ],
+    "value": 0.5932075500488281,
+    "config": {
+     "warm": 2000
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=2000/wd1_f0.5/final_test_acc/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "4000",
+   "context": "pm$ 22 & 1/5 & 0.59 \\\\ curriculum, $T_c=4000$ & 4000 $\\pm$ 0 & 0/5 & 0.54 \\\\ shuffle",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "4000",
+   "context": "1/5 & 0.59 \\\\ curriculum, $T_c=4000$ & 4000 $\\pm$ 0 & 0/5 & 0.54 \\\\ shuffled order,",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.54",
+   "context": "ulum, $T_c=4000$ & 4000 $\\pm$ 0 & 0/5 & 0.54 \\\\ shuffled order, $T_c=1000$ & 4000 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "00866daf08",
+     "0db0688a48",
+     "d020d6a57d",
+     "1fdfe1d437",
+     "ee5ec04eea"
+    ],
+    "value": 0.5449056625366211,
+    "config": {
+     "warm": 4000
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=4000/wd1_f0.5/final_test_acc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "1000",
+   "context": "0 & 0/5 & 0.54 \\\\ shuffled order, $T_c=1000$ & 4000 $\\pm$ 0 & 0/5 & 0.49 \\\\ uniform",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "4000",
+   "context": "& 0.54 \\\\ shuffled order, $T_c=1000$ & 4000 $\\pm$ 0 & 0/5 & 0.49 \\\\ uniform (main g",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.49",
+   "context": "rder, $T_c=1000$ & 4000 $\\pm$ 0 & 0/5 & 0.49 \\\\ uniform (main group) & 2945 $\\pm$ 10",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 0.49207547307014465,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/final_test_acc/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "2945",
+   "context": "& 0/5 & 0.49 \\\\ uniform (main group) & 2945 $\\pm$ 1020 & 3/5 & 0.86 \\\\ \\bottomrule",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "1020",
+   "context": "49 \\\\ uniform (main group) & 2945 $\\pm$ 1020 & 3/5 & 0.86 \\\\ \\bottomrule \\end{tabula",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 1019.5587280779857,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/std"
+   }
+  },
+  {
+   "section": "generated/sweep_tc.tex",
+   "literal": "0.86",
+   "context": "(main group) & 2945 $\\pm$ 1020 & 3/5 & 0.86 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.8550943434238434,
+    "key": "main/uniform-sampling/wd1_f0.5/final_test_acc/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/tests.tex",
+   "literal": "\\rhval{cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/delta}",
+   "context": "aired $p$ \\\\ \\midrule Anti-curriculum & \\rhval{cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/delta} & \\rhval{cmp/main/anti-curriculum/wd1_f",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "delta",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": -35.0,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/delta"
+   }
+  },
+  {
+   "section": "generated/tests.tex",
+   "literal": "\\rhval{cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/welch_p:2}",
+   "context": "urriculum/wd1_f0.5/steps_to_95/delta} & \\rhval{cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/welch_p:2} & \\rhval{cmp/main/anti-curriculum/wd1_f",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "welch_p",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 0.48640188581060667,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/welch_p"
+   }
+  },
+  {
+   "section": "generated/tests.tex",
+   "literal": "\\rhval{cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/paired_p:2}",
+   "context": "culum/wd1_f0.5/steps_to_95/welch_p:2} & \\rhval{cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/paired_p:2} \\\\ Uniform sampling & \\rhval{cmp/main/u",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "paired_p",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 0.5102492390442802,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/anti-curriculum/wd1_f0.5/steps_to_95/paired_p"
+   }
+  },
+  {
+   "section": "generated/tests.tex",
+   "literal": "\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/delta}",
+   "context": "to_95/paired_p:2} \\\\ Uniform sampling & \\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/delta} & \\rhval{cmp/main/uniform-sampling/wd1_",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "delta",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 1010.0,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/delta"
+   }
+  },
+  {
+   "section": "generated/tests.tex",
+   "literal": "\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2}",
+   "context": "-sampling/wd1_f0.5/steps_to_95/delta} & \\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2} & \\rhval{cmp/main/uniform-sampling/wd1_",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "welch_p",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.09090516958271837,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/welch_p"
+   }
+  },
+  {
+   "section": "generated/tests.tex",
+   "literal": "\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2}",
+   "context": "pling/wd1_f0.5/steps_to_95/welch_p:2} & \\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2} \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "paired_p",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.08617344316382596,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/paired_p"
+   }
+  },
+  {
+   "section": "introduction.tex",
+   "literal": "95\\%",
+   "context": "a one-layer transformer needs to reach 95\\% held-out accuracy compared with uniform",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "layer architecture, one learning rate ($3\\times10^{-3}$, chosen on uniform sampling with an un",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 0.003120824170843886,
+    "key": "main/uniform-sampling/wd3_f0.7/final_train_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "4000",
+   "context": "ted pilot seed, which favours uniform), 4000 steps. A different modulus, learning ra",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "4000",
+   "context": "st grid cells have all runs censored at 4000 steps, so they carry no information abo",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "0.5",
+   "context": "n the cells with $\\lambda\\ge1$ and $f\\ge0.5$; at $\\lambda=0$ and at $f=0.4$ it was",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "0.4",
+   "context": "and $f\\ge0.5$; at $\\lambda=0$ and at $f=0.4$ it was not reached by any run, and we",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "0.9",
+   "context": "ll ended with a training accuracy below 0.9. A smaller learning rate with longer tr",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "438c90562e",
+     "ebc440ef75"
+    ],
+    "value": 0.8849056661128998,
+    "key": "curves/operand-size-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 32
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "529",
+   "context": "=\\{0,\\dots,p-1\\}^2$, $|\\mathcal{P}|=p^2=529$. The target of $(a,b)$ is $y=(a+b)\\bmo",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "num_pairs",
+    "run_ids": [],
+    "value": 529.0,
+    "name": "num_pairs",
+    "why": "number of operand pairs (a,b), p^2 for modulus p=23; the full table that is split into train and held-out",
+    "key": "const/num_pairs"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "256",
+   "context": "MLP}(\\mathrm{LN}(h^{1}))$ (hidden width 256, ReLU); logits are $W\\,\\mathrm{LN}(h^{2",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "mlp_hidden_width",
+    "run_ids": [],
+    "value": 256.0,
+    "name": "mlp_hidden_width",
+    "why": "hidden width of the transformer MLP block (4 x d_model), fixed in method/run.py",
+    "key": "const/mlp_hidden_width"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "\\end{equation} with learning rate $\\eta=3\\times10^{-3}$, decoupled weight decay $\\lambda$ (``w",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 0.003120824170843886,
+    "key": "main/uniform-sampling/wd3_f0.7/final_train_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.9",
+   "context": "eight decay $\\lambda$ (``wd''), $\\beta=(0.9,0.98)$ and mini-batches of 128 pairs dr",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "438c90562e",
+     "ebc440ef75"
+    ],
+    "value": 0.8849056661128998,
+    "key": "curves/operand-size-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 32
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.98",
+   "context": "t decay $\\lambda$ (``wd''), $\\beta=(0.9,0.98)$ and mini-batches of 128 pairs drawn w",
+   "source": {
+    "type": "aggregate",
+    "group": "sanity",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "final_train_acc",
+    "stat": "mean",
+    "run_ids": [
+     "301113e908"
+    ],
+    "value": 0.9810606241226196,
+    "key": "sanity/uniform-sampling/wd1_f0.5/final_train_acc/mean",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "128",
+   "context": "$\\beta=(0.9,0.98)$ and mini-batches of 128 pairs drawn with replacement from the c",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "batch_size",
+    "run_ids": [],
+    "value": 128.0,
+    "name": "batch_size",
+    "why": "mini-batch size, default --bs of method/run.py, same for every run",
+    "key": "const/batch_size"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.15",
+   "context": "\\big(1,\\,q_0+(1-q_0)\\,t/T_c\\big)$, $q_0=0.15$: \\begin{align} \\text{Uniform:}\\;& \\mat",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.4",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "13d6bfc1fe",
+     "781aedfb7d",
+     "26b0aba5d5"
+    ],
+    "value": 0.15457412600517273,
+    "key": "main/uniform-sampling/wd1_f0.4/final_test_acc/min",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "1000",
+   "context": "every step. After $T_c$ steps (default 1000) all three samplers coincide. A control",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.95",
+   "context": "aluated step with held-out accuracy $\\ge0.95$ (the run then stops); a run that never",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "4000",
+   "context": "gets there is censored at the budget of 4000 steps and also has \\emph{reached}$=0$.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.5",
+   "context": "n} gives the main cell ($\\lambda=1$, $f=0.5$, seeds 0--4) and Fig.~\\ref{fig:bars} t",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "over seeds, \\emph{train95} is steps to 95\\% training accuracy. Steps to 95\\% are ce",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "eps to 95\\% training accuracy. Steps to 95\\% are censored at 4000, so means are lowe",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "accuracy. Steps to 95\\% are censored at 4000, so means are lower bounds for systems",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.5",
+   "context": "ring\\caption{Main cell ($\\lambda=1$, $f=0.5$, 5 seeds): mean $\\pm$ std over seeds.",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.95",
+   "context": "ion of seeds with held-out accuracy $\\ge0.95$ within 4000 steps; steps\\_to\\_95 is ce",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "with held-out accuracy $\\ge0.95$ within 4000 steps; steps\\_to\\_95 is censored at 400",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "000 steps; steps\\_to\\_95 is censored at 4000.}\\label{tab:main} \\resizebox{\\columnwid",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "width]{main_bars.pdf} \\caption{Steps to 95\\% held-out accuracy at the main cell: bar",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "ans, dots individual seeds (censored at 4000).}\\label{fig:bars}\\end{figure} \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10\\%",
+   "context": "igure} \\textbf{H1 (curriculum at least 10\\% faster than uniform): refuted.} The cur",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "wall_s",
+    "stat": "mean",
+    "run_ids": [
+     "438c90562e",
+     "ebc440ef75"
+    ],
+    "value": 9.963278532028198,
+    "key": "curves/operand-size-curriculum/wd1_f0.5/wall_s/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3955",
+   "context": "iform): refuted.} The curriculum needed 3955 steps on average against 2945 for unifo",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 3955.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "2945",
+   "context": "um needed 3955 steps on average against 2945 for uniform sampling (Table~\\ref{tab:ma",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2945.0,
+    "key": "main/uniform-sampling/wd1_f0.5/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "); only 1 of 5 curriculum seeds reached 95\\% against 3 of 5 for uniform. The registe",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2}",
+   "context": ", Table~\\ref{tab:tests}) gives Welch $p=\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2}$ and paired $p=\\rhval{cmp/main/uniform-",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "welch_p",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.09090516958271837,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2}",
+   "context": "5/steps_to_95/welch_p:2}$ and paired $p=\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2}$ in the direction of the curriculum bei",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "paired_p",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.08617344316382596,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.05",
+   "context": "um being slower: not significant at the 0.05 level with 5 seeds, so we cannot say th",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.5",
+    "metric": "final_test_acc",
+    "stat": "std",
+    "run_ids": [
+     "29b26b5556",
+     "6aa19830ef",
+     "bfc91ea271"
+    ],
+    "value": 0.04575227756152423,
+    "key": "main/uniform-sampling/wd3_f0.5/final_test_acc/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3990",
+   "context": "upported.} The anti-curriculum averaged 3990 steps with 1 of 5 seeds reaching 95\\%;",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "cf68e86145",
+     "cf4a496536",
+     "889a15a32a",
+     "ad32f808f5",
+     "99517f4ff6"
+    ],
+    "value": 3990.0,
+    "key": "main/anti-curriculum/wd1_f0.5/steps_to_95/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "d 3990 steps with 1 of 5 seeds reaching 95\\%; it is indistinguishable from the curri",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "iform sampling fits the training set to 95\\% after about 125 steps and then waits fo",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "125",
+   "context": "ts the training set to 95\\% after about 125 steps and then waits for held-out accur",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "af7c3c89b4",
+     "9975a641a0"
+    ],
+    "value": 125.0,
+    "key": "curves/uniform-sampling/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "2820",
+   "context": "ap column of Table~\\ref{tab:main} (mean 2820) is a censored lower bound because two",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "mean",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 2820.0,
+    "key": "main/uniform-sampling/wd1_f0.5/grok_gap/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "because two uniform seeds never reached 95\\%; in the three that did, the gaps were \\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{run/f18c56da2c/grok_gap}",
+   "context": "%; in the three that did, the gaps were \\rhval{run/f18c56da2c/grok_gap}, \\rhval{run/1367504108/grok_gap} and \\r",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "value",
+    "run_ids": [
+     "f18c56da2c"
+    ],
+    "value": 1600.0,
+    "seed": 4,
+    "key": "run/f18c56da2c/grok_gap"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{run/1367504108/grok_gap}",
+   "context": "s were \\rhval{run/f18c56da2c/grok_gap}, \\rhval{run/1367504108/grok_gap} and \\rhval{run/820f4867e8/grok_gap} ste",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "value",
+    "run_ids": [
+     "1367504108"
+    ],
+    "value": 2350.0,
+    "seed": 1,
+    "key": "run/1367504108/grok_gap"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{run/820f4867e8/grok_gap}",
+   "context": "p}, \\rhval{run/1367504108/grok_gap} and \\rhval{run/820f4867e8/grok_gap} steps. Both orderings reach 95\\% traini",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "value",
+    "run_ids": [
+     "820f4867e8"
+    ],
+    "value": 2450.0,
+    "seed": 3,
+    "key": "run/820f4867e8/grok_gap"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "8/grok_gap} steps. Both orderings reach 95\\% training accuracy only after about 960",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "960",
+   "context": "95\\% training accuracy only after about 960 steps, i.e.\\ when the pool has grown to",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 960.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/steps_to_train95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "2995",
+   "context": "ng set, and their gap after that point (2995 and 3025) is not shorter than uniform's",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "grok_gap",
+    "stat": "mean",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542"
+    ],
+    "value": 2995.0,
+    "key": "main/operand-size-curriculum/wd1_f0.5/grok_gap/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3025",
+   "context": "nd their gap after that point (2995 and 3025) is not shorter than uniform's. Fig.~\\r",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Anti-curriculum",
+    "task": "wd0_f0.5",
+    "metric": "grok_gap",
+    "stat": "mean",
+    "run_ids": [
+     "76b5b9f28e",
+     "d750434f1c",
+     "5dcc14db92"
+    ],
+    "value": 3025.0,
+    "key": "main/anti-curriculum/wd0_f0.5/grok_gap/mean",
+    "candidates": 39
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "-out accuracy plateauing well below the 95\\% threshold for all systems before rising",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "sient drops, which is a sign that $\\eta=3\\times10^{-3}$ is on the unstable side. Seed-level va",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 0.003120824170843886,
+    "key": "main/uniform-sampling/wd3_f0.7/final_train_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{run/f18c56da2c/steps_to_95}",
+   "context": "the main cell the uniform runs ended at \\rhval{run/f18c56da2c/steps_to_95}, \\rhval{run/1367504108/steps_to_95}, \\r",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "value",
+    "run_ids": [
+     "f18c56da2c"
+    ],
+    "value": 1700.0,
+    "seed": 4,
+    "key": "run/f18c56da2c/steps_to_95"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{run/1367504108/steps_to_95}",
+   "context": "at \\rhval{run/f18c56da2c/steps_to_95}, \\rhval{run/1367504108/steps_to_95}, \\rhval{run/820f4867e8/steps_to_95} ste",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "value",
+    "run_ids": [
+     "1367504108"
+    ],
+    "value": 2450.0,
+    "seed": 1,
+    "key": "run/1367504108/steps_to_95"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{run/820f4867e8/steps_to_95}",
+   "context": "5}, \\rhval{run/1367504108/steps_to_95}, \\rhval{run/820f4867e8/steps_to_95} steps or did not reach 95\\% (two of fiv",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "value",
+    "run_ids": [
+     "820f4867e8"
+    ],
+    "value": 2575.0,
+    "seed": 3,
+    "key": "run/820f4867e8/steps_to_95"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "7e8/steps_to_95} steps or did not reach 95\\% (two of five seeds). \\textbf{Post-hoc",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "red direction: uniform sampling reached 95\\% in 0 of 2 seeds, the curriculum in 1 of",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "ssing was at the final evaluation, step 4000, so its steps equal the censoring value",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/delta}",
+   "context": "he curriculum--uniform gap shrinks from \\rhval{cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/delta} to \\rhval{cmp/pooled7/uniform-sampling/",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "delta",
+    "run_ids": [
+     "245f9782d7",
+     "4f13f45f50",
+     "b7948d9914",
+     "b6bb8b6ad4",
+     "e551205542",
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 1010.0,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/main/uniform-sampling/wd1_f0.5/steps_to_95/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/delta:0}",
+   "context": "sampling/wd1_f0.5/steps_to_95/delta} to \\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/delta:0} steps and is not significant (Welch $p=",
+   "source": {
+    "type": "compare",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "delta",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34",
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 542.8571428571427,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2}",
+   "context": "steps and is not significant (Welch $p=\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2}$, paired $p=\\rhval{cmp/pooled7/uniform-",
+   "source": {
+    "type": "compare",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "welch_p",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34",
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 0.21935816111155318,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2}",
+   "context": "f0.5/steps_to_95/welch_p:2}$, paired $p=\\rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2}$); the anti-curriculum--uniform compari",
+   "source": {
+    "type": "compare",
+    "group": "pooled7",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "paired_p",
+    "run_ids": [
+     "8e1d6fdedb",
+     "cc815c400a",
+     "0807f6bf62",
+     "14095c26cc",
+     "d115014488",
+     "ac7a58c130",
+     "4445a09b34",
+     "0ccef9cf91",
+     "a5dd4e23fd",
+     "b23ab784ae",
+     "da9de06e30",
+     "136e75ff8d",
+     "ba3d119577",
+     "c88c1734fb"
+    ],
+    "value": 0.27487983703957625,
+    "ref": "Operand-size curriculum",
+    "key": "cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.09",
+   "context": "curriculum--uniform comparison gives $p=0.09$ for both tests (harness comparison on",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "2ba4d6c60c",
+     "1367504108",
+     "4f804e1600",
+     "820f4867e8",
+     "f18c56da2c"
+    ],
+    "value": 0.09147550090062571,
+    "key": "main/uniform-sampling/wd1_f0.5/final_train_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "aded: range). Runs stop once they reach 95\\%, so late points average fewer runs. The",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "es$ 3 systems $\\times$ 3 seeds) reached 95\\% (Table~\\ref{tab:grid}); training accura",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "ether these runs would generalise after 4000 steps. \\textbf{H4 (interaction): incon",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "ere curriculum and uniform both reached 95\\% in every seed are $(\\lambda,f)=(1,0.7)$",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.7",
+   "context": "95\\% in every seed are $(\\lambda,f)=(1,0.7)$ and $(3,0.7)$; the curriculum is slig",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.7",
+   "context": "seed are $(\\lambda,f)=(1,0.7)$ and $(3,0.7)$; the curriculum is slightly faster at",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1733",
+   "context": "ulum is slightly faster at $\\lambda=1$ (1733 vs.\\ 1817) and slower at $\\lambda=3$ (1",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "6d24fabc1a",
+     "42af65531b",
+     "8f32a18ce9"
+    ],
+    "value": 1733.3333333333333,
+    "key": "main/operand-size-curriculum/wd1_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1817",
+   "context": "ightly faster at $\\lambda=1$ (1733 vs.\\ 1817) and slower at $\\lambda=3$ (1267 vs.\\ 1",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "b348111a87",
+     "ffe33eeece",
+     "8f36af78c4"
+    ],
+    "value": 1816.6666666666667,
+    "key": "main/uniform-sampling/wd1_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1267",
+   "context": "3 vs.\\ 1817) and slower at $\\lambda=3$ (1267 vs.\\ 1142). The sign flips, so the regi",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Operand-size curriculum",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "8ec9ef93e4",
+     "d4ded30b31",
+     "392a9d281e"
+    ],
+    "value": 1266.6666666666667,
+    "key": "main/operand-size-curriculum/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1142",
+   "context": "7) and slower at $\\lambda=3$ (1267 vs.\\ 1142). The sign flips, so the registered ref",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 1141.6666666666667,
+    "key": "main/uniform-sampling/wd3_f0.7/steps_to_95/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "ame sign in every cell where both reach 95\\%'') is not met, but both differences are",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.5",
+   "context": "r the only system to generalise; in $(3,0.5)$ only the anti-curriculum did (1 of 3",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.4",
+   "context": "an the order: nothing generalised at $f=0.4$ for any $\\lambda$, and only the cells",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.5",
+   "context": "cells with $\\lambda\\in\\{1,3\\}$ and $f\\ge0.5$ produced successes. \\begin{table}[t]\\",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": "n $f$ grid. Each entry is mean steps to 95\\% (censored at 4000) with the number of s",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "4000",
+   "context": "ntry is mean steps to 95\\% (censored at 4000) with the number of seeds that reached",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "95\\%",
+   "context": ") with the number of seeds that reached 95\\% in brackets; $n$ is the seed count. The",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.5",
+   "context": "rackets; $n$ is the seed count. The $(1,0.5)$ row is the main group.}\\label{tab:gri",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "529",
+   "context": "3; a random train/held-out split of the 529 pairs per seed, training fraction $f\\in",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "num_pairs",
+    "run_ids": [],
+    "value": 529.0,
+    "name": "num_pairs",
+    "why": "number of operand pairs (a,b), p^2 for modulus p=23; the full table that is split into train and held-out",
+    "key": "const/num_pairs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.4",
+   "context": "airs per seed, training fraction $f\\in\\{0.4,0.5,0.7\\}$; the held-out set is every p",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "per seed, training fraction $f\\in\\{0.4,0.5,0.7\\}$; the held-out set is every pair",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.7",
+   "context": "seed, training fraction $f\\in\\{0.4,0.5,0.7\\}$; the held-out set is every pair not",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "The \\emph{main cell} is $\\lambda=1$, $f=0.5$, with seeds $0$--$4$ for the three sys",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.4",
+   "context": "osses $\\lambda\\in\\{0,1,3\\}$ with $f\\in\\{0.4,0.5,0.7\\}$ (the main cell is not repeat",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.4",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "27f96adc1c",
+     "06df4d19e7",
+     "1afd223917"
+    ],
+    "value": 0.400630921125412,
+    "key": "main/uniform-sampling/wd3_f0.4/final_test_acc/mean",
+    "candidates": 98
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "s $\\lambda\\in\\{0,1,3\\}$ with $f\\in\\{0.4,0.5,0.7\\}$ (the main cell is not repeated),",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.7",
+   "context": "lambda\\in\\{0,1,3\\}$ with $f\\in\\{0.4,0.5,0.7\\}$ (the main cell is not repeated), see",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.7037735879421234,
+    "key": "curves/anti-curriculum/wd1_f0.5/final_test_acc/mean",
+    "candidates": 40
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "250",
+   "context": "ds $0$--$4$: curriculum length $T_c\\in\\{250,500,2000,4000\\}$ (the default $T_c=1000",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 250.0,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "500",
+   "context": "0$--$4$: curriculum length $T_c\\in\\{250,500,2000,4000\\}$ (the default $T_c=1000$ is",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warm",
+    "run_ids": [
+     "1c80729d32",
+     "0aa1316f19",
+     "1861218447",
+     "14e0539f06",
+     "97bd492a4d"
+    ],
+    "value": 500.0,
+    "candidates": 2
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "4000",
+   "context": "curriculum length $T_c\\in\\{250,500,2000,4000\\}$ (the default $T_c=1000$ is in the ma",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1000",
+   "context": "{250,500,2000,4000\\}$ (the default $T_c=1000$ is in the main group) and the shuffled",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "ci_lo",
+    "run_ids": [
+     "f30a65f838",
+     "baece09a87",
+     "1c80729d32",
+     "00866daf08",
+     "0aa1316f19",
+     "d9d0270fec",
+     "0db0688a48",
+     "d2370dad2c",
+     "be9ceecaa8",
+     "226f53f33a",
+     "1861218447",
+     "d020d6a57d",
+     "14e0539f06",
+     "9138183a15",
+     "1fdfe1d437",
+     "92ef6a22f6",
+     "cf6a5c5884",
+     "15a24c8e7e",
+     "97bd492a4d",
+     "ee5ec04eea"
+    ],
+    "value": 1000.0,
+    "key": "sweep_warm/operand-size-curriculum/wd1_f0.5/steps_to_train95/ci_lo",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "4000",
+   "context": "as in Section~\\ref{sec:method}; budget 4000 steps; evaluation every 25 steps. The l",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "100",
+   "context": "uniform sampling with a separate seed (100) that appears in no table and is not in",
+   "source": {
+    "type": "aggregate",
+    "group": "sanity",
+    "system": "Uniform sampling",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_train95",
+    "stat": "mean",
+    "run_ids": [
+     "301113e908"
+    ],
+    "value": 100.0,
+    "key": "sanity/uniform-sampling/wd1_f0.5/steps_to_train95/mean",
+    "candidates": 518
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "nnot be re-checked); it led us to $\\eta=3\\times10^{-3}$, $\\lambda=1$, $f=0.5$. No hyper-parame",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform sampling",
+    "task": "wd3_f0.7",
+    "metric": "final_train_acc",
+    "stat": "std",
+    "run_ids": [
+     "47868b6499",
+     "51c42ec08e",
+     "a41f54ccac"
+    ],
+    "value": 0.003120824170843886,
+    "key": "main/uniform-sampling/wd3_f0.7/final_train_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "$\\eta=3\\times10^{-3}$, $\\lambda=1$, $f=0.5$. No hyper-parameter was tuned per syst",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Anti-curriculum",
+    "task": "wd1_f0.5",
+    "metric": "reached",
+    "stat": "mean",
+    "run_ids": [
+     "d8ba4c26a8",
+     "149aaf6deb"
+    ],
+    "value": 0.5,
+    "key": "curves/anti-curriculum/wd1_f0.5/reached/mean",
+    "candidates": 88
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "95\\%",
+   "context": "xtbf{Statistics.} Runs that never reach 95\\% are censored at 4000 steps, so mean and",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "4000",
+   "context": "s that never reach 95\\% are censored at 4000 steps, so mean and standard deviation o",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_shuffled",
+    "system": "Shuffled-order pool growth",
+    "task": "wd1_f0.5",
+    "metric": "steps_to_95",
+    "stat": "mean",
+    "run_ids": [
+     "3de73077a9",
+     "7a01e4c63e",
+     "acef759cd3",
+     "9fbe6d748f",
+     "6c50e3ccb7"
+    ],
+    "value": 4000.0,
+    "key": "abl_shuffled/shuffled-order-pool-growth/wd1_f0.5/steps_to_95/mean",
+    "candidates": 261
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "95\\%",
+   "context": "port the fraction of seeds that reached 95\\%. Significance tests are those of the ha",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_warm",
+    "system": "Operand-size curriculum",
+    "task": "wd1_f0.5",
+    "metric": "final_test_acc",
+    "stat": "min",
+    "run_ids": [
+     "f30a65f838",
+     "d9d0270fec",
+     "be9ceecaa8",
+     "9138183a15",
+     "cf6a5c5884"
+    ],
+    "value": 0.9509434103965759,
+    "config": {
+     "warm": 250
+    },
+    "key": "sweep_warm/operand-size-curriculum@warm=250/wd1_f0.5/final_test_acc/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  }
+ ],
+ "untraced": [],
+ "constants": [
+  {
+   "name": "num_pairs",
+   "value": 529,
+   "why": "number of operand pairs (a,b), p^2 for modulus p=23; the full table that is split into train and held-out"
+  },
+  {
+   "name": "mlp_hidden_width",
+   "value": 256,
+   "why": "hidden width of the transformer MLP block (4 x d_model), fixed in method/run.py"
+  },
+  {
+   "name": "batch_size",
+   "value": 128,
+   "why": "mini-batch size, default --bs of method/run.py, same for every run"
+  },
+  {
+   "name": "modulus",
+   "value": 23,
+   "why": "modulus p of the task (a+b) mod p, default --p of method/run.py"
+  },
+  {
+   "name": "d_model",
+   "value": 64,
+   "why": "embedding width d, default --d of method/run.py"
+  },
+  {
+   "name": "learning_rate",
+   "value": 0.003,
+   "why": "AdamW learning rate, default --lr of method/run.py, same for every run"
+  },
+  {
+   "name": "adam_beta1",
+   "value": 0.9,
+   "why": "AdamW beta_1, fixed in method/run.py"
+  },
+  {
+   "name": "adam_beta2",
+   "value": 0.98,
+   "why": "AdamW beta_2, fixed in method/run.py"
+  },
+  {
+   "name": "pool_start_fraction",
+   "value": 0.15,
+   "why": "q_0, fraction of the training set in the sampling pool at step 0, default --q0 of method/run.py"
+  },
+  {
+   "name": "min_pool_size",
+   "value": 32,
+   "why": "lower bound on the sampling-pool size (batch_size/4), fixed in method/run.py"
+  },
+  {
+   "name": "eval_every",
+   "value": 25,
+   "why": "evaluation interval in steps, default --eval_every of method/run.py; also the step resolution"
+  },
+  {
+   "name": "step_budget",
+   "value": 4000,
+   "why": "maximum training steps per run, default --max_steps of method/run.py; the censoring value of steps_to_95"
+  },
+  {
+   "name": "default_curriculum_length",
+   "value": 1000,
+   "why": "default curriculum length T_c in steps, default --warm of method/run.py"
+  },
+  {
+   "name": "accuracy_threshold",
+   "value": 0.95,
+   "why": "accuracy threshold that defines steps_to_95 and steps_to_train95, fixed in method/run.py"
+  },
+  {
+   "name": "pilot_seed",
+   "value": 100,
+   "why": "seed of the exploratory pilot runs; not a seed of any registered run"
+  }
+ ],
+ "summary": {
+  "checked": 254,
+  "traced": 254,
+  "untraced": 0,
+  "by_type": {
+   "aggregate": 228,
+   "compare": 14,
+   "config": 2,
+   "constant": 4,
+   "run": 6
+  },
+  "files": [
+   "ablations.tex",
+   "abstract.tex",
+   "conclusion.tex",
+   "generated/grid_pivot.tex",
+   "generated/main_cell.tex",
+   "generated/pooled7.tex",
+   "generated/sweep_tc.tex",
+   "generated/tests.tex",
+   "introduction.tex",
+   "keywords.tex",
+   "limitations.tex",
+   "main.tex",
+   "method.tex",
+   "related.tex",
+   "results.tex",
+   "setup.tex"
+  ],
+  "ok": true
+ }
+}

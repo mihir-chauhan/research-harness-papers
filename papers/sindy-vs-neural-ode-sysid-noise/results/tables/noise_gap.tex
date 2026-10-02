@@ -1,11 +1,11 @@
-\begin{tabular}{llccccc}\toprule
-Task & noise & SINDy & MLP & gap & vs MLP ($p$) & vs DMDc ($p$) \\\midrule
-pendulum & 0.0 & 0.007 & 0.118 & 0.111 & 5/5 (0.009) & 5/5 ($<$0.001) \\
-pendulum & 0.02 & 0.027 & 0.202 & 0.158 & 5/5 (0.015) & 5/5 ($<$0.001) \\
-pendulum & 0.05 & 0.156 & 0.667 & 0.478 & 5/5 ($<$0.001) & 5/5 ($<$0.001) \\
-pendulum & 0.1 & 0.471 & 0.893 & 0.341 & 5/5 (0.004) & 5/5 ($<$0.001) \\
-vdp & 0.0 & 0.004 & 0.077 & 0.074 & 5/5 ($<$0.001) & 5/5 ($<$0.001) \\
-vdp & 0.02 & 0.006 & 0.105 & 0.101 & 5/5 ($<$0.001) & 5/5 ($<$0.001) \\
-vdp & 0.05 & 0.018 & 0.205 & 0.185 & 5/5 ($<$0.001) & 5/5 ($<$0.001) \\
-vdp & 0.1 & 0.048 & 0.283 & 0.194 & 4/5 (0.819) & 4/5 (0.998) \\
+\begin{tabular}{llcccc}\toprule
+Task & noise & SINDy & MLP & vs MLP ($p$) & vs DMDc ($p$) \\\midrule
+pendulum & 0.0 & \rhval{main/sindy-stlsq/pendulum_noise0.0/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/pendulum_noise0.0/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/pendulum_noise0.0/pred_nrmse/paired_p:3}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/pendulum_noise0.0/pred_nrmse/paired_p:sci1}) \\
+pendulum & 0.02 & \rhval{main/sindy-stlsq/pendulum_noise0.02/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/pendulum_noise0.02/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/pendulum_noise0.02/pred_nrmse/paired_p:3}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/pendulum_noise0.02/pred_nrmse/paired_p:sci1}) \\
+pendulum & 0.05 & \rhval{main/sindy-stlsq/pendulum_noise0.05/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/pendulum_noise0.05/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/pendulum_noise0.05/pred_nrmse/paired_p:sci1}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/pendulum_noise0.05/pred_nrmse/paired_p:sci1}) \\
+pendulum & 0.1 & \rhval{main/sindy-stlsq/pendulum_noise0.1/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/pendulum_noise0.1/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/pendulum_noise0.1/pred_nrmse/paired_p:3}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/pendulum_noise0.1/pred_nrmse/paired_p:sci1}) \\
+vdp & 0.0 & \rhval{main/sindy-stlsq/vdp_noise0.0/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/vdp_noise0.0/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/vdp_noise0.0/pred_nrmse/paired_p:sci1}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/vdp_noise0.0/pred_nrmse/paired_p:sci1}) \\
+vdp & 0.02 & \rhval{main/sindy-stlsq/vdp_noise0.02/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/vdp_noise0.02/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/vdp_noise0.02/pred_nrmse/paired_p:sci1}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/vdp_noise0.02/pred_nrmse/paired_p:sci1}) \\
+vdp & 0.05 & \rhval{main/sindy-stlsq/vdp_noise0.05/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/vdp_noise0.05/pred_nrmse/median:3} & 5/5 (\rhval{cmp/main/neural-ode-mlp/vdp_noise0.05/pred_nrmse/paired_p:sci1}) & 5/5 (\rhval{cmp/main/dmdc-linear-ls/vdp_noise0.05/pred_nrmse/paired_p:sci1}) \\
+vdp & 0.1 & \rhval{main/sindy-stlsq/vdp_noise0.1/pred_nrmse/median:3} & \rhval{main/neural-ode-mlp/vdp_noise0.1/pred_nrmse/median:3} & 4/5 (\rhval{cmp/main/neural-ode-mlp/vdp_noise0.1/pred_nrmse/paired_p:3}) & 4/5 (\rhval{cmp/main/dmdc-linear-ls/vdp_noise0.1/pred_nrmse/paired_p:3}) \\
 \bottomrule\end{tabular}

@@ -1,17 +1,17 @@
-\begin{tabular}{lllrrrrrr}\toprule
-Cost & Task & Metric & 0.01 & 0.1 & 1 & 10 & 100 & range \\\midrule
-Energy & pend. & success & 0.83 & 0.95 & 0.97 & 1.00 & 1.00 & 0.17 \\
-Energy & pend. & effort & 15.5 & 12.5 & 11.1 & 10.2 & 10.2 & 5.3 \\
-Energy & pend. & time (s) & 2.69 & 2.35 & 2.23 & 2.18 & 2.20 & 0.51 \\
-Energy & cart-p. & success & 1.00 & 0.98 & 1.00 & 1.00 & 1.00 & 0.02 \\
-Energy & cart-p. & effort & 51.6 & 50.9 & 43.3 & 48.3 & 58.5 & 15.2 \\
-Energy & cart-p. & time (s) & 1.91 & 1.95 & 1.81 & 1.78 & 1.93 & 0.17 \\
+\begin{tabular}{lllrrrrr}\toprule
+Cost & Task & Metric & 0.01 & 0.1 & 1 & 10 & 100 \\\midrule
+Energy & pend. & success & \rhval{sweep_we/ilqr-energy-ours@we=0.01/pendulum/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=0.1/pendulum/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=1/pendulum/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=10/pendulum/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=100/pendulum/success_rate/mean:2} \\
+Energy & pend. & effort & \rhval{sweep_we/ilqr-energy-ours@we=0.01/pendulum/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=0.1/pendulum/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=1/pendulum/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=10/pendulum/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=100/pendulum/control_effort/mean:1} \\
+Energy & pend. & time (s) & \rhval{sweep_we/ilqr-energy-ours@we=0.01/pendulum/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=0.1/pendulum/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=1/pendulum/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=10/pendulum/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=100/pendulum/time_to_upright/mean:2} \\
+Energy & cart-p. & success & \rhval{sweep_we/ilqr-energy-ours@we=0.01/cartpole/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=0.1/cartpole/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=1/cartpole/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=10/cartpole/success_rate/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=100/cartpole/success_rate/mean:2} \\
+Energy & cart-p. & effort & \rhval{sweep_we/ilqr-energy-ours@we=0.01/cartpole/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=0.1/cartpole/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=1/cartpole/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=10/cartpole/control_effort/mean:1} & \rhval{sweep_we/ilqr-energy-ours@we=100/cartpole/control_effort/mean:1} \\
+Energy & cart-p. & time (s) & \rhval{sweep_we/ilqr-energy-ours@we=0.01/cartpole/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=0.1/cartpole/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=1/cartpole/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=10/cartpole/time_to_upright/mean:2} & \rhval{sweep_we/ilqr-energy-ours@we=100/cartpole/time_to_upright/mean:2} \\
 \midrule
-Quad & pend. & success & 0.83 & 0.83 & 0.83 & 0.92 & 1.00 & 0.17 \\
-Quad & pend. & effort & 15.3 & 15.4 & 15.9 & 15.5 & 13.9 & 2.0 \\
-Quad & pend. & time (s) & 2.69 & 2.69 & 2.67 & 2.41 & 2.18 & 0.51 \\
-Quad & cart-p. & success & 0.98 & 1.00 & 1.00 & 1.00 & 1.00 & 0.02 \\
-Quad & cart-p. & effort & 50.0 & 50.2 & 74.8 & 98.7 & 102.4 & 52.4 \\
-Quad & cart-p. & time (s) & 1.90 & 1.79 & 1.70 & 1.96 & 2.04 & 0.34 \\
+Quad & pend. & success & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=1/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=10/pendulum/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=100/pendulum/success_rate/mean:2} \\
+Quad & pend. & effort & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/pendulum/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/pendulum/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=1/pendulum/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=10/pendulum/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=100/pendulum/control_effort/mean:1} \\
+Quad & pend. & time (s) & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/pendulum/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/pendulum/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=1/pendulum/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=10/pendulum/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=100/pendulum/time_to_upright/mean:2} \\
+Quad & cart-p. & success & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=1/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=10/cartpole/success_rate/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=100/cartpole/success_rate/mean:2} \\
+Quad & cart-p. & effort & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/cartpole/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/cartpole/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=1/cartpole/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=10/cartpole/control_effort/mean:1} & \rhval{sweep_qscale/ilqr-quad@qscale=100/cartpole/control_effort/mean:1} \\
+Quad & cart-p. & time (s) & \rhval{sweep_qscale/ilqr-quad@qscale=0.01/cartpole/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=0.1/cartpole/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=1/cartpole/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=10/cartpole/time_to_upright/mean:2} & \rhval{sweep_qscale/ilqr-quad@qscale=100/cartpole/time_to_upright/mean:2} \\
 \bottomrule
 \end{tabular}

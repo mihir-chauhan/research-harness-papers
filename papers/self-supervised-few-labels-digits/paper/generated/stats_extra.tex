@@ -1,37 +1,37 @@
-\begin{tabular}{llrrr}
+\begin{tabular}{llrr}
 \toprule
-Task & A $-$ B & $\Delta$ acc & paired $p$ & A wins \\
+Task & A $-$ B & $\Delta$ acc & paired $p$ \\
 \midrule
-n10 & SimCLR geom-only $-$ SimCLR-style probe & -0.101 & 0.064 & 0/5 \\
-n50 & SimCLR geom-only $-$ SimCLR-style probe & -0.028 & 0.090 & 0/5 \\
-n200 & SimCLR geom-only $-$ SimCLR-style probe & -0.003 & 0.327 & 1/5 \\
+n10 & SimCLR-style probe $-$ SimCLR geom-only & \rhval{cmp/cmp_aug/simclr-geom-only/n10/test_acc/delta:3} & \rhval{cmp/cmp_aug/simclr-geom-only/n10/test_acc/paired_p:3} \\
+n50 & SimCLR-style probe $-$ SimCLR geom-only & \rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3} & \rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:3} \\
+n200 & SimCLR-style probe $-$ SimCLR geom-only & \rhval{cmp/cmp_aug/simclr-geom-only/n200/test_acc/delta:3} & \rhval{cmp/cmp_aug/simclr-geom-only/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & SimCLR photo-only $-$ SimCLR-style probe & -0.124 & 0.001 & 0/5 \\
-n50 & SimCLR photo-only $-$ SimCLR-style probe & -0.037 & 0.003 & 0/5 \\
-n200 & SimCLR photo-only $-$ SimCLR-style probe & -0.013 & 0.016 & 0/5 \\
+n10 & SimCLR-style probe $-$ SimCLR photo-only & \rhval{cmp/cmp_aug/simclr-photo-only/n10/test_acc/delta:3} & \rhval{cmp/cmp_aug/simclr-photo-only/n10/test_acc/paired_p:3} \\
+n50 & SimCLR-style probe $-$ SimCLR photo-only & \rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta:3} & \rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3} \\
+n200 & SimCLR-style probe $-$ SimCLR photo-only & \rhval{cmp/cmp_aug/simclr-photo-only/n200/test_acc/delta:3} & \rhval{cmp/cmp_aug/simclr-photo-only/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & Supervised + aug $-$ Supervised scratch & 0.051 & 0.121 & 3/5 \\
-n50 & Supervised + aug $-$ Supervised scratch & 0.004 & 0.701 & 2/5 \\
-n200 & Supervised + aug $-$ Supervised scratch & -0.008 & 0.095 & 0/5 \\
+n10 & Supervised + aug $-$ Supervised scratch & \rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/delta:3} & \rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p:3} \\
+n50 & Supervised + aug $-$ Supervised scratch & \rhval{cmp/cmp_supaug/supervised-scratch/n50/test_acc/delta:3} & \rhval{cmp/cmp_supaug/supervised-scratch/n50/test_acc/paired_p:3} \\
+n200 & Supervised + aug $-$ Supervised scratch & \rhval{cmp/cmp_supaug/supervised-scratch/n200/test_acc/delta:3} & \rhval{cmp/cmp_supaug/supervised-scratch/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & Supervised + aug $-$ SimCLR-style probe & -0.113 & 0.022 & 0/5 \\
-n50 & Supervised + aug $-$ SimCLR-style probe & -0.032 & 0.086 & 1/5 \\
-n200 & Supervised + aug $-$ SimCLR-style probe & -0.010 & 0.113 & 0/5 \\
+n10 & Supervised + aug $-$ SimCLR-style probe & \rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/delta:3} & \rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p:3} \\
+n50 & Supervised + aug $-$ SimCLR-style probe & \rhval{cmp/cmp_supaug/simclr-style-probe/n50/test_acc/delta:3} & \rhval{cmp/cmp_supaug/simclr-style-probe/n50/test_acc/paired_p:3} \\
+n200 & Supervised + aug $-$ SimCLR-style probe & \rhval{cmp/cmp_supaug/simclr-style-probe/n200/test_acc/delta:3} & \rhval{cmp/cmp_supaug/simclr-style-probe/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & Rotation (reimplemented) $-$ PCA + LR & -0.064 & 0.050 & 1/5 \\
-n50 & Rotation (reimplemented) $-$ PCA + LR & -0.048 & 0.095 & 1/5 \\
-n200 & Rotation (reimplemented) $-$ PCA + LR & -0.006 & 0.348 & 2/5 \\
+n10 & Rotation (reimplemented) $-$ PCA + LR & \rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/delta:3} & \rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p:3} \\
+n50 & Rotation (reimplemented) $-$ PCA + LR & \rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/delta:3} & \rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p:3} \\
+n200 & Rotation (reimplemented) $-$ PCA + LR & \rhval{cmp/cmp_rotation/pca-+-lr/n200/test_acc/delta:3} & \rhval{cmp/cmp_rotation/pca-+-lr/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & Rotation (reimplemented) $-$ Random CNN + probe & -0.106 & 0.090 & 1/5 \\
-n50 & Rotation (reimplemented) $-$ Random CNN + probe & -0.084 & 0.020 & 0/5 \\
-n200 & Rotation (reimplemented) $-$ Random CNN + probe & -0.036 & 0.004 & 0/5 \\
+n10 & Rotation (reimplemented) $-$ Random CNN + probe & \rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/delta:3} & \rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p:3} \\
+n50 & Rotation (reimplemented) $-$ Random CNN + probe & \rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/delta:3} & \rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p:3} \\
+n200 & Rotation (reimplemented) $-$ Random CNN + probe & \rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/delta:3} & \rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & Random CNN + probe $-$ PCA + LR & 0.041 & 0.406 & 3/5 \\
-n50 & Random CNN + probe $-$ PCA + LR & 0.036 & 0.019 & 5/5 \\
-n200 & Random CNN + probe $-$ PCA + LR & 0.030 & 0.002 & 5/5 \\
+n10 & Random CNN + probe $-$ PCA + LR & \rhval{cmp/cmp_random/pca-+-lr/n10/test_acc/delta:3} & \rhval{cmp/cmp_random/pca-+-lr/n10/test_acc/paired_p:3} \\
+n50 & Random CNN + probe $-$ PCA + LR & \rhval{cmp/cmp_random/pca-+-lr/n50/test_acc/delta:3} & \rhval{cmp/cmp_random/pca-+-lr/n50/test_acc/paired_p:3} \\
+n200 & Random CNN + probe $-$ PCA + LR & \rhval{cmp/cmp_random/pca-+-lr/n200/test_acc/delta:3} & \rhval{cmp/cmp_random/pca-+-lr/n200/test_acc/paired_p:3} \\
 \midrule
-n10 & Random CNN + probe $-$ Pixels + LR & -0.017 & 0.655 & 2/5 \\
-n50 & Random CNN + probe $-$ Pixels + LR & 0.026 & 0.117 & 3/5 \\
-n200 & Random CNN + probe $-$ Pixels + LR & 0.012 & 0.013 & 5/5 \\
+n10 & Random CNN + probe $-$ Pixels + LR & \rhval{cmp/cmp_random/pixels-+-lr/n10/test_acc/delta:3} & \rhval{cmp/cmp_random/pixels-+-lr/n10/test_acc/paired_p:3} \\
+n50 & Random CNN + probe $-$ Pixels + LR & \rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/delta:3} & \rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p:3} \\
+n200 & Random CNN + probe $-$ Pixels + LR & \rhval{cmp/cmp_random/pixels-+-lr/n200/test_acc/delta:3} & \rhval{cmp/cmp_random/pixels-+-lr/n200/test_acc/paired_p:3} \\
 \bottomrule
 \end{tabular}

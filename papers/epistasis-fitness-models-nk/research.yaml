@@ -58,6 +58,7 @@ metrics:
     higher_is_better: true
   fit_seconds:
     higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -92,3 +93,40 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_test
+  value: 5000
+  why: number of held-out test sequences per run (default --n_test of method/run.py;
+    a setup size, not a result)
+- name: pair_features_max
+  value: 76000
+  why: 'number of pairwise one-hot product features at L=20, A=20: C(20,2)*20^2 (feature
+    count of the model, not a result)'
+- name: mlp_hidden_units
+  value: 128
+  why: width of the first hidden layer of the MLP baseline (method/run.py)
+- name: net_max_epochs
+  value: 300
+  why: maximum number of training epochs of the CNN and MLP baselines (method/run.py)
+- name: net_lr
+  value: 0.002
+  why: AdamW learning rate of the CNN and MLP baselines (method/run.py)
+- name: ridge_holdout_frac
+  value: 0.2
+  why: fraction of the training set held out to select ridge hyperparameters (n //
+    5 in method/run.py)
+- name: net_val_frac
+  value: 0.15
+  why: fraction of the training set used as validation split for the CNN and MLP (method/run.py)
+- name: net_train_frac
+  value: 0.85
+  why: 'fraction of the training set the CNN and MLP are fit on: 1 minus the validation
+    fraction'
+- name: h1_threshold
+  value: 0.95
+  why: pre-registered Spearman threshold of hypothesis H1 (proposal.md, research.yaml);
+    a test criterion, not a result
+- name: wilcoxon_min_p
+  value: 0.03125
+  why: '1/32: smallest attainable one-sided Wilcoxon signed-rank p-value with five
+    paired seeds (a mathematical fact)'

@@ -1,34 +1,35 @@
 slug: channel-capacity-emergent-communication
-direction: 'Emergent communication in a referential (Lewis signalling) game with a discrete channel: how
-  do vocabulary size and message length affect accuracy, and does the emerging protocol become compositional?
-  Small torch speaker and listener trained with Gumbel-softmax or REINFORCE on attribute-value objects.
-  Measure accuracy on held-out attribute combinations and topographic similarity, and compare against
+direction: 'Emergent communication in a referential (Lewis signalling) game with a
+  discrete channel: how do vocabulary size and message length affect accuracy, and
+  does the emerging protocol become compositional? Small torch speaker and listener
+  trained with Gumbel-softmax or REINFORCE on attribute-value objects. Measure accuracy
+  on held-out attribute combinations and topographic similarity, and compare against
   a channel that is larger than needed.'
-problem: Effect of vocabulary size and message length on accuracy and compositionality of emergent protocols
-  in a Lewis reconstruction game.
-gap: Capacity effects are known qualitatively; a small controlled CPU cross of V and L with both estimators
-  and fixed-code references is missing here.
-contribution: A small controlled replication of capacity effects with Gumbel-softmax/REINFORCE agents,
-  with random and oracle compositional fixed-sender references.
+problem: Effect of vocabulary size and message length on accuracy and compositionality
+  of emergent protocols in a Lewis reconstruction game.
+gap: Capacity effects are known qualitatively; a small controlled CPU cross of V and
+  L with both estimators and fixed-code references is missing here.
+contribution: A small controlled replication of capacity effects with Gumbel-softmax/REINFORCE
+  agents, with random and oracle compositional fixed-sender references.
 hypotheses:
 - id: H1
   statement: Capacity below 8 bits caps accuracy; more capacity raises train accuracy.
   test: sweep_vocab, sweep_length
 - id: H2
-  statement: A channel much larger than needed has larger generalisation gap and lower topsim than a tight
-    one.
+  statement: A channel much larger than needed has larger generalisation gap and lower
+    topsim than a tight one.
   test: main V4_L4 vs V16_L8
 - id: H3
-  statement: Learned protocols are far less compositional (topsim) and generalise worse than the oracle
-    compositional code.
+  statement: Learned protocols are far less compositional (topsim) and generalise
+    worse than the oracle compositional code.
   test: main
 - id: H4
   statement: Gumbel-softmax beats REINFORCE on held-out accuracy at equal steps.
   test: main
 method:
   name: Gumbel-softmax sender-receiver
-  summary: GRU sender emits L symbols from vocabulary V via straight-through Gumbel-softmax; GRU receiver
-    reconstructs all attributes.
+  summary: GRU sender emits L symbols from vocabulary V via straight-through Gumbel-softmax;
+    GRU receiver reconstructs all attributes.
   components:
   - gumbel channel
   - gru sender
@@ -47,6 +48,9 @@ metrics:
     higher_is_better: true
   gen_gap:
     higher_is_better: false
+  wall_s:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -74,3 +78,39 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: n_objects
+  value: 256
+  why: 'size of the object space: 4 attributes x 4 values (N_ATTR, N_VAL in method/run.py)'
+- name: holdout_frac
+  value: 0.1
+  why: fraction of attribute combinations held out for testing (HOLDOUT_FRAC in method/run.py)
+- name: train_frac
+  value: 0.9
+  why: fraction of attribute combinations used for training (1 - HOLDOUT_FRAC in method/run.py)
+- name: learning_rate
+  value: 0.002
+  why: Adam learning rate, default of --lr in method/run.py, used by every run
+- name: batch_size
+  value: 128
+  why: training batch size, default of --batch in method/run.py, used by every run
+- name: baseline_decay
+  value: 0.99
+  why: decay of the REINFORCE running-mean reward baseline in method/run.py
+- name: baseline_update
+  value: 0.01
+  why: weight of the new batch reward in the REINFORCE running-mean baseline in method/run.py
+- name: entropy_weight
+  value: 0.01
+  why: REINFORCE sender entropy bonus beta, default of --ent in method/run.py
+- name: curve_log_interval
+  value: 100
+  why: steps between train-accuracy curve points when --curve is given (method/run.py)
+- name: probe_steps_short
+  value: 3000
+  why: shorter step budget of the unrecorded seed-0 timing probe disclosed in the
+    setup section; a setting, not a result
+- name: probe_steps_long
+  value: 10000
+  why: longer step budget of the unrecorded seed-0 timing probe disclosed in the setup
+    section; a setting, not a result

@@ -1,105 +1,110 @@
-"""Reads results/runs.jsonl; writes compact tables (results/tables/*.tex|md), figures (results/figures/*.pdf) and results/hyp.md."""
-import json, numpy as np, pandas as pd, matplotlib
+"""Reads results/runs.jsonl; writes the paper's tables (results/tables/*.tex) and figures (results/figures/*.pdf).
+The tables contain no numbers: every cell is a \\rhval{<key>} macro that `rh paper build` fills from the registry
+(means, and the statistics of `rh compare`, whose CSVs in results/tables/ are read here only to pick a print format).
+The markdown copies (main_ece_nll.md, main_acc_brier.md) hold the means for reading outside the paper."""
+import json, re, numpy as np, pandas as pd, matplotlib
 matplotlib.use("Agg"); import matplotlib.pyplot as plt
-from scipy import stats
 rows = []
 for l in open("results/runs.jsonl"):
     r = json.loads(l)
     if r["status"] == "ok" and r["kind"] != "sanity":
         rows.append(dict(group=r["group"], name=r["name"], task=r["task"], seed=r["seed"], **r["config"], **r["metrics"]))
 df = pd.DataFrame(rows)
-main = df[df.group == "main"]; orc = df[df.group == "abl_oracle"]
+# abl_oracle and abl_dropdet also list main-group runs again (rh log --from-run, for rh compare): select by system name
+main = df[df.group == "main"]; orc = df[(df.group == "abl_oracle") & (df.name == "TS oracle (shifted val)")]
 SYS = ["MLP", "MLP + temperature scaling", "MC dropout", "Deep ensemble (5)"]; SH = ["MLP", "TS", "MCD", "Ens"]
 TASKS = ["rot0", "rot10", "rot20", "rot30", "rot45", "rot60", "noise0.25", "noise0.5", "noise0.75", "noise1.0", "rot30_noise0.5"]
 TL = {t: t.replace("_", "+").replace("noise", "n").replace("rot", "r") for t in TASKS}
+g = lambda n: main[main.name == n]
+TS, MLP, MCD, ENS = g(SYS[1]), g(SYS[0]), g(SYS[2]), g(SYS[3])
 M = main.groupby(["name", "task"]).mean(numeric_only=True)
+slug = lambda x: re.sub(r"[^a-z0-9_.+-]+", "-", str(x).lower()).strip("-") or "x"   # as rh.numbers.slug
+def val(group, name, task, metric, stat="mean", spec="3"):   # a recorded aggregate, printed by \rhval
+    return f"\\rhval{{{slug(group)}/{slug(name)}/{slug(task)}/{slug(metric)}/{stat}:{spec}}}"
+ORC, DET, ENSN, MCDN, TSN, MLPN = "TS oracle (shifted val)", "Dropout-trained MLP, deterministic", SYS[3], SYS[2], SYS[1], SYS[0]
+CMP = {(g, m): pd.read_csv(f"results/tables/compare_{g}_{m}.csv") for g, m in
+       [("main", "ece"), ("main", "nll"), ("main", "brier"), ("abl_oracle", "ece"), ("abl_oracle", "nll"), ("abl_dropdet", "ece")]}
+REF = {"main": MCDN, "abl_oracle": TSN, "abl_dropdet": DET}   # the reference system of each `rh compare` call
+def cmp(group, other, task, metric, stat, spec="3"):   # a statistic of `rh compare --group <group> --metric <metric> --ref REF[group]`
+    c = CMP[(group, metric)]; assert set(c.ref) == {REF[group]} and len(c[(c.name == other) & (c.task == task)]) == 1
+    return f"\\rhval{{cmp/{slug(group)}/{slug(other)}/{slug(task)}/{slug(metric)}/{stat}:{spec}}}"
+def pval(group, other, task, metric, dec=3):   # `dec` decimals; scientific notation when that would print as zero
+    c = CMP[(group, metric)]; p = float(c[(c.name == other) & (c.task == task)].paired_p.iloc[0])
+    return cmp(group, other, task, metric, "paired_p", str(dec) if p >= 0.5 * 10 ** -dec else "sci1")
+def write(fname, lines):
+    open(f"results/tables/{fname}.tex", "w").write("\n".join(lines + ["\\bottomrule", "\\end{tabular}"]) + "\n")
+
 def two_metric_table(m1, m2, fname, prec=3):
     cols = "l" + "cccc" + "cccc"
     hdr = " & ".join(["Shift"] + [f"{m1.upper() if m1!='accuracy' else 'Acc'} {s}" for s in SH] + [f"{m2.upper() if m2!='accuracy' else 'Acc'} {s}" for s in SH])
     lines = [f"\\begin{{tabular}}{{{cols}}}", "\\toprule", hdr + " \\\\", "\\midrule"]
     md = ["| " + hdr.replace("&", "|") + " |", "|" + "---|" * 9]
     for t in TASKS:
-        vals = []
+        vals, mdv = [], []
         for m in (m1, m2):
             v = [M.loc[(s, t), m] for s in SYS]
             best = (max if m == "accuracy" else min)(v)
-            vals += [(f"\\textbf{{{x:.{prec}f}}}" if x == best else f"{x:.{prec}f}") for x in v]
+            vals += [(f"\\textbf{{{val('main', s, t, m)}}}" if x == best else val("main", s, t, m)) for s, x in zip(SYS, v)]
+            mdv += [(f"**{x:.{prec}f}**" if x == best else f"{x:.{prec}f}") for x in v]
         lines.append(" & ".join([TL[t]] + vals) + " \\\\")
-        md.append("| " + " | ".join([t] + [x.replace("\\textbf{", "**").replace("}", "**") if "textbf" in x else x for x in vals]) + " |")
-    lines += ["\\bottomrule", "\\end{tabular}"]
-    open(f"results/tables/{fname}.tex", "w").write("\n".join(lines)); open(f"results/tables/{fname}.md", "w").write("\n".join(md))
+        md.append("| " + " | ".join([t] + mdv) + " |")
+    write(fname, lines); open(f"results/tables/{fname}.md", "w").write("\n".join(md))
 two_metric_table("ece", "nll", "main_ece_nll"); two_metric_table("accuracy", "brier", "main_acc_brier")
 
-# hypothesis tests
-def paired(a, b, metric, task):  # a, b: dataframes
-    x = a[a.task == task].sort_values("seed")[metric].values; y = b[b.task == task].sort_values("seed")[metric].values
-    d = x - y; p = stats.ttest_rel(x, y).pvalue
-    return x.mean(), y.mean(), d.mean(), p
-g = lambda n: main[main.name == n]
-TS, MLP, MCD, ENS = g(SYS[1]), g(SYS[0]), g(SYS[2]), g(SYS[3])
-H = []
-for t in ["rot0"]:
-    for m in ["nll", "ece"]:
-        a, b, d, p = paired(TS, MLP, m, t); H.append(("H1", f"TS-MLP {m}", t, a, b, d, p))
+# registered hypothesis tests: means, and the differences and paired p-values of `rh compare`
+lines = ["\\begin{tabular}{lllcccc}", "\\toprule", "Hyp. & Quantity (A $-$ B) & Shift & A & B & A$-$B & $p$ \\\\", "\\midrule"]
+for m in ["nll", "ece"]:
+    lines.append(f"H1 & {m.upper()}: TS $-$ MLP & r0 & {val('main', TSN, 'rot0', m)} & {val('main', MLPN, 'rot0', m)} & {cmp('abl_oracle', MLPN, 'rot0', m, 'delta')} & {pval('abl_oracle', MLPN, 'rot0', m)} \\\\")
 for t in ["rot60", "noise1.0"]:
-    ts_id = TS[TS.task == "rot0"].ece.mean(); ts_s = TS[TS.task == t].ece.mean()
-    H.append(("H2", "TS ECE shifted vs rot0 (ratio)", t, ts_s, ts_id, ts_s / ts_id, np.nan))
+    lines.append(f"H2 & TS ECE: shifted (A), r0 (B) & {TL[t]} & {val('main', TSN, t, 'ece')} & {val('main', TSN, 'rot0', 'ece')} & -- & -- \\\\")
 for t in ["rot60", "noise1.0"]:
     for m in ["nll", "brier"]:
-        means = {s: main[(main.name == s) & (main.task == t)][m].mean() for s in SYS}
-        H.append(("H3", f"{m}: best system", t, means[SYS[3]], min(v for k, v in means.items() if k != SYS[3]), means[SYS[3]] - min(v for k, v in means.items() if k != SYS[3]), np.nan))
+        assert min(SYS, key=lambda s: M.loc[(s, t), m]) == MCDN   # the best system other than the ensemble is MC dropout
+        lines.append(f"H3 & {m.upper() if m == 'nll' else 'Brier'}: MCD $-$ Ens & {TL[t]} & {val('main', MCDN, t, m)} & {val('main', ENSN, t, m)} & {cmp('main', ENSN, t, m, 'delta')} & -- \\\\")
 for t in ["rot60", "noise1.0"]:
-    a, b, d, p = paired(ENS, MCD, "ece", t); H.append(("H4", "Ens-MCD ece", t, a, b, d, p))
+    lines.append(f"H4 & ECE: MCD $-$ Ens & {TL[t]} & {val('main', MCDN, t, 'ece')} & {val('main', ENSN, t, 'ece')} & {cmp('main', ENSN, t, 'ece', 'delta')} & {pval('main', ENSN, t, 'ece')} \\\\")
 for t in ["rot45", "rot60", "noise0.75", "noise1.0"]:
-    a, b, d, p = paired(orc, TS, "ece", t); H.append(("H5", "Oracle-TS ece", t, a, b, d, p))
-Hd = pd.DataFrame(H, columns=["hyp", "quantity", "task", "A", "B", "A-B", "paired_p"])
-Hd.to_csv("results/tables/hyp.csv", index=False)
-lines = ["\\begin{tabular}{llcccc}", "\\toprule", "Hyp. & Quantity & Shift & A & B & A$-$B / ratio, $p$ \\\\", "\\midrule"]
-for r in H:
-    last = f"{r[5]:.3f}" + (f", $p$={r[6]:.3f}" if not np.isnan(r[6]) else "")
-    lines.append(f"{r[0]} & {r[1]} & {TL[r[2]]} & {r[3]:.3f} & {r[4]:.3f} & {last} \\\\")
-lines += ["\\bottomrule", "\\end{tabular}"]
-open("results/tables/hyp.tex", "w").write("\n".join(lines).replace("{TS-MLP", "{TS--MLP"))
-open("results/tables/hyp.md", "w").write(Hd.round(4).to_string(index=False))
+    lines.append(f"H5 & ECE: TS $-$ Oracle & {TL[t]} & {val('main', TSN, t, 'ece')} & {val('abl_oracle', ORC, t, 'ece')} & {cmp('abl_oracle', ORC, t, 'ece', 'delta')} & {pval('abl_oracle', ORC, t, 'ece')} \\\\")
+write("hyp", lines)
 
 # per-seed nuance: oracle vs TS at rot0 must be identical
 a = orc[orc.task == "rot0"].sort_values("seed").ece.values; b = TS[TS.task == "rot0"].sort_values("seed").ece.values
 print("oracle==TS at rot0:", np.allclose(a, b))
 
-# temperature table
-Tm = pd.DataFrame({"TS T (ID-fit)": TS.groupby("task").temperature.mean(), "Oracle T": orc.groupby("task").temperature.mean(),
-                   "Oracle T min": orc.groupby("task").temperature.min(), "Oracle T max": orc.groupby("task").temperature.max()}).loc[TASKS]
-print(Tm.round(2).to_string())
-# oracle table: ECE and NLL of TS vs oracle TS
+# oracle table: ECE, NLL and temperature of TS vs oracle TS
 lines = ["\\begin{tabular}{lcccccc}", "\\toprule", "Shift & ECE TS & ECE Orc & NLL TS & NLL Orc & $T$ TS & $T$ Orc \\\\", "\\midrule"]
 for t in TASKS:
-    lines.append(" & ".join([TL[t]] + [f"{x:.3f}" for x in (TS[TS.task == t].ece.mean(), orc[orc.task == t].ece.mean(), TS[TS.task == t].nll.mean(), orc[orc.task == t].nll.mean(), TS[TS.task == t].temperature.mean(), orc[orc.task == t].temperature.mean())]) + " \\\\")
-lines += ["\\bottomrule", "\\end{tabular}"]
-open("results/tables/oracle_cmp.tex", "w").write("\n".join(lines)); 
+    lines.append(" & ".join([TL[t]] + [val(g, n, t, m) for m in ("ece", "nll", "temperature") for g, n in (("main", TSN), ("abl_oracle", ORC))]) + " \\\\")
+write("oracle_cmp", lines)
 
-# TS vs MLP per shift
+# TS vs MLP per shift (rh compare --group abl_oracle --ref TS: delta = TS - MLP, rel_delta = delta / MLP)
 lines = ["\\begin{tabular}{lccccccc}", "\\toprule", "Shift & ECE MLP & ECE TS & $\\Delta$ECE\\% & $p$ & NLL MLP & NLL TS & $p$ \\\\", "\\midrule"]
 for t in TASKS:
-    _, _, _, pe = paired(TS, MLP, "ece", t); _, _, _, pn = paired(TS, MLP, "nll", t)
-    e1, e2 = MLP[MLP.task == t].ece.mean(), TS[TS.task == t].ece.mean(); n1, n2 = MLP[MLP.task == t].nll.mean(), TS[TS.task == t].nll.mean()
-    lines.append(f"{TL[t]} & {e1:.3f} & {e2:.3f} & {100*(e2-e1)/e1:.0f} & {pe:.3f} & {n1:.3f} & {n2:.3f} & {pn:.3f} \\\\")
-lines += ["\\bottomrule", "\\end{tabular}"]
-open("results/tables/ts_vs_mlp.tex", "w").write("\n".join(lines))
+    lines.append(" & ".join([TL[t], val("main", MLPN, t, "ece"), val("main", TSN, t, "ece"), cmp("abl_oracle", MLPN, t, "ece", "rel_delta", "pct0"),
+                             pval("abl_oracle", MLPN, t, "ece"), val("main", MLPN, t, "nll"), val("main", TSN, t, "nll"), pval("abl_oracle", MLPN, t, "nll")]) + " \\\\")
+write("ts_vs_mlp", lines)
+
+# MC dropout vs deep ensemble per shift (rh compare --group main --ref "MC dropout": delta = MCD - Ens)
+lines = ["\\begin{tabular}{lcccccc}", "\\toprule", "Shift & $\\Delta$ECE & $p$ & $\\Delta$NLL & $p$ & $\\Delta$Brier & $p$ \\\\", "\\midrule"]
+for t in TASKS:
+    lines.append(" & ".join([TL[t]] + [x for m in ("ece", "nll", "brier") for x in (cmp("main", ENSN, t, m, "delta"), pval("main", ENSN, t, m, 4))]) + " \\\\")
+write("mcd_vs_ens", lines)
+
 # dropout decomposition table (abl_dropdet)
-dd_ = df[df.group == "abl_dropdet"]
-if len(dd_):
-    DD = dd_.groupby("task").mean(numeric_only=True)
-    lines = ["\\begin{tabular}{lcccccccc}", "\\toprule", "Shift & Acc MLP & Acc Det & Acc MCD & ECE MLP & ECE Det & ECE MCD & NLL Det & NLL MCD \\\\", "\\midrule"]
-    for t in TASKS:
-        v = [M.loc[(SYS[0], t), "accuracy"], DD.loc[t, "accuracy"], M.loc[(SYS[2], t), "accuracy"], M.loc[(SYS[0], t), "ece"], DD.loc[t, "ece"], M.loc[(SYS[2], t), "ece"], DD.loc[t, "nll"], M.loc[(SYS[2], t), "nll"]]
-        lines.append(" & ".join([TL[t]] + [f"{x:.3f}" for x in v]) + " \\\\")
-    lines += ["\\bottomrule", "\\end{tabular}"]
-    open("results/tables/dropdet.tex", "w").write("\n".join(lines))
-    DDs = dd_.set_index(["task", "seed"]).sort_index()
-    for t in ["rot0", "rot30", "rot60", "noise1.0"]:
-        for nm, ref in [("MCD", MCD), ("MLP", MLP)]:
-            x = DDs.loc[t].ece.values; y = ref[ref.task == t].sort_values("seed").ece.values
-            print("Det-dropout ECE vs", nm, t, round(x.mean(), 4), round(y.mean(), 4), "p=", round(stats.ttest_rel(x, y).pvalue, 4))
+lines = ["\\begin{tabular}{lcccccccc}", "\\toprule", "Shift & Acc MLP & Acc Det & Acc MCD & ECE MLP & ECE Det & ECE MCD & NLL Det & NLL MCD \\\\", "\\midrule"]
+for t in TASKS:
+    v = [val("main", MLPN, t, "accuracy"), val("abl_dropdet", DET, t, "accuracy"), val("main", MCDN, t, "accuracy"), val("main", MLPN, t, "ece"),
+         val("abl_dropdet", DET, t, "ece"), val("main", MCDN, t, "ece"), val("abl_dropdet", DET, t, "nll"), val("main", MCDN, t, "nll")]
+    lines.append(" & ".join([TL[t]] + v) + " \\\\")
+write("dropdet", lines)
+# sweep table (wide)
+lines = ["\\begin{tabular}{llcccccc}", "\\toprule", "Sweep & Value & ECE r0 & NLL r0 & ECE r30 & NLL r30 & ECE n0.5 & NLL n0.5 \\\\", "\\midrule"]
+for grp, par, nm, sysn in [("sweep_members", "members", "M", "Deep ensemble"), ("sweep_dropout", "p", "$p$", "MC dropout")]:
+    for v in sorted(df[df.group == grp][par].unique()):
+        pv = slug(json.dumps(int(v) if float(v).is_integer() else float(v)))
+        lines.append(f"{nm} & {v:g} & " + " & ".join(f"\\rhval{{{grp}/{slug(sysn)}@{par}={pv}/{slug(t)}/{m}/mean:3}}" for t in ["rot0", "rot30", "noise0.5"] for m in ("ece", "nll")) + " \\\\")
+    lines.append("\\midrule")
+write("sweeps", lines[:-1])
 # Figures
 col = dict(zip(SYS, ["#555555", "#1b6ca8", "#d9822b", "#2a9d5c"])); mk = dict(zip(SYS, ["o", "s", "^", "D"]))
 fam = {"rotation (degrees)": (["rot0", "rot10", "rot20", "rot30", "rot45", "rot60"], [0, 10, 20, 30, 45, 60]),
@@ -131,13 +136,3 @@ for r, (grp, par, lab) in enumerate([("sweep_members", "members", "ensemble size
             ax[r, c].errorbar(dd.index, dd["mean"], yerr=dd["std"], marker="o", ms=3, color=cc, capsize=2, label=t)
         ax[r, c].set_xlabel(lab); ax[r, c].set_ylabel(ml); ax[r, c].grid(alpha=.3)
 ax[0, 0].legend(fontsize=6); fig.tight_layout(); fig.savefig("results/figures/sweeps.pdf"); plt.close(fig)
-# sweep table (wide)
-lines = ["\\begin{tabular}{llcccccc}", "\\toprule", "Sweep & Value & ECE r0 & NLL r0 & ECE r30 & NLL r30 & ECE n0.5 & NLL n0.5 \\\\", "\\midrule"]
-for grp, par, nm in [("sweep_members", "members", "M"), ("sweep_dropout", "p", "$p$")]:
-    d = df[df.group == grp].groupby([par, "task"])[["ece", "nll"]].mean()
-    for v in sorted(df[df.group == grp][par].unique()):
-        lines.append(f"{nm} & {v:g} & " + " & ".join(f"{d.loc[(v, t), m]:.3f}" for t in ["rot0", "rot30", "noise0.5"] for m in ("ece", "nll")) + " \\\\")
-    lines.append("\\midrule")
-lines[-1] = "\\bottomrule"; lines.append("\\end{tabular}")
-open("results/tables/sweeps.tex", "w").write("\n".join(lines))
-print(Hd.round(4).to_string())

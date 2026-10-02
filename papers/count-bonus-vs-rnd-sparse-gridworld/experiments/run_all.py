@@ -1,6 +1,8 @@
 """Every registry run of the study, through `rh run` (two processes at a time).
 
-Usage: $PY experiments/run_all.py [pilot|main|abl|sweeps|all]
+Usage: $PY experiments/run_all.py [pilot|main|abl|sweeps|all|copies]
+`copies` runs nothing: it copies the main rows of the penalty-only control and the count (state) bonus into the group
+`offset_control` (`rh log --from-run`), so that `rh compare` can test the two against each other.
 Each run writes its own metrics file under results/raw/r2/ and is skipped if that file exists.
 Sweep cells at the default value (beta 0.1, K 16, clip 5) are the `main` runs and are not repeated.
 """
@@ -83,7 +85,23 @@ def go(j):
     return out, "ok" if r.returncode == 0 and os.path.exists(out) else "FAILED " + (r.stdout + r.stderr)[-300:]
 
 
+def copies():
+    rows = [json.loads(l) for l in open("results/runs.jsonl")]
+    dead = {}  # (group, name) -> line of the last supersede
+    for i, r in enumerate(rows):
+        if r.get("op") == "supersede": dead[(r["group"], r["name"])] = i
+    live = [r for i, r in enumerate(rows) if "op" not in r and r.get("status") == "ok" and i > dead.get((r["group"], r["name"]), -1)]
+    have = {(r["name"], r["task"], r["seed"]) for r in live if r["group"] == "offset_control"}
+    for r in live:
+        if r["group"] == "main" and r["name"] in ("Step penalty only (optimistic init)", "Count bonus (state)") \
+                and (r["name"], r["task"], r["seed"]) not in have:
+            subprocess.run(["rh", "log", "--kind", r["kind"], "--name", r["name"], "--group", "offset_control", "--task", r["task"],
+                            "--seed", str(r["seed"]), "--from-run", r["run_id"]], check=True)
+
+
 if __name__ == "__main__":
+    if sys.argv[1:] == ["copies"]:
+        copies(); sys.exit(0)
     js = jobs(sys.argv[1] if len(sys.argv) > 1 else "all")
     os.makedirs("results/raw/r2", exist_ok=True)
     with ThreadPoolExecutor(2) as ex:

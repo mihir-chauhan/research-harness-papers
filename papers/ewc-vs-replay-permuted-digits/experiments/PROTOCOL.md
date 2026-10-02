@@ -11,7 +11,7 @@ Hardware: CPU, 2 threads, ~5-10 s per run. Driver: experiments/drive.py (helper)
        --order "Fine-tuning,EWC,Experience replay (M=20),Experience replay (M=100),Joint training"
     $PY experiments/make_tables.py     # main_paper.tex (presentation of main.tex), tune_lr_paper.tex, sweep_lasttask.tex
     $PY experiments/make_figs.py       # figures and sweep_both.tex
-    sh experiments/make_stats.sh       # rh compare per scenario and reference; paired intervals
+    sh experiments/make_stats.sh       # rh compare per scenario and reference; last, the default-reference compare whose CSV feeds \rhval{cmp/...}
 `--dry-run` prints the `rh run` commands. The generated commands were checked against provenance.command of all 336
 original registry rows (tune_lr rows were produced by the first driver version, whose metrics-file names lacked the
 config value; everything else is identical).

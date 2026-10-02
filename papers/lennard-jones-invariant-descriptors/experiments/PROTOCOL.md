@@ -3,6 +3,9 @@
 Task `lj_clusters`: energies of 5-13 atom Lennard-Jones clusters (reduced units). Entry point `method/run.py`;
 drivers `experiments/run_all.sh` (first round), `experiments/run_extra.sh` (mean predictor, step sweep) and
 `experiments/run_fix.sh` (fix round after the audit). Analysis: `experiments/analyze.py`.
+Since the conformance pass the tables `maintab`, `lcurve`, `tests`, `abl` and `steps` in `results/tables/` are built from
+`\rhval{<key>}` macros (`rh values`, `rh compare --group main --metric energy_mae`) and are no longer written by `analyze.py`;
+`analyze.py` still writes `grid`, `hp`, `tail`, the figures and `results/analysis_stats.txt`.
 
 ## Data, splits, seeds
 - Per seed s one generator (`default_rng(1000+s)`) draws, in this order, n training, max(50, n//4) validation and 1000 test

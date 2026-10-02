@@ -29,12 +29,8 @@ t = stats.ttest_ind(d_sp, d_ov, equal_var=False)
 rows.append(('H4', 'sep minus overlap, w=3 minus w=0', 'mode_tv', d_sp.mean() - d_ov.mean(), t.pvalue, (d_sp.mean() - d_ov.mean()) / np.sqrt((d_sp.var(ddof=1) + d_ov.var(ddof=1)) / 2)))
 H = pd.DataFrame(rows, columns=['H', 'comparison', 'metric', 'diff', 'p', 'd'])
 print(H.to_string())
-def fmt_p(p): return f'{p:.1e}' if p < 1e-3 else f'{p:.3f}'
-with open(T + 'hyp.tex', 'w') as f:
-    f.write('\\begin{tabular}{lllrrr}\\toprule H & Comparison & Metric & Mean diff & $p$ & $d_z$ \\\\\\midrule\n')
-    for r in H.itertuples():
-        f.write(f'{r.H} & {r.comparison} & \\texttt{{{r.metric.replace("_", chr(92)+"_")}}} & {r.diff:+.4f} & {fmt_p(r.p)} & {r.d:.1f} \\\\\n')
-    f.write('\\bottomrule\\end{tabular}\n')
+# The hypothesis table of the paper is no longer written here: the paper reports only the statistics that
+# `rh compare` recomputes from the registry (\rhval{cmp/...} in paper/sections/results.tex). The printout above is kept for reference.
 # ---- sweep table (overlap task)
 M = ['class_acc', 'support_prec', 'mode_cov', 'mode_tv', 'std_ratio', 'off_support', 'swd']
 short = ['acc', 'prec', 'cov', 'tv', 'std', 'off', 'swd']

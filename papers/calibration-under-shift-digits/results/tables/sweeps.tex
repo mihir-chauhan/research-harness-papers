@@ -2,15 +2,15 @@
 \toprule
 Sweep & Value & ECE r0 & NLL r0 & ECE r30 & NLL r30 & ECE n0.5 & NLL n0.5 \\
 \midrule
-M & 1 & 0.016 & 0.098 & 0.452 & 4.560 & 0.404 & 4.367 \\
-M & 2 & 0.017 & 0.095 & 0.452 & 4.401 & 0.370 & 3.984 \\
-M & 3 & 0.015 & 0.094 & 0.424 & 3.978 & 0.354 & 3.715 \\
-M & 5 & 0.015 & 0.092 & 0.419 & 3.853 & 0.353 & 3.589 \\
-M & 10 & 0.014 & 0.091 & 0.401 & 3.726 & 0.345 & 3.449 \\
+M & 1 & \rhval{sweep_members/deep-ensemble@members=1/rot0/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=1/rot0/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=1/rot30/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=1/rot30/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=1/noise0.5/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=1/noise0.5/nll/mean:3} \\
+M & 2 & \rhval{sweep_members/deep-ensemble@members=2/rot0/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=2/rot0/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=2/rot30/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=2/rot30/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=2/noise0.5/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=2/noise0.5/nll/mean:3} \\
+M & 3 & \rhval{sweep_members/deep-ensemble@members=3/rot0/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=3/rot0/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=3/rot30/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=3/rot30/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=3/noise0.5/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=3/noise0.5/nll/mean:3} \\
+M & 5 & \rhval{sweep_members/deep-ensemble@members=5/rot0/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=5/rot0/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=5/rot30/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=5/rot30/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=5/noise0.5/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=5/noise0.5/nll/mean:3} \\
+M & 10 & \rhval{sweep_members/deep-ensemble@members=10/rot0/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=10/rot0/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=10/rot30/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=10/rot30/nll/mean:3} & \rhval{sweep_members/deep-ensemble@members=10/noise0.5/ece/mean:3} & \rhval{sweep_members/deep-ensemble@members=10/noise0.5/nll/mean:3} \\
 \midrule
-$p$ & 0.1 & 0.014 & 0.078 & 0.417 & 3.524 & 0.343 & 3.088 \\
-$p$ & 0.2 & 0.015 & 0.071 & 0.364 & 3.045 & 0.295 & 2.515 \\
-$p$ & 0.3 & 0.021 & 0.073 & 0.336 & 2.721 & 0.260 & 2.218 \\
-$p$ & 0.5 & 0.038 & 0.095 & 0.245 & 2.178 & 0.194 & 1.760 \\
+$p$ & 0.1 & \rhval{sweep_dropout/mc-dropout@p=0.1/rot0/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.1/rot0/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.1/rot30/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.1/rot30/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.1/noise0.5/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.1/noise0.5/nll/mean:3} \\
+$p$ & 0.2 & \rhval{sweep_dropout/mc-dropout@p=0.2/rot0/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.2/rot0/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.2/rot30/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.2/rot30/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.2/noise0.5/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.2/noise0.5/nll/mean:3} \\
+$p$ & 0.3 & \rhval{sweep_dropout/mc-dropout@p=0.3/rot0/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.3/rot0/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.3/rot30/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.3/rot30/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.3/noise0.5/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.3/noise0.5/nll/mean:3} \\
+$p$ & 0.5 & \rhval{sweep_dropout/mc-dropout@p=0.5/rot0/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.5/rot0/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.5/rot30/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.5/rot30/nll/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.5/noise0.5/ece/mean:3} & \rhval{sweep_dropout/mc-dropout@p=0.5/noise0.5/nll/mean:3} \\
 \bottomrule
 \end{tabular}

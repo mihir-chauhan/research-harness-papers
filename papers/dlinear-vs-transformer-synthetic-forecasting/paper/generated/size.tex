@@ -3,9 +3,9 @@
  & Params & \multicolumn{2}{c}{Median run (s)}\\
 System & ($H$=96) & 400 steps & 2000 steps\\
 \midrule
-Seasonal naive & -- & 0.2 & --\\
-DLinear & 64704 & 2.6 & 7.6\\
-PatchTST & 322656 & 47.9 & 220.9\\
-GRU & 20448 & 14.1 & 56.2\\
+Seasonal naive & -- & \rhval{main/seasonal-naive/regime/runtime_s/median:1} & --\\
+DLinear & \rhval{main/dlinear/regime/n_params_h96/mean} & \rhval{main/dlinear/regime/runtime_s/median:1} & \rhval{sweep_steps/dlinear@steps=2000/regime/runtime_s/median:1}\\
+PatchTST & \rhval{main/patchtst/regime/n_params_h96/mean} & \rhval{main/patchtst/regime/runtime_s/median:1} & \rhval{sweep_steps/patchtst@steps=2000/regime/runtime_s/median:1}\\
+GRU & \rhval{main/gru/regime/n_params_h96/mean} & \rhval{main/gru/regime/runtime_s/median:1} & \rhval{sweep_steps/gru@steps=2000/regime/runtime_s/median:1}\\
 \bottomrule
 \end{tabular}

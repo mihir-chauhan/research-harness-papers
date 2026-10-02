@@ -1,12 +1,11 @@
-\begin{tabular}{lrrrrrrr}
+\begin{tabular}{lrrr}
 \toprule
-dwell & DLinear & \multicolumn{3}{c}{PatchTST} & \multicolumn{3}{c}{GRU}\\
- & MSE & MSE & vs DL (\%) & seeds & MSE & vs DL (\%) & seeds\\
+dwell & DLinear & PatchTST & GRU\\
 \midrule
-100 & 0.774 & 0.773 & -0.2 & 1/3 & 0.743 & -4.1 & 3/3\\
-250 & 0.554 & 0.529 & -4.5 & 2/3 & 0.537 & -3.2 & 2/3\\
-500 & 0.434 & 0.413 & -4.8 & 3/3 & 0.446 & +2.9 & 1/3\\
-1000 & 0.272 & 0.258 & -5.1$^\ast$ & 3/3 & 0.337 & +23.8 & 0/3\\
-4000 & 0.312 & 0.307 & -1.7 & 3/3 & 0.599 & +91.7 & 0/3\\
+100 & \rhval{sweep_dwell/dlinear@dwell=100/regime/mse_96/mean:3} & \rhval{sweep_dwell/patchtst@dwell=100/regime/mse_96/mean:3}$^{1}$ & \rhval{sweep_dwell/gru@dwell=100/regime/mse_96/mean:3}$^{3}$\\
+250 & \rhval{sweep_dwell/dlinear@dwell=250/regime/mse_96/mean:3} & \rhval{sweep_dwell/patchtst@dwell=250/regime/mse_96/mean:3}$^{2}$ & \rhval{sweep_dwell/gru@dwell=250/regime/mse_96/mean:3}$^{2}$\\
+500 & \rhval{main/dlinear/regime/mse_96/mean:3} & \rhval{main/patchtst/regime/mse_96/mean:3}$^{3}$ & \rhval{main/gru/regime/mse_96/mean:3}$^{1}$\\
+1000 & \rhval{sweep_dwell/dlinear@dwell=1000/regime/mse_96/mean:3} & \rhval{sweep_dwell/patchtst@dwell=1000/regime/mse_96/mean:3}$^{3\ast}$ & \rhval{sweep_dwell/gru@dwell=1000/regime/mse_96/mean:3}$^{0}$\\
+4000 & \rhval{sweep_dwell/dlinear@dwell=4000/regime/mse_96/mean:3} & \rhval{sweep_dwell/patchtst@dwell=4000/regime/mse_96/mean:3}$^{3}$ & \rhval{sweep_dwell/gru@dwell=4000/regime/mse_96/mean:3}$^{0}$\\
 \bottomrule
 \end{tabular}

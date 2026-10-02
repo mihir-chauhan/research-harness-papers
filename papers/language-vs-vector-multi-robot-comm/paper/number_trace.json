@@ -1,0 +1,5883 @@
+{
+ "numbers": [
+  {
+   "section": "ablations.tex",
+   "literal": "0.1",
+   "context": "ps (5 seeds each; $V{=}4$ and $\\sigma{=}0.1$ coincide with the main runs). \\begin{",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "4cdb29d6be",
+     "05b8421d84",
+     "843b1a432a",
+     "6df4bbc5e2",
+     "aeb0f6a769"
+    ],
+    "value": 0.09904069751501084,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=8/rendezvous/final_dist/mean",
+    "candidates": 134
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.288",
+   "context": "$ except $V{=}2$, where they are equal (0.288 for both). The continuous vector degrad",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.2878500044345856,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.000",
+   "context": "ector degrades quickly with noise, from 1.000 at $\\sigma{=}0$ to 0.301 at $\\sigma{=}1",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.301",
+   "context": "th noise, from 1.000 at $\\sigma{=}0$ to 0.301 at $\\sigma{=}1.0$: its advantage in the",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.0",
+   "context": "0 at $\\sigma{=}0$ to 0.301 at $\\sigma{=}1.0$: its advantage in the main table depen",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 157
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.3",
+   "context": "might help a lot, so we swept $\\tau\\in\\{0.3,0.5,1,2\\}$ with 5 seeds each (Table~\\re",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.5",
+   "context": "t help a lot, so we swept $\\tau\\in\\{0.3,0.5,1,2\\}$ with 5 seeds each (Table~\\ref{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.5",
+   "context": "The best setting by validation, $\\tau{=}0.5$, reaches 0.721 test success with a lar",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.721",
+   "context": "ng by validation, $\\tau{=}0.5$, reaches 0.721 test success with a large seed spread (",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.7207999944686889,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/success_rate/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.090",
+   "context": "t success with a large seed spread (std 0.090) versus 0.678 at $\\tau{=}1$; the differ",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.08970514402484688,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.678",
+   "context": "a large seed spread (std 0.090) versus 0.678 at $\\tau{=}1$; the differences between",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.931",
+   "context": "best setting stays below the language (0.931). Individual seeds can be much better (",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.867",
+   "context": "e much better (the probe's seed reached 0.867), so the discrete baseline's rank is se",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "max",
+    "run_ids": [
+     "ed26df92ce",
+     "d6931d76ca",
+     "2aa33bd492",
+     "6236fa395b",
+     "69c547fc48",
+     "5e6561490e",
+     "e7c4657c64",
+     "5b9a85d3d7",
+     "7c64201e90",
+     "d360141ae9",
+     "572f202b58",
+     "6720e220bb",
+     "01f77f880d",
+     "9f6ae77516",
+     "c4e97f98ab",
+     "97aa54d627",
+     "fc63b09796",
+     "f26ec4f1a2",
+     "7d8572af69",
+     "3014ba14ac"
+    ],
+    "value": 0.8667500019073486,
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/success_rate/max",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "640",
+   "context": "learned channels with validation every 640 episodes (Table~\\ref{tab:dense}; the me",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "min",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 640.0,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/min",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "128000",
+   "context": "\\texttt{episodes\\_to\\_90} is capped at 128000 when 90\\% is never reached, as for the",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 128000.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/mean",
+    "candidates": 91
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "90\\%",
+   "context": "sodes\\_to\\_90} is capped at 128000 when 90\\% is never reached, as for the discrete c",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "max",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.8952500224113464,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/success_rate/max",
+    "form": "percent",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "640",
+   "context": "ntering\\caption{Dense evaluation (every 640 episodes), mean $\\pm$ std over 5 seeds.",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "min",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 640.0,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/min",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.071",
+   "context": "channel beats no communication (success 0.071). The continuous vector has the highest",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.07124999761581421,
+    "key": "main/no-communication/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "1.000",
+   "context": "s vector has the highest final success (1.000), ahead of the templated language (0.93",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.931",
+   "context": ".000), ahead of the templated language (0.931) and the discrete channel (0.678). Both",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.678",
+   "context": "guage (0.931) and the discrete channel (0.678). Both the continuous and language syst",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "6400",
+   "context": "are at plateau by the first evaluation (6400 episodes), so the area under the learni",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "640",
+   "context": "ts final success; with evaluation every 640 episodes the language reaches 50\\% vali",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "min",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 640.0,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/min",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "50\\%",
+   "context": "every 640 episodes the language reaches 50\\% validation success in 1024 $\\pm$ 351 tr",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "form": "percent",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "1024",
+   "context": "uage reaches 50\\% validation success in 1024 $\\pm$ 351 training episodes versus 896",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 1024.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "351",
+   "context": "s 50\\% validation success in 1024 $\\pm$ 351 training episodes versus 896 $\\pm$ 351",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 350.5424368033063,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "896",
+   "context": "1024 $\\pm$ 351 training episodes versus 896 $\\pm$ 351 for the continuous vector, i.",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 896.0,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "351",
+   "context": "351 training episodes versus 896 $\\pm$ 351 for the continuous vector, i.e.\\ no res",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 350.5424368033063,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "9984",
+   "context": "t far faster than the discrete channel (9984 $\\pm$ 3282). The discrete baseline is u",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 9984.0,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "3282",
+   "context": "r than the discrete channel (9984 $\\pm$ 3282). The discrete baseline is untuned and",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 3282.1456396692697,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/episodes_to_50/std"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.721",
+   "context": "sweep over 5 seeds raises it at best to 0.721, so its position is provisional. In cro",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.7207999944686889,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/success_rate/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.066",
+   "context": "chance level for both learned channels (0.066 each, versus 0.071 for no communication",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "mean",
+    "run_ids": [
+     "de0e7a8bc1",
+     "ba19b4cdc9",
+     "fe1399f0ae",
+     "7a2e114066",
+     "b2554f3cf4"
+    ],
+    "value": 0.06583750019781291,
+    "key": "xplay/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/xplay_success/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.071",
+   "context": "th learned channels (0.066 each, versus 0.071 for no communication), whereas the temp",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.07124999761581421,
+    "key": "main/no-communication/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "0.931",
+   "context": "), whereas the templated language keeps 0.931, which is expected because its speaker",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.3",
+   "context": "& success\\_auc & msgs\\_used \\\\\\midrule 0.3 & 0.676 $\\pm$ 0.069 & 0.678 $\\pm$ 0.067",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.676",
+   "context": "cess\\_auc & msgs\\_used \\\\\\midrule 0.3 & 0.676 $\\pm$ 0.069 & 0.678 $\\pm$ 0.067 & 0.606",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6758000016212463,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/val_success_final/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.069",
+   "context": "msgs\\_used \\\\\\midrule 0.3 & 0.676 $\\pm$ 0.069 & 0.678 $\\pm$ 0.067 & 0.606 $\\pm$ 0.050",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.06886000618746316,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/val_success_final/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.678",
+   "context": "ed \\\\\\midrule 0.3 & 0.676 $\\pm$ 0.069 & 0.678 $\\pm$ 0.067 & 0.606 $\\pm$ 0.050 & 11.0",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.067",
+   "context": "e 0.3 & 0.676 $\\pm$ 0.069 & 0.678 $\\pm$ 0.067 & 0.606 $\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.7",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.06710960050676222,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/val_success_final/std",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.606",
+   "context": "0.676 $\\pm$ 0.069 & 0.678 $\\pm$ 0.067 & 0.606 $\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6057523842812295,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.050",
+   "context": "0.069 & 0.678 $\\pm$ 0.067 & 0.606 $\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.7",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.04971295450219363,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_auc/std"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "11.0",
+   "context": "0.678 $\\pm$ 0.067 & 0.606 $\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.721 $\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "msgs_used",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 11.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/msgs_used/mean",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.5",
+   "context": "pm$ 0.067 & 0.606 $\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.721 $\\pm$ 0.090",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.726",
+   "context": "067 & 0.606 $\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.721 $\\pm$ 0.090 & 0.655",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "mean",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.7264000058174134,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/val_success_final/mean"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.099",
+   "context": "$\\pm$ 0.050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.721 $\\pm$ 0.090 & 0.655 $\\pm$ 0.071",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "4cdb29d6be",
+     "05b8421d84",
+     "843b1a432a",
+     "6df4bbc5e2",
+     "aeb0f6a769"
+    ],
+    "value": 0.09904069751501084,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=8/rendezvous/final_dist/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.721",
+   "context": "050 & 11.0 \\\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.721 $\\pm$ 0.090 & 0.655 $\\pm$ 0.071 & 12.0",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.7207999944686889,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/success_rate/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.090",
+   "context": "\\ 0.5 & 0.726 $\\pm$ 0.099 & 0.721 $\\pm$ 0.090 & 0.655 $\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.6",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.08970514402484688,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.655",
+   "context": "0.726 $\\pm$ 0.099 & 0.721 $\\pm$ 0.090 & 0.655 $\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 0.6550190493198379,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.071",
+   "context": "0.099 & 0.721 $\\pm$ 0.090 & 0.655 $\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.6",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.07124999761581421,
+    "key": "main/no-communication/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "12.0",
+   "context": "0.721 $\\pm$ 0.090 & 0.655 $\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.678 $\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "msgs_used",
+    "stat": "mean",
+    "run_ids": [
+     "d6931d76ca",
+     "5e6561490e",
+     "d360141ae9",
+     "9f6ae77516",
+     "f26ec4f1a2"
+    ],
+    "value": 12.0,
+    "config": {
+     "tau": 0.5
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.5/rendezvous/msgs_used/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "1.0",
+   "context": "pm$ 0.090 & 0.655 $\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.678 $\\pm$ 0.059",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 157
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.677",
+   "context": "090 & 0.655 $\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.678 $\\pm$ 0.059 & 0.619",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.6768000006675721,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/val_success_final/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.067",
+   "context": "$\\pm$ 0.071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.06710960050676222,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/val_success_final/std",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.678",
+   "context": "071 & 12.0 \\\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 11.2",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.059",
+   "context": "\\ 1.0 & 0.677 $\\pm$ 0.067 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.6",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.05910848111831372,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_rate/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.619",
+   "context": "0.677 $\\pm$ 0.067 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.619047618098557,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.039",
+   "context": "0.067 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.6",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.03857670504074088,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "11.2",
+   "context": "0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.695 $\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "msgs_used",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 11.2,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/msgs_used/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "2.0",
+   "context": "pm$ 0.059 & 0.619 $\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.695 $\\pm$ 0.017",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "min",
+    "run_ids": [
+     "de0e7a8bc1",
+     "ba19b4cdc9",
+     "fe1399f0ae",
+     "7a2e114066",
+     "b2554f3cf4"
+    ],
+    "value": 0.02031249995343387,
+    "key": "xplay/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/xplay_success/min",
+    "form": "percent",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.693",
+   "context": "059 & 0.619 $\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.695 $\\pm$ 0.017 & 0.620",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "d6931d76ca",
+     "2aa33bd492",
+     "6236fa395b",
+     "69c547fc48",
+     "5e6561490e",
+     "e7c4657c64",
+     "5b9a85d3d7",
+     "7c64201e90",
+     "d360141ae9",
+     "572f202b58",
+     "6720e220bb",
+     "01f77f880d",
+     "9f6ae77516",
+     "c4e97f98ab",
+     "97aa54d627",
+     "fc63b09796",
+     "f26ec4f1a2",
+     "7d8572af69",
+     "3014ba14ac"
+    ],
+    "value": 0.6930500030517578,
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/val_success_final/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.029",
+   "context": "$\\pm$ 0.039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.695 $\\pm$ 0.017 & 0.620 $\\pm$ 0.023",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "val_success_final",
+    "stat": "std",
+    "run_ids": [
+     "6236fa395b",
+     "5b9a85d3d7",
+     "6720e220bb",
+     "97aa54d627",
+     "3014ba14ac"
+    ],
+    "value": 0.029115283877022686,
+    "config": {
+     "tau": 2.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=2.0/rendezvous/val_success_final/std"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.695",
+   "context": "039 & 11.2 \\\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.695 $\\pm$ 0.017 & 0.620 $\\pm$ 0.023 & 12.2",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "6236fa395b",
+     "5b9a85d3d7",
+     "6720e220bb",
+     "97aa54d627",
+     "3014ba14ac"
+    ],
+    "value": 0.6953999876976014,
+    "config": {
+     "tau": 2.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=2.0/rendezvous/success_rate/mean"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.017",
+   "context": "\\ 2.0 & 0.693 $\\pm$ 0.029 & 0.695 $\\pm$ 0.017 & 0.620 $\\pm$ 0.023 & 12.2 \\\\ \\bottomru",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "6236fa395b",
+     "5b9a85d3d7",
+     "6720e220bb",
+     "97aa54d627",
+     "3014ba14ac"
+    ],
+    "value": 0.017291253011394093,
+    "config": {
+     "tau": 2.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=2.0/rendezvous/success_rate/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.620",
+   "context": "0.693 $\\pm$ 0.029 & 0.695 $\\pm$ 0.017 & 0.620 $\\pm$ 0.023 & 12.2 \\\\ \\bottomrule\\end{t",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "6236fa395b",
+     "5b9a85d3d7",
+     "6720e220bb",
+     "97aa54d627",
+     "3014ba14ac"
+    ],
+    "value": 0.6195999996027066,
+    "config": {
+     "tau": 2.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=2.0/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "0.023",
+   "context": "0.029 & 0.695 $\\pm$ 0.017 & 0.620 $\\pm$ 0.023 & 12.2 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "6236fa395b",
+     "5b9a85d3d7",
+     "6720e220bb",
+     "97aa54d627",
+     "3014ba14ac"
+    ],
+    "value": 0.023013812777692624,
+    "config": {
+     "tau": 2.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=2.0/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_tau.tex",
+   "literal": "12.2",
+   "context": "0.695 $\\pm$ 0.017 & 0.620 $\\pm$ 0.023 & 12.2 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "msgs_used",
+    "stat": "mean",
+    "run_ids": [
+     "6236fa395b",
+     "5b9a85d3d7",
+     "6720e220bb",
+     "97aa54d627",
+     "3014ba14ac"
+    ],
+    "value": 12.2,
+    "config": {
+     "tau": 2.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=2.0/rendezvous/msgs_used/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "1.000",
+   "context": "\\_to\\_90 \\\\\\midrule Continuous vector & 1.000 $\\pm$ 0.000 & 0.988 $\\pm$ 0.002 & 896 $",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.000",
+   "context": "midrule Continuous vector & 1.000 $\\pm$ 0.000 & 0.988 $\\pm$ 0.002 & 896 $\\pm$ 351 & 2",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.988",
+   "context": "Continuous vector & 1.000 $\\pm$ 0.000 & 0.988 $\\pm$ 0.002 & 896 $\\pm$ 351 & 2048 $\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 0.9883184116296656,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/success_auc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.002",
+   "context": "ector & 1.000 $\\pm$ 0.000 & 0.988 $\\pm$ 0.002 & 896 $\\pm$ 351 & 2048 $\\pm$ 286 \\\\ Dis",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.001852346194552747,
+    "key": "dense_eval/templated-language-proxy/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "896",
+   "context": "1.000 $\\pm$ 0.000 & 0.988 $\\pm$ 0.002 & 896 $\\pm$ 351 & 2048 $\\pm$ 286 \\\\ Discrete",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 896.0,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "351",
+   "context": "$ 0.000 & 0.988 $\\pm$ 0.002 & 896 $\\pm$ 351 & 2048 $\\pm$ 286 \\\\ Discrete tokens & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 350.5424368033063,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "286",
+   "context": "\\pm$ 0.002 & 896 $\\pm$ 351 & 2048 $\\pm$ 286 \\\\ Discrete tokens & 0.678 $\\pm$ 0.059",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 286.2167011199731,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_90/std"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.678",
+   "context": "1 & 2048 $\\pm$ 286 \\\\ Discrete tokens & 0.678 $\\pm$ 0.059 & 0.637 $\\pm$ 0.035 & 9984",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.059",
+   "context": "m$ 286 \\\\ Discrete tokens & 0.678 $\\pm$ 0.059 & 0.637 $\\pm$ 0.035 & 9984 $\\pm$ 3282 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.05910848111831372,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_rate/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.637",
+   "context": "\\ Discrete tokens & 0.678 $\\pm$ 0.059 & 0.637 $\\pm$ 0.035 & 9984 $\\pm$ 3282 & 128000",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 0.6372955227048317,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/success_auc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.035",
+   "context": "okens & 0.678 $\\pm$ 0.059 & 0.637 $\\pm$ 0.035 & 9984 $\\pm$ 3282 & 128000 $\\pm$ 0 \\\\ T",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 0.034509298448947866,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/success_auc/std"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "9984",
+   "context": "0.678 $\\pm$ 0.059 & 0.637 $\\pm$ 0.035 & 9984 $\\pm$ 3282 & 128000 $\\pm$ 0 \\\\ Template",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 9984.0,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "3282",
+   "context": "0.059 & 0.637 $\\pm$ 0.035 & 9984 $\\pm$ 3282 & 128000 $\\pm$ 0 \\\\ Templated language",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 3282.1456396692697,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/episodes_to_50/std"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "128000",
+   "context": "& 0.637 $\\pm$ 0.035 & 9984 $\\pm$ 3282 & 128000 $\\pm$ 0 \\\\ Templated language & 0.931 $",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 128000.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/mean",
+    "candidates": 91
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.931",
+   "context": "128000 $\\pm$ 0 \\\\ Templated language & 0.931 $\\pm$ 0.010 & 0.923 $\\pm$ 0.004 & 1024",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.010",
+   "context": "$ 0 \\\\ Templated language & 0.931 $\\pm$ 0.010 & 0.923 $\\pm$ 0.004 & 1024 $\\pm$ 351 &",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.923",
+   "context": "emplated language & 0.931 $\\pm$ 0.010 & 0.923 $\\pm$ 0.004 & 1024 $\\pm$ 351 & 3200 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9225402989225527,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "0.004",
+   "context": "guage & 0.931 $\\pm$ 0.010 & 0.923 $\\pm$ 0.004 & 1024 $\\pm$ 351 & 3200 $\\pm$ 1280 \\\\ \\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "73f323e8e4",
+     "99ee5852ea",
+     "551725af2a",
+     "14d3b36c3e",
+     "9c544e240b"
+    ],
+    "value": 0.004234861180114472,
+    "config": {
+     "noise": 0.3
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.3/rendezvous/final_dist/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "1024",
+   "context": "0.931 $\\pm$ 0.010 & 0.923 $\\pm$ 0.004 & 1024 $\\pm$ 351 & 3200 $\\pm$ 1280 \\\\ \\bottomr",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 1024.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "351",
+   "context": "0.010 & 0.923 $\\pm$ 0.004 & 1024 $\\pm$ 351 & 3200 $\\pm$ 1280 \\\\ \\bottomrule\\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 350.5424368033063,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "3200",
+   "context": "& 0.923 $\\pm$ 0.004 & 1024 $\\pm$ 351 & 3200 $\\pm$ 1280 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 3200.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_90/mean"
+   }
+  },
+  {
+   "section": "generated/dense_eval.tex",
+   "literal": "1280",
+   "context": "pm$ 0.004 & 1024 $\\pm$ 351 & 3200 $\\pm$ 1280 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 1280.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_90/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.071",
+   "context": "w$ & $n$ \\\\ \\midrule No communication & 0.071 $\\pm$ 0.006 & 0.068 $\\pm$ 0.009 & 0.765",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.07124999761581421,
+    "key": "main/no-communication/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.006",
+   "context": "\\midrule No communication & 0.071 $\\pm$ 0.006 & 0.068 $\\pm$ 0.009 & 0.765 $\\pm$ 0.005",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.00594972777410305,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.068",
+   "context": "No communication & 0.071 $\\pm$ 0.006 & 0.068 $\\pm$ 0.009 & 0.765 $\\pm$ 0.005 & 12800",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.06767619046426955,
+    "key": "main/no-communication/rendezvous/success_auc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.009",
+   "context": "ation & 0.071 $\\pm$ 0.006 & 0.068 $\\pm$ 0.009 & 0.765 $\\pm$ 0.005 & 128000.000 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.0090615965991506,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/success_rate/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.765",
+   "context": "0.071 $\\pm$ 0.006 & 0.068 $\\pm$ 0.009 & 0.765 $\\pm$ 0.005 & 128000.000 $\\pm$ 0.000 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.7654082894325256,
+    "key": "main/no-communication/rendezvous/final_dist/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.005",
+   "context": "0.006 & 0.068 $\\pm$ 0.009 & 0.765 $\\pm$ 0.005 & 128000.000 $\\pm$ 0.000 & 5 \\\\ Continu",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.00506049603316077,
+    "key": "main/no-communication/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "128000.000",
+   "context": "0.068 $\\pm$ 0.009 & 0.765 $\\pm$ 0.005 & 128000.000 $\\pm$ 0.000 & 5 \\\\ Continuous vector (D",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 128000.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/mean",
+    "candidates": 91
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.000",
+   "context": "& 0.765 $\\pm$ 0.005 & 128000.000 $\\pm$ 0.000 & 5 \\\\ Continuous vector (DIAL-style, r",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.000",
+   "context": "r (DIAL-style, reimplemented) & \\textbf{1.000 $\\pm$ 0.000} & \\textbf{0.951 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.000",
+   "context": "e, reimplemented) & \\textbf{1.000 $\\pm$ 0.000} & \\textbf{0.951 $\\pm$ 0.001} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.951",
+   "context": "& \\textbf{1.000 $\\pm$ 0.000} & \\textbf{0.951 $\\pm$ 0.001} & \\textbf{0.085 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 0.95089524262363,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/success_auc/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.001",
+   "context": ".000 $\\pm$ 0.000} & \\textbf{0.951 $\\pm$ 0.001} & \\textbf{0.085 $\\pm$ 0.002} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "0176b95515",
+     "8b0a36ddb3",
+     "bbe7127922",
+     "a24e84d2ae",
+     "63fb5bdfcd"
+    ],
+    "value": 0.00101875165655048,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=6/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.085",
+   "context": "& \\textbf{0.951 $\\pm$ 0.001} & \\textbf{0.085 $\\pm$ 0.002} & \\textbf{6400.000 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 0.08548675030469895,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/final_dist/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.002",
+   "context": ".951 $\\pm$ 0.001} & \\textbf{0.085 $\\pm$ 0.002} & \\textbf{6400.000 $\\pm$ 0.000} & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.001852346194552747,
+    "key": "dense_eval/templated-language-proxy/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "6400.000",
+   "context": "& \\textbf{0.085 $\\pm$ 0.002} & \\textbf{6400.000 $\\pm$ 0.000} & 5 \\\\ Discrete tokens (Gu",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.000",
+   "context": "5 $\\pm$ 0.002} & \\textbf{6400.000 $\\pm$ 0.000} & 5 \\\\ Discrete tokens (Gumbel-softmax",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.678",
+   "context": "okens (Gumbel-softmax, reimplemented) & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 0.249",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.059",
+   "context": "l-softmax, reimplemented) & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 0.249 $\\pm$ 0.015",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.05910848111831372,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_rate/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.619",
+   "context": "x, reimplemented) & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 0.249 $\\pm$ 0.015 & 12800",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.619047618098557,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.039",
+   "context": "nted) & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 0.249 $\\pm$ 0.015 & 12800.000 $\\pm$ 4",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.03857670504074088,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.249",
+   "context": "0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 0.249 $\\pm$ 0.015 & 12800.000 $\\pm$ 4525.483",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.24875144064426422,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/final_dist/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.015",
+   "context": "0.059 & 0.619 $\\pm$ 0.039 & 0.249 $\\pm$ 0.015 & 12800.000 $\\pm$ 4525.483 & 5 \\\\ \\text",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "d6931d76ca",
+     "2aa33bd492",
+     "6236fa395b",
+     "69c547fc48",
+     "5e6561490e",
+     "e7c4657c64",
+     "5b9a85d3d7",
+     "7c64201e90",
+     "d360141ae9",
+     "572f202b58",
+     "6720e220bb",
+     "01f77f880d",
+     "9f6ae77516",
+     "c4e97f98ab",
+     "97aa54d627",
+     "fc63b09796",
+     "f26ec4f1a2",
+     "7d8572af69",
+     "3014ba14ac"
+    ],
+    "value": 0.01512656185736076,
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/final_dist/std",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "12800.000",
+   "context": "0.619 $\\pm$ 0.039 & 0.249 $\\pm$ 0.015 & 12800.000 $\\pm$ 4525.483 & 5 \\\\ \\textbf{Templated",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 12800.0,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/episodes_to_50/mean",
+    "candidates": 41
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "4525.483",
+   "context": "9 & 0.249 $\\pm$ 0.015 & 12800.000 $\\pm$ 4525.483 & 5 \\\\ \\textbf{Templated language (prox",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 4525.483399593904,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/episodes_to_50/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.931",
+   "context": "emplated language (proxy)} & \\underline{0.931 $\\pm$ 0.010} & \\underline{0.887 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.010",
+   "context": "guage (proxy)} & \\underline{0.931 $\\pm$ 0.010} & \\underline{0.887 $\\pm$ 0.005} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.887",
+   "context": "derline{0.931 $\\pm$ 0.010} & \\underline{0.887 $\\pm$ 0.005} & \\underline{0.195 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "d620575631",
+     "5db51d63e9",
+     "26a6e7d2c7",
+     "c35a0d05d7",
+     "f734c3840f"
+    ],
+    "value": 0.8868285715846078,
+    "key": "main/templated-language-proxy/rendezvous/success_auc/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.005",
+   "context": "1 $\\pm$ 0.010} & \\underline{0.887 $\\pm$ 0.005} & \\underline{0.195 $\\pm$ 0.002} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.00506049603316077,
+    "key": "main/no-communication/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.195",
+   "context": "derline{0.887 $\\pm$ 0.005} & \\underline{0.195 $\\pm$ 0.002} & \\underline{6400.000 $\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.1947591036558151,
+    "key": "dense_eval/templated-language-proxy/rendezvous/final_dist/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.002",
+   "context": "7 $\\pm$ 0.005} & \\underline{0.195 $\\pm$ 0.002} & \\underline{6400.000 $\\pm$ 0.000} & 5",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.001852346194552747,
+    "key": "dense_eval/templated-language-proxy/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "6400.000",
+   "context": "derline{0.195 $\\pm$ 0.002} & \\underline{6400.000 $\\pm$ 0.000} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.000",
+   "context": "\\pm$ 0.002} & \\underline{6400.000 $\\pm$ 0.000} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.288",
+   "context": "$n$ \\\\\\midrule Discrete tokens & V=2 & 0.288 $\\pm$ 0.008 & 0.270 $\\pm$ 0.014 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.2878500044345856,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.008",
+   "context": "ule Discrete tokens & V=2 & 0.288 $\\pm$ 0.008 & 0.270 $\\pm$ 0.014 & 5 \\\\ Discrete tok",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "0fe82161ac",
+     "8c61374f38",
+     "e5fa6219ed",
+     "f3b88fad66",
+     "22fdfb49e5"
+    ],
+    "value": 0.007786203827843723,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=2/rendezvous/success_rate/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.270",
+   "context": "rete tokens & V=2 & 0.288 $\\pm$ 0.008 & 0.270 $\\pm$ 0.014 & 5 \\\\ Discrete tokens & V=",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "0fe82161ac",
+     "8c61374f38",
+     "e5fa6219ed",
+     "f3b88fad66",
+     "22fdfb49e5"
+    ],
+    "value": 0.2702666667600473,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=2/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.014",
+   "context": "& V=2 & 0.288 $\\pm$ 0.008 & 0.270 $\\pm$ 0.014 & 5 \\\\ Discrete tokens & V=3 & 0.486 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.013971123639845276,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_auc/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.486",
+   "context": "m$ 0.014 & 5 \\\\ Discrete tokens & V=3 & 0.486 $\\pm$ 0.009 & 0.450 $\\pm$ 0.016 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.4856000006198883,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/success_rate/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.009",
+   "context": "\\\\ Discrete tokens & V=3 & 0.486 $\\pm$ 0.009 & 0.450 $\\pm$ 0.016 & 5 \\\\ Discrete tok",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.0090615965991506,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/success_rate/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.450",
+   "context": "rete tokens & V=3 & 0.486 $\\pm$ 0.009 & 0.450 $\\pm$ 0.016 & 5 \\\\ Discrete tokens & V=",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.450409521637041,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.016",
+   "context": "& V=3 & 0.486 $\\pm$ 0.009 & 0.450 $\\pm$ 0.016 & 5 \\\\ Discrete tokens & V=4 & 0.678 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.01584069881382063,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/final_dist/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.678",
+   "context": "m$ 0.016 & 5 \\\\ Discrete tokens & V=4 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.059",
+   "context": "\\\\ Discrete tokens & V=4 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 5 \\\\ Discrete tok",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.05910848111831372,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_rate/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.619",
+   "context": "rete tokens & V=4 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 5 \\\\ Discrete tokens & V=",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.619047618098557,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.039",
+   "context": "& V=4 & 0.678 $\\pm$ 0.059 & 0.619 $\\pm$ 0.039 & 5 \\\\ Discrete tokens & V=6 & 0.891 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.03857670504074088,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.891",
+   "context": "m$ 0.039 & 5 \\\\ Discrete tokens & V=6 & 0.891 $\\pm$ 0.005 & 0.792 $\\pm$ 0.011 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.8910500049591065,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/success_rate/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.005",
+   "context": "\\\\ Discrete tokens & V=6 & 0.891 $\\pm$ 0.005 & 0.792 $\\pm$ 0.011 & 5 \\\\ Discrete tok",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.00506049603316077,
+    "key": "main/no-communication/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.792",
+   "context": "rete tokens & V=6 & 0.891 $\\pm$ 0.005 & 0.792 $\\pm$ 0.011 & 5 \\\\ Discrete tokens & V=",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.7918190491075318,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/success_auc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.011",
+   "context": "& V=6 & 0.891 $\\pm$ 0.005 & 0.792 $\\pm$ 0.011 & 5 \\\\ Discrete tokens & V=8 & 0.954 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.011276388128403217,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.954",
+   "context": "m$ 0.011 & 5 \\\\ Discrete tokens & V=8 & 0.954 $\\pm$ 0.010 & 0.850 $\\pm$ 0.006 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "dcb308aef4",
+     "14821d7f7c",
+     "8a1cd11f70",
+     "d06c9d8804",
+     "55baa3e804"
+    ],
+    "value": 0.9542500019073487,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=8/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.010",
+   "context": "\\\\ Discrete tokens & V=8 & 0.954 $\\pm$ 0.010 & 0.850 $\\pm$ 0.006 & 5 \\\\ Templated la",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.850",
+   "context": "rete tokens & V=8 & 0.954 $\\pm$ 0.010 & 0.850 $\\pm$ 0.006 & 5 \\\\ Templated language &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "dcb308aef4",
+     "14821d7f7c",
+     "8a1cd11f70",
+     "d06c9d8804",
+     "55baa3e804"
+    ],
+    "value": 0.8504285702481866,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=8/rendezvous/success_auc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.006",
+   "context": "& V=8 & 0.954 $\\pm$ 0.010 & 0.850 $\\pm$ 0.006 & 5 \\\\ Templated language & V=2 & 0.288",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.00594972777410305,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.288",
+   "context": "0.006 & 5 \\\\ Templated language & V=2 & 0.288 $\\pm$ 0.008 & 0.272 $\\pm$ 0.014 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.2878500044345856,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.008",
+   "context": "Templated language & V=2 & 0.288 $\\pm$ 0.008 & 0.272 $\\pm$ 0.014 & 5 \\\\ Templated la",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "0fe82161ac",
+     "8c61374f38",
+     "e5fa6219ed",
+     "f3b88fad66",
+     "22fdfb49e5"
+    ],
+    "value": 0.007786203827843723,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=2/rendezvous/success_rate/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.272",
+   "context": "ed language & V=2 & 0.288 $\\pm$ 0.008 & 0.272 $\\pm$ 0.014 & 5 \\\\ Templated language &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.27245714401914956,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.014",
+   "context": "& V=2 & 0.288 $\\pm$ 0.008 & 0.272 $\\pm$ 0.014 & 5 \\\\ Templated language & V=3 & 0.639",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.013971123639845276,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_auc/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.639",
+   "context": "0.014 & 5 \\\\ Templated language & V=3 & 0.639 $\\pm$ 0.007 & 0.599 $\\pm$ 0.014 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "872187c4e0",
+     "33c64f6a1e",
+     "2af973fcf4",
+     "73f076c07b",
+     "981b69c8b9"
+    ],
+    "value": 0.638700008392334,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=3/rendezvous/success_rate/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.007",
+   "context": "Templated language & V=3 & 0.639 $\\pm$ 0.007 & 0.599 $\\pm$ 0.014 & 5 \\\\ Templated la",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.007319281770278765,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.599",
+   "context": "ed language & V=3 & 0.639 $\\pm$ 0.007 & 0.599 $\\pm$ 0.014 & 5 \\\\ Templated language &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "872187c4e0",
+     "33c64f6a1e",
+     "2af973fcf4",
+     "73f076c07b",
+     "981b69c8b9"
+    ],
+    "value": 0.5986095204328498,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=3/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.014",
+   "context": "& V=3 & 0.639 $\\pm$ 0.007 & 0.599 $\\pm$ 0.014 & 5 \\\\ Templated language & V=4 & 0.931",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "065ad0ddab",
+     "425530edf1",
+     "3f8148554d",
+     "7b1e3b6f2d",
+     "5b3fb29a88"
+    ],
+    "value": 0.013971123639845276,
+    "config": {
+     "vocab": 2
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=2/rendezvous/success_auc/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.931",
+   "context": "0.014 & 5 \\\\ Templated language & V=4 & 0.931 $\\pm$ 0.010 & 0.887 $\\pm$ 0.005 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.010",
+   "context": "Templated language & V=4 & 0.931 $\\pm$ 0.010 & 0.887 $\\pm$ 0.005 & 5 \\\\ Templated la",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.887",
+   "context": "ed language & V=4 & 0.931 $\\pm$ 0.010 & 0.887 $\\pm$ 0.005 & 5 \\\\ Templated language &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "d620575631",
+     "5db51d63e9",
+     "26a6e7d2c7",
+     "c35a0d05d7",
+     "f734c3840f"
+    ],
+    "value": 0.8868285715846078,
+    "key": "main/templated-language-proxy/rendezvous/success_auc/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.005",
+   "context": "& V=4 & 0.931 $\\pm$ 0.010 & 0.887 $\\pm$ 0.005 & 5 \\\\ Templated language & V=6 & 1.000",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.00506049603316077,
+    "key": "main/no-communication/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "1.000",
+   "context": "0.005 & 5 \\\\ Templated language & V=6 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.000",
+   "context": "Templated language & V=6 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\ Templated la",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.953",
+   "context": "ed language & V=6 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\ Templated language &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 0.9530095238061179,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_auc/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.001",
+   "context": "& V=6 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\ Templated language & V=8 & 1.000",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "0176b95515",
+     "8b0a36ddb3",
+     "bbe7127922",
+     "a24e84d2ae",
+     "63fb5bdfcd"
+    ],
+    "value": 0.00101875165655048,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=6/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "1.000",
+   "context": "0.001 & 5 \\\\ Templated language & V=8 & 1.000 $\\pm$ 0.000 & 0.954 $\\pm$ 0.002 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.000",
+   "context": "Templated language & V=8 & 1.000 $\\pm$ 0.000 & 0.954 $\\pm$ 0.002 & 5 \\\\ \\midrule Con",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.954",
+   "context": "ed language & V=8 & 1.000 $\\pm$ 0.000 & 0.954 $\\pm$ 0.002 & 5 \\\\ \\midrule Continuous",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "dcb308aef4",
+     "14821d7f7c",
+     "8a1cd11f70",
+     "d06c9d8804",
+     "55baa3e804"
+    ],
+    "value": 0.9542500019073487,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=8/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.002",
+   "context": "& V=8 & 1.000 $\\pm$ 0.000 & 0.954 $\\pm$ 0.002 & 5 \\\\ \\midrule Continuous vector & $\\s",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.001852346194552747,
+    "key": "dense_eval/templated-language-proxy/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.0",
+   "context": "\\ \\midrule Continuous vector & $\\sigma$=0.0 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 0.019297581538558005,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/final_dist/mean",
+    "candidates": 137
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "1.000",
+   "context": "rule Continuous vector & $\\sigma$=0.0 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.000",
+   "context": "ous vector & $\\sigma$=0.0 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\ Continuous v",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.953",
+   "context": "or & $\\sigma$=0.0 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\ Continuous vector &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 0.9530095238061179,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_auc/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.001",
+   "context": "$=0.0 & 1.000 $\\pm$ 0.000 & 0.953 $\\pm$ 0.001 & 5 \\\\ Continuous vector & $\\sigma$=0.1",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "0176b95515",
+     "8b0a36ddb3",
+     "bbe7127922",
+     "a24e84d2ae",
+     "63fb5bdfcd"
+    ],
+    "value": 0.00101875165655048,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=6/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.1",
+   "context": "001 & 5 \\\\ Continuous vector & $\\sigma$=0.1 & 1.000 $\\pm$ 0.000 & 0.951 $\\pm$ 0.001",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "4cdb29d6be",
+     "05b8421d84",
+     "843b1a432a",
+     "6df4bbc5e2",
+     "aeb0f6a769"
+    ],
+    "value": 0.09904069751501084,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=8/rendezvous/final_dist/mean",
+    "candidates": 134
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "1.000",
+   "context": "5 \\\\ Continuous vector & $\\sigma$=0.1 & 1.000 $\\pm$ 0.000 & 0.951 $\\pm$ 0.001 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.000",
+   "context": "ous vector & $\\sigma$=0.1 & 1.000 $\\pm$ 0.000 & 0.951 $\\pm$ 0.001 & 5 \\\\ Continuous v",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/std",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.951",
+   "context": "or & $\\sigma$=0.1 & 1.000 $\\pm$ 0.000 & 0.951 $\\pm$ 0.001 & 5 \\\\ Continuous vector &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 0.95089524262363,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/success_auc/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.001",
+   "context": "$=0.1 & 1.000 $\\pm$ 0.000 & 0.951 $\\pm$ 0.001 & 5 \\\\ Continuous vector & $\\sigma$=0.3",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "0176b95515",
+     "8b0a36ddb3",
+     "bbe7127922",
+     "a24e84d2ae",
+     "63fb5bdfcd"
+    ],
+    "value": 0.00101875165655048,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=6/rendezvous/final_dist/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.3",
+   "context": "001 & 5 \\\\ Continuous vector & $\\sigma$=0.3 & 0.877 $\\pm$ 0.010 & 0.794 $\\pm$ 0.003",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.877",
+   "context": "5 \\\\ Continuous vector & $\\sigma$=0.3 & 0.877 $\\pm$ 0.010 & 0.794 $\\pm$ 0.003 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "73f323e8e4",
+     "99ee5852ea",
+     "551725af2a",
+     "14d3b36c3e",
+     "9c544e240b"
+    ],
+    "value": 0.8773000001907348,
+    "config": {
+     "noise": 0.3
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.3/rendezvous/success_rate/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.010",
+   "context": "ous vector & $\\sigma$=0.3 & 0.877 $\\pm$ 0.010 & 0.794 $\\pm$ 0.003 & 5 \\\\ Continuous v",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.794",
+   "context": "or & $\\sigma$=0.3 & 0.877 $\\pm$ 0.010 & 0.794 $\\pm$ 0.003 & 5 \\\\ Continuous vector &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "73f323e8e4",
+     "99ee5852ea",
+     "551725af2a",
+     "14d3b36c3e",
+     "9c544e240b"
+    ],
+    "value": 0.7936857130544792,
+    "config": {
+     "noise": 0.3
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.3/rendezvous/success_auc/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.003",
+   "context": "$=0.3 & 0.877 $\\pm$ 0.010 & 0.794 $\\pm$ 0.003 & 5 \\\\ Continuous vector & $\\sigma$=0.6",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.003062159729001713,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.6",
+   "context": "003 & 5 \\\\ Continuous vector & $\\sigma$=0.6 & 0.578 $\\pm$ 0.018 & 0.502 $\\pm$ 0.010",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "872187c4e0",
+     "33c64f6a1e",
+     "2af973fcf4",
+     "73f076c07b",
+     "981b69c8b9"
+    ],
+    "value": 0.5986095204328498,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=3/rendezvous/success_auc/mean",
+    "candidates": 136
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.578",
+   "context": "5 \\\\ Continuous vector & $\\sigma$=0.6 & 0.578 $\\pm$ 0.018 & 0.502 $\\pm$ 0.010 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5781500101089477,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_rate/mean"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.018",
+   "context": "ous vector & $\\sigma$=0.6 & 0.578 $\\pm$ 0.018 & 0.502 $\\pm$ 0.010 & 5 \\\\ Continuous v",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.01823938146767148,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_rate/std"
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.502",
+   "context": "or & $\\sigma$=0.6 & 0.578 $\\pm$ 0.018 & 0.502 $\\pm$ 0.010 & 5 \\\\ Continuous vector &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.010",
+   "context": "$=0.6 & 0.578 $\\pm$ 0.018 & 0.502 $\\pm$ 0.010 & 5 \\\\ Continuous vector & $\\sigma$=1.0",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "1.0",
+   "context": "010 & 5 \\\\ Continuous vector & $\\sigma$=1.0 & 0.301 $\\pm$ 0.009 & 0.286 $\\pm$ 0.007",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 157
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.301",
+   "context": "5 \\\\ Continuous vector & $\\sigma$=1.0 & 0.301 $\\pm$ 0.009 & 0.286 $\\pm$ 0.007 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.009",
+   "context": "ous vector & $\\sigma$=1.0 & 0.301 $\\pm$ 0.009 & 0.286 $\\pm$ 0.007 & 5 \\\\ \\bottomrule\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.0090615965991506,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/success_rate/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.286",
+   "context": "or & $\\sigma$=1.0 & 0.301 $\\pm$ 0.009 & 0.286 $\\pm$ 0.007 & 5 \\\\ \\bottomrule\\end{tabu",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.2860095235652157,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_auc/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sweeps_summary.tex",
+   "literal": "0.007",
+   "context": "$=1.0 & 0.301 $\\pm$ 0.009 & 0.286 $\\pm$ 0.007 & 5 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "std",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.007319281770278765,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_auc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.071",
+   "context": "\\midrule No communication & \\underline{0.071 $\\pm$ 0.006} & 5 \\\\ Continuous vector (",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.07124999761581421,
+    "key": "main/no-communication/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.006",
+   "context": "communication & \\underline{0.071 $\\pm$ 0.006} & 5 \\\\ Continuous vector (DIAL-style,",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "a44687fead",
+     "225126474f",
+     "5bc8e56bfb",
+     "faaee22aa2",
+     "df5c2eca35"
+    ],
+    "value": 0.00594972777410305,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=3/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.066",
+   "context": "us vector (DIAL-style, reimplemented) & 0.066 $\\pm$ 0.028 & 5 \\\\ Discrete tokens (Gum",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "mean",
+    "run_ids": [
+     "de0e7a8bc1",
+     "ba19b4cdc9",
+     "fe1399f0ae",
+     "7a2e114066",
+     "b2554f3cf4"
+    ],
+    "value": 0.06583750019781291,
+    "key": "xplay/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/xplay_success/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.028",
+   "context": "IAL-style, reimplemented) & 0.066 $\\pm$ 0.028 & 5 \\\\ Discrete tokens (Gumbel-softmax,",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "std",
+    "run_ids": [
+     "82725625db",
+     "1387e3e6d1",
+     "71b7cedf24",
+     "28593c3070",
+     "e922cd5028"
+    ],
+    "value": 0.027739194628482913,
+    "key": "xplay/continuous-vector-dial-style-reimplemented/rendezvous/xplay_success/std"
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.066",
+   "context": "okens (Gumbel-softmax, reimplemented) & 0.066 $\\pm$ 0.032 & 5 \\\\ \\textbf{Templated la",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "mean",
+    "run_ids": [
+     "de0e7a8bc1",
+     "ba19b4cdc9",
+     "fe1399f0ae",
+     "7a2e114066",
+     "b2554f3cf4"
+    ],
+    "value": 0.06583750019781291,
+    "key": "xplay/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/xplay_success/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.032",
+   "context": "l-softmax, reimplemented) & 0.066 $\\pm$ 0.032 & 5 \\\\ \\textbf{Templated language (prox",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "std",
+    "run_ids": [
+     "de0e7a8bc1",
+     "ba19b4cdc9",
+     "fe1399f0ae",
+     "7a2e114066",
+     "b2554f3cf4"
+    ],
+    "value": 0.03190821203563576,
+    "key": "xplay/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/xplay_success/std"
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.931",
+   "context": "f{Templated language (proxy)} & \\textbf{0.931 $\\pm$ 0.010} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/xplay.tex",
+   "literal": "0.010",
+   "context": "language (proxy)} & \\textbf{0.931 $\\pm$ 0.010} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.010044593662377097,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.3",
+   "context": "ceeds if both robots end within radius $0.3$ of $x^\\star$. The speaker's own motion",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "4000",
+   "context": "ics.} \\emph{success\\_rate}: fraction of 4000 held-out targets solved. \\emph{success\\",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "test_targets",
+    "run_ids": [],
+    "value": 4000.0,
+    "name": "test_targets",
+    "why": "number of held-out test targets per evaluation (method/run.py, evaluate(..., 4000))",
+    "key": "const/test_targets"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.5",
+   "context": "until validation success first reaches 0.5 or 0.9 (checked every 6400 episodes in",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "candidates": 43
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.9",
+   "context": "validation success first reaches 0.5 or 0.9 (checked every 6400 episodes in the mai",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.8910500049591065,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/success_rate/mean",
+    "candidates": 136
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "6400",
+   "context": "first reaches 0.5 or 0.9 (checked every 6400 episodes in the main runs, so 6400 is t",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "6400",
+   "context": "very 6400 episodes in the main runs, so 6400 is the floor; set to the full 128000 ep",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "128000",
+   "context": ", so 6400 is the floor; set to the full 128000 episodes when never reached). \\emph{msg",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 128000.0,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/episodes_to_90/mean",
+    "candidates": 91
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "6400",
+   "context": "eeds). Left: main runs, evaluated every 6400 episodes; right: dense re-runs (Table~\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "40000",
+   "context": "re-runs (Table~\\ref{tab:dense}), first 40000 episodes.}\\label{fig:curves}\\end{figure",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "curves_xlim_episodes",
+    "run_ids": [],
+    "value": 40000.0,
+    "name": "curves_xlim_episodes",
+    "why": "x-axis limit, in training episodes, of the right panel of the learning-curve figure (experiments/make_figs.py)",
+    "key": "const/curves_xlim_episodes"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.071",
+   "context": "annels exceed no communication (success 0.071) by a wide margin (Table~\\ref{tab:main}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No communication",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "d6672d6aa4",
+     "39a242e396",
+     "ecba9879a3",
+     "081dcad786",
+     "d7d153cb2b"
+    ],
+    "value": 0.07124999761581421,
+    "key": "main/no-communication/rendezvous/success_rate/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.678",
+   "context": "the (untuned) discrete channel, reaches 0.678. \\textbf{H2 (fixed language more sampl",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.6778499960899353,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/success_rate/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.887",
+   "context": "success\\_auc than the discrete channel (0.887 vs 0.619) but lower than the continuous",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "d620575631",
+     "5db51d63e9",
+     "26a6e7d2c7",
+     "c35a0d05d7",
+     "f734c3840f"
+    ],
+    "value": 0.8868285715846078,
+    "key": "main/templated-language-proxy/rendezvous/success_auc/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.619",
+   "context": "auc than the discrete channel (0.887 vs 0.619) but lower than the continuous vector (",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "2aa33bd492",
+     "e7c4657c64",
+     "572f202b58",
+     "c4e97f98ab",
+     "7d8572af69"
+    ],
+    "value": 0.619047618098557,
+    "config": {
+     "tau": 1.0
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=1.0/rendezvous/success_auc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.951",
+   "context": ") but lower than the continuous vector (0.951), but this area largely tracks final su",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 0.95089524262363,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/success_auc/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "6400",
+   "context": "are at plateau by the first evaluation (6400 episodes), so these runs cannot measure",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "bdb913e5d8",
+     "53cfdb7836",
+     "2941a44f9a",
+     "f2a30b64e8",
+     "27b2c7160b"
+    ],
+    "value": 6400.0,
+    "key": "main/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean",
+    "candidates": 109
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "50\\%",
+   "context": "~\\ref{tab:dense}), the language reaches 50\\% validation success in 1024 $\\pm$ 351 ep",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "form": "percent",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1024",
+   "context": "uage reaches 50\\% validation success in 1024 $\\pm$ 351 episodes versus 896 $\\pm$ 351",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 1024.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "351",
+   "context": "s 50\\% validation success in 1024 $\\pm$ 351 episodes versus 896 $\\pm$ 351 for the c",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 350.5424368033063,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "896",
+   "context": "ccess in 1024 $\\pm$ 351 episodes versus 896 $\\pm$ 351 for the continuous vector (no",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 896.0,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "351",
+   "context": "024 $\\pm$ 351 episodes versus 896 $\\pm$ 351 for the continuous vector (not distingu",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 350.5424368033063,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_50/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "9984",
+   "context": "(not distinguishable with 5 seeds) and 9984 $\\pm$ 3282 for the discrete channel; it",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "mean",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 9984.0,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/episodes_to_50/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3282",
+   "context": "nguishable with 5 seeds) and 9984 $\\pm$ 3282 for the discrete channel; it reaches 90",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_50",
+    "stat": "std",
+    "run_ids": [
+     "0aa9e15c7b",
+     "a7cb3af57c",
+     "37115ad89d",
+     "0e9dcec4fc",
+     "07cff2cdf2"
+    ],
+    "value": 3282.1456396692697,
+    "key": "dense_eval/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/episodes_to_50/std"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "90\\%",
+   "context": "82 for the discrete channel; it reaches 90\\% in 3200 $\\pm$ 1280 versus 2048 $\\pm$ 28",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "max",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.8952500224113464,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/success_rate/max",
+    "form": "percent",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3200",
+   "context": "he discrete channel; it reaches 90\\% in 3200 $\\pm$ 1280 versus 2048 $\\pm$ 286 for th",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 3200.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_90/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1280",
+   "context": "channel; it reaches 90\\% in 3200 $\\pm$ 1280 versus 2048 $\\pm$ 286 for the continuou",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 1280.0,
+    "key": "dense_eval/templated-language-proxy/rendezvous/episodes_to_90/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "286",
+   "context": "\\% in 3200 $\\pm$ 1280 versus 2048 $\\pm$ 286 for the continuous vector. The continuo",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "episodes_to_90",
+    "stat": "std",
+    "run_ids": [
+     "634db27e33",
+     "d0b54a61c1",
+     "78040b1efc",
+     "51b080c53c",
+     "29c4cda4e6"
+    ],
+    "value": 286.2167011199731,
+    "key": "dense_eval/continuous-vector-dial-style-reimplemented/rendezvous/episodes_to_90/std"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "50\\%",
+   "context": "within about one standard deviation at 50\\% and we ran no test, so we claim no spee",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "ccc4a08ab9",
+     "ff94249ec3",
+     "d898b428cd",
+     "65c6a7db1e",
+     "90e762d606"
+    ],
+    "value": 0.5021904747988585,
+    "config": {
+     "noise": 0.6
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.6/rendezvous/success_auc/mean",
+    "form": "percent",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1.000",
+   "context": "language at final success): supported.} 1.000 versus 0.931 with very small seed varia",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.931",
+   "context": "inal success): supported.} 1.000 versus 0.931 with very small seed variance; the lang",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1.000",
+   "context": "{tab:sweeps}) the language also reaches 1.000, so this gap is a resolution effect of",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 73
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.066",
+   "context": "of no communication under partner swap (0.066 for both, Table~\\ref{tab:xplay}), i.e.\\",
+   "source": {
+    "type": "aggregate",
+    "group": "xplay",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "xplay_success",
+    "stat": "mean",
+    "run_ids": [
+     "de0e7a8bc1",
+     "ba19b4cdc9",
+     "fe1399f0ae",
+     "7a2e114066",
+     "b2554f3cf4"
+    ],
+    "value": 0.06583750019781291,
+    "key": "xplay/discrete-tokens-gumbel-softmax-reimplemented/rendezvous/xplay_success/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.931",
+   "context": "e language keeps its self-play success (0.931). This is largely true by construction,",
+   "source": {
+    "type": "aggregate",
+    "group": "dense_eval",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "3ded7ba96a",
+     "f5b1330c74",
+     "a24a04a3f1",
+     "f7de7da7cb",
+     "5610ac5c22"
+    ],
+    "value": 0.9308500051498413,
+    "key": "dense_eval/templated-language-proxy/rendezvous/success_rate/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "ps of 64 fresh episodes (learning rate $3\\times10^{-3}$, $T=10$, $\\Delta t=0.25$, hidden size",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "std",
+    "run_ids": [
+     "4b68d6ed40",
+     "d8a6e6999e",
+     "962d2bb3f8",
+     "66be8df1fe",
+     "338039dc36"
+    ],
+    "value": 0.003062159729001713,
+    "config": {
+     "vocab": 6
+    },
+    "key": "sweep_vocab/discrete-tokens-gumbel-softmax-reimplemented@vocab=6/rendezvous/final_dist/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.25",
+   "context": "ate $3\\times10^{-3}$, $T=10$, $\\Delta t=0.25$, hidden size 64, tanh). Validation tar",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_tau",
+    "system": "Discrete tokens (Gumbel-softmax, reimplemented)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "ed26df92ce",
+     "69c547fc48",
+     "7c64201e90",
+     "01f77f880d",
+     "fc63b09796"
+    ],
+    "value": 0.24971114695072175,
+    "config": {
+     "tau": 0.3
+    },
+    "key": "abl_tau/discrete-tokens-gumbel-softmax-reimplemented@tau=0.3/rendezvous/final_dist/mean",
+    "candidates": 27
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10000",
+   "context": "64, tanh). Validation targets use seed $10000+s$ and the reported test targets use se",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "val_seed_offset",
+    "run_ids": [],
+    "value": 10000.0,
+    "name": "val_seed_offset",
+    "why": "validation targets are drawn with generator seed 10000 + run seed (method/run.py)",
+    "key": "const/val_seed_offset"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "20000",
+   "context": "and the reported test targets use seed $20000+s$ (held out). Hyperparameters were not",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "test_seed_offset",
+    "run_ids": [],
+    "value": 20000.0,
+    "name": "test_seed_offset",
+    "why": "test targets are drawn with generator seed 20000 + run seed (method/run.py)",
+    "key": "const/test_seed_offset"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.1",
+   "context": "and the continuous noise $\\sigma\\in\\{0,0.1,0.3,0.6,1.0\\}$, 5 seeds each; the $V{=}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "4cdb29d6be",
+     "05b8421d84",
+     "843b1a432a",
+     "6df4bbc5e2",
+     "aeb0f6a769"
+    ],
+    "value": 0.09904069751501084,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=8/rendezvous/final_dist/mean",
+    "candidates": 134
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.3",
+   "context": "the continuous noise $\\sigma\\in\\{0,0.1,0.3,0.6,1.0\\}$, 5 seeds each; the $V{=}4$ a",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "7760babbdc",
+     "394cd9606b",
+     "a60ba81a4d",
+     "0bb069c6bd",
+     "e20bc45032"
+    ],
+    "value": 0.300900000333786,
+    "config": {
+     "noise": 1.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=1.0/rendezvous/success_rate/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.6",
+   "context": "continuous noise $\\sigma\\in\\{0,0.1,0.3,0.6,1.0\\}$, 5 seeds each; the $V{=}4$ and $",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "success_auc",
+    "stat": "mean",
+    "run_ids": [
+     "872187c4e0",
+     "33c64f6a1e",
+     "2af973fcf4",
+     "73f076c07b",
+     "981b69c8b9"
+    ],
+    "value": 0.5986095204328498,
+    "config": {
+     "vocab": 3
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=3/rendezvous/success_auc/mean",
+    "candidates": 136
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.0",
+   "context": "tinuous noise $\\sigma\\in\\{0,0.1,0.3,0.6,1.0\\}$, 5 seeds each; the $V{=}4$ and $\\sig",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_noise",
+    "system": "Continuous vector (DIAL-style, reimplemented)",
+    "task": "rendezvous",
+    "metric": "success_rate",
+    "stat": "mean",
+    "run_ids": [
+     "ba15dfbe18",
+     "cfd42e1655",
+     "697aa4db78",
+     "488e7c5258",
+     "b0e1928b77"
+    ],
+    "value": 1.0,
+    "config": {
+     "noise": 0.0
+    },
+    "key": "sweep_noise/continuous-vector-dial-style-reimplemented@noise=0.0/rendezvous/success_rate/mean",
+    "candidates": 157
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.1",
+   "context": "5 seeds each; the $V{=}4$ and $\\sigma{=}0.1$ settings are the main configuration. S",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_vocab",
+    "system": "Templated language (proxy)",
+    "task": "rendezvous",
+    "metric": "final_dist",
+    "stat": "mean",
+    "run_ids": [
+     "4cdb29d6be",
+     "05b8421d84",
+     "843b1a432a",
+     "6df4bbc5e2",
+     "aeb0f6a769"
+    ],
+    "value": 0.09904069751501084,
+    "config": {
+     "vocab": 8
+    },
+    "key": "sweep_vocab/templated-language-proxy@vocab=8/rendezvous/final_dist/mean",
+    "candidates": 134
+   }
+  }
+ ],
+ "untraced": [],
+ "constants": [
+  {
+   "name": "test_targets",
+   "value": 4000,
+   "why": "number of held-out test targets per evaluation (method/run.py, evaluate(..., 4000))"
+  },
+  {
+   "name": "val_seed_offset",
+   "value": 10000,
+   "why": "validation targets are drawn with generator seed 10000 + run seed (method/run.py)"
+  },
+  {
+   "name": "test_seed_offset",
+   "value": 20000,
+   "why": "test targets are drawn with generator seed 20000 + run seed (method/run.py)"
+  },
+  {
+   "name": "curves_xlim_episodes",
+   "value": 40000,
+   "why": "x-axis limit, in training episodes, of the right panel of the learning-curve figure (experiments/make_figs.py)"
+  },
+  {
+   "name": "success_radius",
+   "value": 0.3,
+   "why": "an episode succeeds if both robots end within this distance of the target (RADIUS in method/run.py)"
+  },
+  {
+   "name": "dt",
+   "value": 0.25,
+   "why": "integration time step of the point-robot dynamics (DT in method/run.py)"
+  },
+  {
+   "name": "learning_rate",
+   "value": 0.003,
+   "why": "Adam learning rate, default --lr in method/run.py"
+  },
+  {
+   "name": "threshold_50",
+   "value": 0.5,
+   "why": "validation-success threshold that defines the episodes_to_50 metric"
+  },
+  {
+   "name": "threshold_90",
+   "value": 0.9,
+   "why": "validation-success threshold that defines the episodes_to_90 metric"
+  }
+ ],
+ "summary": {
+  "checked": 234,
+  "traced": 234,
+  "untraced": 0,
+  "by_type": {
+   "aggregate": 230,
+   "constant": 4
+  },
+  "files": [
+   "ablations.tex",
+   "abstract.tex",
+   "conclusion.tex",
+   "generated/abl_tau.tex",
+   "generated/dense_eval.tex",
+   "generated/main.tex",
+   "generated/sweeps_summary.tex",
+   "generated/xplay.tex",
+   "introduction.tex",
+   "keywords.tex",
+   "limitations.tex",
+   "main.tex",
+   "method.tex",
+   "related.tex",
+   "results.tex",
+   "setup.tex"
+  ],
+  "ok": true
+ }
+}

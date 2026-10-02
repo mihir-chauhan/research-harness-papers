@@ -17,6 +17,8 @@ for l in open("results/runs.jsonl"):
     if r.get("kind") == "control" and r.get("op") == "supersede":
         rows = [x for x in rows if not (x["group"] == r["group"] and x["name"] == r["name"])]
         segs[(r["group"], r["name"])].append([])
+    elif r.get("provenance", {}).get("copied_from"):
+        continue   # group `selected`: the selected runs listed again by experiments/list_selected.py, not runs of their own
     elif r.get("status") == "ok" and "metrics" in r:
         rows.append(r); segs[(r["group"], r["name"])][-1].append(r); every.append(r)
 current = {r["run_id"] for r in rows}
@@ -208,7 +210,7 @@ with open("results/tables/t_check.tex", "w") as f:
     big = lambda rs: sum(1 for r in rs if fin(r["metrics"]) and r["metrics"]["rel_energy_error"] > 0.1)
     nsel = sum(1 for n in ORDER for t in TASKS for s in SEEDS if selected(n, t, s)[0] is not None and selected(n, t, s)[0]["rel_energy_error"] > 0.1)
     f.write(f"$\\epsilon_E>0.1$: start S / B / selected & {big(main['S'])} / {big(main['B'])} / {nsel} \\\\\n")
-    f.write(f"min $\\epsilon_E$ over the {len(finm)} finite main runs & {fmt(min(r['metrics']['rel_energy_error'] for r in finm))} \\\\\n")
+    f.write(f"min $\\epsilon_E$ over the finite main runs & {fmt(min(r['metrics']['rel_energy_error'] for r in finm))} \\\\\n")
     d = [abs(r["metrics"]["mc_energy_error"] - r["metrics"]["rel_energy_error"]) for r in finm if r["name"] == M]
     f.write(f"median $|\\epsilon_E^{{MC}}-\\epsilon_E|$, RBM$\\alpha{{=}}$2 SR & {fmt(np.median(d))} \\\\\n")
     tune = [r for r in rows if r["group"] == "tune_lr3"]
@@ -219,7 +221,11 @@ with open("results/tables/t_check.tex", "w") as f:
     exr = [m for v in EX.values() for m in v]
     f.write(f"L-BFGS runs / stopped at iteration cap & {len(exr)} / {sum(1 for m in exr if m['lbfgs_iters'] >= 1000)} \\\\\n")
     rep_ = [r for r in rows if r["group"] not in ("sanity", "tune_lr", "tune_lr2")]
-    f.write(f"reported / superseded or earlier runs & {len(rep_)} / {len(every) - len(rep_) - sum(1 for r in rows if r['group'] == 'sanity')} \\\\\n")
+    # run counts are the registry's own counts (\rhval), one per reported group
+    cnt = lambda *gs: " / ".join("\\rhval{count/%s/runs}" % g for g in gs)
+    assert [sum(1 for r in rep_ if r["group"] == g) for g in ("main", "main_b", "exact_opt", "tune_lr3", "sweep_shift", "sweep_samples", "curves")] == [650, 650, 78, 315, 25, 25, 30]
+    f.write(f"runs: start S / B / L-BFGS & {cnt('main', 'main_b', 'exact_opt')} \\\\\n")
+    f.write(f"runs: tuning / shift / samples / curves & {cnt('tune_lr3', 'sweep_shift', 'sweep_samples', 'curves')} \\\\\n")
     f.write(f"summed run time (min): reported / all & {minutes(rep_):.0f} / {minutes(every):.0f} \\\\\n")
     f.write(f"wall-clock with a run executing (min) & {wall(every):.0f} \\\\\n")
     f.write(f"longest single run (s) & {max(r['provenance']['duration_s'] for r in every):.0f} \\\\\n")

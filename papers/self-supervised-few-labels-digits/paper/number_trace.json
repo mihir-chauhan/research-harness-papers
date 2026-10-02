@@ -1,0 +1,6590 @@
+{
+ "numbers": [
+  {
+   "section": "ablations.tex",
+   "literal": "0.5",
+   "context": "thod (both augmentation families, $\\tau=0.5$, 60 epochs) is the \\texttt{SimCLR-styl",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.5050301810865191,
+    "key": "cmp_random/pca-+-lr/n10/test_acc/mean",
+    "candidates": 59
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/simclr-style-probe/n50/test_acc/mean:3}",
+   "context": "50 labels the full augmentation reaches \\rhval{main/simclr-style-probe/n50/test_acc/mean:3} (Table~\\ref{tab:main}), geometric-only",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928"
+    ],
+    "value": 0.9549295774647888,
+    "key": "main/simclr-style-probe/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_aug/simclr-geom-only/n50/test_acc/mean:3}",
+   "context": "(Table~\\ref{tab:main}), geometric-only \\rhval{abl_aug/simclr-geom-only/n50/test_acc/mean:3} and photometric-only \\rhval{abl_aug/sim",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "76a8d3358c",
+     "2113eceab9",
+     "c3d2eea3d2",
+     "c01109a573",
+     "06bbb333e2"
+    ],
+    "value": 0.9267605633802816,
+    "key": "abl_aug/simclr-geom-only/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_aug/simclr-photo-only/n50/test_acc/mean:3}",
+   "context": "0/test_acc/mean:3} and photometric-only \\rhval{abl_aug/simclr-photo-only/n50/test_acc/mean:3} (Table~\\ref{tab:abl}); the drops are \\r",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8de4b88cc3",
+     "23b0010c2b",
+     "9d94a5c16a",
+     "4827752027",
+     "21e7d14133"
+    ],
+    "value": 0.917907444668008,
+    "key": "abl_aug/simclr-photo-only/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3}",
+   "context": "3} (Table~\\ref{tab:abl}); the drops are \\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3} (geometric-only; paired $p=\\rhval{cmp/c",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "5b1341ea17",
+     "bdbf39d515",
+     "a6aa4fe071",
+     "6cb16387bd",
+     "e768246e89"
+    ],
+    "value": 0.028169014084507227,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:2}",
+   "context": "acc/delta:3} (geometric-only; paired $p=\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:2}$, not resolved with five seeds) and \\rh",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "5b1341ea17",
+     "bdbf39d515",
+     "a6aa4fe071",
+     "6cb16387bd",
+     "e768246e89"
+    ],
+    "value": 0.0895725648236002,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta:3}",
+   "context": ":2}$, not resolved with five seeds) and \\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta:3} (photometric-only; $p=\\rhval{cmp/cmp_au",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "e25fbc6c4b",
+     "c51ba5e733",
+     "1f0c608898",
+     "285c04d581",
+     "53b3728e90"
+    ],
+    "value": 0.03702213279678079,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3}",
+   "context": "test_acc/delta:3} (photometric-only; $p=\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3}$) (Table~\\ref{tab:extra}). Only the pho",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "e25fbc6c4b",
+     "c51ba5e733",
+     "1f0c608898",
+     "285c04d581",
+     "53b3728e90"
+    ],
+    "value": 0.003125930769994526,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_aug/simclr-geom-only/n10/test_acc/std:3}",
+   "context": ", but the seed std of geometric-only is \\rhval{abl_aug/simclr-geom-only/n10/test_acc/std:3}, so that comparison is inconclusive. Ge",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 0.11624312069379275,
+    "key": "abl_aug/simclr-geom-only/n10/test_acc/std"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_supaug/supervised-+-aug/n10/test_acc/mean:3}",
+   "context": "plain scratch at any budget (10 labels: \\rhval{abl_supaug/supervised-+-aug/n10/test_acc/mean:3} vs \\rhval{main/supervised-scratch/n10/t",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "4693d26fc1",
+     "0c331c2e20",
+     "7b6760ef04",
+     "04a35faed4",
+     "d986490697"
+    ],
+    "value": 0.7130784708249497,
+    "key": "abl_supaug/supervised-+-aug/n10/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/supervised-scratch/n10/test_acc/mean:3}",
+   "context": "upervised-+-aug/n10/test_acc/mean:3} vs \\rhval{main/supervised-scratch/n10/test_acc/mean:3}, std \\rhval{abl_supaug/supervised-+-aug",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "f75e061ebd",
+     "47f378b57d",
+     "374bfe77e9",
+     "34b4da3245",
+     "8f132582e8"
+    ],
+    "value": 0.6619718309859154,
+    "key": "main/supervised-scratch/n10/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_supaug/supervised-+-aug/n10/test_acc/std:3}",
+   "context": "vised-scratch/n10/test_acc/mean:3}, std \\rhval{abl_supaug/supervised-+-aug/n10/test_acc/std:3}, $p=\\rhval{cmp/cmp_supaug/supervised-sc",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "4693d26fc1",
+     "0c331c2e20",
+     "7b6760ef04",
+     "04a35faed4",
+     "d986490697"
+    ],
+    "value": 0.09925249648554567,
+    "key": "abl_supaug/supervised-+-aug/n10/test_acc/std"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p:2}",
+   "context": "upervised-+-aug/n10/test_acc/std:3}, $p=\\rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p:2}$) and remains below SimCLR at 10 labels",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51e4c40414",
+     "c9aca7c6ed",
+     "fde6547a95",
+     "90eac2bd09",
+     "94d9acd44e",
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.12100090370905804,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p:2}",
+   "context": "d remains below SimCLR at 10 labels ($p=\\rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p:2}$; Table~\\ref{tab:extra}). So in this se",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51e4c40414",
+     "c9aca7c6ed",
+     "fde6547a95",
+     "90eac2bd09",
+     "94d9acd44e",
+     "c52d96a3e0",
+     "388e231785",
+     "c33dcc4981",
+     "25e9295853",
+     "f5d3ac085e"
+    ],
+    "value": 0.022404679486758502,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.5",
+   "context": "at 50 labels (5 seeds). Defaults, $\\tau=0.5$ and 60 epochs, are in Table~\\ref{tab:m",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.5050301810865191,
+    "key": "cmp_random/pca-+-lr/n10/test_acc/mean",
+    "candidates": 59
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.0",
+   "context": "nsitivity.} A higher temperature ($\\tau=1.0$: \\rhval{sweep_tau/simclr-tau-1.0/n50/t",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "train_acc",
+    "stat": "mean",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 1.0,
+    "key": "abl_aug/simclr-geom-only/n10/train_acc/mean",
+    "candidates": 994
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sweep_tau/simclr-tau-1.0/n50/test_acc/mean:3}",
+   "context": "ity.} A higher temperature ($\\tau=1.0$: \\rhval{sweep_tau/simclr-tau-1.0/n50/test_acc/mean:3}) is slightly better than the default (\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=1.0",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "1f33ec43f2",
+     "47cc8e44c0",
+     "92917d8229",
+     "24553e2247",
+     "d35016d4e4"
+    ],
+    "value": 0.9633802816901408,
+    "key": "sweep_tau/simclr-tau-1.0/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/simclr-style-probe/n50/test_acc/mean:3}",
+   "context": "}) is slightly better than the default (\\rhval{main/simclr-style-probe/n50/test_acc/mean:3}) and lower values (\\rhval{sweep_tau/sim",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928"
+    ],
+    "value": 0.9549295774647888,
+    "key": "main/simclr-style-probe/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sweep_tau/simclr-tau-0.1/n50/test_acc/mean:3}",
+   "context": "n50/test_acc/mean:3}) and lower values (\\rhval{sweep_tau/simclr-tau-0.1/n50/test_acc/mean:3} and \\rhval{sweep_tau/simclr-tau-0.2/n50",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=0.1",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8f246008df",
+     "efcaccd6b9",
+     "f27d4e450d",
+     "b8c4924d80",
+     "dd2a8fc99a"
+    ],
+    "value": 0.9416498993963783,
+    "key": "sweep_tau/simclr-tau-0.1/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sweep_tau/simclr-tau-0.2/n50/test_acc/mean:3}",
+   "context": "simclr-tau-0.1/n50/test_acc/mean:3} and \\rhval{sweep_tau/simclr-tau-0.2/n50/test_acc/mean:3}) are worse (Table~\\ref{tab:sweep}, Fig.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=0.2",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "a2a304868a",
+     "2b852aa11f",
+     "7416d010d7",
+     "6f5afc12d0",
+     "e7e424299d"
+    ],
+    "value": 0.9416498993963783,
+    "key": "sweep_tau/simclr-tau-0.2/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.0",
+   "context": "e no claim about the optimum; the $\\tau=1.0$ comparison is post hoc on the test spl",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "train_acc",
+    "stat": "mean",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 1.0,
+    "key": "abl_aug/simclr-geom-only/n10/train_acc/mean",
+    "candidates": 994
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sweep_epochs/simclr-ep-10/n50/test_acc/mean:3}",
+   "context": "ortening pretraining to 10 epochs gives \\rhval{sweep_epochs/simclr-ep-10/n50/test_acc/mean:3} against \\rhval{main/simclr-style-probe/",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_epochs",
+    "system": "SimCLR ep=10",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "a4bafc57f5",
+     "8dce7775d8",
+     "a1056b5e4c",
+     "94e0af07d3",
+     "1bafb7b615"
+    ],
+    "value": 0.9404426559356137,
+    "key": "sweep_epochs/simclr-ep-10/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/simclr-style-probe/n50/test_acc/mean:3}",
+   "context": "mclr-ep-10/n50/test_acc/mean:3} against \\rhval{main/simclr-style-probe/n50/test_acc/mean:3} at 60; 30 epochs matches the default (\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928"
+    ],
+    "value": 0.9549295774647888,
+    "key": "main/simclr-style-probe/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sweep_epochs/simclr-ep-30/n50/test_acc/mean:3}",
+   "context": "} at 60; 30 epochs matches the default (\\rhval{sweep_epochs/simclr-ep-30/n50/test_acc/mean:3}), so accuracy saturates early at this s",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_epochs",
+    "system": "SimCLR ep=30",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "2980a97db9",
+     "07bc2f06de",
+     "ee69076bf3",
+     "66f3d5eb0d",
+     "aeefdd14e1"
+    ],
+    "value": 0.9549295774647886,
+    "key": "sweep_epochs/simclr-ep-30/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "200",
+   "context": "oves a linear probe when only 10, 50 or 200 labels are available. We reimplement a",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "200",
+   "context": "50, and indistinguishable from zero at 200 labels (paired $p=\\rhval{cmp/main/super",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n200/test_acc/paired_p:2}",
+   "context": "able from zero at 200 labels (paired $p=\\rhval{cmp/main/supervised-scratch/n200/test_acc/paired_p:2}$, five seeds). Rotation prediction fail",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "b0fcc96d68",
+     "0be44f104a",
+     "4f5d614867",
+     "7ff49c1c79",
+     "6bcfdf2f43"
+    ],
+    "value": 0.17780780835621968,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "200",
+   "context": "below a random frozen encoder at 50 and 200 labels and not better than PCA at any b",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3}",
+   "context": "uracy at 50 labels (photometric-only $p=\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3}$; geometric-only $-$\\rhval{cmp/cmp_aug/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "e25fbc6c4b",
+     "c51ba5e733",
+     "1f0c608898",
+     "285c04d581",
+     "53b3728e90"
+    ],
+    "value": 0.003125930769994526,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3}",
+   "context": "est_acc/paired_p:3}$; geometric-only $-$\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3}, $p=\\rhval{cmp/cmp_aug/simclr-geom-only",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "5b1341ea17",
+     "bdbf39d515",
+     "a6aa4fe071",
+     "6cb16387bd",
+     "e768246e89"
+    ],
+    "value": 0.028169014084507227,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:2}",
+   "context": "clr-geom-only/n50/test_acc/delta:3}, $p=\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:2}$, not resolved). Accuracy is sensitive",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "5b1341ea17",
+     "bdbf39d515",
+     "a6aa4fe071",
+     "6cb16387bd",
+     "e768246e89"
+    ],
+    "value": 0.0895725648236002,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "1.0",
+   "context": "at about one standard deviation; $\\tau=1.0$ was nominally higher (\\rhval{sweep_tau",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "train_acc",
+    "stat": "mean",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 1.0,
+    "key": "abl_aug/simclr-geom-only/n10/train_acc/mean",
+    "candidates": 994
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{sweep_tau/simclr-tau-1.0/n50/test_acc/mean:3}",
+   "context": "ation; $\\tau=1.0$ was nominally higher (\\rhval{sweep_tau/simclr-tau-1.0/n50/test_acc/mean:3} vs \\rhval{main/simclr-style-probe/n50/t",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=1.0",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "1f33ec43f2",
+     "47cc8e44c0",
+     "92917d8229",
+     "24553e2247",
+     "d35016d4e4"
+    ],
+    "value": 0.9633802816901408,
+    "key": "sweep_tau/simclr-tau-1.0/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/simclr-style-probe/n50/test_acc/mean:3}",
+   "context": "/simclr-tau-1.0/n50/test_acc/mean:3} vs \\rhval{main/simclr-style-probe/n50/test_acc/mean:3}) and accuracy saturates by 30 epochs. T",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928"
+    ],
+    "value": 0.9549295774647888,
+    "key": "main/simclr-style-probe/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "200",
+   "context": "vable margin over supervised scratch at 200. Rotation prediction did not help and w",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.927",
+   "context": "idrule SimCLR geom-only & n50 & \\textbf{0.927 $\\pm$ 0.018} & 5 \\\\ SimCLR photo-only &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "76a8d3358c",
+     "2113eceab9",
+     "c3d2eea3d2",
+     "c01109a573",
+     "06bbb333e2"
+    ],
+    "value": 0.9267605633802816,
+    "key": "abl_aug/simclr-geom-only/n50/test_acc/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.018",
+   "context": "R geom-only & n50 & \\textbf{0.927 $\\pm$ 0.018} & 5 \\\\ SimCLR photo-only & n50 & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "318e909708",
+     "ff652d3d59",
+     "bb17f4cd66",
+     "b83d900199",
+     "b24d74963c"
+    ],
+    "value": 0.018128681182861327,
+    "key": "cmp_random/pca-+-lr/n50/seconds/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.918",
+   "context": "\\\\ SimCLR photo-only & n50 & \\underline{0.918 $\\pm$ 0.012} & 5 \\\\ \\midrule SimCLR geo",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8de4b88cc3",
+     "23b0010c2b",
+     "9d94a5c16a",
+     "4827752027",
+     "21e7d14133"
+    ],
+    "value": 0.917907444668008,
+    "key": "abl_aug/simclr-photo-only/n50/test_acc/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.012",
+   "context": "oto-only & n50 & \\underline{0.918 $\\pm$ 0.012} & 5 \\\\ \\midrule SimCLR geom-only & n10",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928"
+    ],
+    "value": 0.011869522095575536,
+    "key": "main/simclr-style-probe/n50/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.725",
+   "context": "idrule SimCLR geom-only & n10 & \\textbf{0.725 $\\pm$ 0.116} & 5 \\\\ SimCLR photo-only &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "6799af5efa",
+     "df9fd25ff1",
+     "ab87430a15",
+     "7b9c5de5c0",
+     "52c2818603"
+    ],
+    "value": 0.7247484909456741,
+    "key": "cmp_aug/simclr-geom-only/n10/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.116",
+   "context": "R geom-only & n10 & \\textbf{0.725 $\\pm$ 0.116} & 5 \\\\ SimCLR photo-only & n10 & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 0.11624312069379275,
+    "key": "abl_aug/simclr-geom-only/n10/test_acc/std",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.702",
+   "context": "\\\\ SimCLR photo-only & n10 & \\underline{0.702 $\\pm$ 0.063} & 5 \\\\ \\midrule SimCLR geo",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR photo-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "83818e2b64",
+     "86a8435062",
+     "5480ffb5e7",
+     "80a97830d0",
+     "b93215455d"
+    ],
+    "value": 0.7018108651911469,
+    "key": "abl_aug/simclr-photo-only/n10/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.063",
+   "context": "oto-only & n10 & \\underline{0.702 $\\pm$ 0.063} & 5 \\\\ \\midrule SimCLR geom-only & n20",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.0628591523211803,
+    "key": "cmp_random/pca-+-lr/n10/test_acc/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.975",
+   "context": "drule SimCLR geom-only & n200 & \\textbf{0.975 $\\pm$ 0.010} & 5 \\\\ SimCLR photo-only &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "f2dd525c2a",
+     "1883243768",
+     "cf542af47e",
+     "c795c499aa",
+     "bf659a5cce"
+    ],
+    "value": 0.9754527162977865,
+    "key": "cmp_aug/simclr-geom-only/n200/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.010",
+   "context": "geom-only & n200 & \\textbf{0.975 $\\pm$ 0.010} & 5 \\\\ SimCLR photo-only & n200 & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e"
+    ],
+    "value": 0.010020039917898392,
+    "key": "cmp_rotation/rotation-reimplemented/n200/test_acc/std",
+    "candidates": 22
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.965",
+   "context": "\\ SimCLR photo-only & n200 & \\underline{0.965 $\\pm$ 0.016} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR photo-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "0943b5a5d7",
+     "1c0404b168",
+     "c11b2f2ba5",
+     "f5a64fb0f3",
+     "63a591157f"
+    ],
+    "value": 0.9653923541247484,
+    "key": "abl_aug/simclr-photo-only/n200/test_acc/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/abl_aug.tex",
+   "literal": "0.016",
+   "context": "to-only & n200 & \\underline{0.965 $\\pm$ 0.016} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR photo-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "0943b5a5d7",
+     "1c0404b168",
+     "c11b2f2ba5",
+     "f5a64fb0f3",
+     "63a591157f"
+    ],
+    "value": 0.015804697695497364,
+    "key": "abl_aug/simclr-photo-only/n200/test_acc/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/abl_supaug.tex",
+   "literal": "0.923",
+   "context": "idrule Supervised + aug & n50 & \\textbf{0.923 $\\pm$ 0.033} & 5 \\\\ \\midrule Supervised",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "105462044b",
+     "1b38513046",
+     "32fbc64596",
+     "fb1a096ed0",
+     "13d199bb60"
+    ],
+    "value": 0.9227364185110665,
+    "key": "abl_supaug/supervised-+-aug/n50/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_supaug.tex",
+   "literal": "0.033",
+   "context": "vised + aug & n50 & \\textbf{0.923 $\\pm$ 0.033} & 5 \\\\ \\midrule Supervised + aug & n10",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.03278470039367676,
+    "key": "cmp_random/pixels-+-lr/n50/seconds/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/abl_supaug.tex",
+   "literal": "0.713",
+   "context": "idrule Supervised + aug & n10 & \\textbf{0.713 $\\pm$ 0.099} & 5 \\\\ \\midrule Supervised",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "4693d26fc1",
+     "0c331c2e20",
+     "7b6760ef04",
+     "04a35faed4",
+     "d986490697"
+    ],
+    "value": 0.7130784708249497,
+    "key": "abl_supaug/supervised-+-aug/n10/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_supaug.tex",
+   "literal": "0.099",
+   "context": "vised + aug & n10 & \\textbf{0.713 $\\pm$ 0.099} & 5 \\\\ \\midrule Supervised + aug & n20",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "4693d26fc1",
+     "0c331c2e20",
+     "7b6760ef04",
+     "04a35faed4",
+     "d986490697"
+    ],
+    "value": 0.09925249648554567,
+    "key": "abl_supaug/supervised-+-aug/n10/test_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_supaug.tex",
+   "literal": "0.969",
+   "context": "drule Supervised + aug & n200 & \\textbf{0.969 $\\pm$ 0.014} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "d1543defdf",
+     "081c3115ab",
+     "bdd6ae2155",
+     "4c1db5df81",
+     "3251f94d8b"
+    ],
+    "value": 0.9686116700201207,
+    "key": "abl_supaug/supervised-+-aug/n200/test_acc/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/abl_supaug.tex",
+   "literal": "0.014",
+   "context": "ised + aug & n200 & \\textbf{0.969 $\\pm$ 0.014} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "d1543defdf",
+     "081c3115ab",
+     "bdd6ae2155",
+     "4c1db5df81",
+     "3251f94d8b"
+    ],
+    "value": 0.01412755708776013,
+    "key": "abl_supaug/supervised-+-aug/n200/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.831",
+   "context": "$ & $n$ \\\\ \\midrule Pixels + LR & n50 & 0.831 $\\pm$ 0.040 & 5 \\\\ Random CNN + probe &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.8305835010060362,
+    "key": "cmp_random/pixels-+-lr/n50/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.040",
+   "context": "midrule Pixels + LR & n50 & 0.831 $\\pm$ 0.040 & 5 \\\\ Random CNN + probe & n50 & 0.856",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.04047717677419071,
+    "key": "cmp_random/pixels-+-lr/n50/test_acc/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.856",
+   "context": "0.040 & 5 \\\\ Random CNN + probe & n50 & 0.856 $\\pm$ 0.022 & 5 \\\\ Supervised scratch &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c52bea14c7",
+     "b17a1dca08",
+     "96375a2e4f",
+     "fa242b5e5b",
+     "81988159c1"
+    ],
+    "value": 0.856338028169014,
+    "key": "cmp_random/random-cnn-+-probe/n50/test_acc/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.022",
+   "context": "Random CNN + probe & n50 & 0.856 $\\pm$ 0.022 & 5 \\\\ Supervised scratch & n50 & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "d2cd4ff190",
+     "56d431b785",
+     "1b80e26a15",
+     "bd8ff7b188",
+     "7991f266e4"
+    ],
+    "value": 0.02174528142632802,
+    "key": "main/random-cnn-+-probe/n50/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.918",
+   "context": "\\ Supervised scratch & n50 & \\underline{0.918 $\\pm$ 0.017} & 5 \\\\ Rotation (reimpleme",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8de4b88cc3",
+     "23b0010c2b",
+     "9d94a5c16a",
+     "4827752027",
+     "21e7d14133"
+    ],
+    "value": 0.917907444668008,
+    "key": "abl_aug/simclr-photo-only/n50/test_acc/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.017",
+   "context": "scratch & n50 & \\underline{0.918 $\\pm$ 0.017} & 5 \\\\ Rotation (reimplemented) & n50",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "2e991ef8de",
+     "1212e9bf19",
+     "57f049c08e",
+     "bf0d52a3ad",
+     "c798ef8fa0"
+    ],
+    "value": 0.01740180950538405,
+    "key": "cmp_supaug/supervised-scratch/n50/test_acc/std",
+    "candidates": 18
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.772",
+   "context": "& 5 \\\\ Rotation (reimplemented) & n50 & 0.772 $\\pm$ 0.037 & 5 \\\\ PCA + LR & n50 & 0.8",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275"
+    ],
+    "value": 0.7722334004024145,
+    "key": "cmp_rotation/rotation-reimplemented/n50/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.037",
+   "context": "ion (reimplemented) & n50 & 0.772 $\\pm$ 0.037 & 5 \\\\ PCA + LR & n50 & 0.820 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76"
+    ],
+    "value": 0.03736175255834255,
+    "key": "cmp_aug/simclr-style-probe/n10/test_acc/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.820",
+   "context": "772 $\\pm$ 0.037 & 5 \\\\ PCA + LR & n50 & 0.820 $\\pm$ 0.031 & 5 \\\\ \\textbf{SimCLR-style",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "318e909708",
+     "ff652d3d59",
+     "bb17f4cd66",
+     "b83d900199",
+     "b24d74963c"
+    ],
+    "value": 0.8201207243460764,
+    "key": "cmp_random/pca-+-lr/n50/test_acc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.031",
+   "context": "037 & 5 \\\\ PCA + LR & n50 & 0.820 $\\pm$ 0.031 & 5 \\\\ \\textbf{SimCLR-style probe} & n5",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "318e909708",
+     "ff652d3d59",
+     "bb17f4cd66",
+     "b83d900199",
+     "b24d74963c"
+    ],
+    "value": 0.030534483646026515,
+    "key": "cmp_random/pca-+-lr/n50/test_acc/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.955",
+   "context": "tbf{SimCLR-style probe} & n50 & \\textbf{0.955 $\\pm$ 0.012} & 5 \\\\ \\midrule Pixels + L",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856"
+    ],
+    "value": 0.9549295774647888,
+    "key": "cmp_aug/simclr-style-probe/n50/test_acc/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.012",
+   "context": "tyle probe} & n50 & \\textbf{0.955 $\\pm$ 0.012} & 5 \\\\ \\midrule Pixels + LR & n10 & 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928"
+    ],
+    "value": 0.011869522095575536,
+    "key": "main/simclr-style-probe/n50/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.564",
+   "context": "12} & 5 \\\\ \\midrule Pixels + LR & n10 & 0.564 $\\pm$ 0.061 & 5 \\\\ Random CNN + probe &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "0c286d7043",
+     "883637a19f",
+     "53e92b279c",
+     "a84114fd6c",
+     "dd4cf41eeb"
+    ],
+    "value": 0.5637826961770624,
+    "key": "cmp_random/pixels-+-lr/n10/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.061",
+   "context": "midrule Pixels + LR & n10 & 0.564 $\\pm$ 0.061 & 5 \\\\ Random CNN + probe & n10 & 0.546",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "0c286d7043",
+     "883637a19f",
+     "53e92b279c",
+     "a84114fd6c",
+     "dd4cf41eeb"
+    ],
+    "value": 0.060603140754983346,
+    "key": "cmp_random/pixels-+-lr/n10/test_acc/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.546",
+   "context": "0.061 & 5 \\\\ Random CNN + probe & n10 & 0.546 $\\pm$ 0.118 & 5 \\\\ Supervised scratch &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302"
+    ],
+    "value": 0.5464788732394366,
+    "key": "cmp_random/random-cnn-+-probe/n10/test_acc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.118",
+   "context": "Random CNN + probe & n10 & 0.546 $\\pm$ 0.118 & 5 \\\\ Supervised scratch & n10 & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302"
+    ],
+    "value": 0.11829035276306211,
+    "key": "cmp_random/random-cnn-+-probe/n10/test_acc/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.662",
+   "context": "\\ Supervised scratch & n10 & \\underline{0.662 $\\pm$ 0.043} & 5 \\\\ Rotation (reimpleme",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.6619718309859155,
+    "key": "cmp_supaug/supervised-scratch/n10/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.043",
+   "context": "scratch & n10 & \\underline{0.662 $\\pm$ 0.043} & 5 \\\\ Rotation (reimplemented) & n10",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f75e061ebd",
+     "47f378b57d",
+     "374bfe77e9",
+     "34b4da3245",
+     "8f132582e8"
+    ],
+    "value": 0.043154146055386776,
+    "key": "main/supervised-scratch/n10/test_acc/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.441",
+   "context": "& 5 \\\\ Rotation (reimplemented) & n10 & 0.441 $\\pm$ 0.033 & 5 \\\\ PCA + LR & n10 & 0.5",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70"
+    ],
+    "value": 0.44064386317907445,
+    "key": "cmp_rotation/rotation-reimplemented/n10/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.033",
+   "context": "ion (reimplemented) & n10 & 0.441 $\\pm$ 0.033 & 5 \\\\ PCA + LR & n10 & 0.505 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.03278470039367676,
+    "key": "cmp_random/pixels-+-lr/n50/seconds/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.505",
+   "context": "441 $\\pm$ 0.033 & 5 \\\\ PCA + LR & n10 & 0.505 $\\pm$ 0.063 & 5 \\\\ \\textbf{SimCLR-style",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.5050301810865191,
+    "key": "cmp_random/pca-+-lr/n10/test_acc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.063",
+   "context": "033 & 5 \\\\ PCA + LR & n10 & 0.505 $\\pm$ 0.063 & 5 \\\\ \\textbf{SimCLR-style probe} & n1",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.0628591523211803,
+    "key": "cmp_random/pca-+-lr/n10/test_acc/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.826",
+   "context": "tbf{SimCLR-style probe} & n10 & \\textbf{0.826 $\\pm$ 0.037} & 5 \\\\ \\midrule Pixels + L",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76"
+    ],
+    "value": 0.8261569416498993,
+    "key": "cmp_aug/simclr-style-probe/n10/test_acc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.037",
+   "context": "tyle probe} & n10 & \\textbf{0.826 $\\pm$ 0.037} & 5 \\\\ \\midrule Pixels + LR & n200 & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76"
+    ],
+    "value": 0.03736175255834255,
+    "key": "cmp_aug/simclr-style-probe/n10/test_acc/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.932",
+   "context": "7} & 5 \\\\ \\midrule Pixels + LR & n200 & 0.932 $\\pm$ 0.013 & 5 \\\\ Random CNN + probe &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "48569b1dbe",
+     "f199660fa3",
+     "14d6e4b5b3",
+     "982d8468e0",
+     "88679ca6b0"
+    ],
+    "value": 0.9319919517102615,
+    "key": "cmp_random/pixels-+-lr/n200/test_acc/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.013",
+   "context": "idrule Pixels + LR & n200 & 0.932 $\\pm$ 0.013 & 5 \\\\ Random CNN + probe & n200 & 0.94",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "26093538e5",
+     "bd000671d2",
+     "26d8d72b23",
+     "93a6cde3aa",
+     "ca304cc966"
+    ],
+    "value": 0.013452325674403826,
+    "key": "main/pixels-+-lr/n200/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.944",
+   "context": ".013 & 5 \\\\ Random CNN + probe & n200 & 0.944 $\\pm$ 0.015 & 5 \\\\ Supervised scratch &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397"
+    ],
+    "value": 0.9440643863179075,
+    "key": "cmp_random/random-cnn-+-probe/n200/test_acc/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.015",
+   "context": "Random CNN + probe & n200 & 0.944 $\\pm$ 0.015 & 5 \\\\ Supervised scratch & n200 & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397"
+    ],
+    "value": 0.014949034705035592,
+    "key": "cmp_random/random-cnn-+-probe/n200/test_acc/std",
+    "candidates": 26
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.976",
+   "context": "Supervised scratch & n200 & \\underline{0.976 $\\pm$ 0.010} & 5 \\\\ Rotation (reimpleme",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "715f968df9",
+     "29e0315ee4",
+     "698bfa84d7",
+     "b4cf351472",
+     "cc0446efe0"
+    ],
+    "value": 0.9762575452716298,
+    "key": "cmp_supaug/supervised-scratch/n200/test_acc/mean",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.010",
+   "context": "scratch & n200 & \\underline{0.976 $\\pm$ 0.010} & 5 \\\\ Rotation (reimplemented) & n200",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e"
+    ],
+    "value": 0.010020039917898392,
+    "key": "cmp_rotation/rotation-reimplemented/n200/test_acc/std",
+    "candidates": 22
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.908",
+   "context": "5 \\\\ Rotation (reimplemented) & n200 & 0.908 $\\pm$ 0.010 & 5 \\\\ PCA + LR & n200 & 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e"
+    ],
+    "value": 0.9082494969818912,
+    "key": "cmp_rotation/rotation-reimplemented/n200/test_acc/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.010",
+   "context": "on (reimplemented) & n200 & 0.908 $\\pm$ 0.010 & 5 \\\\ PCA + LR & n200 & 0.914 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e"
+    ],
+    "value": 0.010020039917898392,
+    "key": "cmp_rotation/rotation-reimplemented/n200/test_acc/std",
+    "candidates": 22
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.914",
+   "context": "08 $\\pm$ 0.010 & 5 \\\\ PCA + LR & n200 & 0.914 $\\pm$ 0.010 & 5 \\\\ \\textbf{SimCLR-style",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "dee01762ba",
+     "5ef3aa108e",
+     "c6f8102cf5",
+     "d4eaf0d56e",
+     "0490a21c14"
+    ],
+    "value": 0.9138832997987928,
+    "key": "cmp_random/pca-+-lr/n200/test_acc/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.010",
+   "context": "10 & 5 \\\\ PCA + LR & n200 & 0.914 $\\pm$ 0.010 & 5 \\\\ \\textbf{SimCLR-style probe} & n2",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e"
+    ],
+    "value": 0.010020039917898392,
+    "key": "cmp_rotation/rotation-reimplemented/n200/test_acc/std",
+    "candidates": 22
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.979",
+   "context": "bf{SimCLR-style probe} & n200 & \\textbf{0.979 $\\pm$ 0.010} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd"
+    ],
+    "value": 0.978672032193159,
+    "key": "cmp_aug/simclr-style-probe/n200/test_acc/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.010",
+   "context": "yle probe} & n200 & \\textbf{0.979 $\\pm$ 0.010} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e"
+    ],
+    "value": 0.010020039917898392,
+    "key": "cmp_rotation/rotation-reimplemented/n200/test_acc/std",
+    "candidates": 22
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.608",
+   "context": "3 & s4 \\\\ \\midrule Supervised scratch & 0.608 & 0.624 & 0.696 & 0.700 & 0.682 \\\\ Rand",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "min",
+    "run_ids": [
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.607645875251509,
+    "key": "cmp_supaug/supervised-scratch/n10/test_acc/min",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.624",
+   "context": "\\ \\midrule Supervised scratch & 0.608 & 0.624 & 0.696 & 0.700 & 0.682 \\\\ Random CNN +",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "value",
+    "run_ids": [
+     "34b4da3245"
+    ],
+    "value": 0.6237424547283702,
+    "seed": 1,
+    "key": "run/34b4da3245/test_acc",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.696",
+   "context": "le Supervised scratch & 0.608 & 0.624 & 0.696 & 0.700 & 0.682 \\\\ Random CNN + probe &",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "value",
+    "run_ids": [
+     "8f132582e8"
+    ],
+    "value": 0.6961770623742455,
+    "seed": 2,
+    "key": "run/8f132582e8/test_acc",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.700",
+   "context": "vised scratch & 0.608 & 0.624 & 0.696 & 0.700 & 0.682 \\\\ Random CNN + probe & 0.386 &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "max",
+    "run_ids": [
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.7002012072434608,
+    "key": "cmp_supaug/supervised-scratch/n10/test_acc/max",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.682",
+   "context": "ratch & 0.608 & 0.624 & 0.696 & 0.700 & 0.682 \\\\ Random CNN + probe & 0.386 & 0.543 &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "median",
+    "run_ids": [
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.682092555331992,
+    "key": "cmp_supaug/supervised-scratch/n10/test_acc/median",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.386",
+   "context": "& 0.700 & 0.682 \\\\ Random CNN + probe & 0.386 & 0.543 & 0.720 & 0.537 & 0.545 \\\\ SimC",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "min",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302"
+    ],
+    "value": 0.386317907444668,
+    "key": "cmp_random/random-cnn-+-probe/n10/test_acc/min",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.543",
+   "context": "& 0.682 \\\\ Random CNN + probe & 0.386 & 0.543 & 0.720 & 0.537 & 0.545 \\\\ SimCLR-style",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "median",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302"
+    ],
+    "value": 0.5432595573440644,
+    "key": "cmp_random/random-cnn-+-probe/n10/test_acc/median",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.720",
+   "context": "\\\\ Random CNN + probe & 0.386 & 0.543 & 0.720 & 0.537 & 0.545 \\\\ SimCLR-style probe &",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "max",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302"
+    ],
+    "value": 0.7203219315895373,
+    "key": "cmp_random/random-cnn-+-probe/n10/test_acc/max",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.537",
+   "context": "m CNN + probe & 0.386 & 0.543 & 0.720 & 0.537 & 0.545 \\\\ SimCLR-style probe & 0.805 &",
+   "source": {
+    "type": "run",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "value",
+    "run_ids": [
+     "0392eebdb2"
+    ],
+    "value": 0.5372233400402414,
+    "seed": 3,
+    "key": "run/0392eebdb2/test_acc",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.545",
+   "context": "probe & 0.386 & 0.543 & 0.720 & 0.537 & 0.545 \\\\ SimCLR-style probe & 0.805 & 0.785 &",
+   "source": {
+    "type": "run",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "value",
+    "run_ids": [
+     "19a32a2302"
+    ],
+    "value": 0.545271629778672,
+    "seed": 4,
+    "key": "run/19a32a2302/test_acc",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.805",
+   "context": "& 0.537 & 0.545 \\\\ SimCLR-style probe & 0.805 & 0.785 & 0.881 & 0.817 & 0.843 \\\\ \\bot",
+   "source": {
+    "type": "run",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "value",
+    "run_ids": [
+     "4d7fbf5190"
+    ],
+    "value": 0.8048289738430584,
+    "seed": 0,
+    "key": "run/4d7fbf5190/test_acc",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.785",
+   "context": "& 0.545 \\\\ SimCLR-style probe & 0.805 & 0.785 & 0.881 & 0.817 & 0.843 \\\\ \\bottomrule",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "min",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76"
+    ],
+    "value": 0.7847082494969819,
+    "key": "cmp_aug/simclr-style-probe/n10/test_acc/min",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.881",
+   "context": "\\\\ SimCLR-style probe & 0.805 & 0.785 & 0.881 & 0.817 & 0.843 \\\\ \\bottomrule \\end{tab",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "max",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76"
+    ],
+    "value": 0.8812877263581489,
+    "key": "cmp_aug/simclr-style-probe/n10/test_acc/max",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.817",
+   "context": "R-style probe & 0.805 & 0.785 & 0.881 & 0.817 & 0.843 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "max",
+    "run_ids": [
+     "4693d26fc1",
+     "0c331c2e20",
+     "7b6760ef04",
+     "04a35faed4",
+     "d986490697"
+    ],
+    "value": 0.8169014084507042,
+    "key": "abl_supaug/supervised-+-aug/n10/test_acc/max",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/perseed_n10.tex",
+   "literal": "0.843",
+   "context": "probe & 0.805 & 0.785 & 0.881 & 0.817 & 0.843 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "run",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "value",
+    "run_ids": [
+     "d239d6da76"
+    ],
+    "value": 0.8430583501006036,
+    "seed": 4,
+    "key": "run/d239d6da76/test_acc",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n10/test_acc/delta:3}",
+   "context": "mCLR-style probe $-$ SimCLR geom-only & \\rhval{cmp/cmp_aug/simclr-geom-only/n10/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-geom-only/n",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76",
+     "6799af5efa",
+     "df9fd25ff1",
+     "ab87430a15",
+     "7b9c5de5c0",
+     "52c2818603"
+    ],
+    "value": 0.10140845070422522,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n10/test_acc/paired_p:3}",
+   "context": "imclr-geom-only/n10/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-geom-only/n10/test_acc/paired_p:3} \\\\ n50 & SimCLR-style probe $-$ SimCLR",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76",
+     "6799af5efa",
+     "df9fd25ff1",
+     "ab87430a15",
+     "7b9c5de5c0",
+     "52c2818603"
+    ],
+    "value": 0.0638569283898112,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3}",
+   "context": "mCLR-style probe $-$ SimCLR geom-only & \\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-geom-only/n",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "5b1341ea17",
+     "bdbf39d515",
+     "a6aa4fe071",
+     "6cb16387bd",
+     "e768246e89"
+    ],
+    "value": 0.028169014084507227,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:3}",
+   "context": "imclr-geom-only/n50/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p:3} \\\\ n200 & SimCLR-style probe $-$ SimCLR",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "5b1341ea17",
+     "bdbf39d515",
+     "a6aa4fe071",
+     "6cb16387bd",
+     "e768246e89"
+    ],
+    "value": 0.0895725648236002,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n200/test_acc/delta:3}",
+   "context": "mCLR-style probe $-$ SimCLR geom-only & \\rhval{cmp/cmp_aug/simclr-geom-only/n200/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-geom-only/n",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd",
+     "f2dd525c2a",
+     "1883243768",
+     "cf542af47e",
+     "c795c499aa",
+     "bf659a5cce"
+    ],
+    "value": 0.0032193158953724987,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-geom-only/n200/test_acc/paired_p:3}",
+   "context": "mclr-geom-only/n200/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-geom-only/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & SimCLR-style probe $-",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR geom-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd",
+     "f2dd525c2a",
+     "1883243768",
+     "cf542af47e",
+     "c795c499aa",
+     "bf659a5cce"
+    ],
+    "value": 0.3274057153928274,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-geom-only/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n10/test_acc/delta:3}",
+   "context": "CLR-style probe $-$ SimCLR photo-only & \\rhval{cmp/cmp_aug/simclr-photo-only/n10/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-photo-only/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76",
+     "e0d57b0106",
+     "1eff358f13",
+     "98895fc6ce",
+     "82c1584e1e",
+     "5b410ad51f"
+    ],
+    "value": 0.1243460764587524,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n10/test_acc/paired_p:3}",
+   "context": "mclr-photo-only/n10/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-photo-only/n10/test_acc/paired_p:3} \\\\ n50 & SimCLR-style probe $-$ SimCLR",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4d7fbf5190",
+     "970583e213",
+     "f6ce3bcf03",
+     "c242afafd1",
+     "d239d6da76",
+     "e0d57b0106",
+     "1eff358f13",
+     "98895fc6ce",
+     "82c1584e1e",
+     "5b410ad51f"
+    ],
+    "value": 0.0013691430553800553,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta:3}",
+   "context": "CLR-style probe $-$ SimCLR photo-only & \\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-photo-only/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "e25fbc6c4b",
+     "c51ba5e733",
+     "1f0c608898",
+     "285c04d581",
+     "53b3728e90"
+    ],
+    "value": 0.03702213279678079,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3}",
+   "context": "mclr-photo-only/n50/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p:3} \\\\ n200 & SimCLR-style probe $-$ SimCLR",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856",
+     "e25fbc6c4b",
+     "c51ba5e733",
+     "1f0c608898",
+     "285c04d581",
+     "53b3728e90"
+    ],
+    "value": 0.003125930769994526,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n200/test_acc/delta:3}",
+   "context": "CLR-style probe $-$ SimCLR photo-only & \\rhval{cmp/cmp_aug/simclr-photo-only/n200/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-photo-only/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd",
+     "74fc20bef2",
+     "4bc880cb72",
+     "4acc6dc527",
+     "4b3a0827cf",
+     "82e1190063"
+    ],
+    "value": 0.013279678068410572,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_aug/simclr-photo-only/n200/test_acc/paired_p:3}",
+   "context": "clr-photo-only/n200/test_acc/delta:3} & \\rhval{cmp/cmp_aug/simclr-photo-only/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & Supervised + aug $-$",
+   "source": {
+    "type": "compare",
+    "group": "cmp_aug",
+    "system": "SimCLR photo-only",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd",
+     "74fc20bef2",
+     "4bc880cb72",
+     "4acc6dc527",
+     "4b3a0827cf",
+     "82e1190063"
+    ],
+    "value": 0.01551766394553451,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/cmp_aug/simclr-photo-only/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/delta:3}",
+   "context": "pervised + aug $-$ Supervised scratch & \\rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/supervised-scra",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51e4c40414",
+     "c9aca7c6ed",
+     "fde6547a95",
+     "90eac2bd09",
+     "94d9acd44e",
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.051106639839034185,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p:3}",
+   "context": "ervised-scratch/n10/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p:3} \\\\ n50 & Supervised + aug $-$ Supervise",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51e4c40414",
+     "c9aca7c6ed",
+     "fde6547a95",
+     "90eac2bd09",
+     "94d9acd44e",
+     "9ff17a45f2",
+     "af3e266828",
+     "e12b990d0a",
+     "4d216221db",
+     "940953d3f2"
+    ],
+    "value": 0.12100090370905804,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n50/test_acc/delta:3}",
+   "context": "pervised + aug $-$ Supervised scratch & \\rhval{cmp/cmp_supaug/supervised-scratch/n50/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/supervised-scra",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "2730df191a",
+     "f34d464cd7",
+     "5c53822f70",
+     "9ebc24d412",
+     "cdf8f1b0ed",
+     "2e991ef8de",
+     "1212e9bf19",
+     "57f049c08e",
+     "bf0d52a3ad",
+     "c798ef8fa0"
+    ],
+    "value": 0.004426559356136894,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n50/test_acc/paired_p:3}",
+   "context": "ervised-scratch/n50/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/supervised-scratch/n50/test_acc/paired_p:3} \\\\ n200 & Supervised + aug $-$ Supervis",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "2730df191a",
+     "f34d464cd7",
+     "5c53822f70",
+     "9ebc24d412",
+     "cdf8f1b0ed",
+     "2e991ef8de",
+     "1212e9bf19",
+     "57f049c08e",
+     "bf0d52a3ad",
+     "c798ef8fa0"
+    ],
+    "value": 0.7006104685382454,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n200/test_acc/delta:3}",
+   "context": "pervised + aug $-$ Supervised scratch & \\rhval{cmp/cmp_supaug/supervised-scratch/n200/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/supervised-scra",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "0fc0fd6f35",
+     "41d2b680a4",
+     "cf57609a0f",
+     "263f6ceb0c",
+     "9374567e4e",
+     "715f968df9",
+     "29e0315ee4",
+     "698bfa84d7",
+     "b4cf351472",
+     "cc0446efe0"
+    ],
+    "value": -0.00764587525150906,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/supervised-scratch/n200/test_acc/paired_p:3}",
+   "context": "rvised-scratch/n200/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/supervised-scratch/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & Supervised + aug $-$",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "0fc0fd6f35",
+     "41d2b680a4",
+     "cf57609a0f",
+     "263f6ceb0c",
+     "9374567e4e",
+     "715f968df9",
+     "29e0315ee4",
+     "698bfa84d7",
+     "b4cf351472",
+     "cc0446efe0"
+    ],
+    "value": 0.09480282578973331,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/supervised-scratch/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/delta:3}",
+   "context": "pervised + aug $-$ SimCLR-style probe & \\rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/simclr-style-pr",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51e4c40414",
+     "c9aca7c6ed",
+     "fde6547a95",
+     "90eac2bd09",
+     "94d9acd44e",
+     "c52d96a3e0",
+     "388e231785",
+     "c33dcc4981",
+     "25e9295853",
+     "f5d3ac085e"
+    ],
+    "value": -0.1130784708249496,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p:3}",
+   "context": "clr-style-probe/n10/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p:3} \\\\ n50 & Supervised + aug $-$ SimCLR-st",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51e4c40414",
+     "c9aca7c6ed",
+     "fde6547a95",
+     "90eac2bd09",
+     "94d9acd44e",
+     "c52d96a3e0",
+     "388e231785",
+     "c33dcc4981",
+     "25e9295853",
+     "f5d3ac085e"
+    ],
+    "value": 0.022404679486758502,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n50/test_acc/delta:3}",
+   "context": "pervised + aug $-$ SimCLR-style probe & \\rhval{cmp/cmp_supaug/simclr-style-probe/n50/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/simclr-style-pr",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "2730df191a",
+     "f34d464cd7",
+     "5c53822f70",
+     "9ebc24d412",
+     "cdf8f1b0ed",
+     "6d89846f66",
+     "3368e65012",
+     "a30373eaf7",
+     "97d7cc2b1d",
+     "55384e1b76"
+    ],
+    "value": -0.03219315895372232,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n50/test_acc/paired_p:3}",
+   "context": "clr-style-probe/n50/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/simclr-style-probe/n50/test_acc/paired_p:3} \\\\ n200 & Supervised + aug $-$ SimCLR-s",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "2730df191a",
+     "f34d464cd7",
+     "5c53822f70",
+     "9ebc24d412",
+     "cdf8f1b0ed",
+     "6d89846f66",
+     "3368e65012",
+     "a30373eaf7",
+     "97d7cc2b1d",
+     "55384e1b76"
+    ],
+    "value": 0.08576925956432935,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n200/test_acc/delta:3}",
+   "context": "pervised + aug $-$ SimCLR-style probe & \\rhval{cmp/cmp_supaug/simclr-style-probe/n200/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/simclr-style-pr",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "0fc0fd6f35",
+     "41d2b680a4",
+     "cf57609a0f",
+     "263f6ceb0c",
+     "9374567e4e",
+     "9bdd21bcfd",
+     "5d57977900",
+     "3d7d913dd0",
+     "bc35ca9244",
+     "b371684132"
+    ],
+    "value": -0.010060362173038295,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_supaug/simclr-style-probe/n200/test_acc/paired_p:3}",
+   "context": "lr-style-probe/n200/test_acc/delta:3} & \\rhval{cmp/cmp_supaug/simclr-style-probe/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & Rotation (reimplement",
+   "source": {
+    "type": "compare",
+    "group": "cmp_supaug",
+    "system": "SimCLR-style probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "0fc0fd6f35",
+     "41d2b680a4",
+     "cf57609a0f",
+     "263f6ceb0c",
+     "9374567e4e",
+     "9bdd21bcfd",
+     "5d57977900",
+     "3d7d913dd0",
+     "bc35ca9244",
+     "b371684132"
+    ],
+    "value": 0.11292509558128735,
+    "ref": "Supervised + aug",
+    "key": "cmp/cmp_supaug/simclr-style-probe/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/delta:3}",
+   "context": "Rotation (reimplemented) $-$ PCA + LR & \\rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/pca-+-lr/n10/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70",
+     "6e7cff6701",
+     "63b327fb22",
+     "cd63e56ad8",
+     "0e7f832046",
+     "c55b4494c7"
+    ],
+    "value": -0.06438631790744465,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p:3}",
+   "context": "tation/pca-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p:3} \\\\ n50 & Rotation (reimplemented) $-$ P",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70",
+     "6e7cff6701",
+     "63b327fb22",
+     "cd63e56ad8",
+     "0e7f832046",
+     "c55b4494c7"
+    ],
+    "value": 0.049979773752661126,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/delta:3}",
+   "context": "Rotation (reimplemented) $-$ PCA + LR & \\rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/pca-+-lr/n50/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275",
+     "d040a5416f",
+     "9f4938a6e7",
+     "a2352daaa7",
+     "144fbf1b53",
+     "5a68f4d4d5"
+    ],
+    "value": -0.04788732394366191,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p:3}",
+   "context": "tation/pca-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p:3} \\\\ n200 & Rotation (reimplemented) $-$",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275",
+     "d040a5416f",
+     "9f4938a6e7",
+     "a2352daaa7",
+     "144fbf1b53",
+     "5a68f4d4d5"
+    ],
+    "value": 0.09508309874929914,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n200/test_acc/delta:3}",
+   "context": "Rotation (reimplemented) $-$ PCA + LR & \\rhval{cmp/cmp_rotation/pca-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/pca-+-lr/n200",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e",
+     "d6489e97e7",
+     "10e92d5e53",
+     "83cd193243",
+     "0631792413",
+     "1d819bbfde"
+    ],
+    "value": -0.005633802816901623,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n200/test_acc/paired_p:3}",
+   "context": "ation/pca-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/pca-+-lr/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & Rotation (reimplement",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e",
+     "d6489e97e7",
+     "10e92d5e53",
+     "83cd193243",
+     "0631792413",
+     "1d819bbfde"
+    ],
+    "value": 0.34775204618085387,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/delta:3}",
+   "context": "reimplemented) $-$ Random CNN + probe & \\rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/random-cnn-+-",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70",
+     "f42e728b41",
+     "dafbd2cc8c",
+     "554c2643ab",
+     "6d3df456bd",
+     "276bee838b"
+    ],
+    "value": -0.10583501006036211,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p:3}",
+   "context": "dom-cnn-+-probe/n10/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p:3} \\\\ n50 & Rotation (reimplemented) $-$ R",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70",
+     "f42e728b41",
+     "dafbd2cc8c",
+     "554c2643ab",
+     "6d3df456bd",
+     "276bee838b"
+    ],
+    "value": 0.08990851587228664,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/delta:3}",
+   "context": "reimplemented) $-$ Random CNN + probe & \\rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/random-cnn-+-",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275",
+     "0e313cb7ce",
+     "2f10bbe4de",
+     "330647651b",
+     "2cbd3070ff",
+     "2fe20c013d"
+    ],
+    "value": -0.08410462776659955,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p:3}",
+   "context": "dom-cnn-+-probe/n50/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p:3} \\\\ n200 & Rotation (reimplemented) $-$",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275",
+     "0e313cb7ce",
+     "2f10bbe4de",
+     "330647651b",
+     "2cbd3070ff",
+     "2fe20c013d"
+    ],
+    "value": 0.020337785200919507,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/delta:3}",
+   "context": "reimplemented) $-$ Random CNN + probe & \\rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/random-cnn-+-",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e",
+     "91375d98ed",
+     "bf7a7d7dc6",
+     "e8c23913ce",
+     "4d528aa812",
+     "77af2953ca"
+    ],
+    "value": -0.03581488933601629,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p:3}",
+   "context": "om-cnn-+-probe/n200/test_acc/delta:3} & \\rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & Random CNN + probe $-",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e",
+     "91375d98ed",
+     "bf7a7d7dc6",
+     "e8c23913ce",
+     "4d528aa812",
+     "77af2953ca"
+    ],
+    "value": 0.004328085385959589,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pca-+-lr/n10/test_acc/delta:3}",
+   "context": "n10 & Random CNN + probe $-$ PCA + LR & \\rhval{cmp/cmp_random/pca-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/cmp_random/pca-+-lr/n10/te",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302",
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.041448692152917466,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pca-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pca-+-lr/n10/test_acc/paired_p:3}",
+   "context": "random/pca-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/cmp_random/pca-+-lr/n10/test_acc/paired_p:3} \\\\ n50 & Random CNN + probe $-$ PCA + L",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302",
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.4058033548006587,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pca-+-lr/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pca-+-lr/n50/test_acc/delta:3}",
+   "context": "n50 & Random CNN + probe $-$ PCA + LR & \\rhval{cmp/cmp_random/pca-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/cmp_random/pca-+-lr/n50/te",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c52bea14c7",
+     "b17a1dca08",
+     "96375a2e4f",
+     "fa242b5e5b",
+     "81988159c1",
+     "318e909708",
+     "ff652d3d59",
+     "bb17f4cd66",
+     "b83d900199",
+     "b24d74963c"
+    ],
+    "value": 0.03621730382293764,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pca-+-lr/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pca-+-lr/n50/test_acc/paired_p:3}",
+   "context": "random/pca-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/cmp_random/pca-+-lr/n50/test_acc/paired_p:3} \\\\ n200 & Random CNN + probe $-$ PCA +",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c52bea14c7",
+     "b17a1dca08",
+     "96375a2e4f",
+     "fa242b5e5b",
+     "81988159c1",
+     "318e909708",
+     "ff652d3d59",
+     "bb17f4cd66",
+     "b83d900199",
+     "b24d74963c"
+    ],
+    "value": 0.01891231531859608,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pca-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pca-+-lr/n200/test_acc/delta:3}",
+   "context": "200 & Random CNN + probe $-$ PCA + LR & \\rhval{cmp/cmp_random/pca-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/cmp_random/pca-+-lr/n200/t",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397",
+     "dee01762ba",
+     "5ef3aa108e",
+     "c6f8102cf5",
+     "d4eaf0d56e",
+     "0490a21c14"
+    ],
+    "value": 0.030181086519114664,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pca-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pca-+-lr/n200/test_acc/paired_p:3}",
+   "context": "andom/pca-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/cmp_random/pca-+-lr/n200/test_acc/paired_p:3} \\\\ \\midrule n10 & Random CNN + probe $-",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397",
+     "dee01762ba",
+     "5ef3aa108e",
+     "c6f8102cf5",
+     "d4eaf0d56e",
+     "0490a21c14"
+    ],
+    "value": 0.0020234475707731556,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pca-+-lr/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n10/test_acc/delta:3}",
+   "context": "& Random CNN + probe $-$ Pixels + LR & \\rhval{cmp/cmp_random/pixels-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/cmp_random/pixels-+-lr/n10",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302",
+     "0c286d7043",
+     "883637a19f",
+     "53e92b279c",
+     "a84114fd6c",
+     "dd4cf41eeb"
+    ],
+    "value": -0.01730382293762589,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n10/test_acc/paired_p:3}",
+   "context": "dom/pixels-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/cmp_random/pixels-+-lr/n10/test_acc/paired_p:3} \\\\ n50 & Random CNN + probe $-$ Pixels",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "3dcde2c4cd",
+     "d7b845eab7",
+     "8f0e7440f4",
+     "0392eebdb2",
+     "19a32a2302",
+     "0c286d7043",
+     "883637a19f",
+     "53e92b279c",
+     "a84114fd6c",
+     "dd4cf41eeb"
+    ],
+    "value": 0.654948721018296,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/delta:3}",
+   "context": "& Random CNN + probe $-$ Pixels + LR & \\rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/cmp_random/pixels-+-lr/n50",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "c52bea14c7",
+     "b17a1dca08",
+     "96375a2e4f",
+     "fa242b5e5b",
+     "81988159c1",
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.02575452716297788,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p:3}",
+   "context": "dom/pixels-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p:3} \\\\ n200 & Random CNN + probe $-$ Pixels",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c52bea14c7",
+     "b17a1dca08",
+     "96375a2e4f",
+     "fa242b5e5b",
+     "81988159c1",
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.11734510528916549,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n200/test_acc/delta:3}",
+   "context": "& Random CNN + probe $-$ Pixels + LR & \\rhval{cmp/cmp_random/pixels-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/cmp_random/pixels-+-lr/n20",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397",
+     "48569b1dbe",
+     "f199660fa3",
+     "14d6e4b5b3",
+     "982d8468e0",
+     "88679ca6b0"
+    ],
+    "value": 0.012072434607645954,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_extra.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n200/test_acc/paired_p:3}",
+   "context": "om/pixels-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/cmp_random/pixels-+-lr/n200/test_acc/paired_p:3} \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397",
+     "48569b1dbe",
+     "f199660fa3",
+     "14d6e4b5b3",
+     "982d8468e0",
+     "88679ca6b0"
+    ],
+    "value": 0.013235599563682952,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n10/test_acc/delta:3}",
+   "context": "$p$ & $d$ \\\\ \\midrule n10 & PCA + LR & \\rhval{cmp/main/pca-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/main/pca-+-lr/n10/test_acc",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "da1e135d52",
+     "5fd25b5759",
+     "be105260f0",
+     "986312539b",
+     "8ff99843b3"
+    ],
+    "value": 0.3211267605633802,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n10/test_acc/paired_p:4}",
+   "context": "p/main/pca-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/main/pca-+-lr/n10/test_acc/paired_p:4} & \\rhval{cmp/main/pca-+-lr/n10/test_acc",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "da1e135d52",
+     "5fd25b5759",
+     "be105260f0",
+     "986312539b",
+     "8ff99843b3"
+    ],
+    "value": 0.00019925477226481644,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n10/test_acc/cohen_d:1}",
+   "context": "ain/pca-+-lr/n10/test_acc/paired_p:4} & \\rhval{cmp/main/pca-+-lr/n10/test_acc/cohen_d:1} \\\\ n10 & Pixels + LR & \\rhval{cmp/main/",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "da1e135d52",
+     "5fd25b5759",
+     "be105260f0",
+     "986312539b",
+     "8ff99843b3"
+    ],
+    "value": 6.210539877690214,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n10/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n10/test_acc/delta:3}",
+   "context": "t_acc/cohen_d:1} \\\\ n10 & Pixels + LR & \\rhval{cmp/main/pixels-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/main/pixels-+-lr/n10/test_",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "767e5418a7",
+     "4cf2db29ca",
+     "f788930636",
+     "f45a738010",
+     "3dffb806bf"
+    ],
+    "value": 0.26237424547283683,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n10/test_acc/paired_p:4}",
+   "context": "ain/pixels-+-lr/n10/test_acc/delta:3} & \\rhval{cmp/main/pixels-+-lr/n10/test_acc/paired_p:4} & \\rhval{cmp/main/pixels-+-lr/n10/test_",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "767e5418a7",
+     "4cf2db29ca",
+     "f788930636",
+     "f45a738010",
+     "3dffb806bf"
+    ],
+    "value": 0.00012988538324577268,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n10/test_acc/cohen_d:1}",
+   "context": "/pixels-+-lr/n10/test_acc/paired_p:4} & \\rhval{cmp/main/pixels-+-lr/n10/test_acc/cohen_d:1} \\\\ n10 & Random CNN + probe & \\rhval{cm",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "767e5418a7",
+     "4cf2db29ca",
+     "f788930636",
+     "f45a738010",
+     "3dffb806bf"
+    ],
+    "value": 5.21183220069285,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n10/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n10/test_acc/delta:3}",
+   "context": "ohen_d:1} \\\\ n10 & Random CNN + probe & \\rhval{cmp/main/random-cnn-+-probe/n10/test_acc/delta:3} & \\rhval{cmp/main/random-cnn-+-probe/n1",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "741d56d8fe",
+     "510a238ebd",
+     "2a697232fb",
+     "376731e01a",
+     "caa90640bf"
+    ],
+    "value": 0.2796780684104627,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n10/test_acc/paired_p:4}",
+   "context": "dom-cnn-+-probe/n10/test_acc/delta:3} & \\rhval{cmp/main/random-cnn-+-probe/n10/test_acc/paired_p:4} & \\rhval{cmp/main/random-cnn-+-probe/n1",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "741d56d8fe",
+     "510a238ebd",
+     "2a697232fb",
+     "376731e01a",
+     "caa90640bf"
+    ],
+    "value": 0.002624544121879238,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n10/test_acc/cohen_d:1}",
+   "context": "-cnn-+-probe/n10/test_acc/paired_p:4} & \\rhval{cmp/main/random-cnn-+-probe/n10/test_acc/cohen_d:1} \\\\ n10 & Rotation (reimplemented) & \\rh",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "741d56d8fe",
+     "510a238ebd",
+     "2a697232fb",
+     "376731e01a",
+     "caa90640bf"
+    ],
+    "value": 3.1884172527481813,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n10/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n10/test_acc/delta:3}",
+   "context": ":1} \\\\ n10 & Rotation (reimplemented) & \\rhval{cmp/main/rotation-reimplemented/n10/test_acc/delta:3} & \\rhval{cmp/main/rotation-reimplemente",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "4a4a62a2c1",
+     "ec6820c8d7",
+     "897a6e6500",
+     "fd131fbf8d",
+     "13ad6bc15b"
+    ],
+    "value": 0.38551307847082483,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n10/test_acc/paired_p:4}",
+   "context": "n-reimplemented/n10/test_acc/delta:3} & \\rhval{cmp/main/rotation-reimplemented/n10/test_acc/paired_p:4} & \\rhval{cmp/main/rotation-reimplemente",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "4a4a62a2c1",
+     "ec6820c8d7",
+     "897a6e6500",
+     "fd131fbf8d",
+     "13ad6bc15b"
+    ],
+    "value": 7.627169917860405e-05,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n10/test_acc/cohen_d:1}",
+   "context": "eimplemented/n10/test_acc/paired_p:4} & \\rhval{cmp/main/rotation-reimplemented/n10/test_acc/cohen_d:1} \\\\ n10 & Supervised scratch & \\rhval{cm",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "4a4a62a2c1",
+     "ec6820c8d7",
+     "897a6e6500",
+     "fd131fbf8d",
+     "13ad6bc15b"
+    ],
+    "value": 11.008949209345934,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n10/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n10/test_acc/delta:3}",
+   "context": "ohen_d:1} \\\\ n10 & Supervised scratch & \\rhval{cmp/main/supervised-scratch/n10/test_acc/delta:3} & \\rhval{cmp/main/supervised-scratch/n1",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "f75e061ebd",
+     "47f378b57d",
+     "374bfe77e9",
+     "34b4da3245",
+     "8f132582e8"
+    ],
+    "value": 0.16418511066398378,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n10/test_acc/paired_p:4}",
+   "context": "ervised-scratch/n10/test_acc/delta:3} & \\rhval{cmp/main/supervised-scratch/n10/test_acc/paired_p:4} & \\rhval{cmp/main/supervised-scratch/n1",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "f75e061ebd",
+     "47f378b57d",
+     "374bfe77e9",
+     "34b4da3245",
+     "8f132582e8"
+    ],
+    "value": 0.0002849039829914156,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n10/test_acc/cohen_d:1}",
+   "context": "ised-scratch/n10/test_acc/paired_p:4} & \\rhval{cmp/main/supervised-scratch/n10/test_acc/cohen_d:1} \\\\ \\midrule n50 & PCA + LR & \\rhval{cmp",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "f75e061ebd",
+     "47f378b57d",
+     "374bfe77e9",
+     "34b4da3245",
+     "8f132582e8"
+    ],
+    "value": 4.067814806038082,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n10/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n50/test_acc/delta:3}",
+   "context": "cohen_d:1} \\\\ \\midrule n50 & PCA + LR & \\rhval{cmp/main/pca-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/main/pca-+-lr/n50/test_acc",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e586f011e9",
+     "8389026862",
+     "f3460d7375",
+     "8f8427d969",
+     "6d3b46ac1c"
+    ],
+    "value": 0.13480885311871238,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n50/test_acc/paired_p:4}",
+   "context": "p/main/pca-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/main/pca-+-lr/n50/test_acc/paired_p:4} & \\rhval{cmp/main/pca-+-lr/n50/test_acc",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e586f011e9",
+     "8389026862",
+     "f3460d7375",
+     "8f8427d969",
+     "6d3b46ac1c"
+    ],
+    "value": 0.0005966594476859474,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n50/test_acc/cohen_d:1}",
+   "context": "ain/pca-+-lr/n50/test_acc/paired_p:4} & \\rhval{cmp/main/pca-+-lr/n50/test_acc/cohen_d:1} \\\\ n50 & Pixels + LR & \\rhval{cmp/main/",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e586f011e9",
+     "8389026862",
+     "f3460d7375",
+     "8f8427d969",
+     "6d3b46ac1c"
+    ],
+    "value": 5.819490139584631,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n50/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n50/test_acc/delta:3}",
+   "context": "t_acc/cohen_d:1} \\\\ n50 & Pixels + LR & \\rhval{cmp/main/pixels-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/main/pixels-+-lr/n50/test_",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "6483dba6d5",
+     "de56ec8f4e",
+     "e3c05d708c",
+     "71f755b97e",
+     "5453d2ac0e"
+    ],
+    "value": 0.12434607645875262,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n50/test_acc/paired_p:4}",
+   "context": "ain/pixels-+-lr/n50/test_acc/delta:3} & \\rhval{cmp/main/pixels-+-lr/n50/test_acc/paired_p:4} & \\rhval{cmp/main/pixels-+-lr/n50/test_",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "6483dba6d5",
+     "de56ec8f4e",
+     "e3c05d708c",
+     "71f755b97e",
+     "5453d2ac0e"
+    ],
+    "value": 0.0012433677286550083,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n50/test_acc/cohen_d:1}",
+   "context": "/pixels-+-lr/n50/test_acc/paired_p:4} & \\rhval{cmp/main/pixels-+-lr/n50/test_acc/cohen_d:1} \\\\ n50 & Random CNN + probe & \\rhval{cm",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "6483dba6d5",
+     "de56ec8f4e",
+     "e3c05d708c",
+     "71f755b97e",
+     "5453d2ac0e"
+    ],
+    "value": 4.168924530453191,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n50/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n50/test_acc/delta:3}",
+   "context": "ohen_d:1} \\\\ n50 & Random CNN + probe & \\rhval{cmp/main/random-cnn-+-probe/n50/test_acc/delta:3} & \\rhval{cmp/main/random-cnn-+-probe/n5",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "d2cd4ff190",
+     "56d431b785",
+     "1b80e26a15",
+     "bd8ff7b188",
+     "7991f266e4"
+    ],
+    "value": 0.09859154929577474,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n50/test_acc/paired_p:4}",
+   "context": "dom-cnn-+-probe/n50/test_acc/delta:3} & \\rhval{cmp/main/random-cnn-+-probe/n50/test_acc/paired_p:4} & \\rhval{cmp/main/random-cnn-+-probe/n5",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "d2cd4ff190",
+     "56d431b785",
+     "1b80e26a15",
+     "bd8ff7b188",
+     "7991f266e4"
+    ],
+    "value": 0.0006171277587436073,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n50/test_acc/cohen_d:1}",
+   "context": "-cnn-+-probe/n50/test_acc/paired_p:4} & \\rhval{cmp/main/random-cnn-+-probe/n50/test_acc/cohen_d:1} \\\\ n50 & Rotation (reimplemented) & \\rh",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "d2cd4ff190",
+     "56d431b785",
+     "1b80e26a15",
+     "bd8ff7b188",
+     "7991f266e4"
+    ],
+    "value": 5.62809574735762,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n50/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n50/test_acc/delta:3}",
+   "context": ":1} \\\\ n50 & Rotation (reimplemented) & \\rhval{cmp/main/rotation-reimplemented/n50/test_acc/delta:3} & \\rhval{cmp/main/rotation-reimplemente",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "dc0b07eb5c",
+     "107c55623a",
+     "f119c783d3",
+     "c65513a19f",
+     "37889ddfb0"
+    ],
+    "value": 0.1826961770623743,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n50/test_acc/paired_p:4}",
+   "context": "n-reimplemented/n50/test_acc/delta:3} & \\rhval{cmp/main/rotation-reimplemented/n50/test_acc/paired_p:4} & \\rhval{cmp/main/rotation-reimplemente",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "dc0b07eb5c",
+     "107c55623a",
+     "f119c783d3",
+     "c65513a19f",
+     "37889ddfb0"
+    ],
+    "value": 0.00038377486125237766,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n50/test_acc/cohen_d:1}",
+   "context": "eimplemented/n50/test_acc/paired_p:4} & \\rhval{cmp/main/rotation-reimplemented/n50/test_acc/cohen_d:1} \\\\ n50 & Supervised scratch & \\rhval{cm",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "dc0b07eb5c",
+     "107c55623a",
+     "f119c783d3",
+     "c65513a19f",
+     "37889ddfb0"
+    ],
+    "value": 6.574361417444453,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n50/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n50/test_acc/delta:3}",
+   "context": "ohen_d:1} \\\\ n50 & Supervised scratch & \\rhval{cmp/main/supervised-scratch/n50/test_acc/delta:3} & \\rhval{cmp/main/supervised-scratch/n5",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e06cddc273",
+     "b0061d583f",
+     "f10860c12c",
+     "e4622dc182",
+     "27cf2c0cfd"
+    ],
+    "value": 0.03661971830985922,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n50/test_acc/paired_p:4}",
+   "context": "ervised-scratch/n50/test_acc/delta:3} & \\rhval{cmp/main/supervised-scratch/n50/test_acc/paired_p:4} & \\rhval{cmp/main/supervised-scratch/n5",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e06cddc273",
+     "b0061d583f",
+     "f10860c12c",
+     "e4622dc182",
+     "27cf2c0cfd"
+    ],
+    "value": 0.0018861221070595564,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n50/test_acc/cohen_d:1}",
+   "context": "ised-scratch/n50/test_acc/paired_p:4} & \\rhval{cmp/main/supervised-scratch/n50/test_acc/cohen_d:1} \\\\ \\midrule n200 & PCA + LR & \\rhval{cm",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e06cddc273",
+     "b0061d583f",
+     "f10860c12c",
+     "e4622dc182",
+     "27cf2c0cfd"
+    ],
+    "value": 2.4585616826602643,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n50/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n200/test_acc/delta:3}",
+   "context": "ohen_d:1} \\\\ \\midrule n200 & PCA + LR & \\rhval{cmp/main/pca-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/main/pca-+-lr/n200/test_ac",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "f13df9cbdf",
+     "792ded1b88",
+     "414c21f456",
+     "22ff7afcb3",
+     "c835fd21a2"
+    ],
+    "value": 0.06478873239436622,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n200/test_acc/paired_p:4}",
+   "context": "/main/pca-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/main/pca-+-lr/n200/test_acc/paired_p:4} & \\rhval{cmp/main/pca-+-lr/n200/test_ac",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "f13df9cbdf",
+     "792ded1b88",
+     "414c21f456",
+     "22ff7afcb3",
+     "c835fd21a2"
+    ],
+    "value": 8.448846166073206e-05,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n200/test_acc/cohen_d:1}",
+   "context": "in/pca-+-lr/n200/test_acc/paired_p:4} & \\rhval{cmp/main/pca-+-lr/n200/test_acc/cohen_d:1} \\\\ n200 & Pixels + LR & \\rhval{cmp/main",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "f13df9cbdf",
+     "792ded1b88",
+     "414c21f456",
+     "22ff7afcb3",
+     "c835fd21a2"
+    ],
+    "value": 6.472443530269327,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n200/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n200/test_acc/delta:3}",
+   "context": "_acc/cohen_d:1} \\\\ n200 & Pixels + LR & \\rhval{cmp/main/pixels-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/main/pixels-+-lr/n200/test",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "26093538e5",
+     "bd000671d2",
+     "26d8d72b23",
+     "93a6cde3aa",
+     "ca304cc966"
+    ],
+    "value": 0.04668008048289751,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n200/test_acc/paired_p:4}",
+   "context": "in/pixels-+-lr/n200/test_acc/delta:3} & \\rhval{cmp/main/pixels-+-lr/n200/test_acc/paired_p:4} & \\rhval{cmp/main/pixels-+-lr/n200/test",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "26093538e5",
+     "bd000671d2",
+     "26d8d72b23",
+     "93a6cde3aa",
+     "ca304cc966"
+    ],
+    "value": 0.00024854182769938946,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/pixels-+-lr/n200/test_acc/cohen_d:1}",
+   "context": "pixels-+-lr/n200/test_acc/paired_p:4} & \\rhval{cmp/main/pixels-+-lr/n200/test_acc/cohen_d:1} \\\\ n200 & Random CNN + probe & \\rhval{c",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "26093538e5",
+     "bd000671d2",
+     "26d8d72b23",
+     "93a6cde3aa",
+     "ca304cc966"
+    ],
+    "value": 3.9787671753062184,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n200/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n200/test_acc/delta:3}",
+   "context": "hen_d:1} \\\\ n200 & Random CNN + probe & \\rhval{cmp/main/random-cnn-+-probe/n200/test_acc/delta:3} & \\rhval{cmp/main/random-cnn-+-probe/n2",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "16248a70bb",
+     "74e9280cf2",
+     "f2ddd9feed",
+     "de3e00cd52",
+     "78c6b63b5b"
+    ],
+    "value": 0.03460764587525156,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n200/test_acc/paired_p:4}",
+   "context": "om-cnn-+-probe/n200/test_acc/delta:3} & \\rhval{cmp/main/random-cnn-+-probe/n200/test_acc/paired_p:4} & \\rhval{cmp/main/random-cnn-+-probe/n2",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "16248a70bb",
+     "74e9280cf2",
+     "f2ddd9feed",
+     "de3e00cd52",
+     "78c6b63b5b"
+    ],
+    "value": 0.0005552562313335857,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/random-cnn-+-probe/n200/test_acc/cohen_d:1}",
+   "context": "cnn-+-probe/n200/test_acc/paired_p:4} & \\rhval{cmp/main/random-cnn-+-probe/n200/test_acc/cohen_d:1} \\\\ n200 & Rotation (reimplemented) & \\r",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "16248a70bb",
+     "74e9280cf2",
+     "f2ddd9feed",
+     "de3e00cd52",
+     "78c6b63b5b"
+    ],
+    "value": 2.745418882568622,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/random-cnn-+-probe/n200/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n200/test_acc/delta:3}",
+   "context": "1} \\\\ n200 & Rotation (reimplemented) & \\rhval{cmp/main/rotation-reimplemented/n200/test_acc/delta:3} & \\rhval{cmp/main/rotation-reimplemente",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "af69759641",
+     "ff4d7fde49",
+     "a532428412",
+     "0c6f542fc0",
+     "36f8145650"
+    ],
+    "value": 0.07042253521126784,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n200/test_acc/paired_p:4}",
+   "context": "-reimplemented/n200/test_acc/delta:3} & \\rhval{cmp/main/rotation-reimplemented/n200/test_acc/paired_p:4} & \\rhval{cmp/main/rotation-reimplemente",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "af69759641",
+     "ff4d7fde49",
+     "a532428412",
+     "0c6f542fc0",
+     "36f8145650"
+    ],
+    "value": 0.00016311619925622053,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/rotation-reimplemented/n200/test_acc/cohen_d:1}",
+   "context": "implemented/n200/test_acc/paired_p:4} & \\rhval{cmp/main/rotation-reimplemented/n200/test_acc/cohen_d:1} \\\\ n200 & Supervised scratch & \\rhval{c",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "af69759641",
+     "ff4d7fde49",
+     "a532428412",
+     "0c6f542fc0",
+     "36f8145650"
+    ],
+    "value": 7.13691466500414,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/rotation-reimplemented/n200/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n200/test_acc/delta:3}",
+   "context": "hen_d:1} \\\\ n200 & Supervised scratch & \\rhval{cmp/main/supervised-scratch/n200/test_acc/delta:3} & \\rhval{cmp/main/supervised-scratch/n2",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "b0fcc96d68",
+     "0be44f104a",
+     "4f5d614867",
+     "7ff49c1c79",
+     "6bcfdf2f43"
+    ],
+    "value": 0.0024144869215292353,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n200/test_acc/paired_p:4}",
+   "context": "rvised-scratch/n200/test_acc/delta:3} & \\rhval{cmp/main/supervised-scratch/n200/test_acc/paired_p:4} & \\rhval{cmp/main/supervised-scratch/n2",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "b0fcc96d68",
+     "0be44f104a",
+     "4f5d614867",
+     "7ff49c1c79",
+     "6bcfdf2f43"
+    ],
+    "value": 0.17780780835621968,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "generated/stats_main.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n200/test_acc/cohen_d:1}",
+   "context": "sed-scratch/n200/test_acc/paired_p:4} & \\rhval{cmp/main/supervised-scratch/n200/test_acc/cohen_d:1} \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "cohen_d",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "b0fcc96d68",
+     "0be44f104a",
+     "4f5d614867",
+     "7ff49c1c79",
+     "6bcfdf2f43"
+    ],
+    "value": 0.246234804500443,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n200/test_acc/cohen_d"
+   }
+  },
+  {
+   "section": "generated/sweep_epochs.tex",
+   "literal": "0.940",
+   "context": "$ \\\\ \\midrule SimCLR ep=10 & \\underline{0.940 $\\pm$ 0.014} & 5 \\\\ SimCLR ep=30 & \\tex",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_epochs",
+    "system": "SimCLR ep=10",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "a4bafc57f5",
+     "8dce7775d8",
+     "a1056b5e4c",
+     "94e0af07d3",
+     "1bafb7b615"
+    ],
+    "value": 0.9404426559356137,
+    "key": "sweep_epochs/simclr-ep-10/n50/test_acc/mean",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/sweep_epochs.tex",
+   "literal": "0.014",
+   "context": "e SimCLR ep=10 & \\underline{0.940 $\\pm$ 0.014} & 5 \\\\ SimCLR ep=30 & \\textbf{0.955 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "d1543defdf",
+     "081c3115ab",
+     "bdd6ae2155",
+     "4c1db5df81",
+     "3251f94d8b"
+    ],
+    "value": 0.01412755708776013,
+    "key": "abl_supaug/supervised-+-aug/n200/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweep_epochs.tex",
+   "literal": "0.955",
+   "context": "m$ 0.014} & 5 \\\\ SimCLR ep=30 & \\textbf{0.955 $\\pm$ 0.011} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c1936efad8",
+     "402944e570",
+     "9347d5bd2f",
+     "1538d149bb",
+     "eb9a207856"
+    ],
+    "value": 0.9549295774647888,
+    "key": "cmp_aug/simclr-style-probe/n50/test_acc/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweep_epochs.tex",
+   "literal": "0.011",
+   "context": "5 \\\\ SimCLR ep=30 & \\textbf{0.955 $\\pm$ 0.011} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=0.2",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "a2a304868a",
+     "2b852aa11f",
+     "7416d010d7",
+     "6f5afc12d0",
+     "e7e424299d"
+    ],
+    "value": 0.011202745196841068,
+    "key": "sweep_tau/simclr-tau-0.2/n50/test_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.1",
+   "context": "$\\uparrow$ & $n$ \\\\ \\midrule SimCLR tau=0.1 & \\underline{0.942 $\\pm$ 0.015} & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 0.11373910903930665,
+    "key": "abl_aug/simclr-geom-only/n10/seconds/mean",
+    "candidates": 313
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.942",
+   "context": "\\\\ \\midrule SimCLR tau=0.1 & \\underline{0.942 $\\pm$ 0.015} & 5 \\\\ SimCLR tau=0.2 & 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=0.1",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8f246008df",
+     "efcaccd6b9",
+     "f27d4e450d",
+     "b8c4924d80",
+     "dd2a8fc99a"
+    ],
+    "value": 0.9416498993963783,
+    "key": "sweep_tau/simclr-tau-0.1/n50/test_acc/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.015",
+   "context": "SimCLR tau=0.1 & \\underline{0.942 $\\pm$ 0.015} & 5 \\\\ SimCLR tau=0.2 & 0.942 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "6954bc1ba2",
+     "bcd84e9e16",
+     "dc9275d42d",
+     "88ce8b573f",
+     "f896c07397"
+    ],
+    "value": 0.014949034705035592,
+    "key": "cmp_random/random-cnn-+-probe/n200/test_acc/std",
+    "candidates": 26
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.2",
+   "context": "ne{0.942 $\\pm$ 0.015} & 5 \\\\ SimCLR tau=0.2 & 0.942 $\\pm$ 0.011 & 5 \\\\ SimCLR tau=1",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n200",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd"
+    ],
+    "value": 0.20914883613586427,
+    "key": "cmp_aug/simclr-style-probe/n200/seconds/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.942",
+   "context": "42 $\\pm$ 0.015} & 5 \\\\ SimCLR tau=0.2 & 0.942 $\\pm$ 0.011 & 5 \\\\ SimCLR tau=1.0 & \\te",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=0.1",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "8f246008df",
+     "efcaccd6b9",
+     "f27d4e450d",
+     "b8c4924d80",
+     "dd2a8fc99a"
+    ],
+    "value": 0.9416498993963783,
+    "key": "sweep_tau/simclr-tau-0.1/n50/test_acc/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.011",
+   "context": "15} & 5 \\\\ SimCLR tau=0.2 & 0.942 $\\pm$ 0.011 & 5 \\\\ SimCLR tau=1.0 & \\textbf{0.963 $",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=0.2",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "a2a304868a",
+     "2b852aa11f",
+     "7416d010d7",
+     "6f5afc12d0",
+     "e7e424299d"
+    ],
+    "value": 0.011202745196841068,
+    "key": "sweep_tau/simclr-tau-0.2/n50/test_acc/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "1.0",
+   "context": "2 & 0.942 $\\pm$ 0.011 & 5 \\\\ SimCLR tau=1.0 & \\textbf{0.963 $\\pm$ 0.014} & 5 \\\\ \\bo",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "train_acc",
+    "stat": "mean",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 1.0,
+    "key": "abl_aug/simclr-geom-only/n10/train_acc/mean",
+    "candidates": 994
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.963",
+   "context": "$ 0.011 & 5 \\\\ SimCLR tau=1.0 & \\textbf{0.963 $\\pm$ 0.014} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_tau",
+    "system": "SimCLR tau=1.0",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "1f33ec43f2",
+     "47cc8e44c0",
+     "92917d8229",
+     "24553e2247",
+     "d35016d4e4"
+    ],
+    "value": 0.9633802816901408,
+    "key": "sweep_tau/simclr-tau-1.0/n50/test_acc/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_tau.tex",
+   "literal": "0.014",
+   "context": "\\\\ SimCLR tau=1.0 & \\textbf{0.963 $\\pm$ 0.014} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_supaug",
+    "system": "Supervised + aug",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "d1543defdf",
+     "081c3115ab",
+     "bdd6ae2155",
+     "4c1db5df81",
+     "3251f94d8b"
+    ],
+    "value": 0.01412755708776013,
+    "key": "abl_supaug/supervised-+-aug/n200/test_acc/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "introduction.tex",
+   "literal": "1797",
+   "context": "e ordering holds for a tiny encoder and 1797 $8\\times8$ images, where classical base",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "dataset_images",
+    "run_ids": [],
+    "value": 1797.0,
+    "name": "dataset_images",
+    "why": "number of images in the scikit-learn digits dataset (load_digits)",
+    "key": "const/dataset_images"
+   }
+  },
+  {
+   "section": "introduction.tex",
+   "literal": "200",
+   "context": "a linear probe is trained on 10, 50 or 200 labels; (iii) results are compared with",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "256",
+   "context": "eta:\\mathbb{R}^{8\\times8}\\to\\mathbb{R}^{256}$: three $3\\times3$ convolutions (32, 6",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "encoder_feature_dim",
+    "run_ids": [],
+    "value": 256.0,
+    "name": "encoder_feature_dim",
+    "why": "output dimension of the CNN encoder (64 channels times 2x2 pooled map); input width of the projection MLP",
+    "key": "const/encoder_feature_dim"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "256",
+   "context": "alised by $\\ell_2$, where $g_\\phi$ is a 256--128--64 MLP. With $s_{jk}=z_j^\\top z_k",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "encoder_feature_dim",
+    "run_ids": [],
+    "value": 256.0,
+    "name": "encoder_feature_dim",
+    "why": "output dimension of the CNN encoder (64 channels times 2x2 pooled map); input width of the projection MLP",
+    "key": "const/encoder_feature_dim"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "128",
+   "context": "d by $\\ell_2$, where $g_\\phi$ is a 256--128--64 MLP. With $s_{jk}=z_j^\\top z_k/\\tau",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "pretrain_batch_size",
+    "run_ids": [],
+    "value": 128.0,
+    "name": "pretrain_batch_size",
+    "why": "batch size of SimCLR and rotation pretraining (default --batch in method/run.py)",
+    "key": "const/pretrain_batch_size",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "10\\%",
+   "context": "pm15^\\circ$, shift $\\pm1$ px, scale $\\pm10\\%$, bilinear, zero padding, no flips) and",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_epochs",
+    "system": "SimCLR ep=10",
+    "task": "n50",
+    "metric": "seconds",
+    "stat": "min",
+    "run_ids": [
+     "a4bafc57f5",
+     "8dce7775d8",
+     "a1056b5e4c",
+     "94e0af07d3",
+     "1bafb7b615"
+    ],
+    "value": 9.58151912689209,
+    "key": "sweep_epochs/simclr-ep-10/n50/seconds/min",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.2",
+   "context": "ph{photometric} (brightness $\\times(1\\pm0.2)$, Gaussian noise $\\sigma=0.1$, clamp t",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_aug",
+    "system": "SimCLR-style probe",
+    "task": "n200",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "ed28a7df08",
+     "3a1e44437e",
+     "b7a90fc975",
+     "399ae84388",
+     "ac26b572bd"
+    ],
+    "value": 0.20914883613586427,
+    "key": "cmp_aug/simclr-style-probe/n200/seconds/mean",
+    "candidates": 141
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.1",
+   "context": "times(1\\pm0.2)$, Gaussian noise $\\sigma=0.1$, clamp to $[0,1]$). \\textbf{Rotation",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_aug",
+    "system": "SimCLR geom-only",
+    "task": "n10",
+    "metric": "seconds",
+    "stat": "mean",
+    "run_ids": [
+     "e0b246ffde",
+     "d439403ca4",
+     "fcefa1c1df",
+     "62ac60c248",
+     "f800d95d1c"
+    ],
+    "value": 0.11373910903930665,
+    "key": "abl_aug/simclr-geom-only/n10/seconds/mean",
+    "candidates": 313
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "256",
+   "context": "ar probe.} For every frozen encoder the 256-d features of the $n$ labeled images ar",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "encoder_feature_dim",
+    "run_ids": [],
+    "value": 256.0,
+    "name": "encoder_feature_dim",
+    "why": "output dimension of the CNN encoder (64 channels times 2x2 pooled map); input width of the projection MLP",
+    "key": "const/encoder_feature_dim"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "300",
+   "context": "d with cross-entropy on the $n$ labels (300 Adam steps, no augmentation). \\emph{PCA",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "supervised_steps",
+    "run_ids": [],
+    "value": 300.0,
+    "name": "supervised_steps",
+    "why": "number of Adam steps of the supervised-from-scratch baseline (default --sup_steps)",
+    "key": "const/supervised_steps"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": ": supported at 10 and 50 labels, not at 200.} The paired differences are positive a",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": "es are positive at every budget, but at 200 labels the gain over scratch is \\rhval{",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n200/test_acc/delta:3}",
+   "context": "at 200 labels the gain over scratch is \\rhval{cmp/main/supervised-scratch/n200/test_acc/delta:3} with $p=\\rhval{cmp/main/supervised-scra",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "b0fcc96d68",
+     "0be44f104a",
+     "4f5d614867",
+     "7ff49c1c79",
+     "6bcfdf2f43"
+    ],
+    "value": 0.0024144869215292353,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n200/test_acc/paired_p:2}",
+   "context": "-scratch/n200/test_acc/delta:3} with $p=\\rhval{cmp/main/supervised-scratch/n200/test_acc/paired_p:2}$ (Table~\\ref{tab:stats}), which is with",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "b0fcc96d68",
+     "0be44f104a",
+     "4f5d614867",
+     "7ff49c1c79",
+     "6bcfdf2f43"
+    ],
+    "value": 0.17780780835621968,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n10/test_acc/delta:3}",
+   "context": ". The advantage grows as labels shrink (\\rhval{cmp/main/supervised-scratch/n10/test_acc/delta:3} at $n=10$, \\rhval{cmp/main/supervised-s",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "f75e061ebd",
+     "47f378b57d",
+     "374bfe77e9",
+     "34b4da3245",
+     "8f132582e8"
+    ],
+    "value": 0.16418511066398378,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/supervised-scratch/n50/test_acc/delta:3}",
+   "context": "cratch/n10/test_acc/delta:3} at $n=10$, \\rhval{cmp/main/supervised-scratch/n50/test_acc/delta:3} at $n=50$). \\textbf{H2 (SimCLR $>$ rot",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Supervised scratch",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e06cddc273",
+     "b0061d583f",
+     "f10860c12c",
+     "e4622dc182",
+     "27cf2c0cfd"
+    ],
+    "value": 0.03661971830985922,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/supervised-scratch/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": "at all three budgets (clearly at 50 and 200 labels, $p=\\rhval{cmp/cmp_rotation/rand",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p:2}",
+   "context": "dgets (clearly at 50 and 200 labels, $p=\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p:2}$ and $\\rhval{cmp/cmp_rotation/random-cn",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275",
+     "0e313cb7ce",
+     "2f10bbe4de",
+     "330647651b",
+     "2cbd3070ff",
+     "2fe20c013d"
+    ],
+    "value": 0.020337785200919507,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p:3}",
+   "context": "-+-probe/n50/test_acc/paired_p:2}$ and $\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p:3}$; at 10 labels $p=\\rhval{cmp/cmp_rotati",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "f15456a13d",
+     "b645787850",
+     "14a86081c6",
+     "6ddd1a6bc0",
+     "94d8ba042e",
+     "91375d98ed",
+     "bf7a7d7dc6",
+     "e8c23913ce",
+     "4d528aa812",
+     "77af2953ca"
+    ],
+    "value": 0.004328085385959589,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n200/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p:2}",
+   "context": "/test_acc/paired_p:3}$; at 10 labels $p=\\rhval{cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p:2}$) and not better than PCA + LR at any b",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70",
+     "f42e728b41",
+     "dafbd2cc8c",
+     "554c2643ab",
+     "6d3df456bd",
+     "276bee838b"
+    ],
+    "value": 0.08990851587228664,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/random-cnn-+-probe/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p:2}",
+   "context": "below it at 10 and 50 labels (paired $p=\\rhval{cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p:2}$ and $\\rhval{cmp/cmp_rotation/pca-+-lr/",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70",
+     "6e7cff6701",
+     "63b327fb22",
+     "cd63e56ad8",
+     "0e7f832046",
+     "c55b4494c7"
+    ],
+    "value": 0.049979773752661126,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n10/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p:2}",
+   "context": "pca-+-lr/n10/test_acc/paired_p:2}$ and $\\rhval{cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p:2}$, not resolved with five seeds) and abo",
+   "source": {
+    "type": "compare",
+    "group": "cmp_rotation",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "4663e13dd3",
+     "24a11a089a",
+     "9007e348c3",
+     "030a367171",
+     "1585a79275",
+     "d040a5416f",
+     "9f4938a6e7",
+     "a2352daaa7",
+     "144fbf1b53",
+     "5a68f4d4d5"
+    ],
+    "value": 0.09508309874929914,
+    "ref": "Rotation (reimplemented)",
+    "key": "cmp/cmp_rotation/pca-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": "ved with five seeds) and about equal at 200 (Tables~\\ref{tab:main},~\\ref{tab:extra}",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n10/test_acc/delta:3}",
+   "context": "} SimCLR beats PCA + LR at 10 labels by \\rhval{cmp/main/pca-+-lr/n10/test_acc/delta:3}, but the gap at 200 labels is still \\rh",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "da1e135d52",
+     "5fd25b5759",
+     "be105260f0",
+     "986312539b",
+     "8ff99843b3"
+    ],
+    "value": 0.3211267605633802,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": "r/n10/test_acc/delta:3}, but the gap at 200 labels is still \\rhval{cmp/main/pca-+-l",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n200/test_acc/delta:3}",
+   "context": ":3}, but the gap at 200 labels is still \\rhval{cmp/main/pca-+-lr/n200/test_acc/delta:3}, far from the two-point band, so the ``",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "f13df9cbdf",
+     "792ded1b88",
+     "414c21f456",
+     "22ff7afcb3",
+     "c835fd21a2"
+    ],
+    "value": 0.06478873239436622,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n10/test_acc/delta:3}",
+   "context": "' part is refuted. The gap does shrink (\\rhval{cmp/main/pca-+-lr/n10/test_acc/delta:3}, \\rhval{cmp/main/pca-+-lr/n50/test_acc/",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "da1e135d52",
+     "5fd25b5759",
+     "be105260f0",
+     "986312539b",
+     "8ff99843b3"
+    ],
+    "value": 0.3211267605633802,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n10/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n50/test_acc/delta:3}",
+   "context": "mp/main/pca-+-lr/n10/test_acc/delta:3}, \\rhval{cmp/main/pca-+-lr/n50/test_acc/delta:3}, \\rhval{cmp/main/pca-+-lr/n200/test_acc",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "cb2d58e841",
+     "e131d51e26",
+     "a7c6c5f66a",
+     "4b134c6c3c",
+     "f72678d928",
+     "e586f011e9",
+     "8389026862",
+     "f3460d7375",
+     "8f8427d969",
+     "6d3b46ac1c"
+    ],
+    "value": 0.13480885311871238,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n50/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/pca-+-lr/n200/test_acc/delta:3}",
+   "context": "mp/main/pca-+-lr/n50/test_acc/delta:3}, \\rhval{cmp/main/pca-+-lr/n200/test_acc/delta:3}). Rotation pretraining does not beat PC",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "delta",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "f13df9cbdf",
+     "792ded1b88",
+     "414c21f456",
+     "22ff7afcb3",
+     "c835fd21a2"
+    ],
+    "value": 0.06478873239436622,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n200/test_acc/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/rotation-reimplemented/n10/test_acc/mean:3}",
+   "context": "raining does not beat PCA at 10 labels (\\rhval{main/rotation-reimplemented/n10/test_acc/mean:3} vs \\rhval{main/pca-+-lr/n10/test_acc/me",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "4a4a62a2c1",
+     "ec6820c8d7",
+     "897a6e6500",
+     "fd131fbf8d",
+     "13ad6bc15b"
+    ],
+    "value": 0.44064386317907445,
+    "key": "main/rotation-reimplemented/n10/test_acc/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/pca-+-lr/n10/test_acc/mean:3}",
+   "context": "n-reimplemented/n10/test_acc/mean:3} vs \\rhval{main/pca-+-lr/n10/test_acc/mean:3}), so the first part fails for rotation.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "da1e135d52",
+     "5fd25b5759",
+     "be105260f0",
+     "986312539b",
+     "8ff99843b3"
+    ],
+    "value": 0.5050301810865191,
+    "key": "main/pca-+-lr/n10/test_acc/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/random-cnn-+-probe/n10/test_acc/std:3}",
+   "context": "iance, notably the random encoder ($\\pm$\\rhval{main/random-cnn-+-probe/n10/test_acc/std:3}). Table~\\ref{tab:perseed} shows that Si",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Random CNN + probe",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "std",
+    "run_ids": [
+     "741d56d8fe",
+     "510a238ebd",
+     "2a697232fb",
+     "376731e01a",
+     "caa90640bf"
+    ],
+    "value": 0.11829035276306211,
+    "key": "main/random-cnn-+-probe/n10/test_acc/std"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": "ndom frozen encoder beats PCA at 50 and 200 labels and pixels at 200 labels (Table~",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "200",
+   "context": "PCA at 50 and 200 labels and pixels at 200 labels (Table~\\ref{tab:extra}), but not",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p:2}",
+   "context": "tra}), but not clearly pixels at 50 ($p=\\rhval{cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p:2}$) or either at 10, where its variance i",
+   "source": {
+    "type": "compare",
+    "group": "cmp_random",
+    "system": "Pixels + LR",
+    "task": "n50",
+    "metric": "test_acc",
+    "stat": "paired_p",
+    "run_ids": [
+     "c52bea14c7",
+     "b17a1dca08",
+     "96375a2e4f",
+     "fa242b5e5b",
+     "81988159c1",
+     "f3995c8263",
+     "1fc3ea95db",
+     "175f035564",
+     "0b7cf7533a",
+     "6aed5f0ee5"
+    ],
+    "value": 0.11734510528916549,
+    "ref": "Random CNN + probe",
+    "key": "cmp/cmp_random/pixels-+-lr/n50/test_acc/paired_p"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1797",
+   "context": "plits.} The scikit-learn digits set has 1797 images of $8\\times8$ pixels (scaled to",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "dataset_images",
+    "run_ids": [],
+    "value": 1797.0,
+    "name": "dataset_images",
+    "why": "number of images in the scikit-learn digits dataset (load_digits)",
+    "key": "const/dataset_images"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "497",
+   "context": "or each seed a stratified test split of 497 images is held out and never used for t",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "test_split_images",
+    "run_ids": [],
+    "value": 497.0,
+    "name": "test_split_images",
+    "why": "size of the stratified held-out test split per seed (N_TEST in method/run.py)",
+    "key": "const/test_split_images"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1300",
+   "context": "ining or model selection; the remaining 1300 images form the unlabeled pool used for",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "unlabeled_pool_images",
+    "run_ids": [],
+    "value": 1300.0,
+    "name": "unlabeled_pool_images",
+    "why": "images left for the unlabeled pool after the test split (1797 minus 497)",
+    "key": "const/unlabeled_pool_images"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "200",
+   "context": "nced subset of the pool of $n\\in\\{10,50,200\\}$ images (1, 5, 20 per class; tasks \\t",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "128",
+   "context": "} SimCLR and rotation: 60 epochs, batch 128, Adam (lr $10^{-3}$, weight decay $10^{",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "pretrain_batch_size",
+    "run_ids": [],
+    "value": 128.0,
+    "name": "pretrain_batch_size",
+    "why": "batch size of SimCLR and rotation pretraining (default --batch in method/run.py)",
+    "key": "const/pretrain_batch_size",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10^{-3}",
+   "context": "tation: 60 epochs, batch 128, Adam (lr $10^{-3}$, weight decay $10^{-5}$), $\\tau=0.5$ f",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "pretrain_loss",
+    "stat": "min",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70"
+    ],
+    "value": 0.001054891146486625,
+    "key": "cmp_rotation/rotation-reimplemented/n10/pretrain_loss/min",
+    "candidates": 51
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10^{-5}",
+   "context": "128, Adam (lr $10^{-3}$, weight decay $10^{-5}$), $\\tau=0.5$ for SimCLR. Supervised: 3",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "PCA + LR",
+    "task": "n200",
+    "metric": "test_acc",
+    "stat": "welch_p",
+    "run_ids": [
+     "4c6288be3e",
+     "916385112c",
+     "947b442b22",
+     "c87a713e68",
+     "95d20a6eab",
+     "f13df9cbdf",
+     "792ded1b88",
+     "414c21f456",
+     "22ff7afcb3",
+     "c835fd21a2"
+    ],
+    "value": 7.32169582964761e-06,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pca-+-lr/n200/test_acc/welch_p",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "0^{-3}$, weight decay $10^{-5}$), $\\tau=0.5$ for SimCLR. Supervised: 300 steps, bat",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_random",
+    "system": "PCA + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "mean",
+    "run_ids": [
+     "c57d83c3a2",
+     "65707e2507",
+     "c0748aea62",
+     "9dbe734cbf",
+     "0635041474"
+    ],
+    "value": 0.5050301810865191,
+    "key": "cmp_random/pca-+-lr/n10/test_acc/mean",
+    "candidates": 59
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "300",
+   "context": "}$), $\\tau=0.5$ for SimCLR. Supervised: 300 steps, batch $\\min(n,32)$, lr $10^{-3}$",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "supervised_steps",
+    "run_ids": [],
+    "value": 300.0,
+    "name": "supervised_steps",
+    "why": "number of Adam steps of the supervised-from-scratch baseline (default --sup_steps)",
+    "key": "const/supervised_steps"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10^{-3}",
+   "context": "sed: 300 steps, batch $\\min(n,32)$, lr $10^{-3}$, weight decay $10^{-4}$. All values we",
+   "source": {
+    "type": "aggregate",
+    "group": "cmp_rotation",
+    "system": "Rotation (reimplemented)",
+    "task": "n10",
+    "metric": "pretrain_loss",
+    "stat": "min",
+    "run_ids": [
+     "8fa0180f1f",
+     "845422da74",
+     "877f64e80a",
+     "3a5765305c",
+     "c49ea2ae70"
+    ],
+    "value": 0.001054891146486625,
+    "key": "cmp_rotation/rotation-reimplemented/n10/pretrain_loss/min",
+    "candidates": 51
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10^{-4}",
+   "context": "min(n,32)$, lr $10^{-3}$, weight decay $10^{-4}$. All values were fixed in advance; the",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Pixels + LR",
+    "task": "n10",
+    "metric": "test_acc",
+    "stat": "welch_p",
+    "run_ids": [
+     "51cbf4395b",
+     "91389be298",
+     "da97d9fc35",
+     "c6578050f3",
+     "77cfafe272",
+     "767e5418a7",
+     "4cf2db29ca",
+     "f788930636",
+     "f45a738010",
+     "3dffb806bf"
+    ],
+    "value": 9.935079430486368e-05,
+    "ref": "SimCLR-style probe",
+    "key": "cmp/main/pixels-+-lr/n10/test_acc/welch_p",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "200",
+   "context": "the gap shrinks to within two points at 200 labels. H4: removing either augmentatio",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "label_budget_max",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "label_budget_max",
+    "why": "largest label budget, task n200 (20 labeled images per class)",
+    "key": "const/label_budget_max"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/main/runs}",
+   "context": "logged in \\texttt{results/runs.jsonl} (\\rhval{count/main/runs} main runs, \\rhval{count/abl_aug/runs} a",
+   "source": {
+    "type": "count",
+    "group": "main",
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 90.0,
+    "key": "count/main/runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/abl_aug/runs}",
+   "context": "nl} (\\rhval{count/main/runs} main runs, \\rhval{count/abl_aug/runs} and \\rhval{count/abl_supaug/runs} augme",
+   "source": {
+    "type": "count",
+    "group": "abl_aug",
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 30.0,
+    "key": "count/abl_aug/runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/abl_supaug/runs}",
+   "context": "in runs, \\rhval{count/abl_aug/runs} and \\rhval{count/abl_supaug/runs} augmentation-ablation runs, \\rhval{coun",
+   "source": {
+    "type": "count",
+    "group": "abl_supaug",
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 15.0,
+    "key": "count/abl_supaug/runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/sweep_tau/runs}",
+   "context": "upaug/runs} augmentation-ablation runs, \\rhval{count/sweep_tau/runs} temperature and \\rhval{count/sweep_epoc",
+   "source": {
+    "type": "count",
+    "group": "sweep_tau",
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 15.0,
+    "key": "count/sweep_tau/runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/sweep_epochs/runs}",
+   "context": "l{count/sweep_tau/runs} temperature and \\rhval{count/sweep_epochs/runs} epoch runs); code is in \\texttt{method/",
+   "source": {
+    "type": "count",
+    "group": "sweep_epochs",
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 10.0,
+    "key": "count/sweep_epochs/runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "236",
+   "context": "of the 90 main runs were logged twice (236 raw rows) with identical metrics; we ke",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "raw_registry_rows",
+    "run_ids": [],
+    "value": 236.0,
+    "name": "raw_registry_rows",
+    "why": "rows in results/runs_raw_with_duplicates.jsonl, the registry file before duplicate rows from two concurrent drivers were removed",
+    "key": "const/raw_registry_rows"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{run/c65513a19f/seconds:0}",
+   "context": "one rotation run (seed 1, $n=50$) took \\rhval{run/c65513a19f/seconds:0} s under contention, above the intended",
+   "source": {
+    "type": "run",
+    "group": "main",
+    "system": "Rotation (reimplemented)",
+    "task": "n50",
+    "metric": "seconds",
+    "stat": "value",
+    "run_ids": [
+     "c65513a19f"
+    ],
+    "value": 786.9569230079651,
+    "seed": 1,
+    "key": "run/c65513a19f/seconds"
+   }
+  }
+ ],
+ "untraced": [],
+ "constants": [
+  {
+   "name": "dataset_images",
+   "value": 1797,
+   "why": "number of images in the scikit-learn digits dataset (load_digits)"
+  },
+  {
+   "name": "test_split_images",
+   "value": 497,
+   "why": "size of the stratified held-out test split per seed (N_TEST in method/run.py)"
+  },
+  {
+   "name": "unlabeled_pool_images",
+   "value": 1300,
+   "why": "images left for the unlabeled pool after the test split (1797 minus 497)"
+  },
+  {
+   "name": "label_budget_max",
+   "value": 200,
+   "why": "largest label budget, task n200 (20 labeled images per class)"
+  },
+  {
+   "name": "encoder_feature_dim",
+   "value": 256,
+   "why": "output dimension of the CNN encoder (64 channels times 2x2 pooled map); input width of the projection MLP"
+  },
+  {
+   "name": "projection_hidden_dim",
+   "value": 128,
+   "why": "hidden width of the SimCLR projection MLP in method/run.py"
+  },
+  {
+   "name": "pretrain_batch_size",
+   "value": 128,
+   "why": "batch size of SimCLR and rotation pretraining (default --batch in method/run.py)"
+  },
+  {
+   "name": "supervised_steps",
+   "value": 300,
+   "why": "number of Adam steps of the supervised-from-scratch baseline (default --sup_steps)"
+  },
+  {
+   "name": "pretrain_lr",
+   "value": 0.001,
+   "why": "Adam learning rate for pretraining and for supervised training (defaults --lr and --sup_lr)"
+  },
+  {
+   "name": "pretrain_weight_decay",
+   "value": 1e-05,
+   "why": "Adam weight decay during SimCLR and rotation pretraining"
+  },
+  {
+   "name": "supervised_weight_decay",
+   "value": 0.0001,
+   "why": "Adam weight decay of the supervised baseline (default --sup_wd)"
+  },
+  {
+   "name": "simclr_temperature_default",
+   "value": 0.5,
+   "why": "default NT-Xent temperature tau of the SimCLR-style method (default --tau)"
+  },
+  {
+   "name": "aug_scale_range",
+   "value": 0.1,
+   "why": "geometric augmentation: scale is drawn within plus or minus 10 percent"
+  },
+  {
+   "name": "aug_brightness_range",
+   "value": 0.2,
+   "why": "photometric augmentation: brightness factor is drawn in 1 plus or minus 0.2"
+  },
+  {
+   "name": "aug_noise_sigma",
+   "value": 0.1,
+   "why": "photometric augmentation: standard deviation of the added Gaussian noise"
+  },
+  {
+   "name": "raw_registry_rows",
+   "value": 236,
+   "why": "rows in results/runs_raw_with_duplicates.jsonl, the registry file before duplicate rows from two concurrent drivers were removed"
+  }
+ ],
+ "summary": {
+  "checked": 264,
+  "traced": 264,
+  "untraced": 0,
+  "by_type": {
+   "aggregate": 106,
+   "compare": 120,
+   "constant": 26,
+   "count": 5,
+   "run": 7
+  },
+  "files": [
+   "ablations.tex",
+   "abstract.tex",
+   "conclusion.tex",
+   "generated/abl_aug.tex",
+   "generated/abl_supaug.tex",
+   "generated/main.tex",
+   "generated/perseed_n10.tex",
+   "generated/stats_extra.tex",
+   "generated/stats_main.tex",
+   "generated/sweep_epochs.tex",
+   "generated/sweep_tau.tex",
+   "introduction.tex",
+   "keywords.tex",
+   "limitations.tex",
+   "main.tex",
+   "method.tex",
+   "related.tex",
+   "results.tex",
+   "setup.tex"
+  ],
+  "ok": true
+ }
+}

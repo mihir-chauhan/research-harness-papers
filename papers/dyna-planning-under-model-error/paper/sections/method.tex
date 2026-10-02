@@ -1,4 +1,4 @@
-All agents are $\epsilon$-greedy tabular learners ($\epsilon=0.1$) with step size $\alpha$ and discount $\gamma$. After each real transition $(s,a,r,s')$ they apply the direct update
+All agents are $\epsilon$-greedy tabular learners ($\epsilon=\rhval{const/epsilon:1}$) with step size $\alpha$ and discount $\gamma$. After each real transition $(s,a,r,s')$ they apply the direct update
 \begin{equation}
 Q(s,a)\leftarrow Q(s,a)+\alpha\big[r+\gamma\max_{b}Q(s',b)-Q(s,a)\big],
 \end{equation}

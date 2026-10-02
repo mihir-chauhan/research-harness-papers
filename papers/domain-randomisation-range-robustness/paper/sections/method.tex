@@ -1,4 +1,4 @@
-\textbf{Randomised dynamics.} We use a batched numpy implementation of the gymnasium CartPole-v1 equations (Euler integration, $\tau=0.02$\,s), checked against gymnasium (maximum absolute state difference of order $10^{-7}$ over 30 steps). With nominal parameters $\theta_0=(m_c,m_p,\ell,F)$ = (cart mass, pole mass, pole half-length, force magnitude) the environment parameters are
+\textbf{Randomised dynamics.} We use a batched numpy implementation of the gymnasium CartPole-v1 equations (Euler integration, $\tau=0.02$\,s), checked against gymnasium over 30 steps on a fixed action sequence (\texttt{method/check\_dynamics.py}). With nominal parameters $\theta_0=(m_c,m_p,\ell,F)$ = (cart mass, pole mass, pole half-length, force magnitude) the environment parameters are
 \begin{equation}
 \theta_i=\theta_{0,i}\,\exp(u_i),\quad u_i\sim U(-w,w),\ i=1..4,
 \end{equation}

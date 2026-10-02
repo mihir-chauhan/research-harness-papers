@@ -60,6 +60,7 @@ metrics:
     higher_is_better: false
   runtime_s:
     higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -110,3 +111,19 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: samples_per_trajectory
+  value: 1001
+  why: 'number of samples of each recorded trajectory: 10 time units at dt=0.01, both
+    end points included'
+- name: tuning_seed_first
+  value: 1000
+  why: first seed of the five tuning trajectories (seed offset that keeps tuning data
+    apart from the test seeds 0-19)
+- name: tuning_seed_last
+  value: 1004
+  why: last seed of the five tuning trajectories (seeds 1000-1004)
+- name: sg_window_max
+  value: 161
+  why: largest Savitzky-Golay window length (in samples) of the tuning grid 11, 21,
+    41, 81, 161

@@ -2,20 +2,20 @@
 \toprule
 Task & System & n=0 & n=1 & n=5 & n=20 & n=50 & n=100 \\
 \midrule
-\multirow{3}{*}{static} & Dyna-Q & \multirow{3}{*}{84.5} & 188.8 & 205.1 & 208.7 & 215.8 & 234.8 \\
- & Dyna-Q+ &  & 122.7 & 190.3 & 222.3 & 233.6 & 235.5 \\
- & PS &  & 214.4 & 217.8 & 222.9 & 219.9 & 217.8 \\
+\multirow{3}{*}{static} & Dyna-Q & \multirow{3}{*}{\rhval{sweep_n/q-learning/static/cum_reward/mean:1}} & \rhval{sweep_n/dyna-q@n=1/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=5/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=20/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=50/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=100/static/cum_reward/mean:1} \\
+ & Dyna-Q+ &  & \rhval{sweep_n/dyna-q+@n=1/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=5/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=20/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=50/static/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=100/static/cum_reward/mean:1} \\
+ & PS &  & \rhval{sweep_n/prioritized-sweeping@n=1/static/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=5/static/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=20/static/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=50/static/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=100/static/cum_reward/mean:1} \\
 \midrule
-\multirow{3}{*}{blocking} & Dyna-Q & \multirow{3}{*}{7.3} & 27.7 & 58.7 & 58.4 & 74.1 & 78.7 \\
- & Dyna-Q+ &  & 8.3 & 60.5 & 122.8 & 146.2 & 154.4 \\
- & PS &  & 57.6 & 62.0 & 75.2 & 69.0 & 96.7 \\
+\multirow{3}{*}{blocking} & Dyna-Q & \multirow{3}{*}{\rhval{sweep_n/q-learning/blocking/cum_reward/mean:1}} & \rhval{sweep_n/dyna-q@n=1/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=5/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=20/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=50/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=100/blocking/cum_reward/mean:1} \\
+ & Dyna-Q+ &  & \rhval{sweep_n/dyna-q+@n=1/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=5/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=20/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=50/blocking/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=100/blocking/cum_reward/mean:1} \\
+ & PS &  & \rhval{sweep_n/prioritized-sweeping@n=1/blocking/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=5/blocking/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=20/blocking/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=50/blocking/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=100/blocking/cum_reward/mean:1} \\
 \midrule
-\multirow{3}{*}{shortcut} & Dyna-Q & \multirow{3}{*}{123.9} & 210.6 & 280.0 & 278.7 & 272.6 & 272.3 \\
- & Dyna-Q+ &  & 165.2 & 278.3 & 332.4 & 355.2 & 356.3 \\
- & PS &  & 238.8 & 257.5 & 262.2 & 261.8 & 262.5 \\
+\multirow{3}{*}{shortcut} & Dyna-Q & \multirow{3}{*}{\rhval{sweep_n/q-learning/shortcut/cum_reward/mean:1}} & \rhval{sweep_n/dyna-q@n=1/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=5/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=20/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=50/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=100/shortcut/cum_reward/mean:1} \\
+ & Dyna-Q+ &  & \rhval{sweep_n/dyna-q+@n=1/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=5/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=20/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=50/shortcut/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=100/shortcut/cum_reward/mean:1} \\
+ & PS &  & \rhval{sweep_n/prioritized-sweeping@n=1/shortcut/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=5/shortcut/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=20/shortcut/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=50/shortcut/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=100/shortcut/cum_reward/mean:1} \\
 \midrule
-\multirow{3}{*}{stochastic} & Dyna-Q & \multirow{3}{*}{55.4} & 92.4 & 83.2 & 70.5 & 45.8 & 39.6 \\
- & Dyna-Q+ &  & 71.1 & 74.7 & 54.6 & 47.3 & 42.6 \\
- & PS &  & 95.8 & 73.8 & 62.1 & 48.1 & 45.7 \\
+\multirow{3}{*}{stochastic} & Dyna-Q & \multirow{3}{*}{\rhval{sweep_n/q-learning/stochastic/cum_reward/mean:1}} & \rhval{sweep_n/dyna-q@n=1/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=5/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=20/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=50/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q@n=100/stochastic/cum_reward/mean:1} \\
+ & Dyna-Q+ &  & \rhval{sweep_n/dyna-q+@n=1/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=5/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=20/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=50/stochastic/cum_reward/mean:1} & \rhval{sweep_n/dyna-q+@n=100/stochastic/cum_reward/mean:1} \\
+ & PS &  & \rhval{sweep_n/prioritized-sweeping@n=1/stochastic/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=5/stochastic/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=20/stochastic/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=50/stochastic/cum_reward/mean:1} & \rhval{sweep_n/prioritized-sweeping@n=100/stochastic/cum_reward/mean:1} \\
 \bottomrule
 \end{tabular}

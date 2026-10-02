@@ -128,16 +128,21 @@ for m in ['LR', 'GB']:
 thr = pd.DataFrame(rows, columns=['learner', 'task', 'metric', 'system', 'reference', 'delta', 'paired_p'])
 thr.to_csv(out + 'threshold_tests.csv', index=False)
 
-# T6: prior-correction ablation: Brier gap to no correction, raw vs prior-corrected
+# T6: prior-correction ablation: mean Brier score of no correction, raw correction and prior-corrected variant.
+# Every cell is a \rhval{<key>} macro (rh values), so the table holds no typed or script-computed number.
+def rhkey(group, name, t, met='brier', stat='mean'):
+    return '\\rhval{%s/%s/%s/%s/%s}' % (group, name.lower().replace(' ', '-'), t, met, stat)
 L = ['\\begin{tabular}{l' + 'c' * 8 + '}', '\\toprule', ' & ' + ' & '.join(f'\\multicolumn{{2}}{{c}}{{{TL[t]}}}' for t in TASKS) + ' \\\\',
-     'System & ' + ' & '.join(['raw', '+prior'] * 4) + ' \\\\', '\\midrule']
+     'System & ' + ' & '.join(['raw', '+offset'] * 4) + ' \\\\', '\\midrule']
 for m in ['LR', 'GB']:
+    L.append(f'{m} + no correction & ' + ' & '.join('\\multicolumn{2}{c}{%s}' % rhkey('main', f'{m} + no correction', t) for t in TASKS) + ' \\\\')
     for s in ['reweight', 'ROS', 'SMOTE']:
         r = [f'{m} + {s}']
         for t in TASKS:
-            b0 = mean(main, f'{m} + no correction', t, 'brier')
-            r += [f'{mean(main, f"{m} + {s}", t, "brier") - b0:+.4f}', f'{mean(abl, f"{m} + {s} + prior corr", t, "brier") - b0:+.4f}']
+            r += [rhkey('main', f'{m} + {s}', t), rhkey('abl_priorcorr', f'{m} + {s} + prior corr', t)]
         L.append(' & '.join(r) + ' \\\\')
+    if m == 'LR':
+        L.append('\\midrule')
 L += ['\\bottomrule', '\\end{tabular}']
 open(out + 'abl_prior_brier.tex', 'w').write('\n'.join(L))
 # T7: calibration-in-the-large per task: signed a (raw), |a| (raw), |a| with the prior-shift offset.

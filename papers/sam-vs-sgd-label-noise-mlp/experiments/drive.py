@@ -1,4 +1,5 @@
-"""Driver: python experiments/drive.py {tune|select|main|sweeps|abl}. Calls `rh run` once per (system, task, seed)."""
+"""Driver: python experiments/drive.py {tune|select|main|sweeps|abl|derived}. Calls `rh run` once per (system, task, seed).
+`derived` logs the statistics of experiments/derive.py (correlations, Holm-adjusted p, per-seed differences), one row each."""
 import json, subprocess, sys, os, collections
 PY = os.environ["PY"]
 TASKS = ["digits_n0.0", "digits_n0.2", "digits_n0.4", "spirals_n0.2"]
@@ -65,6 +66,34 @@ def abl():
             r, w = sel[f"{t}|SAM"], sel[f"{t}|SGD+WD"]
             run("ablation", "SAM random direction", "abl_sam", t, s, "sam_random", rho=r)
             run("ablation", "SAM+WD", "abl_sam", t, s, "sam_wd", rho=r, wd=w)
+
+PRIMARY = "digits_n0.4"   # registry rows need a task; pooled statistics are filed under the primary task (see the row note)
+
+def derive(name, task, args, pooled=None):
+    tag = ("derived_" + name + "_" + task).replace(" ", "_").replace("/", "_")
+    f = f"results/raw/{tag}.json"
+    cfg = {"analysis": args[0], "args": " ".join(args[1:])}
+    note = []
+    if pooled:
+        cfg["pooled_over"] = pooled
+        note = ["--note", f"pooled over {pooled}; the task field is only a placeholder"]
+    cmd = ["nice", "-n", "10", "rh", "run", "--kind", "ablation", "--name", name, "--group", "derived", "--task", task,
+           "--seed", "0", "--config", json.dumps(cfg), "--metrics-file", f, *note, "--",
+           PY, "experiments/derive.py", *args, "--out", f]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    print(r.stdout.strip()[:200] if not r.returncode else ("FAIL " + tag + r.stdout[-300:] + r.stderr[-300:]))
+
+def derived():
+    thr = ["--collapse-digits", "0.15", "--collapse-spirals", "0.55"]
+    for scope, nm in [("all", "corr all"), ("no_collapsed", "corr no-collapsed"), ("sam", "corr SAM")]:
+        for t in (TASKS[:3] if scope == "sam" else TASKS):
+            derive(nm, t, ["corr", "--scope", scope, "--task", t] + thr)
+    derive("corr pooled all", PRIMARY, ["corr", "--scope", "all", "--task", "pooled"] + thr, pooled="all four tasks")
+    derive("corr pooled no-collapsed", PRIMARY, ["corr", "--scope", "no_collapsed", "--task", "pooled"] + thr, pooled="all four tasks")
+    derive("corr pooled SAM digits", PRIMARY, ["corr", "--scope", "sam", "--task", "pooled"] + thr, pooled="the three digits tasks")
+    for t in TASKS:
+        for b in ["SGD", "SGD+WD"]:
+            derive(f"SAM minus {b}", t, ["paired", "--task", t, "--baseline", b])
 
 if __name__ == "__main__":
     globals()[sys.argv[1]]()

@@ -70,6 +70,9 @@ metrics:
     higher_is_better: true
   val_mae_n8:
     higher_is_better: false
+  train_seconds:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -108,3 +111,29 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: train_steps
+  value: 1000
+  why: Adam optimisation steps per run (default --steps in method/run.py), identical
+    for every system
+- name: test_graphs_per_cell
+  value: 200
+  why: 'number of test graphs per (family, size) cell: 4 batches of 50 in evaluate()'
+- name: eval_seed_offset
+  value: 10000
+  why: offset added to the seed for the test-graph random stream (rng(10000 + seed)
+    in method/run.py)
+- name: mpnn_parameters
+  value: 12770
+  why: trainable parameter count of each MPNN (width 32), counted from the model definition;
+    a model-size fact, not a result
+- name: mlp_parameters
+  value: 557376
+  why: trainable parameter count of the flat-adjacency MLP, counted from the model
+    definition; a model-size fact, not a result
+- name: mlp_input_dim
+  value: 4160
+  why: 'MLP input size: 64x64 padded adjacency plus 64-way one-hot source'
+- name: mlp_hidden_width
+  value: 128
+  why: hidden width of the flat-adjacency MLP baseline

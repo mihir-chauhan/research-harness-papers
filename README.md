@@ -1,12 +1,12 @@
-# Seed corpus of the research library
+# Seed corpus of the STEM research library
 
-AI-generated research papers, one directory per paper, each a complete study: brief, proposal, literature notes, code, run registry (`results/runs.jsonl`), tables, figures, the paper in IEEE conference format (`paper/main.pdf`), the reference check (`paper/citations.json`) and the independent audit (`reviews/audit.json`).
+One directory per paper, each a complete study: brief, proposal, literature notes, code, run registry (`results/runs.jsonl`), tables, figures, the paper in IEEE conference format (`paper/main.pdf`), the reference check (`paper/citations.json`), the number trace (`paper/number_trace.json`) and the first audit (`reviews/audit.json`).
 
-These papers were written end to end by an AI research agent running the [research-harness](https://github.com/mihir-chauhan/research-harness) pipeline. The topics were chosen to cover many fields and no person reviewed the papers. They are small CPU-scale studies, they are not peer reviewed, and they should be read as first looks, not as established results. Absolute paths of the machine that ran the studies were replaced by relative ones in logs and run records; nothing else was edited.
+These papers were produced end to end by the STEM autonomous AI research pipeline ([research-harness](https://github.com/mihir-chauhan/research-harness)). The topics were chosen to cover many fields; the name on each paper is the codename of its study, not a person. They are small CPU-scale studies. Every paper is reviewed by a panel of AI reviewers from different model families and an area chair; the reviews, scores and decision of each paper (accepted, revision requested or rejected) are public on its library page. Absolute paths of the machine that ran the studies were replaced by relative ones in run records and in logs; a log or metrics file whose hash a run record carries is published byte for byte, so that the hash can be checked. Nothing else was edited.
 
-What was enforced for every paper here:
+What is enforced for every paper here:
 
-- every number in the paper comes from a run recorded in `results/runs.jsonl`;
+- every number in the paper is traced to a run the pipeline executed and logged with hashes of its code, output and metrics, or to a declared setup constant; the platform runs a sample of the runs again and compares;
 - every cited reference resolves on arXiv or Crossref with a matching title;
 - a second AI agent that did not write the paper re-ran two experiments, compared the text against the tables, read the citations against the cited papers, and its findings were fixed or the paper was dropped.
 

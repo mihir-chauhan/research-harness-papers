@@ -1,15 +1,16 @@
 \begin{tabular}{llrrrrr}
 \toprule
-Task & System & Full & No norm & mean (\%) & median (\%) & No decomp\\
+ & & \multicolumn{2}{c}{seed mean} & \multicolumn{2}{c}{seed median} & No decomp\\
+Task & System & Full & No norm & Full & No norm & (seed mean)\\
 \midrule
-trend & DLinear & 0.031 & 0.052 & +66.5 & +8.8 & 0.031 (-0.2\%)\\
-trend & PatchTST & 0.032 & 0.101 & +218 & +134 & --\\
-trend & GRU & 0.032 & 5.646 & +17665 & +805 & --\\
-regime & DLinear & 0.434 & 0.410 & -5.6 & -5.4 & 0.435 (+0.2\%)\\
-regime & PatchTST & 0.413 & 0.405 & -1.9 & -1.2 & --\\
-regime & GRU & 0.446 & 0.430 & -3.6 & -3.5 & --\\
-etth1 & DLinear & 0.376 & 0.382 & +1.7 & +2.0 & 0.383 (+1.9\%)\\
-etth1 & PatchTST & 0.400 & 0.399 & -0.2 & -2.6 & --\\
-etth1 & GRU & 0.399 & 0.440 & +10.1 & +9.6 & --\\
+trend & DLinear & \rhval{main/dlinear/trend/mse_96/mean:3} & \rhval{abl_design/dlinear-no-norm/trend/mse_96/mean:3} & \rhval{main/dlinear/trend/mse_96/median:4} & \rhval{abl_design/dlinear-no-norm/trend/mse_96/median:4} & \rhval{abl_design/linear-no-decomp/trend/mse_96/mean:3}\\
+trend & PatchTST & \rhval{main/patchtst/trend/mse_96/mean:3} & \rhval{abl_design/patchtst-no-norm/trend/mse_96/mean:3} & \rhval{main/patchtst/trend/mse_96/median:4} & \rhval{abl_design/patchtst-no-norm/trend/mse_96/median:4} & --\\
+trend & GRU & \rhval{main/gru/trend/mse_96/mean:3} & \rhval{abl_design/gru-no-norm/trend/mse_96/mean:3} & \rhval{main/gru/trend/mse_96/median:4} & \rhval{abl_design/gru-no-norm/trend/mse_96/median:4} & --\\
+regime & DLinear & \rhval{main/dlinear/regime/mse_96/mean:3} & \rhval{abl_design/dlinear-no-norm/regime/mse_96/mean:3} & \rhval{main/dlinear/regime/mse_96/median:4} & \rhval{abl_design/dlinear-no-norm/regime/mse_96/median:4} & \rhval{abl_design/linear-no-decomp/regime/mse_96/mean:3}\\
+regime & PatchTST & \rhval{main/patchtst/regime/mse_96/mean:3} & \rhval{abl_design/patchtst-no-norm/regime/mse_96/mean:3} & \rhval{main/patchtst/regime/mse_96/median:4} & \rhval{abl_design/patchtst-no-norm/regime/mse_96/median:4} & --\\
+regime & GRU & \rhval{main/gru/regime/mse_96/mean:3} & \rhval{abl_design/gru-no-norm/regime/mse_96/mean:3} & \rhval{main/gru/regime/mse_96/median:4} & \rhval{abl_design/gru-no-norm/regime/mse_96/median:4} & --\\
+etth1 & DLinear & \rhval{main/dlinear/etth1/mse_96/mean:3} & \rhval{abl_design/dlinear-no-norm/etth1/mse_96/mean:3} & \rhval{main/dlinear/etth1/mse_96/median:4} & \rhval{abl_design/dlinear-no-norm/etth1/mse_96/median:4} & \rhval{abl_design/linear-no-decomp/etth1/mse_96/mean:3}\\
+etth1 & PatchTST & \rhval{main/patchtst/etth1/mse_96/mean:3} & \rhval{abl_design/patchtst-no-norm/etth1/mse_96/mean:3} & \rhval{main/patchtst/etth1/mse_96/median:4} & \rhval{abl_design/patchtst-no-norm/etth1/mse_96/median:4} & --\\
+etth1 & GRU & \rhval{main/gru/etth1/mse_96/mean:3} & \rhval{abl_design/gru-no-norm/etth1/mse_96/mean:3} & \rhval{main/gru/etth1/mse_96/median:4} & \rhval{abl_design/gru-no-norm/etth1/mse_96/median:4} & --\\
 \bottomrule
 \end{tabular}

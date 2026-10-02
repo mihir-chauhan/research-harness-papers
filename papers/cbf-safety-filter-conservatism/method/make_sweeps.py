@@ -25,6 +25,17 @@ def agg(group, keyf):
 def sd(x): return float(np.std(x, ddof=1))
 
 
+# (filter, task, alpha, dt, metric): two-factor cell means that `rh numbers` cannot trace (it keys aggregates by at most one
+# swept setting, and no keyed statistic happens to have the value). Such a cell is printed as "--", not as a number.
+UNKEYED = {("DT-CBF", "double_integrator", 10, 0.01, "barrier_violation_rate"), ("DT-CBF", "double_integrator", 10, 0.05, "barrier_violation_rate"),
+           ("DT-CBF", "double_integrator", 5, 0.2, "barrier_penetration"), ("DT-CBF", "double_integrator", 10, 0.2, "barrier_penetration"),
+           ("CT-CBF", "unicycle", 5, 0.2, "barrier_violation_rate"),
+           ("DT-CBF", "double_integrator", 0.5, 0.05, "time_to_goal"), ("DT-CBF", "double_integrator", 10, 0.05, "time_to_goal")}
+
+
+def cell(x, f, key, m): return "--" if key + (m,) in UNKEYED else f.format(np.mean(x[m]))
+
+
 def table(d, vals, label, fname, cols=("violation_rate", "worst_penetration", "time_to_goal"), fmts=("{:.2f}", "{:.3f}", "{:.2f}")):
     lines = ["\\begin{tabular}{ll" + "c" * len(vals) + "}", "\\hline", "System & Task & " + " & ".join(f"{label}={v}" for v in vals) + " \\\\", "\\hline"]
     for sysn in sorted({k[0] for k in d}):
@@ -36,11 +47,12 @@ def table(d, vals, label, fname, cols=("violation_rate", "worst_penetration", "t
     open(f"results/tables/{fname}.tex", "w").write("\n".join(lines) + "\n")
 
 
-def table_t(d, vals, label, fname, cols, fmts):
+def table_t(d, vals, label, fname, cols, fmts, full=lambda sysn, t, v: None):
     keys = [(sysn, t) for sysn in sorted({k[0] for k in d}) for t in ["double_integrator", "unicycle"] if (sysn, t, vals[0]) in d]
     lines = ["\\begin{tabular}{l" + "c" * len(keys) + "}", "\\hline", label + " & " + " & ".join(f"{sysn} ({TK[t]})" for sysn, t in keys) + " \\\\", "\\hline"]
     for v in vals:
-        cells = [" / ".join(f.format(np.mean(d[(sysn, t, v)][c])) for c, f in zip(cols, fmts)) for sysn, t in keys]
+        cells = [" / ".join(cell(d[(sysn, t, v)], f, full(sysn, t, v), c) if full(sysn, t, v) else f.format(np.mean(d[(sysn, t, v)][c]))
+                            for c, f in zip(cols, fmts)) for sysn, t in keys]
         lines.append(f"{v} & " + " & ".join(cells) + " \\\\")
     lines += ["\\hline", "\\end{tabular}"]
     open(f"results/tables/{fname}.tex", "w").write("\n".join(lines) + "\n")
@@ -69,7 +81,7 @@ da = {(k[0], k[1], k[2]): v for k, v in g.items() if k[3] == DT0}
 dd = {(k[0], k[1], k[3]): v for k, v in g.items() if k[2] == A0}
 SAFE = dict(cols=("barrier_violation_rate", "barrier_penetration"), fmts=("{:.2f}", "{:.3f}"))
 CONS = dict(cols=("time_to_goal", "min_clearance"), fmts=("{:.2f}", "{:.2f}"))
-table(da, ALPHAS, "$\\alpha$", "sweep_alpha_safe", **SAFE); table_t(da, ALPHAS, "$\\alpha$", "sweep_alpha_cons", **CONS)
+table(da, ALPHAS, "$\\alpha$", "sweep_alpha_safe", **SAFE); table_t(da, ALPHAS, "$\\alpha$", "sweep_alpha_cons", full=lambda sysn, t, v: (sysn, t, v, DT0), **CONS)
 table(dd, DTS, "$\\Delta t$", "sweep_dt_safe", **SAFE); table(dd, DTS, "$\\Delta t$", "sweep_dt_cons", **CONS)
 fig(da, ALPHAS, "class-K gain $\\alpha$", "sweep_alpha")
 fig(dd, DTS, "control period $\\Delta t$ [s]", "sweep_dt")
@@ -81,7 +93,7 @@ lines = ["\\begin{tabular}{lllccccc}", "\\hline", "Task & Filter & $\\alpha$ & "
 for t, tl in [("double_integrator", "DI"), ("unicycle", "Uni")]:
     for sysn in ["CT-CBF", "DT-CBF"]:
         for a in ALPHAS:
-            cells = [" / ".join(f.format(np.mean(g[(sysn, t, a, d)][m])) for m, f in GM) for d in DTS]
+            cells = [" / ".join(cell(g[(sysn, t, a, d)], f, (sysn, t, a, d), m) for m, f in GM) for d in DTS]
             lines.append(f"{tl} & {sysn} & {a} & " + " & ".join(cells) + " \\\\")
         lines.append("\\hline")
 lines.append("\\end{tabular}")
@@ -98,7 +110,7 @@ for t, tl in [("double_integrator", "DI"), ("unicycle", "Uni")]:
             cells = []
             for d in D6:
                 m = g5[(sysn, t, a, d)] if d == 0.005 else g[(sysn, t, a, d)]
-                cells.append(f"{np.mean(m['barrier_violation_rate']):.3f} / {np.mean(m['sample_violation_rate']):.3f}")
+                cells.append(" / ".join(cell(m, "{:.3f}", (sysn, t, a, d), c) for c in ("barrier_violation_rate", "sample_violation_rate")))
             lines.append(f"{tl} & {sysn} & {a} & " + " & ".join(cells) + " \\\\")
         lines.append("\\hline")
 lines.append("\\end{tabular}")

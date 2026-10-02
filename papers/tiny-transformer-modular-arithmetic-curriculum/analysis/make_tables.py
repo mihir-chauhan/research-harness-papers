@@ -75,7 +75,8 @@ c = pd.read_csv("results/tables/compare_main_steps_to_95.csv"); c = c[c.task == 
 with open("results/tables/tests.tex", "w") as fh:
     fh.write("\\begin{tabular}{lccc}\n\\toprule\nCurriculum vs. & mean diff. & Welch $p$ & paired $p$ \\\\\n\\midrule\n")
     for _, r in c.iterrows():
-        fh.write(f"{r['name']} & {r["delta"]:+.0f} & {r['welch_p']:.2f} & {r['paired_p']:.2f} \\\\\n")
+        k = f"cmp/main/{r['name'].lower().replace(' ', '-')}/{T}/steps_to_95"   # values come from the registry (rh values), not retyped
+        fh.write(f"{r['name']} & \\rhval{{{k}/delta}} & \\rhval{{{k}/welch_p:2}} & \\rhval{{{k}/paired_p:2}} \\\\\n")
     fh.write("\\bottomrule\n\\end{tabular}\n")
 fig, ax = plt.subplots(figsize=(3.3, 2.3))
 for k, s in enumerate(SYS):

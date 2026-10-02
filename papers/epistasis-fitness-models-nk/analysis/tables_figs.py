@@ -27,34 +27,15 @@ for t in tasks:
     s += tt(t) + ' & ' + ' & '.join('%.3f' % sd.loc[t, x] for x in SYS[:4]) + ' & ' + ' & '.join('%.2f' % hsd.loc[t, x] for x in SYS) + '\\\\\n'
     if t == 'L15_A4_K4': s += '\\midrule\n'
 open('results/tables/main_sd.tex', 'w').write(s + '\\bottomrule\n\\end{tabular}\n')
-# H4 robustness table: rank correlations and paired t-tests on design_hit (same statistics as analysis/hyp.py)
-from scipy.stats import ttest_rel, ttest_1samp
-def col(name, c='design_hit'): return M[M.name == name].set_index(['task', 'seed'])[c].sort_index()
-pw_s, ad_s, pw_h, ad_h, rd_h, chs = col('Pairwise ridge', 'spearman'), col('Additive ridge', 'spearman'), col('Pairwise ridge'), col('Additive ridge'), col('Random'), col('Random', 'frac_mutants_better')
-ds, dh = pw_s - ad_s, pw_h - ad_h
-def pf(p): return '$<$0.001' if p < 0.001 else '%.2f' % p if p >= 0.0095 else '%.3f' % p
-rowsH = []
-r = spearmanr(ds, dh); rowsH.append((r'$\rho$, all 40 (task, seed) units', '%.2f' % r[0], pf(r[1])))
-k = ds.index.get_level_values(0) != 'L15_A4_K1'; r = spearmanr(ds[k], dh[k]); rowsH.append((r'$\rho$, without L15\_A4\_K1 (35 units)', '%.2f' % r[0], pf(r[1])))
-r = spearmanr(ds.groupby(level=0).mean(), dh.groupby(level=0).mean()); rowsH.append((r'$\rho$, the 8 task means', '%.2f' % r[0], pf(r[1])))
-rowsH.append(None)
-for t in ['L15_A4_K1', 'L15_A4_K2', 'L20_A20_K1']:
-    rowsH.append((r'Pair.$-$Add. hit, ' + tt(t), '%.2f' % dh.loc[t].mean(), pf(ttest_rel(pw_h.loc[t], ad_h.loc[t]).pvalue)))
-rowsH.append(None)
-for t in ['L20_A20_K2', 'L20_A20_K4']:
-    rowsH.append((r'Add.$-$Rand. hit, ' + tt(t), '%.2f' % (ad_h.loc[t] - rd_h.loc[t]).mean(), pf(ttest_rel(ad_h.loc[t], rd_h.loc[t]).pvalue)))
-    rowsH.append((r'Add.$-$Chance hit, ' + tt(t), '%.3f' % (ad_h.loc[t] - chs.loc[t]).mean(), pf(ttest_1samp(ad_h.loc[t] - chs.loc[t], 0).pvalue)))
-s = r'\begin{tabular}{lrr}' + '\n\\toprule\nQuantity & Value & $p$\\\\\n\\midrule\n'
-for rw in rowsH: s += '\\midrule\n' if rw is None else ' & '.join(rw) + '\\\\\n'
-open('results/tables/h4_summary.tex', 'w').write(s + '\\bottomrule\n\\end{tabular}\n')
+# (the H4 table is written in paper/sections/results.tex from \rhval keys of `rh compare`; rank correlations: analysis/hyp.py)
 # sweep table
 S = df[df.group == 'sweep_n']; mm = M[M.task.isin(['L15_A4_K2', 'L20_A20_K1']) & M.name.isin(SYS[:4])]
 A_ = pd.concat([S, mm]); A_['n'] = A_.n.astype(int)
 tab = A_.groupby(['task', 'n', 'name']).spearman.mean().unstack()
-s = r'\begin{tabular}{lr' + 'r' * 4 + 'r}\n\\toprule\nTask & $N$ & ' + ' & '.join(SH[:4]) + ' & Pair.$-$Add.\\\\\n\\midrule\n'
+s = r'\begin{tabular}{lr' + 'r' * 4 + '}\n\\toprule\nTask & $N$ & ' + ' & '.join(SH[:4]) + '\\\\\n\\midrule\n'
 for t in ['L15_A4_K2', 'L20_A20_K1']:
     for n in [250, 500, 1000, 2000, 4000]:
-        r = tab.loc[(t, n)]; s += f"{tt(t)} & {n} & " + ' & '.join('%.3f' % r[x] for x in SYS[:4]) + ' & %.3f' % (r['Pairwise ridge'] - r['Additive ridge']) + '\\\\\n'
+        r = tab.loc[(t, n)]; s += f"{tt(t)} & {n} & " + ' & '.join('%.3f' % r[x] for x in SYS[:4]) + '\\\\\n'
     if t == 'L15_A4_K2': s += '\\midrule\n'
 open('results/tables/sweep_n_summary.tex', 'w').write(s + '\\bottomrule\n\\end{tabular}\n')
 # ablation table

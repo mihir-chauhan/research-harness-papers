@@ -16,4 +16,4 @@ with weights shared across channels and initialised to $1/L$. The ``no decomposi
 
 \textbf{Win rule.} For a nonlinear system $s$ and DLinear on a task and horizon, with seed-mean MSE $\bar e_s,\bar e_D$ over the same seeds,
 \begin{equation}\text{win}(s)\iff (\bar e_s-\bar e_D)/\bar e_D\le-5\%\ \text{ and }\ e_s^{(i)}<e_D^{(i)}\ \forall i.\end{equation}
-This rule was fixed in the proposal before running and is applied unchanged at every budget; with three seeds it is a screening rule, not a significance test.
+Equivalently, the ratio $\bar e_s/\bar e_D$, which is what we report for the main grid, must be at most 0.95. This rule was fixed in the proposal before running and is applied unchanged at every budget; with three seeds it is a screening rule, not a significance test.

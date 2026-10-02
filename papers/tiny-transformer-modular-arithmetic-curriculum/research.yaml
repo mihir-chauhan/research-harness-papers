@@ -60,6 +60,7 @@ metrics:
     higher_is_better: false
   wall_s:
     higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -90,3 +91,54 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: num_pairs
+  value: 529
+  why: number of operand pairs (a,b), p^2 for modulus p=23; the full table that is
+    split into train and held-out
+- name: mlp_hidden_width
+  value: 256
+  why: hidden width of the transformer MLP block (4 x d_model), fixed in method/run.py
+- name: batch_size
+  value: 128
+  why: mini-batch size, default --bs of method/run.py, same for every run
+- name: modulus
+  value: 23
+  why: modulus p of the task (a+b) mod p, default --p of method/run.py
+- name: d_model
+  value: 64
+  why: embedding width d, default --d of method/run.py
+- name: learning_rate
+  value: 0.003
+  why: AdamW learning rate, default --lr of method/run.py, same for every run
+- name: adam_beta1
+  value: 0.9
+  why: AdamW beta_1, fixed in method/run.py
+- name: adam_beta2
+  value: 0.98
+  why: AdamW beta_2, fixed in method/run.py
+- name: pool_start_fraction
+  value: 0.15
+  why: q_0, fraction of the training set in the sampling pool at step 0, default --q0
+    of method/run.py
+- name: min_pool_size
+  value: 32
+  why: lower bound on the sampling-pool size (batch_size/4), fixed in method/run.py
+- name: eval_every
+  value: 25
+  why: evaluation interval in steps, default --eval_every of method/run.py; also the
+    step resolution
+- name: step_budget
+  value: 4000
+  why: maximum training steps per run, default --max_steps of method/run.py; the censoring
+    value of steps_to_95
+- name: default_curriculum_length
+  value: 1000
+  why: default curriculum length T_c in steps, default --warm of method/run.py
+- name: accuracy_threshold
+  value: 0.95
+  why: accuracy threshold that defines steps_to_95 and steps_to_train95, fixed in
+    method/run.py
+- name: pilot_seed
+  value: 100
+  why: seed of the exploratory pilot runs; not a seed of any registered run

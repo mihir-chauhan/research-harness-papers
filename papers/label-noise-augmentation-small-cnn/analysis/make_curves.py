@@ -1,4 +1,6 @@
-"""Logged 5-epoch test-accuracy curves of the main-grid runs (test-set, optimistic) and the paired no-warm-up comparison."""
+"""Logged 5-epoch test-accuracy curves of the main-grid runs (test-set, optimistic) and the paired no-warm-up comparison.
+Diagnostic only: prints to stdout. These values are read from run logs or computed here, not registry statistics,
+so the paper states the ordering of the curves in words and quotes none of these numbers."""
 import json, re, ast, glob, numpy as np
 from scipy import stats
 rows = [json.loads(l) for l in open("results/runs.jsonl")]
@@ -21,7 +23,6 @@ for t in ["digits_noise20", "digits_noise40", "digits_noise60"]:
         L.append(f"{t[-2:]}\\% & {short[n]} & {e10:.3f} & {best:.3f} & {e60:.3f} \\\\")
     if t != "digits_noise60": L.append(r"\midrule")
 L += [r"\bottomrule", r"\end{tabular}"]
-open("results/tables/curves.tex", "w").write("\n".join(L) + "\n")
 print("\n".join(L))
 # paired no-warm-up vs main small-loss at 40%
 a = {r["seed"]: r["metrics"] for r in rows if r["group"] == "main" and r["name"] == "Small-loss (1 net)" and r["task"] == "digits_noise40"}
@@ -34,4 +35,4 @@ for m in ["test_acc", "mem_rate"]:
     d = np.array([b[s][m] - a[s][m] for s in ss]); p = stats.ttest_rel([b[s][m] for s in ss], [a[s][m] for s in ss]).pvalue
     W.append(f"{m.replace('_', chr(92)+'_')} & {d.mean():+.3f} & {p:.4f}".replace('0.0000','$<$0.0001') + " \\\\")
 W += [r"\bottomrule", r"\end{tabular}"]
-open("results/tables/warmup_paired.tex", "w").write("\n".join(W) + "\n")
+print("\n".join(W))

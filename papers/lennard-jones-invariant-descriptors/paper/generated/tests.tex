@@ -1,17 +1,13 @@
-\begin{tabular}{llcccc}
+\begin{tabular}{lccc}
 \toprule
- & A vs.\ B & $n$=50 & $n$=150 & $n$=500 & $n$=1500 \\
+System B & MAE of B & SF KRR $-$ B & Welch $p$ \\
 \midrule
-H1 & Sorted KRR vs.\ Raw KRR & A $<$0.001 & A $<$0.001 & A $<$0.001 & A $<$0.001 \\
-H1 & SF KRR vs.\ Raw KRR & A $<$0.001 & A $<$0.001 & A $<$0.001 & A $<$0.001 \\
-H1 & Sorted MLP vs.\ Raw MLP & A 0.003 & A 0.002 & A $<$0.001 & A $<$0.001 \\
-H1 & SF MLP vs.\ Raw MLP & A 0.311 & A $<$0.001 & A $<$0.001 & A $<$0.001 \\
-H3 & SF KRR vs.\ Sorted KRR & A 0.012 & A 0.032 & A 0.026 & B 0.022 \\
--- & SF KRR vs.\ Sorted MLP & B 0.359 & B 0.125 & B 0.014 & B 0.026 \\
-H4 & Raw KRR vs.\ Raw MLP & A 0.025 & A 0.034 & A $<$0.001 & A $<$0.001 \\
-H4 & Sorted KRR vs.\ Sorted MLP & B 0.006 & B 0.009 & B $<$0.001 & B 0.977 \\
-H4 & SF KRR vs.\ SF MLP & A 0.147 & A 0.012 & A $<$0.001 & A $<$0.001 \\
-ref. & Raw KRR vs.\ Mean pred. & A 0.931 & A 0.902 & A 0.902 & A 0.062 \\
-ref. & Raw MLP vs.\ Mean pred. & B 0.021 & B 0.031 & B $<$0.001 & B 0.004 \\
+Mean predictor & \rhval{main/mean-predictor/lj_clusters/energy_mae/mean} & \rhval{cmp/main/mean-predictor/lj_clusters/energy_mae/delta} & \rhval{cmp/main/mean-predictor/lj_clusters/energy_mae/welch_p} \\
+Raw coords KRR & \rhval{main/raw-coords-krr/lj_clusters/energy_mae/mean} & \rhval{cmp/main/raw-coords-krr/lj_clusters/energy_mae/delta} & \rhval{cmp/main/raw-coords-krr/lj_clusters/energy_mae/welch_p} \\
+Raw coords MLP & \rhval{main/raw-coords-mlp/lj_clusters/energy_mae/mean} & \rhval{cmp/main/raw-coords-mlp/lj_clusters/energy_mae/delta} & \rhval{cmp/main/raw-coords-mlp/lj_clusters/energy_mae/welch_p} \\
+Sorted dist KRR & \rhval{main/sorted-dist-krr/lj_clusters/energy_mae/mean} & \rhval{cmp/main/sorted-dist-krr/lj_clusters/energy_mae/delta} & \rhval{cmp/main/sorted-dist-krr/lj_clusters/energy_mae/welch_p} \\
+Sorted dist MLP & \rhval{main/sorted-dist-mlp/lj_clusters/energy_mae/mean} & \rhval{cmp/main/sorted-dist-mlp/lj_clusters/energy_mae/delta} & \rhval{cmp/main/sorted-dist-mlp/lj_clusters/energy_mae/welch_p} \\
+SymFn-sum MLP & \rhval{main/symfn-sum-mlp/lj_clusters/energy_mae/mean} & \rhval{cmp/main/symfn-sum-mlp/lj_clusters/energy_mae/delta} & \rhval{cmp/main/symfn-sum-mlp/lj_clusters/energy_mae/welch_p} \\
+SymFn atomwise MLP & \rhval{main/symfn-atomwise-mlp-bp-style/lj_clusters/energy_mae/mean} & \rhval{cmp/main/symfn-atomwise-mlp-bp-style/lj_clusters/energy_mae/delta} & \rhval{cmp/main/symfn-atomwise-mlp-bp-style/lj_clusters/energy_mae/welch_p} \\
 \bottomrule
 \end{tabular}

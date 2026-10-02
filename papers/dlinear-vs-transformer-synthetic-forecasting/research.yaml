@@ -4,40 +4,64 @@ direction: Are simple linear models enough for long-horizon forecasting? On synt
   on ETTh1 if the public CSV of a few MB downloads), compare seasonal-naive, a DLinear-style
   decomposition-plus-linear model, a small patch transformer and a small GRU at horizons
   24, 96 and 192. Find which data properties, if any, make the nonlinear models win.
-problem: When do nonlinear forecasters (patch transformer, GRU) beat a DLinear-style linear model at long horizons?
-gap: Controlled synthetic factors (trend, seasonality, noise, regime switching) are rarely varied one at a time against linear baselines under identical protocol.
-contribution: A controlled small-scale comparison identifying which data properties favour nonlinear models, with sweeps, ablations and a training-budget sweep.
+problem: When do nonlinear forecasters (patch transformer, GRU) beat a DLinear-style
+  linear model at long horizons?
+gap: Controlled synthetic factors (trend, seasonality, noise, regime switching) are
+  rarely varied one at a time against linear baselines under identical protocol.
+contribution: A controlled small-scale comparison identifying which data properties
+  favour nonlinear models, with sweeps, ablations and a training-budget sweep.
 hypotheses:
 - id: H1
   statement: Without regime changes no nonlinear model beats DLinear at any horizon.
   test: win = seed-mean MSE lower by >=5% relative and lower in all 3 seeds
 - id: H2
-  statement: With regime switching a nonlinear model wins at H=96 and 192 and margin grows with switching rate.
+  statement: With regime switching a nonlinear model wins at H=96 and 192 and margin
+    grows with switching rate.
   test: same win rule on regime task; sweep_dwell
 - id: H3
   statement: Higher noise erases nonlinear advantage.
   test: sweep_noise on regime task
 - id: H4
-  statement: On ETTh1 DLinear is not beaten by patch transformer or GRU at H=96,192; all learned beat seasonal naive.
+  statement: On ETTh1 DLinear is not beaten by patch transformer or GRU at H=96,192;
+    all learned beat seasonal naive.
   test: same win rule
 - id: H5
-  statement: Removing decomposition changes DLinear MSE by <5% on trend, regime, etth1 (H=96).
+  statement: Removing decomposition changes DLinear MSE by <5% on trend, regime, etth1
+    (H=96).
   test: abl_design relative difference
 method:
   name: DLinear
-  summary: Study compares DLinear-style, PatchTST-style, GRU and seasonal naive (all reimplemented); DLinear is the reference system.
-  components: [decomposition, instance_norm]
+  summary: Study compares DLinear-style, PatchTST-style, GRU and seasonal naive (all
+    reimplemented); DLinear is the reference system.
+  components:
+  - decomposition
+  - instance_norm
   entrypoint: method/run.py
-tasks: [seas1, trend, multiseas, noisy, regime, etth1]
+tasks:
+- seas1
+- trend
+- multiseas
+- noisy
+- regime
+- etth1
 metrics:
-  mse_24: {higher_is_better: false}
-  mse_96: {higher_is_better: false}
-  mse_192: {higher_is_better: false}
-  mae_24: {higher_is_better: false}
-  mae_96: {higher_is_better: false}
-  mae_192: {higher_is_better: false}
-  mse_mean: {higher_is_better: false}
-  runtime_s: {higher_is_better: false}
+  mse_24:
+    higher_is_better: false
+  mse_96:
+    higher_is_better: false
+  mse_192:
+    higher_is_better: false
+  mae_24:
+    higher_is_better: false
+  mae_96:
+    higher_is_better: false
+  mae_192:
+    higher_is_better: false
+  mse_mean:
+    higher_is_better: false
+  runtime_s:
+    higher_is_better: false
+    nondeterministic: true
 seeds:
 - 0
 - 1
@@ -46,9 +70,17 @@ compute:
   gpus: 0
   max_minutes_per_run: 10
   max_total_minutes: 45
-baselines: [Seasonal naive, PatchTST (reimplemented), GRU]
-ablations: [Linear (no decomp), DLinear no norm, PatchTST no norm, GRU no norm]
-budget_sweep: 'post hoc (fix round): groups sweep_steps (1000/2000 steps) and sweep_dwell_2000; same code and settings except --steps; verdicts reported per budget'
+baselines:
+- Seasonal naive
+- PatchTST (reimplemented)
+- GRU
+ablations:
+- Linear (no decomp)
+- DLinear no norm
+- PatchTST no norm
+- GRU no norm
+budget_sweep: 'post hoc (fix round): groups sweep_steps (1000/2000 steps) and sweep_dwell_2000;
+  same code and settings except --steps; verdicts reported per budget'
 ambition:
   target_tier: 2
   primary_metric: mse_96
@@ -63,3 +95,94 @@ ambition:
 gates: []
 profile: quick
 venue: ieee-icra
+constants:
+- name: lookback
+  value: 336
+  why: look-back window length L in time steps, identical for all systems (LOOKBACK
+    in method/run.py)
+- name: horizon_long
+  value: 192
+  why: longest of the three forecast horizons 24/96/192 (default of --horizons in
+    method/run.py)
+- name: steps_main
+  value: 400
+  why: training steps of the main grid, design ablation and dwell/noise sweeps (default
+    of --steps in method/run.py)
+- name: eval_every
+  value: 100
+  why: interval in training steps between validation checkpoints (default of --eval_every)
+- name: instnorm_eps
+  value: 1.0e-05
+  why: constant added to the window standard deviation in the instance normalisation
+- name: weight_decay
+  value: 0.0001
+  why: AdamW weight decay used for every learned system
+- name: lr_dlinear_gru
+  value: 0.003
+  why: fixed learning rate of the DLinear-style model and the GRU
+- name: lr_patchtst
+  value: 0.001
+  why: fixed learning rate of the PatchTST-style model
+- name: ff_width
+  value: 128
+  why: feed-forward width of the PatchTST-style encoder layers
+- name: dropout
+  value: 0.1
+  why: dropout rate of the PatchTST-style encoder layers
+- name: period_week
+  value: 168
+  why: 'weekly seasonal period in steps: candidate period of seasonal naive and second
+    period of the multiseas generator'
+- name: series_len
+  value: 8000
+  why: number of time steps of each synthetic series
+- name: gen_seed_offset
+  value: 1000
+  why: offset added to the seed to seed the synthetic data generator
+- name: trend_seg_min
+  value: 600
+  why: lower bound in steps of the interval after which the trend slope is redrawn
+- name: trend_seg_max
+  value: 1400
+  why: upper bound in steps of the interval after which the trend slope is redrawn
+- name: dwell_default
+  value: 500
+  why: default mean regime dwell in steps of the regime task (main grid)
+- name: noise_default
+  value: 0.3
+  why: default AR(1) noise sd of the synthetic tasks (main grid)
+- name: noise_noisy
+  value: 1.5
+  why: AR(1) noise sd of the noisy task
+- name: ar1_rho
+  value: 0.5
+  why: AR(1) coefficient of the noise in the synthetic generator
+- name: amp_week
+  value: 0.7
+  why: amplitude of the period-168 component in the multiseas generator
+- name: amp_halfday
+  value: 0.4
+  why: amplitude of the period-12 component in the multiseas generator
+- name: regime_period_scale_slow
+  value: 1.6
+  why: factor by which the second regime rescales the seasonal periods
+- name: regime_period_scale_fast
+  value: 0.6
+  why: factor by which the third regime rescales the seasonal periods
+- name: etth1_rows
+  value: 14400
+  why: number of leading rows of the ETTh1 CSV that are used
+- name: etth1_train_rows
+  value: 8640
+  why: ETTh1 training split length in rows
+- name: etth1_valtest_rows
+  value: 2880
+  why: ETTh1 validation and test split length in rows (each)
+- name: win_threshold_pct
+  value: 5
+  why: 'registered win rule: seed-mean MSE at least this many percent below DLinear
+    (and lower in every seed)'
+- name: win_ratio
+  value: 0.95
+  why: the registered 5 percent win threshold written as an MSE ratio to DLinear (1
+    minus 0.05)

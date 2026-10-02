@@ -1,13 +1,16 @@
 \begin{tabular}{lcccccccc}
 \toprule
  & \multicolumn{2}{c}{nat.} & \multicolumn{2}{c}{1:5} & \multicolumn{2}{c}{1:20} & \multicolumn{2}{c}{1:50} \\
-System & raw & +prior & raw & +prior & raw & +prior & raw & +prior \\
+System & raw & +offset & raw & +offset & raw & +offset & raw & +offset \\
 \midrule
-LR + reweight & +0.0003 & +0.0007 & +0.0031 & +0.0020 & +0.0014 & +0.0019 & +0.0014 & +0.0015 \\
-LR + ROS & +0.0008 & +0.0011 & +0.0042 & +0.0022 & +0.0012 & +0.0015 & +0.0012 & +0.0013 \\
-LR + SMOTE & +0.0003 & +0.0011 & +0.0020 & +0.0022 & -0.0000 & +0.0015 & +0.0002 & +0.0012 \\
-GB + reweight & -0.0014 & -0.0009 & -0.0044 & -0.0047 & +0.0016 & +0.0012 & +0.0017 & +0.0010 \\
-GB + ROS & -0.0012 & -0.0005 & -0.0034 & -0.0044 & +0.0032 & +0.0028 & +0.0022 & +0.0011 \\
-GB + SMOTE & -0.0029 & -0.0026 & -0.0073 & -0.0080 & +0.0072 & +0.0047 & +0.0034 & +0.0029 \\
+LR + no correction & \multicolumn{2}{c}{\rhval{main/lr-+-no-correction/bc_natural/brier/mean}} & \multicolumn{2}{c}{\rhval{main/lr-+-no-correction/bc_1to5/brier/mean}} & \multicolumn{2}{c}{\rhval{main/lr-+-no-correction/bc_1to20/brier/mean}} & \multicolumn{2}{c}{\rhval{main/lr-+-no-correction/bc_1to50/brier/mean}} \\
+LR + reweight & \rhval{main/lr-+-reweight/bc_natural/brier/mean} & \rhval{abl_priorcorr/lr-+-reweight-+-prior-corr/bc_natural/brier/mean} & \rhval{main/lr-+-reweight/bc_1to5/brier/mean} & \rhval{abl_priorcorr/lr-+-reweight-+-prior-corr/bc_1to5/brier/mean} & \rhval{main/lr-+-reweight/bc_1to20/brier/mean} & \rhval{abl_priorcorr/lr-+-reweight-+-prior-corr/bc_1to20/brier/mean} & \rhval{main/lr-+-reweight/bc_1to50/brier/mean} & \rhval{abl_priorcorr/lr-+-reweight-+-prior-corr/bc_1to50/brier/mean} \\
+LR + ROS & \rhval{main/lr-+-ros/bc_natural/brier/mean} & \rhval{abl_priorcorr/lr-+-ros-+-prior-corr/bc_natural/brier/mean} & \rhval{main/lr-+-ros/bc_1to5/brier/mean} & \rhval{abl_priorcorr/lr-+-ros-+-prior-corr/bc_1to5/brier/mean} & \rhval{main/lr-+-ros/bc_1to20/brier/mean} & \rhval{abl_priorcorr/lr-+-ros-+-prior-corr/bc_1to20/brier/mean} & \rhval{main/lr-+-ros/bc_1to50/brier/mean} & \rhval{abl_priorcorr/lr-+-ros-+-prior-corr/bc_1to50/brier/mean} \\
+LR + SMOTE & \rhval{main/lr-+-smote/bc_natural/brier/mean} & \rhval{abl_priorcorr/lr-+-smote-+-prior-corr/bc_natural/brier/mean} & \rhval{main/lr-+-smote/bc_1to5/brier/mean} & \rhval{abl_priorcorr/lr-+-smote-+-prior-corr/bc_1to5/brier/mean} & \rhval{main/lr-+-smote/bc_1to20/brier/mean} & \rhval{abl_priorcorr/lr-+-smote-+-prior-corr/bc_1to20/brier/mean} & \rhval{main/lr-+-smote/bc_1to50/brier/mean} & \rhval{abl_priorcorr/lr-+-smote-+-prior-corr/bc_1to50/brier/mean} \\
+\midrule
+GB + no correction & \multicolumn{2}{c}{\rhval{main/gb-+-no-correction/bc_natural/brier/mean}} & \multicolumn{2}{c}{\rhval{main/gb-+-no-correction/bc_1to5/brier/mean}} & \multicolumn{2}{c}{\rhval{main/gb-+-no-correction/bc_1to20/brier/mean}} & \multicolumn{2}{c}{\rhval{main/gb-+-no-correction/bc_1to50/brier/mean}} \\
+GB + reweight & \rhval{main/gb-+-reweight/bc_natural/brier/mean} & \rhval{abl_priorcorr/gb-+-reweight-+-prior-corr/bc_natural/brier/mean} & \rhval{main/gb-+-reweight/bc_1to5/brier/mean} & \rhval{abl_priorcorr/gb-+-reweight-+-prior-corr/bc_1to5/brier/mean} & \rhval{main/gb-+-reweight/bc_1to20/brier/mean} & \rhval{abl_priorcorr/gb-+-reweight-+-prior-corr/bc_1to20/brier/mean} & \rhval{main/gb-+-reweight/bc_1to50/brier/mean} & \rhval{abl_priorcorr/gb-+-reweight-+-prior-corr/bc_1to50/brier/mean} \\
+GB + ROS & \rhval{main/gb-+-ros/bc_natural/brier/mean} & \rhval{abl_priorcorr/gb-+-ros-+-prior-corr/bc_natural/brier/mean} & \rhval{main/gb-+-ros/bc_1to5/brier/mean} & \rhval{abl_priorcorr/gb-+-ros-+-prior-corr/bc_1to5/brier/mean} & \rhval{main/gb-+-ros/bc_1to20/brier/mean} & \rhval{abl_priorcorr/gb-+-ros-+-prior-corr/bc_1to20/brier/mean} & \rhval{main/gb-+-ros/bc_1to50/brier/mean} & \rhval{abl_priorcorr/gb-+-ros-+-prior-corr/bc_1to50/brier/mean} \\
+GB + SMOTE & \rhval{main/gb-+-smote/bc_natural/brier/mean} & \rhval{abl_priorcorr/gb-+-smote-+-prior-corr/bc_natural/brier/mean} & \rhval{main/gb-+-smote/bc_1to5/brier/mean} & \rhval{abl_priorcorr/gb-+-smote-+-prior-corr/bc_1to5/brier/mean} & \rhval{main/gb-+-smote/bc_1to20/brier/mean} & \rhval{abl_priorcorr/gb-+-smote-+-prior-corr/bc_1to20/brier/mean} & \rhval{main/gb-+-smote/bc_1to50/brier/mean} & \rhval{abl_priorcorr/gb-+-smote-+-prior-corr/bc_1to50/brier/mean} \\
 \bottomrule
 \end{tabular}

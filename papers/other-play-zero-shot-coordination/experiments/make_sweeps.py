@@ -40,7 +40,6 @@ for name, c in [("Self-play", "gray"), ("Other-play", "#1f77b4")]:
         tex.append(f"{name} & {m.replace('_','-')} & " + " & ".join(f"{a:.3f}" for a, b in vals) + " \\\\")
         if m == "cross_play":
             ax[1].errorbar(sds, [a for a, b in vals], [b for a, b in vals], marker="o", ms=3, label=name, color=c, capsize=2)
-from scipy import stats
 def opx(sd, m):
     if sd == 1.0:
         return [r["metrics"][m] for r in rows if r["group"] == "main" and r["name"] == "Other-play" and r["task"] == "lever"]
@@ -49,7 +48,6 @@ tex.append("Other-play & cross-play std & " + " & ".join(f"{np.std(opx(sd,'cross
 tex.append("Other-play & frac. special & " + " & ".join(f"{np.mean(opx(sd,'frac_special')):.2f}" for sd in sds) + " \\\\")
 chk = lambda sd: np.mean([r["metrics"]["frac_init_above"] for r in rows if r["group"] == "init_check" and r["config"]["init_std"] == sd])
 tex.append("Other-play & frac. init $>0.11$ & -- & -- & " + f"{chk(1.0):.2f}" + " & -- & " + f"{chk(4.0):.2f}" + " \\\\")
-tex.append("Other-play & Welch $p$ vs sd 4 & " + " & ".join("--" if sd == 4.0 else f"{stats.ttest_ind(opx(sd,'cross_play'), opx(4.0,'cross_play'), equal_var=False).pvalue:.3f}" for sd in sds) + " \\\\")
 tex.append("\\bottomrule\\end{tabular}")
 open("results/tables/sweep_init_tab.tex", "w").write("\n".join(tex))
 ax[1].set_xscale("log", base=2); ax[1].set_xlabel("init std (lever)"); ax[1].legend(fontsize=6); ax[1].set_title("Init scale", fontsize=8)

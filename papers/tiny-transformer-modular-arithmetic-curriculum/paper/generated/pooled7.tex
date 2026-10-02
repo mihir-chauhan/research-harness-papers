@@ -3,14 +3,14 @@
  & \multicolumn{2}{c}{seeds 0--4 (registered)} & \multicolumn{2}{c}{seeds 5--6 only} \\
 System & steps\_to\_95 & reached & steps\_to\_95 & reached \\
 \midrule
-Uniform sampling & 2945 $\pm$ 1020 & 3/5 & 4000 $\pm$ 0 & 0/2 \\
-Operand-size curriculum & 3955 $\pm$ 101 & 1/5 & 3375 $\pm$ 884 & 1/2 \\
-Anti-curriculum & 3990 $\pm$ 22 & 1/5 & 4000 $\pm$ 0 & 1/2 \\
+Uniform sampling & \rhval{main/uniform-sampling/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{main/uniform-sampling/wd1_f0.5/steps_to_95/std:0} & 3/5 & \rhval{curves/uniform-sampling/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{curves/uniform-sampling/wd1_f0.5/steps_to_95/std:0} & 0/2 \\
+Operand-size curriculum & \rhval{main/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{main/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/5 & \rhval{curves/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{curves/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/2 \\
+Anti-curriculum & \rhval{main/anti-curriculum/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{main/anti-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/5 & \rhval{curves/anti-curriculum/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{curves/anti-curriculum/wd1_f0.5/steps_to_95/std:0} & 1/2 \\
 \midrule
  & \multicolumn{2}{c}{pooled, 7 seeds (post hoc)} & Welch $p$ & paired $p$ \\
 \midrule
-Uniform sampling & 3246 $\pm$ 979 & 3/7 &  &  \\
-Operand-size curriculum & 3789 $\pm$ 466 & 2/7 & 0.22 & 0.27 \\
-Anti-curriculum & 3993 $\pm$ 19 & 2/7 & 0.09 & 0.09 \\
+Uniform sampling & \rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{pooled7/uniform-sampling/wd1_f0.5/steps_to_95/std:0} & 3/7 &  &  \\
+Operand-size curriculum & \rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{pooled7/operand-size-curriculum/wd1_f0.5/steps_to_95/std:0} & 2/7 & \rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/welch_p:2} & \rhval{cmp/pooled7/uniform-sampling/wd1_f0.5/steps_to_95/paired_p:2} \\
+Anti-curriculum & \rhval{pooled7/anti-curriculum/wd1_f0.5/steps_to_95/mean:0} $\pm$ \rhval{pooled7/anti-curriculum/wd1_f0.5/steps_to_95/std:0} & 2/7 & 0.09 & 0.09 \\
 \bottomrule
 \end{tabular}

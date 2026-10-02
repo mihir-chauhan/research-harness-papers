@@ -1,0 +1,4958 @@
+{
+ "numbers": [
+  {
+   "section": "ablations.tex",
+   "literal": "499.9",
+   "context": "l return is at the cap for every width (499.9 at $w=3$, the only value below the cap)",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 499.92266666666666,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_nominal/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "386.6",
+   "context": "). Robustness rises steeply from $w=0$ (386.6) to $w=1$ (470.4), reaches 493.3 at $w=",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 386.59233333333333,
+    "key": "main/no-randomisation/cartpole/ret_robust/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "470.4",
+   "context": "es steeply from $w=0$ (386.6) to $w=1$ (470.4), reaches 493.3 at $w=1.5$ and 493.2 at",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 470.40588888888885,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "493.3",
+   "context": "$w=0$ (386.6) to $w=1$ (470.4), reaches 493.3 at $w=1.5$ and 493.2 at $w=2$, and is 4",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 493.29911111111113,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.5",
+   "context": ") to $w=1$ (470.4), reaches 493.3 at $w=1.5$ and 493.2 at $w=2$, and is 490.0 at $w",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "493.2",
+   "context": "$ (470.4), reaches 493.3 at $w=1.5$ and 493.2 at $w=2$, and is 490.0 at $w=3$ with la",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "8d413cf217",
+     "f99ffe2ade",
+     "dfb4072792",
+     "3ea6961b39",
+     "64ca3273c0"
+    ],
+    "value": 493.23133333333334,
+    "config": {
+     "width": 2
+    },
+    "key": "sweep_width/uniform-dr@width=2/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "490.0",
+   "context": "3 at $w=1.5$ and 493.2 at $w=2$, and is 490.0 at $w=3$ with larger seed variance (std",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 489.98999999999995,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "8.2",
+   "context": "at $w=3$ with larger seed variance (std 8.2). The only candidate for a ``knee'' is",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 8.203255761744398,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_robust/std"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.5",
+   "context": "y decreasing robustness beyond $w\\approx1.5$, a difference far smaller than the see",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "1.5",
+   "context": "ved. Note \\texttt{ret\\_robust} for $w\\ge1.5$ is partly in-range, so the plateau als",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.8",
+   "context": "of each other variant differs from gate 0.8 by at most \\rhval{cmp/abl_curriculum/cu",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "mean",
+    "run_ids": [
+     "7c403dfe03",
+     "5c3dfc5455",
+     "cf6eafd217",
+     "431a2faef4",
+     "bb49e6b7fc",
+     "8d413cf217",
+     "9eefb2bd8f",
+     "2e61826f09",
+     "37f00fb9c3",
+     "e3b784a621",
+     "aa67e51fd5",
+     "be10a28644",
+     "f99ffe2ade",
+     "89b9ef9dd8",
+     "d72afd90ed",
+     "d6368274a3",
+     "9f2555e8f3",
+     "522f1c31d8",
+     "b098b85bac",
+     "dfb4072792",
+     "22570f7231",
+     "d7d05520e4",
+     "f10f277019",
+     "e43013170d",
+     "076650f4b6",
+     "ac82d20b61",
+     "3ea6961b39",
+     "eb061f05cb",
+     "cbbd95b25a",
+     "dd236fb49e",
+     "beea3c2578",
+     "9bd932f7b4",
+     "18298bba27",
+     "64ca3273c0",
+     "c315c1812a"
+    ],
+    "value": 0.7986666666666665,
+    "key": "sweep_width/uniform-dr/cartpole/succ_w150/mean",
+    "candidates": 81
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/delta:1}",
+   "context": "ariant differs from gate 0.8 by at most \\rhval{cmp/abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/delta:1} units, within one seed standard deviati",
+   "source": {
+    "type": "compare",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "delta",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543",
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 7.33155555555561,
+    "ref": "Curriculum, gate 0.8",
+    "key": "cmp/abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/delta"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.8",
+   "context": ", and no paired comparison against gate 0.8 is significant (paired $p$, gate 0.5: \\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "mean",
+    "run_ids": [
+     "7c403dfe03",
+     "5c3dfc5455",
+     "cf6eafd217",
+     "431a2faef4",
+     "bb49e6b7fc",
+     "8d413cf217",
+     "9eefb2bd8f",
+     "2e61826f09",
+     "37f00fb9c3",
+     "e3b784a621",
+     "aa67e51fd5",
+     "be10a28644",
+     "f99ffe2ade",
+     "89b9ef9dd8",
+     "d72afd90ed",
+     "d6368274a3",
+     "9f2555e8f3",
+     "522f1c31d8",
+     "b098b85bac",
+     "dfb4072792",
+     "22570f7231",
+     "d7d05520e4",
+     "f10f277019",
+     "e43013170d",
+     "076650f4b6",
+     "ac82d20b61",
+     "3ea6961b39",
+     "eb061f05cb",
+     "cbbd95b25a",
+     "dd236fb49e",
+     "beea3c2578",
+     "9bd932f7b4",
+     "18298bba27",
+     "64ca3273c0",
+     "c315c1812a"
+    ],
+    "value": 0.7986666666666665,
+    "key": "sweep_width/uniform-dr/cartpole/succ_w150/mean",
+    "candidates": 81
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.5",
+   "context": "te 0.8 is significant (paired $p$, gate 0.5: \\rhval{cmp/abl_curriculum/curriculum-g",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_curriculum/curriculum-gate-0.5/cartpole/ret_robust/paired_p:2}",
+   "context": "8 is significant (paired $p$, gate 0.5: \\rhval{cmp/abl_curriculum/curriculum-gate-0.5/cartpole/ret_robust/paired_p:2}, gate 0.95: \\rhval{cmp/abl_curriculum/c",
+   "source": {
+    "type": "compare",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "paired_p",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543",
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 0.187293103378336,
+    "ref": "Curriculum, gate 0.8",
+    "key": "cmp/abl_curriculum/curriculum-gate-0.5/cartpole/ret_robust/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.95",
+   "context": "5/cartpole/ret_robust/paired_p:2}, gate 0.95: \\rhval{cmp/abl_curriculum/curriculum-g",
+   "source": {
+    "type": "aggregate",
+    "group": "sanity",
+    "system": "smoke",
+    "task": "cartpole",
+    "metric": "succ_w75",
+    "stat": "mean",
+    "run_ids": [
+     "2471778355"
+    ],
+    "value": 0.9533333333333334,
+    "key": "sanity/smoke/cartpole/succ_w75/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/paired_p:2}",
+   "context": "pole/ret_robust/paired_p:2}, gate 0.95: \\rhval{cmp/abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/paired_p:2}, no gate: \\rhval{cmp/abl_curriculum/cur",
+   "source": {
+    "type": "compare",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "paired_p",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543",
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 0.2236793078773594,
+    "ref": "Curriculum, gate 0.8",
+    "key": "cmp/abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_curriculum/curriculum-no-gate/cartpole/ret_robust/paired_p:2}",
+   "context": "rtpole/ret_robust/paired_p:2}, no gate: \\rhval{cmp/abl_curriculum/curriculum-no-gate/cartpole/ret_robust/paired_p:2}); the ordering is also non-monotone in",
+   "source": {
+    "type": "compare",
+    "group": "abl_curriculum",
+    "system": "Curriculum, no gate",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "paired_p",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543",
+     "695e183f38",
+     "8c8f29e0b3",
+     "73664dbc09",
+     "343e7b7159",
+     "5cf990e515"
+    ],
+    "value": 0.8484347117113364,
+    "ref": "Curriculum, gate 0.8",
+    "key": "cmp/abl_curriculum/curriculum-no-gate/cartpole/ret_robust/paired_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "0.8",
+   "context": "std over 5 seeds; main method uses gate 0.8).}\\label{tab:abl}\\resizebox{\\columnwidt",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "mean",
+    "run_ids": [
+     "7c403dfe03",
+     "5c3dfc5455",
+     "cf6eafd217",
+     "431a2faef4",
+     "bb49e6b7fc",
+     "8d413cf217",
+     "9eefb2bd8f",
+     "2e61826f09",
+     "37f00fb9c3",
+     "e3b784a621",
+     "aa67e51fd5",
+     "be10a28644",
+     "f99ffe2ade",
+     "89b9ef9dd8",
+     "d72afd90ed",
+     "d6368274a3",
+     "9f2555e8f3",
+     "522f1c31d8",
+     "b098b85bac",
+     "dfb4072792",
+     "22570f7231",
+     "d7d05520e4",
+     "f10f277019",
+     "e43013170d",
+     "076650f4b6",
+     "ac82d20b61",
+     "3ea6961b39",
+     "eb061f05cb",
+     "cbbd95b25a",
+     "dd236fb49e",
+     "beea3c2578",
+     "9bd932f7b4",
+     "18298bba27",
+     "64ca3273c0",
+     "c315c1812a"
+    ],
+    "value": 0.7986666666666665,
+    "key": "sweep_width/uniform-dr/cartpole/succ_w150/mean",
+    "candidates": 81
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "1.5",
+   "context": "n under shifted dynamics up to $w\\approx1.5$ (from 386.6 with no randomisation to 4",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "386.6",
+   "context": "fted dynamics up to $w\\approx1.5$ (from 386.6 with no randomisation to 493.3), and no",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 386.59233333333333,
+    "key": "main/no-randomisation/cartpole/ret_robust/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "493.3",
+   "context": "5$ (from 386.6 with no randomisation to 493.3), and nominal return stayed at the 500-",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 493.29911111111113,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "500",
+   "context": "93.3), and nominal return stayed at the 500-step cap for every width up to $w=3$ (4",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "499.9",
+   "context": "0-step cap for every width up to $w=3$ (499.9 at $w=3$). We therefore found no width",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 499.92266666666666,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_nominal/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "470.8",
+   "context": "range from zero matched wide fixed DR (470.8 vs 470.4, paired $p=\\rhval{cmp/main/suc",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 470.8405555555556,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "470.4",
+   "context": "om zero matched wide fixed DR (470.8 vs 470.4, paired $p=\\rhval{cmp/main/success-gate",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 470.40588888888885,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{cmp/main/success-gated-curriculum-dr/cartpole/ret_robust/paired_p:2}",
+   "context": "ide fixed DR (470.8 vs 470.4, paired $p=\\rhval{cmp/main/success-gated-curriculum-dr/cartpole/ret_robust/paired_p:2}$) and an ungated linear schedule did at",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Success-gated curriculum DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "paired_p",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba",
+     "fa85840c35",
+     "26d1e30537",
+     "9b26b837ec",
+     "778e3a88d7",
+     "4ec0c9e828"
+    ],
+    "value": 0.9593163372374083,
+    "ref": "Uniform DR wide (w=1.0)",
+    "key": "cmp/main/success-gated-curriculum-dr/cartpole/ret_robust/paired_p"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "1.5",
+   "context": "dynamics up to a plateau near $w\\approx1.5$ while nominal return stayed at the cap",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "500.00",
+   "context": "\\midrule Curriculum, no gate & \\textbf{500.00 $\\pm$ 0.00} & \\textbf{414.97 $\\pm$ 21.7",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.00",
+   "context": "riculum, no gate & \\textbf{500.00 $\\pm$ 0.00} & \\textbf{414.97 $\\pm$ 21.75} & \\textb",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "414.97",
+   "context": "& \\textbf{500.00 $\\pm$ 0.00} & \\textbf{414.97 $\\pm$ 21.75} & \\textbf{471.62 $\\pm$ 7.3",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, no gate",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "695e183f38",
+     "8c8f29e0b3",
+     "73664dbc09",
+     "343e7b7159",
+     "5cf990e515"
+    ],
+    "value": 414.968,
+    "key": "abl_curriculum/curriculum-no-gate/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "21.75",
+   "context": "0.00 $\\pm$ 0.00} & \\textbf{414.97 $\\pm$ 21.75} & \\textbf{471.62 $\\pm$ 7.30} & 5 \\\\ Cu",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, no gate",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "695e183f38",
+     "8c8f29e0b3",
+     "73664dbc09",
+     "343e7b7159",
+     "5cf990e515"
+    ],
+    "value": 21.752222983461316,
+    "key": "abl_curriculum/curriculum-no-gate/cartpole/ret_ood/std"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "471.62",
+   "context": "& \\textbf{414.97 $\\pm$ 21.75} & \\textbf{471.62 $\\pm$ 7.30} & 5 \\\\ Curriculum, gate 0.9",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, no gate",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "695e183f38",
+     "8c8f29e0b3",
+     "73664dbc09",
+     "343e7b7159",
+     "5cf990e515"
+    ],
+    "value": 471.62266666666676,
+    "key": "abl_curriculum/curriculum-no-gate/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "7.30",
+   "context": ".97 $\\pm$ 21.75} & \\textbf{471.62 $\\pm$ 7.30} & 5 \\\\ Curriculum, gate 0.95 & 500.00",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, no gate",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "695e183f38",
+     "8c8f29e0b3",
+     "73664dbc09",
+     "343e7b7159",
+     "5cf990e515"
+    ],
+    "value": 7.30100478667569,
+    "key": "abl_curriculum/curriculum-no-gate/cartpole/ret_robust/std"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.95",
+   "context": ".62 $\\pm$ 7.30} & 5 \\\\ Curriculum, gate 0.95 & 500.00 $\\pm$ 0.00 & 391.20 $\\pm$ 23.7",
+   "source": {
+    "type": "aggregate",
+    "group": "sanity",
+    "system": "smoke",
+    "task": "cartpole",
+    "metric": "succ_w75",
+    "stat": "mean",
+    "run_ids": [
+     "2471778355"
+    ],
+    "value": 0.9533333333333334,
+    "key": "sanity/smoke/cartpole/succ_w75/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "500.00",
+   "context": "m$ 7.30} & 5 \\\\ Curriculum, gate 0.95 & 500.00 $\\pm$ 0.00 & 391.20 $\\pm$ 23.70 & 463.5",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.00",
+   "context": "\\\\ Curriculum, gate 0.95 & 500.00 $\\pm$ 0.00 & 391.20 $\\pm$ 23.70 & 463.51 $\\pm$ 8.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "391.20",
+   "context": "iculum, gate 0.95 & 500.00 $\\pm$ 0.00 & 391.20 $\\pm$ 23.70 & 463.51 $\\pm$ 8.04 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 391.202,
+    "key": "abl_curriculum/curriculum-gate-0.95/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "23.70",
+   "context": "0.95 & 500.00 $\\pm$ 0.00 & 391.20 $\\pm$ 23.70 & 463.51 $\\pm$ 8.04 & 5 \\\\ Curriculum,",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 23.698018125057533,
+    "key": "abl_curriculum/curriculum-gate-0.95/cartpole/ret_ood/std"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "463.51",
+   "context": "00.00 $\\pm$ 0.00 & 391.20 $\\pm$ 23.70 & 463.51 $\\pm$ 8.04 & 5 \\\\ Curriculum, gate 0.8",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 463.509,
+    "key": "abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "8.04",
+   "context": ".00 & 391.20 $\\pm$ 23.70 & 463.51 $\\pm$ 8.04 & 5 \\\\ Curriculum, gate 0.8 & 500.00 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 8.04279280543215,
+    "key": "abl_curriculum/curriculum-gate-0.95/cartpole/ret_robust/std"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.8",
+   "context": "3.51 $\\pm$ 8.04 & 5 \\\\ Curriculum, gate 0.8 & 500.00 $\\pm$ 0.00 & \\underline{412.89",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "mean",
+    "run_ids": [
+     "7c403dfe03",
+     "5c3dfc5455",
+     "cf6eafd217",
+     "431a2faef4",
+     "bb49e6b7fc",
+     "8d413cf217",
+     "9eefb2bd8f",
+     "2e61826f09",
+     "37f00fb9c3",
+     "e3b784a621",
+     "aa67e51fd5",
+     "be10a28644",
+     "f99ffe2ade",
+     "89b9ef9dd8",
+     "d72afd90ed",
+     "d6368274a3",
+     "9f2555e8f3",
+     "522f1c31d8",
+     "b098b85bac",
+     "dfb4072792",
+     "22570f7231",
+     "d7d05520e4",
+     "f10f277019",
+     "e43013170d",
+     "076650f4b6",
+     "ac82d20b61",
+     "3ea6961b39",
+     "eb061f05cb",
+     "cbbd95b25a",
+     "dd236fb49e",
+     "beea3c2578",
+     "9bd932f7b4",
+     "18298bba27",
+     "64ca3273c0",
+     "c315c1812a"
+    ],
+    "value": 0.7986666666666665,
+    "key": "sweep_width/uniform-dr/cartpole/succ_w150/mean",
+    "candidates": 81
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "500.00",
+   "context": "\\pm$ 8.04 & 5 \\\\ Curriculum, gate 0.8 & 500.00 $\\pm$ 0.00 & \\underline{412.89 $\\pm$ 38",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.00",
+   "context": "\\\\ Curriculum, gate 0.8 & 500.00 $\\pm$ 0.00 & \\underline{412.89 $\\pm$ 38.93} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "412.89",
+   "context": "te 0.8 & 500.00 $\\pm$ 0.00 & \\underline{412.89 $\\pm$ 38.93} & \\underline{470.84 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 412.889,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "38.93",
+   "context": "00 $\\pm$ 0.00 & \\underline{412.89 $\\pm$ 38.93} & \\underline{470.84 $\\pm$ 13.07} & 5 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 38.93311261352959,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "470.84",
+   "context": "erline{412.89 $\\pm$ 38.93} & \\underline{470.84 $\\pm$ 13.07} & 5 \\\\ Curriculum, gate 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 470.8405555555556,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "13.07",
+   "context": "$\\pm$ 38.93} & \\underline{470.84 $\\pm$ 13.07} & 5 \\\\ Curriculum, gate 0.5 & \\underli",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 13.06931732728355,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.5",
+   "context": "84 $\\pm$ 13.07} & 5 \\\\ Curriculum, gate 0.5 & \\underline{500.00 $\\pm$ 0.00} & 394.5",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "500.00",
+   "context": "5 \\\\ Curriculum, gate 0.5 & \\underline{500.00 $\\pm$ 0.00} & 394.57 $\\pm$ 21.19 & 464.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "0.00",
+   "context": "lum, gate 0.5 & \\underline{500.00 $\\pm$ 0.00} & 394.57 $\\pm$ 21.19 & 464.69 $\\pm$ 7.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "394.57",
+   "context": "e 0.5 & \\underline{500.00 $\\pm$ 0.00} & 394.57 $\\pm$ 21.19 & 464.69 $\\pm$ 7.13 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 394.56800000000004,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "21.19",
+   "context": "rline{500.00 $\\pm$ 0.00} & 394.57 $\\pm$ 21.19 & 464.69 $\\pm$ 7.13 & 5 \\\\ \\bottomrule",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 21.185987160017913,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_ood/std"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "464.69",
+   "context": "0.00 $\\pm$ 0.00} & 394.57 $\\pm$ 21.19 & 464.69 $\\pm$ 7.13 & 5 \\\\ \\bottomrule \\end{tabu",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 464.68977777777775,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "generated/abl_curriculum.tex",
+   "literal": "7.13",
+   "context": "00} & 394.57 $\\pm$ 21.19 & 464.69 $\\pm$ 7.13 & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 7.132080915063424,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_robust/std"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "500.00",
+   "context": "\\\\ \\midrule No randomisation & \\textbf{500.00 $\\pm$ 0.00} & 389.12 $\\pm$ 28.75 & 243.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "No randomisation & \\textbf{500.00 $\\pm$ 0.00} & 389.12 $\\pm$ 28.75 & 243.19 $\\pm$ 21",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "389.12",
+   "context": "misation & \\textbf{500.00 $\\pm$ 0.00} & 389.12 $\\pm$ 28.75 & 243.19 $\\pm$ 21.85 & 386.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 389.12,
+    "key": "main/no-randomisation/cartpole/ret_w100/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "28.75",
+   "context": "extbf{500.00 $\\pm$ 0.00} & 389.12 $\\pm$ 28.75 & 243.19 $\\pm$ 21.85 & 386.59 $\\pm$ 16.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 28.753482204576347,
+    "key": "main/no-randomisation/cartpole/ret_w100/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "243.19",
+   "context": "0.00 $\\pm$ 0.00} & 389.12 $\\pm$ 28.75 & 243.19 $\\pm$ 21.85 & 386.59 $\\pm$ 16.59 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 243.18666666666667,
+    "key": "main/no-randomisation/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "21.85",
+   "context": "00} & 389.12 $\\pm$ 28.75 & 243.19 $\\pm$ 21.85 & 386.59 $\\pm$ 16.59 & 5 \\\\ Uniform DR",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 21.853776593277605,
+    "key": "main/no-randomisation/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "386.59",
+   "context": "9.12 $\\pm$ 28.75 & 243.19 $\\pm$ 21.85 & 386.59 $\\pm$ 16.59 & 5 \\\\ Uniform DR narrow (w",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 386.59233333333333,
+    "key": "main/no-randomisation/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "16.59",
+   "context": ".75 & 243.19 $\\pm$ 21.85 & 386.59 $\\pm$ 16.59 & 5 \\\\ Uniform DR narrow (w=0.25) & \\un",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 16.591216748927017,
+    "key": "main/no-randomisation/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.25",
+   "context": "$\\pm$ 16.59 & 5 \\\\ Uniform DR narrow (w=0.25) & \\underline{500.00 $\\pm$ 0.00} & 440.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "500.00",
+   "context": "Uniform DR narrow (w=0.25) & \\underline{500.00 $\\pm$ 0.00} & 440.18 $\\pm$ 29.22 & 292.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "rrow (w=0.25) & \\underline{500.00 $\\pm$ 0.00} & 440.18 $\\pm$ 29.22 & 292.36 $\\pm$ 11",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "440.18",
+   "context": "0.25) & \\underline{500.00 $\\pm$ 0.00} & 440.18 $\\pm$ 29.22 & 292.36 $\\pm$ 11.34 & 418.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 440.1833333333333,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_w100/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "29.22",
+   "context": "rline{500.00 $\\pm$ 0.00} & 440.18 $\\pm$ 29.22 & 292.36 $\\pm$ 11.34 & 418.10 $\\pm$ 10.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 29.216677980602494,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_w100/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "292.36",
+   "context": "0.00 $\\pm$ 0.00} & 440.18 $\\pm$ 29.22 & 292.36 $\\pm$ 11.34 & 418.10 $\\pm$ 10.98 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 292.36,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "11.34",
+   "context": "00} & 440.18 $\\pm$ 29.22 & 292.36 $\\pm$ 11.34 & 418.10 $\\pm$ 10.98 & 5 \\\\ Uniform DR",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 11.338761751424,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "418.10",
+   "context": "0.18 $\\pm$ 29.22 & 292.36 $\\pm$ 11.34 & 418.10 $\\pm$ 10.98 & 5 \\\\ Uniform DR wide (w=1",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 418.0953333333333,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "10.98",
+   "context": ".22 & 292.36 $\\pm$ 11.34 & 418.10 $\\pm$ 10.98 & 5 \\\\ Uniform DR wide (w=1.0) & 500.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 10.977904208111374,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.0",
+   "context": "0 $\\pm$ 10.98 & 5 \\\\ Uniform DR wide (w=1.0) & 500.00 $\\pm$ 0.00 & \\underline{498.4",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "succ_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 1.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/succ_nominal/mean",
+    "candidates": 923
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "500.00",
+   "context": "10.98 & 5 \\\\ Uniform DR wide (w=1.0) & 500.00 $\\pm$ 0.00 & \\underline{498.47 $\\pm$ 1.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "Uniform DR wide (w=1.0) & 500.00 $\\pm$ 0.00 & \\underline{498.47 $\\pm$ 1.71} & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "498.47",
+   "context": "w=1.0) & 500.00 $\\pm$ 0.00 & \\underline{498.47 $\\pm$ 1.71} & \\underline{411.98 $\\pm$ 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 498.466,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_w100/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.71",
+   "context": "00 $\\pm$ 0.00 & \\underline{498.47 $\\pm$ 1.71} & \\underline{411.98 $\\pm$ 34.30} & \\un",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 1.712124086884155,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_w100/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "411.98",
+   "context": "derline{498.47 $\\pm$ 1.71} & \\underline{411.98 $\\pm$ 34.30} & \\underline{470.41 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 411.9846666666666,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "34.30",
+   "context": "7 $\\pm$ 1.71} & \\underline{411.98 $\\pm$ 34.30} & \\underline{470.41 $\\pm$ 11.70} & 5 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 34.29636941021924,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "470.41",
+   "context": "erline{411.98 $\\pm$ 34.30} & \\underline{470.41 $\\pm$ 11.70} & 5 \\\\ \\textbf{Success-gat",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 470.40588888888885,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "11.70",
+   "context": "$\\pm$ 34.30} & \\underline{470.41 $\\pm$ 11.70} & 5 \\\\ \\textbf{Success-gated curriculu",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 11.699764398282081,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "500.00",
+   "context": "\\textbf{Success-gated curriculum DR} & 500.00 $\\pm$ 0.00 & \\textbf{499.27 $\\pm$ 0.75}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 616
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "ess-gated curriculum DR} & 500.00 $\\pm$ 0.00 & \\textbf{499.27 $\\pm$ 0.75} & \\textbf{",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 200
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "499.27",
+   "context": "culum DR} & 500.00 $\\pm$ 0.00 & \\textbf{499.27 $\\pm$ 0.75} & \\textbf{412.89 $\\pm$ 38.9",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 499.2653333333334,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_w100/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.75",
+   "context": "00.00 $\\pm$ 0.00 & \\textbf{499.27 $\\pm$ 0.75} & \\textbf{412.89 $\\pm$ 38.93} & \\textb",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 0.7478584239160635,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_w100/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "412.89",
+   "context": "& \\textbf{499.27 $\\pm$ 0.75} & \\textbf{412.89 $\\pm$ 38.93} & \\textbf{470.84 $\\pm$ 13.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 412.889,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "38.93",
+   "context": "9.27 $\\pm$ 0.75} & \\textbf{412.89 $\\pm$ 38.93} & \\textbf{470.84 $\\pm$ 13.07} & 5 \\\\ \\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 38.93311261352959,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "470.84",
+   "context": "& \\textbf{412.89 $\\pm$ 38.93} & \\textbf{470.84 $\\pm$ 13.07} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 470.8405555555556,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "13.07",
+   "context": ".89 $\\pm$ 38.93} & \\textbf{470.84 $\\pm$ 13.07} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 13.06931732728355,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "ret\\_ood & ret\\_robust \\\\ \\midrule 0 & 500.0 $\\pm$ 0.0 & 389.1 $\\pm$ 28.8 & 243.2 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": "ret\\_robust \\\\ \\midrule 0 & 500.0 $\\pm$ 0.0 & 389.1 $\\pm$ 28.8 & 243.2 $\\pm$ 21.9 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "389.1",
+   "context": "obust \\\\ \\midrule 0 & 500.0 $\\pm$ 0.0 & 389.1 $\\pm$ 28.8 & 243.2 $\\pm$ 21.9 & 386.6 $",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 389.12,
+    "key": "main/no-randomisation/cartpole/ret_w100/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "28.8",
+   "context": "drule 0 & 500.0 $\\pm$ 0.0 & 389.1 $\\pm$ 28.8 & 243.2 $\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w200",
+    "stat": "std",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 28.79272743824964,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_w200/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "243.2",
+   "context": "& 500.0 $\\pm$ 0.0 & 389.1 $\\pm$ 28.8 & 243.2 $\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\\\ 0.25 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 243.18666666666667,
+    "key": "main/no-randomisation/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "21.9",
+   "context": "m$ 0.0 & 389.1 $\\pm$ 28.8 & 243.2 $\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 21.853776593277605,
+    "key": "main/no-randomisation/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "386.6",
+   "context": "& 389.1 $\\pm$ 28.8 & 243.2 $\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm$ 0.0 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 386.59233333333333,
+    "key": "main/no-randomisation/cartpole/ret_robust/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "16.6",
+   "context": "$ 28.8 & 243.2 $\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm$ 0.0 & 440.2 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 16.591216748927017,
+    "key": "main/no-randomisation/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.25",
+   "context": "243.2 $\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm$ 0.0 & 440.2 $\\pm$ 29.2 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "$\\pm$ 21.9 & 386.6 $\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm$ 0.0 & 440.2 $\\pm$ 29.2 & 292.4 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": "386.6 $\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm$ 0.0 & 440.2 $\\pm$ 29.2 & 292.4 $\\pm$ 11.3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "440.2",
+   "context": "$\\pm$ 16.6 \\\\ 0.25 & 500.0 $\\pm$ 0.0 & 440.2 $\\pm$ 29.2 & 292.4 $\\pm$ 11.3 & 418.1 $",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 440.1833333333333,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_w100/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "29.2",
+   "context": "\\\\ 0.25 & 500.0 $\\pm$ 0.0 & 440.2 $\\pm$ 29.2 & 292.4 $\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 29.216677980602494,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_w100/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "292.4",
+   "context": "& 500.0 $\\pm$ 0.0 & 440.2 $\\pm$ 29.2 & 292.4 $\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\\\ 0.5 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 292.36,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "11.3",
+   "context": "m$ 0.0 & 440.2 $\\pm$ 29.2 & 292.4 $\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 11.338761751424,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "418.1",
+   "context": "& 440.2 $\\pm$ 29.2 & 292.4 $\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$ 0.0 & 4",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 418.0953333333333,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "11.0",
+   "context": "$ 29.2 & 292.4 $\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$ 0.0 & 479.6 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 10.977904208111374,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.5",
+   "context": "292.4 $\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$ 0.0 & 479.6 $\\pm$ 15.4 &",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "$\\pm$ 11.3 & 418.1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$ 0.0 & 479.6 $\\pm$ 15.4 & 344.0 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": "& 418.1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$ 0.0 & 479.6 $\\pm$ 15.4 & 344.0 $\\pm$ 37.2 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "479.6",
+   "context": "1 $\\pm$ 11.0 \\\\ 0.5 & 500.0 $\\pm$ 0.0 & 479.6 $\\pm$ 15.4 & 344.0 $\\pm$ 37.2 & 444.5 $",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 479.6493333333334,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_w100/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "15.4",
+   "context": "\\\\ 0.5 & 500.0 $\\pm$ 0.0 & 479.6 $\\pm$ 15.4 & 344.0 $\\pm$ 37.2 & 444.5 $\\pm$ 14.9 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 15.410538673979643,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_w100/std"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "344.0",
+   "context": "& 500.0 $\\pm$ 0.0 & 479.6 $\\pm$ 15.4 & 344.0 $\\pm$ 37.2 & 444.5 $\\pm$ 14.9 \\\\ 1 & 50",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 343.9646666666667,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "37.2",
+   "context": "m$ 0.0 & 479.6 $\\pm$ 15.4 & 344.0 $\\pm$ 37.2 & 444.5 $\\pm$ 14.9 \\\\ 1 & 500.0 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 37.18612062614522,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_ood/std"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "444.5",
+   "context": "& 479.6 $\\pm$ 15.4 & 344.0 $\\pm$ 37.2 & 444.5 $\\pm$ 14.9 \\\\ 1 & 500.0 $\\pm$ 0.0 & 498",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 444.49255555555555,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "14.9",
+   "context": "$ 15.4 & 344.0 $\\pm$ 37.2 & 444.5 $\\pm$ 14.9 \\\\ 1 & 500.0 $\\pm$ 0.0 & 498.5 $\\pm$ 1.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 14.8728691782249,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_robust/std"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": ".0 $\\pm$ 37.2 & 444.5 $\\pm$ 14.9 \\\\ 1 & 500.0 $\\pm$ 0.0 & 498.5 $\\pm$ 1.7 & 412.0 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": "2 & 444.5 $\\pm$ 14.9 \\\\ 1 & 500.0 $\\pm$ 0.0 & 498.5 $\\pm$ 1.7 & 412.0 $\\pm$ 34.3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "498.5",
+   "context": "4.5 $\\pm$ 14.9 \\\\ 1 & 500.0 $\\pm$ 0.0 & 498.5 $\\pm$ 1.7 & 412.0 $\\pm$ 34.3 & 470.4 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 498.466,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_w100/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "1.7",
+   "context": ".9 \\\\ 1 & 500.0 $\\pm$ 0.0 & 498.5 $\\pm$ 1.7 & 412.0 $\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 1.712124086884155,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_w100/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "412.0",
+   "context": "1 & 500.0 $\\pm$ 0.0 & 498.5 $\\pm$ 1.7 & 412.0 $\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\\\ 1.5 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 411.9846666666666,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "34.3",
+   "context": "pm$ 0.0 & 498.5 $\\pm$ 1.7 & 412.0 $\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 34.29636941021924,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_ood/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "470.4",
+   "context": "& 498.5 $\\pm$ 1.7 & 412.0 $\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$ 0.0 & 5",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 470.40588888888885,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "11.7",
+   "context": "m$ 1.7 & 412.0 $\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 11.699764398282081,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "1.5",
+   "context": "412.0 $\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 4",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "$\\pm$ 34.3 & 470.4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.9 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": "& 470.4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.9 $\\pm$ 3.3 & 4",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "4 $\\pm$ 11.7 \\\\ 1.5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.9 $\\pm$ 3.3 & 493.3 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": "\\\\ 1.5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.9 $\\pm$ 3.3 & 493.3 $\\pm$ 1.1 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "479.9",
+   "context": "5 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.9 $\\pm$ 3.3 & 493.3 $\\pm$ 1.1 \\\\ 2 & 500.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 479.89733333333334,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "3.3",
+   "context": "pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.9 $\\pm$ 3.3 & 493.3 $\\pm$ 1.1 \\\\ 2 & 500.0 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w200",
+    "stat": "std",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 3.279133862605929,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/ret_w200/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "493.3",
+   "context": "0 & 500.0 $\\pm$ 0.0 & 479.9 $\\pm$ 3.3 & 493.3 $\\pm$ 1.1 \\\\ 2 & 500.0 $\\pm$ 0.0 & 500.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 493.29911111111113,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "1.1",
+   "context": "pm$ 0.0 & 479.9 $\\pm$ 3.3 & 493.3 $\\pm$ 1.1 \\\\ 2 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.1132600469336908,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/ret_robust/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "79.9 $\\pm$ 3.3 & 493.3 $\\pm$ 1.1 \\\\ 2 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.7 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": ".3 & 493.3 $\\pm$ 1.1 \\\\ 2 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.7 $\\pm$ 5.1 & 4",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "500.0",
+   "context": "93.3 $\\pm$ 1.1 \\\\ 2 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.7 $\\pm$ 5.1 & 493.2 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 625
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.0",
+   "context": ".1 \\\\ 2 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.7 $\\pm$ 5.1 & 493.2 $\\pm$ 1.7 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0,
+    "key": "main/no-randomisation/cartpole/train_width_end/mean",
+    "candidates": 230
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "479.7",
+   "context": "2 & 500.0 $\\pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.7 $\\pm$ 5.1 & 493.2 $\\pm$ 1.7 \\\\ 3 & 499.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "8d413cf217",
+     "f99ffe2ade",
+     "dfb4072792",
+     "3ea6961b39",
+     "64ca3273c0"
+    ],
+    "value": 479.69399999999996,
+    "config": {
+     "width": 2
+    },
+    "key": "sweep_width/uniform-dr@width=2/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "5.1",
+   "context": "pm$ 0.0 & 500.0 $\\pm$ 0.0 & 479.7 $\\pm$ 5.1 & 493.2 $\\pm$ 1.7 \\\\ 3 & 499.9 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "8d413cf217",
+     "f99ffe2ade",
+     "dfb4072792",
+     "3ea6961b39",
+     "64ca3273c0"
+    ],
+    "value": 5.055278127308556,
+    "config": {
+     "width": 2
+    },
+    "key": "sweep_width/uniform-dr@width=2/cartpole/ret_ood/std"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "493.2",
+   "context": "0 & 500.0 $\\pm$ 0.0 & 479.7 $\\pm$ 5.1 & 493.2 $\\pm$ 1.7 \\\\ 3 & 499.9 $\\pm$ 0.2 & 498.",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "8d413cf217",
+     "f99ffe2ade",
+     "dfb4072792",
+     "3ea6961b39",
+     "64ca3273c0"
+    ],
+    "value": 493.23133333333334,
+    "config": {
+     "width": 2
+    },
+    "key": "sweep_width/uniform-dr@width=2/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "1.7",
+   "context": "pm$ 0.0 & 479.7 $\\pm$ 5.1 & 493.2 $\\pm$ 1.7 \\\\ 3 & 499.9 $\\pm$ 0.2 & 498.6 $\\pm$ 3.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 1.712124086884155,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_w100/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "499.9",
+   "context": "79.7 $\\pm$ 5.1 & 493.2 $\\pm$ 1.7 \\\\ 3 & 499.9 $\\pm$ 0.2 & 498.6 $\\pm$ 3.1 & 470.9 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 499.92266666666666,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_nominal/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "0.2",
+   "context": ".1 & 493.2 $\\pm$ 1.7 \\\\ 3 & 499.9 $\\pm$ 0.2 & 498.6 $\\pm$ 3.1 & 470.9 $\\pm$ 23.0 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 33
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "498.6",
+   "context": "93.2 $\\pm$ 1.7 \\\\ 3 & 499.9 $\\pm$ 0.2 & 498.6 $\\pm$ 3.1 & 470.9 $\\pm$ 23.0 & 490.0 $\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 498.5926666666666,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_w100/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "3.1",
+   "context": ".7 \\\\ 3 & 499.9 $\\pm$ 0.2 & 498.6 $\\pm$ 3.1 & 470.9 $\\pm$ 23.0 & 490.0 $\\pm$ 8.2 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 3.076573129672411,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_w100/std"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "470.9",
+   "context": "3 & 499.9 $\\pm$ 0.2 & 498.6 $\\pm$ 3.1 & 470.9 $\\pm$ 23.0 & 490.0 $\\pm$ 8.2 \\\\ \\bottom",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 470.86066666666665,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_ood/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "23.0",
+   "context": "pm$ 0.2 & 498.6 $\\pm$ 3.1 & 470.9 $\\pm$ 23.0 & 490.0 $\\pm$ 8.2 \\\\ \\bottomrule \\end{t",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "std",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 23.02879968044846,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_ood/std"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "490.0",
+   "context": "& 498.6 $\\pm$ 3.1 & 470.9 $\\pm$ 23.0 & 490.0 $\\pm$ 8.2 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 489.98999999999995,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_robust/mean"
+   }
+  },
+  {
+   "section": "generated/sweep_width_by_w.tex",
+   "literal": "8.2",
+   "context": "m$ 3.1 & 470.9 $\\pm$ 23.0 & 490.0 $\\pm$ 8.2 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "std",
+    "run_ids": [
+     "9eefb2bd8f",
+     "89b9ef9dd8",
+     "22570f7231",
+     "eb061f05cb",
+     "c315c1812a"
+    ],
+    "value": 8.203255761744398,
+    "config": {
+     "width": 3
+    },
+    "key": "sweep_width/uniform-dr@width=3/cartpole/ret_robust/std"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "500",
+   "context": "cited papers. The task saturates at the 500-step cap for all nominal evaluations, s",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.02",
+   "context": "-v1 equations (Euler integration, $\\tau=0.02$\\,s), checked against gymnasium over 30",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "succ_w200",
+    "stat": "std",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.019804601036683935,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/succ_w200/std",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "500",
+   "context": "the number of steps survived, capped at 500. \\textbf{Policy and learner.} The poli",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "20\\%",
+   "context": "isodes (common random numbers), the top 20\\% are refit as the new mean and standard",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.95",
+    "task": "cartpole",
+    "metric": "ret_w150",
+    "stat": "std",
+    "run_ids": [
+     "efce985b49",
+     "fc7217090a",
+     "a564b73a82",
+     "07cf1f4310",
+     "e51bb169ba"
+    ],
+    "value": 20.385741476717392,
+    "key": "abl_curriculum/curriculum-gate-0.95/cartpole/ret_w150/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.05",
+   "context": "60 iterations; a decaying noise floor $0.05(1-t/60)+0.01$ is added to the refit sta",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "succ_w200",
+    "stat": "std",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 0.051886628549388546,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/succ_w200/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.01",
+   "context": "s; a decaying noise floor $0.05(1-t/60)+0.01$ is added to the refit standard deviati",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "std",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 0.010434983894999009,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/succ_w150/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.25",
+   "context": "n}: $w=0$. \\emph{Uniform DR} (narrow $w=0.25$, wide $w=1$): fixed $w$. \\emph{Success",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "500",
+   "context": "on which the best candidate reaches the 500-step cap, $\\delta=0.05$, $\\rho=0.8$ and",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.05",
+   "context": "idate reaches the 500-step cap, $\\delta=0.05$, $\\rho=0.8$ and $w_{\\max}=1$ (equal to",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "succ_w200",
+    "stat": "std",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 0.051886628549388546,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/succ_w200/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "0.8",
+   "context": "the 500-step cap, $\\delta=0.05$, $\\rho=0.8$ and $w_{\\max}=1$ (equal to wide DR). S",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "mean",
+    "run_ids": [
+     "7c403dfe03",
+     "5c3dfc5455",
+     "cf6eafd217",
+     "431a2faef4",
+     "bb49e6b7fc",
+     "8d413cf217",
+     "9eefb2bd8f",
+     "2e61826f09",
+     "37f00fb9c3",
+     "e3b784a621",
+     "aa67e51fd5",
+     "be10a28644",
+     "f99ffe2ade",
+     "89b9ef9dd8",
+     "d72afd90ed",
+     "d6368274a3",
+     "9f2555e8f3",
+     "522f1c31d8",
+     "b098b85bac",
+     "dfb4072792",
+     "22570f7231",
+     "d7d05520e4",
+     "f10f277019",
+     "e43013170d",
+     "076650f4b6",
+     "ac82d20b61",
+     "3ea6961b39",
+     "eb061f05cb",
+     "cbbd95b25a",
+     "dd236fb49e",
+     "beea3c2578",
+     "9bd932f7b4",
+     "18298bba27",
+     "64ca3273c0",
+     "c315c1812a"
+    ],
+    "value": 0.7986666666666665,
+    "key": "sweep_width/uniform-dr/cartpole/succ_w150/mean",
+    "candidates": 81
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "500",
+   "context": "n{Main results on CartPole (return, max 500; mean $\\pm$ std over 5 seeds). \\texttt{",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1.5",
+   "context": "is the mean return at shift half-widths 1.5 and 2.}\\label{tab:main}\\resizebox{\\colu",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "500",
+   "context": "comparison. All four systems reach the 500-step cap on nominal dynamics, so nomina",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "386.6",
+   "context": "early the weakest (\\texttt{ret\\_robust} 386.6), narrow DR is in between (418.1), and",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 386.59233333333333,
+    "key": "main/no-randomisation/cartpole/ret_robust/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "418.1",
+   "context": "obust} 386.6), narrow DR is in between (418.1), and wide DR and the curriculum are th",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 418.0953333333333,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "470.4",
+   "context": "lum are the best and indistinguishable (470.4 and 470.8). The curriculum is higher th",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 470.40588888888885,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "470.8",
+   "context": "e best and indistinguishable (470.4 and 470.8). The curriculum is higher than no DR a",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 470.8405555555556,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_robust/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/success-gated-curriculum-dr/cartpole/ret_robust/paired_p:2}",
+   "context": "t not different from wide DR (paired $p=\\rhval{cmp/main/success-gated-curriculum-dr/cartpole/ret_robust/paired_p:2}$); on \\texttt{ret\\_ood} the curriculum",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Success-gated curriculum DR",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "paired_p",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba",
+     "fa85840c35",
+     "26d1e30537",
+     "9b26b837ec",
+     "778e3a88d7",
+     "4ec0c9e828"
+    ],
+    "value": 0.9593163372374083,
+    "ref": "Uniform DR wide (w=1.0)",
+    "key": "cmp/main/success-gated-curriculum-dr/cartpole/ret_robust/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "412.9",
+   "context": "the curriculum and wide DR also agree (412.9 vs 412.0, $p=\\rhval{cmp/main/success-ga",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 412.889,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_ood/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "412.0",
+   "context": "iculum and wide DR also agree (412.9 vs 412.0, $p=\\rhval{cmp/main/success-gated-curri",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 411.9846666666666,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_ood/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/success-gated-curriculum-dr/cartpole/ret_ood/paired_p:2}",
+   "context": "wide DR also agree (412.9 vs 412.0, $p=\\rhval{cmp/main/success-gated-curriculum-dr/cartpole/ret_ood/paired_p:2}$). With 5 seeds a non-significant diffe",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Success-gated curriculum DR",
+    "task": "cartpole",
+    "metric": "ret_ood",
+    "stat": "paired_p",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba",
+     "fa85840c35",
+     "26d1e30537",
+     "9b26b837ec",
+     "778e3a88d7",
+     "4ec0c9e828"
+    ],
+    "value": 0.9713716762558819,
+    "ref": "Uniform DR wide (w=1.0)",
+    "key": "cmp/main/success-gated-curriculum-dr/cartpole/ret_ood/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "500",
+   "context": "he gap here is below one return unit in 500. Figure~\\ref{fig:profile} shows the ret",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.25",
+   "context": "evaluation shift: all systems tie at $w=0.25$; wherever they separate ($w\\ge0.75$) t",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.75",
+   "context": "$w=0.25$; wherever they separate ($w\\ge0.75$) the ordering is no DR $<$ narrow DR $",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 0.7478584239160635,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_w100/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "470.4",
+   "context": "ics) is supported (\\texttt{ret\\_robust} 470.4 vs 386.6, paired $p=\\rhval{cmp/main/no-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR wide (w=1.0)",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba"
+    ],
+    "value": 470.40588888888885,
+    "key": "main/uniform-dr-wide-w-1.0/cartpole/ret_robust/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "386.6",
+   "context": "upported (\\texttt{ret\\_robust} 470.4 vs 386.6, paired $p=\\rhval{cmp/main/no-randomisa",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "mean",
+    "run_ids": [
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 386.59233333333333,
+    "key": "main/no-randomisation/cartpole/ret_robust/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/no-randomisation/cartpole/ret_robust/paired_p}",
+   "context": "{ret\\_robust} 470.4 vs 386.6, paired $p=\\rhval{cmp/main/no-randomisation/cartpole/ret_robust/paired_p}$ from \\texttt{rh compare} with wide DR",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "No randomisation",
+    "task": "cartpole",
+    "metric": "ret_robust",
+    "stat": "paired_p",
+    "run_ids": [
+     "08d732f5cc",
+     "4166478193",
+     "8901dd4d8d",
+     "a7f8e445c7",
+     "55c46a89ba",
+     "ac51af2c36",
+     "53aa933224",
+     "729c1762de",
+     "8981f0e818",
+     "069e12a09d"
+    ],
+    "value": 0.0006836233574119092,
+    "ref": "Uniform DR wide (w=1.0)",
+    "key": "cmp/main/no-randomisation/cartpole/ret_robust/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "500",
+   "context": "the numbers do not show.} The easy cap (500 steps) means nominal return cannot rise",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "ret_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 500.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/ret_nominal/mean",
+    "candidates": 650
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1.5",
+   "context": "evel is $w=2$, systems trained at $w\\ge 1.5$ are largely in-range there; true out-o",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "300",
+   "context": "n.} Each trained policy is evaluated on 300 episodes per level on an RNG stream dis",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "ret_w200",
+    "stat": "median",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 300.3333333333333,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/ret_w200/median",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.25",
+   "context": "amics and shifts with half-width $w\\in\\{0.25,0.5,0.75,1,1.5,2\\}$. We report \\texttt{",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "and shifts with half-width $w\\in\\{0.25,0.5,0.75,1,1.5,2\\}$. We report \\texttt{ret\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.75",
+   "context": "shifts with half-width $w\\in\\{0.25,0.5,0.75,1,1.5,2\\}$. We report \\texttt{ret\\_nomi",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.8",
+    "task": "cartpole",
+    "metric": "ret_w100",
+    "stat": "std",
+    "run_ids": [
+     "4347637131",
+     "4b51a60ecc",
+     "187ddecfcf",
+     "e05e17c061",
+     "59931d0543"
+    ],
+    "value": 0.7478584239160635,
+    "key": "abl_curriculum/curriculum-gate-0.8/cartpole/ret_w100/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.5",
+   "context": "with half-width $w\\in\\{0.25,0.5,0.75,1,1.5,2\\}$. We report \\texttt{ret\\_nominal};",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "} and \\texttt{ret\\_w100} (shift levels $0.5$ and $1.0$); \\texttt{ret\\_ood}, the mea",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.0",
+   "context": "ttt{ret\\_w100} (shift levels $0.5$ and $1.0$); \\texttt{ret\\_ood}, the mean at $w=1.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_curriculum",
+    "system": "Curriculum, gate 0.5",
+    "task": "cartpole",
+    "metric": "succ_nominal",
+    "stat": "mean",
+    "run_ids": [
+     "a0a95f6e50",
+     "5adb6abed8",
+     "f2718c1052",
+     "2ac1d29223",
+     "2b87034bb4"
+    ],
+    "value": 1.0,
+    "key": "abl_curriculum/curriculum-gate-0.5/cartpole/succ_nominal/mean",
+    "candidates": 923
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.5",
+   "context": ".0$); \\texttt{ret\\_ood}, the mean at $w=1.5$ and $2$; and \\texttt{ret\\_robust}, the",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.5",
+   "context": "ut-of-range for narrow DR and no DR; $w=1.5,2$ are out-of-range for every system in",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "tion group: curriculum gate $\\rho\\in\\{0,0.5,0.95\\}$ (0.8 is the main method). Sweep",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.95",
+   "context": "group: curriculum gate $\\rho\\in\\{0,0.5,0.95\\}$ (0.8 is the main method). Sweep: uni",
+   "source": {
+    "type": "aggregate",
+    "group": "sanity",
+    "system": "smoke",
+    "task": "cartpole",
+    "metric": "succ_w75",
+    "stat": "mean",
+    "run_ids": [
+     "2471778355"
+    ],
+    "value": 0.9533333333333334,
+    "key": "sanity/smoke/cartpole/succ_w75/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.8",
+   "context": "urriculum gate $\\rho\\in\\{0,0.5,0.95\\}$ (0.8 is the main method). Sweep: uniform DR",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "succ_w150",
+    "stat": "mean",
+    "run_ids": [
+     "7c403dfe03",
+     "5c3dfc5455",
+     "cf6eafd217",
+     "431a2faef4",
+     "bb49e6b7fc",
+     "8d413cf217",
+     "9eefb2bd8f",
+     "2e61826f09",
+     "37f00fb9c3",
+     "e3b784a621",
+     "aa67e51fd5",
+     "be10a28644",
+     "f99ffe2ade",
+     "89b9ef9dd8",
+     "d72afd90ed",
+     "d6368274a3",
+     "9f2555e8f3",
+     "522f1c31d8",
+     "b098b85bac",
+     "dfb4072792",
+     "22570f7231",
+     "d7d05520e4",
+     "f10f277019",
+     "e43013170d",
+     "076650f4b6",
+     "ac82d20b61",
+     "3ea6961b39",
+     "eb061f05cb",
+     "cbbd95b25a",
+     "dd236fb49e",
+     "beea3c2578",
+     "9bd932f7b4",
+     "18298bba27",
+     "64ca3273c0",
+     "c315c1812a"
+    ],
+    "value": 0.7986666666666665,
+    "key": "sweep_width/uniform-dr/cartpole/succ_w150/mean",
+    "candidates": 81
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.25",
+   "context": "ethod). Sweep: uniform DR with $w\\in\\{0,0.25,0.5,1,1.5,2,3\\}$, 5 seeds each. Signifi",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Uniform DR narrow (w=0.25)",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "c9ac960a42",
+     "343a452a81",
+     "72a377cc2c",
+     "49d2c1fdd8",
+     "4249b838a5"
+    ],
+    "value": 0.25,
+    "key": "main/uniform-dr-narrow-w-0.25/cartpole/train_width_end/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.5",
+   "context": "). Sweep: uniform DR with $w\\in\\{0,0.25,0.5,1,1.5,2,3\\}$, 5 seeds each. Significanc",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "cf6eafd217",
+     "e3b784a621",
+     "9f2555e8f3",
+     "e43013170d",
+     "beea3c2578"
+    ],
+    "value": 0.5,
+    "config": {
+     "width": 0.5
+    },
+    "key": "sweep_width/uniform-dr@width=0.5/cartpole/train_width_end/mean",
+    "candidates": 34
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.5",
+   "context": "ep: uniform DR with $w\\in\\{0,0.25,0.5,1,1.5,2,3\\}$, 5 seeds each. Significance uses",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "1.5",
+   "context": "systems, which led us to add levels $w=1.5,2$ and sweep widths up to 3. The evalua",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_width",
+    "system": "Uniform DR",
+    "task": "cartpole",
+    "metric": "train_width_end",
+    "stat": "mean",
+    "run_ids": [
+     "bb49e6b7fc",
+     "be10a28644",
+     "b098b85bac",
+     "ac82d20b61",
+     "18298bba27"
+    ],
+    "value": 1.5,
+    "config": {
+     "width": 1.5
+    },
+    "key": "sweep_width/uniform-dr@width=1.5/cartpole/train_width_end/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/runs}",
+   "context": "rything runs on CPU in seconds per run (\\rhval{count/runs} logged runs, one of them a smoke run).",
+   "source": {
+    "type": "count",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 76.0,
+    "key": "count/runs"
+   }
+  }
+ ],
+ "untraced": [],
+ "constants": [
+  {
+   "name": "eval_episodes_per_level",
+   "value": 300,
+   "why": "number of evaluation episodes per shift level (method/run.py evaluate)"
+  },
+  {
+   "name": "euler_step_tau",
+   "value": 0.02,
+   "why": "Euler integration step of the CartPole dynamics in seconds (TAU in method/run.py)"
+  },
+  {
+   "name": "dynamics_check_steps",
+   "value": 30,
+   "why": "number of steps in the simulator-vs-gymnasium check (method/check_dynamics.py)"
+  },
+  {
+   "name": "mlp_inputs",
+   "value": 4,
+   "why": "policy input size = CartPole state dimension; also the number of randomised parameters and of main systems"
+  },
+  {
+   "name": "mlp_hidden_units",
+   "value": 8,
+   "why": "hidden units of the policy MLP (H in method/run.py)"
+  },
+  {
+   "name": "mlp_outputs",
+   "value": 1,
+   "why": "policy output size"
+  },
+  {
+   "name": "mlp_parameters",
+   "value": 49,
+   "why": "parameter count of the 4-8-1 MLP (NP in method/run.py)"
+  },
+  {
+   "name": "cem_population",
+   "value": 40,
+   "why": "CEM candidates per iteration (--pop default)"
+  },
+  {
+   "name": "cem_envs_per_iteration",
+   "value": 16,
+   "why": "randomised episodes each CEM candidate is evaluated on (--n_env default)"
+  },
+  {
+   "name": "cem_elite_percent",
+   "value": 20,
+   "why": "CEM elite fraction in percent (pop // 5 in method/run.py)"
+  },
+  {
+   "name": "cem_iterations",
+   "value": 60,
+   "why": "CEM training iterations (--iters default)"
+  },
+  {
+   "name": "cem_noise_floor_decay",
+   "value": 0.05,
+   "why": "coefficient of the decaying noise floor added to the refit std (method/run.py train)"
+  },
+  {
+   "name": "cem_noise_floor_const",
+   "value": 0.01,
+   "why": "constant part of the noise floor added to the refit std (method/run.py train)"
+  },
+  {
+   "name": "curriculum_step_delta",
+   "value": 0.05,
+   "why": "curriculum widening step delta (--step default)"
+  },
+  {
+   "name": "curriculum_gate_rho",
+   "value": 0.8,
+   "why": "success threshold rho of the main curriculum (--thresh)"
+  },
+  {
+   "name": "curriculum_w_max",
+   "value": 1,
+   "why": "curriculum cap on the half-width, equal to wide DR (--wmax 1.0)"
+  },
+  {
+   "name": "ungated_rho",
+   "value": 0,
+   "why": "threshold that turns the curriculum into an ungated linear schedule; also the nominal width w=0"
+  },
+  {
+   "name": "return_cap",
+   "value": 500,
+   "why": "maximum episode length / return of CartPole-v1 (T_MAX in method/run.py)"
+  },
+  {
+   "name": "width_narrow",
+   "value": 0.25,
+   "why": "training half-width of narrow DR; also an evaluation shift level"
+  },
+  {
+   "name": "width_half",
+   "value": 0.5,
+   "why": "evaluation shift level and sweep width 0.5; also gate threshold 0.5 in the ablation"
+  },
+  {
+   "name": "eval_level_075",
+   "value": 0.75,
+   "why": "evaluation shift level w=0.75"
+  },
+  {
+   "name": "width_1p5",
+   "value": 1.5,
+   "why": "evaluation shift level and sweep width 1.5"
+  },
+  {
+   "name": "width_2",
+   "value": 2,
+   "why": "largest evaluation shift level and sweep width 2"
+  },
+  {
+   "name": "width_3",
+   "value": 3,
+   "why": "largest sweep training width"
+  },
+  {
+   "name": "gate_high",
+   "value": 0.95,
+   "why": "gate threshold 0.95 in the curriculum ablation"
+  },
+  {
+   "name": "n_seeds",
+   "value": 5,
+   "why": "seeds per system (seeds 0-4 in research.yaml)"
+  },
+  {
+   "name": "eval_shift_levels",
+   "value": 6,
+   "why": "number of shifted evaluation levels averaged in ret_robust"
+  },
+  {
+   "name": "sweep_widths",
+   "value": 7,
+   "why": "number of training widths in the sweep"
+  }
+ ],
+ "summary": {
+  "checked": 194,
+  "traced": 194,
+  "untraced": 0,
+  "by_type": {
+   "aggregate": 185,
+   "compare": 8,
+   "count": 1
+  },
+  "files": [
+   "ablations.tex",
+   "abstract.tex",
+   "conclusion.tex",
+   "generated/abl_curriculum.tex",
+   "generated/main.tex",
+   "generated/sweep_width_by_w.tex",
+   "introduction.tex",
+   "keywords.tex",
+   "limitations.tex",
+   "main.tex",
+   "method.tex",
+   "related.tex",
+   "results.tex",
+   "setup.tex"
+  ],
+  "ok": true
+ }
+}

@@ -46,7 +46,7 @@ L = ["\\begin{tabular}{l" + "c" * len(sizes) + "}", "\\toprule", "System & " + "
 for nm in ["Mean predictor"] + order:
     L.append(short[nm] + " & " + " & ".join(ms(lc[(lc.name == nm) & (lc.n == s)].energy_mae) for s in sizes) + " \\\\")
 L += ["\\bottomrule", "\\end{tabular}"]
-write("lcurve", L)
+# results/tables/lcurve.tex is no longer written here: it is built from \rhval keys of the registry aggregates
 
 # ---- registered Welch tests per training size (H1, H3, H4) and the raw-vs-mean-predictor reference
 pairs = [("H1", "Sorted dist KRR", "Raw coords KRR"), ("H1", "SymFn-sum KRR", "Raw coords KRR"),
@@ -64,7 +64,7 @@ for h, a, b in pairs:
         out.append(f"{h} n={s}: {a} {x.mean():.3f} (n={len(x)}) vs {b} {y.mean():.3f} (n={len(y)}), Welch p={p:.3g}")
     L.append(f"{h} & {short[a]} vs.\\ {short[b]} & " + " & ".join(cells) + " \\\\")
 L += ["\\bottomrule", "\\end{tabular}"]
-write("tests", L)
+# results/tables/tests.tex is no longer written here: it is built from \rhval keys of `rh compare` (main group)
 
 # ---- ablation table (full models restricted to the seeds of the variant)
 mm = d[d.group == "main"]
@@ -88,7 +88,7 @@ for nm, x, ref in abl:
         out.append(f"ablation {nm.strip(chr(92) + ' ')} of {ref}: {x.energy_mae.mean():.3f} vs full {full.energy_mae.mean():.3f} ({len(x)} seeds), Welch p={pv:.3g}")
     L.append(f"{nm} & {len(x)} & {f3(x.energy_mae)} & {sci(np.mean(x.inv_defect))} & {p} \\\\")
 L += ["\\bottomrule", "\\end{tabular}"]
-write("abl", L)
+# results/tables/abl.tex is no longer written here: it is built from \rhval keys of the registry aggregates
 
 # ---- steps sensitivity (seeds 0-2)
 L = ["\\begin{tabular}{lccc}", "\\toprule", "System & 1000 steps & 3000 steps & 12000 steps \\\\", "\\midrule"]
@@ -101,7 +101,7 @@ for nm in ["Sorted dist MLP", "SymFn-sum MLP"]:
     L.append("\\ \\ $p$ vs.\\ 3000 steps & " + pfmt(welch(v[1000], v[3000])) + " & & " + pfmt(welch(v[12000], v[3000])) + " \\\\")
     out.append(f"steps {nm}: 1000 vs 3000 p={welch(v[1000], v[3000]):.3g}; 12000 vs 3000 p={welch(v[12000], v[3000]):.3g}")
 L += ["\\bottomrule", "\\end{tabular}"]
-write("steps", L)
+# results/tables/steps.tex is no longer written here: it is built from \rhval keys of the registry aggregates
 
 # ---- KRR grid sensitivity (n=500, 5 seeds); "wide" = the main-group runs
 L = ["\\begin{tabular}{lccc}", "\\toprule", "System & narrow & mid & wide (main) \\\\", "\\midrule"]
@@ -164,7 +164,7 @@ for nm in names:
     out.append(f"main {nm}: MAE {x.energy_mae.mean():.3f}; rot+perm/clean ratio {np.mean(x.mae_rot_perm / x.energy_mae):.3f}; inv_defect mean {x.inv_defect.mean():.3g}, per-seed max {x.inv_defect.max():.3g}"
                + (f", per-sample max {x.inv_defect_max.max():.3g}" if "inv_defect_max" in x and x.inv_defect_max.notna().all() else ""))
 L += ["\\bottomrule", "\\end{tabular}"]
-write("maintab", L)
+# results/tables/maintab.tex is no longer written here: it is built from \rhval keys of the registry aggregates
 
 # ---- registry facts quoted in the setup section
 inv = d[~d.name.str.startswith("Raw") & (d.name != "Mean predictor")]
