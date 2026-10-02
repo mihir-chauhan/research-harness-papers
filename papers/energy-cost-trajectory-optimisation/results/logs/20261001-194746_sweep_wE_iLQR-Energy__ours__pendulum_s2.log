@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 19:47:46 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Energy --task pendulum --seed 2 --wE 0.01 --out results/raw/sweep_wE_ablation_iLQR-Energy_pendulum_2_0.01.json
+
+{'success_rate': 0.9, 'success_rate_far': 0.7142857142857143, 'control_effort': 12.38678107914084, 'time_to_upright': 2.4225000000000003, 'solve_ms': 9.264143833497657}

@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:07:56 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad --task pendulum --seed 2 --qscale 1 --out results/raw/sweep_qscale_ablation_iLQR-Quad_pendulum_2_1.json
+
+{'success_rate': 0.9, 'success_rate_far': 0.7142857142857143, 'control_effort': 12.752149336364138, 'time_to_upright': 2.3975, 'solve_ms': 8.565636922746004}

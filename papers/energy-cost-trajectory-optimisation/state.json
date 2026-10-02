@@ -1,0 +1,135 @@
+{
+  "slug": "energy-cost-trajectory-optimisation",
+  "direction": "A physics-based cost function for trajectory optimisation: penalise mechanical energy injected into the system (or deviation from a target energy level) instead of, or in addition to, the usual quadratic state and control cost. Test on pendulum and cart-pole swing-up with iLQR or shooting-based MPC written in numpy. Compare against the standard quadratic cost and against the classic energy-shaping controller: success rate over random initial states, control effort, time to upright, and sensitivity to cost weights.",
+  "created": "2026-10-01T18:38:09",
+  "updated": "2026-10-01T21:18:12",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T18:51:03",
+      "finished": "2026-10-01T19:34:40",
+      "notes": [
+        {
+          "t": "2026-10-01T19:34:40",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T19:35:07",
+      "notes": [
+        {
+          "t": "2026-10-01T19:35:07",
+          "note": "method/run.py smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T19:35:08",
+      "finished": "2026-10-01T20:28:43",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:43",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:28:43",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:43",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:28:43",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:43",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:28:43",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:43",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:28:43",
+      "notes": [
+        {
+          "t": "2026-10-01T20:28:43",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:18:12",
+      "notes": [
+        {
+          "t": "2026-10-01T21:18:12",
+          "note": "fix round: H2 caveat with paired sweep table and tuned comparison, term diagnostic, font/figures/tables, method details"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T19:34:40",
+      "phase": "novelty",
+      "decision": "Searched control/energy swing-up literature; no controlled head-to-head found; claims kept modest. Chose Gauss-Newton iLQR with clipped controls, point-mass pole, cart force limit 8 (15 made the task trivial in a pilot on tuning seed 100)."
+    },
+    {
+      "t": "2026-10-01T20:28:43",
+      "phase": "experiments",
+      "decision": "bash 3.2 has no associative arrays, so the first driver mislabelled runs; deleted those runs, fixed the driver, reran all 102 runs"
+    },
+    {
+      "t": "2026-10-01T20:28:43",
+      "phase": "ablations",
+      "decision": "research.yaml ablations list uses the swept systems' run names because rh check matches kind=ablation by name"
+    },
+    {
+      "t": "2026-10-01T20:55:13",
+      "phase": "ablations",
+      "decision": "Fix round: (1) tuned comparison - for each cost and task pick the swept weight with highest mean success on seeds 0-2, ties by lowest mean effort (energy: wE=100 pendulum, wE=1 cart-pole; quad: q=100 pendulum, q=0.1 cart-pole), and run it on held-out seeds 3-4 (6 new runs, group tuned; energy cart-pole seeds 3-4 reuse main, not re-logged). (2) diag_terms: 6 runs of iLQR-Quad+Energy with --diag reporting closed-loop means of the two state-cost terms, to check the 'energy term dominates' explanation. Adds about 5 min to a compute total that already exceeds the nominal 30 min; no further runs."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

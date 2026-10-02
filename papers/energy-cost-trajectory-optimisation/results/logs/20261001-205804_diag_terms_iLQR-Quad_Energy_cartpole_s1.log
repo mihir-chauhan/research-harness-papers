@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:58:04 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad+Energy --task cartpole --seed 1 --diag --out results/raw/diag_terms_ablation_iLQR-Quad+Energy_cartpole_1_1.json
+
+config: {'system': 'iLQR-Quad+Energy', 'task': 'cartpole', 'seed': 1, 'out': 'results/raw/diag_terms_ablation_iLQR-Quad+Energy_cartpole_1_1.json', 'nep': 20, 'horizon': 30, 'wE': 1.0, 'qscale': 1.0, 'rscale': 1.0, 'q_in_energy': 0.0, 'diag': True}
+{'success_rate': 1.0, 'success_rate_far': 1.0, 'control_effort': 72.48250983884296, 'time_to_upright': 1.7400000000000007, 'solve_ms': 32.39396708770073, 'energy_term': 0.16851111913517988, 'quad_term': 5.101414103486166, 'term_ratio': 0.0330322368889881}

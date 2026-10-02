@@ -1,0 +1,7 @@
+# Protocol
+Tasks: pendulum, cartpole. Per seed s in {0..4}: 20 initial states drawn with rng(s) (pendulum theta~U(-pi,pi), omega~U(-1,1); cart-pole x~U(-.5,.5), theta~U(-pi,pi), v=0, omega~U(-1,1)); all systems see the same states for a given seed. Episode 6 s (120 steps), noiseless, model = plant.
+Success: after 6 s, upright (|theta|<0.15, |omega|<0.6, |v|<0.6 for cart-pole) held >=1 s and the cart never left |x|<=2.4. time_to_upright: start of the final hold; failures count as 6 s. control_effort: sum u^2 dt per episode, averaged over the 20 starts (failed episodes included). success_rate_far: starts with |theta0|>pi/2.
+Systems: iLQR-Quad, iLQR-Energy (ours), iLQR-Quad+Energy, EnergyShaping-LQR (all reimplemented). Group `main`: 4x2x5 runs.
+Sensitivity: `sweep_wE` (iLQR-Energy, wE in {0.01,0.1,1,10,100}) and `sweep_qscale` (iLQR-Quad, qscale in {0.01,0.1,1,10,100}), 3 seeds (0-2), both tasks.
+Tuned comparison (post-hoc, fix round): per cost and task the swept weight with highest mean success on seeds 0-2, ties by lowest mean effort (energy: wE=100 pendulum, wE=1 cart-pole; quad: q=100 pendulum, q=0.1 cart-pole), run on seeds 3-4 in group `tuned` (energy cart-pole seeds 3-4 are the main-group runs). Diagnostic: group `diag_terms`, iLQR-Quad+Energy with `--diag`, seeds 0-2. Tables for sweeps, tuned and diagnostic: `method/sweep_table.py`; figures: `method/sweep_fig.py` (sample std, ddof=1).
+Tuning budget for the main table: none (weights fixed a priori; sweeps are reported, not used for selection). Hardware: shared CPU, 2 threads, numpy.

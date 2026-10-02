@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 19:50:00 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad+Energy --task pendulum --seed 4 --out results/raw/main_baseline_iLQR-Quad+Energy_pendulum_4.json
+
+{'success_rate': 0.9, 'success_rate_far': 0.7777777777777778, 'control_effort': 15.227874665528404, 'time_to_upright': 2.6175, 'solve_ms': 9.422009013942441}

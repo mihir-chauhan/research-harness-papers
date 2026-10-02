@@ -1,0 +1,11 @@
+# rh run | Thu Oct  1 19:34:55 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Energy --task pendulum --seed 100 --nep 3 --out results/raw/sanity.json
+
+Traceback (most recent call last):
+  File "method/run.py", line 250, in <module>
+    main()
+  File "method/run.py", line 247, in main
+    json.dump(out, open(a.out, "w")); print(out)
+                   ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/sanity.json'

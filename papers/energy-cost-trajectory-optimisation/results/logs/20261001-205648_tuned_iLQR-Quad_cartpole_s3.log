@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:56:48 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad --task cartpole --seed 3 --qscale 0.1 --out results/raw/tuned_ablation_iLQR-Quad_cartpole_3_0.1.json
+
+config: {'system': 'iLQR-Quad', 'task': 'cartpole', 'seed': 3, 'out': 'results/raw/tuned_ablation_iLQR-Quad_cartpole_3_0.1.json', 'nep': 20, 'horizon': 30, 'wE': 1.0, 'qscale': 0.1, 'rscale': 1.0, 'q_in_energy': 0.0, 'diag': False}
+{'success_rate': 1.0, 'success_rate_far': 1.0, 'control_effort': 49.22114081882735, 'time_to_upright': 1.73, 'solve_ms': 30.264554837631298}

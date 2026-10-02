@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:55:19 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Energy --task pendulum --seed 3 --wE 100 --out results/raw/tuned_ablation_iLQR-Energy_pendulum_3_100.json
+
+config: {'system': 'iLQR-Energy', 'task': 'pendulum', 'seed': 3, 'out': 'results/raw/tuned_ablation_iLQR-Energy_pendulum_3_100.json', 'nep': 20, 'horizon': 30, 'wE': 100.0, 'qscale': 1.0, 'rscale': 1.0, 'q_in_energy': 0.0, 'diag': False}
+{'success_rate': 1.0, 'success_rate_far': 1.0, 'control_effort': 11.143830321523234, 'time_to_upright': 2.2625, 'solve_ms': 16.14015856932383}

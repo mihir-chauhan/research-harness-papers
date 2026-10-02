@@ -1,0 +1,16 @@
+\textbf{Plants.} Pendulum: $\ddot\theta = g\sin\theta + u - b\dot\theta$ (unit mass and length, $\theta=0$ upright, $|u|\le 3$, below the gravity torque so that swing-up needs pumping). Cart-pole: cart mass 1, pole point mass 0.3 at length 0.5, $|F|\le 8$, track $|x|\le 2.4$. Dynamics are integrated with RK4 at $\Delta t=0.05$\,s; the controller's model equals the plant.
+
+\textbf{iLQR-MPC.} At each step a horizon of $N=30$ steps is optimised with iLQR (central finite-difference Jacobians of the RK4 step, Gauss--Newton cost Hessian, a Levenberg--Marquardt term added to $Q_{uu}$, a backtracking line search over five step sizes, controls clipped to the limits in the rollout), warm-started by shifting the previous solution: 25 iterations on the first call, 4 afterwards. The first control is applied.
+
+\textbf{Running costs.} With $e$ the wrapped state error, $E$ the mechanical energy of the pole and $E^{*}$ its upright value,
+\begin{align}
+\ell_{\text{quad}} &= \tfrac12 e^\top Q e + \tfrac12 r u^2,\\
+\ell_{\text{energy}} &= \tfrac12 w_E (E-E^{*})^2 + \tfrac12 r u^2,\\
+\ell_{\text{both}} &= \ell_{\text{quad}} + \tfrac12 w_E (E-E^{*})^2 ,
+\end{align}
+and all MPC variants share the terminal cost $\tfrac12 e_N^\top Q_f e_N$. The horizon objective multiplies the running cost by the time step and leaves the terminal cost unscaled:
+\begin{equation}
+J=\Delta t\sum_{t=0}^{N-1}\ell(x_t,u_t)+\tfrac12 e_N^\top Q_f e_N .
+\end{equation} The energy term has gradient $w_E (E-E^{*})\nabla E$ and Gauss--Newton Hessian $w_E \nabla E\nabla E^\top$. Note that $E=E^{*}$ is a whole level set containing the upright point, so the running cost alone does not select the goal; the terminal cost does.
+
+\textbf{Energy shaping + LQR (reimplemented).} Pendulum: $u=-k(E-E^{*})\dot\theta$, $k=1$. Cart-pole: a commanded cart acceleration $-k(E^{*}-E)\dot\theta\cos\theta$ ($k=5$, saturated) plus a cart PD term, mapped to a force by partial feedback linearisation. A discrete LQR takes over near the upright with a hysteresis switch back; its gain solves the DARE of the RK4 step linearised at the upright, with the state weight $Q$ and control weight $r$ of the quadratic running cost (Sec.~\ref{sec:setup}), not scaled by $\Delta t$. Catch to LQR happens when $|\theta|<0.35$ and the energy is within 25\% of $E^{*}$ (in magnitude), with the switch back to swing-up at $|\theta|>0.8$; near rest the angular velocity is replaced by $\pm0.05$ to kick off the rest point. The cart PD term is $-1.0\,x-1.5\,\dot x$ added to the saturated acceleration command ($|a|\le 8$). Viscous damping is $b=0.05$ (pendulum) and $0.02$ (cart-pole). Weights and gains were set by hand before the reported runs (Sec.~\ref{sec:setup}).

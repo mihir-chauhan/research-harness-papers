@@ -1,0 +1,7 @@
+task,ref,name,metric,ref_mean,mean,delta,n_ref,n,welch_p,paired_p,cohen_d
+cartpole,iLQR-Energy (ours),EnergyShaping-LQR,success_rate,1.0,0.97,0.030000000000000027,5,5,0.20799999999999952,0.20799999999999988,0.9486832980505147
+cartpole,iLQR-Energy (ours),iLQR-Quad,success_rate,1.0,1.0,0.0,5,5,,,
+cartpole,iLQR-Energy (ours),iLQR-Quad+Energy,success_rate,1.0,1.0,0.0,5,5,,,
+pendulum,iLQR-Energy (ours),EnergyShaping-LQR,success_rate,0.95,0.9800000000000001,-0.030000000000000138,5,5,0.2748731762308281,0.07048399691021992,-0.7442084075352544
+pendulum,iLQR-Energy (ours),iLQR-Quad,success_rate,0.95,0.8,0.1499999999999999,5,5,0.009621151281436176,0.002570260765399935,2.4494897427831765
+pendulum,iLQR-Energy (ours),iLQR-Quad+Energy,success_rate,0.95,0.95,0.0,5,5,1.0,,0.0

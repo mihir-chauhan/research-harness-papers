@@ -1,0 +1,73 @@
+% IEEEtran selects the Times family `ptm', which this (XeTeX-based) engine does not have in the TU encoding.
+% Map it silently to Latin Modern while the class loads; the text font is set with fontspec below.
+\RequirePackage{fontspec}
+\DeclareFontFamily{TU}{ptm}{}
+\DeclareFontShape{TU}{ptm}{m}{n}{<->ssub*lmr/m/n}{}
+\DeclareFontShape{TU}{ptm}{bx}{n}{<->ssub*lmr/bx/n}{}
+\DeclareFontShape{TU}{ptm}{m}{it}{<->ssub*lmr/m/it}{}
+\DeclareFontShape{TU}{ptm}{bx}{it}{<->ssub*lmr/bx/it}{}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{url}
+% The template's Times font has no bold or italic shape in this engine; load a Times clone that has them.
+\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\graphicspath{{generated/}}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Numbers in this paper are generated from results/runs.jsonl via `rh table` / `rh fig`.
+% Do not type experimental numbers by hand; \input the generated tables.
+
+\begin{document}
+
+\title{\input{sections/title}}
+
+\author{\input{sections/author}}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+\input{sections/keywords}
+\end{IEEEkeywords}
+
+\section{Introduction}\label{sec:intro}
+\input{sections/introduction}
+
+\section{Related Work}\label{sec:related}
+\input{sections/related}
+
+\section{Method}\label{sec:method}
+\input{sections/method}
+
+\section{Experimental Setup}\label{sec:setup}
+\input{sections/setup}
+
+\section{Results}\label{sec:results}
+\input{sections/results}
+
+\section{Ablations and Analysis}\label{sec:ablations}
+\input{sections/ablations}
+
+\section{Limitations}\label{sec:limitations}
+\input{sections/limitations}
+
+\section{Conclusion}\label{sec:conclusion}
+\input{sections/conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

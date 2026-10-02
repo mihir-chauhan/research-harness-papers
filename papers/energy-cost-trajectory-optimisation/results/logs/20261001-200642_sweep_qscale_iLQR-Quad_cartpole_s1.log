@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:06:42 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad --task cartpole --seed 1 --qscale 100 --out results/raw/sweep_qscale_ablation_iLQR-Quad_cartpole_1_100.json
+
+{'success_rate': 1.0, 'success_rate_far': 1.0, 'control_effort': 104.81224336301099, 'time_to_upright': 2.0875000000000004, 'solve_ms': 13.132908892487952}

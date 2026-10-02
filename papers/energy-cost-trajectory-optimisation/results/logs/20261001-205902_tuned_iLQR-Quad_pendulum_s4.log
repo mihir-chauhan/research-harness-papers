@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:59:02 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad --task pendulum --seed 4 --qscale 100 --out results/raw/tuned_ablation_iLQR-Quad_pendulum_4_100.json
+
+config: {'system': 'iLQR-Quad', 'task': 'pendulum', 'seed': 4, 'out': 'results/raw/tuned_ablation_iLQR-Quad_pendulum_4_100.json', 'nep': 20, 'horizon': 30, 'wE': 1.0, 'qscale': 100.0, 'rscale': 1.0, 'q_in_energy': 0.0, 'diag': False}
+{'success_rate': 1.0, 'success_rate_far': 1.0, 'control_effort': 16.383263742583974, 'time_to_upright': 2.4699999999999998, 'solve_ms': 27.089117012971354}

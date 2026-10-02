@@ -1,0 +1,288 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-reproducible (4 main-group runs re-executed with identical metrics), the code matches the paper, baselines share data and budget, citations are verified and used in context, and negative results are mostly reported honestly. Two summary-level claims contradict the paper's own tables: the abstract puts the effort-stability result on the wrong task, and the abstract and conclusion call the method indistinguishable from energy shaping and from the combined cost despite significant paired differences in the compare CSVs. Both are text-only fixes, plus minor caption and detail issues.",
+      "reran": [
+        {
+          "run": "iLQR-Energy (ours)/pendulum/3",
+          "metric": "success_rate",
+          "registry": 0.95,
+          "rerun": 0.95
+        },
+        {
+          "run": "iLQR-Energy (ours)/pendulum/3",
+          "metric": "control_effort",
+          "registry": 12.636733907937092,
+          "rerun": 12.636733907937092
+        },
+        {
+          "run": "iLQR-Quad/pendulum/3",
+          "metric": "success_rate",
+          "registry": 0.8,
+          "rerun": 0.8
+        },
+        {
+          "run": "iLQR-Quad/pendulum/3",
+          "metric": "control_effort",
+          "registry": 16.71230150016476,
+          "rerun": 16.71230150016476
+        },
+        {
+          "run": "iLQR-Energy (ours)/cartpole/4",
+          "metric": "control_effort",
+          "registry": 35.161080538563326,
+          "rerun": 35.161080538563326
+        },
+        {
+          "run": "EnergyShaping-LQR/cartpole/0",
+          "metric": "success_rate",
+          "registry": 0.9,
+          "rerun": 0.9
+        },
+        {
+          "run": "EnergyShaping-LQR/cartpole/0",
+          "metric": "control_effort",
+          "registry": 52.29205279792791,
+          "rerun": 52.29205279792791
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex (also ablations.tex, H3 paragraph)",
+          "issue": "The abstract says 'effort is more stable on the pendulum' for the energy cost. Table II shows the opposite: pendulum effort range is 5.3 for the energy cost vs 2.0 for the quadratic cost; the energy cost is more stable only on the cart-pole (15.2 vs 52.4). The ablations sentence 'the energy cost's effort is stable on the pendulum (range 5.3 vs 2.0 favours the quadratic cost there)' is self-contradictory.",
+          "fix": "Change the abstract to say effort is more stable on the cart-pole (range 15.2 vs 52.4) and less stable on the pendulum (5.3 vs 2.0); rewrite the ablations sentence to match, as results/RESULTS.md already states."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, conclusion.tex, results.tex (H4), results/RESULTS.md (H4)",
+          "issue": "The abstract and conclusion say iLQR-Energy is statistically indistinguishable from energy shaping on the pendulum, but compare_main_control_effort.csv gives paired p=0.0047 for effort in favour of EnergyShaping-LQR (10.78 vs 12.24, lower in all 5 seeds), the same paired test the paper uses to claim p<0.01 for H1/H2. The conclusion also says the method 'was not distinguishable from the combined cost' without restricting to the pendulum, although on the cart-pole effort (42.03 vs 69.52, p=0.0002) and time to upright (1.79 vs 1.66 s, p=0.008) differ.",
+          "fix": "Say 'indistinguishable in success rate and time to upright' and report that energy shaping uses significantly less effort on the pendulum (paired p<0.01); restrict the combined-cost statement to the pendulum; add the pendulum effort result to the H4 paragraph and to RESULTS.md."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex (H2)",
+          "issue": "'Slightly longer time to upright' and the 'speed/effort trade-off' explanation rest on a cart-pole difference of 1.79 vs 1.71 s that is not significant (paired p=0.12, about one standard deviation).",
+          "fix": "State that the time difference from iLQR-Quad is not distinguishable at n=5 and present the trade-off as a possibility, or anchor it on the significant difference from iLQR-Quad+Energy."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Table I caption; paper/generated/main.tex",
+          "issue": "Caption says 'italic: second best' but the table uses underline; the LaTeX log shows bold-font-shape warnings so bold may not render; three-way ties (cart-pole success 1.00) are marked best for 'ours' and second for iLQR-Quad.",
+          "fix": "Correct the caption to 'underline', fix the bold font, and mark ties equally or not at all."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, Figs. 2 and 3",
+          "issue": "The figures plot success pooled over both tasks (e.g. 0.917 at w_E=0.01 is the mean of pendulum 0.83 and cart-pole 1.00), which the captions do not say; log-spaced weights are on a linear x-axis so three of five points collapse at zero.",
+          "fix": "Plot per task with a log x-axis, or state the pooling in the captions."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "The claim that a pilot on a non-reported seed chose the cart force limit has no matching run in the registry (the only sanity run is a 3-episode pendulum run on seed 100). 'One run takes about 10-30 s' does not match registry durations (iLQR about 19-147 s, energy shaping about 0.3 s).",
+          "fix": "Log the cart-pole pilot or reword the sentence; give the actual duration range from the registry."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "Energy-shaping details in the code are not in the paper: catch thresholds (|theta|<0.35, energy within 25%, switch back at 0.8), cart PD gains (1.0, 1.5), the rest-point kick, and damping values (0.05 and 0.02).",
+          "fix": "Add these values to the method or setup section."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex",
+          "issue": "Beckenbach et al. adapt the stage cost by Q-learning under stabilising constraints, so calling the hand-designed energy cost 'a stage cost of this kind' is loose. The introduction's claim that the quadratic cost gives a poor signal far from the goal is uncited.",
+          "fix": "Reword to 'a different, hand-designed form of stage-cost shaping'; cite a source for the quadratic-cost claim or mark it as a hypothesis tested by the far-start metric."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results.tex",
+          "issue": "About 18 pairwise tests are reported without multiple-comparison correction, and paired t-tests are applied to discrete seed-level success rates at n=5; the paper calls p-values descriptive but still writes 'p<0.01' as support.",
+          "fix": "Note the lack of correction in the limitations and report per-seed differences alongside the p-values."
+        }
+      ],
+      "commit": "cf00dc61e6d5bf72ec5bdad30df7a2134776ebfc"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-reproducible, all numbers and p-values match the tables and compare files, the code matches the paper, and citations are used in context. One major text issue: the effort reduction (H2, abstract, conclusion) is presented without the default-weights caveat applied to H1, although the paper's own sweep shows the cart-pole gap shrinking from 42.0 vs 74.8 to 43.3 vs 50.2 at q=0.1 with equal success. The remaining findings are minor wording, detail and rendering issues.",
+      "reran": [
+        {
+          "run": "iLQR-Energy (ours)/pendulum/0",
+          "metric": "control_effort",
+          "registry": 12.986109568254545,
+          "rerun": 12.986109568254545
+        },
+        {
+          "run": "iLQR-Energy (ours)/pendulum/0",
+          "metric": "success_rate",
+          "registry": 0.95,
+          "rerun": 0.95
+        },
+        {
+          "run": "iLQR-Quad/cartpole/1",
+          "metric": "control_effort",
+          "registry": 72.98920349418941,
+          "rerun": 72.98920349418941
+        },
+        {
+          "run": "iLQR-Quad/cartpole/1",
+          "metric": "success_rate",
+          "registry": 1.0,
+          "rerun": 1.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (H2), abstract.tex, conclusion.tex, results/RESULTS.md",
+          "issue": "H2 is 'supported' and the conclusion calls the effort reduction 'the most consistent effect' with headline 42.03 vs 74.77 on the cart-pole, but the weight-dependence caveat is applied only to H1. The paper's own sweep (seeds 0-2) shows iLQR-Quad at q=0.1 keeps success 1.00 and time 1.79 s with effort 50.2 vs 43.3 for iLQR-Energy at wE=1 (paired p=0.09, n=3; q=0.01: 50.0, p=0.046), and iLQR-Energy at wE=0.01/0.1/100 (51.6/50.9/58.5) is not below iLQR-Quad at q<=0.1. The cart-pole effort gap is therefore mostly a product of the default Q.",
+          "fix": "State in H2, the abstract, the conclusion and RESULTS.md that the cart-pole effort gap holds at default weights and shrinks to about 7 units (43.3 vs 50.0-50.2, not clearly distinguishable at n=3) for q<=0.1 with no loss of success; note that the direction persists across the sweep on the pendulum (11.1 vs 13.9-15.9); soften 'most consistent effect' accordingly."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Energy alone vs. combined)",
+          "issue": "Says the two costs are 'identical to within the table precision on success and effort' on the pendulum, but the table shows effort 12.24 vs 12.23; the explanation 'the energy term dominates the quadratic term, which explains the tie' is asserted without any measurement.",
+          "fix": "Say 'within 0.01 in effort and equal in success' and mark the dominance explanation as a conjecture or report the two cost-term magnitudes."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "The objective in code multiplies the running cost by dt while the terminal cost is unscaled, and the LQR catch uses the quadratic cost's Q and r; neither is stated.",
+          "fix": "Add the dt scaling of the running cost and the LQR weights to the method section."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Table I, Fig. 1-3",
+          "issue": "Caption says 'Bold: best' but bold does not render (bold font shape undefined and substituted in main.log), so only second-best underlines are visible; Fig. 1 does not define its error bars; Figs. 2-3 use population std while tables use sample std.",
+          "fix": "Fix the font so bold renders or change the marking and caption; state what the Fig. 1 error bars are; use ddof=1 in method/sweep_fig.py or state the convention."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl, results/logs, BRIEF.md, paper/sections/setup.tex",
+          "issue": "12 logs from the bugged driver have no registry row (rows were removed before the registry was first committed); this is disclosed in BRIEF.md but not in the paper.",
+          "fix": "Add one sentence to setup or limitations saying mislabelled runs from a driver bug were discarded and everything was re-run."
+        },
+        {
+          "severity": "minor",
+          "where": "method/DESIGN.md vs paper/sections/setup.tex and method.tex",
+          "issue": "DESIGN.md says a seed-100 pilot chose the cart force limit while the paper says no pilot runs were logged (the only seed-100 run is a 3-episode pendulum sanity run), so the 'fixed a priori' claim cannot be verified; DESIGN.md also gives the opposite sign for the cart-pole shaping law from the code and paper.",
+          "fix": "Reconcile DESIGN.md with the paper and code, and say in the paper that the a-priori choice of weights and force limit rests on an unlogged pilot."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'Optimisation-based controllers ... [3] use a generic quadratic cost' over-generalises (Tassa et al. do not restrict themselves to quadratic costs), and 'Two families of solutions dominate' is uncited.",
+          "fix": "Reword to 'are commonly used with a quadratic cost' and attach the citation to iLQR-MPC only, or soften the 'dominate' claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/citations.json",
+          "issue": "Running the prescribed 'rh lit verify' during this audit rewrote the checked_at timestamp, so the file now differs from the committed version by that one line.",
+          "fix": "Restore with git checkout or commit the refreshed timestamp."
+        }
+      ],
+      "commit": "720edde98d2fac697c9a1caef3e6d365eab78ba3"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper matches the registry and generated tables, which I recomputed independently; four re-executed runs were bit-identical to the registry, and the code implements what the paper describes with no hard-coded values or leakage. The framing is honest about a mixed/negative outcome (tier 0), with the default-weight dependence, post-hoc tuned comparison and untuned baselines disclosed. Only minor issues remain: tuned pendulum weights at the grid edge, inconsistent H1/H3 labels, tie bolding in Table I, one uncited claim, an unstated total-budget overrun, and a repository link that returned 404.",
+      "reran": [
+        {
+          "run": "iLQR-Energy (ours)/pendulum/0",
+          "metric": "control_effort",
+          "registry": 12.986109568254545,
+          "rerun": 12.986109568254545
+        },
+        {
+          "run": "iLQR-Energy (ours)/pendulum/0",
+          "metric": "success_rate",
+          "registry": 0.95,
+          "rerun": 0.95
+        },
+        {
+          "run": "iLQR-Quad/cartpole/3",
+          "metric": "control_effort",
+          "registry": 78.80803239350732,
+          "rerun": 78.80803239350732
+        },
+        {
+          "run": "iLQR-Quad/cartpole/3",
+          "metric": "success_rate",
+          "registry": 1.0,
+          "rerun": 1.0
+        },
+        {
+          "run": "EnergyShaping-LQR/pendulum/4",
+          "metric": "control_effort",
+          "registry": 12.893299273173701,
+          "rerun": 12.893299273173701
+        },
+        {
+          "run": "iLQR-Quad(qscale=0.1,tuned)/cartpole/4",
+          "metric": "control_effort",
+          "registry": 43.2742036199507,
+          "rerun": 43.2742036199507
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Tuned comparison), results.tex (H2)",
+          "issue": "On the pendulum the tuned comparison selects wE=100 and q=100, both at the edge of the five-point grid, and the quadratic cost is still improving there (success 0.92 to 1.00, effort 15.5 to 13.9 from q=10 to q=100), so the tuned effort gap of 10.9 vs 14.4 may shrink further at larger q; this is not stated.",
+          "fix": "State that the selected pendulum weights are at the grid boundary and the quadratic trend is unresolved, or extend the q grid (e.g. q=1000) within budget."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1), results/RESULTS.md",
+          "issue": "The registered criterion in research.yaml and proposal.md is 'refuted if not higher on both tasks', but H1 is labelled 'not supported' while H3 is labelled 'refuted' under the same kind of criterion.",
+          "fix": "Use one label consistently, or say explicitly that the softer wording for H1 is because the cart-pole is at a ceiling."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Table I caption",
+          "issue": "In the three-way cart-pole tie at 1.00 the bold falls on the 'ours' row (the last tied row), although the caption says ties are marked in row order; the disclaimer is present but the visual still favours the method.",
+          "fix": "Remove bold/underline on tied cells or state that the last tied row is bolded."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "The claim that iLQR/DDP MPC is 'commonly run with a quadratic cost' has no citation, and the adjacent reference (Tassa et al. 2012) itself uses non-quadratic costs.",
+          "fix": "Add a supporting citation or mark the statement as the authors' observation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Scale and bookkeeping)",
+          "issue": "The paper reports about 80 minutes of summed run time but not that the pre-set total budget in research.yaml was 45 minutes; only RESULTS.md says the budget was exceeded.",
+          "fix": "Add a clause stating that the total exceeded the planned 45-minute budget."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/author.tex",
+          "issue": "The linked GitHub repository URL returned HTTP 404 at audit time, so the statement that every number comes from runs in the linked repository cannot be checked by a reader yet.",
+          "fix": "Publish the repository or confirm the path before release."
+        }
+      ],
+      "commit": "721c0253005a6213b872ca98e64377d28ef239c0"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (4):\n! 1 failed runs in registry (fine, but check they were rerun)\n! numbers in prose not found in any table or run: method.tex: 0.05, 0.35, 0.5, 1.5\n! numbers in prose not found in any table or run: setup.tex: 0.05, 0.5, 0.6\n! verdict tier 0 < target 2: not best on pendulum: ours 0.95 vs EnergyShaping-LQR 0.98\nREADY",
+      "response": "# Response to audit\n\n1. **Major, abstract effort stability (fixed).** Abstract now says effort is more stable for the energy cost on the cart-pole (15.2 vs 52.4) and less stable on the pendulum (5.3 vs 2.0); the contradictory ablations sentence was rewritten to match.\n2. **Major, \"indistinguishable from energy shaping/combined\" (fixed).** Abstract, conclusion, H4 paragraph and RESULTS.md now say energy shaping is indistinguishable in success and time to upright but uses significantly less effort on the pendulum (10.78 vs 12.24, paired p<0.01). The combined-cost statement is restricted to the pendulum; the cart-pole differences in effort and time (p<0.01) are reported.\n3. **Minor, time to upright (fixed).** The 1.79 vs 1.71 s difference is stated as not distinguishable (p=0.12); the trade-off is presented as a possible explanation only.\n4. **Minor, Table I caption (partly fixed).** Caption now says underline and that ties carry no ranking information. The bold font warnings come from the template's Times font being unavailable in the engine (substituted); the table generator's tie marking was not changed.\n5. **Minor, sweep figures (fixed).** Regenerated per task with a log x-axis and std bars (`method/sweep_fig.py`, reading runs.jsonl); captions state this.\n6. **Minor, setup claims (fixed).** Removed the unlogged pilot claim; durations now 19--147 s for iLQR-MPC, 0.3 s for energy shaping.\n7. **Minor, energy-shaping details (fixed).** Catch thresholds, cart PD gains, kick value and damping values added to method.tex.\n8. **Minor, Beckenbach and uncited claim (fixed).** Reworded to \"a different, hand-designed form of stage-cost shaping\"; the far-from-goal claim is now marked as a hypothesis tested by the far-start metric.\n9. **Minor, multiple comparisons (fixed).** Limitation and setup now state that no correction is applied (about 18 tests) and that success rates are discrete; per-seed values remain in the registry. I did not add per-seed differences to the text.\n",
+      "seconds": 52
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (4):\n! 1 failed runs in registry (fine, but check they were rerun)\n! numbers in prose not found in any table or run: method.tex: 0.05, 0.35, 0.5\n! numbers in prose not found in any table or run: setup.tex: 0.05, 0.5, 0.6\n! verdict tier 0 < target 2: not best on pendulum: ours 0.95 vs EnergyShaping-LQR 0.98\nREADY",
+      "response": "# Response to audit (fix round)\n\n1. **Major, H2 effort claim without the default-weights caveat (fixed, with new runs).** The finding is correct. H2 in `results.tex` is now \"supported at default weights, smaller after re-weighting\" and states that the cart-pole gap is mostly a product of the default Q: iLQR-Quad at q=0.1 keeps success 1.00 and time 1.79 s with effort 50.2 vs 43.3 (gap 31.5 -> 6.9 on seeds 0-2, paired p=0.090; q=0.01: 6.7, p=0.046), that iLQR-Energy at wE=0.01/0.1/100 (51.6/50.9/58.5) is not below iLQR-Quad at q<=0.1, and that the direction persists on the pendulum (11.1 vs 13.9-15.9). Every cell of that comparison is in a new table (`sweep_paired.tex`, Table IV, built from the registry by `method/sweep_table.py`). To give the claim more than n=3, a tuned comparison was added (group `tuned`, 6 new runs on seeds 3-4, code committed first as 3aa1dd3): each cost at the weight with the highest success on seeds 0-2 (ties by lowest effort). Result (Table V): success 0.99 vs 1.00 (pendulum) and 1.00 vs 1.00 (cart-pole); effort 10.9 vs 14.4 and 42.0 vs 48.6 (paired p<0.001 and 0.009, n=5; held-out seeds 3-4 only: 12.0 vs 15.3 and 40.1 vs 46.2). The paper says this is post-hoc and that 3 of the 5 seeds were also used for selection. Abstract, conclusion, limitations, RESULTS.md and BRIEF.md carry the same caveat; \"the most consistent effect\" was replaced by a sentence that names the direction, its modest size after re-weighting, and that it does not hold for every energy weight on the cart-pole.\n2. **Minor, \"identical to within table precision\" and the dominance explanation (fixed, with new runs).** Text now says equal success and within 0.01 in effort (12.24 vs 12.23). The explanation is no longer asserted: 6 diagnostic runs (group `diag_terms`, `--diag` flag, default behaviour unchanged) report the closed-loop means of the two state-cost terms (Table II: ratio 16.13 on the pendulum, 0.03 on the cart-pole). The text says this is consistent with the pattern, is a magnitude measurement, and \"may explain\" it.\n3. **Minor, dt scaling and LQR weights (fixed).** `method.tex` has the horizon objective with the running cost multiplied by the time step and the terminal cost unscaled (Eq. 4), and states that the LQR catch uses Q and r of the quadratic cost, unscaled, on the linearised RK4 step. The effort metric is now described as the per-episode sum averaged over the 20 starts, which is what the code computes.\n4. **Minor, bold, error bars, std convention (fixed).** The template's Times family has no bold or italic shape in this engine; `main.tex` now loads TeX Gyre Termes with fontspec, bold renders (checked in the PDF and with `pdffonts`) and the log has no font warnings. Fig. 1 is now drawn by `method/sweep_fig.py` from the registry and its caption defines the error bars (one sample std over 5 seeds). All figures and tables use ddof=1 and say so. The old `rh fig bars` and population-std figures were removed. Tables I and III are now full-width floats and legible.\n5. **Minor, logs without a registry row (fixed).** Setup (\"Scale and bookkeeping\") says that mislabelled runs from a driver bug were discarded before the registry was first committed and everything was re-run, leaving 12 early logs without a row, and that one crashed smoke run is kept as failed.\n6. **Minor, DESIGN.md vs paper (fixed).** DESIGN.md now gives the cart-pole shaping law with the sign used in the code and paper, and says the trial runs behind the cart force limit were not logged. Setup and limitations say the a-priori choice of weights, gains and force limit rests on an unlogged pilot and cannot be checked from the registry.\n7. **Minor, introduction wording (fixed).** \"Two families dominate\" is now \"We consider two families\"; the iLQR sentence says such controllers \"are commonly run with a quadratic cost (the algorithm itself is not restricted to it)\".\n8. **Minor, citations.json timestamp (fixed).** `rh lit verify` was re-run (12 cited, 12 verified) and the refreshed file is committed.\n\n## Other changes from the self-audit\n- H3 verdict is \"refuted\" by the registered test (equal success spread), not \"refuted / inconclusive\". H1 is \"not supported\".\n- Two references added and cited for what they do: control-limited DDP (Tassa et al. 2014) and interior-point DDP (Pavlov et al.), with the statement that our implementation only clips controls in the rollout (also a limitation).\n- A \"where the method fails\" paragraph (far starts, small wE on the pendulum, large wE on the cart-pole), each number from Tables I and III.\n- Sweep table now also lists time to upright, so the 1.79 s quoted for q=0.1 is in a table.\n- Statistics paragraph counts the tests (more than 30, uncorrected).\n\n## Disclosures\n- Two of the 12 new runs (tuned cart-pole seed 4, diag_terms cart-pole seed 2) stalled on the loaded machine and took about 661 s of wall-clock, above the 6-minute rule. They were not re-run (that would log identical runs twice); the simulation is deterministic and the paper states this.\n- Summed run time is now about 82 minutes, above the nominal budget; the paper states about 80 minutes.\n- The `diag_terms` runs repeat iLQR-Quad+Energy on seeds 0-2 with extra outputs; their standard metrics equal the main-group rows and they are used only for Table II.\n- `run.py` changed only by the `--diag` flag and a configuration print; a main-group run re-executed with the new code gave identical metrics.\n\n---\n# Earlier round (kept for the record)\n\n1. **Major, abstract effort stability (fixed).** Abstract now says effort is more stable for the energy cost on the cart-pole (15.2 vs 52.4) and less stable on the pendulum (5.3 vs 2.0); the contradictory ablations sentence was rewritten to match.\n2. **Major, \"indistinguishable from energy shaping/combined\" (fixed).** Abstract, conclusion, H4 paragraph and RESULTS.md now say energy shaping is indistinguishable in success and time to upright but uses significantly less effort on the pendulum (10.78 vs 12.24",
+      "seconds": 1576
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 19:45:44 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Energy --task cartpole --seed 1 --wE 0.1 --out results/raw/sweep_wE_ablation_iLQR-Energy_cartpole_1_0.1.json
+
+{'success_rate': 1.0, 'success_rate_far': 1.0, 'control_effort': 54.27438100538435, 'time_to_upright': 1.9325000000000003, 'solve_ms': 12.708103772262499}

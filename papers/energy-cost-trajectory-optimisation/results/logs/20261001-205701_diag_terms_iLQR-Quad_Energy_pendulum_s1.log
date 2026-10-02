@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:57:01 2026
+# cwd: .
+# cmd: python method/run.py --system iLQR-Quad+Energy --task pendulum --seed 1 --diag --out results/raw/diag_terms_ablation_iLQR-Quad+Energy_pendulum_1_1.json
+
+config: {'system': 'iLQR-Quad+Energy', 'task': 'pendulum', 'seed': 1, 'out': 'results/raw/diag_terms_ablation_iLQR-Quad+Energy_pendulum_1_1.json', 'nep': 20, 'horizon': 30, 'wE': 1.0, 'qscale': 1.0, 'rscale': 1.0, 'q_in_energy': 0.0, 'diag': True}
+{'success_rate': 0.95, 'success_rate_far': 0.8888888888888888, 'control_effort': 11.027064687250274, 'time_to_upright': 2.2424999999999997, 'solve_ms': 26.02986976516452, 'energy_term': 15.497891353309711, 'quad_term': 0.8836266532440635, 'term_ratio': 17.538958672661373}

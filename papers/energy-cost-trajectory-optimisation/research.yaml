@@ -1,0 +1,85 @@
+slug: energy-cost-trajectory-optimisation
+direction: 'A physics-based cost function for trajectory optimisation: penalise mechanical energy injected
+  into the system (or deviation from a target energy level) instead of, or in addition to, the usual quadratic
+  state and control cost. Test on pendulum and cart-pole swing-up with iLQR or shooting-based MPC written
+  in numpy. Compare against the standard quadratic cost and against the classic energy-shaping controller:
+  success rate over random initial states, control effort, time to upright, and sensitivity to cost weights.'
+problem: 'Swing-up of underactuated pendulum and cart-pole with iLQR-MPC: the usual quadratic state cost
+  is a poor guide far from the goal, while energy-shaping controllers exploit the physics but are open-loop
+  in their design. Can a physics-based energy-deviation running cost give MPC the benefit of energy shaping?'
+gap: Energy-shaping swing-up and optimisation-based MPC are both standard, but a controlled head-to-head
+  of an energy-deviation running cost inside iLQR-MPC against the quadratic cost and the Astrom-Furuta
+  controller, including sensitivity to cost weights, is not something we found in our (limited) search.
+contribution: A small controlled empirical comparison, with reimplemented numpy iLQR-MPC, of three running
+  costs (quadratic, energy-deviation, both) and an energy-shaping+LQR controller on pendulum and cart-pole
+  swing-up, with weight-sensitivity sweeps.
+hypotheses:
+- id: H1
+  statement: Energy-deviation running cost (iLQR-Energy) has a higher swing-up success rate than the quadratic
+    cost (iLQR-Quad) over random initial states, at equal horizon and terminal cost.
+  test: main group, success_rate, paired by seed; refuted if iLQR-Energy is not higher on both tasks.
+- id: H2
+  statement: iLQR-Energy uses less control effort (integral of u^2) than iLQR-Quad.
+  test: main group, control_effort.
+- id: H3
+  statement: Success rate of iLQR-Energy is less sensitive to its cost weight than iLQR-Quad is to its
+    state-cost scale.
+  test: sweep_wE vs sweep_qscale, spread of success_rate across weights.
+- id: H4
+  statement: MPC with energy cost matches or beats the classic energy-shaping+LQR controller on success
+    rate and time to upright.
+  test: main group, success_rate and time_to_upright.
+method:
+  name: iLQR-Energy (ours)
+  summary: iLQR MPC (horizon 30, dt 0.05) with running cost 0.5 wE (E-E*)^2 + 0.5 r u^2 and a quadratic
+    terminal cost, Gauss-Newton Hessian.
+  components:
+  - energy-deviation running cost
+  - quadratic terminal cost
+  - warm-started iLQR
+  entrypoint: method/run.py
+tasks:
+- pendulum
+- cartpole
+metrics:
+  success_rate:
+    higher_is_better: true
+  success_rate_far:
+    higher_is_better: true
+  control_effort:
+    higher_is_better: false
+  time_to_upright:
+    higher_is_better: false
+  solve_ms:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- iLQR-Quad
+- iLQR-Quad+Energy
+- EnergyShaping-LQR
+ablations:
+- iLQR-Energy (ours)
+- iLQR-Quad
+ambition:
+  target_tier: 2
+  primary_metric: success_rate
+  primary_task: pendulum
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

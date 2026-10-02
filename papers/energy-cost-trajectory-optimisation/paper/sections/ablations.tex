@@ -1,0 +1,21 @@
+We sweep $w_E$ (iLQR-Energy) and the scale $q$ of the quadratic state cost (iLQR-Quad) over $\{0.01,\dots,100\}$ with seeds 0--2 (Table~\ref{tab:sweep}, Figs.~\ref{fig:swsr} and~\ref{fig:sweff}); the other weights stay at their defaults.
+
+\begin{table*}[t]\centering\caption{Weight sensitivity: mean over seeds 0--2 at each value of the swept weight ($w_E$ for the energy cost, $q$ for the quadratic cost). Range: maximum minus minimum across the five weights.}\label{tab:sweep}
+\input{generated/sweep_weights.tex}\end{table*}
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{sweep_success.pdf}\caption{Success rate vs.\ the swept weight ($w_E$ for iLQR-Energy, $q$ for iLQR-Quad), per task. Mean $\pm$ one sample std over 3 seeds, log $x$-axis.}\label{fig:swsr}\end{figure}
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{sweep_effort.pdf}\caption{Control effort vs.\ the swept weight, per task. Mean $\pm$ one sample std over 3 seeds, log $x$-axis.}\label{fig:sweff}\end{figure}
+
+\textbf{H3 (less sensitive to weight): refuted.} The registered test is the spread of the success rate across weights, and it is the same for the two costs on each task (pendulum 0.17 vs 0.17; cart-pole 0.02 vs 0.02). Effort tells a mixed story: the energy cost's effort varies more than the quadratic cost's on the pendulum (range 5.3 vs 2.0) and less on the cart-pole (15.2 vs 52.4). The two weights are not commensurable ($w_E$ multiplies a squared energy, $q$ a squared state error), so a ``same decade'' comparison is only indicative.
+
+\textbf{Success depends on the weight.} Both costs improve with larger weights on the pendulum: $w_E\ge 10$ and $q=100$ give success 1.00 in the 3 seeds, above the default-weight values. With the best swept weight iLQR-Quad is also at 1.00, which removes the H1 gap.
+
+\textbf{Effort across the sweep.} Table~\ref{tab:paired} compares iLQR-Quad at every $q$ with iLQR-Energy at its default $w_E=1$, paired over seeds 0--2. On the pendulum the quadratic cost uses more effort at every $q$ (by 2.8 to 4.7). On the cart-pole the difference is 31.5 at the default $q=1$ and 55.4 to 59.1 for larger $q$, but only 6.7 and 6.9 for $q=0.01$ and $q=0.1$, with paired $p$ of 0.046 and 0.090 at $n=3$. The reverse reading matters too: iLQR-Energy at $w_E=0.01$, 0.1 and 100 (51.6, 50.9, 58.5) is not below iLQR-Quad at $q\le 0.1$ (50.0, 50.2). So on the cart-pole the energy cost is nominally cheaper than the re-weighted quadratic cost only at $w_E=1$ and $w_E=10$ (43.3 and 48.3), by a margin that 3 seeds do not clearly resolve.
+
+\begin{table}[t]\centering\caption{Effort of iLQR-Quad at each $q$ minus effort of iLQR-Energy at $w_E=1$ ($\Delta$ effort, positive: energy cost is cheaper), paired $t$-test over seeds 0--2, and the success rate of iLQR-Quad at that $q$.}\label{tab:paired}
+\setlength{\tabcolsep}{5pt}\input{generated/sweep_paired.tex}\end{table}
+
+\textbf{Tuned comparison.} To compare the costs at equal tuning budget we pick, for each cost and task, the swept weight with the highest mean success on seeds 0--2 (ties broken by lowest mean effort) and add seeds 3--4 at that weight (Table~\ref{tab:tuned}). This picks $w_E=100$ and $q=100$ on the pendulum, and $w_E=1$ and $q=0.1$ on the cart-pole. The rule was fixed after seeing the sweep, so this is a post-hoc analysis. Success is 0.99 vs 1.00 on the pendulum and 1.00 vs 1.00 on the cart-pole: no success advantage remains. Effort stays lower for the energy cost, 10.9 vs 14.4 on the pendulum and 42.0 vs 48.6 on the cart-pole (paired $p$ of $<0.001$ and 0.009 at $n=5$). The 5 seeds include the 3 used for selection, for both costs alike; on the two held-out seeds alone the means are 12.0 vs 15.3 and 40.1 vs 46.2, with no test at $n=2$. Time to upright is not distinguishable (2.29 vs 2.26\,s; 1.79 vs 1.75\,s). Only one weight per cost was tuned; $r$, $Q_f$ and the horizon were not.
+
+\begin{table}[t]\centering\caption{Tuned comparison: each cost at the weight picked on seeds 0--2 (highest success, ties by lowest effort). Mean $\pm$ sample std over seeds 0--4; last column: mean effort on the held-out seeds 3--4 only. Paired $t$-test between the two costs over the 5 seeds (--: no variance).}\label{tab:tuned}
+\setlength{\tabcolsep}{3.5pt}\input{generated/tuned.tex}\end{table}
