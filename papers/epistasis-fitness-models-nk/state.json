@@ -1,0 +1,130 @@
+{
+  "slug": "epistasis-fitness-models-nk",
+  "direction": "How much epistasis can simple sequence-to-fitness models absorb? On simulated NK fitness landscapes (sequence length 15 to 20, alphabet size 4 to 20, K from 0 to 4) compare an additive (one-hot ridge) model, a pairwise-epistasis model, a small CNN and a small MLP, trained on a few hundred to a few thousand measured variants. Measure Spearman correlation on held-out variants and the success of a greedy design step proposing higher-fitness sequences. State clearly that the landscapes are simulated.",
+  "created": "2026-10-01T18:43:26",
+  "updated": "2026-10-02T00:05:36",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T23:19:18",
+      "finished": "2026-10-01T23:30:30",
+      "notes": [
+        {
+          "t": "2026-10-01T23:30:30",
+          "note": "10+ refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:30:30",
+      "notes": [
+        {
+          "t": "2026-10-01T23:30:30",
+          "note": "run.py smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T23:30:47",
+      "finished": "2026-10-01T23:30:54",
+      "notes": [
+        {
+          "t": "2026-10-01T23:30:54",
+          "note": "baselines reimplemented in method/run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T23:30:54",
+      "finished": "2026-10-01T23:45:30",
+      "notes": [
+        {
+          "t": "2026-10-01T23:45:30",
+          "note": "440 runs, 0 failures"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:45:30",
+      "notes": [
+        {
+          "t": "2026-10-01T23:45:30",
+          "note": "abl_pair, sweep_n"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:47:01",
+      "notes": [
+        {
+          "t": "2026-10-01T23:47:01",
+          "note": "tables, hyp tests"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:47:01",
+      "notes": [
+        {
+          "t": "2026-10-01T23:47:01",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T23:47:35",
+      "notes": [
+        {
+          "t": "2026-10-01T23:47:35",
+          "note": "6 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T23:30:30",
+      "phase": "novelty",
+      "decision": "Grid and N sweep sized to fit ~30 min; pairwise ridge chosen as focal method; shallow lit search (APIs rate limited)"
+    },
+    {
+      "t": "2026-10-01T23:47:35",
+      "phase": "paper",
+      "decision": "Custom pivot tables/figures from runs.jsonl via analysis/*.py; hypothesis tests as registered in proposal.md"
+    },
+    {
+      "t": "2026-10-02T00:05:36",
+      "phase": "paper",
+      "decision": "Audit fix round: reworded H4/design claims to what 5 seeds support (leave-one-cell-out and task-mean correlations, exact chance rate, rh compare on design_hit), limited failure-regime claim to N=1000, disclosed L/A confound and net refit asymmetry; no new runs, since every finding was about wording or reported statistics, not about missing data."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

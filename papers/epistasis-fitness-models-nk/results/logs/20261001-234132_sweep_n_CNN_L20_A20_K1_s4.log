@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:41:32 2026
+# cwd: .
+# cmd: python method/run.py --system CNN --task L20_A20_K1 --seed 4 --n_train 500 --out results/raw/sweep_n__CNN__L20_A20_K1__s4__n500.json
+
+config {'system': 'CNN', 'task': 'L20_A20_K1', 'seed': 4, 'out': 'results/raw/sweep_n__CNN__L20_A20_K1__s4__n500.json', 'n_train': 500, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.042297232284904424, 'design_hit': 0.0, 'design_gain': -0.12736340991328712, 'frac_mutants_better': 0.22105263157894736, 'fit_seconds': 3.6698739528656006, 'hp_wd': 0.001}

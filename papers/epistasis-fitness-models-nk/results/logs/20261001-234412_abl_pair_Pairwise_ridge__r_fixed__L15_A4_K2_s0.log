@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:44:12 2026
+# cwd: .
+# cmd: python method/run.py --system 'Pairwise ridge (r fixed)' --task L15_A4_K2 --seed 0 --n_train 1000 --out results/raw/abl_pair__Pairwise_ridge_r_fixed__L15_A4_K2__s0__n1000.json
+
+config {'system': 'Pairwise ridge (r fixed)', 'task': 'L15_A4_K2', 'seed': 0, 'out': 'results/raw/abl_pair__Pairwise_ridge_r_fixed__L15_A4_K2__s0__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.5131164392446576, 'design_hit': 0.4, 'design_gain': 0.32598457845833384, 'frac_mutants_better': 0.1111111111111111, 'fit_seconds': 0.8269150257110596, 'hp_r': 1.0, 'hp_lam': 100.0}

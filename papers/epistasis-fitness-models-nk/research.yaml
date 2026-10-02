@@ -1,0 +1,94 @@
+slug: epistasis-fitness-models-nk
+direction: How much epistasis can simple sequence-to-fitness models absorb? On simulated
+  NK fitness landscapes (sequence length 15 to 20, alphabet size 4 to 20, K from 0
+  to 4) compare an additive (one-hot ridge) model, a pairwise-epistasis model, a small
+  CNN and a small MLP, trained on a few hundred to a few thousand measured variants.
+  Measure Spearman correlation on held-out variants and the success of a greedy design
+  step proposing higher-fitness sequences. State clearly that the landscapes are simulated.
+problem: How much of the epistasis in a (simulated) NK fitness landscape can additive,
+  pairwise, CNN and MLP regressors absorb from a few hundred to a few thousand measured
+  variants?
+gap: Real landscapes have unknown epistasis order; NK landscapes give a controlled
+  knob K. A small controlled grid with a greedy design endpoint was not found in a
+  shallow literature search.
+contribution: A controlled, fully simulated CPU study of four reimplemented model
+  classes across L, alphabet, K and N, reporting held-out Spearman and a single greedy
+  design step, including failure regimes.
+hypotheses:
+- id: H1
+  statement: At K=0 additive ridge reaches Spearman>=0.95 (N=1000, both L/A tasks).
+  test: mean over 5 seeds >= 0.95
+- id: H2
+  statement: Additive Spearman falls from K=0 to K=4 and Pairwise ridge beats Additive
+    at K=1.
+  test: means; paired one-sided Wilcoxon over seeds per task at K=1
+- id: H3
+  statement: CNN and MLP do not beat Pairwise ridge in most (task,K>=1) cells at N=1000.
+  test: count of the 6 cells with higher mean Spearman
+- id: H4
+  statement: Design improvement tracks prediction improvement.
+  test: Spearman correlation across units of dSpearman vs dhit (Pairwise-Additive)
+    > 0; learned models beat Random hit rate at K<=1
+- id: H5
+  statement: The Pairwise-Additive Spearman gap at K=2 grows with N.
+  test: gap at N=4000 > gap at N=250 (N sweep)
+method:
+  name: Pairwise ridge
+  summary: Ridge regression on one-hot plus all pairwise one-hot products (exact kernel
+    form), compared with additive ridge, CNN, MLP on simulated NK landscapes.
+  components:
+  - pair features
+  - penalty ratio r
+  entrypoint: method/run.py
+tasks:
+- L15_A4_K0
+- L15_A4_K1
+- L15_A4_K2
+- L15_A4_K4
+- L20_A20_K0
+- L20_A20_K1
+- L20_A20_K2
+- L20_A20_K4
+metrics:
+  spearman:
+    higher_is_better: true
+  design_hit:
+    higher_is_better: true
+  design_gain:
+    higher_is_better: true
+  fit_seconds:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Additive ridge
+- CNN
+- MLP
+- Random
+ablations:
+- name: Pairwise ridge (r fixed)
+  group: abl_pair
+- name: Pairwise ridge (oracle graph)
+  group: abl_pair
+ambition:
+  target_tier: 1
+  primary_metric: spearman
+  primary_task: L15_A4_K2
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

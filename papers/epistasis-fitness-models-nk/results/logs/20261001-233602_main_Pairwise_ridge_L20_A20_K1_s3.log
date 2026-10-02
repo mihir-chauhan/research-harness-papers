@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:36:02 2026
+# cwd: .
+# cmd: python method/run.py --system 'Pairwise ridge' --task L20_A20_K1 --seed 3 --n_train 1000 --out results/raw/main__Pairwise_ridge__L20_A20_K1__s3__n1000.json
+
+config {'system': 'Pairwise ridge', 'task': 'L20_A20_K1', 'seed': 3, 'out': 'results/raw/main__Pairwise_ridge__L20_A20_K1__s3__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.14429911719596467, 'design_hit': 0.2, 'design_gain': 0.11886630010200569, 'frac_mutants_better': 0.21052631578947367, 'fit_seconds': 1.0874719619750977, 'hp_r': 1.0, 'hp_lam': 0.01}

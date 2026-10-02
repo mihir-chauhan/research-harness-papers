@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:34:27 2026
+# cwd: .
+# cmd: python method/run.py --system CNN --task L15_A4_K4 --seed 4 --n_train 1000 --out results/raw/main__CNN__L15_A4_K4__s4__n1000.json
+
+config {'system': 'CNN', 'task': 'L15_A4_K4', 'seed': 4, 'out': 'results/raw/main__CNN__L15_A4_K4__s4__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.05154945441397817, 'design_hit': 0.1, 'design_gain': 0.10104194877831646, 'frac_mutants_better': 0.044444444444444446, 'fit_seconds': 4.292609930038452, 'hp_wd': 0.1}

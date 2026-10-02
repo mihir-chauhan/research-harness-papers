@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:38:01 2026
+# cwd: .
+# cmd: python method/run.py --system MLP --task L15_A4_K2 --seed 1 --n_train 500 --out results/raw/sweep_n__MLP__L15_A4_K2__s1__n500.json
+
+config {'system': 'MLP', 'task': 'L15_A4_K2', 'seed': 1, 'out': 'results/raw/sweep_n__MLP__L15_A4_K2__s1__n500.json', 'n_train': 500, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.31622011216880447, 'design_hit': 0.3, 'design_gain': 0.3866495666133848, 'frac_mutants_better': 0.15555555555555556, 'fit_seconds': 2.059931755065918, 'hp_wd': 0.001}

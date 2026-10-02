@@ -1,0 +1,19 @@
+\paragraph{Simulated landscape.} A sequence is $x\in\{0,\dots,A-1\}^L$. Site $i$ has a neighbour set $\mathcal N(i)$ of $K$ other sites drawn uniformly without replacement. Fitness is
+\begin{equation}
+f(x)=\frac1L\sum_{i=1}^{L} T_i\big(x_i,x_{\mathcal N(i)}\big),\qquad T_i(\cdot)\overset{iid}{\sim}U(0,1),
+\end{equation}
+with $T_i$ realised by a 64-bit integer hash of (site, context index, landscape salt), so that no $A^{K+1}$ table is stored. Each seed gives a new neighbourhood structure, new tables, and new data.
+
+\paragraph{Additive ridge (reimplemented).} With one-hot features $\phi(x)\in\{0,1\}^{LA}$, $\hat y(x)=\bar y+w^\top\phi(x)$ and $w=\arg\min\sum_n(y_n-\bar y-w^\top\phi(x_n))^2+\lambda\|w\|^2$. In dual form $\hat y(x)=\bar y+\sum_n\alpha_n k(x,x_n)$, $\alpha=(K+\lambda I)^{-1}(y-\bar y)$, with $k_1(x,x')=m(x,x')$, the number of identical sites. $\lambda\in\{0.01,0.1,1,10,100,1000\}$ (6 configurations) is chosen by Spearman on a fixed 20\% hold-out of the training set, then the model is refit on all training data.
+
+\paragraph{Pairwise ridge (reimplemented; the focal method).} Add all products $\phi_{ia}\phi_{jb}$, $i<j$, ($\binom L2A^2$ features, up to $7.6\times10^4$). Penalising additive terms by $\lambda$ and pair terms by $\lambda/r$ gives the exact kernel
+\begin{equation}
+k_2(x,x')=m(x,x')+r\binom{m(x,x')}{2},
+\end{equation}
+because the inner product of two pair-feature vectors counts the pairs of sites that match in both sequences. Hyperparameters $(\lambda,r)$ are chosen from the same six $\lambda$ values $\times$ $r\in\{0.03,0.1,0.3,1\}$ (24 configurations) by Spearman on a fixed 20\% hold-out of the training set, then the model is refit on all training data. Two ablations: \emph{r fixed} ($r=1$), and \emph{oracle graph}, where the pair features are restricted to pairs of sites that share a neighbourhood $\{i\}\cup\mathcal N(i)$, which uses knowledge of the true interaction graph that a practitioner would not have.
+
+\paragraph{MLP and CNN (reimplemented).} The MLP maps the flattened one-hot input through $128$ and $64$ ReLU units to a scalar. The CNN applies Conv1d$(A,32,k{=}5)$ (padding 2) with ReLU, flattens, and applies $64$ ReLU units and a linear output. Both are trained with AdamW (lr $2\times10^{-3}$, batch 64, up to 300 epochs) on standardised targets with early stopping (patience 25) on a 15\% validation split; weight decay $\in\{10^{-3},10^{-1}\}$ (2 configurations) is selected by validation MSE. Unlike the ridge models, the selected network is the early-stopped one trained on the remaining 85\%; it is not refit on all training data.
+
+\paragraph{Random.} Gaussian scores; it gives a sampled chance level of both endpoints.
+
+\paragraph{Greedy design step.} The parent is the best measured training sequence $x^\ast$. All $L(A-1)$ single mutants are scored by the model and the top $b=10$ are proposed. \emph{design\_hit} is the fraction of proposals whose true fitness exceeds $f(x^\ast)$; \emph{design\_gain} is $\max_{\text{proposed}}f-f(x^\ast)$ divided by the standard deviation of test fitness (negative if no proposal improves).

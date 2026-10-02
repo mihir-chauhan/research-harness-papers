@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:34:31 2026
+# cwd: .
+# cmd: python method/run.py --system Random --task L15_A4_K4 --seed 4 --n_train 1000 --out results/raw/main__Random__L15_A4_K4__s4__n1000.json
+
+config {'system': 'Random', 'task': 'L15_A4_K4', 'seed': 4, 'out': 'results/raw/main__Random__L15_A4_K4__s4__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': -0.00030717908428716333, 'design_hit': 0.0, 'design_gain': -0.09694366978876286, 'frac_mutants_better': 0.044444444444444446, 'fit_seconds': 6.008148193359375e-05}

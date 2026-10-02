@@ -1,0 +1,10 @@
+# Design
+`method/run.py` is the single entrypoint (`--system --task --seed --n_train --out`).
+- **Landscape** (simulated): random-neighbourhood NK. Site i has K neighbours drawn uniformly without replacement among the other sites; f(x)=1/L sum_i T_i(x_i, x_nbrs(i)), T_i entries iid U(0,1), implemented as a splitmix64 hash of (site, context index, landscape salt) so A=20,K=4 needs no tables. New landscape per (task, seed).
+- **Data**: N training sequences and 5000 test sequences, uniform random, noiseless fitness; same data for every system given (task, seed).
+- **Additive ridge**: ridge on one-hot (L*A features), intercept = training mean. Dual form, kernel m = #identical sites. Grid lambda in {0.01,0.1,1,10,100,1000}; chosen by Spearman on a fixed 20% hold-out of the training set, then refit on all training data.
+- **Pairwise ridge** (focal method): ridge on one-hot plus all products of one-hot indicators at two distinct sites. Exact kernel m + r*C(m,2); r (relative weight of pair features, = lambda_additive/lambda_pair) in {0.03,0.1,0.3,1}, lambda as above (24 configs).
+  Ablations: `(r fixed)` r=1; `(oracle graph)` pair features only for pairs in a common neighbourhood {i} U nbrs(i) (uses the true interaction graph).
+- **MLP**: one-hot -> 128 -> 64 -> 1, ReLU. **CNN**: Conv1d(A,32,k=5,pad 2) -> ReLU -> flatten -> 64 -> 1. AdamW lr 2e-3, batch 64, <=300 epochs, early stopping (patience 25) on a 15% validation split of the training set, weight decay in {1e-3,1e-1} chosen by validation MSE; the early-stopped model trained on the 85% is used (no refit). Targets standardised. 2 threads.
+- **Random**: Gaussian scores (its design_hit is a 10-proposal sample of the exact chance rate `frac_mutants_better`).
+- **Design step**: parent = highest-fitness training sequence; all L(A-1) single mutants scored; top 10 proposed. design_hit = fraction of proposals with true fitness > parent; design_gain = (max proposed true fitness - parent)/SD of test fitness (can be negative); frac_mutants_better = fraction of all single mutants above the parent (the expected hit rate of random proposals).

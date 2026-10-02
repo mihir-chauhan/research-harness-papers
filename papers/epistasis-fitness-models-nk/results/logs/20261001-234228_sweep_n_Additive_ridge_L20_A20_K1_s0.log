@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:42:28 2026
+# cwd: .
+# cmd: python method/run.py --system 'Additive ridge' --task L20_A20_K1 --seed 0 --n_train 4000 --out results/raw/sweep_n__Additive_ridge__L20_A20_K1__s0__n4000.json
+
+config {'system': 'Additive ridge', 'task': 'L20_A20_K1', 'seed': 0, 'out': 'results/raw/sweep_n__Additive_ridge__L20_A20_K1__s0__n4000.json', 'n_train': 4000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.22230176396407053, 'design_hit': 0.4, 'design_gain': 0.7647310547168101, 'frac_mutants_better': 0.21842105263157896, 'fit_seconds': 4.054915904998779, 'hp_r': 1.0, 'hp_lam': 1.0}

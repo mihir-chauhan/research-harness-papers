@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:38:00 2026
+# cwd: .
+# cmd: python method/run.py --system 'Pairwise ridge' --task L15_A4_K2 --seed 1 --n_train 500 --out results/raw/sweep_n__Pairwise_ridge__L15_A4_K2__s1__n500.json
+
+config {'system': 'Pairwise ridge', 'task': 'L15_A4_K2', 'seed': 1, 'out': 'results/raw/sweep_n__Pairwise_ridge__L15_A4_K2__s1__n500.json', 'n_train': 500, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.36428664564346575, 'design_hit': 0.4, 'design_gain': 0.3866495666133848, 'frac_mutants_better': 0.15555555555555556, 'fit_seconds': 0.8093533515930176, 'hp_r': 0.3, 'hp_lam': 100.0}

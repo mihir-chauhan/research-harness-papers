@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:44:57 2026
+# cwd: .
+# cmd: python method/run.py --system 'Pairwise ridge (oracle graph)' --task L20_A20_K4 --seed 0 --n_train 1000 --out results/raw/abl_pair__Pairwise_ridge_oracle_graph__L20_A20_K4__s0__n1000.json
+
+config {'system': 'Pairwise ridge (oracle graph)', 'task': 'L20_A20_K4', 'seed': 0, 'out': 'results/raw/abl_pair__Pairwise_ridge_oracle_graph__L20_A20_K4__s0__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.008555300502212019, 'design_hit': 0.1, 'design_gain': 0.5801595073799852, 'frac_mutants_better': 0.09736842105263158, 'fit_seconds': 2.138779878616333, 'hp_r': 0.03, 'hp_lam': 100.0}

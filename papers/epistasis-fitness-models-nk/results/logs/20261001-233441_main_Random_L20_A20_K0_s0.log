@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:34:41 2026
+# cwd: .
+# cmd: python method/run.py --system Random --task L20_A20_K0 --seed 0 --n_train 1000 --out results/raw/main__Random__L20_A20_K0__s0__n1000.json
+
+config {'system': 'Random', 'task': 'L20_A20_K0', 'seed': 0, 'out': 'results/raw/main__Random__L20_A20_K0__s0__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': -0.0015085949403437974, 'design_hit': 0.5, 'design_gain': 0.29089329797510644, 'frac_mutants_better': 0.27631578947368424, 'fit_seconds': 2.7179718017578125e-05}

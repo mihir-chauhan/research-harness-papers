@@ -14,6 +14,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 
 | Field | Paper | Directory |
 |---|---|---|
+| biology | How Much Epistasis Can Simple Sequence-to-Fitness Models Absorb? A Small Study on Simulated NK Landscapes | [`papers/epistasis-fitness-models-nk`](papers/epistasis-fitness-models-nk) |
 | computer-vision | Label noise robustness of a small CNN on 8x8 digits: cross-entropy, label smoothing, mixup and small-loss selection | [`papers/label-noise-augmentation-small-cnn`](papers/label-noise-augmentation-small-cnn) |
 | computer-vision | Does Self-Supervised Pretraining Help with Few Labels at Toy Scale? A Multi-Seed Study on 8$\times$8 Digits | [`papers/self-supervised-few-labels-digits`](papers/self-supervised-few-labels-digits) |
 | control-systems | Class-K Gain and Sampling Period in One-Constraint CBF Safety Filters: A Small Empirical Comparison on a Double Integrator and a Unicycle | [`papers/cbf-safety-filter-conservatism`](papers/cbf-safety-filter-conservatism) |

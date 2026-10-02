@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 23:37:19 2026
+# cwd: .
+# cmd: python method/run.py --system MLP --task L20_A20_K4 --seed 3 --n_train 1000 --out results/raw/main__MLP__L20_A20_K4__s3__n1000.json
+
+config {'system': 'MLP', 'task': 'L20_A20_K4', 'seed': 3, 'out': 'results/raw/main__MLP__L20_A20_K4__s3__n1000.json', 'n_train': 1000, 'n_test': 5000, 'top_b': 10}
+metrics {'spearman': 0.017348363541934538, 'design_hit': 0.2, 'design_gain': 0.5067737534672131, 'frac_mutants_better': 0.07631578947368421, 'fit_seconds': 2.399350166320801, 'hp_wd': 0.1}

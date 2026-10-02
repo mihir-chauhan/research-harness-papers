@@ -1,0 +1,171 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 440 runs are real, logged and reproducible (four reruns bit-identical), the code matches the paper, there is no leakage, and every table number checks out. Three claims overstate what five seeds support: the additive-beats-random design anomaly in the abstract and conclusion (paired p=0.15), the H4 p<0.001 that is carried by one task cell, and a conclusion sentence about N<=4000 for regimes only run at N=1000. All are fixable by rewording plus a few minor number and wording corrections.",
+      "reran": [
+        {
+          "run": "Pairwise ridge/L15_A4_K2/1",
+          "metric": "spearman",
+          "registry": 0.5131450345738013,
+          "rerun": 0.5131450345738013
+        },
+        {
+          "run": "CNN/L15_A4_K1/3",
+          "metric": "spearman",
+          "registry": 0.6670538852101553,
+          "rerun": 0.6670538852101553
+        },
+        {
+          "run": "Additive ridge/L20_A20_K2/0",
+          "metric": "spearman",
+          "registry": 0.01327641528305661,
+          "rerun": 0.01327641528305661
+        },
+        {
+          "run": "MLP/L20_A20_K1/2",
+          "metric": "spearman",
+          "registry": 0.12164126060965041,
+          "rerun": 0.12164126060965041
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, results.tex (H4 caveat), conclusion.tex",
+          "issue": "The claim that additive ridge beats random proposals at (20,20), K=2 despite chance-level Spearman, and the conclusion that design decoupled from Spearman, rest on 5 seeds of 10 proposals: per-seed 0.5/0.2/0.2/0.3/0.5 vs Random 0.1/0.2/0.3/0.1/0.0, paired t p=0.15; vs the exact chance rate frac_mutants_better (mean 0.185, not Random's sampled 0.14) p=0.09; K=4 p=0.30. No rh compare output exists for design_hit, and the results text draws a 'therefore' conclusion from it.",
+          "fix": "Run rh compare on design_hit, report the exact chance rate (frac_mutants_better) alongside Random, and reword the abstract, results and conclusion to say the difference is suggestive and not distinguishable from noise at n=5; drop the 'therefore' sentence and the recommendation built on it, or add seeds."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex (H4), abstract.tex, results/RESULTS.md",
+          "issue": "The H4 correlation 0.52 with p<0.001 treats 40 (task, seed) units as independent, but it is driven by the single L15_A4_K1 cell: excluding it gives rho=0.24, p=0.16; over the 8 task means rho=0.59, p=0.12. On L15_A4_K2 a 0.20 Spearman gain yields a design_hit gain of 0.08 within seed noise. 'Design success tracks Spearman gains' is stronger than the data.",
+          "fix": "Drop or qualify the p-value, report the leave-one-cell-out and task-level correlations, and state that the association is carried by one cell (pre-registered criterion rho>0 met, evidence weak)."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'in the K=4 and large-alphabet K>=2 regimes we tested, no model learned much from N<=4000' is unsupported: those regimes were only run at N=1000 (the N sweep covers L15_A4_K2 and L20_A20_K1 only), and the results section itself says the data do not say whether more data helps at K=4.",
+          "fix": "Change to 'from N=1000' or run the N sweep on a K=4 and an A=20, K=2 task."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, results/RESULTS.md",
+          "issue": "'CNN and MLP (0.616, 0.628) are within 0.05 of pairwise ridge (0.669)': the CNN gap is 0.053.",
+          "fix": "Say 'within 0.06' or give the two gaps (0.053, 0.042)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'On L20_A20_K1 they remain below additive ridge at every N' is contradicted by Table III: MLP 0.070 vs Additive 0.068 at N=500 (0.0697 vs 0.0677).",
+          "fix": "Reword to 'at or below additive ridge (within seed spread) at every N'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, experiments/PROTOCOL.md",
+          "issue": "'each run takes under 20 s' (2 runs exceed 20 s, max 22.3 s; PROTOCOL's '<15 s' is exceeded by 17 runs) and 'about 25 minutes of wall-clock' (registry spans 14 minutes).",
+          "fix": "State the registry values: up to about 22 s per run and about 14 minutes total."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, experiments/PROTOCOL.md",
+          "issue": "Statistics are attributed to rh compare, but rh compare outputs Welch and paired t-tests for Spearman only; the Wilcoxon p-values come from analysis/hyp.py and no compare file exists for design_hit.",
+          "fix": "Name the actual source of each test and add compare output for design_hit."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, results.tex, conclusion.tex",
+          "issue": "L and A are confounded (only (15,4) and (20,20) were run), yet the text attributes differences to alphabet size ('but not at A=20', 'small alphabets').",
+          "fix": "Refer to the (L,A) setting rather than to A alone, or state the confound in the limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H4), limitations.tex",
+          "issue": "At L20_A20_K1 all four learned models' design_hit margins over Random are within seed spread (Additive 0.34\u00b10.21, Pairwise 0.38\u00b10.28 vs 0.24), not only the CNN and MLP; Random's design_hit is a noisy 10-sample estimate of the logged exact chance rate. The nets are fit on 85% of the training data without refit and get 2 configs vs 24 for the method; the refit asymmetry is not disclosed.",
+          "fix": "Extend the within-spread caveat to all models, report frac_mutants_better as the chance level, and add the refit asymmetry to the limitations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex",
+          "issue": "Hsu et al. is cited for plain one-hot ridge being 'known to be a strong low-data baseline', but as I recall that paper (abstract not fetched) its strong result is for ridge augmented with an evolutionary density feature; the claim that NK landscapes 'have no such global structure' is uncited and sits uneasily with the cited review's point that global epistasis can emerge from microscopic interactions.",
+          "fix": "Reword the introduction to match the related-work phrasing and soften or cite the global-epistasis statement."
+        },
+        {
+          "severity": "minor",
+          "where": "proposal.md, results/VERDICT.md, paper/citations.json",
+          "issue": "The proposal says 3 seeds for the N sweep while 5 were run (undisclosed, benign); VERDICT.md lists ablations as 'missing'; rh lit verify rewrote the checked_at timestamp in citations.json during this audit, leaving an uncommitted one-line diff.",
+          "fix": "Note the seed deviation in PROTOCOL.md, regenerate VERDICT.md with ablation deltas, and commit or revert the timestamp change."
+        }
+      ],
+      "commit": "0b6213031f21695bcd6ae74847db662e62f3852f"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All 440 runs have commands and logs whose metrics match the registry, three re-executed runs reproduce bit-identically, and every number in the paper matches the generated tables and compare CSVs. The code matches the described method with no leakage or hard-coding, citations are used in context, and the abstract, limitations and conclusion state the weak and negative results honestly. Only minor wording and disclosure issues remain.",
+      "reran": [
+        {
+          "run": "Pairwise ridge/L15_A4_K2/3",
+          "metric": "spearman",
+          "registry": 0.5689672296066891,
+          "rerun": 0.5689672296066891
+        },
+        {
+          "run": "Additive ridge/L20_A20_K1/1",
+          "metric": "spearman",
+          "registry": 0.11567627896305115,
+          "rerun": 0.11567627896305115
+        },
+        {
+          "run": "CNN/L15_A4_K2/3",
+          "metric": "spearman",
+          "registry": 0.4657741979589678,
+          "rerun": 0.4657741979589678
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, paper/sections/conclusion.tex",
+          "issue": "'close the distance' and 'narrowing gap on L15_A4_K2' understate that the net-to-pairwise gap is non-monotone in N (0.069/0.067 at N=250, 0.124/0.125 at N=1000, 0.053/0.042 at N=4000) and still clearly non-zero at N=4000 (paired p<=0.002).",
+          "fix": "State the gap at each N and say it narrows only from N=1000 onward."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2), abstract",
+          "issue": "The +0.029 pairwise gain at L20_A20_K1 is inside one seed SD (0.038) and its paired t-test p=0.054 appears in RESULTS.md and compare_main_spearman.csv but not in the paper, which reports only the Wilcoxon p=0.031. Also 'at most 0.080' is 0.0801 unrounded.",
+          "fix": "Add the paired-t p=0.054 and the within-one-SD remark to the H2 paragraph; write 'about 0.08'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "'Fixing r=1 matters only where pair features carry no signal' is loose: it has no effect at L15_A4_K0, and fixed r=1 nominally beats tuned r at L20_A20_K1 (0.150 vs 0.138), which shows hold-out selection noise.",
+          "fix": "Say it costs only at L20_A20_K0 and note the L20_A20_K1 case as selection noise."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, paper/sections/related.tex",
+          "issue": "The exact pairwise kernel is listed as a contribution although it is a standard degree-2 kernel identity; 'workhorse of low-data protein engineering' and 'the standard tunable-ruggedness landscape' are uncited general claims.",
+          "fix": "Describe the kernel as an implementation convenience and soften or cite the two general statements."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Ablation rows read 'missing ... Matters? NO' although the oracle ablation gives +0.11 (p<0.001) in two cells; this is explained only in RESULTS.md.",
+          "fix": "Add a note in VERDICT.md pointing to the 'ablation delta' lines in results/hypotheses.txt, or re-point the harness."
+        }
+      ],
+      "commit": "190808049f9485c3c301d46084a57458a9e8813d"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS: none\nREADY",
+      "response": "# Response to the audit (single fix round)\n\nNo new experiment runs were made: every finding concerned wording, reported statistics or disclosure, and the 440 registered runs are unchanged. New statistics are computed from `results/runs.jsonl` by `analysis/hyp.py` (output `results/hypotheses.txt`), new tables by `analysis/tables_figs.py`, and paired t-tests on design_hit by `rh compare`.\n\n## Major\n\n1. **Additive-beats-random design claim (abstract, results, conclusion).** Accepted. Ran `rh compare --metric design_hit` against Random and against Pairwise ridge (`results/tables/compare_main_design_hit_ref_random.csv`, `..._ref_pairwise.csv`). Table I now has a \"Chance\" column (mean `frac_mutants_better`, the exact chance rate) next to Random; Table II now also gives the seed SD of design_hit; new Table III lists the paired differences and p-values (Additive vs Random at L20_A20_K2/K4: p=0.15, 0.30; vs exact chance: 0.09, 0.10). The abstract no longer says additive ridge beats random proposals; it says design hit rates at K>=2 are not reliably distinguishable from random proposals. The results paragraph calls the pattern unexplained and within noise, and draws no conclusion; the \"therefore\" sentence and the conclusion's \"decoupled ... so the two endpoints should be reported together\" recommendation are deleted. No seeds were added.\n\n2. **H4 correlation and p<0.001.** Accepted. The H4 paragraph is retitled \"registered criterion met, evidence weak\". It states that the 40 units are not independent, that the correlation is carried by L15_A4_K1, and reports the leave-that-cell-out value (0.24, p=0.16) and the task-mean value (0.59, p=0.12) in Table III, together with the L15_A4_K2 case (Spearman 0.310 -> 0.508, design_hit gain 0.08, p=0.34). All eight leave-one-cell-out values are in `results/hypotheses.txt`. The abstract, conclusion and `results/RESULTS.md` say the same. The verdict still uses the registered test (rho > 0).\n\n3. **\"no model learned much from N<=4000\" in the conclusion.** Accepted. Changed to \"from N=1000 (mean Spearman at most 0.080); larger N was not tested in those regimes\". The N sweep was not extended; the limitations now say the sweep covers none of the failure regimes.\n\n## Minor\n\n4. **\"within 0.05\".** Fixed: the text gives the values and both gaps (0.053, 0.042); RESULTS.md likewise.\n5. **\"below additive ridge at every N\".** Fixed: \"at or below additive ridge at every N\", with the MLP 0.070 vs 0.068 exception at N=500 named. While checking this paragraph I also removed \"the networks gain faster than ridge\" (the net-to-pairwise gap is not monotone in N) and replaced \"H3 specific to N<=1000\" by what the sweep shows: the nets are below pairwise ridge at every N on both tasks, the gap narrows on L15_A4_K2 and widens on L20_A20_K1.\n6. **Run time.** Fixed in setup.tex and PROTOCOL.md with registry values (longest run 22.3 s; registry span 14.1 min; computed in `analysis/hyp.py`, line `runtime`).\n7. **Source of statistics.** Fixed: results.tex, setup.tex and PROTOCOL.md now say that paired/Welch t-tests come from `rh compare` and Wilcoxon tests, rank correlations and tests against the exact chance rate from `analysis/hyp.py`; compare output for design_hit added (see 1).\n8. **L/A confound.** Fixed: the abstract, setup, results preamble, limitations and conclusion state that L and A change together; \"A=20\" / \"small alphabets\" wording replaced by the (L,A) setting.\n9. **L20_A20_K1 margins, chance level, refit asymmetry.** Fixed: the within-spread caveat covers all four learned models (0.30-0.38 vs Random 0.24, chance 0.233, SDs 0.15-0.28) and the additive/CNN/MLP margins at L15_A4_K1; the chance rate is reported in Table I; the method section states that the nets are not refit on all training data, and the limitations state both asymmetries (85% without refit; 2 configurations vs 24 and 6) and that they favour ridge. The nets were not re-run with a refit: the comparison as run is disclosed rather than changed.\n10. **Hsu et al. and global epistasis.** Fixed: introduction, related work and `literature/landscape.md` now say that linear regression on one-hot site features combined with an evolutionary density feature was reported as competitive, and that our baseline is the plain one-hot part. The uncited claim that NK landscapes \"have no such global structure\" is removed; the text now says the review notes such patterns may emerge from microscopic interactions and that we did not test for them. Also softened \"show widespread epistasis\" and \"the standard benchmarks\".\n11. **Seeds deviation, VERDICT.md, citations.json.** The 5-vs-3 seed deviation is noted in PROTOCOL.md, BRIEF.md and setup.tex (proposal.md is left as registered). VERDICT.md is regenerated; `research.yaml` now points the ablations at group `abl_pair`. Its ablation rows still read \"missing\": the harness looks for the method's own rows inside the ablation group, and the tuned Pairwise runs exist only in `main`; re-logging them under `abl_pair` would duplicate runs, which the provenance rules forbid. The per-task ablation deltas with paired t-tests are in `results/hypotheses.txt` (lines `ablation delta`) and summarised in RESULTS.md, which explains this. `paper/citations.json` is committed after the final `rh lit verify`.\n\n## Found in the self-audit (not in the audit list)\n- H2: \"because 76,000 pair coefficients must be estimated from 1000 sequences\" was an untested mechanism; now \"a plausible reason ... consistent with, but not isolated by\" the sweep and the oracle ablation.\n- H3: the CNN locality-prior explanation is now \"may\"; \"beat additive ridge\" at L15_A4_K2 is qualified as within seed SD.\n- H4: \"Spearman not distinguishable from Random's\" for additive ridge had no test behind it; now the values are given without that claim.\n- Failure regimes: \"within seed spread\" replaced by \"comparable to or smaller than the seed SDs\".\n- Ablations: \"bounds what structure-aware pair selection could add\" weakened to an upper reference in",
+      "seconds": 499
+    }
+  ]
+}

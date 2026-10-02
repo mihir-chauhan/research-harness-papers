@@ -1,0 +1,203 @@
+runs per group {'abl_pair': 80, 'main': 200, 'sweep_n': 160}
+main mean spearman
+ name        Additive ridge    CNN    MLP  Pairwise ridge  Random
+task                                                            
+L15_A4_K0            1.000  0.999  0.999           1.000   0.003
+L15_A4_K1            0.596  0.746  0.815           0.998   0.002
+L15_A4_K2            0.310  0.384  0.383           0.508  -0.000
+L15_A4_K4            0.079  0.065  0.063           0.080  -0.001
+L20_A20_K0           1.000  0.965  0.994           0.995  -0.007
+L20_A20_K1           0.110  0.077  0.090           0.138   0.009
+L20_A20_K2           0.021  0.013  0.020           0.025   0.007
+L20_A20_K4           0.014  0.006  0.013           0.014   0.008
+main mean design_hit
+ name        Additive ridge   CNN   MLP  Pairwise ridge  Random
+task                                                          
+L15_A4_K0             0.98  0.92  0.94            0.98    0.32
+L15_A4_K1             0.38  0.40  0.52            0.90    0.28
+L15_A4_K2             0.10  0.18  0.22            0.18    0.14
+L15_A4_K4             0.10  0.08  0.08            0.08    0.06
+L20_A20_K0            1.00  1.00  1.00            1.00    0.38
+L20_A20_K1            0.34  0.30  0.32            0.38    0.24
+L20_A20_K2            0.34  0.14  0.16            0.30    0.14
+L20_A20_K4            0.18  0.04  0.16            0.14    0.08
+H1 L15_A4_K0 Additive mean spearman 1.0
+H1 L20_A20_K0 Additive mean spearman 1.0
+H2 additive mean by K (15, 4) [np.float64(1.0), np.float64(0.596), np.float64(0.31), np.float64(0.079)]
+H2 K=1 L15_A4_K1 pairwise-additive per seed [0.349, 0.467, 0.379, 0.405, 0.41] mean 0.402 wilcoxon one-sided p 0.03125
+H2 additive mean by K (20, 20) [np.float64(1.0), np.float64(0.11), np.float64(0.021), np.float64(0.014)]
+H2 K=1 L20_A20_K1 pairwise-additive per seed [0.037, 0.002, 0.034, 0.06, 0.009] mean 0.029 wilcoxon one-sided p 0.03125
+H3 CNN cells above Pairwise ridge: 0 of 6 [('L15_A4_K1', np.float64(-0.252)), ('L15_A4_K2', np.float64(-0.124)), ('L15_A4_K4', np.float64(-0.015)), ('L20_A20_K1', np.float64(-0.061)), ('L20_A20_K2', np.float64(-0.012)), ('L20_A20_K4', np.float64(-0.008))]
+H3 MLP cells above Pairwise ridge: 0 of 6 [('L15_A4_K1', np.float64(-0.183)), ('L15_A4_K2', np.float64(-0.125)), ('L15_A4_K4', np.float64(-0.018)), ('L20_A20_K1', np.float64(-0.048)), ('L20_A20_K2', np.float64(-0.006)), ('L20_A20_K4', np.float64(-0.001))]
+H4 spearman corr dSpearman vs dhit over 40 units: 0.516 p 0.0006
+H4 excluding K=0: 0.603 0.0004
+H4 leave-one-cell-out, without L15_A4_K0 : rho 0.537 p 0.0009 n 35
+H4 leave-one-cell-out, without L15_A4_K1 : rho 0.244 p 0.1572 n 35
+H4 leave-one-cell-out, without L15_A4_K2 : rho 0.538 p 0.0009 n 35
+H4 leave-one-cell-out, without L15_A4_K4 : rho 0.502 p 0.0021 n 35
+H4 leave-one-cell-out, without L20_A20_K0 : rho 0.571 p 0.0003 n 35
+H4 leave-one-cell-out, without L20_A20_K1 : rho 0.548 p 0.0006 n 35
+H4 leave-one-cell-out, without L20_A20_K2 : rho 0.562 p 0.0004 n 35
+H4 leave-one-cell-out, without L20_A20_K4 : rho 0.548 p 0.0007 n 35
+H4 over the 8 task means: rho 0.59 p 0.1233
+H4 per-task mean dSpearman / mean dhit / SD dhit (Pairwise-Additive)
+             dspearman  dhit  dhit_sd
+task                                
+L15_A4_K0      -0.000  0.00    0.000
+L15_A4_K1       0.402  0.52    0.179
+L15_A4_K2       0.198  0.08    0.164
+L15_A4_K4       0.001 -0.02    0.110
+L20_A20_K0     -0.005  0.00    0.000
+L20_A20_K1      0.029  0.04    0.114
+L20_A20_K2      0.004 -0.04    0.114
+L20_A20_K4      0.000 -0.04    0.055
+H4 learned vs Random hit, K<=1 cells
+ name        Additive ridge   CNN   MLP  Pairwise ridge  Random
+task                                                          
+L15_A4_K0             0.98  0.92  0.94            0.98    0.32
+L15_A4_K1             0.38  0.40  0.52            0.90    0.28
+L20_A20_K0            1.00  1.00  1.00            1.00    0.38
+L20_A20_K1            0.34  0.30  0.32            0.38    0.24
+main SD design_hit
+ name        Additive ridge   CNN   MLP  Pairwise ridge  Random
+task                                                          
+L15_A4_K0             0.04  0.04  0.05            0.04    0.08
+L15_A4_K1             0.16  0.10  0.13            0.07    0.13
+L15_A4_K2             0.07  0.08  0.15            0.20    0.17
+L15_A4_K4             0.10  0.04  0.08            0.08    0.09
+L20_A20_K0            0.00  0.00  0.00            0.00    0.16
+L20_A20_K1            0.21  0.16  0.15            0.28    0.11
+L20_A20_K2            0.15  0.11  0.11            0.10    0.11
+L20_A20_K4            0.08  0.05  0.11            0.09    0.13
+exact chance hit rate (mean frac_mutants_better)
+ task
+L15_A4_K0     0.258
+L15_A4_K1     0.213
+L15_A4_K2     0.102
+L15_A4_K4     0.067
+L20_A20_K0    0.263
+L20_A20_K1    0.233
+L20_A20_K2    0.185
+L20_A20_K4    0.115
+design_hit L15_A4_K0 Additive ridge per seed [1.0, 0.9, 1.0, 1.0, 1.0] mean 0.98 | vs Random: diff 0.66 paired t p 0.0 | vs exact chance: diff 0.722 paired t p 0.0
+design_hit L15_A4_K0 Pairwise ridge per seed [1.0, 0.9, 1.0, 1.0, 1.0] mean 0.98 | vs Random: diff 0.66 paired t p 0.0 | vs exact chance: diff 0.722 paired t p 0.0
+design_hit L15_A4_K0 CNN per seed [0.9, 0.9, 0.9, 0.9, 1.0] mean 0.92 | vs Random: diff 0.6 paired t p 0.0 | vs exact chance: diff 0.662 paired t p 0.0
+design_hit L15_A4_K0 MLP per seed [1.0, 0.9, 0.9, 1.0, 0.9] mean 0.94 | vs Random: diff 0.62 paired t p 0.0 | vs exact chance: diff 0.682 paired t p 0.0
+design_hit L15_A4_K1 Additive ridge per seed [0.6, 0.3, 0.5, 0.2, 0.3] mean 0.38 | vs Random: diff 0.1 paired t p 0.473 | vs exact chance: diff 0.167 paired t p 0.077
+design_hit L15_A4_K1 Pairwise ridge per seed [0.9, 1.0, 0.9, 0.9, 0.8] mean 0.9 | vs Random: diff 0.62 paired t p 0.0 | vs exact chance: diff 0.687 paired t p 0.0
+design_hit L15_A4_K1 CNN per seed [0.5, 0.4, 0.3, 0.3, 0.5] mean 0.4 | vs Random: diff 0.12 paired t p 0.178 | vs exact chance: diff 0.187 paired t p 0.018
+design_hit L15_A4_K1 MLP per seed [0.6, 0.4, 0.7, 0.4, 0.5] mean 0.52 | vs Random: diff 0.24 paired t p 0.109 | vs exact chance: diff 0.307 paired t p 0.006
+design_hit L15_A4_K2 Additive ridge per seed [0.1, 0.2, 0.1, 0.0, 0.1] mean 0.1 | vs Random: diff -0.04 paired t p 0.587 | vs exact chance: diff -0.002 paired t p 0.944
+design_hit L15_A4_K2 Pairwise ridge per seed [0.4, 0.4, 0.1, 0.0, 0.0] mean 0.18 | vs Random: diff 0.04 paired t p 0.717 | vs exact chance: diff 0.078 paired t p 0.385
+design_hit L15_A4_K2 CNN per seed [0.3, 0.2, 0.2, 0.1, 0.1] mean 0.18 | vs Random: diff 0.04 paired t p 0.688 | vs exact chance: diff 0.078 paired t p 0.083
+design_hit L15_A4_K2 MLP per seed [0.4, 0.3, 0.2, 0.0, 0.2] mean 0.22 | vs Random: diff 0.08 paired t p 0.495 | vs exact chance: diff 0.118 paired t p 0.143
+design_hit L15_A4_K4 Additive ridge per seed [0.2, 0.0, 0.0, 0.2, 0.1] mean 0.1 | vs Random: diff 0.04 paired t p 0.648 | vs exact chance: diff 0.033 paired t p 0.435
+design_hit L15_A4_K4 Pairwise ridge per seed [0.2, 0.1, 0.0, 0.0, 0.1] mean 0.08 | vs Random: diff 0.02 paired t p 0.749 | vs exact chance: diff 0.013 paired t p 0.767
+design_hit L15_A4_K4 CNN per seed [0.1, 0.0, 0.1, 0.1, 0.1] mean 0.08 | vs Random: diff 0.02 paired t p 0.749 | vs exact chance: diff 0.013 paired t p 0.599
+design_hit L15_A4_K4 MLP per seed [0.2, 0.0, 0.0, 0.1, 0.1] mean 0.08 | vs Random: diff 0.02 paired t p 0.799 | vs exact chance: diff 0.013 paired t p 0.733
+design_hit L20_A20_K0 Additive ridge per seed [1.0, 1.0, 1.0, 1.0, 1.0] mean 1.0 | vs Random: diff 0.62 paired t p 0.001 | vs exact chance: diff 0.737 paired t p 0.0
+design_hit L20_A20_K0 Pairwise ridge per seed [1.0, 1.0, 1.0, 1.0, 1.0] mean 1.0 | vs Random: diff 0.62 paired t p 0.001 | vs exact chance: diff 0.737 paired t p 0.0
+design_hit L20_A20_K0 CNN per seed [1.0, 1.0, 1.0, 1.0, 1.0] mean 1.0 | vs Random: diff 0.62 paired t p 0.001 | vs exact chance: diff 0.737 paired t p 0.0
+design_hit L20_A20_K0 MLP per seed [1.0, 1.0, 1.0, 1.0, 1.0] mean 1.0 | vs Random: diff 0.62 paired t p 0.001 | vs exact chance: diff 0.737 paired t p 0.0
+design_hit L20_A20_K1 Additive ridge per seed [0.6, 0.5, 0.1, 0.3, 0.2] mean 0.34 | vs Random: diff 0.1 paired t p 0.413 | vs exact chance: diff 0.107 paired t p 0.284
+design_hit L20_A20_K1 Pairwise ridge per seed [0.8, 0.5, 0.1, 0.2, 0.3] mean 0.38 | vs Random: diff 0.14 paired t p 0.338 | vs exact chance: diff 0.147 paired t p 0.287
+design_hit L20_A20_K1 CNN per seed [0.4, 0.5, 0.2, 0.3, 0.1] mean 0.3 | vs Random: diff 0.06 paired t p 0.573 | vs exact chance: diff 0.067 paired t p 0.335
+design_hit L20_A20_K1 MLP per seed [0.3, 0.4, 0.5, 0.1, 0.3] mean 0.32 | vs Random: diff 0.08 paired t p 0.294 | vs exact chance: diff 0.087 paired t p 0.233
+design_hit L20_A20_K2 Additive ridge per seed [0.5, 0.2, 0.2, 0.3, 0.5] mean 0.34 | vs Random: diff 0.2 paired t p 0.154 | vs exact chance: diff 0.155 paired t p 0.094
+design_hit L20_A20_K2 Pairwise ridge per seed [0.4, 0.2, 0.2, 0.4, 0.3] mean 0.3 | vs Random: diff 0.16 paired t p 0.14 | vs exact chance: diff 0.115 paired t p 0.056
+design_hit L20_A20_K2 CNN per seed [0.0, 0.1, 0.2, 0.1, 0.3] mean 0.14 | vs Random: diff 0.0 paired t p 1.0 | vs exact chance: diff -0.045 paired t p 0.445
+design_hit L20_A20_K2 MLP per seed [0.2, 0.1, 0.2, 0.3, 0.0] mean 0.16 | vs Random: diff 0.02 paired t p 0.749 | vs exact chance: diff -0.025 paired t p 0.575
+design_hit L20_A20_K4 Additive ridge per seed [0.1, 0.2, 0.2, 0.1, 0.3] mean 0.18 | vs Random: diff 0.1 paired t p 0.298 | vs exact chance: diff 0.065 paired t p 0.097
+design_hit L20_A20_K4 Pairwise ridge per seed [0.1, 0.2, 0.2, 0.0, 0.2] mean 0.14 | vs Random: diff 0.06 paired t p 0.553 | vs exact chance: diff 0.025 paired t p 0.43
+design_hit L20_A20_K4 CNN per seed [0.0, 0.1, 0.0, 0.0, 0.1] mean 0.04 | vs Random: diff -0.04 paired t p 0.587 | vs exact chance: diff -0.075 paired t p 0.024
+design_hit L20_A20_K4 MLP per seed [0.0, 0.2, 0.3, 0.2, 0.1] mean 0.16 | vs Random: diff 0.08 paired t p 0.294 | vs exact chance: diff 0.045 paired t p 0.395
+sweep mean spearman
+ n                           250    500    1000   2000   4000
+task       name                                             
+L15_A4_K2  Additive ridge  0.234  0.285  0.310  0.335  0.358
+           CNN             0.232  0.284  0.384  0.515  0.616
+           MLP             0.234  0.283  0.383  0.517  0.628
+           Pairwise ridge  0.301  0.374  0.508  0.594  0.669
+L20_A20_K1 Additive ridge  0.065  0.068  0.110  0.163  0.211
+           CNN             0.048  0.060  0.077  0.115  0.162
+           MLP             0.058  0.070  0.090  0.140  0.192
+           Pairwise ridge  0.070  0.091  0.138  0.215  0.302
+H5 gap pairwise-additive L15_A4_K2 {250: np.float64(0.067), 500: np.float64(0.089), 1000: np.float64(0.198), 2000: np.float64(0.259), 4000: np.float64(0.311)}
+H5 gap pairwise-additive L20_A20_K1 {250: np.float64(0.005), 500: np.float64(0.023), 1000: np.float64(0.029), 2000: np.float64(0.052), 4000: np.float64(0.091)}
+ablation mean spearman
+ name        Pairwise ridge  Pairwise ridge (oracle graph)  Pairwise ridge (r fixed)
+task                                                                               
+L15_A4_K0            1.000                          1.000                     1.000
+L15_A4_K1            0.998                          1.000                     0.998
+L15_A4_K2            0.508                          0.621                     0.500
+L15_A4_K4            0.080                          0.084                     0.079
+L20_A20_K0           0.995                          1.000                     0.897
+L20_A20_K1           0.138                          0.250                     0.150
+L20_A20_K2           0.025                          0.029                     0.028
+L20_A20_K4           0.014                          0.015                     0.013
+ablation delta vs tuned Pairwise L15_A4_K0 Pairwise ridge (r fixed) mean -0.0 paired t p 0.082
+ablation delta vs tuned Pairwise L15_A4_K0 Pairwise ridge (oracle graph) mean 0.0 paired t p 0.0001
+ablation delta vs tuned Pairwise L15_A4_K1 Pairwise ridge (r fixed) mean 0.0 paired t p nan
+ablation delta vs tuned Pairwise L15_A4_K1 Pairwise ridge (oracle graph) mean 0.002 paired t p 0.058
+ablation delta vs tuned Pairwise L15_A4_K2 Pairwise ridge (r fixed) mean -0.007 paired t p 0.1438
+ablation delta vs tuned Pairwise L15_A4_K2 Pairwise ridge (oracle graph) mean 0.113 paired t p 0.0007
+ablation delta vs tuned Pairwise L15_A4_K4 Pairwise ridge (r fixed) mean -0.001 paired t p 0.9535
+ablation delta vs tuned Pairwise L15_A4_K4 Pairwise ridge (oracle graph) mean 0.004 paired t p 0.409
+ablation delta vs tuned Pairwise L20_A20_K0 Pairwise ridge (r fixed) mean -0.098 paired t p 0.0
+ablation delta vs tuned Pairwise L20_A20_K0 Pairwise ridge (oracle graph) mean 0.005 paired t p 0.0
+ablation delta vs tuned Pairwise L20_A20_K1 Pairwise ridge (r fixed) mean 0.012 paired t p 0.1778
+ablation delta vs tuned Pairwise L20_A20_K1 Pairwise ridge (oracle graph) mean 0.112 paired t p 0.0002
+ablation delta vs tuned Pairwise L20_A20_K2 Pairwise ridge (r fixed) mean 0.003 paired t p 0.2423
+ablation delta vs tuned Pairwise L20_A20_K2 Pairwise ridge (oracle graph) mean 0.004 paired t p 0.0456
+ablation delta vs tuned Pairwise L20_A20_K4 Pairwise ridge (r fixed) mean -0.001 paired t p 0.6247
+ablation delta vs tuned Pairwise L20_A20_K4 Pairwise ridge (oracle graph) mean 0.001 paired t p 0.1619
+sweep L15_A4_K2 CNN minus Additive by N {250: np.float64(-0.0014), 500: np.float64(-0.0009), 1000: np.float64(0.0741), 2000: np.float64(0.1803), 4000: np.float64(0.2582)} | Pairwise minus CNN at N=4000 0.053
+sweep L15_A4_K2 MLP minus Additive by N {250: np.float64(0.0002), 500: np.float64(-0.002), 1000: np.float64(0.073), 2000: np.float64(0.1826), 4000: np.float64(0.2693)} | Pairwise minus MLP at N=4000 0.042
+sweep L20_A20_K1 CNN minus Additive by N {250: np.float64(-0.0164), 500: np.float64(-0.0074), 1000: np.float64(-0.0329), 2000: np.float64(-0.0474), 4000: np.float64(-0.0488)} | Pairwise minus CNN at N=4000 0.14
+sweep L20_A20_K1 MLP minus Additive by N {250: np.float64(-0.0065), 500: np.float64(0.002), 1000: np.float64(-0.0196), 2000: np.float64(-0.0226), 4000: np.float64(-0.0186)} | Pairwise minus MLP at N=4000 0.11
+sweep SD spearman
+ n                           250    500    1000   2000   4000
+task       name                                             
+L15_A4_K2  Additive ridge  0.105  0.088  0.096  0.088  0.072
+           CNN             0.115  0.051  0.079  0.045  0.024
+           MLP             0.103  0.059  0.126  0.027  0.015
+           Pairwise ridge  0.096  0.072  0.040  0.028  0.018
+L20_A20_K1 Additive ridge  0.037  0.017  0.029  0.017  0.009
+           CNN             0.020  0.016  0.032  0.032  0.022
+           MLP             0.026  0.016  0.022  0.026  0.017
+           Pairwise ridge  0.035  0.020  0.038  0.008  0.013
+runtime: runs 440 max duration_s 22.3 runs over 20 s 2 runs over 15 s 17 sum of durations min 26.5 registry span min 14.1
+hp r chosen (main Pairwise) counts
+ task            
+L15_A4_K0   0.03    5.0
+            1.00    NaN
+            0.30    NaN
+            0.10    NaN
+L15_A4_K1   0.03    NaN
+            1.00    5.0
+            0.30    NaN
+            0.10    NaN
+L15_A4_K2   0.03    NaN
+            1.00    1.0
+            0.30    4.0
+            0.10    NaN
+L15_A4_K4   0.03    1.0
+            1.00    1.0
+            0.30    3.0
+            0.10    NaN
+L20_A20_K0  0.03    5.0
+            1.00    NaN
+            0.30    NaN
+            0.10    NaN
+L20_A20_K1  0.03    1.0
+            1.00    3.0
+            0.30    NaN
+            0.10    1.0
+L20_A20_K2  0.03    4.0
+            1.00    1.0
+            0.30    NaN
+            0.10    NaN
+L20_A20_K4  0.03    4.0
+            1.00    1.0
+            0.30    NaN
+            0.10    NaN
