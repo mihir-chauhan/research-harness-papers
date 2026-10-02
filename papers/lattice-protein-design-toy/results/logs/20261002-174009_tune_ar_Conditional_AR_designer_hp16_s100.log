@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 17:40:09 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot -W ignore method/run.py --system ar --mode tune --seed 100 --epochs 60 --tau 1.0 --kmax 10 --out results/raw/tune_ar_60_1.0.json
+
+config {"system": "ar", "task": "hp16", "seed": 100, "out": "results/raw/tune_ar_60_1.0.json", "mode": "tune", "epochs": 60, "tau": 1.0, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 1.0, "augment": 1, "conditional": 1, "T0": 1.0, "T1": 0.1, "kmax": 10}
+metrics {"succ_k1": 0.5444444444444444, "gap_k1": 0.03333333333333333, "succ_k10": 0.7888888888888889, "gap_k10": 0.0, "succ_k10_single": 0.7878787878787878, "succ_k10_multi": 0.7894736842105263, "n_targets": 90, "n_train_conf": 366, "n_single_targets": 33, "train_pairs": 2632, "test_nll": 0.2551560401916504, "sample_rate": 0.5588888888888889} elapsed 162.2
+
+# rh: exit code 0 after 162.8 s
+# rh metrics: {"gap_k1": 0.03333333333333333, "gap_k10": 0.0, "n_single_targets": 33.0, "n_targets": 90.0, "n_train_conf": 366.0, "sample_rate": 0.5588888888888889, "succ_k1": 0.5444444444444444, "succ_k10": 0.7888888888888889, "succ_k10_multi": 0.7894736842105263, "succ_k10_single": 0.7878787878787878, "test_nll": 0.2551560401916504, "train_pairs": 2632.0}

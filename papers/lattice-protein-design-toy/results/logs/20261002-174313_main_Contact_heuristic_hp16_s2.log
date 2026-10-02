@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 17:43:13 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot -W ignore method/run.py --seed 2 --out results/raw/main_Contact_heuristic__s2.json --system heuristic
+
+config {"system": "heuristic", "task": "hp16", "seed": 2, "out": "results/raw/main_Contact_heuristic__s2.json", "mode": "test", "epochs": 100, "tau": 1.0, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 1.0, "augment": 1, "conditional": 1, "T0": 1.0, "T1": 0.1, "kmax": 1000}
+metrics {"succ_k1": 0.6777777777777778, "gap_k1": 0.0, "succ_k10": 0.6777777777777778, "gap_k10": 0.0, "succ_k10_single": 0.5714285714285714, "succ_k10_multi": 0.7258064516129032, "succ_k100": 0.6777777777777778, "gap_k100": 0.0, "succ_k100_single": 0.5714285714285714, "succ_k100_multi": 0.7258064516129032, "succ_k1000": 0.6777777777777778, "gap_k1000": 0.0, "n_targets": 90, "n_train_conf": 276, "n_single_targets": 28} elapsed 0.1
+
+# rh: exit code 0 after 0.2 s
+# rh metrics: {"gap_k1": 0.0, "gap_k10": 0.0, "gap_k100": 0.0, "gap_k1000": 0.0, "n_single_targets": 28.0, "n_targets": 90.0, "n_train_conf": 276.0, "succ_k1": 0.6777777777777778, "succ_k10": 0.6777777777777778, "succ_k100": 0.6777777777777778, "succ_k1000": 0.6777777777777778, "succ_k100_multi": 0.7258064516129032, "succ_k100_single": 0.5714285714285714, "succ_k10_multi": 0.7258064516129032, "succ_k10_single": 0.5714285714285714}

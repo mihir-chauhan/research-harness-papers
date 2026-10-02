@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:39:55 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot -W ignore method/run.py --seed 3 --out results/raw/abl_aug_frac_aug1_0.1_s3.json --system ar --epochs 60 --tau 0.7 --kmax 100 --data_frac 0.1 --augment 1 --report_distinct 1
+
+config {"system": "ar", "task": "hp16", "seed": 3, "out": "results/raw/abl_aug_frac_aug1_0.1_s3.json", "mode": "test", "epochs": 60, "tau": 0.7, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 0.1, "augment": 1, "conditional": 1, "T0": 1.0, "T1": 0.1, "obj": "bin", "report_distinct": 1, "kmax": 100}
+metrics {"succ_k1": 0.3146067415730337, "gap_k1": 0.11235955056179775, "succ_k10": 0.6404494382022472, "gap_k10": 0.0, "succ_k10_single": 0.5517241379310345, "succ_k10_multi": 0.6833333333333333, "succ_k100": 0.8089887640449438, "gap_k100": 0.0, "succ_k100_single": 0.7931034482758621, "succ_k100_multi": 0.8166666666666667, "n_targets": 89, "n_train_conf": 277, "n_single_targets": 29, "train_pairs": 210, "distinct_pairs": 203, "test_nll": 0.3946475088596344, "sample_rate": 0.310561797752809} elapsed 20.7
+
+# rh: exit code 0 after 21.2 s
+# rh metrics: {"distinct_pairs": 203.0, "gap_k1": 0.11235955056179775, "gap_k10": 0.0, "gap_k100": 0.0, "n_single_targets": 29.0, "n_targets": 89.0, "n_train_conf": 277.0, "sample_rate": 0.310561797752809, "succ_k1": 0.3146067415730337, "succ_k10": 0.6404494382022472, "succ_k100": 0.8089887640449438, "succ_k100_multi": 0.8166666666666667, "succ_k100_single": 0.7931034482758621, "succ_k10_multi": 0.6833333333333333, "succ_k10_single": 0.5517241379310345, "test_nll": 0.3946475088596344, "train_pairs": 210.0}

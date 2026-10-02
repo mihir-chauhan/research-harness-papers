@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:20:04 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system sa_warm --seed 0 --T0 0.5 --T1 0.2 --out results/raw/sawarm_s0.json
+
+config {"system": "sa_warm", "task": "hp16", "seed": 0, "out": "results/raw/sawarm_s0.json", "mode": "test", "epochs": 100, "tau": 1.0, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 1.0, "augment": 1, "conditional": 1, "T0": 0.5, "T1": 0.2, "kmax": 1000}
+metrics {"succ_k1": 0.6153846153846154, "gap_k1": 0.02197802197802198, "succ_k10": 0.6483516483516484, "gap_k10": 0.01098901098901099, "succ_k10_single": 0.4444444444444444, "succ_k10_multi": 0.7818181818181819, "succ_k100": 0.6593406593406593, "gap_k100": 0.0, "succ_k100_single": 0.5, "succ_k100_multi": 0.7636363636363637, "succ_k1000": 0.8021978021978022, "gap_k1000": 0.0, "n_targets": 91, "n_train_conf": 275, "n_single_targets": 36} elapsed 0.2
+
+# rh: exit code 0 after 0.4 s
+# rh metrics: {"gap_k1": 0.02197802197802198, "gap_k10": 0.01098901098901099, "gap_k100": 0.0, "gap_k1000": 0.0, "n_single_targets": 36.0, "n_targets": 91.0, "n_train_conf": 275.0, "succ_k1": 0.6153846153846154, "succ_k10": 0.6483516483516484, "succ_k100": 0.6593406593406593, "succ_k1000": 0.8021978021978022, "succ_k100_multi": 0.7636363636363637, "succ_k100_single": 0.5, "succ_k10_multi": 0.7818181818181819, "succ_k10_single": 0.4444444444444444}

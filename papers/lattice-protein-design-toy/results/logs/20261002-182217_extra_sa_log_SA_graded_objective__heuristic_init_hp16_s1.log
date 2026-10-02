@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:22:17 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system sa_warm --obj log --seed 1 --T0 0.5 --T1 0.2 --out results/raw/salogw_s1.json
+
+config {"system": "sa_warm", "task": "hp16", "seed": 1, "out": "results/raw/salogw_s1.json", "mode": "test", "epochs": 100, "tau": 1.0, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 1.0, "augment": 1, "conditional": 1, "T0": 0.5, "T1": 0.2, "obj": "log", "kmax": 1000}
+metrics {"succ_k1": 0.6888888888888889, "succ_k10": 0.7111111111111111, "succ_k10_single": 0.34615384615384615, "succ_k10_multi": 0.859375, "succ_k100": 0.8222222222222222, "succ_k100_single": 0.5769230769230769, "succ_k100_multi": 0.921875, "succ_k1000": 0.9888888888888889, "n_targets": 90, "n_train_conf": 276, "n_single_targets": 26} elapsed 0.2
+
+# rh: exit code 0 after 0.4 s
+# rh metrics: {"n_single_targets": 26.0, "n_targets": 90.0, "n_train_conf": 276.0, "succ_k1": 0.6888888888888889, "succ_k10": 0.7111111111111111, "succ_k100": 0.8222222222222222, "succ_k1000": 0.9888888888888889, "succ_k100_multi": 0.921875, "succ_k100_single": 0.5769230769230769, "succ_k10_multi": 0.859375, "succ_k10_single": 0.34615384615384615}

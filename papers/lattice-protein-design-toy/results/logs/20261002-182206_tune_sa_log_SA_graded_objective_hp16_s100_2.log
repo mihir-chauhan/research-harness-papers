@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 18:22:06 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system sa --obj log --mode tune --seed 100 --T0 1 --T1 0.2 --out results/raw/tune_salog_1_0.2.json
+
+config {"system": "sa", "task": "hp16", "seed": 100, "out": "results/raw/tune_salog_1_0.2.json", "mode": "tune", "epochs": 100, "tau": 1.0, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 1.0, "augment": 1, "conditional": 1, "T0": 1.0, "T1": 0.2, "obj": "log", "kmax": 1000}
+metrics {"succ_k1": 0.0, "succ_k10": 0.0, "succ_k10_single": 0.0, "succ_k10_multi": 0.0, "succ_k100": 0.1, "succ_k100_single": 0.030303030303030304, "succ_k100_multi": 0.14035087719298245, "succ_k1000": 0.8888888888888888, "n_targets": 90, "n_train_conf": 366, "n_single_targets": 33} elapsed 0.2
+
+# rh: exit code 0 after 0.4 s
+# rh metrics: {"n_single_targets": 33.0, "n_targets": 90.0, "n_train_conf": 366.0, "succ_k1": 0.0, "succ_k10": 0.0, "succ_k100": 0.1, "succ_k1000": 0.8888888888888888, "succ_k100_multi": 0.14035087719298245, "succ_k100_single": 0.030303030303030304, "succ_k10_multi": 0.0, "succ_k10_single": 0.0}

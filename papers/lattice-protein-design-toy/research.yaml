@@ -1,0 +1,146 @@
+slug: lattice-protein-design-toy
+direction: Lattice-protein design toy. Enumerate all self-avoiding conformations of
+  2D HP lattice chains of length 16, compute ground states for sampled sequences,
+  and train a sequence model to design sequences that fold uniquely to a target conformation.
+  Compare a conditional autoregressive model with simulated annealing on the fraction
+  of designs whose ground state is the target. Keep it a small CPU study with reimplemented
+  baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.
+problem: 'Inverse design on the exhaustively enumerable 2D HP lattice (N=16): given
+  a target conformation, output an H/P sequence whose unique minimum-energy conformation
+  is the target.'
+gap: Learned conditional sequence models for inverse folding are usually judged against
+  refolding oracles that are approximate and expensive; the HP lattice gives an exact
+  oracle, so a learned generator can be compared with search (simulated annealing)
+  at an equal, explicit oracle-call budget, on held-out target conformations.
+contribution: An exact-oracle benchmark study (802,075 conformations, all 65,536 sequences
+  scored) comparing a conditional encoder-decoder autoregressive designer with simulated
+  annealing, random search and a contact heuristic at equal oracle budget, with held-out
+  targets split by chain-reversal class, ablations of conditioning, augmentation and
+  data size, and per-regime failure analysis.
+hypotheses:
+- id: H1
+  statement: With zero oracle calls (K=1) the conditional AR designer produces a unique-target-ground-state
+    sequence for a larger fraction of held-out targets than random sequences and than
+    the contact heuristic.
+  test: rh compare on succ_k1, AR vs each baseline, paired over seeds; refuted if
+    AR is not higher than either.
+- id: H2
+  statement: At an equal oracle budget of K=100 candidates per target, AR success
+    exceeds simulated annealing.
+  test: rh compare on succ_k100, AR vs SA, paired over seeds.
+- id: H3
+  statement: 'SA closes the gap as the budget grows: at K=1000 SA success is not lower
+    than AR success.'
+  test: rh compare on succ_k1000, AR vs SA; H3 is refuted if AR is still higher.
+- id: H4
+  statement: 'Conditioning on the target is what drives success: an unconditional
+    AR (same training data) is much worse at K=100 than the conditional one.'
+  test: rh compare on succ_k100, conditional vs unconditional AR (ablation group).
+- id: H5
+  statement: Chain-reversal augmentation and more scored sequences improve held-out
+    K=1 success.
+  test: rh compare on succ_k1, AR vs AR without augmentation; sweep over data fraction.
+method:
+  name: Conditional AR designer
+  summary: Transformer encoder reads per-residue features of the target (contact row,
+    free-neighbour count); a causal transformer decoder with cross-attention generates
+    the H/P sequence residue by residue; trained by maximum likelihood on unique-ground-state
+    (conformation, sequence) pairs of training conformations (with chain-reversal
+    augmentation); K samples per target, best by oracle objective.
+  components:
+  - conditioning encoder
+  - reversal augmentation
+  - temperature sampling
+  entrypoint: method/run.py
+tasks:
+- hp16
+metrics:
+  succ_k1:
+    higher_is_better: true
+  succ_k10:
+    higher_is_better: true
+  succ_k100:
+    higher_is_better: true
+  succ_k1000:
+    higher_is_better: true
+  gap_k1:
+    higher_is_better: false
+  gap_k10:
+    higher_is_better: false
+  gap_k100:
+    higher_is_better: false
+  gap_k1000:
+    higher_is_better: false
+  succ_k10_single:
+    higher_is_better: true
+  succ_k10_multi:
+    higher_is_better: true
+  succ_k100_single:
+    higher_is_better: true
+  succ_k100_multi:
+    higher_is_better: true
+  test_nll:
+    higher_is_better: false
+  sample_rate:
+    higher_is_better: true
+  train_pairs:
+    higher_is_better: true
+  n_targets:
+    higher_is_better: true
+  n_train_conf:
+    higher_is_better: true
+  n_single_targets:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Random search
+- Simulated annealing
+- Contact heuristic
+- SA from contact heuristic
+- SA graded objective
+- SA graded objective, heuristic init
+ablations:
+- Unconditional AR
+- No reversal augmentation
+ambition:
+  target_tier: 2
+  primary_metric: succ_k100
+  primary_task: hp16
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: max_budget_K
+  value: 1000
+  why: largest oracle budget per design (K in 1,10,100,1000)
+- name: ffn_width
+  value: 256
+  why: feed-forward width of the transformer layers (4 x model width 64)
+- name: dev_fraction_pct
+  value: 20
+  why: percent of chain-reversal classes held out as DEV for tuning
+- name: test_fraction_pct
+  value: 25
+  why: percent of non-DEV classes used as test targets per seed
+- name: tune_seed
+  value: 100
+  why: seed of the DEV tuning runs
+- name: n_sequences
+  value: 65536
+  why: number of H/P sequences of length 16 (2^16), all scored by the oracle

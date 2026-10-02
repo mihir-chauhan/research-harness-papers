@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 17:38:26 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system sa --mode tune --seed 100 --T0 0.5 --T1 0.5 --out results/raw/tune_sa_0.5_0.5.json
+
+config {"system": "sa", "task": "hp16", "seed": 100, "out": "results/raw/tune_sa_0.5_0.5.json", "mode": "tune", "epochs": 100, "tau": 1.0, "lr": 0.002, "batch": 64, "dropout": 0.1, "data_frac": 1.0, "augment": 1, "conditional": 1, "T0": 0.5, "T1": 0.5, "kmax": 1000}
+metrics {"succ_k1": 0.0, "gap_k1": 3.311111111111111, "succ_k10": 0.0, "gap_k10": 1.6555555555555554, "succ_k10_single": 0.0, "succ_k10_multi": 0.0, "succ_k100": 0.022222222222222223, "gap_k100": 0.03333333333333333, "succ_k100_single": 0.030303030303030304, "succ_k100_multi": 0.017543859649122806, "succ_k1000": 0.4, "gap_k1000": 0.0, "n_targets": 90, "n_train_conf": 366, "n_single_targets": 33} elapsed 0.2
+
+# rh: exit code 0 after 0.3 s
+# rh metrics: {"gap_k1": 3.311111111111111, "gap_k10": 1.6555555555555554, "gap_k100": 0.03333333333333333, "gap_k1000": 0.0, "n_single_targets": 33.0, "n_targets": 90.0, "n_train_conf": 366.0, "succ_k1": 0.0, "succ_k10": 0.0, "succ_k100": 0.022222222222222223, "succ_k1000": 0.4, "succ_k100_multi": 0.017543859649122806, "succ_k100_single": 0.030303030303030304, "succ_k10_multi": 0.0, "succ_k10_single": 0.0}

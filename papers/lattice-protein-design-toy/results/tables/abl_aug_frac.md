@@ -1,0 +1,6 @@
+| Method | succ_k1 | succ_k10 | succ_k100 | gap_k1 | gap_k10 | gap_k100 | succ_k10_single | succ_k10_multi | succ_k100_single | succ_k100_multi | test_nll | sample_rate | train_pairs | n_targets | n_train_conf | n_single_targets | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| No reversal augmentation | _0.37 ± 0.11_ | _0.71 ± 0.09_ | _0.86 ± 0.04_ | _0.10 ± 0.10_ | _0.00 ± 0.01_ | **0.00 ± 0.00** | _0.60 ± 0.13_ | _0.76 ± 0.09_ | _0.77 ± 0.09_ | **0.90 ± 0.05** | _0.33 ± 0.04_ | _0.37 ± 0.10_ | _274.93 ± 166.46_ | **90.00 ± 0.65** | **276.00 ± 0.65** | **28.80 ± 4.00** | 15 |
+| Conditional AR designer | **0.46 ± 0.10** | **0.75 ± 0.06** | **0.87 ± 0.03** | **0.06 ± 0.03** | **0.00 ± 0.00** | _0.00 ± 0.00_ | **0.66 ± 0.10** | **0.80 ± 0.06** | **0.81 ± 0.07** | _0.90 ± 0.05_ | **0.32 ± 0.04** | **0.45 ± 0.09** | **549.87 ± 332.92** | _90.00 ± 0.65_ | _276.00 ± 0.65_ | _28.80 ± 4.00_ | 15 |
+
+Mean ± std over seeds; bold = best, underline = second. Directions: succ_k1 ↑, succ_k10 ↑, succ_k100 ↑, gap_k1 ↓, gap_k10 ↓, gap_k100 ↓, succ_k10_single ↑, succ_k10_multi ↑, succ_k100_single ↑, succ_k100_multi ↑, test_nll ↓, sample_rate ↑, train_pairs ↑, n_targets ↑, n_train_conf ↑, n_single_targets ↑.

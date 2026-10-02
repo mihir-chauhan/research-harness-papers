@@ -1,0 +1,24 @@
+\subsection{HP lattice, oracle and success criterion}
+A conformation $c$ of $N$ residues is a self-avoiding walk on $\mathbb{Z}^2$; conformations that differ by a rotation or reflection are identified. Two residues $i,j$ are in contact in $c$, written $(i,j)\in\mathcal{C}(c)$, if they occupy neighbouring lattice sites and $|i-j|\ge 3$. A sequence $s\in\{0,1\}^N$ ($1$ = hydrophobic H) has energy on $c$
+\begin{equation}
+E(s,c) = -\sum_{(i,j)\in\mathcal{C}(c)} s_i s_j .
+\end{equation}
+The oracle returns, for any sequence, $E_{\min}(s)=\min_c E(s,c)$ and the degeneracy $g(s)=|\{c: E(s,c)=E_{\min}(s)\}|$. We precompute both for all $2^N$ sequences by matrix multiplication of the contact matrix of all conformations with the pair-product vectors of the sequences. A sequence \emph{folds uniquely} to a target $t$ if $E(s,t)=E_{\min}(s)$ and $g(s)=1$. All systems use the same objective for selecting among candidates,
+\begin{equation}
+f(s;t)=\big(E(s,t)-E_{\min}(s)\big)+\tfrac12\,\mathbb{1}[g(s)>1],
+\end{equation}
+so $f=0$ if and only if $s$ folds uniquely to $t$. A method with budget $K$ may evaluate $f$ on $K$ candidates and returns the one with the lowest $f$; the design succeeds if that $f$ is $0$. \emph{succ\_k$K$} is the fraction of test targets with a successful design. We also use a graded variant $f_{\log}=(E(s,t)-E_{\min}(s))+\tfrac12\log_2 g(s)$ (zero iff unique) for an extra annealing baseline; success is always judged by the same unique-ground-state criterion.
+
+\subsection{Conditional autoregressive designer}
+The designer models $p_\theta(s\mid t)=\prod_{i=1}^{N}p_\theta(s_i\mid s_{<i},t)$. Per-residue target features $x_i(t)$ are the row $i$ of the contact matrix (16 binary values), a one-hot of the number of empty lattice neighbours of residue $i$, and the number of contacts of $i$. A two-layer transformer encoder~\cite{vaswani2017attention} maps $\{x_i\}$ (plus learned position embeddings) to memory $m(t)$; a two-layer causal transformer decoder with cross-attention to $m(t)$ predicts $s_i$ from $s_{<i}$ (tokens P, H and a start token). Training minimises
+\begin{equation}
+\mathcal{L}(\theta)=-\sum_{(t,s)\in\mathcal{D}}\sum_{i}\log p_\theta(s_i\mid s_{<i},t),
+\end{equation}
+where $\mathcal{D}$ contains every pair with $g(s)=1$ and ground state $t$ in the training conformations. \emph{Reversal augmentation} adds, for each pair, the pair obtained by reading both the conformation features and the sequence backwards (the energy is invariant, so it is again a uniquely folding pair). At design time we draw $K$ samples with temperature $\tau$: $s_i\sim\mathrm{softmax}(\ell_i/\tau)$, and keep the best by $f$. The unconditional ablation replaces $x_i$ by zeros, so only the position embeddings reach the decoder.
+
+\subsection{Reimplemented baselines}
+\textbf{Random search.} $K$ i.i.d.\ uniform sequences, best by $f$.
+
+\textbf{Simulated annealing}~\cite{kirkpatrick1983optimization} (reimplemented). State $s^{(k)}$; the proposal flips one uniformly chosen residue; it is accepted with probability $\min\{1,\exp(-(f(s')-f(s))/T_k)\}$ with geometric schedule $T_k=T_0(T_1/T_0)^{k/(K-1)}$, $k=0,\dots,K-1$, so that exactly $K$ oracle evaluations are used (one for the start, one per proposal); the best state visited is returned. The schedule is stretched to each budget, i.e.\ a separate chain is run for every $K$. Variants: random initial sequence (main) or the contact heuristic as initial sequence, and objective $f$ or $f_{\log}$.
+
+\textbf{Contact heuristic.} A deterministic design $s_i=\mathbb{1}[\,i \text{ has at least one contact in } t\,]$; it uses no oracle call to produce its design (evaluation costs one), and its result is the same at every $K$.

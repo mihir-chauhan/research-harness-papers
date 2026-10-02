@@ -1,0 +1,8 @@
+# Design
+- `lattice.py`: DFS enumeration of SAWs of 16 residues modulo the 8 lattice symmetries (first step +x, first turn +y): 802,075 conformations; contacts = lattice-adjacent pairs with |i-j|>=3 (49 possible pairs). Energy E(s,c) = -sum_{(i,j) in contacts(c)} h_i h_j. Table over all 65,536 sequences: E_min, degeneracy, first minimiser (float32 matmul, ~3.5 min once, cached in data_cache/).
+- `run.py`: systems random / sa / heuristic / ar sharing one Oracle and one objective f(s;t) = (E(s,t)-E_min(s)) + 0.5*[degenerate ground state]; f=0 iff s folds uniquely to t. Budget K in {1,10,100,1000} = oracle evaluations per design; design = best candidate seen.
+- SA: single-bit flips, Metropolis on f, geometric schedule T0->T1 over K steps (separate schedule per K). Chosen on DEV (seed 100): T0=0.5, T1=0.2 (grid 3x3).
+- Contact heuristic: H iff the residue has >=1 contact in the target (deterministic).
+- AR designer: encoder input per residue = [contact row (16), one-hot free lattice neighbours (4), contact count] -> Linear(d=64) + learned position embedding; 2-layer pre-norm transformer encoder (4 heads, FFN 256, dropout 0.1); decoder 2 layers causal self-attn + cross-attn, tokens {P,H,BOS}; AdamW lr 2e-3 one-cycle, wd 0.01, batch 64, 60 epochs, cross-entropy; sampling at temperature tau=0.7 (grid epochs {30,60} x tau {0.7,1.0} on DEV).
+- Training pairs: every sequence of the scored sample (fraction data_frac of the 65,536) whose ground state is unique and whose ground-state conformation is a training conformation; reversal augmentation adds (reverse conformation features, reversed sequence).
+- Unconditional ablation zeroes the encoder input (position embeddings only).

@@ -1,0 +1,120 @@
+{
+  "slug": "lattice-protein-design-toy",
+  "direction": "Lattice-protein design toy. Enumerate all self-avoiding conformations of 2D HP lattice chains of length 16, compute ground states for sampled sequences, and train a sequence model to design sequences that fold uniquely to a target conformation. Compare a conditional autoregressive model with simulated annealing on the fraction of designs whose ground state is the target. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T17:20:11",
+  "updated": "2026-10-02T19:02:29",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T17:20:32",
+      "finished": "2026-10-02T17:38:15",
+      "notes": [
+        {
+          "t": "2026-10-02T17:38:15",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-02T17:38:23",
+      "finished": "2026-10-02T18:19:33",
+      "notes": [
+        {
+          "t": "2026-10-02T18:19:33",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:19:33",
+      "notes": [
+        {
+          "t": "2026-10-02T18:19:33",
+          "note": "reimplemented SA, random, heuristic"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:19:33",
+      "notes": [
+        {
+          "t": "2026-10-02T18:19:33",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T19:02:29",
+      "notes": [
+        {
+          "t": "2026-10-02T19:02:29",
+          "note": "audit round: augmentation follow-up and step-matched control added"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:26:09",
+      "notes": [
+        {
+          "t": "2026-10-02T18:26:09",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:26:09",
+      "notes": [
+        {
+          "t": "2026-10-02T18:26:09",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T18:26:10",
+      "notes": [
+        {
+          "t": "2026-10-02T18:26:10",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T17:47:22",
+      "phase": "setup",
+      "decision": "Split by chain-reversal class after finding that a random conformation split leaked via reversal symmetry (K=1 success 0.78 vs 0.60 after fix, seed 0, 60 epochs). Equal-oracle-budget objective f shared by all systems. Budget K in 1,10,100,1000."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

@@ -1,0 +1,7 @@
+| Method | succ_k1 | succ_k10 | succ_k100 | gap_k1 | gap_k10 | gap_k100 | succ_k10_single | succ_k10_multi | succ_k100_single | succ_k100_multi | test_nll | sample_rate | train_pairs | n_targets | n_train_conf | n_single_targets | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Conditional AR designer | **0.60 ± 0.07** | _0.80 ± 0.04_ | _0.87 ± 0.03_ | **0.01 ± 0.01** | _0.00 ± 0.00_ | **0.00 ± 0.00** | **0.75 ± 0.08** | _0.83 ± 0.05_ | _0.82 ± 0.06_ | _0.90 ± 0.04_ | _0.33 ± 0.05_ | **0.60 ± 0.04** | **1954.80 ± 115.94** | **90.00 ± 0.71** | **276.00 ± 0.71** | **28.80 ± 4.32** | 5 |
+| No reversal augmentation | _0.53 ± 0.03_ | **0.81 ± 0.03** | **0.91 ± 0.01** | _0.02 ± 0.01_ | **0.00 ± 0.00** | _0.00 ± 0.00_ | _0.74 ± 0.07_ | **0.85 ± 0.05** | **0.86 ± 0.05** | **0.93 ± 0.02** | **0.27 ± 0.03** | _0.55 ± 0.04_ | 977.40 ± 57.97 | _90.00 ± 0.71_ | _276.00 ± 0.71_ | _28.80 ± 4.32_ | 5 |
+| Unconditional AR | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.01 ± 0.00 | 3.77 ± 0.28 | 1.86 ± 0.17 | 0.69 ± 0.09 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.00 ± 0.00 | 0.01 ± 0.01 | 0.73 ± 0.03 | 0.00 ± 0.00 | _1954.80 ± 115.94_ | 90.00 ± 0.71 | 276.00 ± 0.71 | 28.80 ± 4.32 | 5 |
+
+Mean ± std over seeds; bold = best, underline = second. Directions: succ_k1 ↑, succ_k10 ↑, succ_k100 ↑, gap_k1 ↓, gap_k10 ↓, gap_k100 ↓, succ_k10_single ↑, succ_k10_multi ↑, succ_k100_single ↑, succ_k100_multi ↑, test_nll ↓, sample_rate ↑, train_pairs ↑, n_targets ↑, n_train_conf ↑, n_single_targets ↑.

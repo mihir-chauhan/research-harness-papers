@@ -15,6 +15,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 | Field | Paper | Directory |
 |---|---|---|
 | biology | How Much Epistasis Can Simple Sequence-to-Fitness Models Absorb? A Small Study on Simulated NK Landscapes | [`papers/epistasis-fitness-models-nk`](papers/epistasis-fitness-models-nk) |
+| biology | Designing Sequences for Target Folds on the Exact 2D HP Lattice: Conditional Autoregressive Generation versus Simulated Annealing at Equal Oracle Budget | [`papers/lattice-protein-design-toy`](papers/lattice-protein-design-toy) |
 | chemistry-materials | Descriptor Invariance versus Regressor Choice for a Toy Machine-Learned Potential on Small Lennard-Jones Clusters | [`papers/lennard-jones-invariant-descriptors`](papers/lennard-jones-invariant-descriptors) |
 | climate-weather | Does Rollout Training Help a Small CNN Emulator of Two-Scale Lorenz-96? Skill, Stability and Climatological Variance | [`papers/autoregressive-emulator-on-lorenz-96`](papers/autoregressive-emulator-on-lorenz-96) |
 | climate-weather | Polynomial, MLP and AR(1) Closures for the Fast Variables of Two-Scale Lorenz-96: Forecast Skill, Stability and Climate | [`papers/lorenz96-learned-parametrisation`](papers/lorenz96-learned-parametrisation) |

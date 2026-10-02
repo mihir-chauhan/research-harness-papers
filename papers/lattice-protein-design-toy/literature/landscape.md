@@ -1,0 +1,6 @@
+# Landscape
+- HP model: Lau & Dill 1989 (lattice model of sequence/conformation space), Dill 1985; folding in the HP model is NP-complete (Berger & Leighton 1998) -- but for N=16 full enumeration is trivial.
+- Designability: Li, Helling, Tang, Wingreen 1996 showed that on compact lattice chains a small number of structures are designed by many sequences; here we observe the same skew (456 of 802,075 conformations have any uniquely-folding sequence in the full N=16 space).
+- Learned HP *folding*: Yang et al. 2022 (DQN), Khandoker et al. 2025 (dilated RNN + variational annealing). They solve sequence->structure; we study the inverse direction.
+- Real inverse folding: ProteinMPNN (Dauparas 2022), ESM-IF1 (Hsu 2022) are conditional autoregressive designers evaluated by refolding (AlphaFold, Jumper 2021); the refolding oracle is approximate and costly. Search-based design (simulated annealing, Kirkpatrick 1983) is the classical alternative.
+- Gap: with an exact oracle, a compare-at-equal-oracle-budget of learned conditional generation versus annealing on held-out targets, with leakage-aware splits (chain reversal) and ablations. We did not find this exact comparison; this is a toy-scale study, not a claim about proteins.
