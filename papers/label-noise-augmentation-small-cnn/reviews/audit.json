@@ -1,0 +1,201 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Results are real and exactly reproducible: 8 re-executed runs were bit-identical to the registry, all prose numbers match the generated tables, the code matches the paper, there is no leakage, and the framing and limitations are honest. One wrong descriptive number (the CNN has 40,618 parameters, not about 30k, stated in four paper sections) plus minor items: 34 sweep rows share overwritten log files, and the logged early-epoch curves, which the paper says were not recorded, show the headline ranking is specific to final-epoch evaluation.",
+      "reran": [
+        {
+          "run": "Small-loss (1 net)/digits_noise40/0",
+          "metric": "test_acc",
+          "registry": 0.8678720445062587,
+          "rerun": 0.8678720445062587
+        },
+        {
+          "run": "CE/digits_noise40/0",
+          "metric": "test_acc",
+          "registry": 0.674547983310153,
+          "rerun": 0.674547983310153
+        },
+        {
+          "run": "Mixup/digits_noise60/3",
+          "metric": "test_acc",
+          "registry": 0.5340751043,
+          "rerun": 0.5340751043
+        },
+        {
+          "run": "Label smoothing (sweep ls_eps=0.05)/digits_noise40/0",
+          "metric": "test_acc",
+          "registry": 0.5952712100139083,
+          "rerun": 0.5952712100139083
+        },
+        {
+          "run": "Small-loss (1 net) (sweep sl_rate=0.2)/digits_noise40/0",
+          "metric": "test_acc",
+          "registry": 0.7538247566063978,
+          "rerun": 0.7538247566063978
+        },
+        {
+          "run": "Mixup (sweep mix_alpha=4.0)/digits_noise40/1",
+          "metric": "test_acc",
+          "registry": 0.8623087621696801,
+          "rerun": 0.8623087621696801
+        },
+        {
+          "run": "Small-loss (1 net) (sweep sl_rate=0.6)/digits_noise40/3",
+          "metric": "test_acc",
+          "registry": 0.9235048679,
+          "rerun": 0.9235048679
+        },
+        {
+          "run": "Small-loss, no warm-up/ramp/digits_noise40/2",
+          "metric": "test_acc",
+          "registry": 0.9054242003,
+          "rerun": 0.9054242003
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/setup.tex, results.tex, limitations.tex, conclusion.tex; method/DESIGN.md",
+          "issue": "The CNN is described as 'about 30k parameters' / 'a 30k-parameter CNN' but the network in method/run.py has 40,618 parameters; the wrong figure is also used as an argument in the H1 paragraph. No result depends on it.",
+          "fix": "Replace with 'about 41k parameters' in all four sections and DESIGN.md, then rebuild the PDF."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl provenance.log; experiments/run_abl.sh; results/logs (sweep groups)",
+          "issue": "Log filenames omit the config and two parallel streams wrote to the same path, so 34 of 65 sweep rows share 17 log files and for 17 rows the surviving log contains none of that row's metrics. Registry values are correct (raw files match, 4 affected rows re-ran bit-identically), but results/raw is gitignored so the published repo has no corroborating log for those rows.",
+          "fix": "Re-run the 34 colliding sweep rows sequentially (about 12 CPU-minutes) or with the config in the log name, or commit results/raw; note the collision in RESULTS.md."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex (No early stopping), abstract, conclusion",
+          "issue": "Limitations say accuracy at earlier epochs 'was not recorded in the registry', but every log has a 5-epoch test-accuracy curve. At 40% noise the best logged checkpoint is CE 0.805, LS 0.854, mixup 0.891, small-loss 0.904, so 'LS does not help' and 'small-loss clearly best' are specific to final-epoch evaluation.",
+          "fix": "Report the logged curves (best-checkpoint and epoch-10 means, flagged as test-set optimistic) and state that LS exceeds CE and mixup nearly matches small-loss before memorisation sets in."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "The mechanism claim that mixup's gain comes 'from the smoothness of the memorised solution' is not tested by any experiment; and 'beats CE at all three noise rates' rests at 20% on an uncorrected p=0.043 with one seed in the opposite direction.",
+          "fix": "Mark the mechanism as a conjecture and describe the 20% result as suggestive."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (H5) vs BRIEF.md",
+          "issue": "H5 is restated more loosely ('depends on the assumed forget rate') than the version committed before the runs ('under-estimating the noise rate loses most of the gain'); at assumed rate 0.3 about 64% of the gain is retained.",
+          "fix": "Quote H5 as in BRIEF.md and state the verdict as partly supported: most of the gain is lost at 0.1 and 0.2, not at 0.3."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex",
+          "issue": "Paper says the rule keeps the ceiling of (1-r_t)|B| examples; the code uses round().",
+          "fix": "Change the formula to rounding."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Warm-up and ramp)",
+          "issue": "The no-warm-up comparison is called 'not paired by design, no test run', but it uses the same seeds and noise draws (paired delta +0.028, p=0.003).",
+          "fix": "Describe it as paired over the same 5 seeds and report the paired difference, keeping the test-split caveat."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, results.tex (H2), introduction.tex, limitations.tex",
+          "issue": "Related work says the experiments test Lukasik et al.'s statement but the results never note that LS hurting here contrasts with their finding that LS is competitive under noise; two prior-work claims are uncited ('published comparisons are usually CIFAR-scale with per-method tuning'; 'symmetric noise is the easiest for small-loss selection').",
+          "fix": "Add one sentence in H2 contrasting with Lukasik et al.; cite or soften the two uncited claims."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md, results/VERDICT.md, Table I",
+          "issue": "PROTOCOL.md says 'ablations 30 runs' (actual 70); the VERDICT.md ablation table shows 'missing' for every row; tied 0.000 cells at 0% noise are arbitrarily bolded/underlined.",
+          "fix": "Update PROTOCOL.md, regenerate the verdict with the current ablation names, and suppress best/second marking on ties."
+        }
+      ],
+      "commit": "9ae815393a1e29be314c66defc74c09fb7ca92ff"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers, paired tests and tables reproduce from the registry, and seven re-executed runs (including one method and one baseline main-grid row) match the registry bit for bit. The code matches the described methods, baselines share data and budget, there is no leakage or hard-coding, citations are used in context, and the abstract, limitations and conclusion state the mixed outcome and the oracle-rate and untuned-baseline caveats. Only minor wording and provenance issues remain.",
+      "reran": [
+        {
+          "run": "Small-loss (1 net)/digits_noise40/1",
+          "metric": "test_acc",
+          "registry": 0.8970792767732962,
+          "rerun": 0.8970792767732962
+        },
+        {
+          "run": "CE/digits_noise40/1",
+          "metric": "test_acc",
+          "registry": 0.7440890125173852,
+          "rerun": 0.7440890125173852
+        },
+        {
+          "run": "Mixup/digits_noise60/3",
+          "metric": "test_acc",
+          "registry": 0.5340751043115438,
+          "rerun": 0.5340751043115438
+        },
+        {
+          "run": "Label smoothing (ls_eps=0.6)/digits_noise40/2",
+          "metric": "test_acc",
+          "registry": 0.6648122392211405,
+          "rerun": 0.6648122392211405
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'Test accuracy logged at earlier epochs shows LS above CE and mixup close to small-loss' holds only for the test-selected best checkpoint; at epoch 10 LS is below CE at 40% and 60% noise (0.739 vs 0.763, 0.578 vs 0.603), and at 60% mixup's best checkpoint (0.728) is 5 points below small-loss (0.779).",
+          "fix": "Say 'at the best logged checkpoint (selected on the test split)' and restrict the mixup statement to 20-40% noise."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl provenance.log (sweep groups); paper/sections/limitations.tex",
+          "issue": "17 sweep rows point to a log file that contains a different run's output because parallel streams shared log filenames; this is disclosed in results/RESULTS.md but not in the paper. Three affected rows re-ran bit-identically, so the values are correct.",
+          "fix": "Mention the log collision in the limitations or setup section, or re-log the affected rows with config-specific log names."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/generated/paired.tex, results/tables/compare_*.csv",
+          "issue": "Table II p-values (system vs CE) come from analysis/make_extras.py using scipy, not from rh compare; the compare CSVs use small-loss as the reference. The values reproduce exactly.",
+          "fix": "Also emit rh compare with CE as reference, or state in the caption that the table is produced by analysis/make_extras.py."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, paper/sections/limitations.tex",
+          "issue": "'About 80 CPU-minutes' is the sum of in-script runtimes (79.1 min, 2 threads each); launcher durations sum to 92.6 min with median 26 s, not 23 s; wall clock was about 47 min against a 45 min budget in research.yaml.",
+          "fix": "State which timer is reported, or give both figures."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'Comparisons run at larger scale and with per-method tuning make it hard to tell how much of a method's benefit comes from the method and how much from the recipe' is a claim about prior work with no citation.",
+          "fix": "Cite a supporting source or mark it as the authors' motivation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex, paper/sections/related.tex",
+          "issue": "Label smoothing as a technique is attributed to M\u00fcller et al. 2019, which analyses it rather than introduces it.",
+          "fix": "Add the originating reference (Szegedy et al. 2016) or phrase as 'analysed in'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "'Pre-registered' is strong wording: the hypotheses were committed in the same session 14 seconds before the first run, with no external registration (BRIEF.md and proposal.md are unchanged since).",
+          "fix": "Use 'fixed before the runs', as the setup section already does."
+        }
+      ],
+      "commit": "a01f159c5dd4edd92b9e89936baf78f945d37d2f"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 1 < target 2: loses on: digits_noise0\nREADY",
+      "response": "# Response to audit\n\n1. **Parameter count (major)** \u2013 fixed. \"about 30k\" replaced by \"about 41k\" (40,618 exactly) in setup, results, limitations, conclusion and method/DESIGN.md.\n2. **Sweep log collisions (minor)** \u2013 not re-run (would add duplicate registry rows). Registry values and results/raw/*.json are correct; the collision is documented in results/RESULTS.md.\n3. **Early-epoch curves (minor)** \u2013 fixed. New analysis/make_curves.py reads the logged 5-epoch curves (checked against the registry final accuracy) and writes Table \"curves\"; results, limitations, abstract and conclusion now say the ranking is specific to final-epoch evaluation, with LS above CE and mixup near small-loss before memorisation (best checkpoint flagged as test-split optimistic).\n4. **H3 mechanism / 20% claim (minor)** \u2013 mechanism marked as an untested conjecture; the 20% result described as suggestive.\n5. **H5 wording (minor)** \u2013 H5 quoted as in BRIEF.md; verdict now \"partly supported\" (most gain lost at 0.1, 0.2, not at 0.3).\n6. **ceil vs round (minor)** \u2013 method formula changed to max{1, round(.)}, matching the code.\n7. **Warm-up pairing (minor)** \u2013 now described as paired over the same seeds with a small table (+0.028, p=0.0030; mem_rate -0.133), test-split caveat kept.\n8. **Related-work/uncited claims (minor)** \u2013 H2 now contrasts with Lukasik et al.; the \"published comparisons\" sentence and the \"easiest for small-loss\" claim were softened/reworded rather than cited.\n9. **PROTOCOL/VERDICT/ties (minor)** \u2013 PROTOCOL run count corrected (70). Tie markup removed in the 0% memorisation columns of Table I. VERDICT.md still shows \"missing\" for the ablation row: the advisory verdict only pairs rows within one group while the full-method rows are in group main; research.yaml now lists only the real ablation and the explanation is in RESULTS.md.\n",
+      "seconds": 140
+    }
+  ]
+}

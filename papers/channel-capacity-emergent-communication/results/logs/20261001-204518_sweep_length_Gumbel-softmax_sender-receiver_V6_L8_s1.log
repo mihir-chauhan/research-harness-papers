@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:45:18 2026
+# cwd: .
+# cmd: python method/run.py --system gumbel --task V6_L8 --seed 1 --steps 6000 --out results/raw/sweep_length_gumbel_V6_L8_s1.json
+
+{"heldout_acc": 0.0, "train_acc": 0.373913049697876, "heldout_attr_acc": 0.36538460850715637, "train_attr_acc": 0.6815217137336731, "gen_gap": 0.373913049697876, "topsim": 0.22621370945561972, "topsim_train": 0.23442485250786732, "n_unique_messages": 117.0, "symbols_used_per_position": 5.875, "shuffled_msg_heldout_attr_acc": 0.25961539149284363, "capacity_bits": 20.67970000576925, "wall_s": 52.126659870147705}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:21:44 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task lever --seed 2 --init_std 4 --out results/raw/sweep_init_sp_sd4_lever_s2.json
+
+config: {"system": "SP", "task": "lever", "seed": 2, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 4.0, "pop_size": 8, "out": "results/raw/sweep_init_sp_sd4_lever_s2.json"}
+metrics: {"self_play": 0.9998666644096375, "cross_play": 0.11052162945270538, "cross_play_min": 8.967155018524409e-09, "gap": 0.8893450349569321, "entropy": 0.0007825892535038292, "runtime_s": 3.3627939224243164, "frac_special": 0.0}

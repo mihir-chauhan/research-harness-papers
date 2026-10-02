@@ -1,0 +1,4 @@
+# rh run | Thu Oct  1 21:33:41 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --seed 4 --system ls --ls_eps 0.05 --out results/raw/sweep_ls_eps_ls_eps_0.05_s4.jsoncoconfig {"system": "ls", "noise": 0.4, "seed": 4, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.05, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/sweep_ls_eps_ls_eps_0.05_s4.jsocurvcurve(epoch,test_acc) [(5, 0.8956884561891516), (10, 0.7983310152990264), (15, 0.7705146036161336), (20, 0.7162726008344924), (25, 0.7009735744089013), (30, 0.6787204450625869), (35, 0.6856745479833102), (40, 0.694019471488178), (45, 0.6995827538247567), (50, 0.6995827538247567), (55, 0.6954102920723226), (60, 0.6995827538247567)]
+metrics {"test_acc": 0.6995827538247567, "train_fit_noisy": 1.0, "mem_rate": 1.0, "recover_rate": 0.0, "clean_fit": 1.0, "mem_gap": 1.0, "n_corrupt": 416, "runtime_s": 24.936638355255127}

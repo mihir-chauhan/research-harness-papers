@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 20:58:24 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --system ls --seed 1 --out results/raw/main_Label_smoothing_digits_noise40_s1.json
+
+config {"system": "ls", "noise": 0.4, "seed": 1, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/main_Label_smoothing_digits_noise40_s1.json"}
+curve(epoch,test_acc) [(5, 0.713490959666203), (10, 0.7816411682892906), (15, 0.717663421418637), (20, 0.6703755215577191), (25, 0.6801112656467315), (30, 0.6926286509040334), (35, 0.6842837273991655), (40, 0.6828929068150209), (45, 0.6787204450625869), (50, 0.6828929068150209), (55, 0.6828929068150209), (60, 0.6856745479833102)]
+metrics {"test_acc": 0.6856745479833102, "train_fit_noisy": 1.0, "mem_rate": 1.0, "recover_rate": 0.0, "clean_fit": 1.0, "mem_gap": 1.0, "n_corrupt": 417, "runtime_s": 42.20940113067627}

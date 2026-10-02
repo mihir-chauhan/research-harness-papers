@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:30:30 2026
+# cwd: .
+# cmd: python method/run.py --system gumbel --task V4_L4 --seed 0 --steps 300 --out results/raw/sanity.json
+
+{"heldout_acc": 0.07692307978868484, "train_acc": 0.17391304671764374, "heldout_attr_acc": 0.682692289352417, "train_attr_acc": 0.7152174115180969, "gen_gap": 0.09698996692895889, "topsim": 0.32534138929791695, "topsim_train": 0.32432529651676867, "n_unique_messages": 74.0, "symbols_used_per_position": 4.0, "shuffled_msg_heldout_attr_acc": 0.21153846383094788, "capacity_bits": 8.0, "wall_s": 2.103374719619751}

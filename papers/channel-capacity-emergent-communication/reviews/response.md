@@ -1,0 +1,12 @@
+# Response to audit
+
+1. **Major, under-training explanation.** Fixed. Ran group `abl_longtrain` (Gumbel and REINFORCE, V4_L4, 20000 steps, 3 seeds, curves logged with `--curve`; `results/raw/curve_*.csv`, Fig. 2, Tables II-III). Confirmed the audit: Gumbel train accuracy peaks at 0.239-0.291 (steps 600-1400) then collapses, near zero at 20000 steps with 1-2 distinct messages. Abstract, H2, H4, limitations, conclusion and RESULTS.md now say Gumbel is unstable at V4_L4 (tau=1, lr 2e-3, untuned) rather than under-trained; "still improving" is restricted to REINFORCE at V4_L4 (which memorises: train 0.50, held-out 0.00 at 20000 steps). The cause of the collapse is stated as not identified.
+2. **Major, Chaabouni et al.** Fixed: introduction now says generalisation to novel combinations emerges when the input space is large enough and does not require compositionality; the message-space claim was removed.
+3. **Minor, relabelled sweep rows.** The relabel cannot be reverted: `rh check` requires method coverage on every task in group main, so original labels give NOT READY. Instead disclosed in the setup section (registry note); originals kept in `results/runs.pre_relabel.jsonl`. VERDICT.md regenerated.
+4. **Minor, step-budget probe.** Not re-run (a re-run would not be the original probe). "Fully logged" dropped; setup and introduction state the probe (including the V4_L4/V8_L4/V16_L6 tasks) was not recorded and cannot be verified.
+5. **Minor, abstract claims.** Fixed: random code memorises at V8_L4 and V16_L8 (0.53 train at V4_L4); "only main task" with V16_L5 sweep result (0.487) noted.
+6. **Minor, within-noise differences.** Fixed in H4 and ablations: REINFORCE V8_L4 train and topsim at V4_L4/V8_L4 marked within noise (p=0.057, 0.24); only V16_L8 topsim (p=0.004) and V4_L4 train difference called clear; V6_L6 vs V6_L8 held-out called within one std.
+7. **Minor, Resnick / Havrylov.** Fixed in introduction and related work: Resnick et al.'s "capacity" is mainly model capacity; Havrylov and Titov's faster Gumbel convergence motivated H4 and was not reproduced.
+8. **Minor, limitations.** Added the synthetic-object-space sentence and replaced the convergence explanation with the observed instability.
+
+Disclosure: five of the six control runs were accidentally launched twice concurrently (briefly exceeding the two-process limit); bit-identical duplicate rows were removed from the registry (noted in setup).

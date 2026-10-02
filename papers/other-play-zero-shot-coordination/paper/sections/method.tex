@@ -1,0 +1,22 @@
+\subsection{Games}
+All games are identical-interest. In the \textbf{lever} game each player simultaneously picks one of 10 levers; if they pick the same lever $i<9$ both get $R=1$, if both pick lever 9 both get $0.9$, otherwise 0. Levers $0$--$8$ are interchangeable (symmetry group $\Phi=S_9$); lever 9 is distinct. In the \textbf{safe} game there are 4 interchangeable levers paying 1 on a match ($\Phi=S_4$) and a safe action paying $0.5$ whenever at least one player takes it. In the \textbf{signal} game a sender sees a card $c\in\{0,..,3\}$ drawn with prior $(0.4,0.3,0.2,0.1)$, sends one of $M=4$ symbols, and a receiver guesses $g$; payoff $\mathbf 1[g=c]$. The symbols are interchangeable ($\Phi=S_4$ acting on messages); cards are distinguishable through the prior.
+
+\subsection{Policies and training}
+Policies are tabular softmax: matrix games have logits $\theta\in\mathbb R^{A}$ and $\pi_\theta(a)=\mathrm{softmax}(\theta)_a$; the signalling game has sender logits $\theta^s\in\mathbb R^{4\times4}$ and receiver logits $\theta^r\in\mathbb R^{4\times4}$. All systems use REINFORCE with a batch-mean baseline,
+\begin{equation}\nabla_\theta J\approx\frac1B\sum_{b}\Big(\sum_{k}\nabla\log\pi^{k}(a^k_b)\Big)\big(r_b-\bar r\big),\end{equation}
+with Adam~(lr $0.05$), batch $B=64$, 1500 updates and $\theta\sim\mathcal N(0,1)$.
+
+\textbf{Self-play (SP).} Both players use the same $\theta$: $J_{SP}(\theta)=\mathbb E_{a,b\sim\pi_\theta}R(a,b)$.
+
+\textbf{Other-play (OP)}~\cite{hu2020other}. The partner's action is relabelled by a symmetry drawn uniformly from $\Phi$,
+\begin{equation}J_{OP}(\theta)=\mathbb E_{\phi\sim U(\Phi)}\;\mathbb E_{a\sim\pi_\theta,\;b\sim\phi(\pi_\theta)}R(a,b),\end{equation}
+so a deterministic convention $\pi=\delta_i$ earns only $R$ averaged over $\phi(i)$. Gradients flow through both copies. In the signal game $\phi$ permutes the messages the receiver sees.
+
+\textbf{OP-full (ablation).} As OP but $\Phi=S_A$ over \emph{all} actions in the matrix games, which wrongly includes the distinct lever (or the safe action).
+
+\textbf{Population (FCP-style, reimplemented)}~\cite{strouse2021collaborating}. Stage 1 trains $K$ independent SP agents $\{\pi_k\}$. Stage 2 trains a fresh agent $\theta$ with the same budget to maximise
+\begin{equation}J_{pop}(\theta)=\mathbb E_{k\sim U\{1..K\}}\,\mathbb E_{a\sim\pi_\theta,\,b\sim\pi_k}R(a,b)\end{equation}
+(for the signal game the best-response agent is sender and receiver in separate episode types). Only the stage-2 agent is evaluated.
+
+\subsection{Cross-play metric}
+For $N=20$ independently trained agents (each independently trained population for the population method), the pair payoff $M_{ij}=\mathbb E_{a\sim\pi_i,b\sim\pi_j}R(a,b)$ is computed exactly (no sampling; for the signal game, averaged over both seatings). \emph{Self-play} is $\frac1N\sum_i M_{ii}$, \emph{cross-play} is $\frac1{N(N-1)}\sum_{i\ne j}M_{ij}$, \emph{gap} is their difference, and \emph{cross-play min} is $\min_{i\neq j}M_{ij}$. Agents of the same run share only the generator stream, never parameters.

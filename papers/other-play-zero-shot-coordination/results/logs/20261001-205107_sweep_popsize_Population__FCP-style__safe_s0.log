@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:51:07 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task safe --seed 0 --pop_size 2 --out results/raw/sweep_popsize_K2_safe_s0.json
+
+config: {"system": "PBT", "task": "safe", "seed": 0, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 2, "out": "results/raw/sweep_popsize_K2_safe_s0.json"}
+metrics: {"self_play": 0.8626196980476379, "cross_play": 0.320239782333374, "cross_play_min": 0.00018936817650683224, "gap": 0.5423799157142639, "entropy": 0.16950803995132446, "runtime_s": 6.127691984176636, "frac_safe": 0.15000000596046448}

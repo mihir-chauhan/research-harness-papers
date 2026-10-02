@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:46:42 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task lever --seed 2 --pop_size 16 --out results/raw/sweep_popsize_K16_lever_s2.json
+
+config: {"system": "PBT", "task": "lever", "seed": 2, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 16, "out": "results/raw/sweep_popsize_K16_lever_s2.json"}
+metrics: {"self_play": 0.9759714007377625, "cross_play": 0.07400613278150558, "cross_play_min": 1.4009472579346038e-05, "gap": 0.9019652679562569, "entropy": 0.04404198005795479, "runtime_s": 13.973515748977661, "frac_special": 0.05000000074505806}

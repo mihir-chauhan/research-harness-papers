@@ -14,10 +14,13 @@ Code: MIT. Text and figures: CC BY 4.0.
 
 | Field | Paper | Directory |
 |---|---|---|
+| computer-vision | Label noise robustness of a small CNN on 8x8 digits: cross-entropy, label smoothing, mixup and small-loss selection | [`papers/label-noise-augmentation-small-cnn`](papers/label-noise-augmentation-small-cnn) |
 | control-systems | Class-K Gain and Sampling Period in One-Constraint CBF Safety Filters: A Small Empirical Comparison on a Double Integrator and a Unicycle | [`papers/cbf-safety-filter-conservatism`](papers/cbf-safety-filter-conservatism) |
 | control-systems | Energy-Deviation Running Costs for iLQR Model-Predictive Swing-Up: A Small Controlled Comparison on Pendulum and Cart-Pole | [`papers/energy-cost-trajectory-optimisation`](papers/energy-cost-trajectory-optimisation) |
 | control-systems | Sparse Regression, Neural ODEs and Linear Least Squares for Identification Under Measurement Noise: Prediction Error and Closed-Loop LQR/MPC Cost | [`papers/sindy-vs-neural-ode-sysid-noise`](papers/sindy-vs-neural-ode-sysid-noise) |
 | ml-theory-optimization | Where the Peak Sits and Whether Ridge Removes It: A Small Study of Double Descent in Random-ReLU-Features Regression | [`papers/double-descent-random-features`](papers/double-descent-random-features) |
+| multi-agent | Channel Capacity in a Lewis Reconstruction Game: Vocabulary, Message Length, Held-Out Accuracy and Topographic Similarity (Small CPU Study) | [`papers/channel-capacity-emergent-communication`](papers/channel-capacity-emergent-communication) |
+| multi-agent | Self-Play, Other-Play and Population Training for Zero-Shot Coordination in Small Symmetric Games: An Exactly Evaluated CPU Study | [`papers/other-play-zero-shot-coordination`](papers/other-play-zero-shot-coordination) |
 | reinforcement-learning | How Many Planning Steps? Dyna-Q, Dyna-Q+ and Prioritized Sweeping Under Stale and Stochastic Tabular Models | [`papers/dyna-planning-under-model-error`](papers/dyna-planning-under-model-error) |
 | robotics | How Wide Should Domain Randomisation Be? A Small-Scale CartPole Study of Range Width and a Success-Gated Curriculum | [`papers/domain-randomisation-range-robustness`](papers/domain-randomisation-range-robustness) |
 | robotics | Templated Language versus Learned Vectors for Multi-Robot Rendezvous: A Small CPU Study of Success, Sample Efficiency and Cross-Play | [`papers/language-vs-vector-multi-robot-comm`](papers/language-vs-vector-multi-robot-comm) |

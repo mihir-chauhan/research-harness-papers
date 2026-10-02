@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 20:57:35 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --system mixup --seed 0 --out results/raw/main_Mixup_digits_noise40_s0.json
+
+config {"system": "mixup", "noise": 0.4, "seed": 0, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/main_Mixup_digits_noise40_s0.json"}
+curve(epoch,test_acc) [(5, 0.8511821974965229), (10, 0.8803894297635605), (15, 0.8595271210013908), (20, 0.8317107093184979), (25, 0.803894297635605), (30, 0.741307371349096), (35, 0.7023643949930459), (40, 0.7260083449235049), (45, 0.7232267037552156), (50, 0.7329624478442281), (55, 0.7468706536856745), (60, 0.7260083449235049)]
+metrics {"test_acc": 0.7260083449235049, "train_fit_noisy": 0.9564007421150278, "mem_rate": 0.8953229398663697, "recover_rate": 0.06904231625835189, "clean_fit": 1.0, "mem_gap": 0.8262806236080178, "n_corrupt": 449, "runtime_s": 42.83747601509094}

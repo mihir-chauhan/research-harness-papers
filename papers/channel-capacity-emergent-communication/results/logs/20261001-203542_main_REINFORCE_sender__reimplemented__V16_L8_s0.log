@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:35:42 2026
+# cwd: .
+# cmd: python method/run.py --system reinforce --task V16_L8 --seed 0 --steps 6000 --out results/raw/main_reinforce_V16_L8_s0.json
+
+{"heldout_acc": 0.3076923191547394, "train_acc": 0.9826086759567261, "heldout_attr_acc": 0.7788461446762085, "train_attr_acc": 0.9956521987915039, "gen_gap": 0.6749163568019867, "topsim": 0.37692230262472776, "topsim_train": 0.37658164629319507, "n_unique_messages": 250.0, "symbols_used_per_position": 9.0, "shuffled_msg_heldout_attr_acc": 0.17307692766189575, "capacity_bits": 32.0, "wall_s": 46.54169297218323}

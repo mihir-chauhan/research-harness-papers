@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:39:37 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task safe --seed 1 --out results/raw/main_pbt_safe_s1.json
+
+config: {"system": "PBT", "task": "safe", "seed": 1, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_pbt_safe_s1.json"}
+metrics: {"self_play": 0.643193244934082, "cross_play": 0.48277032375335693, "cross_play_min": 0.00027292221784591675, "gap": 0.1604229211807251, "entropy": 0.046693380922079086, "runtime_s": 6.850829124450684, "frac_safe": 0.699999988079071}

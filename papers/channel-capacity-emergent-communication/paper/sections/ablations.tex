@@ -1,0 +1,13 @@
+We sweep one channel dimension at a time for the Gumbel-softmax system (3 seeds, same budget). Table~\ref{tab:sv} and Fig.~\ref{fig:sv} vary $V$ at $L=5$; Table~\ref{tab:sl} and Fig.~\ref{fig:sl} vary $L$ at $V=6$.
+
+\begin{table}[t]\centering\caption{Vocabulary sweep, $L=5$.}\label{tab:sv}
+\resizebox{\columnwidth}{!}{\input{generated/sweep_vocab.tex}}\end{table}
+\begin{table}[t]\centering\caption{Length sweep, $V=6$.}\label{tab:sl}
+\resizebox{\columnwidth}{!}{\input{generated/sweep_length.tex}}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=0.9\columnwidth]{sweep_vocab_all.pdf}
+\caption{Train and held-out accuracy and topsim versus vocabulary size ($L=5$).}\label{fig:sv}\end{figure}
+\begin{figure}[t]\centering\includegraphics[width=0.9\columnwidth]{sweep_length_all.pdf}
+\caption{Train and held-out accuracy and topsim versus message length ($V=6$).}\label{fig:sl}\end{figure}
+
+Larger vocabulary monotonically raises train accuracy (0.023 at V2\_L5 to 0.949 at V16\_L5) and held-out accuracy (0.000 to 0.487), and topsim increases from 0.136 at V3\_L5 to 0.388 at V16\_L5 (non-monotonic at V2\_L5, 0.264, where only a handful of distinct messages are used). The length sweep is non-monotonic: V6\_L6 has the highest train accuracy (0.690) and V6\_L8 is lower (0.420); their held-out accuracies (0.141 vs 0.077) are within one standard deviation at $n=3$. Longer messages may be harder to optimise rather than limited by capacity, but we did not test this; the V4\_L4 control (Sec.~\ref{sec:results}) shows that longer training alone does not rescue the Gumbel-softmax system there. Stronger channels also use more distinct messages (n\_unique\_messages in the tables), i.e.\ they drift towards one message per object, which is what the random code does by construction. The best topsim anywhere for a learned system is 0.388, far from the oracle's 1.000.

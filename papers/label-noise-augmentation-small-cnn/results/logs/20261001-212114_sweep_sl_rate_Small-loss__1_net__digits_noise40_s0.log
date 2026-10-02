@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:21:14 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --seed 0 --system smallloss --sl_rate 0.1 --out results/raw/sweep_sl_rate_sl_rate_0.1_s0.json
+
+config {"system": "smallloss", "noise": 0.4, "seed": 0, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": 0.1, "out": "results/raw/sweep_sl_rate_sl_rate_0.1_s0.json"}
+curve(epoch,test_acc) [(5, 0.7399165507649513), (10, 0.7329624478442281), (15, 0.6898470097357441), (20, 0.6620305980528511), (25, 0.7287899860917941), (30, 0.7232267037552156), (35, 0.6717663421418637), (40, 0.6815020862308763), (45, 0.6856745479833102), (50, 0.6842837273991655), (55, 0.6968011126564673), (60, 0.6954102920723226)]
+metrics {"test_acc": 0.6954102920723226, "train_fit_noisy": 0.9471243042671614, "mem_rate": 0.8730512249443207, "recover_rate": 0.09131403118040089, "clean_fit": 1.0, "mem_gap": 0.7817371937639198, "n_corrupt": 449, "runtime_s": 20.12523603439331}
+692289352417}

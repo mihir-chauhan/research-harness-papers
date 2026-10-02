@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:38:43 2026
+# cwd: .
+# cmd: python method/run.py --system OP --task lever --seed 3 --out results/raw/main_op_lever_s3.json
+
+config: {"system": "OP", "task": "lever", "seed": 3, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_op_lever_s3.json"}
+metrics: {"self_play": 0.6922410726547241, "cross_play": 0.1283063441514969, "cross_play_min": 1.0198014933848754e-05, "gap": 0.5639347285032272, "entropy": 0.6157738566398621, "runtime_s": 2.6543450355529785, "frac_special": 0.30000001192092896}

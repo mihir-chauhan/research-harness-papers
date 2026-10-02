@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:30:46 2026
+# cwd: .
+# cmd: python method/run.py --system gumbel --task V4_L4 --seed 0 --steps 6000 --out results/raw/main_gumbel_V4_L4_s0.json
+
+{"heldout_acc": 0.0, "train_acc": 0.08695652335882187, "heldout_attr_acc": 0.375, "train_attr_acc": 0.498913049697876, "gen_gap": 0.08695652335882187, "topsim": 0.19540528785437086, "topsim_train": 0.19554380501603882, "n_unique_messages": 26.0, "symbols_used_per_position": 4.0, "shuffled_msg_heldout_attr_acc": 0.2211538404226303, "capacity_bits": 8.0, "wall_s": 27.429214000701904}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:43:13 2026
+# cwd: .
+# cmd: python method/run.py --system OP-full --task safe --seed 1 --out results/raw/abl_symmetry_opfull_safe_s1.json
+
+config: {"system": "OP-full", "task": "safe", "seed": 1, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/abl_symmetry_opfull_safe_s1.json"}
+metrics: {"self_play": 0.4999999403953552, "cross_play": 0.49999991059303284, "cross_play_min": 0.4999997317790985, "gap": 2.9802322387695312e-08, "entropy": 0.005365337245166302, "runtime_s": 2.346317768096924, "frac_safe": 1.0}

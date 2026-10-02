@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:38:29 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task lever --seed 2 --out results/raw/main_pbt_lever_s2.json
+
+config: {"system": "PBT", "task": "lever", "seed": 2, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_pbt_lever_s2.json"}
+metrics: {"self_play": 0.9750148057937622, "cross_play": 0.10172118991613388, "cross_play_min": 1.3487379874277394e-05, "gap": 0.8732936158776283, "entropy": 0.05847198888659477, "runtime_s": 9.385568141937256, "frac_special": 0.0}

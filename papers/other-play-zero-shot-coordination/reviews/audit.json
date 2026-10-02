@@ -1,0 +1,177 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and bit-reproducible, the code matches the paper, baselines are fair, citations are in context and the mixed/negative outcome is reported honestly. Two fixable major issues remain: the setup section's runtime claim is contradicted by the registry (runs up to 202 s, about 51-56 min total), and the abstract/conclusion claim that OP is sensitive to initial scale rests on a cross-play difference within one standard deviation with no reported test.",
+      "reran": [
+        {
+          "run": "Other-play/lever/1",
+          "metric": "cross_play",
+          "registry": 0.2474268525838852,
+          "rerun": 0.2474268525838852
+        },
+        {
+          "run": "Self-play/lever/1",
+          "metric": "cross_play",
+          "registry": 0.08947727829217911,
+          "rerun": 0.08947727829217911
+        },
+        {
+          "run": "Population (FCP-style)/signal/2",
+          "metric": "cross_play",
+          "registry": 0.32891616225242615,
+          "rerun": 0.32891616225242615
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/setup.tex (Protocol); experiments/PROTOCOL.md",
+          "issue": "States 'each run takes between 2 and 40 seconds, and the whole study well under 40 minutes'. Registry durations are 2.9-202.5 s with about 15 runs over 40 s (K=32 safe 46-65 s, K=32 signal 42-53 s, OP 15000 steps 62-75 s, three signal population-sweep runs at 78/200/202 s); summed duration is 51 min and wall clock 20:37-21:33 is about 56 min. PROTOCOL.md says 'under 15 s'.",
+          "fix": "Replace with the actual range (about 3-200 s per run, about 55 min total on a shared CPU) and correct PROTOCOL.md; note the stated 30-minute budget was exceeded."
+        },
+        {
+          "severity": "major",
+          "where": "paper/sections/abstract.tex, ablations.tex (Initialisation scale), limitations.tex, conclusion.tex",
+          "issue": "OP is claimed to be 'sensitive to initial scale' ('This shows OP's lever result is sensitive'), but cross-play 0.179+-0.076 (sd 0.5) vs 0.104+-0.036 (sd 4) is within one std; Welch p=0.096 (sd 1 vs sd 4: p=0.155), paired p=0.049 uncorrected. Table IV shows no stds and no test is reported.",
+          "fix": "Add stds and the test to Table IV/text and soften to 'cross-play tends to fall with init scale (not significant at 5 seeds)'; base the sensitivity statement on the self-play rise or frac_special, or add seeds."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2), ablations.tex (Training length)",
+          "issue": "Conjectured cause of OP's lever failure (vanishing gradient at saturated softmax) is probably wrong: the exact OP objective 0.9p^2+(1-p)^2/9 pushes away from lever 9 when p<0.11, and the fraction of agents initialised above 0.11 nearly reproduces frac_special per seed at sd 1 and sd 4. The suggested 'exact gradients' fix would not help.",
+          "fix": "State the basin-of-attraction explanation with the per-seed init check, and drop exact gradients as the natural next step (suggest init or entropy/exploration fixes instead)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, setup.tex",
+          "issue": "Shared random streams are not disclosed: SP and OP share initial logits per seed; the steps sweep runs are prefixes of one trajectory per seed, so constant frac_special 0.350 across lengths is largely by construction; the init sweep rescales the same draws; the K=1 population's stage-1 agents are exactly the SP agents.",
+          "fix": "Disclose the shared generator design and say the training-length sweep is one set of trajectories observed at four lengths, not independent replications."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex",
+          "issue": "'OP reaches perfect cross-play on the safe game': 0.5 is zero-gap, not perfect (maximum payoff is 1).",
+          "fix": "Say 'OP closes the gap on the safe game (cross-play 0.500 = self-play)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (H4), abstract.tex (H3)",
+          "issue": "H4 is headed 'Weakly supported' although p=0.16 and limitations call it inconclusive; the abstract says population 'lies between SP and OP on two games' although OP vs population on safe is p=0.08.",
+          "fix": "Label H4 'inconclusive (direction agrees)' and add 'in the mean' or the safe-game caveat to the abstract."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl, setup.tex, experiments/PROTOCOL.md",
+          "issue": "The seed-99 OP smoke test (paper: 'one'; PROTOCOL.md: 6 configs) is not in the registry; the registry was hand-deduplicated and 3 kept rows point at the other duplicate's log (runtime_s differs, payoff metrics identical); 5 orphan logs remain.",
+          "fix": "Log the smoke-test runs via rh run or state they were unlogged and how many configs; make the paper and PROTOCOL.md agree; note the log/row mismatch for the deduplicated rows."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex",
+          "issue": "Uncited or vague prior-work statements: 'Both are usually evaluated with deep networks ... training noise is large', 'weaker ... than the headline claims suggest', and 'their lever-game ... experiments use different (deep, or exact) learners'.",
+          "fix": "Cite or soften; say precisely what Hu et al. report for the lever game (the OP optimum is the distinct lever) and that the paper tests gradient dynamics, not the optimum."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Ablation rows show 'missing' deltas, and the lever row uses paired p=0.0489 while the paper uses Welch p=0.063; tier 1 is below the target tier 2.",
+          "fix": "Regenerate the verdict with ablation names mapped correctly and state which test is used; no change to the paper's conservative reading is needed."
+        }
+      ],
+      "commit": "2197b15835b47c0ddb6ade935c380530fbb72d57"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers, p-values and effect sizes were recomputed from the registry and match; four re-executed runs (method and baselines) reproduce the registry bit-for-bit, and the code implements what the paper describes with fairly configured baselines. The paper frames its mixed/negative outcome honestly (lever-game OP result called inconclusive at p=0.053, OP's gains on safe/signal attributed to trivial policies), citations are used in context, and the 5-page PDF renders correctly. Only minor wording and disclosure issues remain.",
+      "reran": [
+        {
+          "run": "Other-play/lever/0",
+          "metric": "cross_play",
+          "registry": 0.10302119702100754,
+          "rerun": 0.10302119702100754
+        },
+        {
+          "run": "Self-play/lever/0",
+          "metric": "cross_play",
+          "registry": 0.07895410805940628,
+          "rerun": 0.07895410805940628
+        },
+        {
+          "run": "Population (FCP-style)/safe/2",
+          "metric": "cross_play",
+          "registry": 0.49685138463974,
+          "rerun": 0.49685138463974
+        },
+        {
+          "run": "Other-play/signal/3",
+          "metric": "cross_play",
+          "registry": 0.3999978303909302,
+          "rerun": 0.3999978303909302
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Training length)",
+          "issue": "'Determined at initialisation, longer training cannot help; exact gradients would not either' is asserted but untested; a per-agent check shows 88/100 agents follow the 0.11 basin threshold and 12 cross it.",
+          "fix": "Soften to 'largely determined at initialisation' and report the per-agent agreement, or drop the exact-gradient assertion."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Population size), Table III",
+          "issue": "Lever sweep called 'flat within noise (0.084-0.108)' but K=32 (0.108+-0.009) vs K=1 (0.084+-0.018) is roughly Welch p~0.04, and Table III shows no standard deviations.",
+          "fix": "Add stds to Table III and say 'no consistent trend with K' instead of 'flat within noise'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Cost)",
+          "issue": "Runtimes '~2.5 s (OP), ~9 s (population)' are rounded up; registry means are 2.40 s and 8.42 s (6.8 s on safe).",
+          "fix": "Report the registry means or a per-task range."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex (contribution ii)",
+          "issue": "'Identical optimiser and step budget' conflicts with the setup's statement that the population method uses twice the updates per evaluated agent plus K extra SP agents.",
+          "fix": "Say 'identical optimiser and per-stage step budget; the population method uses more total compute'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, method.tex",
+          "issue": "'Both were introduced and evaluated with deep networks in settings such as Hanabi and Overcooked' omits that Hu et al. also demonstrate OP on the tabular lever game (acknowledged in related work); REINFORCE and Adam are used without citation.",
+          "fix": "Reword the sentence to mention the lever-game demonstration and add the two citations."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex, setup.tex (Registry note)",
+          "issue": "The paper discloses hand de-duplication but not that three kept rows point at the other duplicate's log (runtime differs) or that orphan logs remain; this is only in PROTOCOL.md. 'Durations from about 3 s' ignores the 1.2 s init_check runs.",
+          "fix": "Add one sentence on the three log mismatches and correct the duration range."
+        },
+        {
+          "severity": "minor",
+          "where": "results/RESULTS.md",
+          "issue": "'OP lever cross-play falls with init std' lacks the not-significant hedge used in the paper, and H3 is 'supported on safe and signal' without noting OP vs population on safe is p=0.08.",
+          "fix": "Align RESULTS.md wording with the paper's hedged statements."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Tables I and II (generated)",
+          "issue": "Bold/underline marks rank ties (0.500 vs 0.500 on safe, 0.000 cross_play_min on lever) on differences of about 1e-5.",
+          "fix": "Suppress best/second marking for values tied at displayed precision."
+        }
+      ],
+      "commit": "460708ee31dbbb5ebdd72680a36e1c255a7c6c30"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (3):\n! 1 failed runs in registry (fine, but check they were rerun)\n! numbers in prose not found in any table or run: results.tex: 1.6\n! verdict tier 1 < target 2: not significant on: safe\nREADY",
+      "response": "# Response to audit\n\n1. **Runtime (major)** \u2013 Fixed. setup.tex and PROTOCOL.md now state 3\u2013200 s per run, about 51 min summed (about 56 min wall clock), exceeding the nominal 30-minute budget; the limitations section repeats it.\n2. **OP \"sensitive to init scale\" (major)** \u2013 Fixed. Table IV now has OP cross-play stds, frac. special, and Welch p vs sd 4 (0.5 vs 4: p=0.096; 1 vs 4: p=0.155), generated by `experiments/make_sweeps.py`. Abstract, ablation text, limitations and conclusion now say cross-play \"tends to fall\", not significant at 5 seeds; the sturdier signal is the fall in frac. special (0.35 to 0.18).\n3. **Wrong cause of lever failure (minor)** \u2013 Fixed. Replaced the saturated-gradient conjecture with the basin-of-attraction explanation (threshold 0.11). Per-seed check run through `rh run` (group `init_check`, `experiments/init_check.py`): fraction initialised above 0.11 is 0.33 (sd 1) and 0.17 (sd 4), against final frac. special 0.35 and 0.18 (Table IV). Dropped \"exact gradients\" as a next step; it now says they would not help.\n4. **Shared random streams (minor)** \u2013 Disclosed in setup.tex and PROTOCOL.md; the training-length sweep is described as one trajectory per seed observed at four lengths.\n5. **\"Perfect cross-play\" on safe (minor)** \u2013 Reworded: \"closes the gap (cross-play 0.500 = self-play)\", in results and conclusion.\n6. **H4 label / abstract H3 (minor)** \u2013 H4 now \"Inconclusive (direction agrees)\". The abstract says \"in the mean\" and gives the safe-game OP vs population p=0.08.\n7. **Smoke test / registry (minor)** \u2013 Paper and PROTOCOL.md now agree: 6 configs, seed 99, not logged. PROTOCOL.md notes the hand deduplication and that three kept rows point at the other duplicate's log (payoff metrics identical, runtime differs). Orphan logs not removed. The registry also holds one failed sanity run (an earlier smoke test), kept visible.\n8. **Uncited prior-work statements (minor)** \u2013 Introduction now says the methods were introduced with deep networks in Hanabi/Overcooked (no claim about noise); the \"headline claims\" phrasing was removed; related work says Hu et al. report the distinct lever as the OP optimum and that we test learning dynamics, not the optimum.\n9. **VERDICT.md (minor)** \u2013 Regenerated and annotated: the harness uses paired p (0.0489), the paper uses Welch p (0.053/0.063); the \"missing\" ablation rows are a harness name-mapping limitation, and the ablations are evaluated in the paper. Tier 1 is unchanged; no change to the paper's conservative reading.\n\n`rh check` prints READY. Remaining warnings: the failed sanity run, \"1.6\" (Cohen's d from `rh compare`), and verdict tier 1.\n",
+      "seconds": 129
+    }
+  ]
+}

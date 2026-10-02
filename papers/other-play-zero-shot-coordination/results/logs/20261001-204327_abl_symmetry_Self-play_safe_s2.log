@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:43:27 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task safe --seed 2 --out results/raw/abl_symmetry_sp_safe_s2.json
+
+config: {"system": "SP", "task": "safe", "seed": 2, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/abl_symmetry_sp_safe_s2.json"}
+metrics: {"self_play": 0.9998189806938171, "cross_play": 0.23686876893043518, "cross_play_min": 4.65721677755937e-05, "gap": 0.762950211763382, "entropy": 0.001260972348973155, "runtime_s": 1.9978277683258057, "frac_safe": 0.0}

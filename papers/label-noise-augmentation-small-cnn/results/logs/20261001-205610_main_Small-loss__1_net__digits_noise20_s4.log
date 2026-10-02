@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 20:56:10 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.2 --system smallloss --seed 4 --out results/raw/main_Small_loss__1_net__digits_noise20_s4.json
+
+config {"system": "smallloss", "noise": 0.2, "seed": 4, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/main_Small_loss__1_net__digits_noise20_s4.json"}
+curve(epoch,test_acc) [(5, 0.8414464534075105), (10, 0.8525730180806675), (15, 0.8317107093184979), (20, 0.9193324061196105), (25, 0.9360222531293463), (30, 0.9443671766342142), (35, 0.9457579972183588), (40, 0.9401947148817803), (45, 0.9276773296244785), (50, 0.933240611961057), (55, 0.933240611961057), (60, 0.933240611961057)]
+metrics {"test_acc": 0.933240611961057, "train_fit_noisy": 0.8877551020408163, "mem_rate": 0.46875, "recover_rate": 0.4955357142857143, "clean_fit": 0.9976580796252927, "mem_gap": -0.0267857142857143, "n_corrupt": 224, "runtime_s": 32.7122642993927}

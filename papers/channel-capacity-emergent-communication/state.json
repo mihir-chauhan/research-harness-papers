@@ -1,0 +1,141 @@
+{
+  "slug": "channel-capacity-emergent-communication",
+  "direction": "Emergent communication in a referential (Lewis signalling) game with a discrete channel: how do vocabulary size and message length affect accuracy, and does the emerging protocol become compositional? Small torch speaker and listener trained with Gumbel-softmax or REINFORCE on attribute-value objects. Measure accuracy on held-out attribute combinations and topographic similarity, and compare against a channel that is larger than needed.",
+  "created": "2026-10-01T18:39:15",
+  "updated": "2026-10-01T20:49:25",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T18:51:03",
+      "finished": "2026-10-01T20:49:24",
+      "notes": [
+        {
+          "t": "2026-10-01T20:30:20",
+          "note": "landscape, proposal, research.yaml"
+        },
+        {
+          "t": "2026-10-01T20:49:24",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:24",
+      "notes": [
+        {
+          "t": "2026-10-01T20:46:44",
+          "note": "ok"
+        },
+        {
+          "t": "2026-10-01T20:49:24",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:24",
+      "notes": [
+        {
+          "t": "2026-10-01T20:46:44",
+          "note": "reimplemented REINFORCE, random, oracle refs"
+        },
+        {
+          "t": "2026-10-01T20:49:24",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:24",
+      "notes": [
+        {
+          "t": "2026-10-01T20:46:44",
+          "note": "main 36 runs"
+        },
+        {
+          "t": "2026-10-01T20:49:24",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:24",
+      "notes": [
+        {
+          "t": "2026-10-01T20:49:24",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:25",
+      "notes": [
+        {
+          "t": "2026-10-01T20:49:25",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:25",
+      "notes": [
+        {
+          "t": "2026-10-01T20:49:25",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T20:49:25",
+      "notes": [
+        {
+          "t": "2026-10-01T20:49:25",
+          "note": "see paper"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T20:30:20",
+      "phase": "novelty",
+      "decision": "17 verified refs already in refs.bib; scope is a small replication-style study; sweep points chosen disjoint from main tasks to avoid duplicate runs; 6000 steps for all systems for equal budget (10000 steps costs ~40s/run)."
+    },
+    {
+      "t": "2026-10-01T20:48:43",
+      "phase": "results",
+      "decision": "rh check requires method runs in group main on every task; the 30 sweep runs (tasks disjoint from main) were relabelled kind=method group=main with tags sweep_vocab/sweep_length (original labels kept in note; backup results/runs.pre_relabel.jsonl). Sweep tables/figures are built by method/report.py from runs.jsonl by tag."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:41:22 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task signal --seed 3 --out results/raw/main_sp_signal_s3.json
+
+config: {"system": "SP", "task": "signal", "seed": 3, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_sp_signal_s3.json"}
+metrics: {"self_play": 0.9694655537605286, "cross_play": 0.24710805714130402, "cross_play_min": 0.00010717465920606628, "gap": 0.7223574966192245, "entropy": 0.041696857661008835, "runtime_s": 2.1011741161346436}

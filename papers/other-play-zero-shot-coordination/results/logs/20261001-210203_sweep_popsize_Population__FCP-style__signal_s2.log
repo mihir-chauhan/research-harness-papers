@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:02:03 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task signal --seed 2 --pop_size 2 --out results/raw/sweep_popsize_K2_signal_s2.json
+
+config: {"system": "PBT", "task": "signal", "seed": 2, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 2, "out": "results/raw/sweep_popsize_K2_signal_s2.json"}
+metrics: {"self_play": 0.7130794525146484, "cross_play": 0.3175444006919861, "cross_play_min": 0.0001797076256480068, "gap": 0.39553505182266235, "entropy": 0.08555077016353607, "runtime_s": 7.831027030944824}

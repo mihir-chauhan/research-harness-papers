@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 21:20:30 2026
+# cwd: .
+# cmd: python method/run.py --system gumbel --task V4_L4 --seed 2 --steps 20000 --curve results/raw/curve_gumbel_V4_L4_s2.csv --out results/raw/longtrain_gumbel_V4_L4_s2.json
+
+{"heldout_acc": 0.0, "train_acc": 0.008695651777088642, "heldout_attr_acc": 0.19230769574642181, "train_attr_acc": 0.260869562625885, "gen_gap": 0.008695651777088642, "topsim": 0.0, "topsim_train": 0.002088021059877654, "n_unique_messages": 2.0, "symbols_used_per_position": 1.25, "shuffled_msg_heldout_attr_acc": 0.19230769574642181, "capacity_bits": 8.0, "wall_s": 156.97579884529114}

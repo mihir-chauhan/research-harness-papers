@@ -1,0 +1,25 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & test\_acc $\uparrow$ & mem\_rate $\downarrow$ & recover\_rate $\uparrow$ & mem\_gap $\downarrow$ & $n$ \\
+\midrule
+CE & digits\_noise0 & 0.991 $\pm$ 0.003 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Mixup & digits\_noise0 & \underline{0.993 $\pm$ 0.002} & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+Label smoothing & digits\_noise0 & \textbf{0.995 $\pm$ 0.001} & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+\textbf{Small-loss (1 net)} & digits\_noise0 & 0.991 $\pm$ 0.003 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 5 \\
+\midrule
+CE & digits\_noise20 & 0.897 $\pm$ 0.017 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 5 \\
+Mixup & digits\_noise20 & \underline{0.921 $\pm$ 0.013} & \underline{0.919 $\pm$ 0.019} & \underline{0.079 $\pm$ 0.019} & \underline{0.839 $\pm$ 0.038} & 5 \\
+Label smoothing & digits\_noise20 & 0.894 $\pm$ 0.012 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 5 \\
+\textbf{Small-loss (1 net)} & digits\_noise20 & \textbf{0.943 $\pm$ 0.017} & \textbf{0.419 $\pm$ 0.056} & \textbf{0.550 $\pm$ 0.063} & \textbf{-0.132 $\pm$ 0.119} & 5 \\
+\midrule
+CE & digits\_noise40 & 0.709 $\pm$ 0.035 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & 5 \\
+Mixup & digits\_noise40 & \underline{0.762 $\pm$ 0.030} & \underline{0.892 $\pm$ 0.006} & \underline{0.073 $\pm$ 0.016} & \underline{0.819 $\pm$ 0.020} & 5 \\
+Label smoothing & digits\_noise40 & 0.668 $\pm$ 0.028 & 0.999 $\pm$ 0.002 & 0.000 $\pm$ 0.000 & 0.999 $\pm$ 0.002 & 5 \\
+\textbf{Small-loss (1 net)} & digits\_noise40 & \textbf{0.896 $\pm$ 0.018} & \textbf{0.280 $\pm$ 0.037} & \textbf{0.649 $\pm$ 0.048} & \textbf{-0.370 $\pm$ 0.084} & 5 \\
+\midrule
+CE & digits\_noise60 & 0.436 $\pm$ 0.039 & 0.995 $\pm$ 0.008 & 0.001 $\pm$ 0.002 & 0.994 $\pm$ 0.010 & 5 \\
+Mixup & digits\_noise60 & \underline{0.523 $\pm$ 0.032} & \underline{0.853 $\pm$ 0.049} & \underline{0.078 $\pm$ 0.020} & \underline{0.775 $\pm$ 0.066} & 5 \\
+Label smoothing & digits\_noise60 & 0.410 $\pm$ 0.041 & 0.994 $\pm$ 0.007 & 0.001 $\pm$ 0.002 & 0.993 $\pm$ 0.009 & 5 \\
+\textbf{Small-loss (1 net)} & digits\_noise60 & \textbf{0.771 $\pm$ 0.035} & \textbf{0.230 $\pm$ 0.025} & \textbf{0.625 $\pm$ 0.035} & \textbf{-0.395 $\pm$ 0.059} & 5 \\
+\bottomrule
+\end{tabular}

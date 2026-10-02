@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:42:00 2026
+# cwd: .
+# cmd: python method/run.py --system OP-full --task lever --seed 0 --out results/raw/abl_symmetry_opfull_lever_s0.json
+
+config: {"system": "OP-full", "task": "lever", "seed": 0, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/abl_symmetry_opfull_lever_s0.json"}
+metrics: {"self_play": 0.6292017698287964, "cross_play": 0.09666778892278671, "cross_play_min": 0.0016669334145262837, "gap": 0.5325339809060097, "entropy": 0.7920921444892883, "runtime_s": 2.7423129081726074, "frac_special": 0.0}

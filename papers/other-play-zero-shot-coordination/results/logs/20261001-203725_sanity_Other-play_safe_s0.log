@@ -1,0 +1,13 @@
+# rh run | Thu Oct  1 20:37:25 2026
+# cwd: .
+# cmd: python method/run.py --system OP --task safe --seed 0 --out results/raw/sanity_op_safe.json
+
+config: {"system": "OP", "task": "safe", "seed": 0, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/sanity_op_safe.json"}
+metrics: {"self_play": 0.4999779760837555, "cross_play": 0.4999749958515167, "cross_play_min": 0.49994567036628723, "gap": 2.9802322387695312e-06, "entropy": 0.06829985231161118, "runtime_s": 2.056281805038452, "frac_safe": 1.0}
+Traceback (most recent call last):
+  File "method/run.py", line 222, in <module>
+    main()
+  File "method/run.py", line 218, in main
+    json.dump(out, open(args.out, "w"))
+                   ^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/sanity_op_safe.json'

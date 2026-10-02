@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:40:54 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task signal --seed 1 --out results/raw/main_pbt_signal_s1.json
+
+config: {"system": "PBT", "task": "signal", "seed": 1, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_pbt_signal_s1.json"}
+metrics: {"self_play": 0.7019975781440735, "cross_play": 0.34178346395492554, "cross_play_min": 0.00036024104338139296, "gap": 0.36021411418914795, "entropy": 0.06656891107559204, "runtime_s": 9.713392972946167}

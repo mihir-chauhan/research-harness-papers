@@ -1,0 +1,25 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,heldout_acc,3,0.012820513298114141,0.022205780411446125,0.0,0.03846153989434242,0.0,0.03846153989434242
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,train_acc,3,0.005797101184725761,0.005020436894281375,0.0,0.008695651777088642,0.0,0.008695651777088642
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,heldout_attr_acc,3,0.20833333333333334,0.036403259081069866,0.18269230425357819,0.25,0.18269230425357819,0.25
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,train_attr_acc,3,0.25724637508392334,0.006275544908028206,0.25,0.260869562625885,0.25,0.260869562625885
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,gen_gap,3,-0.007023412113388379,0.0272262173057275,-0.03846153989434242,0.008695651777088642,-0.03846153989434242,0.008695651777088642
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,topsim,3,0.0,0.0,0.0,0.0,0.0,0.0
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,topsim_train,3,0.0014932912415940754,0.0013021203708641876,0.0,0.002391852664904572,0.0,0.002391852664904572
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,n_unique_messages,3,1.6666666666666667,0.5773502691896257,1.0,2.0,1.0,2.0
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,symbols_used_per_position,3,1.1666666666666667,0.14433756729740646,1.0,1.25,1.0,1.25
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,shuffled_msg_heldout_attr_acc,3,0.20833333333333334,0.036403259081069866,0.18269230425357819,0.25,0.18269230425357819,0.25
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,capacity_bits,3,8.0,0.0,8.0,8.0,8.0,8.0
+abl_longtrain,V4_L4,ablation,Gumbel-softmax sender-receiver,wall_s,3,208.73782674471536,49.70740567439852,156.97579884529114,256.09779620170593,156.97579884529114,256.09779620170593
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),heldout_acc,3,0.0,0.0,0.0,0.0,0.0,0.0
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),train_acc,3,0.4985507329305013,0.12300072837521361,0.35652172565460205,0.5695652365684509,0.35652172565460205,0.5695652365684509
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),heldout_attr_acc,3,0.5737179716428121,0.038860112570649114,0.5384615659713745,0.6153846383094788,0.5384615659713745,0.6153846383094788
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),train_attr_acc,3,0.8351449171702067,0.07373966405660418,0.75,0.8782608509063721,0.75,0.8782608509063721
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),gen_gap,3,0.4985507329305013,0.12300072837521361,0.35652172565460205,0.5695652365684509,0.35652172565460205,0.5695652365684509
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),topsim,3,0.3075420823259671,0.02430827155690895,0.2794751303754418,0.32185254609808656,0.2794751303754418,0.32185254609808656
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),topsim_train,3,0.31446613844440646,0.022893301159310576,0.2885084831176492,0.33177547825115167,0.2885084831176492,0.33177547825115167
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),n_unique_messages,3,117.0,27.730849247724095,85.0,134.0,85.0,134.0
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),symbols_used_per_position,3,4.0,0.0,4.0,4.0,4.0,4.0
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),shuffled_msg_heldout_attr_acc,3,0.24679487446943918,0.05295741632339483,0.21153846383094788,0.3076923191547394,0.21153846383094788,0.3076923191547394
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),capacity_bits,3,8.0,0.0,8.0,8.0,8.0,8.0
+abl_longtrain,V4_L4,ablation,REINFORCE sender (reimplemented),wall_s,3,230.86138526598612,56.587296138693695,175.1721658706665,288.3059141635895,175.1721658706665,288.3059141635895

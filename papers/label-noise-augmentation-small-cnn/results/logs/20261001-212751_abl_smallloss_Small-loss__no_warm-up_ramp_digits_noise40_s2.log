@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:27:51 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --seed 2 --system smallloss --sl_warmup 0 --sl_ramp 1 --out results/raw/abl_smallloss_sl_warmup_0_s2.json
+
+config {"system": "smallloss", "noise": 0.4, "seed": 2, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 1.0, "sl_warmup": 0, "sl_ramp": 1, "sl_rate": -1.0, "out": "results/raw/abl_smallloss_sl_warmup_0_s2.json"}
+curve(epoch,test_acc) [(5, 0.7482614742698191), (10, 0.8984700973574409), (15, 0.9443671766342142), (20, 0.8915159944367177), (25, 0.9221140472878998), (30, 0.9248956884561892), (35, 0.9054242002781642), (40, 0.9221140472878998), (45, 0.9095966620305981), (50, 0.9123783031988874), (55, 0.9068150208623088), (60, 0.9054242002781642)]
+metrics {"test_acc": 0.9054242002781642, "train_fit_noisy": 0.6493506493506493, "mem_rate": 0.15848214285714285, "recover_rate": 0.7723214285714286, "clean_fit": 0.9984126984126984, "mem_gap": -0.6138392857142858, "n_corrupt": 448, "runtime_s": 24.567948818206787}

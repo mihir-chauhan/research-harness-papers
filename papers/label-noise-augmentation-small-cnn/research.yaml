@@ -1,0 +1,82 @@
+slug: label-noise-augmentation-small-cnn
+direction: 'Robustness of a small CNN to label noise on a small image dataset (scikit-learn
+  8x8 digits, or a subset of MNIST if a download under 20 MB is available): compare
+  plain cross-entropy, label smoothing, mixup and a simple small-loss sample selection
+  (co-teaching style with one network) at symmetric noise rates of 0, 20, 40 and 60
+  percent. Report clean test accuracy and the gap between memorised and clean labels.'
+problem: Small CNNs memorise noisy labels; which simple training-time remedy limits
+  the damage on a tiny image dataset?
+gap: Equal-budget, multi-seed comparison of CE, label smoothing, mixup and single-network
+  small-loss selection with a direct memorisation measure.
+contribution: A controlled small-scale comparison with a memorised-vs-clean gap metric
+  and sensitivity analyses; no new algorithm claimed.
+hypotheses:
+- id: H1
+  statement: CE memorises (mem_rate>0.9) and loses >10 points test acc at 40/60% noise
+  test: mean over 5 seeds
+- id: H2
+  statement: Label smoothing gains <3 points over CE at 40% noise
+  test: paired t-test over seeds
+- id: H3
+  statement: Mixup lowers mem_rate and raises test acc vs CE at 20-60% noise
+  test: paired t-test
+- id: H4
+  statement: Small-loss (known rate) is best at 40/60% noise but worse than CE at
+    0%
+  test: paired t-test
+- id: H5
+  statement: Small-loss gain depends on correct assumed forget rate
+  test: abl_smallloss group
+method:
+  name: Small-loss (1 net)
+  summary: Per-batch selection of the lowest-loss (1-r_t) fraction of samples with
+    a ramped forget rate, single network.
+  components:
+  - warm-up
+  - forget-rate ramp
+  - known noise rate
+  entrypoint: method/run.py
+tasks:
+- digits_noise0
+- digits_noise20
+- digits_noise40
+- digits_noise60
+metrics:
+  test_acc:
+    higher_is_better: true
+  mem_rate:
+    higher_is_better: false
+  recover_rate:
+    higher_is_better: true
+  mem_gap:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- CE
+- Label smoothing
+- Mixup
+ablations:
+- Small-loss, no warm-up/ramp
+ambition:
+  target_tier: 2
+  primary_metric: test_acc
+  primary_task: digits_noise40
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

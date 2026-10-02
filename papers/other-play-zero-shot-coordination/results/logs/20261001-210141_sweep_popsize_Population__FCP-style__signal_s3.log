@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:01:41 2026
+# cwd: .
+# cmd: python method/run.py --system PBT --task signal --seed 3 --pop_size 1 --out results/raw/sweep_popsize_K1_signal_s3.json
+
+config: {"system": "PBT", "task": "signal", "seed": 3, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 1, "out": "results/raw/sweep_popsize_K1_signal_s3.json"}
+metrics: {"self_play": 0.982056736946106, "cross_play": 0.24379558861255646, "cross_play_min": 0.00014795860624872148, "gap": 0.7382611483335495, "entropy": 0.0349452905356884, "runtime_s": 4.227602005004883}

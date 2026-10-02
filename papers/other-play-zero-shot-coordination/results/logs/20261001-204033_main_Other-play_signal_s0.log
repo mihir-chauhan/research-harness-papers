@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 20:40:33 2026
+# cwd: .
+# cmd: python method/run.py --system OP --task signal --seed 0 --out results/raw/main_op_signal_s0.json
+
+config: {"system": "OP", "task": "signal", "seed": 0, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_op_signal_s0.json"}
+metrics: {"self_play": 0.3997567594051361, "cross_play": 0.3998161256313324, "cross_play_min": 0.3990718126296997, "gap": -5.936622619628906e-05, "entropy": 0.5241201519966125, "runtime_s": 2.312915325164795}
+

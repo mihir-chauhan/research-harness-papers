@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:15:21 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.6 --system ce --seed 2 --out results/raw/main_CE_digits_noise60_s2.json
+
+config {"system": "ce", "noise": 0.6, "seed": 2, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/main_CE_digits_noise60_s2.json"}
+curve(epoch,test_acc) [(5, 0.5577190542420027), (10, 0.4993045897079277), (15, 0.4965229485396384), (20, 0.5006954102920723), (25, 0.41168289290681503), (30, 0.36856745479833103), (35, 0.3949930458970793), (40, 0.4047287899860918), (45, 0.40055632823365783), (50, 0.3991655076495132), (55, 0.3991655076495132), (60, 0.4019471488178025)]
+metrics {"test_acc": 0.4019471488178025, "train_fit_noisy": 0.9972170686456401, "mem_rate": 0.9956331877729258, "recover_rate": 0.0, "clean_fit": 1.0, "mem_gap": 0.9956331877729258, "n_corrupt": 687, "runtime_s": 29.1702618598938}

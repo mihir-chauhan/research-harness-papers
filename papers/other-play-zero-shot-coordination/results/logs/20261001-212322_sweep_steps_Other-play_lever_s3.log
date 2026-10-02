@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:23:22 2026
+# cwd: .
+# cmd: python method/run.py --system OP --task lever --seed 3 --steps 5000 --out results/raw/sweep_steps_op_st5000_lever_s3.json
+
+config: {"system": "OP", "task": "lever", "seed": 3, "n_agents": 20, "steps": 5000, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/sweep_steps_op_st5000_lever_s3.json"}
+metrics: {"self_play": 0.8887931704521179, "cross_play": 0.12669622898101807, "cross_play_min": 9.846562534221448e-07, "gap": 0.7620969414710999, "entropy": 0.18164527416229248, "runtime_s": 12.597355842590332, "frac_special": 0.30000001192092896}

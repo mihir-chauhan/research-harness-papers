@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:41:05 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task signal --seed 2 --out results/raw/main_sp_signal_s2.json
+
+config: {"system": "SP", "task": "signal", "seed": 2, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_sp_signal_s2.json"}
+metrics: {"self_play": 0.9795060157775879, "cross_play": 0.2500329613685608, "cross_play_min": 0.0001022352953441441, "gap": 0.7294730544090271, "entropy": 0.009567628614604473, "runtime_s": 2.0777957439422607}

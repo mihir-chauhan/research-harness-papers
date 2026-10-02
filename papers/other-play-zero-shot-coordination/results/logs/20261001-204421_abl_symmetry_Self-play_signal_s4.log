@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:44:21 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task signal --seed 4 --out results/raw/abl_symmetry_sp_signal_s4.json
+
+config: {"system": "SP", "task": "signal", "seed": 4, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/abl_symmetry_sp_signal_s4.json"}
+metrics: {"self_play": 0.9795681238174438, "cross_play": 0.24629466235637665, "cross_play_min": 9.261733066523448e-05, "gap": 0.7332734614610672, "entropy": 0.004557669162750244, "runtime_s": 1.947788953781128}

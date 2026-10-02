@@ -1,0 +1,124 @@
+{
+  "slug": "label-noise-augmentation-small-cnn",
+  "direction": "Robustness of a small CNN to label noise on a small image dataset (scikit-learn 8x8 digits, or a subset of MNIST if a download under 20 MB is available): compare plain cross-entropy, label smoothing, mixup and a simple small-loss sample selection (co-teaching style with one network) at symmetric noise rates of 0, 20, 40 and 60 percent. Report clean test accuracy and the gap between memorised and clean labels.",
+  "created": "2026-10-01T18:39:31",
+  "updated": "2026-10-01T21:38:30",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:42:25",
+      "finished": "2026-10-01T21:38:22",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:22",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:22",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:22",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:22",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:22",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:22",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:22",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:23",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:23",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:23",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:23",
+          "note": "see RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:23",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:23",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:38:30",
+      "notes": [
+        {
+          "t": "2026-10-01T21:38:23",
+          "note": "5 pages"
+        },
+        {
+          "t": "2026-10-01T21:38:30",
+          "note": "5 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T20:48:19",
+      "phase": "experiments",
+      "decision": "First launch used bash 3 'declare -A' (unsupported): all runs got the same wrong name; stopped after 8 runs, moved them to results/discarded_launcher_bug, fixed launcher, relaunched full grid. No result was inspected for selection."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

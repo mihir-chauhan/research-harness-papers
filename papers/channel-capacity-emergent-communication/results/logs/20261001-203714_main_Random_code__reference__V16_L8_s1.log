@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:37:14 2026
+# cwd: .
+# cmd: python method/run.py --system random_code --task V16_L8 --seed 1 --steps 6000 --out results/raw/main_random_code_V16_L8_s1.json
+
+{"heldout_acc": 0.0, "train_acc": 1.0, "heldout_attr_acc": 0.25961539149284363, "train_attr_acc": 1.0, "gen_gap": 1.0, "topsim": 0.008055484730579815, "topsim_train": 0.007033195022327788, "n_unique_messages": 256.0, "symbols_used_per_position": 16.0, "shuffled_msg_heldout_attr_acc": 0.32692307233810425, "capacity_bits": 32.0, "wall_s": 16.048847913742065}

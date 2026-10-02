@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 21:30:00 2026
+# cwd: .
+# cmd: python method/run.py --system reinforce --task V4_L4 --seed 2 --steps 20000 --curve results/raw/curve_reinforce_V4_L4_s2.csv --out results/raw/longtrain_reinforce_V4_L4_s2.json
+
+{"heldout_acc": 0.0, "train_acc": 0.5695652365684509, "heldout_attr_acc": 0.567307710647583, "train_attr_acc": 0.877173900604248, "gen_gap": 0.5695652365684509, "topsim": 0.3212985705043729, "topsim_train": 0.33177547825115167, "n_unique_messages": 132.0, "symbols_used_per_position": 4.0, "shuffled_msg_heldout_attr_acc": 0.21153846383094788, "capacity_bits": 8.0, "wall_s": 288.3059141635895}

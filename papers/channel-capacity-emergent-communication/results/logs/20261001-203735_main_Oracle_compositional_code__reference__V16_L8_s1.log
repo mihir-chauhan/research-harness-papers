@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:37:35 2026
+# cwd: .
+# cmd: python method/run.py --system oracle_comp --task V16_L8 --seed 1 --steps 6000 --out results/raw/main_oracle_comp_V16_L8_s1.json
+
+{"heldout_acc": 0.8461538553237915, "train_acc": 1.0, "heldout_attr_acc": 0.9519230723381042, "train_attr_acc": 1.0, "gen_gap": 0.1538461446762085, "topsim": 1.0, "topsim_train": 1.0, "n_unique_messages": 256.0, "symbols_used_per_position": 2.5, "shuffled_msg_heldout_attr_acc": 0.29807692766189575, "capacity_bits": 32.0, "wall_s": 18.28265380859375}

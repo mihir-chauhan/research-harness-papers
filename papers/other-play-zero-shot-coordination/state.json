@@ -1,0 +1,125 @@
+{
+  "slug": "other-play-zero-shot-coordination",
+  "direction": "Zero-shot coordination in small symmetric games: independently trained self-play agents often fail to coordinate with each other. Reproduce this in the lever game and a small matrix or signalling game, and compare self-play, other-play (training under the game's symmetries) and population-based training on cross-play score between independently trained agents.",
+  "created": "2026-10-01T18:39:23",
+  "updated": "2026-10-01T21:36:38",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:29:14",
+      "finished": "2026-10-01T21:36:37",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T20:37:24",
+      "finished": "2026-10-01T20:37:28",
+      "notes": [
+        {
+          "t": "2026-10-01T20:37:28",
+          "note": "method/run.py implemented, smoke tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-01T20:37:45",
+      "finished": "2026-10-01T21:36:37",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-01T20:37:45",
+      "finished": "2026-10-01T21:36:37",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:36:38",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:38",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:36:38",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:38",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:36:38",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:38",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:36:38",
+      "notes": [
+        {
+          "t": "2026-10-01T21:36:38",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T20:37:16",
+      "phase": "novelty",
+      "decision": "Second game: safe-option matrix game plus a signalling game; exact evaluation; hyperparameters fixed a priori and shared across systems; population method is FCP-style (SP population then best response)."
+    },
+    {
+      "t": "2026-10-01T21:36:38",
+      "phase": "experiments",
+      "decision": "Removed duplicated registry rows (identical values) from overlapping drivers; sweeps via experiments/make_sweeps.py from runs.jsonl"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

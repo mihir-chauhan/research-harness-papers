@@ -1,0 +1,13 @@
+Let $\{(x_i,\tilde y_i)\}_{i=1}^n$ be the training set with observed labels $\tilde y_i\in\{1..K\}$, $K{=}10$, and let $f_\theta(x)$ be the logits of the network with softmax $p_\theta$. All systems use the same network and optimiser and differ only in the per-batch loss $\mathcal L$ on a mini-batch $B$.
+
+\textbf{Symmetric noise.} With rate $r$, each training label is kept with probability $1-r$ and otherwise replaced by a uniformly chosen different class, $\tilde y_i=y_i$ w.p.\ $1-r$ and $\tilde y_i\sim \mathrm{U}(\{1..K\}\setminus y_i)$ w.p.\ $r$. Test labels are clean.
+
+\textbf{CE.} $\mathcal L_{\rm CE}=\frac1{|B|}\sum_{i\in B}-\log p_\theta(\tilde y_i\mid x_i)$.
+
+\textbf{Label smoothing (reimplemented)~\cite{mller2019when}.} With target $q_\epsilon=(1-\epsilon)\,e_{\tilde y}+\epsilon/K$ (implemented by the framework option, which uses $\epsilon/K$ on all classes): $\mathcal L_{\rm LS}=\frac1{|B|}\sum_{i\in B}-\sum_k q_\epsilon(k)\log p_\theta(k\mid x_i)$, $\epsilon=0.1$ in the main grid.
+
+\textbf{Mixup (reimplemented)~\cite{zhang2017mixup}.} Draw $\lambda\sim\mathrm{Beta}(\alpha,\alpha)$ per batch, a permutation $\pi$ of the batch, $\bar x_i=\lambda x_i+(1-\lambda)x_{\pi(i)}$ and $\mathcal L_{\rm mix}=\frac1{|B|}\sum_i\big[\lambda\,\ell(f_\theta(\bar x_i),\tilde y_i)+(1-\lambda)\,\ell(f_\theta(\bar x_i),\tilde y_{\pi(i)})\big]$, with $\ell$ the CE; $\alpha=1$ in the main grid.
+
+\textbf{Small-loss selection, one network (reimplemented, co-teaching style~\cite{han2018co}).} With per-example losses $\ell_i$ and forget rate $r_t$ at epoch $t$, keep the $\max\{1,\mathrm{round}((1-r_t)|B|)\}$ examples with the smallest $\ell_i$ in the batch, $S_t(B)$, and minimise $\mathcal L_{\rm SL}=\frac1{|S_t(B)|}\sum_{i\in S_t(B)}\ell_i$ (selection is not differentiated). The forget rate is $r_t=0$ for the first $T_w{=}10$ epochs, then $r_t=r\cdot\min\{1,(t-T_w+1)/T_r\}$ with $T_r{=}10$. In the main grid $r$ is the true noise rate; this is an oracle assumption that a practitioner does not have, and Sec.~\ref{sec:ablations} varies it. Because $r{=}0$ at 0\% noise, this system then reduces exactly to CE.
+
+\textbf{Memorisation metrics.} Let $C=\{i:\tilde y_i\ne y_i\}$ be the corrupted training examples and $\hat y_i$ the final prediction (eval mode, no augmentation). $\text{mem\_rate}=\frac1{|C|}\sum_{i\in C}\mathbb 1[\hat y_i=\tilde y_i]$, $\text{recover\_rate}=\frac1{|C|}\sum_{i\in C}\mathbb 1[\hat y_i=y_i]$, $\text{mem\_gap}=\text{mem\_rate}-\text{recover\_rate}\in[-1,1]$: $+1$ means every corrupted label is memorised, $-1$ means every corrupted example is classified by its true class. At 0\% noise $C=\emptyset$ and the three are defined as 0.

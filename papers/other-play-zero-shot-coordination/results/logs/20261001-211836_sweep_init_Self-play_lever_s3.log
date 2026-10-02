@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:18:36 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task lever --seed 3 --init_std 0.25 --out results/raw/sweep_init_sp_sd0.25_lever_s3.json
+
+config: {"system": "SP", "task": "lever", "seed": 3, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 0.25, "pop_size": 8, "out": "results/raw/sweep_init_sp_sd0.25_lever_s3.json"}
+metrics: {"self_play": 0.9846900105476379, "cross_play": 0.061591263860464096, "cross_play_min": 8.875536877894774e-06, "gap": 0.9230987466871738, "entropy": 0.001855338690802455, "runtime_s": 4.703240871429443, "frac_special": 0.15000000596046448}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:43:42 2026
+# cwd: .
+# cmd: python method/run.py --system OP --task safe --seed 4 --out results/raw/abl_symmetry_op_safe_s4.json
+
+config: {"system": "OP", "task": "safe", "seed": 4, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/abl_symmetry_op_safe_s4.json"}
+metrics: {"self_play": 0.4999796450138092, "cross_play": 0.49997368454933167, "cross_play_min": 0.49994829297065735, "gap": 5.9604644775390625e-06, "entropy": 0.06962265074253082, "runtime_s": 2.1599228382110596, "frac_safe": 1.0}

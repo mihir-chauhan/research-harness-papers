@@ -1,0 +1,13 @@
+\textbf{Game.} An object $o=(o_1,\dots,o_4)$, $o_a\in\{1..4\}$, is shown to the speaker as a concatenation of one-hot vectors $x$. The speaker emits $m=(m_1,\dots,m_L)$, $m_t\in\{1..V\}$. The listener outputs, for every attribute $a$, a distribution $q_a(\cdot\mid m)$. The loss is $\mathcal L=\mathbb E_o\big[-\sum_{a}\log q_a(o_a\mid m)\big]$.
+
+\textbf{Speaker.} $h_0=\tanh(W x)$, $h_t=\mathrm{GRU}(E\,m_{t-1},h_{t-1})$ with $m_0$ a learned start vector, and $\pi_t=\mathrm{softmax}(U h_t)$ over $V$ symbols; hidden size 64. \textbf{Listener.} A GRU reads $E'm_t$ and a linear layer on the last state gives the four heads.
+
+\textbf{Gumbel-softmax (our main system).} $m_t=\mathrm{onehot}(\arg\max_k(\log\pi_{t,k}+g_k))$, $g_k\sim\mathrm{Gumbel}(0,1)$, with straight-through gradient from the relaxed $y=\mathrm{softmax}((\log\pi_t+g)/\tau)$, $\tau=1$. The loss $\mathcal L$ is backpropagated through both agents.
+
+\textbf{REINFORCE sender (reimplemented~\cite{williams1992simple}).} $m_t\sim\pi_t$; the reward is $r=-\sum_a$ CE of the listener, the listener is trained by backpropagation, and the speaker minimises $-(r-b)\sum_t\log\pi_t(m_t)-\beta\sum_t H(\pi_t)$ with a running-mean baseline $b\leftarrow0.99b+0.01\bar r$ and $\beta=0.01$.
+
+\textbf{Random code (reference).} A fixed message $m(o)\sim\mathrm{Unif}\{1..V\}^L$ drawn i.i.d.\ for every object including held-out ones; only the listener is trained. It has no structure, so held-out accuracy tests whether a listener can generalise from an unstructured code.
+
+\textbf{Oracle compositional code (reference).} $m_t=o_t$ for $t\le4$ and padding symbol 1 for $t>4$; only the listener is trained.
+
+\textbf{Metrics.} Held-out accuracy: fraction of held-out objects with all four attributes recovered from the greedy ($\arg\max$) message. Train accuracy likewise on training objects; $\text{gen\_gap}=\text{train}-\text{held-out}$. Topographic similarity: Spearman correlation between pairwise Hamming distances of objects and of messages over all 256 objects~\cite{brighton2006understanding}. Capacity is $L\log_2V$ bits; 8 bits are needed to name the 256 objects.

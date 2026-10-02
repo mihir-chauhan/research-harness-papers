@@ -1,0 +1,7 @@
+# rh run | Thu Oct  1 21:28:20 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --seed 3 --system mixup --mix_alpha 0.2 --out results/raw/sweep_mixup_alpha_mix_alpha_0.2_s3.json
+
+config {"system": "mixup", "noise": 0.4, "seed": 3, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.1, "mix_alpha": 0.2, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/sweep_mixup_alpha_mix_alpha_0.2_s3.json"}
+curve(epoch,test_acc) [(5, 0.8609179415855355), (10, 0.9068150208623088), (15, 0.7468706536856745), (20, 0.7899860917941586), (25, 0.721835883171071), (30, 0.7635605006954103), (35, 0.7371349095966621), (40, 0.721835883171071), (45, 0.7468706536856745), (50, 0.7552155771905424), (55, 0.7343532684283728), (60, 0.7426981919332406)]
+metrics {"test_acc": 0.7426981919332406, "train_fit_noisy": 0.9907235621521335, "mem_rate": 0.9761904761904762, "recover_rate": 0.009523809523809525, "clean_fit": 1.0, "mem_gap": 0.9666666666666667, "n_corrupt": 420, "runtime_s": 25.78319525718689}

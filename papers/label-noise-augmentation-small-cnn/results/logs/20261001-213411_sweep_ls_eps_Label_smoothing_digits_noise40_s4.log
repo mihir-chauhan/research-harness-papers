@@ -1,0 +1,8 @@
+# rh run | Thu Oct  1 21:34:11 2026
+# cwd: .
+# cmd: python method/run.py --noise 0.4 --seed 4 --system ls --ls_eps 0.4 --out results/raw/sweep_ls_eps_ls_eps_0.4_s4.json
+
+config {"system": "ls", "noise": 0.4, "seed": 4, "epochs": 60, "bs": 64, "lr": 0.05, "wd": 0.0005, "ls_eps": 0.4, "mix_alpha": 1.0, "sl_warmup": 10, "sl_ramp": 10, "sl_rate": -1.0, "out": "results/raw/sweep_ls_eps_ls_eps_0.4_s4.json"}
+curve(epoch,test_acc) [(5, 0.9221140472878998), (10, 0.8873435326842837), (15, 0.8539638386648123), (20, 0.6467315716272601), (25, 0.7190542420027817), (30, 0.7385257301808067), (35, 0.7107093184979137), (40, 0.7260083449235049), (45, 0.717663421418637), (50, 0.7121001390820584), (55, 0.7065368567454798), (60, 0.7093184979137691)]
+metrics {"test_acc": 0.7093184979137691, "train_fit_noisy": 1.0, "mem_rate": 1.0, "recover_rate": 0.0, "clean_fit": 1.0, "mem_gap": 1.0, "n_corrupt": 416, "runtime_s": 22.04952883720398}
+

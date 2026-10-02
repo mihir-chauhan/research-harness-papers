@@ -1,0 +1,20 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & heldout\_acc $\uparrow$ & train\_acc $\uparrow$ & topsim $\uparrow$ & gen\_gap $\downarrow$ & $n$ \\
+\midrule
+REINFORCE sender (reimplemented) & V4\_L4 & 0.013 $\pm$ 0.022 & 0.433 $\pm$ 0.108 & \underline{0.300 $\pm$ 0.018} & 0.421 $\pm$ 0.104 & 3 \\
+Oracle compositional code (reference) & V4\_L4 & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 3 \\
+Random code (reference) & V4\_L4 & 0.000 $\pm$ 0.000 & \underline{0.530 $\pm$ 0.012} & 0.004 $\pm$ 0.002 & 0.530 $\pm$ 0.012 & 3 \\
+\textbf{Gumbel-softmax sender-receiver} & V4\_L4 & \underline{0.013 $\pm$ 0.022} & 0.052 $\pm$ 0.033 & 0.101 $\pm$ 0.090 & \underline{0.039 $\pm$ 0.042} & 3 \\
+\midrule
+REINFORCE sender (reimplemented) & V8\_L4 & 0.000 $\pm$ 0.000 & 0.449 $\pm$ 0.124 & \underline{0.296 $\pm$ 0.045} & 0.449 $\pm$ 0.124 & 3 \\
+Oracle compositional code (reference) & V8\_L4 & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & \textbf{0.000 $\pm$ 0.000} & 3 \\
+Random code (reference) & V8\_L4 & 0.000 $\pm$ 0.000 & \underline{0.968 $\pm$ 0.015} & -0.000 $\pm$ 0.004 & 0.968 $\pm$ 0.015 & 3 \\
+\textbf{Gumbel-softmax sender-receiver} & V8\_L4 & \underline{0.026 $\pm$ 0.022} & 0.381 $\pm$ 0.147 & 0.236 $\pm$ 0.060 & \underline{0.356 $\pm$ 0.169} & 3 \\
+\midrule
+REINFORCE sender (reimplemented) & V16\_L8 & \underline{0.500 $\pm$ 0.176} & 0.991 $\pm$ 0.009 & \underline{0.364 $\pm$ 0.012} & 0.491 $\pm$ 0.171 & 3 \\
+Oracle compositional code (reference) & V16\_L8 & \textbf{0.846 $\pm$ 0.038} & \underline{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & \textbf{0.154 $\pm$ 0.038} & 3 \\
+Random code (reference) & V16\_L8 & 0.000 $\pm$ 0.000 & \textbf{1.000 $\pm$ 0.000} & 0.004 $\pm$ 0.005 & 1.000 $\pm$ 0.000 & 3 \\
+\textbf{Gumbel-softmax sender-receiver} & V16\_L8 & 0.436 $\pm$ 0.232 & 0.775 $\pm$ 0.135 & 0.264 $\pm$ 0.020 & \underline{0.339 $\pm$ 0.179} & 3 \\
+\bottomrule
+\end{tabular}

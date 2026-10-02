@@ -1,0 +1,5 @@
+# rh run | Thu Oct  1 20:38:13 2026
+# cwd: .
+# cmd: python method/run.py --system gumbel --task V2_L5 --seed 1 --steps 6000 --out results/raw/sweep_vocab_gumbel_V2_L5_s1.json
+
+{"heldout_acc": 0.0, "train_acc": 0.03913043439388275, "heldout_attr_acc": 0.3461538553237915, "train_attr_acc": 0.43586957454681396, "gen_gap": 0.03913043439388275, "topsim": 0.31173140805847366, "topsim_train": 0.31850700017047445, "n_unique_messages": 9.0, "symbols_used_per_position": 2.0, "shuffled_msg_heldout_attr_acc": 0.2211538404226303, "capacity_bits": 5.0, "wall_s": 29.572083950042725}

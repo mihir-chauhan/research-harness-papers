@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:39:30 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task safe --seed 1 --out results/raw/main_sp_safe_s1.json
+
+config: {"system": "SP", "task": "safe", "seed": 1, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_sp_safe_s1.json"}
+metrics: {"self_play": 0.9998003244400024, "cross_play": 0.24739962816238403, "cross_play_min": 4.899410123471171e-05, "gap": 0.7524006962776184, "entropy": 0.00143566878978163, "runtime_s": 1.8320529460906982, "frac_safe": 0.0}

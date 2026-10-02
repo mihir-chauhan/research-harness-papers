@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 20:40:00 2026
+# cwd: .
+# cmd: python method/run.py --system SP --task safe --seed 3 --out results/raw/main_sp_safe_s3.json
+
+config: {"system": "SP", "task": "safe", "seed": 3, "n_agents": 20, "steps": 1500, "batch": 64, "lr": 0.05, "init_std": 1.0, "pop_size": 8, "out": "results/raw/main_sp_safe_s3.json"}
+metrics: {"self_play": 0.9998005032539368, "cross_play": 0.3526279628276825, "cross_play_min": 4.2681531340349466e-05, "gap": 0.6471725404262543, "entropy": 0.0014236302813515067, "runtime_s": 1.828568935394287, "frac_safe": 0.0}
