@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:07:50 2026
+# cwd: .
+# cmd: python method/run.py --system weak --task lorenz_n1 --seed 4 --out results/raw/sweep_thr_weak_n1_s4_t0.2.json --override '{"thr": 0.2}'
+
+config {"system": "weak", "task": "lorenz_n1", "seed": 4, "width": 0.6, "thr": 0.2}
+metrics {"support_exact": 1.0, "coef_err": 0.0006687681198002215, "coef_err_oracle": 0.0006687681198000082, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.33142781257629395}

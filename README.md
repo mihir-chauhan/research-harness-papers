@@ -42,3 +42,4 @@ Code: MIT. Text and figures: CC BY 4.0.
 | robotics | How Wide Should Domain Randomisation Be? A Small-Scale CartPole Study of Range Width and a Success-Gated Curriculum | [`papers/domain-randomisation-range-robustness`](papers/domain-randomisation-range-robustness) |
 | robotics | Templated Language versus Learned Vectors for Multi-Robot Rendezvous: A Small CPU Study of Success, Sample Efficiency and Cross-Play | [`papers/language-vs-vector-multi-robot-comm`](papers/language-vs-vector-multi-robot-comm) |
 | scientific-ml | FNO, DeepONet, MLP and CNN on 1D Burgers at Small Scale: Accuracy and Zero-Shot Finer-Grid Evaluation | [`papers/fno-vs-deeponet-burgers-1d`](papers/fno-vs-deeponet-burgers-1d) |
+| scientific-ml | Which Derivative Source for SINDy on Noisy Lorenz-63? A Small CPU Comparison of Finite Differences, Smoothing, TV and the Weak Form | [`papers/sindy-derivative-estimation-noise-lorenz`](papers/sindy-derivative-estimation-noise-lorenz) |

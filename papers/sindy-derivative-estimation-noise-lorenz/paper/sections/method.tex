@@ -1,0 +1,17 @@
+\textit{Model and library.} For a state $\mathbf{x}(t)\in\mathbb{R}^3$ with $\dot{\mathbf{x}}=\Theta(\mathbf{x})\Xi$, $\Theta(\mathbf{x})=[1,x,y,z,x^2,xy,xz,y^2,yz,z^2]$ and $\Xi\in\mathbb{R}^{10\times3}$ has 7 nonzero entries for Lorenz-63 ($\dot x=\sigma(y-x)$, $\dot y=x(\rho-z)-y$, $\dot z=xy-\beta z$; $\sigma=10,\rho=28,\beta=8/3$). Given noisy samples $\tilde{\mathbf{x}}_i=\mathbf{x}(t_i)+\boldsymbol\varepsilon_i$, every method builds a regression problem $(A,B)$ with $A\in\mathbb{R}^{m\times10}$, $B\in\mathbb{R}^{m\times3}$ and solves $\min_\Xi\|A\Xi-B\|_F^2$ under a sparsity constraint.
+
+\textit{STLSQ.} Columns of $A$ are normalised to unit norm. Start from the least-squares solution; repeat 10 times: set entries with $|\xi_{jk}|<\lambda$ (in original coefficient units) to zero and refit each equation $k$ by least squares on its surviving columns.
+
+\textit{Derivative-based systems} (reimplemented): $A=\Theta(\tilde{\mathbf{x}})$ on the raw noisy state, $B=\widehat{\dot{\mathbf{x}}}$, the first and last 5\% of samples removed. The derivative estimators are:
+(i) \emph{FD-STLSQ}, second-order differences $\widehat{\dot x}_i=(\tilde x_{i+1}-\tilde x_{i-1})/2\Delta t$ (one-sided second-order at the ends);
+(ii) \emph{SG-STLSQ}, the derivative of the local cubic polynomial fitted in a window of $w$ samples~\cite{savitzky1964smoothing};
+(iii) \emph{Spline-STLSQ}, the derivative of the cubic smoothing spline $s=\arg\min_s \sum_i(\tilde x_i-s(t_i))^2+\mu\int s''(t)^2dt$ with penalty $\mu$;
+(iv) \emph{TV-STLSQ}, Chartrand's regularised differentiation~\cite{chartrand2011numerical}: $u=\arg\min_u \alpha\,\mathrm{TV}(u)+\tfrac12\|\mathcal{A}u-(\tilde x-\tilde x_0)\|^2$ with $\mathcal{A}$ the trapezoid cumulative integral, solved by 20 lagged-diffusivity Newton iterations ($\epsilon=10^{-6}$).
+
+\textit{Weak-form STLSQ (method).} For compactly supported $\phi_k(t)=(1-s^2)^p$, $s=(t-c_k)/(w/2)$, on $K=200$ equispaced window centres $c_k$ (windows fully inside the record), integration by parts with $\phi_k=0$ at the window ends gives
+\begin{equation}
+\int\phi_k\,\dot{\mathbf{x}}\,dt=-\int\dot\phi_k\,\mathbf{x}\,dt \;\approx\; \Big(\int\phi_k\,\Theta(\mathbf{x})\,dt\Big)\Xi,
+\end{equation}
+so $A_{kj}=\sum_i w_i\phi_k(t_i)\Theta_j(\tilde{\mathbf{x}}_i)$ and $B_{k\cdot}=-\sum_i w_i\dot\phi_k(t_i)\tilde{\mathbf{x}}_i$ with trapezoid weights $w_i$; $p=3$ and the width $w$ is tuned. No derivative of the data is taken, but the library is still evaluated on noisy states (errors-in-variables bias remains).
+
+\textit{Metrics.} With $\hat\Xi$ the STLSQ output: \emph{support\_exact}$=\mathbb{1}[\mathrm{supp}\,\hat\Xi=\mathrm{supp}\,\Xi]$ over all 30 entries; \emph{coef\_err}$=\|\hat\Xi-\Xi\|_F/\|\Xi\|_F$; \emph{coef\_err\_oracle} is the same after refitting least squares on the true support with the same $(A,B)$, which isolates the quality of the regression problem from the selection step; false positives (FP) and false negatives (FN) are the numbers of spurious and missed entries.

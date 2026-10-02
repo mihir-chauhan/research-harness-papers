@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:53:16 2026
+# cwd: .
+# cmd: python method/run.py --system sg --task lorenz_n2 --seed 5 --out results/raw/r2_sweep_thr_sg_n2_s5.json --thr-grid 0.05,0.1,0.2,0.4,0.6
+
+config {"system": "sg", "task": "lorenz_n2", "seed": 5, "window": 11, "order": 3, "thr": "0.05,0.1,0.2,0.4,0.6"}
+metrics {"support_exact_t0.05": 0.0, "coef_err_t0.05": 0.009152744760151741, "false_pos_t0.05": 2.0, "false_neg_t0.05": 0.0, "support_exact_t0.1": 0.0, "coef_err_t0.1": 0.008715365287290819, "false_pos_t0.1": 1.0, "false_neg_t0.1": 0.0, "support_exact_t0.2": 1.0, "coef_err_t0.2": 0.005257938173295098, "false_pos_t0.2": 0.0, "false_neg_t0.2": 0.0, "support_exact_t0.4": 1.0, "coef_err_t0.4": 0.005257938173295098, "false_pos_t0.4": 0.0, "false_neg_t0.4": 0.0, "support_exact_t0.6": 1.0, "coef_err_t0.6": 0.005257938173295098, "false_pos_t0.6": 0.0, "false_neg_t0.6": 0.0, "runtime_s": 0.10300588607788086}

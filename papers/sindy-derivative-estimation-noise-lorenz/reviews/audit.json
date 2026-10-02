@@ -1,0 +1,234 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 3,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All 1181 registry rows have commands and logs, all 600 main runs reproduce bit-identically, every number in the paper matches the generated tables and compare CSVs, citations are verified and used in context, and the negative result (H1 refuted) is stated honestly. One major issue: the FD baseline at 5% noise runs at threshold 0.05 chosen by an arbitrary tie-break among zero-support tuning configurations, and the H2-at-5% significance, the 'smoothers below FD at every level' ordering and the 'FD extreme failure, 4.75 spurious terms' statement all depend on it. The weak-form-best-at-5% headline survives any FD threshold, so text changes or a cheap FD re-tune fix it.",
+      "reran": [
+        {
+          "run": "weak/lorenz_n5/3",
+          "metric": "coef_err",
+          "registry": 0.1005735851128273,
+          "rerun": 0.1005735851128273
+        },
+        {
+          "run": "fd/lorenz_n5/3",
+          "metric": "coef_err",
+          "registry": 0.04782282904077457,
+          "rerun": 0.04782282904077457
+        },
+        {
+          "run": "tv/lorenz_n5/3",
+          "metric": "coef_err",
+          "registry": 0.040579021576167836,
+          "rerun": 0.040579021576167836
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/tune.py, method/tuned.json (fd, 5%); paper/sections/results.tex (H2, 'Where the failures come from', 'Coefficient error'); results/RESULTS.md",
+          "issue": "FD at 5% noise uses threshold 0.05 because all thresholds scored 0.00 support on the 5 tuning seeds and 0.05 and 0.1 tied exactly on median error, so grid iteration order decided. On the test seeds FD mean coef_err is 0.1354 at 0.05 but 0.0469 at 0.1 and 0.0489 at 0.2, below SG (0.0772), spline (0.0636) and TV (0.0536); support is 0.15 at 0.4 and 0.25 at 0.6. The claims 'smoother means below FD at every level from 1% up', 'significant at 5% for spline and TV', 'FD at 5% is the extreme failure case: 4.75 spurious terms' and weak-vs-FD coefficient error p=0.003 at 5% are artefacts of this choice and it is not disclosed. At 10%, FD at threshold 0.2 (0.163) also beats SG and spline.",
+          "fix": "Either re-tune with a deterministic, sensible tie-break (e.g. largest threshold or mean error on a larger tuning set) and re-run the 40 affected FD runs, or keep the runs and disclose the FD 5% threshold and tie, drop the H2 significance claim at 5%, restrict H2 support to 1% noise, and reword the FD 'extreme failure' sentence as a threshold effect. Add an FD threshold sweep at 5% as a diagnostic table."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1 paragraph)",
+          "issue": "'What the data show is a crossover between 2 and 5%' over-reads differences the same paragraph calls non-significant. With matched thresholds on the test seeds the weak form is at least as good as every baseline at 0.5-5% (e.g. at 2% with threshold 0.6: weak 1.00 vs 0.70-0.85), so the low-noise deficit is a threshold-selection artefact at 0.5% and 2% as well as at 1%.",
+          "fix": "Remove the crossover sentence or say the low-noise ordering is not resolved and is confounded with the tuned threshold; extend the post hoc threshold sweep to 0.5%, 2% and 5% and to spline and TV."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3 paragraph)",
+          "issue": "The FD and SG failures at 0% noise are attributed to possible discretisation error; they disappear at any threshold of 0.1 or above, so they come from the grid-edge threshold 0.05.",
+          "fix": "State that the 0% failures are small spurious terms below a 0.1 threshold, i.e. a threshold effect."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, introduction.tex, results/RESULTS.md (H4, H5)",
+          "issue": "The hypotheses are described as registered in proposal.md but H4 and H5 are restated more loosely. Registered H4 predicted that too narrow a window loses the advantage (sweep at 2%); the data show the opposite, yet RESULTS.md says 'H4 supported'. Registered H5 was about support recovery at 2%.",
+          "fix": "Quote the registered wording, state that the directional part of H4 was not supported, and mark H4 in RESULTS.md as partly supported."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (H5 paragraph)",
+          "issue": "'Exact-support rate is unchanged within \u00b10.05 except SG at 2% (0.90 to 0.85)' is self-contradictory: that change is 0.05, and spline at 2% also changes by 0.05 (0.80 to 0.85).",
+          "fix": "Say the support rate changes by at most 0.05 in either direction in all four cells."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex, paper/refs.bib (messenger2020weak)",
+          "issue": "Weak SINDy is cited via the PDE paper (arXiv:2007.02848); the ODE Weak SINDy paper (arXiv:2005.04339), the direct precedent for this study, is not cited or discussed in the Gap paragraph. 'Existing papers usually demonstrate one of these options' is uncited, and the 'main obstacle' claim attributed to PDE-FIND is not checkable from its abstract.",
+          "fix": "Cite the ODE Weak SINDy paper and position the gap against it; soften or verify the PDE-FIND sentence against the paper body."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "Limitations do not say explicitly that all data are simulated with no real measurements, and do not mention the tie-break fragility of the tuner.",
+          "fix": "Add one sentence on simulated-only data and one on tie-break sensitivity with 5 tuning trajectories."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (Fig. 2, Table XI)",
+          "issue": "Fig. 2 x-axis tick labels overlap on the log scale, and the daggers in Table XI collide with the adjacent column.",
+          "fix": "Set explicit ticks at the six widths in analysis/make_report.py and widen the Table XI columns."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/citations.json",
+          "issue": "Running the mandated `rh lit verify` rewrote the checked_at timestamp, leaving the worktree modified; no content changed.",
+          "fix": "git checkout paper/citations.json, or commit the refreshed timestamp."
+        }
+      ],
+      "commit": "9306c3d5be91733caaba152e64e4f2f4899313ed"
+    },
+    {
+      "verdict": "FIX",
+      "summary": "Results are real and exactly reproducible: two re-executed runs, a re-run of the tuner and an in-process recomputation of all 600 main runs match the registry bit for bit, every number in the prose matches the tables, and the mostly negative outcome and the post hoc tie-rule change are disclosed. One procedural claim is false: the tuner's 'exact ties' are not identical models in the FD 5% cell that decides the H2 verdict (nor for spline at 10%), and a few abstract/conclusion sentences overstate or omit caveats.",
+      "reran": [
+        {
+          "run": "Weak-form STLSQ/lorenz_n5/7",
+          "metric": "coef_err",
+          "registry": 0.005589304229341519,
+          "rerun": 0.005589304229341519
+        },
+        {
+          "run": "TV-STLSQ/lorenz_n5/3",
+          "metric": "coef_err",
+          "registry": 0.040579021576167836,
+          "rerun": 0.040579021576167836
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/setup.tex (Tuning, Revision of the tie rule); method/tune.py docstring; experiments/PROTOCOL.md; reviews/response.md",
+          "issue": "An 'exact tie' is described as configurations that return the same models on all five tuning trajectories, but tune.py only compares support rate and median coefficient error. Recomputed on the tuning seeds, FD at 5% (thresholds 0.05 vs 0.1) gives different models on 3 of 5 trajectories (errors 0.1016/0.0557, 0.0354/0.0351, 0.0583/0.1536) and spline at 10% (0.4 vs 0.6) differs on 1 of 5; the 3 TV tie cells were not checked. FD at 5% is the cell on which the H2 verdict flips, so the threshold there was not an arbitrary pick between equivalent configurations.",
+          "fix": "Describe the tie criterion as implemented (equal support rate and equal median error) and state that at FD 5% and spline 10% the tied thresholds give different models on some tuning trajectories; or change the tuner to break median ties by a real criterion such as mean error (which also picks 0.1 for FD at 5%) or to require identical models, then re-tune and re-run the affected cells."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex",
+          "issue": "'up to 1% noise every method recovers every support once the threshold is at least 0.4' is contradicted by FD at 1% and threshold 0.6 (0.95 in Table V, which is the main-run cell of Table IIa).",
+          "fix": "Say 'at threshold 0.4' or add 'except FD at 0.6 and 1% (0.95)', as the ablations text already does."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "'lowest mean coefficient error at every level, with the clearest gap at 5%' drops the significance qualifier given in the abstract and attributes to the mean a separation that exists only in the median: at 5% the mean difference is not significant against FD (p=0.179) or TV (p=0.088).",
+          "fix": "State that the mean is significantly lower against all four baselines only at 0% and 10%, and that the clearest separation at 5% is in the median (0.0129 against 0.0456-0.0739)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex, results.tex (H2)",
+          "issue": "The H2 refutation is stated in the abstract and conclusion without the caveat, given only in the results, that it depends on the FD threshold at 5% fixed by the post hoc tie rule (FD error 0.1354 at the first-version threshold, above all smoothers). For TV the 'higher than FD' claim is not significant (p=0.369) and reverses at every equal threshold in Table VI (TV below FD in all five columns).",
+          "fix": "Add a clause in the abstract and conclusion that the H2 verdict depends on the FD threshold, and note in results that TV is below FD at each equal threshold, so only SG and spline are robustly above FD at 5%."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex and limitations.tex",
+          "issue": "Resolution is stated inconsistently: 'rate differences of 0.15 or less are within noise' in results versus 'below about 0.2 cannot be resolved' in limitations, while a 0.20 difference is reported as significant at p=0.042 without correction.",
+          "fix": "Use one statement of resolution and note that the two p=0.042 cells at 2% would not survive a multiple-comparison correction."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Test-function exponent)",
+          "issue": "The exponent ablation is reported by pointing to results/tables/rep_p.tex rather than a table in the paper, and only the support rate is described.",
+          "fix": "Give the four coefficient errors (0.0039, 0.0035, 0.0033, 0.0031) in the sentence or include the small table."
+        }
+      ],
+      "commit": "ed1a2c58c3a191942d132134f94f5a42b05eb61d"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper reproduces from the registry, four re-executed main runs match bit for bit, the code implements what the paper describes with comparably tuned baselines and no test leakage into the main runs, and the 13 citations are used in context. The paper reports its mostly negative outcome honestly, including the post hoc tie-rule change. Only minor issues remain: test choice for binary and paired data, trajectories shared across noise levels, the H4 label, related-work coverage, one figure and the compute budget.",
+      "reran": [
+        {
+          "run": "Weak-form STLSQ/lorenz_n5/7",
+          "metric": "coef_err",
+          "registry": 0.005589304229341519,
+          "rerun": 0.005589304229341519
+        },
+        {
+          "run": "TV-STLSQ/lorenz_n5/3",
+          "metric": "coef_err",
+          "registry": 0.040579021576167836,
+          "rerun": 0.040579021576167836
+        },
+        {
+          "run": "FD-STLSQ/lorenz_n5/11",
+          "metric": "coef_err",
+          "registry": 0.04392795935932916,
+          "rerun": 0.04392795935932916
+        },
+        {
+          "run": "Weak-form STLSQ/lorenz_n2/4",
+          "metric": "coef_err",
+          "registry": 0.00141810977409184,
+          "rerun": 0.00141810977409184
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1), abstract.tex, Table III(a)",
+          "issue": "Significance of support-rate differences uses Welch's t-test on binary outcomes with a zero-variance group; 20/20 vs 16/20 at 2% gives p=0.042 by Welch but p=0.106 by Fisher's exact test, so the 2% significance against FD and spline is test-dependent (the 5% results hold: Fisher 1e-5, 0.025, 0.010, TV 0.20).",
+          "fix": "Report Fisher's exact (or an exact paired) test alongside the registered Welch p-values and say that the 2% lead is not significant under an exact test; soften 'statistically significant against only some baselines' at 2% in the abstract and conclusion."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2), Table III(c)",
+          "issue": "The design is paired (all systems see the same 20 trajectories) but only unpaired Welch p-values are reported; at 2% FD has a higher coefficient error than SG, spline and TV in 20 of 20 seeds (Wilcoxon p about 2e-6; paired t 0.079, 7e-12, 0.019 in h2_fd_ref_coef_err.csv), while the text says the differences are significant only for spline and TV at 1%.",
+          "fix": "State that the comparisons are paired and that the paired p-values in the compare CSVs differ, or report the per-seed sign counts; the H2 verdict is unchanged."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Data), limitations.tex",
+          "issue": "simulate(seed, level) reuses the same initial condition and the same noise realisation (scaled) at every noise level, so the six levels are not independent samples; the paper only says each seed gives a new initial condition and noise draw.",
+          "fix": "Add one sentence that the same 20 clean trajectories and noise directions are reused across levels, so trends across levels are correlated."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, ablations.tex, results/RESULTS.md (H4)",
+          "issue": "H4 is labelled 'partly supported' although its registered directional claim (too narrow a window loses the advantage) is contradicted for the widths tested; 'in the opposite direction' in the introduction also goes beyond a sweep with no width below 0.3.",
+          "fix": "Label H4 'not supported as registered (width matters, but wide rather than narrow windows lose the rate; widths below 0.3 untested)'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, method.tex",
+          "issue": "The smoothing spline has no reference, and the gap statement ('we did not find a head-to-head') does not engage with existing comparative studies of denoising/differentiation strategies for SINDy or with SINDy benchmarks on noisy chaotic systems (not verified by title in this audit).",
+          "fix": "Search for and add verified citations to a smoothing-spline reference and to comparative or benchmark studies of SINDy under noise, and narrow the gap statement accordingly."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf Fig. 1 (right panel)",
+          "issue": "The log axis spans 1e-8 to 1e-2 because of the 0% point, so the differences and interquartile ranges at 1-10% that the text relies on are not readable.",
+          "fix": "Restrict the y-range to the noisy levels or use an inset, and enlarge the figure."
+        },
+        {
+          "severity": "minor",
+          "where": "research.yaml compute budget, paper/sections/setup.tex (Compute)",
+          "issue": "Reported wall-clock (about 30 + 20 minutes plus tuning passes and tie diagnostics) exceeds max_total_minutes: 45; this is reported honestly but the overrun is not noted.",
+          "fix": "Note the budget overrun caused by the re-run in the compute paragraph or in PROTOCOL.md."
+        }
+      ],
+      "commit": "6b7da3705f77087c81da87f2feb859335442bbdf"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 1 < target 2: loses on: lorenz_n0, lorenz_n0.5, lorenz_n1; not significant on: lorenz_n0, lorenz_n0.5, lorenz_n1, lorenz_n10, lorenz_n2, lorenz_n5\nREADY",
+      "response": "# Response to the audit (single fix round)\n\nAll experimental numbers in the revised paper come from runs in `results/runs.jsonl` and reach the text through\n`analysis/build.sh` (`rh table`, `rh compare`, `analysis/make_report.py`). The first-version runs are kept in the\nregistry as superseded (`rh runs --all`).\n\n## 1. Major: FD threshold at 5% noise chosen by an arbitrary tie-break\nAccepted. Cause fixed, not the wording.\n- `method/tune.py`: exact ties (configurations returning identical models on all 5 tuning trajectories) are now\n  resolved toward the largest threshold instead of by grid order. Same tuning seeds, same grids, same rule for every\n  system; smoothing parameters did not change. The tie rule had decided the threshold in 19 of 30 system x level cells,\n  not only for FD at 5%, so the change moved 19 thresholds (first-version values in `method/tuned_v1.json`,\n  `results/logs/tune_v1.log`; Table I of the paper lists both).\n- Re-ran through `rh run`: all 600 main runs, the width sweep (200) and the exponent ablation (60). The library-state\n  ablation (80 runs) was not re-run because the SG and spline settings at 2 and 5% are unchanged.\n- Added the diagnostic the auditor asked for, for every system and level rather than FD at 5% only: 600\n  threshold-grid runs (`run.py --thr-grid`, group `sweep_thr`), reported in Tables V and VI with the tuned and the\n  first-version threshold marked. `make_report.py` asserts that the grid cell at the tuned threshold equals the main\n  run and that the cell at the first-version threshold equals the superseded main run.\n- Consequences for the claims: \"smoothers below FD at every level from 1%\" is gone; H2 is now refuted (at 5% all three\n  smoothers have a higher mean error than FD at threshold 0.1; the text says this verdict depends on the FD threshold\n  and gives the 0.05 value). \"FD extreme failure, 4.75 spurious terms\" is gone; FD at 5% is described with its tuned\n  threshold (2.70 spurious terms, rate 0.00) and with its rates at 0.4 and 0.6. The weak-vs-FD coefficient-error test\n  at 5% is now reported as not significant (p=0.179).\n- Disclosure: setup has a paragraph \"Revision of the tie rule\" saying the new rule was adopted after the first test\n  results were known and is therefore not a pre-registered choice; the abstract, introduction, results, limitations and\n  conclusion say that the ordering below 5% noise reverses with the tie rule. FD at 5% (and all baselines at 10%) had\n  0.00 tuning support at every threshold, so the threshold there is set by median error alone; this is stated.\n- Note on the run history: the re-run was interrupted once; `experiments/launch.py` was made resumable and the\n  remaining jobs were run. No run was dropped; the main rows record commits 56aba08 and 0e9ecd9, which differ only in\n  the launcher.\n\n## 2. Minor: \"crossover between 2 and 5%\" over-reads non-significant differences\nAccepted. The sentence is removed. H1 is still refuted by the registered test, but the text now says the ordering\nbelow 5% is not resolved and follows the threshold selection. The threshold sweep is extended to all five systems and\nall six levels (Table V).\n\n## 3. Minor: 0% failures of FD and SG attributed to discretisation error\nAccepted. The H3 paragraph now says these two failures were small spurious terms below a threshold of 0.1 (both\nsystems are at 1.00 for every threshold >= 0.1, Table V). With the revised thresholds all systems are at 1.00 at 0%,\nso H3 is supported.\n\n## 4. Minor: H4 and H5 restated more loosely than registered\nAccepted. Setup quotes the wording of `proposal.md`; `research.yaml` carries the same wording. H4 is reported as partly\nsupported with the directional part not supported (the narrowest window keeps the rate, wide windows lose it); H5,\nregistered for support recovery at 2%, is reported as not supported. `results/RESULTS.md` is rewritten accordingly.\n\n## 5. Minor: self-contradictory \"within +-0.05 except SG\"\nAccepted. Now: the rate \"moves by at most 0.05 in either direction in all four cells\".\n\n## 6. Minor: ODE Weak SINDy paper not cited; uncited \"existing papers\" sentence; PDE-FIND \"main obstacle\"\nAccepted. `messenger2021weak` (10.1137/20M1343166, added with `rh lit cite`) is cited in the introduction and related\nwork as the direct precedent, and the Gap paragraph is positioned against it. The uncited sentence and the PDE-FIND\n\"main obstacle\" claim are removed; PDE-FIND is cited only for extending sparse regression to PDEs.\n\n## 7. Minor: limitations\nAccepted. Limitations open with \"All data are simulated; no real measurements are used\" and state that five tuning\ntrajectories do not determine the threshold (ties in 19 of 30 cells, rule changed after the first results).\n\n## 8. Minor: Fig. 2 ticks, Table XI daggers\nAccepted. Fig. 2 has explicit ticks at the six widths with minor ticks off. The old Table XI is replaced by the\nthreshold grid (shading and underline instead of daggers). The template font has no bold face, so the grid marks\nuse shading. The two tables that were shrunk with `\\resizebox` (tuned thresholds, FP/FN) are transposed and set at\nnormal size.\n\n## 9. Minor: citations.json timestamp\nCommitted after the final `rh lit verify`.\n\n## Other changes from the self-audit\n- Median coefficient error added to the main table: the means at 10% are pulled up by a few trials, and the\n  weak-form gap in medians (0.1094 against 0.1224-0.1337) is much smaller than in means. The text says so.\n- p-value tables mark cells where the difference is against the hypothesised direction.\n- The exponent ablation is now a null result (same rate for p = 2, 3, 4, 6) and is reported in one sentence with a\n  pointer to `results/tables/rep_p.tex`; its table was removed to stay within 6 pages.\n- Runtime moved into Table I; Fig. 1 y-label shortened.\n",
+      "seconds": 1464
+    },
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 1 < target 2: loses on: lorenz_n0, lorenz_n0.5, lorenz_n1; not significant on: lorenz_n0, lorenz_n0.5, lorenz_n1, lorenz_n10, lorenz_n2, lorenz_n5\nREADY",
+      "response": "# Response to the audit (fix round on the revised paper)\n\nAll numbers in the paper come from runs in `results/runs.jsonl` and reach the text through `analysis/build.sh`\n(`rh table`, `rh compare`, `analysis/make_report.py`). No main, sweep or ablation run was repeated in this round: the\ntuned configurations did not change (see finding 1). New runs: six diagnostic runs on the tuning seeds (group\n`tune_diag`). `rh check`: READY; `rh lit verify`: CITATIONS VERIFIED; 6 pages.\n\n## 1. Major: \"exact ties\" are not identical models (FD at 5 %, spline at 10 %)\nAccepted; the finding is correct and the earlier description was false.\n- What the tuner does (unchanged): highest support rate, then lowest median coefficient error, then the largest\n  threshold. A tie is equality of rate and median, nothing more. The text now says exactly this in\n  `paper/sections/setup.tex` (Tuning), `method/tune.py` (docstring and comment), `experiments/PROTOCOL.md`,\n  `method/DESIGN.md`, `BRIEF.md`, `results/RESULTS.md`. The \"exact tie\" wording is gone from all of them; only the\n  log label `exact_ties_thr=` printed by `tune.py` is kept (with a comment), so that the script still reproduces\n  `results/logs/tune.log` byte for byte.\n- New diagnostic `method/tie_check.py` (committed before it was run; six registered runs, one per noise level,\n  group `tune_diag`, tuning seeds 1000-1004 only). It repeats the tuner's grid, asserts that it reproduces\n  `tuned.json`, and for each of the 30 cells compares the models (coefficient matrices) of all configurations tied\n  with the selected one. Result: 19 cells have a tie; in 17 the tied configurations return identical models on all\n  five trajectories, including the three TV cells the auditor had not checked; in 2 they do not: FD at 5 %\n  (0.05 vs 0.1, different models on 3 of 5 trajectories, per-trajectory errors as the auditor reports, mean tuning\n  error 0.0664 vs 0.0566) and spline at 10 % (0.4 vs 0.6, 1 of 5, 0.1214 vs 0.1212). No tie involves two different\n  smoothing parameters.\n- Why the rule was not changed again: the diagnostic also evaluates the auditor's alternative (break median ties by\n  mean error, largest threshold only if the mean is equal too). It selects the same configuration in all 30 cells,\n  so re-tuning would reproduce `tuned.json` and every run. Changing the code of the rule a third time for no change\n  in any result would only add another post hoc step; the decision is recorded with `rh decide`.\n- Paper: new paragraph \"What a tie is\" in the setup with these counts and the statement that the FD threshold at\n  5 %, on which the H2 verdict turns, is a choice between different models made on five trajectories; the H2\n  paragraph, the limitations and the ablation text refer to it. `analysis/make_report.py` asserts the counts\n  (30 / 19 / 17 / 2) and writes `results/tables/rep_ties.tex` (not included in the paper for space; the prose gives\n  only the counts).\n- Run history: the first execution of the diagnostic did all six levels in one run under the task name\n  `tuning_seeds`; `rh check` treats every task name in the registry as a task of the study, so that row was\n  superseded (`rh supersede`, visible with `rh runs --all`) and the diagnostic was run once per noise level. Same\n  values.\n\n## 2. Minor: abstract, \"every support once the threshold is at least 0.4\"\nAccepted. Abstract: \"at a threshold of 0.4\". The same over-statement in the ablation text (\"irrelevant once\nlambda >= 0.4\") is rewritten: no difference at 0.4, almost none at 0.6 (only FD at 1 % drops, to 0.95).\n\n## 3. Minor: conclusion, \"lowest mean coefficient error ... clearest gap at 5 %\"\nAccepted. Conclusion now: lowest mean at every level, significantly against all four baselines only at 0 % and\n10 %; the clearest separation at 5 % is in the median (0.0129 against 0.0456-0.0739), and the mean there is not\nsignificantly below FD or TV.\n\n## 4. Minor: H2 caveat missing from abstract and conclusion; TV\nAccepted. Abstract, introduction and conclusion say that the H2 verdict is the registered test's and depends on the\nfinite-difference threshold. Results (H2) add: TV's higher mean is not significant (p=0.369) and TV is below FD in\nall five equal-threshold columns of Table VI; spline is above FD at four of five thresholds (not at 0.05); only SG\nat all five; on the true support FD is below SG and spline but not TV. The untested \"may explain\" sentence about\ntuning for support was removed.\n\n## 5. Minor: inconsistent statement of resolution\nAccepted. One statement in the results, referenced from the limitations: 0.20 (1.00 against 0.80) gives p=0.042,\n0.15 (p=0.083) and 0.25 between 0.65 and 0.40 (p=0.119) are not significant, and the two p=0.042 cells would not\nsurvive a Bonferroni correction even over the four comparisons of that level. The H1 paragraph marks p=0.042 as\nuncorrected. Limitations: \"rate differences up to about 0.25 are not reliably resolved\".\n\n## 6. Minor: exponent ablation pointed to a file outside the paper\nAccepted. The sentence gives the support rate (1.00 for p = 2, 3, 4, 6) and the four mean coefficient errors\n(0.0039, 0.0035, 0.0033, 0.0031), with \"differences not tested\". A table did not fit in six pages.\n\n## Other changes from the self-audit\n- \"the weak form's lead at 5 % holds against the best threshold of each baseline\" is weakened everywhere to \"its\n  rate is above the best threshold of each baseline\", and the ablation text adds that against TV the difference is\n  not significant.\n- \"Means at 10 % are pulled up by a few trials\" (a mechanism without a run) is replaced by the plain comparison of\n  medians and means.\n- The three p-value tabulars are merged into one (same cells; `rep_p_all.tex`), figures are regenerated at their\n  printed size (same data), several sentences were shortened and three removed to stay within six pages; no number\n  changed. The registry count in the setup now lists the smoke test and the six diagnostic runs.\n\n---\n\n# Previous round (kept for the record)\n\nAll e",
+      "seconds": 1389
+    }
+  ]
+}

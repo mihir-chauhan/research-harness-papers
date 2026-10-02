@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:41:18 2026
+# cwd: .
+# cmd: python method/run.py --system fd --task lorenz_n0.5 --seed 17 --out results/raw/r2_main_fd_n0.5_s17.json
+
+config {"system": "fd", "task": "lorenz_n0.5", "seed": 17, "thr": 0.6}
+metrics {"support_exact": 1.0, "coef_err": 0.007150575940351279, "coef_err_oracle": 0.007150575940350176, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.11212682723999023}

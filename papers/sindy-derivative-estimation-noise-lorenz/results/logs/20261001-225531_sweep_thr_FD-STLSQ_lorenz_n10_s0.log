@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:55:31 2026
+# cwd: .
+# cmd: python method/run.py --system fd --task lorenz_n10 --seed 0 --out results/raw/r2_sweep_thr_fd_n10_s0.json --thr-grid 0.05,0.1,0.2,0.4,0.6
+
+config {"system": "fd", "task": "lorenz_n10", "seed": 0, "thr": "0.05,0.1,0.2,0.4,0.6"}
+metrics {"support_exact_t0.05": 0.0, "coef_err_t0.05": 0.5809989020154682, "false_pos_t0.05": 14.0, "false_neg_t0.05": 0.0, "support_exact_t0.1": 0.0, "coef_err_t0.1": 0.3206117365863578, "false_pos_t0.1": 8.0, "false_neg_t0.1": 0.0, "support_exact_t0.2": 0.0, "coef_err_t0.2": 0.1328307850767616, "false_pos_t0.2": 3.0, "false_neg_t0.2": 1.0, "support_exact_t0.4": 0.0, "coef_err_t0.4": 0.13285878167136034, "false_pos_t0.4": 2.0, "false_neg_t0.4": 1.0, "support_exact_t0.6": 0.0, "coef_err_t0.6": 0.13285878167136034, "false_pos_t0.6": 2.0, "false_neg_t0.6": 1.0, "runtime_s": 0.11197876930236816}

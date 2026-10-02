@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:46:45 2026
+# cwd: .
+# cmd: python method/run.py --system spline --task lorenz_n0.5 --seed 3 --out results/raw/main_spline_n0.5_s3.json
+
+config {"system": "spline", "task": "lorenz_n0.5", "seed": 3, "lam": 1e-08, "thr": 0.1}
+metrics {"support_exact": 1.0, "coef_err": 0.0013180258827448772, "coef_err_oracle": 0.001318025882745624, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.1380748748779297}

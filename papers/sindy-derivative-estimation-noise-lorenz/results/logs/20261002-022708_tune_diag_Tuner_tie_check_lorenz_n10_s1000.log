@@ -1,0 +1,12 @@
+# rh run | Fri Oct  2 02:27:08 2026
+# cwd: .
+# cmd: python method/tie_check.py --task lorenz_n10 --out results/raw/tie_check_n10.json
+
+config {"task": "lorenz_n10", "levels": ["10"], "thr": [0.05, 0.1, 0.2, 0.4, 0.6], "grids": {"fd": {}, "sg": {"window": [11, 21, 41, 81, 161], "order": [3]}, "spline": {"lam": [1e-09, 1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001]}, "tv": {"alpha": [1e-05, 0.0001, 0.001, 0.01, 0.1]}, "weak": {"width": [0.3, 0.6, 1.0, 1.5, 2.5]}}, "tune_seeds": [1000, 1001, 1002, 1003, 1004]}
+fd 10 selected {'thr': 0.6} tied_thr=[0.4, 0.6] same_smoothing=True traj_differ=[0, 0] identical=True mean_err=[0.1279 0.1279] mean_rule_thr=0.6
+sg 10 selected {'window': 11, 'order': 3, 'thr': 0.2} tied_thr=[0.2] same_smoothing=True traj_differ=[0] identical=True mean_err=[0.1137] mean_rule_thr=0.2
+spline 10 selected {'lam': 1e-06, 'thr': 0.6} tied_thr=[0.4, 0.6] same_smoothing=True traj_differ=[1, 0] identical=False mean_err=[0.1214 0.1212] mean_rule_thr=0.6
+   thr 0.4 vs selected 0.6 per-trajectory coef_err: 0.1144/0.1144 0.1165/0.1165 0.1284/0.1270 0.1186/0.1186 0.1293/0.1293
+tv 10 selected {'alpha': 0.01, 'thr': 0.2} tied_thr=[0.2] same_smoothing=True traj_differ=[0] identical=True mean_err=[0.1157] mean_rule_thr=0.2
+weak 10 selected {'width': 1.0, 'thr': 0.6} tied_thr=[0.6] same_smoothing=True traj_differ=[0] identical=True mean_err=[0.0752] mean_rule_thr=0.6
+metrics {"cells": 5, "cells_with_tie": 2, "tie_cells_identical_models": 1, "tie_cells_differing_models": 1, "tie_cells_other_smoothing": 0, "mean_rule_changes": 0, "spline_traj_differ": 1, "spline_mean_err_t0.4": 0.12144542426271987, "spline_mean_err_t0.6": 0.12116085963062542, "runtime_s": 35.327609062194824}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:56:24 2026
+# cwd: .
+# cmd: python method/run.py --system weak --task lorenz_n10 --seed 13 --out results/raw/r2_sweep_thr_weak_n10_s13.json --thr-grid 0.05,0.1,0.2,0.4,0.6
+
+config {"system": "weak", "task": "lorenz_n10", "seed": 13, "width": 1.0, "thr": "0.05,0.1,0.2,0.4,0.6"}
+metrics {"support_exact_t0.05": 0.0, "coef_err_t0.05": 0.3124277715576661, "false_pos_t0.05": 8.0, "false_neg_t0.05": 0.0, "support_exact_t0.1": 0.0, "coef_err_t0.1": 0.2583001396682393, "false_pos_t0.1": 5.0, "false_neg_t0.1": 0.0, "support_exact_t0.2": 0.0, "coef_err_t0.2": 0.04349772418934204, "false_pos_t0.2": 2.0, "false_neg_t0.2": 0.0, "support_exact_t0.4": 0.0, "coef_err_t0.4": 0.04349772418934204, "false_pos_t0.4": 2.0, "false_neg_t0.4": 0.0, "support_exact_t0.6": 0.0, "coef_err_t0.6": 0.11933884833158029, "false_pos_t0.6": 2.0, "false_neg_t0.6": 1.0, "runtime_s": 0.09271717071533203}

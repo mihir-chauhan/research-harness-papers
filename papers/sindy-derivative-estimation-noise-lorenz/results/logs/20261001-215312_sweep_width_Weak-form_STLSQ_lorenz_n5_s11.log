@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:53:12 2026
+# cwd: .
+# cmd: python method/run.py --system weak --task lorenz_n5 --seed 11 --out results/raw/sweep_width_weak_n5_s11_w2.5.json --override '{"width": 2.5}'
+
+config {"system": "weak", "task": "lorenz_n5", "seed": 11, "width": 2.5, "thr": 0.6}
+metrics {"support_exact": 1.0, "coef_err": 0.3077751733703405, "coef_err_oracle": 0.3077751733703416, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.11642074584960938}

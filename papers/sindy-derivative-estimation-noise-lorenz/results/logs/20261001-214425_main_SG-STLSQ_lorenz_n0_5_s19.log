@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:44:25 2026
+# cwd: .
+# cmd: python method/run.py --system sg --task lorenz_n0.5 --seed 19 --out results/raw/main_sg_n0.5_s19.json
+
+config {"system": "sg", "task": "lorenz_n0.5", "seed": 19, "window": 11, "order": 3, "thr": 0.1}
+metrics {"support_exact": 1.0, "coef_err": 0.0026888521555471804, "coef_err_oracle": 0.002688852155547529, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.0981907844543457}

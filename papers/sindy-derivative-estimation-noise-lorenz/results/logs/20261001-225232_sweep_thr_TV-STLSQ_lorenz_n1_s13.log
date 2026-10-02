@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:52:32 2026
+# cwd: .
+# cmd: python method/run.py --system tv --task lorenz_n1 --seed 13 --out results/raw/r2_sweep_thr_tv_n1_s13.json --thr-grid 0.05,0.1,0.2,0.4,0.6
+
+config {"system": "tv", "task": "lorenz_n1", "seed": 13, "alpha": 0.001, "thr": "0.05,0.1,0.2,0.4,0.6"}
+metrics {"support_exact_t0.05": 0.0, "coef_err_t0.05": 0.00372322276750798, "false_pos_t0.05": 1.0, "false_neg_t0.05": 0.0, "support_exact_t0.1": 1.0, "coef_err_t0.1": 0.0029554101756236674, "false_pos_t0.1": 0.0, "false_neg_t0.1": 0.0, "support_exact_t0.2": 1.0, "coef_err_t0.2": 0.0029554101756236674, "false_pos_t0.2": 0.0, "false_neg_t0.2": 0.0, "support_exact_t0.4": 1.0, "coef_err_t0.4": 0.0029554101756236674, "false_pos_t0.4": 0.0, "false_neg_t0.4": 0.0, "support_exact_t0.6": 1.0, "coef_err_t0.6": 0.0029554101756236674, "false_pos_t0.6": 0.0, "false_neg_t0.6": 0.0, "runtime_s": 1.293626070022583}

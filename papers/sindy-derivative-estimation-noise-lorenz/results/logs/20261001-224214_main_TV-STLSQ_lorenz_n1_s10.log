@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:42:14 2026
+# cwd: .
+# cmd: python method/run.py --system tv --task lorenz_n1 --seed 10 --out results/raw/r2_main_tv_n1_s10.json
+
+config {"system": "tv", "task": "lorenz_n1", "seed": 10, "alpha": 0.001, "thr": 0.6}
+metrics {"support_exact": 1.0, "coef_err": 0.00028872334962540757, "coef_err_oracle": 0.0002887233496251284, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 1.5332400798797607}

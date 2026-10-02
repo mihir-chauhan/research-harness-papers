@@ -1,0 +1,11 @@
+\begin{tabular}{llccccccc}
+\toprule
+Method & Task & support\_exact $\uparrow$ & coef\_err $\downarrow$ & coef\_err\_oracle $\downarrow$ & false\_pos $\downarrow$ & false\_neg $\downarrow$ & runtime\_s $\downarrow$ & $n$ \\
+\midrule
+SG-STLSQ (smoothed library) & lorenz\_n2 & \textbf{0.85 $\pm$ 0.37} & \textbf{0.01 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \textbf{0.15 $\pm$ 0.37} & \textbf{0.00 $\pm$ 0.00} & \textbf{0.13 $\pm$ 0.04} & 20 \\
+Spline-STLSQ (smoothed library) & lorenz\_n2 & \underline{0.85 $\pm$ 0.37} & \underline{0.01 $\pm$ 0.02} & \underline{0.00 $\pm$ 0.00} & \underline{0.15 $\pm$ 0.37} & \underline{0.05 $\pm$ 0.22} & \underline{0.16 $\pm$ 0.04} & 20 \\
+\midrule
+SG-STLSQ (smoothed library) & lorenz\_n5 & \textbf{0.25 $\pm$ 0.44} & \textbf{0.03 $\pm$ 0.03} & \textbf{0.01 $\pm$ 0.01} & \textbf{0.85 $\pm$ 0.75} & \textbf{0.15 $\pm$ 0.37} & \textbf{0.12 $\pm$ 0.04} & 20 \\
+Spline-STLSQ (smoothed library) & lorenz\_n5 & \underline{0.20 $\pm$ 0.41} & \underline{0.04 $\pm$ 0.03} & \underline{0.01 $\pm$ 0.01} & \underline{0.85 $\pm$ 0.67} & \underline{0.20 $\pm$ 0.41} & \underline{0.18 $\pm$ 0.08} & 20 \\
+\bottomrule
+\end{tabular}

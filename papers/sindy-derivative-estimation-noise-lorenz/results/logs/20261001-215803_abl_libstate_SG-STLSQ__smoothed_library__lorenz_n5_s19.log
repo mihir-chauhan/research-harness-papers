@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:58:03 2026
+# cwd: .
+# cmd: python method/run.py --system sg --task lorenz_n5 --seed 19 --out results/raw/abl_libstate_sg_n5_s19_ls.json --override '{"lib_smooth": true}'
+
+config {"system": "sg", "task": "lorenz_n5", "seed": 19, "window": 21, "order": 3, "thr": 0.4, "lib_smooth": true}
+metrics {"support_exact": 0.0, "coef_err": 0.02891713554911632, "coef_err_oracle": 0.01517575144638166, "false_pos": 1.0, "false_neg": 0.0, "runtime_s": 0.10712003707885742}

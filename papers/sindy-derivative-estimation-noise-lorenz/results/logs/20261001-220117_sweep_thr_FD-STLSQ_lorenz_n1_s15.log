@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:01:17 2026
+# cwd: .
+# cmd: python method/run.py --system fd --task lorenz_n1 --seed 15 --out results/raw/sweep_thr_fd_n1_s15_t0.1.json --override '{"thr": 0.1}'
+
+config {"system": "fd", "task": "lorenz_n1", "seed": 15, "thr": 0.1}
+metrics {"support_exact": 0.0, "coef_err": 0.008398886086405754, "coef_err_oracle": 0.007027289041642246, "false_pos": 1.0, "false_neg": 0.0, "runtime_s": 0.25159311294555664}

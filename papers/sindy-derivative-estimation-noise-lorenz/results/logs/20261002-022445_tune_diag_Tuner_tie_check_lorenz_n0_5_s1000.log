@@ -1,0 +1,11 @@
+# rh run | Fri Oct  2 02:24:45 2026
+# cwd: .
+# cmd: python method/tie_check.py --task lorenz_n0.5 --out results/raw/tie_check_n0.5.json
+
+config {"task": "lorenz_n0.5", "levels": ["0.5"], "thr": [0.05, 0.1, 0.2, 0.4, 0.6], "grids": {"fd": {}, "sg": {"window": [11, 21, 41, 81, 161], "order": [3]}, "spline": {"lam": [1e-09, 1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001]}, "tv": {"alpha": [1e-05, 0.0001, 0.001, 0.01, 0.1]}, "weak": {"width": [0.3, 0.6, 1.0, 1.5, 2.5]}}, "tune_seeds": [1000, 1001, 1002, 1003, 1004]}
+fd 0.5 selected {'thr': 0.6} tied_thr=[0.1, 0.2, 0.4, 0.6] same_smoothing=True traj_differ=[0, 0, 0, 0] identical=True mean_err=[0.0077 0.0077 0.0077 0.0077] mean_rule_thr=0.6
+sg 0.5 selected {'window': 11, 'order': 3, 'thr': 0.6} tied_thr=[0.1, 0.2, 0.4, 0.6] same_smoothing=True traj_differ=[0, 0, 0, 0] identical=True mean_err=[0.0044 0.0044 0.0044 0.0044] mean_rule_thr=0.6
+spline 0.5 selected {'lam': 1e-08, 'thr': 0.6} tied_thr=[0.1, 0.2, 0.4, 0.6] same_smoothing=True traj_differ=[0, 0, 0, 0] identical=True mean_err=[0.0013 0.0013 0.0013 0.0013] mean_rule_thr=0.6
+tv 0.5 selected {'alpha': 0.001, 'thr': 0.6} tied_thr=[0.1, 0.2, 0.4, 0.6] same_smoothing=True traj_differ=[0, 0, 0, 0] identical=True mean_err=[0.0020 0.0020 0.0020 0.0020] mean_rule_thr=0.6
+weak 0.5 selected {'width': 0.6, 'thr': 0.6} tied_thr=[0.05, 0.1, 0.2, 0.4, 0.6] same_smoothing=True traj_differ=[0, 0, 0, 0, 0] identical=True mean_err=[0.0007 0.0007 0.0007 0.0007 0.0007] mean_rule_thr=0.6
+metrics {"cells": 5, "cells_with_tie": 5, "tie_cells_identical_models": 5, "tie_cells_differing_models": 0, "tie_cells_other_smoothing": 0, "mean_rule_changes": 0, "runtime_s": 34.42327308654785}

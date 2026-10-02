@@ -1,0 +1,112 @@
+slug: sindy-derivative-estimation-noise-lorenz
+direction: 'Equation discovery under noise: recover the Lorenz-63 equations with sparse
+  regression (sequentially thresholded least squares in numpy) from noisy trajectories,
+  comparing how derivatives are obtained: finite differences, Savitzky-Golay smoothing,
+  total-variation or spline smoothing, and the weak (integral) formulation. Measure
+  the rate of exact support recovery and coefficient error as functions of noise level.'
+problem: Recover the Lorenz-63 equations by STLSQ sparse regression from noisy trajectories;
+  the derivative source dominates failure under noise.
+gap: Controlled head-to-head of derivative sources (FD, Savitzky-Golay, smoothing
+  spline, TV, weak form) with identical STLSQ back end, matched tuning on independent
+  trajectories, exact-support rate vs noise.
+contribution: A small CPU replication-style comparison of five derivative sources,
+  reporting exact-support recovery and coefficient error over a 0-10% noise grid with
+  20 seeds per level, plus sensitivity and library-state ablations.
+hypotheses:
+- id: H1
+  statement: Weak-form STLSQ has higher exact-support rate than every derivative-based
+    baseline at every noise level >= 1%.
+  test: rh compare --metric support_exact per task, p<0.05 and higher mean
+- id: H2
+  statement: SG, spline and TV have lower mean coef_err than raw FD at noise >= 1%.
+  test: rh compare --metric coef_err per task vs FD
+- id: H3
+  statement: At 0% noise all systems recover the support in all seeds.
+  test: support_exact mean = 1 for each system on lorenz_n0
+- id: H4
+  statement: The weak-form advantage depends on the test-function window width; too
+    narrow a window loses the advantage (sweep at 2% noise).
+  test: descriptive sweep table
+- id: H5
+  statement: Evaluating the library on the smoothed state (SG, spline) instead of
+    the raw noisy state improves support recovery at 2% noise.
+  test: descriptive ablation table
+method:
+  name: Weak-form STLSQ
+  summary: Integrate dynamics against (1-s^2)^3 test functions on 200 windows (integration
+    by parts), then STLSQ; no differentiation of data.
+  components:
+  - weak form
+  - STLSQ
+  - test-function width
+  entrypoint: method/run.py
+tasks:
+- lorenz_n0
+- lorenz_n0.5
+- lorenz_n1
+- lorenz_n2
+- lorenz_n5
+- lorenz_n10
+metrics:
+  support_exact:
+    higher_is_better: true
+  coef_err:
+    higher_is_better: false
+  coef_err_oracle:
+    higher_is_better: false
+  false_pos:
+    higher_is_better: false
+  false_neg:
+    higher_is_better: false
+  runtime_s:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- FD-STLSQ
+- SG-STLSQ
+- Spline-STLSQ
+- TV-STLSQ
+ablations:
+- Weak-form STLSQ
+- SG-STLSQ (smoothed library)
+- Spline-STLSQ (smoothed library)
+- SG-STLSQ
+- FD-STLSQ
+ambition:
+  target_tier: 2
+  primary_metric: support_exact
+  primary_task: lorenz_n2
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra

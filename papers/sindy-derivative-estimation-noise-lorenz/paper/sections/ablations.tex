@@ -1,0 +1,23 @@
+\begin{table*}[t]\centering\caption{Exact-support rate on the 20 test seeds for every STLSQ threshold $\lambda$ of the tuning grid (smoothing parameters as tuned). Shaded: tuned threshold (the main runs). Underlined: threshold selected by the first tie rule. Diagnostic only: these cells use the test seeds.}\label{tab:thr}
+\setlength{\fboxsep}{1pt}\small\input{generated/rep_thr_a.tex}\\[4pt]
+\input{generated/rep_thr_b.tex}\end{table*}
+
+\begin{table}[t]\centering\caption{Mean coefficient error on the 20 test seeds at 5\% noise for every threshold of the grid; marks as in Table~\ref{tab:thr}.}\label{tab:threrr}
+\setlength{\tabcolsep}{5pt}\setlength{\fboxsep}{1pt}\small\input{generated/rep_thr_err_5.tex}\end{table}
+
+\textit{Threshold and tie rule.} One run per system, level and seed builds the regression problem once and applies STLSQ with each threshold of the grid (Tables~\ref{tab:thr} and~\ref{tab:threrr}); the shaded cells reproduce the main runs exactly. (i) Up to 1\% noise the derivative source makes no difference to support recovery at $\lambda=0.4$ (all five systems at 1.00) and almost none at $\lambda=0.6$ (only FD at 1\% drops, to 0.95). At 1\% smaller thresholds lower the rate of every system, down to 0.15--0.30 at $\lambda=0.05$. The thresholds tied at these levels returned identical models on the tuning trajectories (Sec.~\ref{sec:setup}), so at 0.5 and 1\% the first tie rule produced the underlined rates of 0.75--0.90, with the weak form below the baselines, and the revised rule 0.95--1.00 for all. Neither ordering reflects the derivative source. (ii) At 2\% only the weak form improves up to $\lambda=0.6$ (1.00); the baselines reach 0.80--0.90 at $\lambda=0.4$ and do not improve at 0.6. At equal thresholds the weak form is at least as good as every baseline for $\lambda\ge0.2$ at 2\% and for $\lambda\ge0.4$ at 5\%, but not in every cell below (at 5\% and $\lambda=0.2$ it is at 0.10 against 0.05--0.15). (iii) At 5\% the best cell of each baseline over the whole grid (FD 0.25, SG 0.25, spline 0.20, TV 0.40) stays below the weak form's 0.65, so the weak form's higher rate at 5\% does not depend on how the baselines' thresholds are selected within this grid (against TV the difference is not significant, Table~\ref{tab:pvals}a); at 10\% no cell exceeds 0.10.
+
+\textit{Test-function width (H4).} Table~\ref{tab:width} and Fig.~\ref{fig:width} vary the width of the weak-form test functions. At 2\% noise, the level registered for H4, the support rate is 1.00 for widths 0.3, 0.6 and 1.0 and falls to 0.60, 0.35 and 0.15 at 1.5, 2.5 and 4.0, below the baselines' 0.80--0.90. At 5\% (added to the registered sweep) the rate is 0.65 at 0.3 and 0.6, 0.45 at 1.0 and at most 0.10 beyond. H4 is partly supported: the width matters strongly, but not in the registered direction, since the narrowest window tested keeps the rate and the wide ones lose it. Windows narrower than 0.3 were not tested, and no experiment isolates why wide windows fail.
+
+\begin{table}[t]\centering\caption{Weak-form width sweep at 2\% (left three columns) and 5\% (right three) noise; $^\dagger$ tuned width (main runs).}\label{tab:width}
+\resizebox{\columnwidth}{!}{\input{generated/rep_width.tex}}\end{table}
+
+\begin{figure}[t]\centering\includegraphics[width=0.64\columnwidth]{width_sweep.pdf}
+\caption{Weak-form exact-support rate versus test-function width.}\label{fig:width}\end{figure}
+
+\textit{Test-function exponent.} At 2\% noise the exponents $p=2,3,4,6$ (60 runs beyond the main setting $p=3$) all give a support rate of 1.00, with mean coefficient errors of 0.0039, 0.0035, 0.0033 and 0.0031 (differences not tested): no detectable effect on support recovery in this range.
+
+\textit{Library on the smoothed state (H5).} With the library evaluated on the smoothed state instead of the noisy measurements (SG and spline, Table~\ref{tab:lib}), H5, registered for support recovery at 2\%, is not supported: the rate goes from 0.90 to 0.85 for SG and from 0.80 to 0.85 for spline, and does not change at 5\%. The coefficient error is lower with the smoothed library in all four cells (at 5\%, SG 0.0772 to 0.0339 and spline 0.0636 to 0.0387); no test was run on this difference.
+
+\begin{table}[t]\centering\caption{Library on the raw versus the smoothed state.}\label{tab:lib}
+\resizebox{\columnwidth}{!}{\input{generated/rep_lib.tex}}\end{table}

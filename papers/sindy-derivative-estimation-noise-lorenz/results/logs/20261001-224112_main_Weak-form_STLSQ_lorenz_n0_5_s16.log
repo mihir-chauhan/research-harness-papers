@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:41:12 2026
+# cwd: .
+# cmd: python method/run.py --system weak --task lorenz_n0.5 --seed 16 --out results/raw/r2_main_weak_n0.5_s16.json
+
+config {"system": "weak", "task": "lorenz_n0.5", "seed": 16, "width": 0.6, "thr": 0.6}
+metrics {"support_exact": 1.0, "coef_err": 0.0013148953134498578, "coef_err_oracle": 0.0013148953134502939, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.12090778350830078}

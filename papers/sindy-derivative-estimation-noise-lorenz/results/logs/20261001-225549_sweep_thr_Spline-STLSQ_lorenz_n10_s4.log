@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:55:49 2026
+# cwd: .
+# cmd: python method/run.py --system spline --task lorenz_n10 --seed 4 --out results/raw/r2_sweep_thr_spline_n10_s4.json --thr-grid 0.05,0.1,0.2,0.4,0.6
+
+config {"system": "spline", "task": "lorenz_n10", "seed": 4, "lam": 1e-06, "thr": "0.05,0.1,0.2,0.4,0.6"}
+metrics {"support_exact_t0.05": 0.0, "coef_err_t0.05": 0.3536571145038458, "false_pos_t0.05": 8.0, "false_neg_t0.05": 0.0, "support_exact_t0.1": 0.0, "coef_err_t0.1": 0.3479463012300916, "false_pos_t0.1": 6.0, "false_neg_t0.1": 0.0, "support_exact_t0.2": 0.0, "coef_err_t0.2": 0.08332369321792753, "false_pos_t0.2": 2.0, "false_neg_t0.2": 0.0, "support_exact_t0.4": 0.0, "coef_err_t0.4": 0.10439915127447406, "false_pos_t0.4": 2.0, "false_neg_t0.4": 1.0, "support_exact_t0.6": 0.0, "coef_err_t0.6": 0.10401163629835032, "false_pos_t0.6": 0.0, "false_neg_t0.6": 1.0, "runtime_s": 0.13027262687683105}

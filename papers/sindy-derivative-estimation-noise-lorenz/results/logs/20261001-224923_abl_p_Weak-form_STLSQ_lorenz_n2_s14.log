@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:49:23 2026
+# cwd: .
+# cmd: python method/run.py --system weak --task lorenz_n2 --seed 14 --out results/raw/r2_abl_p_weak_n2_s14_p4.json --override '{"p": 4}'
+
+config {"system": "weak", "task": "lorenz_n2", "seed": 14, "width": 0.6, "thr": 0.6, "p": 4}
+metrics {"support_exact": 1.0, "coef_err": 0.0011737060182924063, "coef_err_oracle": 0.0011737060182922705, "false_pos": 0.0, "false_neg": 0.0, "runtime_s": 0.09755110740661621}

@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:43:32 2026
+# cwd: .
+# cmd: python method/run.py --system fd --task lorenz_n10 --seed 19 --out results/raw/main_fd_n10_s19.json
+
+config {"system": "fd", "task": "lorenz_n10", "seed": 19, "thr": 0.4}
+metrics {"support_exact": 0.0, "coef_err": 0.11185342078847815, "coef_err_oracle": 0.05259130206124445, "false_pos": 3.0, "false_neg": 0.0, "runtime_s": 0.11281204223632812}

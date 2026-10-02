@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 21:49:32 2026
+# cwd: .
+# cmd: python method/run.py --system spline --task lorenz_n5 --seed 2 --out results/raw/abl_libstate_spline_n5_s2_ls.json --override '{"lib_smooth": true}'
+
+config {"system": "spline", "task": "lorenz_n5", "seed": 2, "lam": 1e-05, "thr": 0.4, "lib_smooth": true}
+metrics {"support_exact": 0.0, "coef_err": 0.03335992601230834, "coef_err_oracle": 0.01426576929960021, "false_pos": 1.0, "false_neg": 0.0, "runtime_s": 0.1373131275177002}

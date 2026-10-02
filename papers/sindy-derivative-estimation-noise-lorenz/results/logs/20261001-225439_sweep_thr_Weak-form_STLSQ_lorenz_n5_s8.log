@@ -1,0 +1,6 @@
+# rh run | Thu Oct  1 22:54:39 2026
+# cwd: .
+# cmd: python method/run.py --system weak --task lorenz_n5 --seed 8 --out results/raw/r2_sweep_thr_weak_n5_s8.json --thr-grid 0.05,0.1,0.2,0.4,0.6
+
+config {"system": "weak", "task": "lorenz_n5", "seed": 8, "width": 0.6, "thr": "0.05,0.1,0.2,0.4,0.6"}
+metrics {"support_exact_t0.05": 0.0, "coef_err_t0.05": 0.01307900674642882, "false_pos_t0.05": 3.0, "false_neg_t0.05": 0.0, "support_exact_t0.1": 0.0, "coef_err_t0.1": 0.012752913732525501, "false_pos_t0.1": 2.0, "false_neg_t0.1": 0.0, "support_exact_t0.2": 0.0, "coef_err_t0.2": 0.012752913732525501, "false_pos_t0.2": 2.0, "false_neg_t0.2": 0.0, "support_exact_t0.4": 1.0, "coef_err_t0.4": 0.003232133748940207, "false_pos_t0.4": 0.0, "false_neg_t0.4": 0.0, "support_exact_t0.6": 1.0, "coef_err_t0.6": 0.003232133748940207, "false_pos_t0.6": 0.0, "false_neg_t0.6": 0.0, "runtime_s": 0.10071086883544922}

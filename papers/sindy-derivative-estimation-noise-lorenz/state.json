@@ -1,0 +1,140 @@
+{
+  "slug": "sindy-derivative-estimation-noise-lorenz",
+  "direction": "Equation discovery under noise: recover the Lorenz-63 equations with sparse regression (sequentially thresholded least squares in numpy) from noisy trajectories, comparing how derivatives are obtained: finite differences, Savitzky-Golay smoothing, total-variation or spline smoothing, and the weak (integral) formulation. Measure the rate of exact support recovery and coefficient error as functions of noise level.",
+  "created": "2026-10-01T18:42:28",
+  "updated": "2026-10-02T02:28:38",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-01T20:52:22",
+      "finished": "2026-10-01T21:26:12",
+      "notes": [
+        {
+          "t": "2026-10-01T21:26:12",
+          "note": "landscape, proposal, 12 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-01T21:26:13",
+      "finished": "2026-10-01T22:19:10",
+      "notes": [],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:49:05",
+      "notes": [
+        {
+          "t": "2026-10-01T21:49:05",
+          "note": "reimplemented FD/SG/Spline/TV"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T21:49:05",
+      "notes": [
+        {
+          "t": "2026-10-01T21:49:05",
+          "note": "600 main runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:19:09",
+      "notes": [
+        {
+          "t": "2026-10-01T22:19:09",
+          "note": "3 ablation groups + threshold sweep"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:19:09",
+      "notes": [],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:19:09",
+      "notes": [
+        {
+          "t": "2026-10-01T22:19:09",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-01T22:19:10",
+      "notes": [],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-01T21:16:00",
+      "phase": "setup",
+      "decision": "First tuning grid hit edges (SG window 11 = smallest, STLSQ thr 0.6 = largest); extended grid to SG windows 5-161 and thr up to 0.8 and re-ran tuning on the same independent tuning seeds (1000-1004). dt=0.01 (1001 samples) instead of 0.002 to keep dense TV differentiation cheap."
+    },
+    {
+      "t": "2026-10-01T21:37:47",
+      "phase": "experiments",
+      "decision": "First launch of the main runs had a shell bug (bash 3 has no associative arrays) that logged every system under the name 'Weak-form STLSQ'. Killed the launcher, removed those mislabeled main rows, raw files and logs, and re-ran all main runs with a fixed launcher. No results were inspected before the re-run."
+    },
+    {
+      "t": "2026-10-01T21:58:39",
+      "phase": "setup",
+      "decision": "CORRECTION to the earlier setup decision: the planned grid extension (SG windows 5,7; threshold 0.8) was never applied (the command did not run), so all tuned.json values and all runs use the original grid: SG window {11..161}, threshold {0.05..0.6}. The smallest SG window (11) and the largest threshold (0.6) are chosen at some noise levels, i.e. at the grid edge; this is reported as a limitation. dt=0.01 (1001 samples) is used instead of 0.002 for cost."
+    },
+    {
+      "t": "2026-10-01T22:18:57",
+      "phase": "ablations",
+      "decision": "research.yaml ablations list the run names (kind=ablation) in groups sweep_width, abl_p, abl_libstate, sweep_thr, as rh check matches on name"
+    },
+    {
+      "t": "2026-10-01T22:38:34",
+      "phase": "experiments",
+      "decision": "Audit fix: the tuner resolved exact ties (identical models on all 5 tuning trajectories) by grid order, i.e. the smallest threshold; this decided the threshold in 19 of 30 system x noise cells (all cells at 0-1%, weak 2%, FD 5%, FD 10%, spline 10%), not only FD at 5%. New rule: support rate, then median error, then the LARGEST threshold on an exact tie (sparser model), same for all systems, same 5 tuning seeds and grids. Old tuned values kept in method/tuned_v1.json. All main runs, the width sweep and exponent ablation are superseded and re-run; abl_libstate cells (SG/spline at 2,5%) are unchanged by the re-tune and kept. The threshold sweep is redone as one run per system x level x seed evaluating all 5 thresholds on the same regression problem (diagnostic, test seeds)."
+    },
+    {
+      "t": "2026-10-01T23:07:15",
+      "phase": "results",
+      "decision": "Audit fix round: tuner tie rule changed to largest threshold on exact ties (deterministic, no test data), all main/width/exponent runs re-run, threshold-grid diagnostic for all systems and levels; first-version runs kept as superseded and both choices shown in the paper. H1 and H2 refuted, H3 supported, H4 partly, H5 not supported."
+    },
+    {
+      "t": "2026-10-02T02:11:51",
+      "phase": "setup",
+      "decision": "Audit round 2: the tuner's rule (support rate, median error, largest threshold) is kept as run; only its description is corrected (a tie is equal rate and equal median, not identical models). A new diagnostic, method/tie_check.py, checks model identity of tied configurations on the tuning seeds and what a mean-error tie-break would select. The rule is not changed a third time because the mean-error rule selects the same configuration in all 30 cells, so no run would change."
+    },
+    {
+      "t": "2026-10-02T02:28:38",
+      "phase": "paper",
+      "decision": "Fix round 2: tie criterion described as implemented and checked by tie_check.py; abstract/conclusion caveats for H2 and coefficient error; one statement of resolution; exponent errors in text. Tie table and exponent table left out of the paper to stay at 6 pages."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}
