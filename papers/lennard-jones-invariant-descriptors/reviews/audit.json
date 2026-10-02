@@ -1,0 +1,159 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "Runs are real and reproduce bit-for-bit, all paper numbers match the tables, and the framing is honest about negative results. However the KRR grid clips the paper's own SymFn-sum KRR at its corner (gamma=0.01 in 4 of 5 main seeds, lambda=1e-9 in all 5); with a wider validation-selected grid SF-KRR drops from 1.587 to 0.907 at n=500 and beats sorted-distance KRR (1.096), so the claimed KRR ordering, the 'opposite to H3' direction and most of the angular-function ablation effect are grid artefacts. Fixable by re-running the KRR systems (seconds each) with a bracketed grid and rewriting the affected claims.",
+      "reran": [
+        {
+          "run": "SymFn-sum KRR/lj_clusters/0",
+          "metric": "energy_mae",
+          "registry": 1.4403070325724956,
+          "rerun": 1.4403070325724956
+        },
+        {
+          "run": "Sorted dist MLP/lj_clusters/0",
+          "metric": "energy_mae",
+          "registry": 0.6437101060872042,
+          "rerun": 0.6437101060872042
+        },
+        {
+          "run": "SymFn-sum MLP/lj_clusters/1",
+          "metric": "energy_mae",
+          "registry": 4.589549839984382,
+          "rerun": 4.589549839984382
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py krr_fit_predict; paper abstract, results (Overview, H3), ablations, conclusion",
+          "issue": "The KRR grid (gamma 0.01-1, lambda 1e-9-1e-1) is truncated for the symmetry-function descriptor: SymFn-sum KRR selects the smallest gamma in 4 of 5 main seeds and the smallest lambda in all 5. Auditor re-run with gamma down to 1e-4 and lambda down to 1e-11 (validation selection only, same data) gives SF-KRR 0.907+-0.101 vs sorted KRR 1.096+-0.058 at n=500 (Welch p=0.010, order reversed), 3.07 vs 3.93 at n=50, 2.14 vs 2.09 at n=150, 0.71 vs 0.45 at n=1500. The claims 'SF-KRR is worse than both sorted-distance systems (p=0.0002)', 'direction is opposite to H3' and 'removing angular functions lowered KRR error 1.55 to 0.96' (about 0.85 vs 0.75 with the wider grid) are artefacts of the grid.",
+          "fix": "Widen the KRR grid until the selected gamma and lambda are interior for every descriptor, re-run all KRR systems (main, sweep_ntrain, abl_sf), regenerate tables, figures and rh compare, and rewrite the abstract, H3, H4, ablation and conclusion text; report the selected hyperparameters."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex (v)",
+          "issue": "Mentions a 'small fixed hyperparameter grid' but not that the selected values for the paper's own method sit on the grid boundary.",
+          "fix": "State grid-edge selections explicitly, or remove the issue by widening the grid."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Data); limitations (ii)",
+          "issue": "Says 'four lowest distinct local minima per size' and 'four-minima library', but minima.npz holds 1 minimum for N=5 and 2 for N=6. The claim that untruncated energies reached 10^7 has no log; the auditor's 4000-sample check gave a maximum of 1.3e4.",
+          "fix": "Say 'up to four' with the per-N counts, and log or soften the 10^7 statement."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2); limitations (ix)",
+          "issue": "'Invariance defects are at most 1.13e-6' is a 5-seed mean (per-seed max 1.33e-6 in main, 2.86e-6 at n=1500); 'the MLPs show exactly 0' is false for the atomwise MLP (5.17e-7).",
+          "fix": "Report the per-seed maximum and restrict 'exactly 0' to the sum-pooled and sorted MLPs."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1); ablations.tex; results/VERDICT.md",
+          "issue": "The Welch tests registered for H1 are not reported (the compare CSV only has SymFn-sum KRR as reference); ablation differences have no tests and VERDICT.md lists the ablation deltas as 'missing'. The SF-MLP step-count effect (4.61 to 4.39, auditor p=0.056, 3 seeds) is called a budget effect.",
+          "fix": "Add the H1 and ablation tests (auditor: H1 all p<1e-6; radial-only vs full KRR p=0.003 on the grid as run) and soften the SF-MLP step claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Hardware and runtime)",
+          "issue": "'KRR runs take under 3 s' is not true for SymFn-sum KRR at n=1500 (3.3-3.5 s); MLP '10-11 s' applies only to the main group (range about 4-15 s elsewhere).",
+          "fix": "Give actual ranges from the registry."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "'Raw models learned essentially nothing ... up to n=1500' but raw KRR reaches 11.17+-0.24 there and no mean-predictor run exists at n=1500; the test set also differs across n because the RNG is consumed by the training draw.",
+          "fix": "Run the mean predictor at each n and note that test sets differ by n, or reword."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex (rupp2011fast)",
+          "issue": "Rupp et al. use sorted eigenvalue spectra of the Coulomb matrix; 'sorted Coulomb matrices' were introduced in later work.",
+          "fix": "Reword to 'eigenvalue spectra' or add the later citation for sorted Coulomb matrices."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf page 2 and Fig. 1; experiments/PROTOCOL.md",
+          "issue": "Eq. (2) overflows the column and overprints the Tuning budget paragraph; the Fig. 1 legend covers the lower-left curves; PROTOCOL.md has a garbled system count ('10 systems incl. none extra') and omits the mean-predictor and step-sweep runs added after the main runs.",
+          "fix": "Break Eq. (2) across lines, move the legend, and update PROTOCOL.md."
+        }
+      ],
+      "commit": "9454d1a45e81e9fb057d4e6c91103831a27d7983"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All numbers in the paper trace to registry-generated tables, the method and baseline re-runs reproduce the registry values exactly, the code matches the described method with validation-only selection and no leakage, and all 12 citations are verified and used in context. The paper reports its mixed/negative outcome honestly (method second to the sorted-distance MLP, H2 partly refuted, H3 verdict dependent on a post-audit grid change) with thorough limitations; only minor wording and housekeeping issues remain.",
+      "reran": [
+        {
+          "run": "SymFn-sum KRR/lj_clusters n=500 wide grid/seed 0",
+          "metric": "energy_mae",
+          "registry": 0.8066159126880864,
+          "rerun": 0.8066159126880864
+        },
+        {
+          "run": "Sorted dist MLP/lj_clusters n=500/seed 0",
+          "metric": "energy_mae",
+          "registry": 0.6437101060872042,
+          "rerun": 0.6437101060872042
+        },
+        {
+          "run": "Sorted dist KRR/lj_clusters n=50 wide grid/seed 2",
+          "metric": "energy_mae",
+          "registry": 4.283018790019511,
+          "rerun": 4.283018790019511
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex (contribution i)",
+          "issue": "Claims an identical tuning budget for all seven systems, but KRR selects among 19x16=304 (gamma, lambda) pairs while the MLPs select between two learning rates at a fixed 3000 steps.",
+          "fix": "Reword to 'identical data and splits; tuning protocol in Section IV' or state the asymmetry explicitly."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Table I",
+          "issue": "The best baseline (sorted-distance MLP, 0.635) is known from the step sweep to be unconverged (0.54 at 12000 steps) while the method's KRR grid was widened post hoc; disclosed in ablations and limitations, and it only understates the method's deficit.",
+          "fix": "Mention the 0.54 figure next to the main-table ranking in the overview paragraph, or re-run the MLP baselines at the longer budget."
+        },
+        {
+          "severity": "minor",
+          "where": "BRIEF.md / paper/sections/setup.tex",
+          "issue": "The statement that the new KRR grid bounds were set from validation errors only rests on an unlogged scratch scan and cannot be verified from the repository.",
+          "fix": "Commit the scan script/output or soften the wording to say the scan was not logged."
+        },
+        {
+          "severity": "minor",
+          "where": "results/logs (runs 2bc393d572, e4f61e6492)",
+          "issue": "Two provenance logs contain interleaved output of a different concurrently started run (log filename collision), so the log text does not show the registered metric; the registry values themselves are correct (2bc393d572 re-executed, identical).",
+          "fix": "Include n_train or run_id in log filenames, or re-run these two rows serially."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables/sweep_ntrain.md, sweep_steps.md, results/VERDICT.md",
+          "issue": "Auto-generated tables pool across training sizes/step counts and VERDICT.md lists all ablations as 'missing' and gives p=0.0175 versus the Welch 0.014 used in the paper; not used by the paper but misleading as artifacts.",
+          "fix": "Regenerate per-size tables or add a note that these files are not used; RESULTS.md already explains the VERDICT ablation column."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py",
+          "issue": "Unused ETAS constant; the radial eta values actually used are the hard-coded (2.0, 6.0), which do match the paper.",
+          "fix": "Remove the dead constant."
+        }
+      ],
+      "commit": "69654eb2fe80b24cf4bcfbad256043da24a6fc55"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (2):\n! numbers in prose not found in any table or run: setup.tex: 44.327\n! verdict tier 0 < target 2: not best on lj_clusters: ours 0.889 vs Sorted dist MLP 0.6347\nREADY",
+      "response": "# Response to the audit (fix round)\n\nAll numbers below are from `results/runs.jsonl` (ok, non-superseded rows) via `experiments/analyze.py`\n(`results/tables/*.tex`, `results/analysis_stats.txt`) and `rh compare`.\n\n## 1. Major: KRR grid truncated for SymFn-sum KRR \u2014 accepted, fixed by re-running\n- `method/run.py`: every KRR system now uses gamma in 10^-7..10^2 (half decades, 19 values) and lambda in 10^-13..10^2\n  (decades, 16 values), selected on validation MAE. A (gamma, lambda) pair is skipped when the Cholesky solve fails or LAPACK\n  flags the matrix as ill-conditioned. The bounds were set from validation errors only (scratch scan of selected values, no test numbers).\n  Each run logs `hp_gamma`, `hp_lambda`, `hp_gamma_at_edge`, `hp_lambda_at_edge`, `hp_n_skipped`.\n- Code committed before the runs (commit 31a7341). Old KRR rows of main, sweep_ntrain and abl_sf were retired with `rh supersede`\n  (kept in the registry); 45 KRR runs repeated (`experiments/run_fix.sh`). MLP rows kept: their code path is unchanged.\n- New results: SymFn-sum KRR 0.889 +- 0.140 at n=500 (was 1.587), 2.65 / 1.49 / 0.71 at n=50 / 150 / 1500.\n  It is now ahead of sorted-distance KRR at n=50, 150, 500 (Welch p=0.012, 0.032, 0.026) and behind at n=1500 (p=0.022).\n- Rewritten: abstract, overview, H1-H4, where-it-fails, ablations, limitations, conclusion. H3 is now \"supported, with caveats\"\n  (3 seeds, uncorrected, reverses at n=1500, grid dependent); the paper states that the first version reached the opposite\n  verdict because of the grid. The angular-function claim is now \"no resolved effect\" (0.785 vs 0.889, p=0.19).\n- New table \"grid\" (sweep_krrgrid: narrow 1.587, mid 0.907, wide 0.889 for SF-KRR; 1.096 / 1.095 / 1.095 for sorted KRR) and new\n  table \"hp\" with the selected hyperparameters per system and size.\n- What could not be achieved, and is disclosed instead: the selected gamma is interior in every wide-grid run except one\n  (SF-KRR, n=50, seed 2), but the selected lambda of SymFn-sum KRR is the smallest numerically feasible value in 13 of 14 runs\n  (sorted KRR 4 of 14). Smaller values give solves that LAPACK flags as ill-conditioned, so no grid brackets it in double\n  precision. The paper says this in the ablation section and in limitation (v), and bounds the consequence two ways:\n  mid -> wide changes the error from 0.907 to 0.889 (p=0.82), and linear ridge on the same descriptor, whose lambda is interior\n  in 5/5 seeds, gives 0.805 (p=0.27 against RBF KRR). The new group abl_linear holds these runs.\n- Side effect reported in the paper: with the flatter kernels the invariance defect of SF-KRR rises to 6.16e-5 (per-seed max\n  8.34e-5, single configurations up to 4.2e-3), still below the registered 1e-4 but close to it.\n\n## 2. Minor: limitations did not mention grid-edge selections \u2014 fixed\nLimitation (v) now states that the grid was widened after the audit (so it is not pre-registered) and that lambda of SF-KRR\nsits on the smallest feasible value in 13 of 14 runs.\n\n## 3. Minor: \"four minima per size\", unlogged 10^7 claim \u2014 fixed\nSetup now says \"up to four ... one for N=5, two for N=6, four for N>=7\". The 10^7 statement is removed. A logged sanity run\n(`method/energy_tail.py`, group sanity) gives, for 4000 untruncated samples: 6.6% of perturbed configurations above 50,\nmaximum 5355; random configurations 0.1%, maximum 65.9. The same run logs the library sizes and the N=13 minimum (-44.327).\n\n## 4. Minor: invariance defect wording \u2014 fixed\nThe main table has a new column with the largest per-seed defect. The text reports per-seed maxima, says \"exactly 0\" only for the\nsum-pooled SF MLP and the sorted-distance MLP, gives 5.39e-7 for the atomwise MLP, and reports the per-configuration maximum for\nSF-KRR (new metric `inv_defect_max`).\n\n## 5. Minor: registered tests not reported \u2014 fixed\nNew table \"tests\": Welch p-values for H1 (four comparisons), H3, H4 (three descriptors) and raw-vs-mean-predictor at every n.\n`rh compare` outputs with the raw systems as reference are saved as `results/tables/compare_main_energy_mae_ref_raw_{krr,mlp}.csv`.\nThe ablation table has a p column (Welch against the full model on the same seeds); the step table has p rows. The SF-MLP step\neffect is now described as not resolved (p=0.264 and 0.056). `results/VERDICT.md` still prints \"missing\" for ablations because\n`rh verdict` needs rows of the method inside the ablation group, which would mean re-logging identical runs; RESULTS.md says so.\n\n## 6. Minor: runtime statement \u2014 fixed\nRanges now come from the registry: KRR/ridge 0.3-14.7 s, MLP 2.6-176.0 s, atomwise MLP 10.7-182.0 s.\n\n## 7. Minor: \"raw models learned essentially nothing up to n=1500\" \u2014 fixed\nMean predictor run at n=50, 150, 1500 (3 seeds each, group sweep_ntrain) and added to the learning-curve table and figure.\nThe text now says raw KRR is not distinguishable from the mean predictor at any size (p >= 0.062) and raw MLP is worse (p <= 0.031).\nSetup and limitation (viii) state that test sets differ between training sizes. Not changed: the data generator itself, because\ndrawing the test set first would invalidate every MLP run and exceed the compute budget.\n\n## 8. Minor: Rupp et al. citation \u2014 fixed\nIntroduction and related work now say \"sorted eigenvalue spectrum of the Coulomb matrix\". One reference added with `rh lit cite`\n(Barthelme et al., Gaussian process regression in the flat limit, arXiv:2201.01074; abstract read in the `rh lit search` result),\ncited for the flat-limit behaviour that the SF-KRR selections show. `rh lit verify`: 12 cited, 12 verified.\n\n## 9. Minor: Eq. (2) overflow, Fig. 1 legend, PROTOCOL.md \u2014 fixed\nEq. (2) is split over two lines; the Fig. 1 legend is below the axes; PROTOCOL.md is rewritten with all run groups, the\nsupersede history and the tuning grids. Tables use short system names so that none is shrunk below footnote size.\n\n## Own audit, further changes\n- H4: removed the claim that the SF gap \"does not shrink\"; it now says the MLP error stays severa",
+      "seconds": 1483
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# rh run | Fri Oct  2 00:42:24 2026
+# cwd: .
+# cmd: python method/run.py --system const --seed 1 --n_train 500 --out results/raw/main_const_n500_s1.json
+
+config: {"system": "const", "seed": 1, "n_train": 500, "n_test": 1000, "steps": 3000, "out": "results/raw/main_const_n500_s1.json"}
+{
+ "energy_mae": 11.6860927576484,
+ "energy_mae_per_atom": 1.2604380141256106,
+ "mae_perturbed": 14.60782928153181,
+ "mae_random": 8.764356233764989,
+ "mae_rotated": 11.6860927576484,
+ "mae_permuted": 11.6860927576484,
+ "mae_rot_perm": 11.6860927576484,
+ "inv_defect": 0.0,
+ "test_energy_std": 15.275660218095698,
+ "val_mae": 10.186770324243946,
+ "runtime_s": 0.28484511375427246
+}

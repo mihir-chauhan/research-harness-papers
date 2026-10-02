@@ -1,0 +1,22 @@
+# rh run | Fri Oct  2 01:00:42 2026
+# cwd: .
+# cmd: python method/run.py --system sorted_lin --seed 2 --n_train 500 --krr_grid wide --out results/raw/abl_linear_sorted_lin_n500_wide_s2.json
+
+config: {"system": "sorted_lin", "seed": 2, "n_train": 500, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/abl_linear_sorted_lin_n500_wide_s2.json"}
+{
+ "energy_mae": 5.640586325479695,
+ "energy_mae_per_atom": 0.6892777358777642,
+ "mae_perturbed": 5.7268978644821384,
+ "mae_random": 5.55427478647725,
+ "mae_rotated": 5.640586325479695,
+ "mae_permuted": 5.640586325479695,
+ "mae_rot_perm": 5.640586325479676,
+ "inv_defect": 2.797888587480202e-13,
+ "inv_defect_max": 2.021494083237485e-12,
+ "test_energy_std": 16.09519993146624,
+ "val_mae": 5.290594263106609,
+ "runtime_s": 0.36975789070129395,
+ "hp_lambda": 0.1,
+ "hp_n_skipped": 1,
+ "hp_lambda_at_edge": 0
+}

@@ -1,0 +1,129 @@
+{
+  "slug": "lennard-jones-invariant-descriptors",
+  "direction": "A toy machine-learned interatomic potential: predict the energy of small Lennard-Jones clusters (5 to 13 atoms, random perturbations of minima and random configurations) from (a) raw coordinates, (b) sorted pairwise distances, (c) simple symmetry-function descriptors with permutation-invariant sum pooling. Compare kernel ridge regression and a small MLP on energy error, data efficiency, and behaviour under rotation and atom permutation of the test set.",
+  "created": "2026-10-01T18:43:35",
+  "updated": "2026-10-02T01:16:12",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T00:19:00",
+      "finished": "2026-10-02T00:27:45",
+      "notes": [
+        {
+          "t": "2026-10-02T00:27:45",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:27:45",
+      "notes": [
+        {
+          "t": "2026-10-02T00:27:45",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-02T00:28:09",
+      "finished": "2026-10-02T00:41:29",
+      "notes": [
+        {
+          "t": "2026-10-02T00:41:29",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:41:29",
+      "notes": [
+        {
+          "t": "2026-10-02T00:41:29",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:41:29",
+      "notes": [
+        {
+          "t": "2026-10-02T00:41:29",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:46:50",
+      "notes": [
+        {
+          "t": "2026-10-02T00:46:50",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T00:46:50",
+      "notes": [
+        {
+          "t": "2026-10-02T00:46:50",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": "2026-10-02T00:46:50",
+      "finished": "2026-10-02T01:16:12",
+      "notes": [
+        {
+          "t": "2026-10-02T00:47:07",
+          "note": "5 pages, READY"
+        },
+        {
+          "t": "2026-10-02T01:16:12",
+          "note": "fix round: KRR re-run with wide grid, claims rewritten, 6 pages, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T00:27:30",
+      "phase": "novelty",
+      "decision": "Method = sum-pooled symmetry-function KRR (pre-registered as 'ours'); study is a controlled comparison, not a new method. Truncated sampling E<=50 because unbounded perturbation energies made MAE meaningless (found in smoke test before main runs)."
+    },
+    {
+      "t": "2026-10-02T00:58:37",
+      "phase": "experiments",
+      "decision": "Audit fix: the 5x5 KRR grid clipped SymFn-sum KRR at its smallest gamma/lambda. New grid for ALL KRR systems: gamma 10^-7..10^2 (half decades), lambda 10^-13..10^2 (decades), validation MAE selection, pairs with a failed or LAPACK-ill-conditioned Cholesky solve skipped. Grid bounds were fixed from validation errors only (no test numbers). Old KRR rows are superseded, not deleted; MLP rows are kept because the MLP code path is unchanged. Added grid-sensitivity (narrow/mid/wide), linear-ridge diagnostic, mean predictor at every n, and an untruncated-energy sanity run."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

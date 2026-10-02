@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 00:42:27 2026
+# cwd: .
+# cmd: python method/run.py --system sorted_mlp --seed 0 --n_train 500 --steps 12000 --out results/raw/sweep_steps_sorted_mlp_n500_st12000_s0.json
+
+config: {"system": "sorted_mlp", "seed": 0, "n_train": 500, "n_test": 1000, "steps": 12000, "out": "results/raw/sweep_steps_sorted_mlp_n500_st12000_s0.json"}
+{
+ "energy_mae": 0.5248915294764818,
+ "energy_mae_per_atom": 0.05506945465826141,
+ "mae_perturbed": 0.4946343350597956,
+ "mae_random": 0.5551487238931679,
+ "mae_rotated": 0.5248915294764818,
+ "mae_permuted": 0.5248915294764818,
+ "mae_rot_perm": 0.5248915294764818,
+ "inv_defect": 0.0,
+ "test_energy_std": 16.049030245470096,
+ "val_mae": 0.41097197919648043,
+ "runtime_s": 13.44718599319458,
+ "hp_lr": 0.001
+}

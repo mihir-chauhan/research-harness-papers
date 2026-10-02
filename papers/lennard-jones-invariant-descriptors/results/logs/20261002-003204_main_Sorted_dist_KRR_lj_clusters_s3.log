@@ -1,0 +1,20 @@
+# rh run | Fri Oct  2 00:32:04 2026
+# cwd: .
+# cmd: python method/run.py --system sorted_krr --seed 3 --n_train 500 --out results/raw/main_sorted_krr_n500_s3.json
+
+config: {"system": "sorted_krr", "seed": 3, "n_train": 500, "n_test": 1000, "steps": 3000, "out": "results/raw/main_sorted_krr_n500_s3.json"}
+{
+ "energy_mae": 1.190630924963366,
+ "energy_mae_per_atom": 0.13075740517743017,
+ "mae_perturbed": 1.119281442665764,
+ "mae_random": 1.2619804072609682,
+ "mae_rotated": 1.1906309249589107,
+ "mae_permuted": 1.190630924963366,
+ "mae_rot_perm": 1.1906309249617546,
+ "inv_defect": 1.405856404623762e-10,
+ "test_energy_std": 16.15422744221697,
+ "val_mae": 1.176187942297972,
+ "runtime_s": 0.6870017051696777,
+ "hp_gamma": 0.3,
+ "hp_lambda": 1e-09
+}

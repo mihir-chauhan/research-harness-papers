@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 01:01:08 2026
+# cwd: .
+# cmd: python method/run.py --system const --seed 0 --n_train 50 --out results/raw/sweep_ntrain_const_n50_s0.json
+
+config: {"system": "const", "seed": 0, "n_train": 50, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/sweep_ntrain_const_n50_s0.json"}
+{
+ "energy_mae": 12.20894456510602,
+ "energy_mae_per_atom": 1.3275529406655247,
+ "mae_perturbed": 13.32193508912772,
+ "mae_random": 11.095954041084322,
+ "mae_rotated": 12.20894456510602,
+ "mae_permuted": 12.20894456510602,
+ "mae_rot_perm": 12.20894456510602,
+ "inv_defect": 0.0,
+ "inv_defect_max": 0.0,
+ "test_energy_std": 15.876246316339568,
+ "val_mae": 9.660939098445768,
+ "runtime_s": 0.20732998847961426
+}

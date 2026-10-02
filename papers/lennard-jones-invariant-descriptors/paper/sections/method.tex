@@ -1,0 +1,24 @@
+\textbf{Reference energy.} Reduced units $\epsilon{=}\sigma{=}1$: $E(\mathbf{x})=\sum_{i<j}4\left(r_{ij}^{-12}-r_{ij}^{-6}\right)$, $r_{ij}=\lVert\mathbf{x}_i-\mathbf{x}_j\rVert$. Clusters have $N\in\{5,\dots,13\}$ atoms, zero-padded to 13.
+
+\textbf{Descriptors.} (a) \emph{Raw}: $\phi_{\text{raw}}=[\mathrm{vec}(\mathbf{X}),N]$ with atoms in random order. (b) \emph{Sorted}: $\phi_{\text{sort}}=[\mathrm{sort}_{\downarrow}(\{1/r_{ij}\}_{i<j}),N]$, zero-padded to 78 entries (zero stands for infinite distance); it is exactly invariant to rotation, translation and permutation. (c) \emph{Symmetry functions} (SF): per atom $i$ with cosine cutoff $f_c(r)=\tfrac12[\cos(\pi r/R_c)+1]$ for $r<R_c{=}4$ and 0 otherwise,
+\begin{align}
+G^{2}_{i}&=\sum_{j\ne i}e^{-\eta(r_{ij}-r_s)^2}f_c(r_{ij}),\\
+G^{4}_{i}&=2^{1-\zeta}\!\!\sum_{\substack{j,k\ne i\\ j\neq k}}\!(1+\lambda\cos\theta_{jik})^{\zeta}\,
+e^{-\eta(r_{ij}^2+r_{ik}^2+r_{jk}^2)}\nonumber\\
+&\qquad\qquad\times f_c(r_{ij})f_c(r_{ik})f_c(r_{jk}),
+\end{align}
+with $r_s\in\{0.9,1.1,1.4,1.8,2.3,3.0\}$, $\eta\in\{2,6\}$ (12 radial functions), a coordination number $\sum_{j\neq i}f_c(r_{ij})$, and eight angular functions ($\eta\in\{0.3,1.5\}$, $\zeta\in\{1,4\}$, $\lambda=\pm1$): 21 functions per atom. Sum pooling gives the global descriptor $\phi_{\text{SF}}=[\sum_i \mathbf{g}_i,N]$, invariant to permutation by construction and to rotation because the $\mathbf g_i$ depend on distances and angles only. Features are standardised with training statistics.
+
+\textbf{KRR (reimplemented).} With standardised descriptor $\mathbf{z}\in\mathbb{R}^d$, $k(\mathbf z,\mathbf z')=\exp(-\gamma\lVert\mathbf z-\mathbf z'\rVert^2/d)$ and
+\begin{equation}
+\hat E(\mathbf z)=\bar E+s\sum_m\alpha_m k(\mathbf z,\mathbf z_m),\quad \boldsymbol\alpha=(K+\lambda I)^{-1}\tilde{\mathbf y},
+\end{equation}
+$\tilde{\mathbf y}=(\mathbf y-\bar E)/s$ ($\bar E,s$: training mean and standard deviation). The system is solved by Cholesky factorisation; a $(\gamma,\lambda)$ pair is skipped if the factorisation fails or LAPACK reports the matrix as ill-conditioned (reciprocal condition number below machine precision).
+
+\textbf{Linear ridge (ablation).} The same estimator with the linear kernel $k(\mathbf z,\mathbf z')=\mathbf z^{\top}\mathbf z'/d$, i.e.\ ridge regression on the standardised descriptor; only $\lambda$ is selected.
+
+\textbf{MLP (reimplemented).} $\hat E=W_3\,\mathrm{SiLU}(W_2\,\mathrm{SiLU}(W_1\phi+b_1)+b_2)+b_3$, widths 128, trained with Adam on the mean squared error of standardised energies.
+
+\textbf{Atomwise network (BP-style, reimplemented).} $\hat E=\sum_{i=1}^{N}\mathrm{NN}(\mathbf g_i)$ with the same 2$\times$128 SiLU network shared over atoms (a single element), trained on the total-energy squared error; this is the Behler--Parrinello form~\cite{behler2007generalized}.
+
+\textbf{Mean predictor.} Reference that outputs the training mean energy. The method pre-registered as ours is SymFn-sum KRR ($\phi_{\text{SF}}$ + KRR); the other six systems and the mean predictor are baselines or references.

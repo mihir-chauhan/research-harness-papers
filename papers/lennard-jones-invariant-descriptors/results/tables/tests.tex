@@ -1,0 +1,17 @@
+\begin{tabular}{llcccc}
+\toprule
+ & A vs.\ B & $n$=50 & $n$=150 & $n$=500 & $n$=1500 \\
+\midrule
+H1 & Sorted KRR vs.\ Raw KRR & A $<$0.001 & A $<$0.001 & A $<$0.001 & A $<$0.001 \\
+H1 & SF KRR vs.\ Raw KRR & A $<$0.001 & A $<$0.001 & A $<$0.001 & A $<$0.001 \\
+H1 & Sorted MLP vs.\ Raw MLP & A 0.003 & A 0.002 & A $<$0.001 & A $<$0.001 \\
+H1 & SF MLP vs.\ Raw MLP & A 0.311 & A $<$0.001 & A $<$0.001 & A $<$0.001 \\
+H3 & SF KRR vs.\ Sorted KRR & A 0.012 & A 0.032 & A 0.026 & B 0.022 \\
+-- & SF KRR vs.\ Sorted MLP & B 0.359 & B 0.125 & B 0.014 & B 0.026 \\
+H4 & Raw KRR vs.\ Raw MLP & A 0.025 & A 0.034 & A $<$0.001 & A $<$0.001 \\
+H4 & Sorted KRR vs.\ Sorted MLP & B 0.006 & B 0.009 & B $<$0.001 & B 0.977 \\
+H4 & SF KRR vs.\ SF MLP & A 0.147 & A 0.012 & A $<$0.001 & A $<$0.001 \\
+ref. & Raw KRR vs.\ Mean pred. & A 0.931 & A 0.902 & A 0.902 & A 0.062 \\
+ref. & Raw MLP vs.\ Mean pred. & B 0.021 & B 0.031 & B $<$0.001 & B 0.004 \\
+\bottomrule
+\end{tabular}

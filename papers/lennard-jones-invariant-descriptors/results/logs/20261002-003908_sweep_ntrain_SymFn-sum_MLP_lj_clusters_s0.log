@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 00:39:08 2026
+# cwd: .
+# cmd: python method/run.py --system sf_mlp --seed 0 --n_train 1500 --out results/raw/sweep_ntrain_sf_mlp_n1500_s0.json
+
+config: {"system": "sf_mlp", "seed": 0, "n_train": 1500, "n_test": 1000, "steps": 3000, "out": "results/raw/sweep_ntrain_sf_mlp_n1500_s0.json"}
+{
+ "energy_mae": 4.086334668628508,
+ "energy_mae_per_atom": 0.4544019200806042,
+ "mae_perturbed": 3.2532447764118224,
+ "mae_random": 4.919424560845193,
+ "mae_rotated": 4.086334668628508,
+ "mae_permuted": 4.086334668628508,
+ "mae_rot_perm": 4.086334668628508,
+ "inv_defect": 0.0,
+ "test_energy_std": 16.07649270198242,
+ "val_mae": 4.151663998581429,
+ "runtime_s": 8.506560802459717,
+ "hp_lr": 0.004
+}

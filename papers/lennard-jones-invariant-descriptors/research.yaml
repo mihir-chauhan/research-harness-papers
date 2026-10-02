@@ -1,0 +1,58 @@
+slug: lennard-jones-invariant-descriptors
+direction: 'Toy ML interatomic potential on small Lennard-Jones clusters: raw coordinates vs sorted pairwise distances vs sum-pooled symmetry functions, with KRR and a small MLP; energy error, data efficiency, rotation/permutation behaviour.'
+problem: Learn the energy of 5-13 atom Lennard-Jones clusters from geometry only, where the true energy is invariant to rotation, translation and atom permutation.
+gap: Textbook descriptor comparisons rarely report, on one analytic testbed with identical splits, accuracy, learning curves and the measured invariance failure of non-invariant inputs for both a kernel and a neural model.
+contribution: A small, fully reproducible controlled comparison (3 descriptors x 2 regressors plus a Behler-Parrinello-style atomwise net) with learning curves and invariance tests; no new method is claimed.
+hypotheses:
+- id: H1
+  statement: At n_train=500, each invariant descriptor (sorted distances, sum-pooled symmetry functions) gives lower test energy MAE than raw coordinates, for both KRR and MLP.
+  test: Welch t-test over 5 seeds (rh compare) per regressor, alpha 0.05.
+- id: H2
+  statement: Raw-coordinate models degrade under rotation/permutation of the test set (MAE at least 2x the clean MAE), while invariant descriptors are unchanged (inv_defect < 1e-4 energy units).
+  test: mae_rot_perm / energy_mae ratio and inv_defect, per system, 5 seeds.
+- id: H3
+  statement: Data efficiency - the MAE of the sum-pooled symmetry-function KRR is lower than that of sorted-distance KRR at n_train=50 and 150.
+  test: Welch t-test over 3 seeds per size.
+- id: H4
+  statement: KRR beats the MLP of the same descriptor at small n (<=150) and the gap shrinks or reverses at larger n.
+  test: Learning-curve comparison, per descriptor, 3 seeds at n in {50,150,500(5 seeds),1500}.
+method:
+  name: SymFn-sum KRR
+  summary: Behler-Parrinello radial+angular symmetry functions per atom, sum-pooled over atoms into an invariant global descriptor, fed to RBF kernel ridge regression.
+  components: [symmetry functions, sum pooling, kernel ridge regression]
+  entrypoint: method/run.py
+tasks: [lj_clusters]
+metrics:
+  energy_mae: {higher_is_better: false}
+  energy_mae_per_atom: {higher_is_better: false}
+  mae_rot_perm: {higher_is_better: false}
+  inv_defect: {higher_is_better: false}
+seeds: [0, 1, 2, 3, 4]
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 30
+baselines: [Mean predictor, Raw coords KRR, Raw coords MLP, Sorted dist KRR, Sorted dist MLP, SymFn-sum MLP, SymFn atomwise MLP (BP-style)]
+ablations:
+- {name: SymFn-sum KRR radial-only, group: abl_sf}
+- {name: SymFn-sum MLP radial-only, group: abl_sf}
+- {name: Raw coords MLP + rot/perm aug, group: abl_aug}
+- {name: SymFn-sum linear ridge, group: abl_linear}
+- {name: SymFn-sum linear ridge radial-only, group: abl_linear}
+- {name: Sorted dist linear ridge, group: abl_linear}
+- {name: SymFn-sum KRR (narrow grid), group: sweep_krrgrid}
+- {name: SymFn-sum KRR (mid grid), group: sweep_krrgrid}
+ambition:
+  target_tier: 2
+  primary_metric: energy_mae
+  primary_task: lj_clusters
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 0
+  patience: 1
+  gpu_hour_budget: 0
+gates: []
+profile: quick
+venue: ieee-icra

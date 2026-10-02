@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 00:40:08 2026
+# cwd: .
+# cmd: python method/run.py --system sf_atomwise --seed 2 --n_train 1500 --out results/raw/sweep_ntrain_sf_atomwise_n1500_s2.json
+
+config: {"system": "sf_atomwise", "seed": 2, "n_train": 1500, "n_test": 1000, "steps": 3000, "out": "results/raw/sweep_ntrain_sf_atomwise_n1500_s2.json"}
+{
+ "energy_mae": 2.847658857973077,
+ "energy_mae_per_atom": 0.3173586535916162,
+ "mae_perturbed": 2.342729874921214,
+ "mae_random": 3.3525878410249397,
+ "mae_rotated": 2.847658857973077,
+ "mae_permuted": 2.847658864976623,
+ "mae_rot_perm": 2.847658885242202,
+ "inv_defect": 5.634129252030107e-07,
+ "test_energy_std": 15.24378278287384,
+ "val_mae": 2.5919492418605654,
+ "runtime_s": 14.542375802993774,
+ "hp_lr": 0.004
+}

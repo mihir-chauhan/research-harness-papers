@@ -1,0 +1,22 @@
+# rh run | Fri Oct  2 01:00:34 2026
+# cwd: .
+# cmd: python method/run.py --system sf_lin --seed 1 --n_train 500 --krr_grid wide --out results/raw/abl_linear_sf_lin_n500_wide_s1.json
+
+config: {"system": "sf_lin", "seed": 1, "n_train": 500, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/abl_linear_sf_lin_n500_wide_s1.json"}
+{
+ "energy_mae": 0.7177073873972211,
+ "energy_mae_per_atom": 0.0790907435299074,
+ "mae_perturbed": 0.8108312175621182,
+ "mae_random": 0.6245835572323241,
+ "mae_rotated": 0.7177068883686855,
+ "mae_permuted": 0.7177087650855426,
+ "mae_rot_perm": 0.7177096642371245,
+ "inv_defect": 4.149742680645163e-05,
+ "inv_defect_max": 0.00045484680205021277,
+ "test_energy_std": 15.275660218095698,
+ "val_mae": 0.6821878002161812,
+ "runtime_s": 1.8173182010650635,
+ "hp_lambda": 1e-10,
+ "hp_n_skipped": 1,
+ "hp_lambda_at_edge": 0
+}

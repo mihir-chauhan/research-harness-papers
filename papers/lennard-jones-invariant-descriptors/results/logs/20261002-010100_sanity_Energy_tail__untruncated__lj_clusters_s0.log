@@ -1,0 +1,25 @@
+# rh run | Fri Oct  2 01:01:00 2026
+# cwd: .
+# cmd: python method/energy_tail.py --seed 0 --m 4000 --out results/raw/sanity_energy_tail_s0.json
+
+config: {"seed": 0, "m": 4000, "out": "results/raw/sanity_energy_tail_s0.json"}
+{
+ "n_samples": 4000,
+ "perturbed_max_energy": 5354.99944320856,
+ "perturbed_q99_energy": 337.3116189562427,
+ "perturbed_frac_above_cap": 0.066,
+ "random_max_energy": 65.9406586409271,
+ "random_q99_energy": 34.412412194398854,
+ "random_frac_above_cap": 0.001,
+ "minima_per_size": {
+  "5": 1,
+  "6": 2,
+  "7": 4,
+  "8": 4,
+  "9": 4,
+  "10": 4,
+  "11": 4,
+  "12": 4,
+  "13": 4
+ }
+}

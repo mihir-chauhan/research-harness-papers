@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 00:40:30 2026
+# cwd: .
+# cmd: python method/run.py --system raw_mlp_aug --seed 1 --n_train 500 --out results/raw/abl_aug_raw_mlp_aug_n500_s1.json
+
+config: {"system": "raw_mlp_aug", "seed": 1, "n_train": 500, "n_test": 1000, "steps": 3000, "out": "results/raw/abl_aug_raw_mlp_aug_n500_s1.json"}
+{
+ "energy_mae": 9.29813163156465,
+ "energy_mae_per_atom": 1.0439776824492184,
+ "mae_perturbed": 10.58995994769672,
+ "mae_random": 8.006303315432579,
+ "mae_rotated": 9.227947955919005,
+ "mae_permuted": 9.258877920187727,
+ "mae_rot_perm": 9.384830865833184,
+ "inv_defect": 1.7312703127452085,
+ "test_energy_std": 15.275660218095698,
+ "val_mae": 8.89153169132175,
+ "runtime_s": 13.827697038650513,
+ "hp_lr": 0.004
+}

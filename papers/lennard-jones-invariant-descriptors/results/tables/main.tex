@@ -1,0 +1,14 @@
+\begin{tabular}{lcccc}
+\toprule
+Method & energy\_mae $\downarrow$ & mae\_rot\_perm $\downarrow$ & inv\_defect $\downarrow$ & $n$ \\
+\midrule
+Raw coords MLP & 15.03 $\pm$ 0.43 & 14.92 $\pm$ 0.64 & 15.23 $\pm$ 0.44 & 5 \\
+Raw coords KRR & 12.18 $\pm$ 0.33 & 12.14 $\pm$ 0.40 & 2.88 $\pm$ 2.42 & 5 \\
+Mean predictor & 12.20 $\pm$ 0.30 & 12.20 $\pm$ 0.30 & 0.00 $\pm$ 0.00 & 5 \\
+Sorted dist KRR & 1.09 $\pm$ 0.06 & 1.09 $\pm$ 0.06 & 0.00 $\pm$ 0.00 & 5 \\
+SymFn atomwise MLP (BP-style) & 3.13 $\pm$ 0.21 & 3.13 $\pm$ 0.21 & 0.00 $\pm$ 0.00 & 5 \\
+Sorted dist MLP & \textbf{0.63 $\pm$ 0.02} & \textbf{0.63 $\pm$ 0.02} & \textbf{0.00 $\pm$ 0.00} & 5 \\
+SymFn-sum MLP & 4.51 $\pm$ 0.14 & 4.51 $\pm$ 0.14 & \underline{0.00 $\pm$ 0.00} & 5 \\
+\textbf{SymFn-sum KRR} & \underline{0.89 $\pm$ 0.14} & \underline{0.89 $\pm$ 0.14} & 0.00 $\pm$ 0.00 & 5 \\
+\bottomrule
+\end{tabular}

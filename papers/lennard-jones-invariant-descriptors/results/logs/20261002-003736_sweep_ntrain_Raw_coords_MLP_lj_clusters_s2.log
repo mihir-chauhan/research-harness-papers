@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 00:37:36 2026
+# cwd: .
+# cmd: python method/run.py --system raw_mlp --seed 2 --n_train 50 --out results/raw/sweep_ntrain_raw_mlp_n50_s2.json
+
+config: {"system": "raw_mlp", "seed": 2, "n_train": 50, "n_test": 1000, "steps": 3000, "out": "results/raw/sweep_ntrain_raw_mlp_n50_s2.json"}
+{
+ "energy_mae": 17.482548610505358,
+ "energy_mae_per_atom": 1.9510092557010361,
+ "mae_perturbed": 17.91634040807502,
+ "mae_random": 17.048756812935697,
+ "mae_rotated": 18.080145207286474,
+ "mae_permuted": 18.147185560217032,
+ "mae_rot_perm": 18.439204007274398,
+ "inv_defect": 18.33885453000505,
+ "test_energy_std": 15.914581964213552,
+ "val_mae": 16.630301600542605,
+ "runtime_s": 4.534123182296753,
+ "hp_lr": 0.004
+}

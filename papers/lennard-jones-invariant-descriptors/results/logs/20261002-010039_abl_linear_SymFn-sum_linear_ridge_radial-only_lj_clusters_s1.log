@@ -1,0 +1,22 @@
+# rh run | Fri Oct  2 01:00:39 2026
+# cwd: .
+# cmd: python method/run.py --system sfrad_lin --seed 1 --n_train 500 --krr_grid wide --out results/raw/abl_linear_sfrad_lin_n500_wide_s1.json
+
+config: {"system": "sfrad_lin", "seed": 1, "n_train": 500, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/abl_linear_sfrad_lin_n500_wide_s1.json"}
+{
+ "energy_mae": 0.7926267228847507,
+ "energy_mae_per_atom": 0.08851459820296728,
+ "mae_perturbed": 0.8589774614406481,
+ "mae_random": 0.7262759843288532,
+ "mae_rotated": 0.7926267029259781,
+ "mae_permuted": 0.7926268142094601,
+ "mae_rot_perm": 0.7926265725424841,
+ "inv_defect": 4.207658655592805e-06,
+ "inv_defect_max": 3.790390017144318e-05,
+ "test_energy_std": 15.275660218095698,
+ "val_mae": 0.6728276163671331,
+ "runtime_s": 0.43708205223083496,
+ "hp_lambda": 1e-09,
+ "hp_n_skipped": 1,
+ "hp_lambda_at_edge": 0
+}

@@ -1,0 +1,20 @@
+# rh run | Fri Oct  2 00:27:56 2026
+# cwd: .
+# cmd: python method/run.py --system sf_krr --seed 99 --n_train 100 --out results/raw/sanity.json
+
+config: {"system": "sf_krr", "seed": 99, "n_train": 100, "n_test": 1000, "steps": 3000, "out": "results/raw/sanity.json"}
+{
+ "energy_mae": 3.1815564070602567,
+ "energy_mae_per_atom": 0.35527750958400633,
+ "mae_perturbed": 3.0892523040369118,
+ "mae_random": 3.2738605100836016,
+ "mae_rotated": 3.1815564071111893,
+ "mae_permuted": 3.181556407124771,
+ "mae_rot_perm": 3.181556406404925,
+ "inv_defect": 4.071204521949312e-09,
+ "test_energy_std": 15.537928510492742,
+ "val_mae": 3.699366523303338,
+ "runtime_s": 2.705488681793213,
+ "hp_gamma": 0.01,
+ "hp_lambda": 1e-07
+}

@@ -1,0 +1,24 @@
+# rh run | Fri Oct  2 01:00:53 2026
+# cwd: .
+# cmd: python method/run.py --system sfrad_krr --seed 3 --n_train 500 --krr_grid wide --out results/raw/abl_sf_sfrad_krr_n500_wide_s3.json
+
+config: {"system": "sfrad_krr", "seed": 3, "n_train": 500, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/abl_sf_sfrad_krr_n500_wide_s3.json"}
+{
+ "energy_mae": 0.7914833645955888,
+ "energy_mae_per_atom": 0.0839535424743284,
+ "mae_perturbed": 0.8937714805124267,
+ "mae_random": 0.6891952486787509,
+ "mae_rotated": 0.7914836423725221,
+ "mae_permuted": 0.7914835227741203,
+ "mae_rot_perm": 0.7914837851190017,
+ "inv_defect": 3.0439722278259305e-06,
+ "inv_defect_max": 3.472211666988301e-05,
+ "test_energy_std": 16.15422744221697,
+ "val_mae": 0.7885703758844563,
+ "runtime_s": 1.2517051696777344,
+ "hp_lambda": 1e-10,
+ "hp_n_skipped": 14,
+ "hp_lambda_at_edge": 0,
+ "hp_gamma": 0.0031622776601683794,
+ "hp_gamma_at_edge": 0
+}

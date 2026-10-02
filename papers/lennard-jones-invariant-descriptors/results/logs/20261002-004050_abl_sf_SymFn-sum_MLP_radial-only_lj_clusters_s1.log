@@ -1,0 +1,19 @@
+# rh run | Fri Oct  2 00:40:50 2026
+# cwd: .
+# cmd: python method/run.py --system sfrad_mlp --seed 1 --n_train 500 --out results/raw/abl_sf_sfrad_mlp_n500_s1.json
+
+config: {"system": "sfrad_mlp", "seed": 1, "n_train": 500, "n_test": 1000, "steps": 3000, "out": "results/raw/abl_sf_sfrad_mlp_n500_s1.json"}
+{
+ "energy_mae": 4.424335426725265,
+ "energy_mae_per_atom": 0.5060143216017136,
+ "mae_perturbed": 4.553356325266374,
+ "mae_random": 4.295314528184157,
+ "mae_rotated": 4.424335426725265,
+ "mae_permuted": 4.424335426725265,
+ "mae_rot_perm": 4.424335426725265,
+ "inv_defect": 0.0,
+ "test_energy_std": 15.275660218095698,
+ "val_mae": 4.039387373925904,
+ "runtime_s": 4.470643997192383,
+ "hp_lr": 0.004
+}

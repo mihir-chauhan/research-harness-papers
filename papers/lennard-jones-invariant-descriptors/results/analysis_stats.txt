@@ -1,0 +1,86 @@
+H1 n=50: Sorted dist KRR 3.933 (n=3) vs Raw coords KRR 12.378 (n=3), Welch p=7.82e-05
+H1 n=150: Sorted dist KRR 2.068 (n=3) vs Raw coords KRR 12.102 (n=3), Welch p=1.47e-06
+H1 n=500: Sorted dist KRR 1.095 (n=5) vs Raw coords KRR 12.178 (n=5), Welch p=9.31e-08
+H1 n=1500: Sorted dist KRR 0.453 (n=3) vs Raw coords KRR 11.145 (n=3), Welch p=0.000151
+H1 n=50: SymFn-sum KRR 2.655 (n=3) vs Raw coords KRR 12.378 (n=3), Welch p=3.38e-05
+H1 n=150: SymFn-sum KRR 1.492 (n=3) vs Raw coords KRR 12.102 (n=3), Welch p=3.24e-06
+H1 n=500: SymFn-sum KRR 0.889 (n=5) vs Raw coords KRR 12.178 (n=5), Welch p=3.21e-09
+H1 n=1500: SymFn-sum KRR 0.713 (n=3) vs Raw coords KRR 11.145 (n=3), Welch p=4.59e-05
+H1 n=50: Sorted dist MLP 2.394 (n=3) vs Raw coords MLP 16.082 (n=3), Welch p=0.00258
+H1 n=150: Sorted dist MLP 1.214 (n=3) vs Raw coords MLP 15.710 (n=3), Welch p=0.00217
+H1 n=500: Sorted dist MLP 0.635 (n=5) vs Raw coords MLP 15.028 (n=5), Welch p=1.81e-07
+H1 n=1500: Sorted dist MLP 0.453 (n=3) vs Raw coords MLP 13.350 (n=3), Welch p=0.000133
+H1 n=50: SymFn-sum MLP 11.147 (n=3) vs Raw coords MLP 16.082 (n=3), Welch p=0.311
+H1 n=150: SymFn-sum MLP 6.188 (n=3) vs Raw coords MLP 15.710 (n=3), Welch p=0.000679
+H1 n=500: SymFn-sum MLP 4.513 (n=5) vs Raw coords MLP 15.028 (n=5), Welch p=7.68e-08
+H1 n=1500: SymFn-sum MLP 4.131 (n=3) vs Raw coords MLP 13.350 (n=3), Welch p=6.29e-06
+H3 n=50: SymFn-sum KRR 2.655 (n=3) vs Sorted dist KRR 3.933 (n=3), Welch p=0.0121
+H3 n=150: SymFn-sum KRR 1.492 (n=3) vs Sorted dist KRR 2.068 (n=3), Welch p=0.0317
+H3 n=500: SymFn-sum KRR 0.889 (n=5) vs Sorted dist KRR 1.095 (n=5), Welch p=0.0265
+H3 n=1500: SymFn-sum KRR 0.713 (n=3) vs Sorted dist KRR 0.453 (n=3), Welch p=0.0215
+-- n=50: SymFn-sum KRR 2.655 (n=3) vs Sorted dist MLP 2.394 (n=3), Welch p=0.359
+-- n=150: SymFn-sum KRR 1.492 (n=3) vs Sorted dist MLP 1.214 (n=3), Welch p=0.125
+-- n=500: SymFn-sum KRR 0.889 (n=5) vs Sorted dist MLP 0.635 (n=5), Welch p=0.0143
+-- n=1500: SymFn-sum KRR 0.713 (n=3) vs Sorted dist MLP 0.453 (n=3), Welch p=0.0263
+H4 n=50: Raw coords KRR 12.378 (n=3) vs Raw coords MLP 16.082 (n=3), Welch p=0.0254
+H4 n=150: Raw coords KRR 12.102 (n=3) vs Raw coords MLP 15.710 (n=3), Welch p=0.0336
+H4 n=500: Raw coords KRR 12.178 (n=5) vs Raw coords MLP 15.028 (n=5), Welch p=4.48e-06
+H4 n=1500: Raw coords KRR 11.145 (n=3) vs Raw coords MLP 13.350 (n=3), Welch p=0.000432
+H4 n=50: Sorted dist KRR 3.933 (n=3) vs Sorted dist MLP 2.394 (n=3), Welch p=0.00588
+H4 n=150: Sorted dist KRR 2.068 (n=3) vs Sorted dist MLP 1.214 (n=3), Welch p=0.00917
+H4 n=500: Sorted dist KRR 1.095 (n=5) vs Sorted dist MLP 0.635 (n=5), Welch p=6.41e-06
+H4 n=1500: Sorted dist KRR 0.453 (n=3) vs Sorted dist MLP 0.453 (n=3), Welch p=0.977
+H4 n=50: SymFn-sum KRR 2.655 (n=3) vs SymFn-sum MLP 11.147 (n=3), Welch p=0.147
+H4 n=150: SymFn-sum KRR 1.492 (n=3) vs SymFn-sum MLP 6.188 (n=3), Welch p=0.012
+H4 n=500: SymFn-sum KRR 0.889 (n=5) vs SymFn-sum MLP 4.513 (n=5), Welch p=1.49e-10
+H4 n=1500: SymFn-sum KRR 0.713 (n=3) vs SymFn-sum MLP 4.131 (n=3), Welch p=7.46e-05
+ref. n=50: Raw coords KRR 12.378 (n=3) vs Mean predictor 12.429 (n=3), Welch p=0.931
+ref. n=150: Raw coords KRR 12.102 (n=3) vs Mean predictor 12.138 (n=3), Welch p=0.902
+ref. n=500: Raw coords KRR 12.178 (n=5) vs Mean predictor 12.203 (n=5), Welch p=0.902
+ref. n=1500: Raw coords KRR 11.145 (n=3) vs Mean predictor 11.798 (n=3), Welch p=0.0619
+ref. n=50: Raw coords MLP 16.082 (n=3) vs Mean predictor 12.429 (n=3), Welch p=0.0208
+ref. n=150: Raw coords MLP 15.710 (n=3) vs Mean predictor 12.138 (n=3), Welch p=0.0305
+ref. n=500: Raw coords MLP 15.028 (n=5) vs Mean predictor 12.203 (n=5), Welch p=5.74e-06
+ref. n=1500: Raw coords MLP 13.350 (n=3) vs Mean predictor 11.798 (n=3), Welch p=0.00434
+ablation radial-only of SymFn-sum KRR: 0.785 vs full 0.889 (5 seeds), Welch p=0.19
+ablation linear ridge (no kernel) of SymFn-sum KRR: 0.805 vs full 0.889 (5 seeds), Welch p=0.269
+ablation linear ridge, radial-only of SymFn-sum KRR: 0.914 vs full 0.889 (5 seeds), Welch p=0.763
+ablation linear ridge (no kernel) of Sorted dist KRR: 5.647 vs full 1.095 (5 seeds), Welch p=2.6e-07
+ablation radial-only of SymFn-sum MLP: 4.582 vs full 4.610 (3 seeds), Welch p=0.83
+ablation + rot/perm aug. of Raw coords MLP: 9.773 vs full 15.090 (3 seeds), Welch p=0.000394
+steps Sorted dist MLP: 1000 vs 3000 p=0.00324; 12000 vs 3000 p=0.00622
+steps SymFn-sum MLP: 1000 vs 3000 p=0.264; 12000 vs 3000 p=0.0562
+grid SymFn-sum KRR: narrow 1.587 vs wide 0.889, Welch p=3.38e-05
+grid SymFn-sum KRR: mid 0.907 vs wide 0.889, Welch p=0.824
+grid Sorted dist KRR: narrow 1.096 vs wide 1.095, Welch p=0.976
+grid Sorted dist KRR: mid 1.095 vs wide 1.095, Welch p=1
+grid narrow SymFn-sum KRR vs narrow Sorted dist KRR: Welch p=0.000231
+hp Raw coords KRR n=all: gamma [0.31622776601683794, 1.0, 3.1622776601683795, 10.0] lambda [1e-13, 0.1, 1.0, 10.0] gamma_at_edge 0/14 lambda_at_floor 3/14
+hp Sorted dist KRR n=50: gamma [0.31622776601683794, 1.0] lambda [1e-13, 1e-05, 0.0001] gamma_at_edge 0/3 lambda_at_floor 1/3
+hp Sorted dist KRR n=150: gamma [0.1, 0.31622776601683794] lambda [1e-05, 0.0001] gamma_at_edge 0/3 lambda_at_floor 0/3
+hp Sorted dist KRR n=500: gamma [0.31622776601683794, 1.0] lambda [1e-13, 1e-06, 0.0001] gamma_at_edge 0/5 lambda_at_floor 3/5
+hp Sorted dist KRR n=1500: gamma [0.31622776601683794] lambda [1e-09, 1e-08, 1e-06] gamma_at_edge 0/3 lambda_at_floor 0/3
+hp SymFn-sum KRR n=50: gamma [1e-07, 1e-06] lambda [1e-13, 1e-12] gamma_at_edge 1/3 lambda_at_floor 2/3
+hp SymFn-sum KRR n=150: gamma [0.00031622776601683794] lambda [1e-12] gamma_at_edge 0/3 lambda_at_floor 3/3
+hp SymFn-sum KRR n=500: gamma [0.0001, 0.00031622776601683794] lambda [1e-12] gamma_at_edge 0/5 lambda_at_floor 5/5
+hp SymFn-sum KRR n=1500: gamma [0.00031622776601683794, 0.001] lambda [1e-11] gamma_at_edge 0/3 lambda_at_floor 3/3
+hp SymFn-sum KRR radial-only n=500: gamma [0.00031622776601683794, 0.001, 0.0031622776601683794] lambda [1e-11, 1e-10] gamma_at_edge 0/5 lambda_at_floor 0/5
+hp SymFn-sum linear ridge n=500: gamma - lambda [1e-10, 1e-09] gamma_at_edge 0/5 lambda_at_floor 0/5
+hp SymFn-sum linear ridge radial-only n=500: gamma - lambda [1e-10, 1e-09] gamma_at_edge 0/5 lambda_at_floor 0/5
+hp Sorted dist linear ridge n=500: gamma - lambda [0.001, 0.01, 0.1] gamma_at_edge 0/5 lambda_at_floor 0/5
+main Mean predictor: MAE 12.203; rot+perm/clean ratio 1.000; inv_defect mean 0, per-seed max 0
+main Raw coords KRR: MAE 12.178; rot+perm/clean ratio 0.997; inv_defect mean 2.88, per-seed max 6.97, per-sample max 28.7
+main Raw coords MLP: MAE 15.028; rot+perm/clean ratio 0.992; inv_defect mean 15.2, per-seed max 15.8
+main Sorted dist KRR: MAE 1.095; rot+perm/clean ratio 1.000; inv_defect mean 6.23e-11, per-seed max 1.19e-10, per-sample max 6.03e-10
+main Sorted dist MLP: MAE 0.635; rot+perm/clean ratio 1.000; inv_defect mean 0, per-seed max 0
+main SymFn-sum KRR: MAE 0.889; rot+perm/clean ratio 1.000; inv_defect mean 6.16e-05, per-seed max 8.34e-05, per-sample max 0.00416
+main SymFn-sum MLP: MAE 4.513; rot+perm/clean ratio 1.000; inv_defect mean 0, per-seed max 0
+main SymFn atomwise MLP (BP-style): MAE 3.130; rot+perm/clean ratio 1.000; inv_defect mean 5.17e-07, per-seed max 5.39e-07
+invariant systems, all groups: largest per-seed inv_defect 8.34e-05 (SymFn-sum KRR, n=500.0); largest per-sample defect (runs that log it) 0.0082
+runtime KRR/ridge: in-run 0.3-14.7 s, median 1.4 s, wall (rh) max 15.4 s, 82 runs
+runtime MLP: in-run 2.6-176.0 s, median 6.3 s, wall (rh) max 179.7 s, 60 runs
+runtime atomwise: in-run 10.7-182.0 s, median 14.7 s, wall (rh) max 185.3 s, 14 runs
+runtime mean: in-run 0.2-0.6 s, median 0.3 s, wall (rh) max 1.0 s, 14 runs
+total wall-clock of all ok non-superseded runs: 23.3 min over 170 runs
+test energy std: 15.24-16.15
+untruncated energies (4000 samples): perturbed max 5355, q99 337.3, frac>50 0.066; random max 65.94, q99 34.41, frac>50 0.001

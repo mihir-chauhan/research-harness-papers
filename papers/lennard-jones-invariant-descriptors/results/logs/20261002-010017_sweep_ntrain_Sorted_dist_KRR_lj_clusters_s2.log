@@ -1,0 +1,24 @@
+# rh run | Fri Oct  2 01:00:17 2026
+# cwd: .
+# cmd: python method/run.py --system sorted_krr --seed 2 --n_train 1500 --krr_grid wide --out results/raw/sweep_ntrain_sorted_krr_n1500_wide_s2.json
+
+config: {"system": "sorted_krr", "seed": 2, "n_train": 1500, "n_test": 1000, "steps": 3000, "krr_grid": "wide", "out": "results/raw/sweep_ntrain_sorted_krr_n1500_wide_s2.json"}
+{
+ "energy_mae": 0.4765376626648643,
+ "energy_mae_per_atom": 0.05190693652190723,
+ "mae_perturbed": 0.45116997255397784,
+ "mae_random": 0.5019053527757505,
+ "mae_rotated": 0.4765376626437667,
+ "mae_permuted": 0.4765376626648643,
+ "mae_rot_perm": 0.47653766267525555,
+ "inv_defect": 2.9457834971324814e-10,
+ "inv_defect_max": 1.719914877185147e-09,
+ "test_energy_std": 15.24378278287384,
+ "val_mae": 0.5004921585481895,
+ "runtime_s": 11.158309936523438,
+ "hp_lambda": 1e-06,
+ "hp_n_skipped": 23,
+ "hp_lambda_at_edge": 0,
+ "hp_gamma": 0.31622776601683794,
+ "hp_gamma_at_edge": 0
+}
