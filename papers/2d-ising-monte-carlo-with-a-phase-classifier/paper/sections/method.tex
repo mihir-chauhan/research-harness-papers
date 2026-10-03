@@ -1,0 +1,29 @@
+\subsection{Model, observables and read-outs}
+We study $H=-\sum_{\langle ij\rangle}s_is_j$ on an $L\times L$ periodic square lattice with $s_i=\pm1$ ($J=k_B=1$) and $T_c=2/\ln(1+\sqrt2)$. Per configuration $m=L^{-2}\sum_i s_i$. For each system below an \emph{output curve} $y_L(T)$ is evaluated on held-out chains, and each system has a registered $T_c$ read-out; the error is $|\hat T_c-T_c|$.
+
+\textbf{Supervised classifiers} (LogReg, MLP, CNN). Configurations with $T\le T_c^{\mathrm{ref}}-\delta$ are labelled ordered ($c=1$), those with $T\ge T_c^{\mathrm{ref}}+\delta$ disordered ($c=0$), with $T_c^{\mathrm{ref}}=\rhval{const/tc_ref:2}$ a rounded prior value only used to place the window, and $\delta=0.3$ by default (windows $T\le\rhval{const/train_lo}$, $T\ge\rhval{const/train_hi}$). The model $f_\theta(s)\in\mathbb R$ is trained with class-balanced cross entropy
+\begin{equation}
+\mathcal L=\tfrac1N\sum_n w_{c_n}\big[\log(1+e^{f_\theta(s_n)})-c_nf_\theta(s_n)\big],\quad w_c=\tfrac{1}{2\,\pi_c},
+\end{equation}
+with $\pi_c$ the class fraction. LogReg is $f=w^\top s+b$; the Z2-fixed variant uses $s\to\mathrm{sgn}(m)\,s$ (with $\mathrm{sgn}(0)=1$). The MLP is $f=v^\top\mathrm{ReLU}(Ws+b)+b'$ with \rhval{const/mlp_hidden} hidden units. The CNN applies two $3{\times}3$ circular-padded convolutions with \rhval{const/cnn_channels} channels and ReLU, a global spatial mean, and a linear layer. The output curve is $p_L(T)=\langle\sigma(f_\theta(s))\rangle_T$ over held-out samples at temperature $T$, and the read-out is the first downward crossing of $0.5$ scanning from low $T$,
+\begin{equation}
+\hat T_c = T_i+\frac{p_i-\frac12}{p_i-p_{i+1}}(T_{i+1}-T_i),\quad p_i\ge\tfrac12>p_{i+1},
+\end{equation}
+by linear interpolation (grid edge if no crossing exists; this never occurred).
+
+\textbf{PCA} (reimplemented after~\cite{wang2016discovering}). Let $C$ be the covariance of the training configurations pooled over all temperatures and $v_1$ its leading eigenvector, $z=v_1^\top(s-\bar s)$. The read-out is the peak (3-point parabola) of the fluctuation $\mathrm{Var}_T|z|$ over $T\in[1.9,3.1]$, a susceptibility analogue. The collapse curve is $\langle|z|\rangle_T/\max_T\langle|z|\rangle_T$.
+
+\textbf{Learning by confusion} (reimplemented after~\cite{nieuwenburg2016learning}). For each trial boundary $T'$ on the grid between $1.7$ and $3.3$ (placed midway between grid points; $W$ is plotted and read out at the boundary $T'$ itself), an MLP is trained to predict the label $\mathbb 1[T<T']$ on all training chains at all temperatures; $W(T')$ is its accuracy on the held-out chain. $\hat T_c$ is the parabola-refined maximum of $W$ over $T'\in[1.9,3.1]$ (the central peak of the W shape). The collapse curve is $W$ itself.
+
+\textbf{Reference} (non-learned). Per-size susceptibility $\chi=L^2(\langle|m|^2\rangle-\langle|m|\rangle^2)/T$ with its peak as $\hat T_c$ (search in $[1.9,3.1]$); the collapse curve is the Binder cumulant $U_4=1-\langle m^4\rangle/(3\langle m^2\rangle^2)$ \cite{binder1981finite}. These use all four chains since nothing is trained.
+
+\subsection{Finite-size-scaling collapse}
+Following~\cite{fisher1972scaling,carrasquilla2016machine}, curves from the three sizes are assumed to depend on $x=(T-T_c)L^{1/\nu}$ only. For a candidate $(T_c,\nu)$ we linearly interpolate each $y_L$ onto $30$ common points in $|x|\le\min_L w L^{1/\nu}$ (window $w=\rhval{const/collapse_window:1}$ in $|T-T_c|$) and compute
+\begin{equation}
+\mathcal C(T_c,\nu)=\frac{\frac{1}{30}\sum_{k}\mathrm{Var}_L\,[y_L(x_k)]}{\mathrm{Var}_{L,k}[y_L(x_k)]}.
+\end{equation}
+The minimum over the grid $T_c\in[2.0,2.6]$ (step $0.005$), $\nu\in[0.5,2.0]$ (step $0.025$) gives $(\hat T_c^{\rm fss},\hat\nu)$; the grid resolution therefore floors the error at $0.0008$ near $T_c$. We also report the collapse with $\nu=1$ fixed and with two narrower windows.
+
+\subsection{Registered hypotheses}
+Fixed in \texttt{BRIEF.md} before the main runs, tests over seeds:
+\textbf{H1} MLP and CNN have lower single-size error at $L=32$ than PCA (paired Wilcoxon, plus the paired $t$-test of \texttt{rh compare}); \textbf{H2} the collapse lowers the error relative to the $L=32$ crossing (paired Wilcoxon); \textbf{H3} raw LogReg has held-out far-from-$T_c$ accuracy $<0.6$, gauge-fixed $>0.6$; \textbf{H4} PCA and confusion do not beat the CNN on the collapse error (paired Wilcoxon); \textbf{H5} mean $|\hat\nu-1|<0.25$ for the CNN and MLP; \textbf{H6} the error at $L=32$ is within a factor two of the default for margins $0.15$--$0.6$ and for $10$--$50$ training samples per chain.

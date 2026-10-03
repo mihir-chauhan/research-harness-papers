@@ -1,0 +1,6 @@
+| Method | tc_error_l16 | tc_error_l24 | tc_error_l32 | tc_error_fss | nu_error_fss | acc_far | tc_bias_l16 | tc_bias_l24 | tc_bias_l32 | tc_bias_fss | nu_fss | collapse_cost | crossing_found_l16 | crossing_found_l24 | crossing_found_l32 | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| MLP | _0.056 ± 0.022_ | **0.026 ± 0.010** | **0.020 ± 0.008** | **0.025 ± 0.018** | **0.157 ± 0.127** | _0.995 ± 0.006_ | _0.055 ± 0.023_ | _0.026 ± 0.010_ | _0.020 ± 0.008_ | **-0.018 ± 0.026** | _1.090 ± 0.184_ | **0.002 ± 0.001** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | 15 |
+| CNN | **0.038 ± 0.021** | _0.030 ± 0.021_ | _0.031 ± 0.016_ | _0.035 ± 0.031_ | _0.713 ± 0.378_ | **0.997 ± 0.005** | **0.021 ± 0.039** | **0.003 ± 0.038** | **0.008 ± 0.035** | _-0.013 ± 0.046_ | **1.713 ± 0.378** | _0.004 ± 0.010_ | _1.000 ± 0.000_ | _1.000 ± 0.000_ | _1.000 ± 0.000_ | 15 |
+
+Mean ± std over seeds; bold = best, underline = second. Directions: tc_error_l16 ↓, tc_error_l24 ↓, tc_error_l32 ↓, tc_error_fss ↓, nu_error_fss ↓, acc_far ↑, tc_bias_l16 ↓, tc_bias_l24 ↓, tc_bias_l32 ↓, tc_bias_fss ↓, nu_fss ↑, collapse_cost ↓, crossing_found_l16 ↑, crossing_found_l24 ↑, crossing_found_l32 ↑.

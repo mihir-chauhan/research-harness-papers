@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:44:25 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analysis_window.py --system 'LogReg (Z2-fixed)' --seed 3 --window 0.3 --out results/raw/win0.3_LogReg__Z2_fixed__s3.json
+
+CONFIG {'system': 'LogReg (Z2-fixed)', 'seed': 3, 'window': 0.3, 'out': 'results/raw/win0.3_LogReg__Z2_fixed__s3.json'}
+METRICS {"tc_error_fss": 0.09081468578697027, "tc_bias_fss": 0.09081468578697027, "nu_fss": 1.700000000000001, "nu_error_fss": 0.7000000000000011, "collapse_cost": 0.028868051410040365}
+
+# rh: exit code 0 after 0.6 s
+# rh metrics: {"collapse_cost": 0.028868051410040365, "nu_error_fss": 0.7000000000000011, "nu_fss": 1.700000000000001, "tc_bias_fss": 0.09081468578697027, "tc_error_fss": 0.09081468578697027}

@@ -1,0 +1,12 @@
+# rh run | Sat Oct  3 17:37:49 2026
+# cwd: .
+# cmd: python method/run.py --system 'Confusion (MLP)' --seed 2 --out results/raw/main_Confusion__MLP__s2.json
+
+CONFIG {"system": "Confusion (MLP)", "seed": 2, "out": "results/raw/main_Confusion__MLP__s2.json", "margin": 0.3, "nsamp": 50, "epochs": 20, "lr": 0.001, "wd": 0.0001, "hidden": 64, "channels": 8, "conf_hidden": 32, "conf_epochs": 8}
+L=16 Tc=2.2274
+L=24 Tc=2.3010
+L=32 Tc=2.2411
+METRICS {"tc_error_l16": 0.04178990260708426, "tc_bias_l16": -0.04178990260708426, "tc_error_l24": 0.03179148676377874, "tc_bias_l24": 0.03179148676377874, "tc_error_l32": 0.02809713410045145, "tc_bias_l32": -0.02809713410045145, "tc_error_fss": 0.33081468578696516, "tc_bias_fss": 0.33081468578696516, "nu_fss": 2.0000000000000013, "nu_error_fss": 1.0000000000000013, "collapse_cost": 0.03589249221166773}
+
+# rh: exit code 0 after 21.4 s
+# rh metrics: {"collapse_cost": 0.03589249221166773, "nu_error_fss": 1.0000000000000013, "nu_fss": 2.0000000000000013, "tc_bias_fss": 0.33081468578696516, "tc_bias_l16": -0.04178990260708426, "tc_bias_l24": 0.03179148676377874, "tc_bias_l32": -0.02809713410045145, "tc_error_fss": 0.33081468578696516, "tc_error_l16": 0.04178990260708426, "tc_error_l24": 0.03179148676377874, "tc_error_l32": 0.02809713410045145}

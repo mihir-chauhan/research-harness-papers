@@ -1,0 +1,13 @@
+\begin{tabular}{lcccccc}
+\toprule
+Method & tc\_error\_fss $\downarrow$ & nu\_error\_fss $\downarrow$ & tc\_bias\_fss $\downarrow$ & nu\_fss $\uparrow$ & collapse\_cost $\downarrow$ & $n$ \\
+\midrule
+Binder/chi (reference) & 0.072 $\pm$ 0.057 & 0.480 $\pm$ 0.396 & \underline{-0.068 $\pm$ 0.062} & 1.415 $\pm$ 0.471 & 0.007 $\pm$ 0.003 & 10 \\
+LogReg (Z2-fixed) & 0.083 $\pm$ 0.032 & \underline{0.140 $\pm$ 0.198} & 0.083 $\pm$ 0.032 & 1.030 $\pm$ 0.245 & 0.012 $\pm$ 0.003 & 10 \\
+MLP & \textbf{0.017 $\pm$ 0.014} & \textbf{0.128 $\pm$ 0.098} & -0.014 $\pm$ 0.018 & 1.073 $\pm$ 0.147 & \underline{0.003 $\pm$ 0.001} & 10 \\
+\textbf{CNN} & \underline{0.036 $\pm$ 0.026} & 0.713 $\pm$ 0.305 & -0.015 $\pm$ 0.043 & \underline{1.713 $\pm$ 0.305} & \textbf{0.002 $\pm$ 0.001} & 10 \\
+Confusion (MLP) & 0.328 $\pm$ 0.008 & 0.900 $\pm$ 0.291 & 0.328 $\pm$ 0.008 & \textbf{1.885 $\pm$ 0.338} & 0.027 $\pm$ 0.004 & 10 \\
+PCA & 0.119 $\pm$ 0.039 & 0.538 $\pm$ 0.239 & \textbf{-0.119 $\pm$ 0.039} & 1.538 $\pm$ 0.239 & 0.005 $\pm$ 0.002 & 10 \\
+LogReg (raw) & 0.172 $\pm$ 0.110 & 0.488 $\pm$ 0.104 & 0.065 $\pm$ 0.200 & 0.658 $\pm$ 0.380 & 0.582 $\pm$ 0.086 & 10 \\
+\bottomrule
+\end{tabular}

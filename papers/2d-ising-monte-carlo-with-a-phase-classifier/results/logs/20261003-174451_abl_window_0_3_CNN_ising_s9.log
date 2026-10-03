@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:44:51 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analysis_window.py --system CNN --seed 9 --window 0.3 --out results/raw/win0.3_CNN_s9.json
+
+CONFIG {'system': 'CNN', 'seed': 9, 'window': 0.3, 'out': 'results/raw/win0.3_CNN_s9.json'}
+METRICS {"tc_error_fss": 0.04081468578697134, "tc_bias_fss": 0.04081468578697134, "nu_fss": 1.4500000000000008, "nu_error_fss": 0.45000000000000084, "collapse_cost": 0.002984545435233906}
+
+# rh: exit code 0 after 0.6 s
+# rh metrics: {"collapse_cost": 0.002984545435233906, "nu_error_fss": 0.45000000000000084, "nu_fss": 1.4500000000000008, "tc_bias_fss": 0.04081468578697134, "tc_error_fss": 0.04081468578697134}

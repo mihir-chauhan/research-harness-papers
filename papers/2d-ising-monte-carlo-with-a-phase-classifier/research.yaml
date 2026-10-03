@@ -1,0 +1,198 @@
+project: 2d-ising-monte-carlo-with-a-phase-classifier
+field: physics/lattice-models-phase-transitions
+problem: Locate the critical temperature of the 2D Ising model from labelled configurations
+  of the two phases only, using a classifier output crossing and finite-size scaling,
+  and compare against label-free readouts.
+gap: Phase-classifier papers usually show single-size crossings and quote Tc without
+  separating the finite-size bias, the choice of classifier (linear, MLP, CNN), the
+  Z2 symmetry, and the training window; unsupervised (PCA) and confusion readouts
+  are rarely compared on identical data with identical seeds and error definitions.
+contribution: A controlled, seed-paired comparison on identical Swendsen-Wang data
+  of seven readouts (four supervised, PCA, confusion, a Binder/susceptibility reference),
+  with single-size and FSS-collapse Tc errors against the Onsager value, plus sensitivity
+  to the training window and training set size.
+hypotheses:
+- id: H1
+  statement: MLP and CNN single-size crossing at L=32 has lower Tc error than PCA
+    at L=32.
+  test: paired Wilcoxon over 10 seeds (rh compare), tc_error_l32
+- id: H2
+  statement: The FSS collapse reduces the Tc error relative to the L=32 crossing for
+    CNN and MLP.
+  test: paired Wilcoxon over seeds, tc_error_fss vs tc_error_l32 (analysis run)
+- id: H3
+  statement: Logistic regression on raw spins fails (held-out far accuracy < 0.6)
+    due to Z2 symmetry; Z2 gauge fixing restores it (> 0.6).
+  test: mean acc_far over seeds
+- id: H4
+  statement: PCA and confusion do not beat the CNN on FSS Tc error.
+  test: paired Wilcoxon over seeds, tc_error_fss
+- id: H5
+  statement: The collapse exponent of CNN/MLP is within 0.25 of nu=1 on average.
+  test: mean nu_error_fss < 0.25
+- id: H6
+  statement: CNN/MLP Tc error is insensitive (within 2x of default) to training margin
+    and training set size.
+  test: sweep_margin and sweep_nsamp groups
+method:
+  name: CNN
+  summary: Small periodic CNN (two 3x3 circular conv layers, 8 channels, global average
+    pool, linear) trained as an ordered/disordered classifier on T<=1.97 and T>=2.57;
+    Tc from the 0.5 crossing of the held-out mean output, and from an FSS collapse
+    over L=16,24,32.
+  components:
+  - circular conv
+  - global average pooling
+  - windowed training
+  - 0.5-crossing readout
+  - FSS collapse
+  entrypoint: method/run.py
+tasks:
+- ising_L16_L24_L32
+metrics:
+  tc_error_l16:
+    higher_is_better: false
+  tc_error_l24:
+    higher_is_better: false
+  tc_error_l32:
+    higher_is_better: false
+  tc_error_fss:
+    higher_is_better: false
+  nu_error_fss:
+    higher_is_better: false
+  acc_far:
+    higher_is_better: true
+  tc_bias_l16:
+    higher_is_better: false
+  tc_bias_l24:
+    higher_is_better: false
+  tc_bias_l32:
+    higher_is_better: false
+  tc_bias_fss:
+    higher_is_better: false
+  nu_fss: {}
+  collapse_cost:
+    higher_is_better: false
+  crossing_found_l16:
+    higher_is_better: true
+  crossing_found_l24:
+    higher_is_better: true
+  crossing_found_l32:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- LogReg (raw)
+- LogReg (Z2-fixed)
+- MLP
+- PCA
+- Confusion (MLP)
+- Binder/chi (reference)
+ablations:
+- CNN
+- MLP
+ambition:
+  target_tier: 2
+  primary_metric: tc_error_fss
+  primary_task: ising
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: tc_exact
+  value: 2.269185
+  why: Onsager critical temperature 2/ln(1+sqrt2) in units J/k_B
+- name: n_temps
+  value: 40
+  why: temperature grid points in [1.5,3.5]
+- name: n_samples_per_T
+  value: 200
+  why: samples per temperature = 4 chains x 50
+- name: n_chains
+  value: 4
+  why: independent Markov chains per temperature
+- name: n_per_chain
+  value: 50
+  why: samples per chain
+- name: sw_gap
+  value: 10
+  why: Swendsen-Wang sweeps between stored samples
+- name: sw_therm
+  value: 100
+  why: thermalisation sweeps
+- name: n_seeds
+  value: 10
+  why: seeds 0-9 in the main group
+- name: train_lo
+  value: 1.97
+  why: ordered training window upper edge, Tc_ref(2.27) minus margin 0.3
+- name: train_hi
+  value: 2.57
+  why: disordered training window lower edge, Tc_ref(2.27) plus margin 0.3
+- name: tc_ref
+  value: 2.27
+  why: rounded Tc used only to place the training windows
+- name: collapse_window
+  value: 0.6
+  why: half-width of |T-Tc| window used in the collapse cost
+- name: epochs
+  value: 20
+  why: training epochs of supervised models
+- name: batch_size
+  value: 128
+  why: mini-batch size
+- name: lr
+  value: 0.001
+  why: Adam learning rate
+- name: mlp_hidden
+  value: 64
+  why: MLP hidden units
+- name: cnn_channels
+  value: 8
+  why: CNN channels
+- name: conf_epochs
+  value: 8
+  why: epochs of each confusion network
+- name: conf_hidden
+  value: 32
+  why: hidden units of each confusion network
+- name: temp_step
+  value: 0.0513
+  why: spacing of the 40-point temperature grid, 2/39
+- name: grid_resolution_tc
+  value: 0.005
+  why: Tc grid step of the collapse search
+- name: margin_default
+  value: 0.3
+  why: default training-window half gap delta
+- name: data_seed_stride
+  value: 1000
+  why: data seed = 1000*seed + L
+- name: tc_grid_node
+  value: 2.26923
+  why: 'temperature grid node nearest the exact Tc: 1.5+15*2/39 (differs from Tc by
+    5e-5)'
+- name: nsamp_ep10_epochs
+  value: 100
+  why: 'epochs of the update-matched sweep at 10 samples/chain: 1000/10 (default 50
+    samples x 20 epochs = 1000)'

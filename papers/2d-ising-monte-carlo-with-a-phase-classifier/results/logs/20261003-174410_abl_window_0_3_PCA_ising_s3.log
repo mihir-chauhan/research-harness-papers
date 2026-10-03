@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:44:10 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analysis_window.py --system PCA --seed 3 --window 0.3 --out results/raw/win0.3_PCA_s3.json
+
+CONFIG {'system': 'PCA', 'seed': 3, 'window': 0.3, 'out': 'results/raw/win0.3_PCA_s3.json'}
+METRICS {"tc_error_fss": 0.09418531421302578, "tc_bias_fss": -0.09418531421302578, "nu_fss": 1.1750000000000007, "nu_error_fss": 0.1750000000000007, "collapse_cost": 0.01326932507905848}
+
+# rh: exit code 0 after 0.6 s
+# rh metrics: {"collapse_cost": 0.01326932507905848, "nu_error_fss": 0.1750000000000007, "nu_fss": 1.1750000000000007, "tc_bias_fss": -0.09418531421302578, "tc_error_fss": 0.09418531421302578}

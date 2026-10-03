@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:44:31 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analysis_window.py --system MLP --seed 1 --window 0.3 --out results/raw/win0.3_MLP_s1.json
+
+CONFIG {'system': 'MLP', 'seed': 1, 'window': 0.3, 'out': 'results/raw/win0.3_MLP_s1.json'}
+METRICS {"tc_error_fss": 0.02918531421302717, "tc_bias_fss": -0.02918531421302717, "nu_fss": 0.9500000000000004, "nu_error_fss": 0.0499999999999996, "collapse_cost": 0.0033336713692521712}
+
+# rh: exit code 0 after 0.6 s
+# rh metrics: {"collapse_cost": 0.0033336713692521712, "nu_error_fss": 0.0499999999999996, "nu_fss": 0.9500000000000004, "tc_bias_fss": -0.02918531421302717, "tc_error_fss": 0.02918531421302717}

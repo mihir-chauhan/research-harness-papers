@@ -1,0 +1,12 @@
+# rh run | Sat Oct  3 18:07:44 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system 'Confusion (MLP)' --seed 7 --out results/raw/main_Confusion__MLP__s7.json
+
+CONFIG {"system": "Confusion (MLP)", "seed": 7, "out": "results/raw/main_Confusion__MLP__s7.json", "margin": 0.3, "nsamp": 50, "epochs": 20, "lr": 0.001, "wd": 0.0001, "hidden": 64, "channels": 8, "conf_hidden": 32, "conf_epochs": 8}
+L=16 Tc=2.2897
+L=24 Tc=2.2550
+L=32 Tc=2.2602
+METRICS {"tc_error_l16": 0.02055827553056755, "tc_bias_l16": 0.02055827553056755, "tc_error_l24": 0.01419955922726679, "tc_bias_l24": -0.01419955922726679, "tc_error_l32": 0.009004318737908523, "tc_bias_l32": -0.009004318737908523, "tc_error_fss": 0.33081468578696516, "tc_bias_fss": 0.33081468578696516, "nu_fss": 2.0000000000000013, "nu_error_fss": 1.0000000000000013, "collapse_cost": 0.045978922445962016}
+
+# rh: exit code 0 after 15.9 s
+# rh metrics: {"collapse_cost": 0.045978922445962016, "nu_error_fss": 1.0000000000000013, "nu_fss": 2.0000000000000013, "tc_bias_fss": 0.33081468578696516, "tc_bias_l16": 0.02055827553056755, "tc_bias_l24": -0.01419955922726679, "tc_bias_l32": -0.009004318737908523, "tc_error_fss": 0.33081468578696516, "tc_error_l16": 0.02055827553056755, "tc_error_l24": 0.01419955922726679, "tc_error_l32": 0.009004318737908523}

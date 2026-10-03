@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:44:42 2026
+# cwd: .
+# cmd: python method/analysis_window.py --system 'Confusion (MLP)' --seed 6 --window 0.3 --out results/raw/win0.3_Confusion__MLP__s6.json
+
+CONFIG {'system': 'Confusion (MLP)', 'seed': 6, 'window': 0.3, 'out': 'results/raw/win0.3_Confusion__MLP__s6.json'}
+METRICS {"tc_error_fss": 0.27081468578696644, "tc_bias_fss": 0.27081468578696644, "nu_fss": 1.575000000000001, "nu_error_fss": 0.5750000000000011, "collapse_cost": 0.026393647455320617}
+
+# rh: exit code 0 after 0.6 s
+# rh metrics: {"collapse_cost": 0.026393647455320617, "nu_error_fss": 0.5750000000000011, "nu_fss": 1.575000000000001, "tc_bias_fss": 0.27081468578696644, "tc_error_fss": 0.27081468578696644}

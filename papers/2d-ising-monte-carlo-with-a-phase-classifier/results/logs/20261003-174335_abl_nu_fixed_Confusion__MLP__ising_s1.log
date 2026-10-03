@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:43:35 2026
+# cwd: .
+# cmd: python method/analysis_nu1.py --system 'Confusion (MLP)' --seed 1 --out results/raw/nu1_Confusion__MLP__s1.json
+
+CONFIG {'system': 'Confusion (MLP)', 'seed': 1, 'out': 'results/raw/nu1_Confusion__MLP__s1.json'}
+METRICS {"tc_error_fss": 0.33081468578696516, "tc_bias_fss": 0.33081468578696516, "collapse_cost": 0.0650707684983858}
+
+# rh: exit code 0 after 0.4 s
+# rh metrics: {"collapse_cost": 0.0650707684983858, "tc_bias_fss": 0.33081468578696516, "tc_error_fss": 0.33081468578696516}

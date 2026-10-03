@@ -1,0 +1,12 @@
+# rh run | Sat Oct  3 17:43:00 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system MLP --seed 3 --margin 0.6 --out results/raw/swm_MLP_0.6_s3.json
+
+CONFIG {"system": "MLP", "seed": 3, "out": "results/raw/swm_MLP_0.6_s3.json", "margin": 0.6, "nsamp": 50, "epochs": 20, "lr": 0.001, "wd": 0.0001, "hidden": 64, "channels": 8, "conf_hidden": 32, "conf_epochs": 8}
+L=16 Tc=2.3466
+L=24 Tc=2.2979
+L=32 Tc=2.2904
+METRICS {"crossing_found_l16": 1.0, "tc_error_l16": 0.07745968644036694, "tc_bias_l16": 0.07745968644036694, "crossing_found_l24": 1.0, "tc_error_l24": 0.028685098637969197, "tc_bias_l24": 0.028685098637969197, "crossing_found_l32": 1.0, "tc_error_l32": 0.021232983603523436, "tc_bias_l32": 0.021232983603523436, "acc_far": 0.9984313725490197, "tc_error_fss": 0.024185314213027276, "tc_bias_fss": -0.024185314213027276, "nu_fss": 0.9750000000000004, "nu_error_fss": 0.024999999999999578, "collapse_cost": 0.0021188042332399948}
+
+# rh: exit code 0 after 2.9 s
+# rh metrics: {"acc_far": 0.9984313725490197, "collapse_cost": 0.0021188042332399948, "crossing_found_l16": 1.0, "crossing_found_l24": 1.0, "crossing_found_l32": 1.0, "nu_error_fss": 0.024999999999999578, "nu_fss": 0.9750000000000004, "tc_bias_fss": -0.024185314213027276, "tc_bias_l16": 0.07745968644036694, "tc_bias_l24": 0.028685098637969197, "tc_bias_l32": 0.021232983603523436, "tc_error_fss": 0.024185314213027276, "tc_error_l16": 0.07745968644036694, "tc_error_l24": 0.028685098637969197, "tc_error_l32": 0.021232983603523436}

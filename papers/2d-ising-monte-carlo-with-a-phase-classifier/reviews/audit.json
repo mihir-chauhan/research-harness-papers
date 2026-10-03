@@ -1,0 +1,177 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All runs are real, logged and bit-reproducible (three re-executions identical; data regeneration identical), every number in the paper traces to the registry, and negative results are reported honestly. One baseline (learning by confusion) is read out on an abscissa shifted by half a grid step relative to the trial boundary the paper describes, so its single-size numbers quoted in the abstract, conclusion and Tables II/III are wrong by an amount comparable to the errors being compared; this and several minor wording/citation issues are fixable from saved curves without redoing the study.",
+      "reran": [
+        {
+          "run": "CNN/ising/2",
+          "metric": "tc_error_l32",
+          "registry": 0.022656133140340984,
+          "rerun": 0.022656133140340984
+        },
+        {
+          "run": "CNN/ising/2",
+          "metric": "tc_error_fss",
+          "registry": 0.035814685786971445,
+          "rerun": 0.035814685786971445
+        },
+        {
+          "run": "Confusion (MLP)/ising/7",
+          "metric": "tc_error_l32",
+          "registry": 0.03464534437893407,
+          "rerun": 0.03464534437893407
+        },
+        {
+          "run": "PCA/ising/5",
+          "metric": "tc_error_l32",
+          "registry": 0.05115464067780984,
+          "rerun": 0.05115464067780984
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "method/run.py confusion_curve; paper abstract, conclusion, results H1, Tables II/III, Fig. 2",
+          "issue": "Labels use the trial boundary T' midway between grid points, but the function returns TEMPS[trial] as the abscissa, so the peak read-out (and Fig. 2, and the collapse input) is shifted by -0.0256 (half a grid step) relative to the method text. Re-reading the saved curves at T' gives L=32 error 0.015+/-0.016 instead of the reported 0.024+/-0.013 (L=24: 0.017 vs 0.023; L=16: 0.056 vs 0.045), and the negative signed bias in Table III is mostly this artefact. Confusion becomes nominally best at L=24 and L=32, though still not significantly different from CNN (Wilcoxon p=0.11) or MLP (p=0.38).",
+          "fix": "Return the true boundaries T' from confusion_curve (or add the half step), regenerate the confusion metrics from the saved curves or rerun the 10 confusion runs (about 20 s each), rebuild the tables, compare CSVs and Fig. 2, and update the abstract/conclusion numbers and the 'on par/equivalent' wording to match the retest."
+        },
+        {
+          "severity": "minor",
+          "where": "paper abstract, ablations H6, conclusion; run_sweeps.sh",
+          "issue": "The training-set-size sweep reduces samples at fixed epochs, so 10 samples/chain also means one fifth of the gradient updates; the claim that the error 'depends strongly on the number of training samples' does not separate data size from optimisation budget.",
+          "fix": "State the confound in the ablation and limitations, or rerun the nsamp sweep with epochs scaled to match the number of updates."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (Collapse variants)",
+          "issue": "'With nu=1 fixed, the CNN, MLP and the Binder reference improve ... so the exponent freedom is what hurts the CNN' is stated without a test. A paired Wilcoxon on the registry gives p=0.023 for the CNN but p=0.125 (MLP) and p=0.078 (Binder), so the improvement is not established for the latter two.",
+          "fix": "Add the paired tests as a logged analysis run and restrict the claim to the CNN, or soften the wording."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, related.tex (citation of carrasquilla2016machine)",
+          "issue": "Says Carrasquilla and Melko trained 'fully connected and convolutional networks on temperatures far from the transition' in the 2D Ising model and 'introduced the protocol we follow: train on configurations far from the transition'. Their abstract assigns the feed-forward network to order parameters and the convolutional variant to topological phases, and the far-from-Tc training restriction does not appear to be their Ising protocol (the latter from memory of the paper, not confirmed from the abstract).",
+          "fix": "Reword to what the paper did (feed-forward network on Ising configurations with labels from the known Tc, crossing and FSS collapse for Tc and nu) and present the excluded-window training as this study's variant."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex, conclusion.tex",
+          "issue": "Uncited claims about prior work: 'Such demonstrations are usually reported for one lattice size, one trained network and one seed' (in tension with the paper's own description of [1], which used several sizes and an FSS estimate) and 'Contrary to the common expectation, an FSS collapse ... did not improve the estimate'.",
+          "fix": "Cite support or soften to a statement about this study only."
+        },
+        {
+          "severity": "minor",
+          "where": "paper limitations (Resolution); method/run.py TEMPS",
+          "issue": "The temperature grid has a node at 2.26923, coinciding with the exact Tc (2.26919) to 5e-5; this is not disclosed, and it interacts with interpolated crossings and argmax-plus-parabola peak read-outs whose errors are all below one grid step.",
+          "fix": "Disclose the coincidence in the Resolution limitation, or repeat one check with an offset grid."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Table II (generated/main.tex), research.yaml metric directions",
+          "issue": "nu_fss is marked lower-is-better and raw LogReg's 0.708 is bolded as best, although the exact value is 1 and the paper itself calls that exponent noise.",
+          "fix": "Show nu_error_fss with a direction, or remove the direction and highlighting from the nu_fss column."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex H5 and H4; setup.tex; refs",
+          "issue": "Wording and formatting: 'an order of magnitude larger (0.61 versus 0.0018)' is more than two orders; H4 is labelled 'supported' for confusion on the basis of a degenerate collapse where Tc is infeasible (disclosed, but the header overstates); constants print as 0.001000, 0.6000, 2.270; reference [12] has a broken glyph in 'Zeitschrift f r Physik'.",
+          "fix": "Correct the wording, qualify the H4 header for confusion, format the constants, and fix the journal name encoding."
+        },
+        {
+          "severity": "minor",
+          "where": "rh status / state.json",
+          "issue": "The experiments stage is still marked in progress ('next: experiments') although the paper is built and all other stages are closed.",
+          "fix": "Close the stage with a note, or state why it is left open."
+        }
+      ],
+      "commit": "6409a6fa4fb6b0105a7ad4a0c87380bd7fe7c3b7"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All numbers in the paper trace to the run registry and generated tables; three re-executed runs (CNN seed 3, Confusion seed 7, MLP seed 6) reproduce the registry values exactly and regenerated data matches the cache. The code matches the described method with no leakage or hard-coded results, citations are used in context, and negative and mixed outcomes are stated openly. Only minor wording and presentation issues were found.",
+      "reran": [
+        {
+          "run": "CNN/ising/3",
+          "metric": "tc_error_l32",
+          "registry": 0.020252,
+          "rerun": 0.020252
+        },
+        {
+          "run": "CNN/ising/3",
+          "metric": "tc_error_fss",
+          "registry": 0.014185,
+          "rerun": 0.014185
+        },
+        {
+          "run": "Confusion (MLP)/ising/7",
+          "metric": "tc_error_l32",
+          "registry": 0.009004,
+          "rerun": 0.009004
+        },
+        {
+          "run": "MLP/ising/6",
+          "metric": "tc_error_l32",
+          "registry": 0.019314,
+          "rerun": 0.019314
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1 paragraph)",
+          "issue": "Claims confusion's seed spread is 'the largest of the learned systems at L=16', but Table II shows std 0.052 for confusion versus 0.059 (LogReg Z2-fixed), 0.075 (PCA) and 0.240 (LogReg raw).",
+          "fix": "Say 'larger than the CNN's and MLP's' or delete the clause."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H2 paragraph)",
+          "issue": "'The collapse helps where the single-size bias is large' is stated generally but rests on one non-significant comparison (Binder, p=0.064), and PCA with a similar single-size bias gets worse.",
+          "fix": "Reword as an observation about the Binder reference only, without the general claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex and results/RESULTS.md (H6)",
+          "issue": "As registered (fixed epochs) H6 is refuted for both MLP and CNN (ratio 3.43 each); 'supported for the CNN' relies on a scaled-epoch sweep added post hoc after the first audit.",
+          "fix": "State 'refuted as registered for both models; a post hoc update-matched sweep attributes the CNN's sensitivity to optimisation budget'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (finite-size bias paragraph)",
+          "issue": "The CNN's 'small, nearly constant bias' is a mean over mixed signs; per-seed L=32 offsets are about +/-0.02 (six positive, four negative), consistent with interpolation either side of the grid node at Tc rather than a size-independent physical bias.",
+          "fix": "State that the per-seed offsets are of mixed sign at roughly half a grid cell and that the mean bias is not evidence of a physical effect."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex and tab_tests",
+          "issue": "About 30 Wilcoxon tests are uncorrected (acknowledged only for the L=24 pair); the post hoc nu=1 CNN result (p=0.023) is called 'detectable' but would not survive correction over the five nu=1 tests.",
+          "fix": "Label the nu=1 tests exploratory and note the lack of multiplicity correction."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (figures, Table II caption)",
+          "issue": "Fig. 2 (fig:conf) and Fig. 4 (fig:bars) are never referenced in the text; the Table II caption says 'collapse exponent' but the column is |nu-1|.",
+          "fix": "Add the figure references and correct the caption to 'exponent error'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "The pilot on 'an unreported seed' (data files for seed 100 exist) has no registry row or log.",
+          "fix": "Log the pilot run through rh or name the seed and its purpose in the text."
+        }
+      ],
+      "commit": "edbc461ad9b4e22d6bd50d9f3239d6221e86c54e"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on ising: ours 0.03417 vs MLP 0.02117\nREADY",
+      "response": "# Response to audit findings\n\n1. **major, confusion abscissa shifted by half a step.** Confirmed. `confusion_curve` now returns the trial boundaries T' (midpoints) as abscissa, so peak read-out, Fig. 2 and the collapse input use T'. All 10 main confusion runs and the dependent collapse-variant rows (abl_nu_fixed, abl_window_0.3/0.45) were re-run through `rh run`; the paired-test and sweep-summary analysis rows were re-run too. Superseded rows are archived in `results/superseded_runs.jsonl` (not deleted silently). New numbers: confusion L=32 error is nominally lowest (Wilcoxon p=0.11 vs CNN, 0.38 vs MLP), still indistinguishable; abstract, introduction, H1, H4 header, conclusion and the \"CNN is not best\" paragraph were rewritten; Table III (bias) and Table II regenerated. Confusion collapse still fails (Tc at grid boundary, nu=2).\n2. **minor, nsamp confound.** Added `sweep_nsamp_ep` (epochs scaled to constant updates; 20 new runs). Result: the CNN ratio drops to about 1.0 (an optimisation-budget effect); the MLP ratio stays above 2 (2.78). H6 verdict split by model; abstract/conclusion/limitations updated.\n3. **minor, nu=1 claim.** Paired Wilcoxon added to the logged analysis run (`nu1_*`); claim restricted to CNN (p=0.023) and PCA; MLP (0.125) and Binder (0.078) stated as not established; \"so the exponent freedom is what hurts\" softened. Rows added to Table V.\n4. **minor, Carrasquilla and Melko citation.** Reworded in intro and related work to what the paper did; the excluded-window training is presented as this study's variant.\n5. **minor, uncited prior-work claims.** Sentence about single-size/single-seed demonstrations removed; \"contrary to the common expectation\" removed.\n6. **minor, grid node at Tc.** Disclosed in Limitations (Resolution) with constant `tc_grid_node`; no offset-grid repeat (stated).\n7. **minor, nu_fss direction.** Direction removed from `research.yaml`; the main table now shows `nu_error_fss` (not `nu_fss`).\n8. **minor, wording/format.** \"order of magnitude\" replaced by \"far larger\"; H4 header qualified for confusion; constants formatted (0.001, 0.6 -> 0.6, 2.27); Binder reference journal name fixed in refs.bib.\n9. **minor, stage state.** `experiments` phase closed with a note.\n",
+      "seconds": 1140
+    }
+  ]
+}

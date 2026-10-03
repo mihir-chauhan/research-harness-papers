@@ -1,0 +1,130 @@
+{
+  "slug": "2d-ising-monte-carlo-with-a-phase-classifier",
+  "direction": "2D Ising Monte Carlo with a phase classifier. Generate spin configurations for L = 16, 24, 32 with a vectorised checkerboard Metropolis or Wolff sampler in NumPy at 40 temperatures in [1.5, 3.5] (200 decorrelated samples each). Train logistic regression, an MLP and a small CNN on temperatures far from Tc, read Tc from the 0.5 crossing of the output, and do a finite-size scaling collapse. Compare with PCA and learning-by-confusion; measure Tc error against 2 / ln(1 + sqrt(2)). Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-03T00:50:08",
+  "updated": "2026-10-03T18:21:58",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-03T17:20:12",
+      "finished": "2026-10-03T17:32:25",
+      "notes": [
+        {
+          "t": "2026-10-03T17:32:25",
+          "note": "landscape, proposal, 14 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-03T17:32:25",
+      "finished": "2026-10-03T17:32:41",
+      "notes": [
+        {
+          "t": "2026-10-03T17:32:41",
+          "note": "code written, pilot ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": "2026-10-03T17:33:52",
+      "finished": "2026-10-03T17:42:47",
+      "notes": [
+        {
+          "t": "2026-10-03T17:42:47",
+          "note": "reimplemented baselines run in main group"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": "2026-10-03T17:33:52",
+      "finished": "2026-10-03T18:21:58",
+      "notes": [
+        {
+          "t": "2026-10-03T18:21:58",
+          "note": "all runs complete; confusion rows re-run after abscissa fix (audit round 1), update-matched nsamp sweep added"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": "2026-10-03T17:42:52",
+      "finished": "2026-10-03T17:59:33",
+      "notes": [
+        {
+          "t": "2026-10-03T17:59:33",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T17:59:34",
+      "notes": [
+        {
+          "t": "2026-10-03T17:59:34",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T17:59:34",
+      "notes": [
+        {
+          "t": "2026-10-03T17:59:34",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T17:59:34",
+      "notes": [
+        {
+          "t": "2026-10-03T17:59:34",
+          "note": "paper built, numbers traced, check READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-03T17:32:22",
+      "phase": "novelty",
+      "decision": "No novel method claimed: controlled comparison. Sampler: Swendsen-Wang cluster (batched, SciPy connected components) instead of Wolff because it vectorises over all temperatures and chains; checkerboard Metropolis is implemented and used to cross-check energies against Onsager."
+    },
+    {
+      "t": "2026-10-03T17:32:22",
+      "phase": "setup",
+      "decision": "Single run = system x seed over all three L (data regenerated from seed, cached). 4 independent chains x 50 samples per T: chains 0-2 train, chain 3 test, so the output curve is always evaluated on unseen chains. Hyperparameters fixed a priori (not tuned on Tc error); pilot on seed 100 used only to check run time."
+    },
+    {
+      "t": "2026-10-03T17:32:22",
+      "phase": "experiments",
+      "decision": "10 seeds (cheap). Estimators fixed before main runs: supervised/ordered-prob 0.5 first downward crossing; PCA peak of Var|PC1| in [1.9,3.1] + collapse of mean|PC1|/max; confusion peak of accuracy in [1.9,3.1]; reference susceptibility peak and Binder collapse. Collapse: grid Tc in [2.0,2.6], nu in [0.5,2.0], window |T-Tc|<=0.6."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

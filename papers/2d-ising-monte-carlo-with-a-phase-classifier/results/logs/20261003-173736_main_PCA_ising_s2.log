@@ -1,0 +1,12 @@
+# rh run | Sat Oct  3 17:37:36 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system PCA --seed 2 --out results/raw/main_PCA_s2.json
+
+CONFIG {"system": "PCA", "seed": 2, "out": "results/raw/main_PCA_s2.json", "margin": 0.3, "nsamp": 50, "epochs": 20, "lr": 0.001, "wd": 0.0001, "hidden": 64, "channels": 8, "conf_hidden": 32, "conf_epochs": 8}
+L=16 Tc=2.4244
+L=24 Tc=2.4620
+L=32 Tc=2.3322
+METRICS {"tc_error_l16": 0.15521980185432138, "tc_bias_l16": 0.15521980185432138, "tc_error_l24": 0.19278376774645833, "tc_bias_l24": 0.19278376774645833, "tc_error_l32": 0.06301237652568314, "tc_bias_l32": 0.06301237652568314, "tc_error_fss": 0.1641853142130243, "tc_bias_fss": -0.1641853142130243, "nu_fss": 1.8750000000000013, "nu_error_fss": 0.8750000000000013, "collapse_cost": 0.004057697237636578}
+
+# rh: exit code 0 after 1.6 s
+# rh metrics: {"collapse_cost": 0.004057697237636578, "nu_error_fss": 0.8750000000000013, "nu_fss": 1.8750000000000013, "tc_bias_fss": -0.1641853142130243, "tc_bias_l16": 0.15521980185432138, "tc_bias_l24": 0.19278376774645833, "tc_bias_l32": 0.06301237652568314, "tc_error_fss": 0.1641853142130243, "tc_error_l16": 0.15521980185432138, "tc_error_l24": 0.19278376774645833, "tc_error_l32": 0.06301237652568314}

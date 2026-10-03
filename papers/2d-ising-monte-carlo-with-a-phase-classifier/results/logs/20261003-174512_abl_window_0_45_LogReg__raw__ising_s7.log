@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:45:12 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analysis_window.py --system 'LogReg (raw)' --seed 7 --window 0.45 --out results/raw/win0.45_LogReg__raw__s7.json
+
+CONFIG {'system': 'LogReg (raw)', 'seed': 7, 'window': 0.45, 'out': 'results/raw/win0.45_LogReg__raw__s7.json'}
+METRICS {"tc_error_fss": 0.035814685786971445, "tc_bias_fss": 0.035814685786971445, "nu_fss": 0.5, "nu_error_fss": 0.5, "collapse_cost": 0.5216952595515104}
+
+# rh: exit code 0 after 0.6 s
+# rh metrics: {"collapse_cost": 0.5216952595515104, "nu_error_fss": 0.5, "nu_fss": 0.5, "tc_bias_fss": 0.035814685786971445, "tc_error_fss": 0.035814685786971445}

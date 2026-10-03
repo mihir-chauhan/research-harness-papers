@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:08:47 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analysis_window.py --system 'Confusion (MLP)' --seed 7 --window 0.45 --out results/raw/win0.45_Confusion__MLP__s7.json
+
+CONFIG {'system': 'Confusion (MLP)', 'seed': 7, 'window': 0.45, 'out': 'results/raw/win0.45_Confusion__MLP__s7.json'}
+METRICS {"tc_error_fss": 0.3058146857869657, "tc_bias_fss": 0.3058146857869657, "nu_fss": 0.9250000000000004, "nu_error_fss": 0.07499999999999962, "collapse_cost": 0.033387801650740234}
+
+# rh: exit code 0 after 0.4 s
+# rh metrics: {"collapse_cost": 0.033387801650740234, "nu_error_fss": 0.07499999999999962, "nu_fss": 0.9250000000000004, "tc_bias_fss": 0.3058146857869657, "tc_error_fss": 0.3058146857869657}

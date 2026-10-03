@@ -1,0 +1,12 @@
+# rh run | Sat Oct  3 17:37:22 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system 'Binder/chi (reference)' --seed 7 --out results/raw/main_Binder_chi__reference__s7.json
+
+CONFIG {"system": "Binder/chi (reference)", "seed": 7, "out": "results/raw/main_Binder_chi__reference__s7.json", "margin": 0.3, "nsamp": 50, "epochs": 20, "lr": 0.001, "wd": 0.0001, "hidden": 64, "channels": 8, "conf_hidden": 32, "conf_epochs": 8}
+L=16 Tc=2.3864
+L=24 Tc=2.3711
+L=32 Tc=2.3456
+METRICS {"tc_error_l16": 0.11721723136433138, "tc_bias_l16": 0.11721723136433138, "tc_error_l24": 0.10195696487214168, "tc_bias_l24": 0.10195696487214168, "tc_error_l32": 0.07639512739158594, "tc_bias_l32": 0.07639512739158594, "tc_error_fss": 0.0008146857869721913, "tc_bias_fss": 0.0008146857869721913, "nu_fss": 0.8500000000000003, "nu_error_fss": 0.1499999999999997, "collapse_cost": 0.006704075935424184}
+
+# rh: exit code 0 after 15.5 s
+# rh metrics: {"collapse_cost": 0.006704075935424184, "nu_error_fss": 0.1499999999999997, "nu_fss": 0.8500000000000003, "tc_bias_fss": 0.0008146857869721913, "tc_bias_l16": 0.11721723136433138, "tc_bias_l24": 0.10195696487214168, "tc_bias_l32": 0.07639512739158594, "tc_error_fss": 0.0008146857869721913, "tc_error_l16": 0.11721723136433138, "tc_error_l24": 0.10195696487214168, "tc_error_l32": 0.07639512739158594}

@@ -1,0 +1,13 @@
+\begin{tabular}{lccccccc}
+\toprule
+Method & tc\_error\_l16 $\downarrow$ & tc\_error\_l24 $\downarrow$ & tc\_error\_l32 $\downarrow$ & tc\_error\_fss $\downarrow$ & nu\_error\_fss $\downarrow$ & acc\_far $\uparrow$ & $n$ \\
+\midrule
+Binder/chi (reference) & 0.109 $\pm$ 0.018 & 0.088 $\pm$ 0.009 & 0.066 $\pm$ 0.007 & 0.035 $\pm$ 0.036 & 0.250 $\pm$ 0.223 & -- & 10 \\
+MLP & \underline{0.051 $\pm$ 0.015} & 0.029 $\pm$ 0.010 & \underline{0.020 $\pm$ 0.008} & \textbf{0.021 $\pm$ 0.019} & \underline{0.168 $\pm$ 0.134} & \underline{0.997 $\pm$ 0.001} & 10 \\
+LogReg (Z2-fixed) & 0.504 $\pm$ 0.059 & 0.367 $\pm$ 0.054 & 0.287 $\pm$ 0.052 & 0.083 $\pm$ 0.030 & \textbf{0.143 $\pm$ 0.139} & 0.723 $\pm$ 0.011 & 10 \\
+Confusion (MLP) & 0.056 $\pm$ 0.052 & \textbf{0.017 $\pm$ 0.017} & \textbf{0.015 $\pm$ 0.016} & 0.331 $\pm$ 0.000 & 1.000 $\pm$ 0.000 & -- & 10 \\
+PCA & 0.163 $\pm$ 0.075 & 0.101 $\pm$ 0.047 & 0.056 $\pm$ 0.017 & 0.122 $\pm$ 0.037 & 0.480 $\pm$ 0.265 & -- & 10 \\
+LogReg (raw) & 0.409 $\pm$ 0.240 & 0.341 $\pm$ 0.196 & 0.220 $\pm$ 0.218 & 0.155 $\pm$ 0.114 & 0.473 $\pm$ 0.198 & 0.513 $\pm$ 0.011 & 10 \\
+\textbf{CNN} & \textbf{0.032 $\pm$ 0.018} & \underline{0.023 $\pm$ 0.009} & 0.023 $\pm$ 0.006 & \underline{0.034 $\pm$ 0.018} & 0.698 $\pm$ 0.299 & \textbf{0.999 $\pm$ 0.001} & 10 \\
+\bottomrule
+\end{tabular}

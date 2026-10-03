@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:32:41 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system sampler_check --seed 0 --out results/raw/sampler_check.json
+
+CONFIG {"system": "sampler_check", "seed": 0, "out": "results/raw/sampler_check.json", "margin": 0.3, "nsamp": 50, "epochs": 20, "lr": 0.001, "wd": 0.0001, "hidden": 64, "channels": 8, "conf_hidden": 32, "conf_epochs": 8}
+METRICS {"e_sw_T1p8": -1.8605381944444443, "e_metropolis_T1p8": -1.8614814814814817, "e_onsager_T1p8": -1.859303805725896, "e_diff_sw_metropolis_T1p8": 0.000943287037037388, "e_sw_T2p0": -1.7442534722222223, "e_metropolis_T2p0": -1.743126446759258, "e_onsager_T2p0": -1.7455645753125535, "e_diff_sw_metropolis_T2p0": 0.0011270254629642817, "e_sw_T3p0": -0.8278645833333332, "e_metropolis_T3p0": -0.816611689814815, "e_onsager_T3p0": -0.8173095925024205, "e_diff_sw_metropolis_T3p0": 0.011252893518518214, "e_sw_T3p5": -0.6656597222222221, "e_metropolis_T3p5": -0.6602864583333332, "e_onsager_T3p5": -0.6601217309632854, "e_diff_sw_metropolis_T3p5": 0.005373263888888924, "lag1_autocorr_absm_L32_Tc": 0.04261311250903267}
+
+# rh: exit code 0 after 4.0 s
+# rh metrics: {"e_diff_sw_metropolis_T1p8": 0.000943287037037388, "e_diff_sw_metropolis_T2p0": 0.0011270254629642817, "e_diff_sw_metropolis_T3p0": 0.011252893518518214, "e_diff_sw_metropolis_T3p5": 0.005373263888888924, "e_metropolis_T1p8": -1.8614814814814817, "e_metropolis_T2p0": -1.743126446759258, "e_metropolis_T3p0": -0.816611689814815, "e_metropolis_T3p5": -0.6602864583333332, "e_onsager_T1p8": -1.859303805725896, "e_onsager_T2p0": -1.7455645753125535, "e_onsager_T3p0": -0.8173095925024205, "e_onsager_T3p5": -0.6601217309632854, "e_sw_T1p8": -1.8605381944444443, "e_sw_T2p0": -1.7442534722222223, "e_sw_T3p0": -0.8278645833333332, "e_sw_T3p5": -0.6656597222222221, "lag1_autocorr_absm_L32_Tc": 0.04261311250903267}
