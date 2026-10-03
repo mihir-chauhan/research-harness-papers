@@ -1,0 +1,11 @@
+# rh run | Fri Oct  2 20:57:41 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system lr --tune 1 --seed 100 --config '{"C": 0.003}' --out results/raw/tune_lr_C0.003_s100.jsonsysystem lr seed 100 config {"horizon": 48, "C": 0.003, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 64, "lr": 0.001, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": fold 0 auroc 0.8115 auprc 0.5055 brier 0.0939 iters 0 t=0s
+final {"auroc": 0.8115299624733586, "auprc": 0.5054734378781462, "brier": 0.0939355120062828, "auroc_fold_sd": 0.0}
+.0}
+
+# rh: exit code 0 after 3.7 s
+# rh metrics: {"auprc": 0.49014624789287464, "auroc": 0.802573255403444, "auroc_fold_sd": 0.0, "brier": 0.09557495266199112}
+
+# rh: exit code 0 after 3.7 s
+# rh metrics: {"auprc": 0.5054734378781462, "auroc": 0.8115299624733586, "auroc_fold_sd": 0.0, "brier": 0.0939355120062828}

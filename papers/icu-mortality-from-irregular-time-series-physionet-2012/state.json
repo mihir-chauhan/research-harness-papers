@@ -1,0 +1,125 @@
+{
+  "slug": "icu-mortality-from-irregular-time-series-physion",
+  "direction": "ICU mortality from irregular time series (PhysioNet 2012). Download set-a of the PhysioNet 2012 challenge (4,000 stays, open access). Compare logistic regression and gradient boosting on per-variable summary statistics against a GRU with mask and time-delta inputs (GRU-D style) and a GRU on forward-filled values. Report AUROC, AUPRC and Brier score with 5-fold patient-level CV. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T19:46:12",
+  "updated": "2026-10-02T21:08:25",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T19:47:09",
+      "finished": "2026-10-02T19:52:16",
+      "notes": [
+        {
+          "t": "2026-10-02T19:52:16",
+          "note": "landscape, proposal, yaml written; 14 refs cited"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-02T19:52:16",
+      "finished": "2026-10-02T21:08:24",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:24",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:08:24",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:24",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:08:25",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:25",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:08:25",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:25",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:08:25",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:25",
+          "note": "see results/RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:08:25",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:25",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:08:25",
+      "notes": [
+        {
+          "t": "2026-10-02T21:08:25",
+          "note": "paper built, numbers traced, citations verified"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T19:52:35",
+      "phase": "setup",
+      "decision": "Hourly binning, fold-averaged metrics per seed, tuning on a hold-out of fold-0 training data with separate tuning seeds 100/101, identical small grids across systems; GRU-D designated the 'method' only for bookkeeping."
+    },
+    {
+      "t": "2026-10-02T21:07:35",
+      "phase": "results",
+      "decision": "H1 verdict uses the paired t-test over 5 seeds registered in proposal.md; the pairwise tests for H2-H4 are computed by method/analysis.py (logged), since rh compare keys only support the method as reference."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 20:01:57 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system transformer --task test_21_40 --seed 3 --config '{"mode": "greedy"}' --out results/raw/abl_search_greedy_test_21_40_3.json
+
+config {"system": "transformer", "task": "test_21_40", "seed": 3, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "greedy", "pos": "sin", "heur": "large", "cost": "nll"}
+train states 92064 val_loss 0.4534 val_acc 0.8863
+final {"solved": 0.9466666666666667, "mean_exp": 30.286666666666665}
+
+# rh: exit code 0 after 9.9 s
+# rh metrics: {"mean_exp": 30.286666666666665, "solved": 0.9466666666666667}

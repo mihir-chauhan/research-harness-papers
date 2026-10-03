@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:40:23 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system gru_ffill --seed 1 --config '{"hidden": 32, "lr": 0.003, "horizon": 12}' --out results/raw/sweep_horizon_gru_ffill_h12_s1.json
+
+system gru_ffill seed 1 config {"horizon": 12, "C": 0.01, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 32, "lr": 0.003, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.7740 auprc 0.3736 brier 0.1037 iters 10 t=3s
+fold 1 auroc 0.7575 auprc 0.3440 brier 0.1072 iters 12 t=6s
+fold 2 auroc 0.7739 auprc 0.3973 brier 0.1034 iters 12 t=8s
+fold 3 auroc 0.7392 auprc 0.3281 brier 0.1099 iters 11 t=10s
+fold 4 auroc 0.8133 auprc 0.4284 brier 0.0980 iters 11 t=13s
+final {"auroc": 0.7715978417077679, "auprc": 0.3742717833419754, "brier": 0.10445633977651596, "auroc_fold_sd": 0.024508485795673954, "auroc_icu1": 0.7884309040223019, "auroc_icu2": 0.7903338650547113, "auroc_icu3": 0.7260847278757727, "auroc_icu4": 0.747157545136558, "auroc_pooled": 0.770971313991422, "mean_epochs_or_trees": 11.2, "mean_pred": 0.14858702159882523}
+
+# rh: exit code 0 after 16.6 s
+# rh metrics: {"auprc": 0.3742717833419754, "auroc": 0.7715978417077679, "auroc_fold_sd": 0.024508485795673954, "auroc_icu1": 0.7884309040223019, "auroc_icu2": 0.7903338650547113, "auroc_icu3": 0.7260847278757727, "auroc_icu4": 0.747157545136558, "auroc_pooled": 0.770971313991422, "brier": 0.10445633977651596, "mean_epochs_or_trees": 11.2, "mean_pred": 0.14858702159882523}

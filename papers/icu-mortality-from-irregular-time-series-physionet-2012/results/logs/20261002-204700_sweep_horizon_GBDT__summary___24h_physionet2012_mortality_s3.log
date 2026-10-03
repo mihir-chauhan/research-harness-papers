@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:47:00 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system gbdt --seed 3 --config '{"leaves": 32, "l2": 10, "horizon": 24}' --out results/raw/sweep_horizon_gbdt_h24_s3.json
+
+system gbdt seed 3 config {"horizon": 24, "C": 0.01, "lr_gb": 0.05, "leaves": 32, "l2": 10, "hidden": 64, "lr": 0.001, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.8312 auprc 0.4557 brier 0.0961 iters 150 t=17s
+fold 1 auroc 0.8206 auprc 0.4060 brier 0.1030 iters 133 t=33s
+fold 2 auroc 0.8060 auprc 0.4703 brier 0.0986 iters 123 t=46s
+fold 3 auroc 0.8371 auprc 0.4418 brier 0.0974 iters 126 t=59s
+fold 4 auroc 0.8297 auprc 0.4203 brier 0.1003 iters 126 t=70s
+final {"auroc": 0.8249094893754452, "auprc": 0.438833258457891, "brier": 0.0990678003401353, "auroc_fold_sd": 0.01084392277780424, "auroc_icu1": 0.8267124651533254, "auroc_icu2": 0.8957826099124059, "auroc_icu3": 0.7575064073571536, "auroc_icu4": 0.8373953291170548, "auroc_pooled": 0.8251025098947978, "mean_epochs_or_trees": 131.6, "mean_pred": 0.10745930754592649}
+
+# rh: exit code 0 after 73.4 s
+# rh metrics: {"auprc": 0.438833258457891, "auroc": 0.8249094893754452, "auroc_fold_sd": 0.01084392277780424, "auroc_icu1": 0.8267124651533254, "auroc_icu2": 0.8957826099124059, "auroc_icu3": 0.7575064073571536, "auroc_icu4": 0.8373953291170548, "auroc_pooled": 0.8251025098947978, "brier": 0.0990678003401353, "mean_epochs_or_trees": 131.6, "mean_pred": 0.10745930754592649}

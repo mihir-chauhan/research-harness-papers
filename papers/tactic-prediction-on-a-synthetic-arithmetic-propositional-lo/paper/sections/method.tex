@@ -1,0 +1,35 @@
+\subsection{Prover and tactics}
+Formulas are built from \rhval{const/n_vars} propositional variables with $\neg,\wedge,\vee,\rightarrow$. A goal is a sequent $\Gamma\vdash\Delta$ of sets of formulas. We use the invertible, contraction-free rules of G3cp (the principal formula is removed and not copied):
+\begin{align*}
+&\neg L:\ \Gamma,\neg A\vdash\Delta \Rightarrow \Gamma\vdash A,\Delta &&\neg R:\ \Gamma\vdash\neg A,\Delta\Rightarrow \Gamma,A\vdash\Delta\\
+&\wedge L:\ \Gamma,A\wedge B\vdash\Delta\Rightarrow\Gamma,A,B\vdash\Delta &&\vee R:\ \Gamma\vdash A\vee B,\Delta\Rightarrow\Gamma\vdash A,B,\Delta\\
+&\rightarrow R:\ \Gamma\vdash A\rightarrow B,\Delta\Rightarrow\Gamma,A\vdash B,\Delta
+\end{align*}
+\begin{align*}
+&\wedge R:\ \Gamma\vdash A\wedge B,\Delta\Rightarrow \Gamma\vdash A,\Delta\ \text{and}\ \Gamma\vdash B,\Delta\\
+&\vee L:\ \Gamma,A\vee B\vdash\Delta\Rightarrow \Gamma,A\vdash\Delta\ \text{and}\ \Gamma,B\vdash\Delta\\
+&\rightarrow L:\ \Gamma,A\rightarrow B\vdash\Delta\Rightarrow \Gamma\vdash A,\Delta\ \text{and}\ \Gamma,B\vdash\Delta
+\end{align*}
+A goal is closed by the axiom rule when a variable occurs on both sides; closure is applied automatically and costs no expansion. A \emph{tactic} $a=(\text{side},\varphi)$ names the compound formula $\varphi$ to decompose (the rule follows from the side and the main connective); $\mathcal{A}(g)$ is the set of tactics of goal $g$. Because all rules are invertible, a goal is provable iff it is valid, every tactic leaves provability intact, and the choice of tactic affects only proof size. $\wedge R$, $\vee L$ and $\rightarrow L$ are \emph{branching}: the remaining context is duplicated and decomposed in both branches.
+
+\subsection{Search engine (shared by all systems)}
+A search state is a list of open goals. One \emph{expansion} pops a state, selects its first open goal $g$, and generates one child per tactic $a\in\mathcal{A}(g)$ (the child replaces $g$ by the open subgoals of $a$). A proof is found when a generated child has no open goal; the search fails after \rhval{const/budget} pops. All systems differ only in the priority of a child with parent priority $P$ and step cost $c(g,a)$:
+\begin{equation}
+P(\text{child}) = P + c(g,a),\qquad \text{ties broken towards deeper states, then insertion order.}
+\end{equation}
+\textbf{BFS (reimplemented):} priority = depth (FIFO), the cost is ignored.
+\textbf{Hand heuristic (reimplemented, ours):} $c(g,a)=\mathrm{rank}_g(a)$ in the ordering that places non-branching tactics before branching ones, then larger formulas first (variant \emph{large}). Two alternatives (\emph{small}: smaller first; \emph{right}: right-side tactics first) were compared on a separate tuning bin (Sec.~\ref{sec:setup}).
+\textbf{Policy search (method):} $c(g,a)=-\log\pi(a\mid g)$, so $P$ is the negative log-likelihood of the tactic sequence, as in GPT-f-style best-first search~\cite{polu2020generative}. The \emph{rank cost} ablation uses $c(g,a)=\mathrm{rank}_{\pi,g}(a)$ (rank of $a$ under $\pi$, 0 for the top tactic), i.e.\ the same cost scale as the heuristic; the \emph{greedy} ablation expands only the top-1 tactic and never backtracks.
+
+\subsection{Training labels}
+Let $s(g)$ be the minimum number of tactic applications of a proof of $g$: $s(g)=0$ if $g$ is an axiom and $s(g)=\min_{a\in\mathcal{A}(g)}\bigl(1+\sum_{g'\in a(g)}s(g')\bigr)$ otherwise, computed by memoised recursion. The optimal set is $\mathcal{A}^*(g)=\arg\min_a(1+\sum_{g'}s(g'))$. Training states are collected by walking a proof tree from each training sequent, following a uniformly chosen optimal tactic with probability \rhval{const/p_opt} and a uniformly random tactic otherwise (so that sub-optimal states are represented), keeping at most \rhval{const/max_states_per_seq} states per sequent. The loss is the cross-entropy to the uniform distribution on $\mathcal{A}^*(g)$:
+\begin{equation}
+\mathcal{L}=-\frac{1}{|\mathcal{A}^*(g)|}\sum_{a\in\mathcal{A}^*(g)}\log\pi_\theta(a\mid g),\qquad \pi_\theta(a\mid g)=\frac{\exp f_\theta(g)_a}{\sum_{a'\in\mathcal{A}(g)}\exp f_\theta(g)_{a'}}.
+\end{equation}
+
+\subsection{Policies}
+\textbf{Transformer policy (method).} The goal is written in prefix notation as a token sequence (\textsc{cls}, left formulas, separators, right formulas) with token, side-segment and sinusoidal position embeddings; a pre-norm encoder with \rhval{const/n_layers} layers, width \rhval{const/d_model}, \rhval{const/n_heads} heads and feedforward width \rhval{const/d_ff} produces hidden states $h_i$. The logit of a tactic is $f_\theta(g)_a=w^\top\mathrm{GELU}(W h_{r(a)})$ where $r(a)$ is the position of the root token of the formula $a$ names (a pointer-style head, so the output size follows the goal).
+\textbf{Feature-MLP policy (baseline, reimplemented).} Per tactic, a vector $x_a$ holds the side$\times$connective one-hot, formula size and depth, the overlap of its variables with the top-level variables of the same and the opposite side, and sequent-level context (number of compound formulas per side$\times$connective, formula counts, total size); $f_\theta(g)_a=\mathrm{MLP}(x_a)$ with two hidden layers of width \rhval{const/mlp_hidden}. It uses no token sequence and hence has no positional-extrapolation problem, but sees only these hand-chosen features.
+
+\subsection{Sequent generators}
+We use four generators with equal probability, each followed by rejection to the requested size range (size = total number of connectives): \textbf{(0)} random sequents of 1--3 formulas with random sides, kept if valid by truth table; \textbf{(1)} a small valid ``core'' sequent (at most \rhval{const/n_core_max} connectives) with each variable substituted by a random formula; \textbf{(2)} as (1) plus one or two random distractor formulas added by weakening; \textbf{(3)} a random formula $F$ and a formula $F'$ obtained from $F$ by 1 to \rhval{const/n_rewrites_max} random equivalence rewrites (commutation, associativity, distributivity, De~Morgan, double negation, contraposition, implication unfolding), giving the valid sequent $F\vdash F'$. Sequents that are already axioms are rejected and training sequents are distinct.

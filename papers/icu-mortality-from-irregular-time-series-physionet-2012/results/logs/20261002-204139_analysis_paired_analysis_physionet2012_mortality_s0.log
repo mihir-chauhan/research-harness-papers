@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:41:39 2026
+# cwd: .
+# cmd: python method/analysis.py results/raw/analysis.json
+
+Traceback (most recent call last):
+  File "method/analysis.py", line 31, in <module>
+    a, b = get(*A), get(*B)
+                    ^^^^^^^
+  File "method/analysis.py", line 8, in get
+    assert len(d) == 5, (group, name, len(d)); return d
+           ^^^^^^^^^^^
+AssertionError: ('sweep_horizon', 'GRU-D @12h', 0)
+
+# rh: exit code 1 after 39.4 s

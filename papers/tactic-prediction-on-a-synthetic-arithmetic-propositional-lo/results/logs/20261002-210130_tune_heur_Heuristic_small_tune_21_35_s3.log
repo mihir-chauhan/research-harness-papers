@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 21:01:30 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system heuristic --task tune_21_35 --seed 3 --config '{"heur": "small"}' --out results/raw/tune_small_3.json
+
+config {"system": "heuristic", "task": "tune_21_35", "seed": 3, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "small", "cost": "nll"}
+final {"solved": 0.8866666666666667, "mean_exp": 26.866666666666667}
+
+# rh: exit code 0 after 1.7 s
+# rh metrics: {"mean_exp": 26.866666666666667, "solved": 0.8866666666666667}

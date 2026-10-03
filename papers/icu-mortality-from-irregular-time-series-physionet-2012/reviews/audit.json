@@ -1,0 +1,135 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "The study is real and reproducible: the registry rows have commands and logs, two re-runs (GRU-D and gradient boosting, seed 0) matched exactly, the code matches the paper with no leakage or hard-coded results, and the negative result is reported honestly with appropriate citations. One major text error must be fixed: the paper calls the gradient-boosting mean predicted risk (0.107) close to the observed mortality (0.139) and concludes there is no global bias, which its own numbers contradict. There are also several minor wording and formatting issues.",
+      "reran": [
+        {
+          "run": "GRU-D/physionet2012_mortality/0",
+          "metric": "auroc",
+          "registry": 0.8294094035062042,
+          "rerun": 0.8294094035062042
+        },
+        {
+          "run": "GBDT (summary)/physionet2012_mortality/0",
+          "metric": "auroc",
+          "registry": 0.8507150378979749,
+          "rerun": 0.8507150378979749
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/results.tex, 'Calibration and complexity' paragraph",
+          "issue": "States the gradient-boosting mean predicted risk (0.107) and GRU-D (0.138) are 'close to the observed mortality (0.139), so the Brier differences are not driven by a global bias'. Gradient boosting under-predicts mean risk by about 3 points (about 23% relative) in every seed (0.104-0.108).",
+          "fix": "State that gradient boosting systematically under-predicts average risk while GRU-D and logistic regression are close to the observed rate; drop the 'not driven by a global bias' conclusion, or support it with calibration-in-the-large or a calibration slope."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex (Data paragraph)",
+          "issue": "Percentages are printed without % signs ('mortality 13.9', '19.4 of the hourly variable slots', '47.3 of the stays', ICU mortality '4.9'/'18.6'), which conflicts with the fractions used elsewhere (0.139).",
+          "fix": "Add \\% or print fractions consistently."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, Main comparison; Table II",
+          "issue": "Gradient boosting is called 'best on all three metrics' and bolded for Brier, but its Brier score ties logistic regression (0.0925 vs 0.0926, paired p=0.91).",
+          "fix": "Say gradient boosting is best on AUROC and AUPRC and tied with logistic regression on Brier."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex, per-regime paragraph",
+          "issue": "'The one place where a recurrent model is best or tied' contradicts Table IV, where gradient boosting leads in every ICU unit and no recurrent model is best or tied.",
+          "fix": "Rephrase as a comparison among the recurrent models only (the mask+delta GRU vs the forward-fill GRU in the CCU)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/conclusion.tex",
+          "issue": "Says 'equal-sized tuning grids', but the grids have 5 (logistic regression), 9 (gradient boosting) and 9 (each GRU) cells; the abstract correctly says 'similar size'.",
+          "fix": "Use 'similar-sized' and give the cell counts."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, 'What is left open'",
+          "issue": "Uncited generalisation that architecture papers report one split, tune the proposed model more than the baselines and rarely include tuned gradient boosting.",
+          "fix": "Cite specific examples or soften to a statement about the cited works."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/tune.sh, experiments/tune2.sh; paper/sections/limitations.tex",
+          "issue": "All three GRUs selected hidden size 32, the smallest value in the grid, so smaller or more regularised recurrent models were not explored.",
+          "fix": "Mention this in the Tuning limitation or extend the grid to hidden size 16."
+        },
+        {
+          "severity": "minor",
+          "where": "repository root file 'main'",
+          "issue": "A stray output file named 'main' (the tuning-selection metrics) sits at the repository root.",
+          "fix": "Move it to results/raw/ or reference it from the tune_select registry row."
+        }
+      ],
+      "commit": "550fe34291ea8686ca07b8ed1df746ccfcae929c"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers come from registry rows via \\rhval, the comparative claims match the tables and the paired analysis, and two re-executed runs (GRU-D s0 and LR s0) reproduce the registry exactly. Code matches the described method, baselines are tuned with similar budgets on training-only data, and the negative result is reported plainly with adequate limitations. Remaining issues are minor framing and wording points.",
+      "reran": [
+        {
+          "run": "GRU-D/physionet2012_mortality/0",
+          "metric": "auroc",
+          "registry": 0.8294094035062042,
+          "rerun": 0.8294094035062042
+        },
+        {
+          "run": "LR (summary)/physionet2012_mortality/0",
+          "metric": "auroc",
+          "registry": 0.841461310493304,
+          "rerun": 0.841461310493304
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "abstract.tex, conclusion.tex, ablations.tex (H5 sweep), results/RESULTS.md",
+          "issue": "The finding that mask/delta inputs help the GRU at 12 h and 24 h comes from the horizon sweep registered as exploratory (H5), without re-tuning and with roughly 66 unadjusted paired tests, yet the abstract and conclusion state it as a finding and RESULTS.md marks H2 'supported at 12 h and 24 h'. H2 was registered on the 48 h main group.",
+          "fix": "Label the short-horizon result as exploratory and unadjusted for multiple comparisons in the abstract, conclusion and RESULTS.md."
+        },
+        {
+          "severity": "minor",
+          "where": "limitations.tex (Tuning)",
+          "issue": "Says 'more strongly regularised recurrent models were not explored', but tune2 did test dropout 0.5 and weight decay 0.01 (and the mask+delta GRU selected wd=0.01).",
+          "fix": "Say that smaller hidden sizes were not explored and that regularisation was only explored in a 3-cell stage-2 grid."
+        },
+        {
+          "severity": "minor",
+          "where": "results.tex H1, ablations.tex H4",
+          "issue": "Signed deltas are inserted after 'lower by' or 'drops by', giving double negatives such as 'lower than GBDT by -0.0275' and 'drops by -0.0052'.",
+          "fix": "Use absolute values after 'lower by' or 'drops by', or write it as 'difference = -0.0275'."
+        },
+        {
+          "severity": "minor",
+          "where": "related.tex, setup.tex",
+          "issue": "Gradient boosting is attributed to XGBoost (chen2016xgboost) rather than Friedman 2001, and the PhysioNet/CinC 2012 challenge paper (Silva et al. 2012) is not cited for the dataset.",
+          "fix": "Cite Friedman 2001 for gradient boosting and Silva et al. 2012 for the challenge data."
+        },
+        {
+          "severity": "minor",
+          "where": "limitations.tex, main.pdf p.1",
+          "issue": "The fold-level AUROC standard deviation is described only vaguely ('about the size reported for auroc_fold_sd'; the actual value is ~0.016), weight missingness of 7.4% is called 'a few percent', and the author-block URL runs past the page margin.",
+          "fix": "Give the fold-SD value through \\rhval, adjust the wording on weight missingness, and wrap or shorten the URL."
+        }
+      ],
+      "commit": "d2d4be2b2f46c6bdacecf07d3d57ad0e22b34604"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (1):\n! verdict tier 0 < target 2: not best on physionet2012_mortality: ours 0.8301 vs GBDT (summary) 0.8576\nREADY",
+      "response": "# Response to audit\n1. (major) Calibration paragraph: rewritten. GBDT under-predicts mean risk (per-seed range quoted from the registry); GRU-D and LR are close to the observed rate; the \"not driven by global bias\" conclusion is dropped.\n2. Percent signs added to the Data paragraph in setup.tex.\n3. GBDT now described as best on AUROC and AUPRC, tied with LR on Brier; Table II caption notes the tie with the paired p-value.\n4. Per-regime sentence rephrased as a comparison among recurrent models only.\n5. Conclusion: \"similar-sized tuning grids\" with cell counts (5, 9, 9).\n6. Related work: uncited generalisation replaced by a statement about this study only.\n7. Limitations: all GRUs chose the smallest hidden size (32) in the grid; smaller/more regularised models not explored (grid not extended, noted as a limitation).\n8. Stray file `main` moved to results/raw/tune_select_stdout.json.\n",
+      "seconds": 204
+    }
+  ]
+}

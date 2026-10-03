@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 19:47:53 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system transformer --task val_3_10 --seed 0 --out results/raw/main_tf_val_3_10_0.json
+
+config {"system": "transformer", "task": "val_3_10", "seed": 0, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+  train step 0 loss 0.6385
+  train step 500 loss 0.5067
+  train step 1000 loss 0.3950
+  train step 1500 loss 0.4142
+train states 92789 val_loss 0.4311 val_acc 0.8981
+final {"val_loss": 0.431073083137334, "val_top1": 0.8980783722682742, "solved": 0.9933333333333333, "mean_exp": 7.213333333333333}
+
+# rh: exit code 0 after 141.0 s
+# rh metrics: {"mean_exp": 7.213333333333333, "solved": 0.9933333333333333, "val_loss": 0.431073083137334, "val_top1": 0.8980783722682742}

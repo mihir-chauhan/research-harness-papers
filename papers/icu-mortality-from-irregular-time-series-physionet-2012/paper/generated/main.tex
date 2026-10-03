@@ -1,0 +1,11 @@
+\begin{tabular}{lcccc}
+\toprule
+Method & auroc $\uparrow$ & auprc $\uparrow$ & brier $\downarrow$ & $n$ \\
+\midrule
+LR (summary) & \underline{0.8429 $\pm$ 0.0034} & \underline{0.4936 $\pm$ 0.0054} & \underline{0.0926 $\pm$ 0.0006} & 5 \\
+GBDT (summary) & \textbf{0.8576 $\pm$ 0.0048} & \textbf{0.5072 $\pm$ 0.0112} & \textbf{0.0925 $\pm$ 0.0013} & 5 \\
+GRU (forward-fill) & 0.8323 $\pm$ 0.0037 & 0.4837 $\pm$ 0.0096 & 0.0944 $\pm$ 0.0010 & 5 \\
+GRU (mask+delta) & 0.8329 $\pm$ 0.0023 & 0.4884 $\pm$ 0.0064 & 0.0941 $\pm$ 0.0004 & 5 \\
+\textbf{GRU-D} & 0.8301 $\pm$ 0.0021 & 0.4896 $\pm$ 0.0075 & 0.0942 $\pm$ 0.0009 & 5 \\
+\bottomrule
+\end{tabular}

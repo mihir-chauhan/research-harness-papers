@@ -1,0 +1,23 @@
+# rh run | Fri Oct  2 19:53:40 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lr --tune 1 --seed 101 --config '{C:0.003}' --out results/raw/tune_lr_C0.003_s101.json
+
+Traceback (most recent call last):
+  File "method/run.py", line 159, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "method/run.py", line 137, in main
+    a = ap.parse_args(); cfg = {**DEF, **json.loads(a.config)}
+                                         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+# rh: exit code 1 after 3.8 s

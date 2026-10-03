@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:41:56 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system gru_ffill --seed 3 --config '{"hidden": 32, "lr": 0.003, "horizon": 12}' --out results/raw/sweep_horizon_gru_ffill_h12_s3.json
+
+system gru_ffill seed 3 config {"horizon": 12, "C": 0.01, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 32, "lr": 0.003, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.7754 auprc 0.3685 brier 0.1055 iters 10 t=4s
+fold 1 auroc 0.7441 auprc 0.3447 brier 0.1083 iters 11 t=7s
+fold 2 auroc 0.7691 auprc 0.3668 brier 0.1055 iters 12 t=10s
+fold 3 auroc 0.7958 auprc 0.4351 brier 0.0995 iters 11 t=14s
+fold 4 auroc 0.7246 auprc 0.2882 brier 0.1113 iters 9 t=16s
+final {"auroc": 0.761793322789221, "auprc": 0.36064203642485665, "brier": 0.1059912160038948, "auroc_fold_sd": 0.024857771524818672, "auroc_icu1": 0.7837017124651534, "auroc_icu2": 0.7863599473875689, "auroc_icu3": 0.7052103120759837, "auroc_icu4": 0.7547327138465887, "auroc_pooled": 0.7628878561655748, "mean_epochs_or_trees": 10.6, "mean_pred": 0.13726971738558497}
+
+# rh: exit code 0 after 19.9 s
+# rh metrics: {"auprc": 0.36064203642485665, "auroc": 0.761793322789221, "auroc_fold_sd": 0.024857771524818672, "auroc_icu1": 0.7837017124651534, "auroc_icu2": 0.7863599473875689, "auroc_icu3": 0.7052103120759837, "auroc_icu4": 0.7547327138465887, "auroc_pooled": 0.7628878561655748, "brier": 0.1059912160038948, "mean_epochs_or_trees": 10.6, "mean_pred": 0.13726971738558497}

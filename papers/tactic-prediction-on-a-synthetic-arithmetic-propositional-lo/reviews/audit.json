@@ -1,0 +1,61 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers trace to registry rows, both re-executed runs (transformer with fresh training, BFS) reproduce exactly, and the code implements the described shared-engine comparison with a fairly tuned heuristic and no leakage. The negative/mixed outcome is stated honestly with thorough limitations and post-hoc labelling; remaining issues are wording (inverted H3 phrasing), a stale compare CSV, and PDF layout defects.",
+      "reran": [
+        {
+          "run": "Transformer policy/test_41_70/2",
+          "metric": "solved",
+          "registry": 0.38,
+          "rerun": 0.38
+        },
+        {
+          "run": "BFS/test_41_70/2",
+          "metric": "solved",
+          "registry": 0.16666666666666666,
+          "rerun": 0.16666666666666666
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3 heading), conclusion.tex, abstract.tex",
+          "issue": "H3 was pre-registered as 'gap worsens with size' but is labelled 'gap shrinks with size'; conclusion says 'deficit does not shrink ... (H3 refuted)', which is logically inverted; 'ceiling effect' for the 41-70 narrowing is mis-attributed (heuristic drops there).",
+          "fix": "Restate H3 consistently as 'deficit grows monotonically with size', refuted because the gap is non-monotone (0.18, 0.44, 0.32); drop or correct the ceiling-effect remark."
+        },
+        {
+          "severity": "minor",
+          "where": "results/tables/compare_main_solved.csv",
+          "issue": "File was overwritten in the last commit and now contains only tune_21_35 rows; test-bin p-values cited as 'from rh compare' exist only in values.tex.",
+          "fix": "Re-run rh compare for all main tasks so the CSV backs every cited paired p-value."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf page 2 (method.tex), Fig. 3, author block",
+          "issue": "G3cp rule display overlaps the loss equation; eqs. (1)-(2) overflow the column; author URL overflows the page; Fig. 3 tick labels overlap.",
+          "fix": "Use a column-width or two-line layout for the rules/equations, break the URL, set explicit x-ticks in the budget figure."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py (val_3_10 problems)",
+          "issue": "val_3_10 evaluation problems are not excluded from the training sequents, so in-distribution results may include training items.",
+          "fix": "Pass exclude=training set when generating val_3_10 problems or note it."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, abstract.tex, introduction.tex, results.tex",
+          "issue": "Training-size sweep claim has no reported significance test (auditor paired t gives p~0.002, so it holds); 'from few proofs' slightly mischaracterises Aygun et al. (learning without initial proofs via hindsight replay); garbled 'size effect' sentence in results.",
+          "fix": "Report the paired test for the ntrain sweep, reword the Aygun description, and rewrite the size-effect sentence."
+        }
+      ],
+      "commit": "5a8220ce7ea99986c5ee8f8aae43754bc61f935b"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

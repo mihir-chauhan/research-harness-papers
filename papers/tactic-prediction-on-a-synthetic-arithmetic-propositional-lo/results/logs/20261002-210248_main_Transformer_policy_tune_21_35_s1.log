@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 21:02:48 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system transformer --task tune_21_35 --seed 1 --out results/raw/main_tf_tune_21_35_1.json
+
+config {"system": "transformer", "task": "tune_21_35", "seed": 1, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+train states 92487 val_loss 0.4311 val_acc 0.8838
+final {"solved": 0.5133333333333333, "mean_exp": 59.88666666666666}
+
+# rh: exit code 0 after 16.5 s
+# rh metrics: {"mean_exp": 59.88666666666666, "solved": 0.5133333333333333}

@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 20:15:35 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system transformer --task test_21_40 --seed 4 --config '{"pos": "learned"}' --out results/raw/abl_pos_lp_test_21_40_4.json
+
+config {"system": "transformer", "task": "test_21_40", "seed": 4, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "learned", "heur": "large", "cost": "nll"}
+train states 92045 val_loss 0.4323 val_acc 0.8890
+final {"solved": 0.5666666666666667, "mean_exp": 53.18666666666667}
+
+# rh: exit code 0 after 13.2 s
+# rh metrics: {"mean_exp": 53.18666666666667, "solved": 0.5666666666666667}

@@ -1,0 +1,169 @@
+slug: tactic-prediction-on-a-synthetic-arithmetic-prop
+direction: Tactic-prediction on a synthetic arithmetic / propositional logic prover.
+  Implement a tiny sequent-calculus prover for propositional logic in Python (rules
+  as tactics) and generate 20k random provable sequents with proofs. Train a small
+  transformer or MLP policy to pick the next rule; compare best-first search guided
+  by the policy against breadth-first and a hand-written heuristic on proofs found
+  within 100 expansions, for formulas larger than those in training. Keep it a small
+  CPU study with reimplemented baselines, at least 5 seeds where cheap, and report
+  negative or mixed results plainly.
+problem: Does a small learned tactic policy guide best-first proof search in a propositional
+  sequent calculus better than breadth-first search and a hand-written heuristic,
+  within 100 expansions, on formulas larger than any seen in training?
+gap: Neural tactic prediction is usually evaluated on large formal libraries where
+  the cost of the baselines is hidden; here the prover is small enough to compute
+  optimal proofs, tune a hand heuristic fairly, and measure size generalisation exactly.
+contribution: A controlled small-scale comparison (5 seeds) of a transformer policy,
+  a feature MLP, BFS and a tuned hand heuristic under one shared search engine and
+  an equal 100-expansion budget, with per-size breakdown, budget sweep, training-size
+  sweep and search-mode ablations.
+hypotheses:
+- id: H1
+  statement: On sequents larger than the training range, best-first search guided
+    by the transformer policy solves more problems within 100 expansions than BFS.
+  test: Paired Welch/permutation comparison over 5 seeds (rh compare) of solved rate,
+    per test bin; supported if policy > BFS with p<0.05 in all three bins.
+- id: H2
+  statement: The transformer policy solves more problems than the tuned hand-written
+    heuristic on the largest test bin (41-70 connectives).
+  test: rh compare of solved rate on test_41_70 over 5 seeds; refuted if heuristic
+    >= policy.
+- id: H3
+  statement: 'Policy quality degrades with size: the policy advantage (or deficit)
+    versus the heuristic becomes worse from the 11-20 bin to the 41-70 bin.'
+  test: Difference solved(policy)-solved(heuristic) per bin from rh compare; supported
+    if the difference decreases monotonically across the three bins.
+- id: H4
+  statement: 'Search matters: best-first search with the policy beats following the
+    policy greedily (no backtracking) in the largest bin.'
+  test: rh compare solved rate on test_41_70, transformer best-first vs greedy ablation,
+    5 seeds.
+method:
+  name: Transformer policy
+  summary: Small transformer scoring every candidate (side, compound formula) tactic
+    of a sequent, trained by imitation of optimal proofs (min proof size via DP);
+    used as -log p step cost in best-first search over proof states.
+  components:
+  - transformer scorer
+  - optimal-proof imitation labels
+  - best-first search by cumulative -log p
+  entrypoint: method/run.py
+tasks:
+- val_3_10
+- test_11_20
+- test_21_40
+- test_41_70
+metrics:
+  solved:
+    higher_is_better: true
+  mean_exp:
+    higher_is_better: false
+  val_top1:
+    higher_is_better: true
+  val_loss:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- BFS
+- Hand heuristic
+- Feature-MLP policy
+ablations:
+- Transformer greedy
+- Transformer rank cost
+- MLP rank cost
+- Transformer learned pos
+- Transformer ntrain
+- Transformer budget
+ambition:
+  target_tier: 2
+  primary_metric: solved
+  primary_task: test_41_70
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_train_seq
+  value: 20000
+  why: training sequents generated per seed
+- name: n_val_seq
+  value: 1000
+  why: held-out validation sequents per seed
+- name: n_probs
+  value: 150
+  why: problems per task per seed
+- name: n_seeds
+  value: 5
+  why: seeds 0-4
+- name: budget
+  value: 100
+  why: expansion budget
+- name: n_vars
+  value: 5
+  why: propositional variables
+- name: train_lo
+  value: 3
+  why: min connectives in training sequents
+- name: train_hi
+  value: 10
+  why: max connectives in training sequents
+- name: train_steps
+  value: 2000
+  why: optimizer steps per policy
+- name: batch
+  value: 128
+  why: batch size
+- name: lr
+  value: 0.002
+  why: peak learning rate
+- name: d_model
+  value: 64
+  why: transformer width
+- name: n_layers
+  value: 3
+  why: transformer layers
+- name: n_heads
+  value: 4
+  why: attention heads
+- name: d_ff
+  value: 256
+  why: feedforward width
+- name: mlp_hidden
+  value: 128
+  why: MLP hidden width
+- name: max_states_per_seq
+  value: 30
+  why: cap on states collected per training sequent
+- name: p_opt
+  value: 0.5
+  why: probability of following an optimal tactic while collecting training states
+- name: threads
+  value: 2
+  why: torch threads
+- name: n_core_max
+  value: 4
+  why: max connectives in a substitution-core sequent
+- name: n_rewrites_max
+  value: 4
+  why: max equivalence rewrites for the rewrite generator
+- name: n_gen_kinds
+  value: 4
+  why: number of sequent generators
+- name: max_diag_steps
+  value: 300
+  why: cap on diagnostic proof length

@@ -1,0 +1,17 @@
+\begin{tabular}{llccc}
+\toprule
+Method & Task & solved $\uparrow$ & mean\_exp $\downarrow$ & $n$ \\
+\midrule
+Transformer greedy & test\_11\_20 & \underline{1.00 $\pm$ 0.00} & 11.89 $\pm$ 0.31 & 5 \\
+Transformer rank cost & test\_11\_20 & 1.00 $\pm$ 0.00 & \underline{11.39 $\pm$ 0.29} & 5 \\
+MLP rank cost & test\_11\_20 & \textbf{1.00 $\pm$ 0.00} & \textbf{9.07 $\pm$ 0.30} & 5 \\
+\midrule
+Transformer greedy & test\_21\_40 & \underline{0.94 $\pm$ 0.02} & 27.96 $\pm$ 2.93 & 5 \\
+Transformer rank cost & test\_21\_40 & 0.94 $\pm$ 0.02 & \underline{26.60 $\pm$ 3.27} & 5 \\
+MLP rank cost & test\_21\_40 & \textbf{0.99 $\pm$ 0.00} & \textbf{19.51 $\pm$ 2.43} & 5 \\
+\midrule
+Transformer greedy & test\_41\_70 & 0.73 $\pm$ 0.04 & 45.84 $\pm$ 3.17 & 5 \\
+Transformer rank cost & test\_41\_70 & \underline{0.73 $\pm$ 0.03} & \underline{44.58 $\pm$ 3.36} & 5 \\
+MLP rank cost & test\_41\_70 & \textbf{0.88 $\pm$ 0.04} & \textbf{33.77 $\pm$ 3.24} & 5 \\
+\bottomrule
+\end{tabular}

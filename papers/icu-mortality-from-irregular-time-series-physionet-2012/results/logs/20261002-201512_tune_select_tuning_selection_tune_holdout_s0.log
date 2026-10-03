@@ -1,0 +1,12 @@
+# rh run | Fri Oct  2 20:15:12 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot experiments/select.py results/raw/tune_select.json
+
+GBDT 0.842 {"l2": 10, "leaves": 32} 2
+LR 0.8291 {"C": 0.01} 2
+gru_ffill 0.8137 {"hidden": 32, "lr": 0.003} 2
+gru_md 0.8142 {"drop": 0.2, "hidden": 32, "lr": 0.001, "wd": 0.01} 2
+grud 0.8179 {"hidden": 32, "lr": 0.001} 2
+
+# rh: exit code 0 after 0.1 s
+# rh metrics: {"best_holdout_auroc_GBDT": 0.8419696910262948, "best_holdout_auroc_LR": 0.8290968762666875, "best_holdout_auroc_gru_ffill": 0.8136678042338419, "best_holdout_auroc_gru_md": 0.8141842858823991, "best_holdout_auroc_grud": 0.8178781103309406}

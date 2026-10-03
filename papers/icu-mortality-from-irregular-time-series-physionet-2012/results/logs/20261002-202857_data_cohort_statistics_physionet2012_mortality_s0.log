@@ -1,0 +1,27 @@
+# rh run | Fri Oct  2 20:28:57 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/datastats.py results/raw/datastats.json
+
+{
+ "obs_density": 0.19355106353759766,
+ "mortality": 0.1385,
+ "deaths": 554,
+ "n_stays": 4000,
+ "obs_per_stay_mean": 334.45623779296875,
+ "obs_per_stay_median": 337.0,
+ "height_missing": 0.4735,
+ "weight_missing": 0.074,
+ "icu1_n": 577,
+ "icu1_mortality": 0.14038128249566725,
+ "icu2_n": 874,
+ "icu2_mortality": 0.04919908466819222,
+ "icu3_n": 1481,
+ "icu3_mortality": 0.18568534773801484,
+ "icu4_n": 1068,
+ "icu4_mortality": 0.1451310861423221,
+ "auroc_total_count_only": 0.5667712892675231,
+ "frac_vars_ever_observed_mean": 0.7152291666666667
+}
+
+# rh: exit code 0 after 131.0 s
+# rh metrics: {"auroc_total_count_only": 0.5667712892675231, "deaths": 554.0, "frac_vars_ever_observed_mean": 0.7152291666666667, "height_missing": 0.4735, "icu1_mortality": 0.14038128249566725, "icu1_n": 577.0, "icu2_mortality": 0.04919908466819222, "icu2_n": 874.0, "icu3_mortality": 0.18568534773801484, "icu3_n": 1481.0, "icu4_mortality": 0.1451310861423221, "icu4_n": 1068.0, "mortality": 0.1385, "n_stays": 4000.0, "obs_density": 0.19355106353759766, "obs_per_stay_mean": 334.45623779296875, "obs_per_stay_median": 337.0, "weight_missing": 0.074}

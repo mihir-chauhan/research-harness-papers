@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 21:04:23 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system grud --tune 1 --seed 100 --config '{"hidden": 32, "lr": 0.001, "drop": 0.2, "wd": 0.01}' --out results/raw/tune2_grud_d0.2_w0.01_s100.json
+
+system grud seed 100 config {"horizon": 48, "C": 0.01, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 32, "lr": 0.001, "wd": 0.01, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.7905 auprc 0.4597 brier 0.0977 iters 29 t=29s
+final {"auroc": 0.7904915074726396, "auprc": 0.45966391172381077, "brier": 0.09772676229476929, "auroc_fold_sd": 0.0}
+
+# rh: exit code 0 after 32.8 s
+# rh metrics: {"auprc": 0.45966391172381077, "auroc": 0.7904915074726396, "auroc_fold_sd": 0.0, "brier": 0.09772676229476929}

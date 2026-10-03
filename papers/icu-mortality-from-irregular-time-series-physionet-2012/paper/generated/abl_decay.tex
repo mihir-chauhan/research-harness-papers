@@ -1,0 +1,9 @@
+\begin{tabular}{lcccccccccccc}
+\toprule
+Method & auroc $\uparrow$ & auprc $\uparrow$ & brier $\downarrow$ & auroc\_fold\_sd $\downarrow$ & auroc\_icu1 $\uparrow$ & auroc\_icu2 $\uparrow$ & auroc\_icu3 $\uparrow$ & auroc\_icu4 $\uparrow$ & auroc\_pooled $\uparrow$ & mean\_epochs\_or\_trees $\downarrow$ & mean\_pred $\downarrow$ & $n$ \\
+\midrule
+GRU-D w/o input decay & \textbf{0.8310 $\pm$ 0.0016} & \underline{0.4913 $\pm$ 0.0057} & \underline{0.0943 $\pm$ 0.0011} & 0.0161 $\pm$ 0.0066 & 0.8277 $\pm$ 0.0058 & \underline{0.8542 $\pm$ 0.0099} & 0.7852 $\pm$ 0.0051 & \textbf{0.8281 $\pm$ 0.0044} & \textbf{0.8288 $\pm$ 0.0023} & \textbf{14.1600 $\pm$ 0.9529} & \textbf{0.1381 $\pm$ 0.0027} & 5 \\
+GRU-D w/o any decay & \underline{0.8307 $\pm$ 0.0024} & \textbf{0.4914 $\pm$ 0.0053} & \textbf{0.0943 $\pm$ 0.0008} & \textbf{0.0145 $\pm$ 0.0071} & \underline{0.8287 $\pm$ 0.0104} & \textbf{0.8570 $\pm$ 0.0094} & \textbf{0.7855 $\pm$ 0.0046} & 0.8269 $\pm$ 0.0028 & \underline{0.8284 $\pm$ 0.0029} & \underline{15.2000 $\pm$ 1.0198} & 0.1413 $\pm$ 0.0031 & 5 \\
+GRU-D w/o hidden decay & 0.8305 $\pm$ 0.0030 & 0.4892 $\pm$ 0.0074 & 0.0943 $\pm$ 0.0008 & \underline{0.0155 $\pm$ 0.0070} & \textbf{0.8290 $\pm$ 0.0094} & 0.8501 $\pm$ 0.0152 & \underline{0.7852 $\pm$ 0.0039} & \underline{0.8270 $\pm$ 0.0063} & 0.8276 $\pm$ 0.0045 & 15.6000 $\pm$ 1.2570 & \underline{0.1403 $\pm$ 0.0019} & 5 \\
+\bottomrule
+\end{tabular}

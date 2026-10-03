@@ -1,0 +1,31 @@
+\subsection{Problem and notation}
+Patient $i$ has observations of $V=\rhval{const/n_vars}$ time-series variables over $T=\rhval{const/n_hours}$ hours and a static vector $\mathbf{s}_i$ (age, gender, height, weight, ICU type). We bin to hourly steps ($t=1..T$, the last value inside an hour wins) giving values $x_{t,v}$, a mask $m_{t,v}\in\{0,1\}$ (1 if variable $v$ was measured in hour $t$) and $\delta_{t,v}$, the number of hours since $v$ was last measured before step $t$ (or since admission if never measured). Values are $z$-scored with training-fold statistics and clipped to $[-5,5]$. The label is in-hospital death $y_i\in\{0,1\}$ and every system outputs a probability $\hat p_i$.
+
+\subsection{Summary-feature baselines}
+For each variable $v$ we compute the minimum, maximum, mean, standard deviation, first and last observed value and the observation count $c_v=\sum_t m_{t,v}$, plus the static variables and ICU-type indicators. \textbf{LR (summary, reimplemented):} missing summaries are median-imputed (training-fold medians), features standardised, and
+\begin{equation}
+\hat p = \sigma(\mathbf{w}^\top \phi(\mathbf{x}) + b),\quad \min_{\mathbf{w},b}\ \tfrac{1}{2}\|\mathbf{w}\|^2 + C\sum_i \ell(y_i,\hat p_i),
+\end{equation}
+with $\ell$ the log loss. \textbf{GBDT (summary, reimplemented):} additive trees $F_K(\mathbf{x})=\sum_{k\le K}\eta f_k(\mathbf{x})$ fitted by second-order boosting~\cite{chen2016xgboost} on the same features with native handling of missing values (the histogram implementation of scikit-learn); each tree $f_k$ minimises $\sum_i [g_i f(\mathbf{x}_i)+\tfrac12 h_i f(\mathbf{x}_i)^2]+\tfrac{\lambda}{2}\sum_j w_j^2$ with leaf weights $w_j$, $K$ chosen by early stopping on an inner validation split, and $\hat p=\sigma(F_K)$.
+
+\subsection{Recurrent models}
+All recurrent models share a GRU cell~\cite{cho2014learning}
+\begin{align}
+\mathbf{r}_t&=\sigma(W_r\mathbf{u}_t+U_r\mathbf{h}_{t-1}+\mathbf{b}_r),\\
+\mathbf{z}_t&=\sigma(W_z\mathbf{u}_t+U_z\mathbf{h}_{t-1}+\mathbf{b}_z),\\
+\tilde{\mathbf{h}}_t&=\tanh(W\mathbf{u}_t+U(\mathbf{r}_t\odot\mathbf{h}_{t-1})+\mathbf{b}),\\
+\mathbf{h}_t&=(1-\mathbf{z}_t)\odot\tilde{\mathbf{h}}_t+\mathbf{z}_t\odot\mathbf{h}_{t-1},
+\end{align}
+and a head $\hat p=\sigma(\mathrm{MLP}([\mathbf{h}_T;\mathbf{s}'_i]))$ where $\mathbf{s}'_i$ are the standardised static features, ICU-type indicators and missing flags for height and weight; they differ only in the cell input $\mathbf{u}_t$ and in what happens to $\mathbf{h}$.
+
+\textbf{GRU (forward-fill):} $\mathbf{u}_t=\tilde{\mathbf{x}}_t$ with $\tilde x_{t,v}=x_{t,v}$ if $m_{t,v}=1$, else the last observed value, else $0$ (the training mean). \textbf{GRU (mask+delta):} $\mathbf{u}_t=[\tilde{\mathbf{x}}_t;\mathbf{m}_t;\boldsymbol\delta_t/\rhval{const/dscale}]$, the ``GRU-simple'' style input. \textbf{GRU-D (reimplemented):} following~\cite{che2016recurrent},
+\begin{align}
+\gamma^x_{t,v}&=\exp\!\big(-\max(0,\,w_v\,\delta_{t,v}/\rhval{const/dscale}+b_v)\big),\\
+\hat x_{t,v}&=m_{t,v}x_{t,v}+(1-m_{t,v})\,\gamma^x_{t,v}\,x^{\mathrm{last}}_{t,v},\\
+\boldsymbol\gamma^h_t&=\exp\!\big(-\max(0,\,W_\gamma\boldsymbol\delta_t/\rhval{const/dscale}+\mathbf{b}_\gamma)\big),\\
+\mathbf{h}_{t-1}&\leftarrow\boldsymbol\gamma^h_t\odot\mathbf{h}_{t-1},
+\end{align}
+and $\mathbf{u}_t=[\hat{\mathbf{x}}_t;\mathbf{m}_t]$. Here $x^{\mathrm{last}}$ is the last observed value (and the empirical mean, $0$ after standardisation, before the first observation), so the input decays toward the mean; $\mathbf{w},\mathbf{b}$ are per-variable and $W_\gamma$ is a full matrix. Switching off input decay sets $\gamma^x=1$ (plain carry-forward with a mask); switching off hidden decay removes the $\mathbf{h}$ update. One deviation from the original: we classify from the last hidden state with a small MLP head over static features rather than from the final-step linear layer only, and we use hourly rather than raw event times, so within-hour observation times are lost for every model.
+
+\subsection{Training and metrics}
+Recurrent models minimise the binary cross-entropy with Adam~\cite{kingma2014adam}, weight decay, gradient clipping and early stopping on an inner validation loss; no class re-weighting is used so that Brier scores remain meaningful. We report AUROC, AUPRC (average precision) and Brier score $\frac1n\sum_i(\hat p_i-y_i)^2$ on each test fold and average over the folds of a seed.

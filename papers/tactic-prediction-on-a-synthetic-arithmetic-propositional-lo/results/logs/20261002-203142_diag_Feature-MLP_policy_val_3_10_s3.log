@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 20:31:42 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/diag.py --system mlp --task val_3_10 --seed 3 --out results/raw/diag_mlp_val_3_10_3.json
+
+config {"system": "mlp", "task": "val_3_10", "seed": 3, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+final {"agree_heur": 0.6836734693877551, "defer_rate": 0.8367346938775511, "mixed_frac": 0.5625, "n_states": 784}
+
+# rh: exit code 0 after 1.8 s
+# rh metrics: {"agree_heur": 0.6836734693877551, "defer_rate": 0.8367346938775511, "mixed_frac": 0.5625, "n_states": 784.0}

@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:06:22 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system transformer --task test_11_20 --seed 0 --config '{"ntrain": 4000}' --out results/raw/sweep_ntrain_n4000_test_11_20_0.json
+
+config {"system": "transformer", "task": "test_11_20", "seed": 0, "ntrain": 4000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+  train step 0 loss 0.6736
+  train step 500 loss 0.4492
+  train step 1000 loss 0.4316
+  train step 1500 loss 0.3653
+train states 19703 val_loss 0.4671 val_acc 0.8836
+final {"solved": 0.8666666666666667, "mean_exp": 30.666666666666668}
+
+# rh: exit code 0 after 163.3 s
+# rh metrics: {"mean_exp": 30.666666666666668, "solved": 0.8666666666666667}

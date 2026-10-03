@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 20:16:05 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system transformer --task test_41_70 --seed 4 --config '{"cost": "rank"}' --out results/raw/abl_search_rank_test_41_70_4.json
+
+config {"system": "transformer", "task": "test_41_70", "seed": 4, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "rank"}
+train states 92045 val_loss 0.4249 val_acc 0.8916
+final {"solved": 0.7066666666666667, "mean_exp": 43.72}
+
+# rh: exit code 0 after 14.6 s
+# rh metrics: {"mean_exp": 43.72, "solved": 0.7066666666666667}

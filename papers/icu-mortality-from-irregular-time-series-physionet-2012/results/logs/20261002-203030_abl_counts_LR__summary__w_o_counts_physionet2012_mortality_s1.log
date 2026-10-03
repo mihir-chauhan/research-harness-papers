@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:30:30 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lr --seed 1 --config '{"C": 0.01, "counts": 0}' --out results/raw/abl_counts_lr_nocnt_s1.json
+
+system lr seed 1 config {"horizon": 48, "C": 0.01, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 64, "lr": 0.001, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 0, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.8222 auprc 0.4567 brier 0.0956 iters 0 t=0s
+fold 1 auroc 0.8442 auprc 0.4846 brier 0.0928 iters 0 t=1s
+fold 2 auroc 0.8175 auprc 0.4570 brier 0.0973 iters 0 t=1s
+fold 3 auroc 0.8207 auprc 0.4832 brier 0.0944 iters 0 t=1s
+fold 4 auroc 0.8845 auprc 0.5407 brier 0.0859 iters 0 t=2s
+final {"auroc": 0.8378249632917394, "auprc": 0.4844532874486311, "brier": 0.09320422410964965, "auroc_fold_sd": 0.025186692941189224, "auroc_icu1": 0.8493876941457587, "auroc_icu2": 0.8680491422494613, "auroc_icu3": 0.7919644203226293, "auroc_icu4": 0.8299968201250749, "auroc_pooled": 0.8379442706554556, "mean_epochs_or_trees": 0.0, "mean_pred": 0.13772508785367246}
+
+# rh: exit code 0 after 6.2 s
+# rh metrics: {"auprc": 0.4844532874486311, "auroc": 0.8378249632917394, "auroc_fold_sd": 0.025186692941189224, "auroc_icu1": 0.8493876941457587, "auroc_icu2": 0.8680491422494613, "auroc_icu3": 0.7919644203226293, "auroc_icu4": 0.8299968201250749, "auroc_pooled": 0.8379442706554556, "brier": 0.09320422410964965, "mean_epochs_or_trees": 0.0, "mean_pred": 0.13772508785367246}

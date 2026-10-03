@@ -1,0 +1,20 @@
+# rh run | Fri Oct  2 19:46:25 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system mlp --task val_3_10 --seed 0 --out results/raw/sanity.json
+
+config {"system": "mlp", "task": "val_3_10", "seed": 0, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+  train step 0 loss 0.6302
+  train step 500 loss 0.4239
+  train step 1000 loss 0.2939
+  train step 1500 loss 0.2972
+train states 92789 val_loss 0.3239 val_acc 0.9499
+final {"val_loss": 0.32385465913728023, "val_top1": 0.9498869630746044, "solved": 0.9933333333333333, "mean_exp": 6.6}
+Traceback (most recent call last):
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/tactic-prediction-on-a-synthetic-arithmetic-propositional-lo/method/run.py", line 137, in <module>
+    main()
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/tactic-prediction-on-a-synthetic-arithmetic-propositional-lo/method/run.py", line 133, in main
+    json.dump(out, open(a.out, 'w'))
+                   ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/sanity.json'
+
+# rh: exit code 1 after 12.8 s

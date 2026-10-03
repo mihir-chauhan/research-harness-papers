@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 19:58:23 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system bfs --task test_21_40 --seed 2 --out results/raw/main_bfs_test_21_40_2.json
+
+config {"system": "bfs", "task": "test_21_40", "seed": 2, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+final {"solved": 0.2733333333333333, "mean_exp": 80.60666666666667}
+
+# rh: exit code 0 after 2.0 s
+# rh metrics: {"mean_exp": 80.60666666666667, "solved": 0.2733333333333333}

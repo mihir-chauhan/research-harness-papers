@@ -1,0 +1,125 @@
+{
+  "slug": "tactic-prediction-on-a-synthetic-arithmetic-prop",
+  "direction": "Tactic-prediction on a synthetic arithmetic / propositional logic prover. Implement a tiny sequent-calculus prover for propositional logic in Python (rules as tactics) and generate 20k random provable sequents with proofs. Train a small transformer or MLP policy to pick the next rule; compare best-first search guided by the policy against breadth-first and a hand-written heuristic on proofs found within 100 expansions, for formulas larger than those in training. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T19:32:52",
+  "updated": "2026-10-02T21:04:38",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T19:32:59",
+      "finished": "2026-10-02T19:46:25",
+      "notes": [
+        {
+          "t": "2026-10-02T19:46:25",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:37",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:37",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:37",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:37",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:37",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:37",
+          "note": "done"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:38",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:38",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:04:38",
+      "notes": [
+        {
+          "t": "2026-10-02T21:04:38",
+          "note": "paper built, numbers traced"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T19:47:47",
+      "phase": "experiments",
+      "decision": "Hand heuristic variant 'large' (non-branching first, larger formula first) chosen on tune_21_35 over 5 seeds (solved .985 vs .88/.91); policy hyperparameters untuned"
+    },
+    {
+      "t": "2026-10-02T20:58:35",
+      "phase": "results",
+      "decision": "Report H1 supported, H2-H4 refuted; post-hoc variants flagged as exploratory"
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 20:34:00 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/diag.py --system transformer --task val_3_10 --seed 4 --out results/raw/diag_transformer_val_3_10_4.json
+
+config {"system": "transformer", "task": "val_3_10", "seed": 4, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+final {"agree_heur": 0.7350993377483444, "defer_rate": 0.9234828496042217, "mixed_frac": 0.5019867549668874, "n_states": 755}
+
+# rh: exit code 0 after 5.3 s
+# rh metrics: {"agree_heur": 0.7350993377483444, "defer_rate": 0.9234828496042217, "mixed_frac": 0.5019867549668874, "n_states": 755.0}

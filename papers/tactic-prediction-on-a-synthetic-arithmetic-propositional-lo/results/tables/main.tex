@@ -1,0 +1,29 @@
+\begin{tabular}{llccc}
+\toprule
+Method & Task & solved $\uparrow$ & mean\_exp $\downarrow$ & $n$ \\
+\midrule
+BFS & val\_3\_10 & 0.91 $\pm$ 0.03 & 21.03 $\pm$ 3.42 & 5 \\
+Hand heuristic & val\_3\_10 & \textbf{1.00 $\pm$ 0.00} & \textbf{4.42 $\pm$ 0.28} & 5 \\
+Feature-MLP policy & val\_3\_10 & \underline{1.00 $\pm$ 0.00} & \underline{5.26 $\pm$ 0.76} & 5 \\
+\textbf{Transformer policy} & val\_3\_10 & 1.00 $\pm$ 0.00 & 5.99 $\pm$ 0.83 & 5 \\
+\midrule
+BFS & test\_11\_20 & 0.47 $\pm$ 0.03 & 63.33 $\pm$ 2.73 & 5 \\
+Hand heuristic & test\_11\_20 & \textbf{1.00 $\pm$ 0.00} & \textbf{11.31 $\pm$ 0.45} & 5 \\
+Feature-MLP policy & test\_11\_20 & \underline{0.89 $\pm$ 0.02} & \underline{27.16 $\pm$ 1.86} & 5 \\
+\textbf{Transformer policy} & test\_11\_20 & 0.82 $\pm$ 0.02 & 34.99 $\pm$ 1.37 & 5 \\
+\midrule
+BFS & test\_21\_40 & 0.27 $\pm$ 0.06 & 80.82 $\pm$ 5.00 & 5 \\
+Hand heuristic & test\_21\_40 & \textbf{0.96 $\pm$ 0.01} & \textbf{27.57 $\pm$ 2.35} & 5 \\
+Feature-MLP policy & test\_21\_40 & \underline{0.58 $\pm$ 0.03} & \underline{55.59 $\pm$ 3.83} & 5 \\
+\textbf{Transformer policy} & test\_21\_40 & 0.52 $\pm$ 0.05 & 59.82 $\pm$ 5.14 & 5 \\
+\midrule
+BFS & test\_41\_70 & 0.20 $\pm$ 0.04 & 85.69 $\pm$ 1.69 & 5 \\
+Hand heuristic & test\_41\_70 & \textbf{0.73 $\pm$ 0.03} & \textbf{47.34 $\pm$ 2.38} & 5 \\
+Feature-MLP policy & test\_41\_70 & \underline{0.46 $\pm$ 0.03} & \underline{65.25 $\pm$ 3.20} & 5 \\
+\textbf{Transformer policy} & test\_41\_70 & 0.41 $\pm$ 0.05 & 68.81 $\pm$ 4.19 & 5 \\
+\midrule
+BFS & tune\_21\_35 & 0.30 $\pm$ 0.04 & 78.79 $\pm$ 3.25 & 5 \\
+Feature-MLP policy & tune\_21\_35 & \textbf{0.63 $\pm$ 0.06} & \textbf{51.56 $\pm$ 4.28} & 5 \\
+\textbf{Transformer policy} & tune\_21\_35 & \underline{0.55 $\pm$ 0.05} & \underline{57.31 $\pm$ 3.81} & 5 \\
+\bottomrule
+\end{tabular}

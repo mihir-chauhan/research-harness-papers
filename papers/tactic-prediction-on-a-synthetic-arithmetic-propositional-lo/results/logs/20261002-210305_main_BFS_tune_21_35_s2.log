@@ -1,0 +1,9 @@
+# rh run | Fri Oct  2 21:03:05 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system bfs --task tune_21_35 --seed 2 --out results/raw/main_bfs_tune_21_35_2.json
+
+config {"system": "bfs", "task": "tune_21_35", "seed": 2, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "nll"}
+final {"solved": 0.25333333333333335, "mean_exp": 82.64}
+
+# rh: exit code 0 after 2.3 s
+# rh metrics: {"mean_exp": 82.64, "solved": 0.25333333333333335}

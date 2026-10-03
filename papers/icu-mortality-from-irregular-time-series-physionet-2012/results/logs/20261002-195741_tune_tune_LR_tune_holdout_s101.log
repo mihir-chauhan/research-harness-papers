@@ -1,0 +1,16 @@
+# rh run | Fri Oct  2 19:57:41 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system lr --tune 1 --seed 101 --config '{"C": 0.03}' --out results/raw/tune_lr_C0.03_s101.json
+
+system lr seed 101 config {"horizon": 48, "C": 0.03, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 64, "lr": 0.001, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.8435 auprc 0.5038 brier 0.0923 iters 0 t=0s
+Traceback (most recent call last):
+  File "method/run.py", line 159, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "method/run.py", line 157, in main
+    json.dump(res, open(a.out, "w")); print("final", json.dumps(res), flush=True)
+                   ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/tune_lr_C0.03_s101.json'
+
+# rh: exit code 1 after 3.5 s

@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 20:33:16 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system mlp --task test_41_70 --seed 2 --config '{"cost": "rank"}' --out results/raw/abl_search_mlprank_test_41_70_2.json
+
+config {"system": "mlp", "task": "test_41_70", "seed": 2, "ntrain": 20000, "steps": 2000, "bs": 128, "lr": 0.002, "budget": 100, "mode": "bestfirst", "pos": "sin", "heur": "large", "cost": "rank"}
+train states 92254 val_loss 0.3093 val_acc 0.9551
+final {"solved": 0.8733333333333333, "mean_exp": 34.18}
+
+# rh: exit code 0 after 3.4 s
+# rh metrics: {"mean_exp": 34.18, "solved": 0.8733333333333333}

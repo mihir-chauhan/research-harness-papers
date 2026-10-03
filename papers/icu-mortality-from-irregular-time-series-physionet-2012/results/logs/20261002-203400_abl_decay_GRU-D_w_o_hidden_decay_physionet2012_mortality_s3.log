@@ -1,0 +1,14 @@
+# rh run | Fri Oct  2 20:34:00 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system grud --seed 3 --config '{"hidden": 32, "lr": 0.001, "h_decay": 0}' --out results/raw/abl_decay_grud_nohid_s3.json
+
+system grud seed 3 config {"horizon": 48, "C": 0.01, "lr_gb": 0.05, "leaves": 8, "l2": 1.0, "hidden": 32, "lr": 0.001, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 0}
+fold 0 auroc 0.8505 auprc 0.5142 brier 0.0898 iters 17 t=24s
+fold 1 auroc 0.8348 auprc 0.4534 brier 0.0987 iters 19 t=51s
+fold 2 auroc 0.8045 auprc 0.4858 brier 0.0977 iters 18 t=76s
+fold 3 auroc 0.8401 auprc 0.4942 brier 0.0934 iters 16 t=97s
+fold 4 auroc 0.8259 auprc 0.5058 brier 0.0937 iters 15 t=113s
+final {"auroc": 0.8311547405066684, "auprc": 0.4906832461858812, "brier": 0.09465894997119903, "auroc_fold_sd": 0.01551286675519671, "auroc_icu1": 0.8267622461170848, "auroc_icu2": 0.8599333949010718, "auroc_icu3": 0.7870134177596865, "auroc_icu4": 0.8264777585414973, "auroc_pooled": 0.8286230464453108, "mean_epochs_or_trees": 17.0, "mean_pred": 0.1398106526490301}
+
+# rh: exit code 0 after 116.8 s
+# rh metrics: {"auprc": 0.4906832461858812, "auroc": 0.8311547405066684, "auroc_fold_sd": 0.01551286675519671, "auroc_icu1": 0.8267622461170848, "auroc_icu2": 0.8599333949010718, "auroc_icu3": 0.7870134177596865, "auroc_icu4": 0.8264777585414973, "auroc_pooled": 0.8286230464453108, "brier": 0.09465894997119903, "mean_epochs_or_trees": 17.0, "mean_pred": 0.1398106526490301}

@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 20:57:56 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system gbdt --tune 1 --seed 100 --config '{"leaves": 8, "l2": 10}' --out results/raw/tune_gbdt_l8_10_s100.json
+
+system gbdt seed 100 config {"horizon": 48, "C": 0.01, "lr_gb": 0.05, "leaves": 8, "l2": 10, "hidden": 64, "lr": 0.001, "wd": 0.0001, "drop": 0.2, "epochs": 40, "patience": 6, "bs": 64, "dscale": 12.0, "counts": 1, "in_decay": 1, "h_decay": 1}
+fold 0 auroc 0.8215 auprc 0.4974 brier 0.0938 iters 101 t=1s
+final {"auroc": 0.8215327083251612, "auprc": 0.49744271332362355, "brier": 0.09383653176332746, "auroc_fold_sd": 0.0}
+
+# rh: exit code 0 after 4.1 s
+# rh metrics: {"auprc": 0.49744271332362355, "auroc": 0.8215327083251612, "auroc_fold_sd": 0.0, "brier": 0.09383653176332746}

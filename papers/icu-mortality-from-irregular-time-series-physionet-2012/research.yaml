@@ -1,0 +1,199 @@
+slug: icu-mortality-from-irregular-time-series-physion
+direction: ICU mortality from irregular time series (PhysioNet 2012). Download set-a of the PhysioNet 2012 challenge (4,000 stays, open access). Compare logistic regression and gradient boosting on per-variable
+  summary statistics against a GRU with mask and time-delta inputs (GRU-D style) and a GRU on forward-filled values. Report AUROC, AUPRC and Brier score with 5-fold patient-level CV. Keep it a small CPU
+  study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.
+problem: In-hospital mortality prediction from the first 48 h of irregularly sampled, mostly missing ICU measurements (PhysioNet/CinC 2012 set-a, 4,000 stays).
+gap: Recurrent models with explicit missingness handling (GRU-D) are routinely reported as improving on feature-engineered baselines, but on small cohorts the comparison is rarely run with equal tuning
+  budgets, repeated patient-level CV and a decomposition of which ingredient (masks, time-deltas, decay) matters.
+contribution: A controlled, equally tuned, 5-seed x 5-fold patient-level comparison of LR and gradient boosting on summary features against a forward-filled GRU, a GRU with mask and time-delta inputs and
+  a reimplemented GRU-D, with ablations of the decay mechanism and of count (missingness) features, and an observation-horizon sweep.
+hypotheses:
+- id: H1
+  statement: GRU-D does not outperform gradient boosting on summary features in AUROC on set-a (summary-feature baselines remain competitive).
+  test: Paired comparison over 5 seeds of fold-averaged AUROC (rh compare, GRU-D as reference vs GBDT). Refuted if GRU-D exceeds GBDT by more than 0.01 AUROC with p<0.05.
+- id: H2
+  statement: Giving a GRU the observation mask and time-delta (GRU mask+delta, GRU-D) improves AUROC over a GRU on forward-filled values.
+  test: rh compare on AUROC, reference GRU (forward-fill), 5 seeds, p<0.05 and difference >0.
+- id: H3
+  statement: GRU-D decay (input and hidden) gives additional AUROC over the plain mask+delta GRU.
+  test: rh compare on AUROC, reference GRU (mask+delta), p<0.05; plus decay ablation group.
+- id: H4
+  statement: 'Missingness counts carry predictive signal: removing per-variable observation counts from the summary features lowers AUROC of GBDT and LR.'
+  test: rh compare within group abl_counts, AUROC, 5 seeds, p<0.05.
+- id: H5
+  statement: 'Exploratory: the ranking of the systems is stable when only the first 12 h or 24 h of data are used.'
+  test: Horizon sweep (12, 24 h vs 48 h in main); report per-horizon AUROC; no formal test.
+method:
+  name: GRU-D
+  summary: Reimplementation of GRU-D (Che et al. 2018) with trainable input decay toward the last observation and hidden-state decay on hourly-binned PhysioNet 2012 data, compared with summary-feature LR/GBDT
+    and GRU variants.
+  components:
+  - input decay
+  - hidden decay
+  - mask input
+  entrypoint: method/run.py
+tasks:
+- physionet2012_mortality
+metrics:
+  auroc:
+    higher_is_better: true
+  auprc:
+    higher_is_better: true
+  brier:
+    higher_is_better: false
+  auroc_fold_sd:
+    higher_is_better: false
+  auroc_icu1:
+    higher_is_better: true
+  auroc_icu2:
+    higher_is_better: true
+  auroc_icu3:
+    higher_is_better: true
+  auroc_icu4:
+    higher_is_better: true
+  auroc_pooled:
+    higher_is_better: true
+  mean_epochs_or_trees:
+    higher_is_better: false
+  mean_pred:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- LR (summary)
+- GBDT (summary)
+- GRU (forward-fill)
+- GRU (mask+delta)
+ablations:
+- GRU-D w/o input decay
+- GRU-D w/o hidden decay
+- GRU-D w/o any decay
+- LR (summary) w/o counts
+- GBDT (summary) w/o counts
+- GRU-D @12h
+- GRU-D @24h
+ambition:
+  target_tier: 2
+  primary_metric: auroc
+  primary_task: physionet2012_mortality
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_stays
+  value: 4000
+  why: stays in PhysioNet 2012 set-a
+- name: n_vars
+  value: 36
+  why: time-series variables after removing static descriptors
+- name: n_static
+  value: 5
+  why: 'static variables: age, gender, height, weight, ICU type'
+- name: n_hours
+  value: 48
+  why: observation window in hours (= number of hourly bins)
+- name: n_folds
+  value: 5
+  why: patient-level CV folds
+- name: n_seeds
+  value: 5
+  why: evaluation seeds 0-4
+- name: prevalence_pct
+  value: 13.85
+  why: in-hospital deaths among 4000 stays in Outcomes-a.txt (554 deaths)
+- name: n_deaths
+  value: 554
+  why: in-hospital deaths in set-a
+- name: n_train_fold
+  value: 3200
+  why: training patients per CV fold
+- name: n_test_fold
+  value: 800
+  why: test patients per CV fold
+- name: tune_seeds
+  value: 2
+  why: tuning seeds 100 and 101
+- name: tune_cells_lr
+  value: 5
+  why: LR tuning cells (C)
+- name: tune_cells_gbdt
+  value: 9
+  why: GBDT tuning cells (stage1 6 + stage2 3)
+- name: tune_cells_gru
+  value: 9
+  why: cells per GRU variant (stage1 6 + stage2 3)
+- name: val_frac_pct
+  value: 15
+  why: inner validation fraction of the training fold for early stopping
+- name: hold_frac_pct
+  value: 25
+  why: hold-out fraction of fold-0 training set used for tuning
+- name: hidden_sel
+  value: 32
+  why: selected GRU hidden size for all three GRU variants
+- name: max_epochs
+  value: 40
+  why: max training epochs
+- name: patience
+  value: 6
+  why: early stopping patience (epochs)
+- name: batch_size
+  value: 64
+  why: mini-batch size
+- name: dscale
+  value: 12
+  why: time-delta scale in hours
+- name: n_threads
+  value: 2
+  why: CPU threads
+- name: n_icu_types
+  value: 4
+  why: ICU types (coronary, cardiac surgery recovery, medical, surgical)
+- name: n_runs_main
+  value: 25
+  why: 5 systems x 5 seeds
+- name: h12
+  value: 12
+  why: short observation horizon (hours) of the sweep
+- name: h24
+  value: 24
+  why: medium observation horizon (hours) of the sweep
+- name: alpha
+  value: 0.05
+  why: significance level registered in proposal.md
+- name: margin_auroc
+  value: 0.01
+  why: AUROC margin registered in proposal.md as H1 refutation criterion
+- name: gb_lr
+  value: 0.05
+  why: GBDT learning rate (fixed)
+- name: max_trees
+  value: 500
+  why: GBDT maximum boosting iterations
+- name: min_leaf
+  value: 20
+  why: GBDT min samples per leaf
+- name: grad_clip
+  value: 5
+  why: gradient-norm clip
+- name: head_units
+  value: 32
+  why: hidden units in the MLP head
+- name: dropout
+  value: 0.2
+  why: dropout in the head
