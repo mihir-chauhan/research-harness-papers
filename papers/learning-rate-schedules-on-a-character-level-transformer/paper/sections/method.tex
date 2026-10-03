@@ -1,0 +1,26 @@
+All systems use the same optimiser and differ only in the learning-rate multiplier (or, for Schedule-Free, in the iterate used for evaluation). Let $g_t$ be the clipped minibatch gradient at step $t=1,\dots,T$ ($T=\rhval{const/steps}$), $\eta$ the peak learning rate, and $\gamma_t$ the learning rate applied at step $t$.
+
+\paragraph{AdamW (shared base).} With $\beta_1=\rhval{const/beta1}$, $\beta_2=\rhval{const/beta2}$, $\epsilon=10^{-8}$:
+\begin{align}
+m_t &= \beta_1 m_{t-1} + (1-\beta_1) g_t, \quad v_t = \beta_2 v_{t-1} + (1-\beta_2) g_t^2,\\
+\theta_{t} &= (1-\gamma_t\lambda)\,\theta_{t-1} - \gamma_t \frac{m_t/(1-\beta_1^t)}{\sqrt{v_t/(1-\beta_2^t)}+\epsilon},
+\end{align}
+with decoupled weight decay $\lambda=\rhval{const/wd}$ applied to weight matrices only and global gradient-norm clipping at \rhval{const/clip}.
+
+\paragraph{Constant.} $\gamma_t=\eta$ (no warmup, as the seed specifies).
+
+\paragraph{Warmup+Cosine.} With warmup length $w=\rhval{const/warmup_default}$ and floor fraction $\rho=\rhval{const/cos_floor}$:
+\begin{equation}
+\gamma_t=\begin{cases}\eta\,t/w & t\le w\\ \eta\left[\rho + (1-\rho)\tfrac12\bigl(1+\cos\pi\tfrac{t-w}{T-w}\bigr)\right] & t>w.\end{cases}
+\end{equation}
+
+\paragraph{Step decay.} $\gamma_t=\eta\,\alpha^{k(t)}$ with $\alpha=\rhval{const/step_factor}$ and $k(t)$ the number of drops passed, at steps \rhval{const/step_at1} and \rhval{const/step_at2}; no warmup.
+
+\paragraph{Schedule-Free AdamW (reimplemented).} Following~\cite{defazio2024road} with weighting exponent $r=0$ and squared-learning-rate weights, we keep base iterate $z_t$ and average $x_t$, take gradients at $y_t=(1-\beta_1)z_t+\beta_1 x_t$, and update
+\begin{align}
+z_{t+1} &= z_t - \gamma_t\Bigl(\tfrac{g_t}{\sqrt{v_t/(1-\beta_2^t)}+\epsilon} + \lambda y_t\Bigr),\\
+c_t &= \frac{\gamma_t^2}{\sum_{i\le t}\gamma_i^2},\quad x_{t+1}=(1-c_t)x_t + c_t z_{t+1},
+\end{align}
+where $\gamma_t$ is a linear warmup to $\eta$ over $w$ steps and then constant. Weight decay is applied (as in the reference form) to matrices only. Evaluation uses $x_T$; we also log the loss at $y_T$ (\texttt{val\_loss\_y}). Because $z$ and $x$ move at different rates, the \emph{same} peak LR has a different meaning here than for the other schedules. Note that the other schedules use $\beta_1$ momentum inside the Adam step, whereas Schedule-Free uses $\beta_1$ for the interpolation (no separate momentum buffer), as in the original.
+
+\paragraph{Sensitivity metric.} For a system and seed, let $L(\eta)$ be the final validation loss. $\text{sens}_3=\max_{\eta\in\mathcal H_3}L-\min_{\eta\in\mathcal H_3}L$ over the three main rates $\mathcal H_3=\{10^{-3},3\times10^{-3},10^{-2}\}$ and $\text{sens}_5$ is $\max_{\mathcal H_5}L-\min_{\mathcal H_5}L$ over the five-rate grid (adding $3\times10^{-4}$ and $3\times10^{-2}$). Both are computed per seed, using that seed's runs, and then averaged. The metric is a range on a coarse grid and therefore depends on where the grid sits relative to each method's optimum; Section~\ref{sec:limits} discusses this.

@@ -1,0 +1,12 @@
+# rh run | Fri Oct  2 20:39:32 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cosine --lr 1e-2 --seed 0 --warmup -1 --out results/raw/main_cosine_1e-2_w-1_s0.json
+
+config {"system": "cosine", "lr": 0.01, "seed": 0, "warmup": -1, "steps": 1500, "batch": 32, "block": 64, "wd": 0.1, "out": "results/raw/main_cosine_1e-2_w-1_s0.json", "curve": ""}
+/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/learning-rate-schedules-on-a-character-level-transformer/method/run.py:104: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  if not math.isfinite(float(loss)): diverged = True; break
+final {"val_loss": 1.6794816255569458, "train_loss": 1.5029589307308198, "diverged": 0.0} time 90.1s
+
+# rh: exit code 0 after 92.0 s
+# rh metrics: {"diverged": 0.0, "train_loss": 1.5029589307308198, "val_loss": 1.6794816255569458}

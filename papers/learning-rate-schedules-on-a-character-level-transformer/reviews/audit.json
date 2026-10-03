@@ -1,0 +1,85 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "All paper numbers trace to tables and compare CSVs, all 112 registry rows have commands and logs whose final lines match the registry, and two main-group runs re-executed bit-identically. The code matches the described method, the no-warmup baseline confound is disclosed and ablated, and the refuted and mixed results are stated plainly; only minor wording, citation-scope and stale-file issues remain. The only workspace change from the audit is the checked_at timestamp that the mandated rh lit verify rewrote in paper/citations.json.",
+      "reran": [
+        {
+          "run": "Warmup+Cosine/lr3e-3/1",
+          "metric": "val_loss",
+          "registry": 1.665835976600647,
+          "rerun": 1.665835976600647
+        },
+        {
+          "run": "Constant/lr3e-3/1",
+          "metric": "val_loss",
+          "registry": 1.8233212232589722,
+          "rerun": 1.8233212232589722
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex, conclusion.tex",
+          "issue": "The claim that gaps at 'high peak rates' are mostly a warmup effect rests on warmup variants run only at 1e-2; none were run at 3e-2.",
+          "fix": "Say 'at 1e-2' or add warmup variants at 3e-2."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "'Each run takes roughly 90-120 seconds' does not match logged durations of 40-489 s with median 82 s.",
+          "fix": "Report the actual range and median from the registry."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "Says the test follows research.yaml, which specifies a paired test, but reports the unpaired Welch p=0.0014 (paired p=0.010, same conclusion); 'cosine wins by -0.15 and -0.73 nats' has a confusing sign.",
+          "fix": "Report the paired p or note the deviation; state gaps as positive magnitudes."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex",
+          "issue": "'For GPT-style models, [kalra2024why] study...' mis-scopes Kalra & Barkeshli, whose abstract describes general SGD/Adam experiments rather than a GPT study; only Kosson et al. is GPT-specific.",
+          "fix": "Move the 'GPT-style' qualifier to Kosson et al. only."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/limitations.tex",
+          "issue": "'Rankings between schedules are known to change with training length' is a prior-work claim with no citation.",
+          "fix": "Add a citation or soften to 'may change'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "The decay contribution (1.68 vs 1.81) and H3 against the registered 100-step default are cross-group comparisons with no test; the latter is disclosed and both effects are far larger than the seed spread.",
+          "fix": "Compute a Welch test across groups from runs.jsonl and report it."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Stale: predates the regrouping, lists only three tasks and shows ablations as 'missing', while rh check now also reports losses at lr3e-4 and lr3e-2.",
+          "fix": "Regenerate the verdict file."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl, paper/sections/setup.tex",
+          "issue": "The group field of 36 rows was hand-edited after logging (sweep_lr/sens to main) with metrics unchanged and verified against logs; the paper says they 'are logged in' group main, and sensitivity rows for baselines carry kind=method.",
+          "fix": "Say the rows were relabelled into main after logging and correct the kind field."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf",
+          "issue": "Author URL overflows the right margin; Fig. 2 has y-label 'value' and raw legend names; p-values from n=3 are printed to four significant figures.",
+          "fix": "Shorten or wrap the URL, relabel the figure, round p-values."
+        }
+      ],
+      "commit": "7b3b5275229d7977937a4c1ab58f5bb506533c50"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

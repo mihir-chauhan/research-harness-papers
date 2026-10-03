@@ -1,0 +1,179 @@
+slug: learning-rate-schedules-on-a-character-level-tra
+direction: Learning-rate schedules on a character-level transformer. 2-layer, 128-dimensional
+  GPT on Tiny Shakespeare (characters) for 1,500 steps on CPU; constant, linear-warmup
+  + cosine, step decay and schedule-free AdamW at 3 peak learning rates, 3 seeds;
+  measure validation loss and sensitivity to the peak learning rate. Keep it a small
+  CPU study with reimplemented baselines, at least 5 seeds where cheap, and report
+  negative or mixed results plainly.
+problem: How much does the choice of learning-rate schedule (and a schedule-free optimiser)
+  change the final validation loss of a tiny character-level GPT trained for a short
+  fixed budget, and how much does it change robustness to the peak learning rate?
+gap: Schedule comparisons are usually reported at a single tuned peak LR; the sensitivity
+  of the ranking to the peak LR at a very short (1,500-step) budget on a laptop-scale
+  GPT is rarely quantified, and Schedule-Free AdamW claims are mostly made at tuned
+  settings.
+contribution: A controlled, fully reimplemented comparison of constant, warmup+cosine,
+  step decay and Schedule-Free AdamW over five peak learning rates with a defined
+  sensitivity metric, a warmup ablation, and an honest report of where each fails.
+hypotheses:
+- id: H1
+  statement: At the best of the three main peak LRs, warmup+cosine reaches lower validation
+    loss than constant LR.
+  test: Paired Welch t-test over seeds (rh compare) on val_loss at the per-system
+    best main LR; refuted if not lower or p>0.05.
+- id: H2
+  statement: Schedule-Free AdamW has lower sensitivity to the peak LR (smaller worst-minus-best
+    val_loss over the 3 main LRs) than warmup+cosine.
+  test: Sensitivity metric from analysis/sens.py per seed; compare with rh compare;
+    refuted if not smaller.
+- id: H3
+  statement: 'At the largest peak LR (1e-2) warmup length matters: cosine with no
+    warmup is worse than with 100 warmup steps.'
+  test: rh compare on val_loss in abl_warmup vs main at lr1e-2.
+method:
+  name: Warmup+Cosine
+  summary: 'Reference schedule: 100-step linear warmup then cosine decay to 0.1x peak,
+    with hand-written AdamW. Compared with constant, step decay and reimplemented
+    Schedule-Free AdamW.'
+  components:
+  - warmup
+  - cosine decay
+  entrypoint: method/run.py
+tasks:
+- lr1e-3
+- lr3e-3
+- lr1e-2
+metrics:
+  val_loss:
+    higher_is_better: false
+  train_loss:
+    higher_is_better: false
+  diverged:
+    higher_is_better: false
+  val_loss_y:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- Constant
+- Step decay
+- Schedule-free AdamW
+ablations:
+- Warmup+Cosine (warmup=0)
+- Warmup+Cosine (warmup=50)
+- Warmup+Cosine (warmup=300)
+ambition:
+  target_tier: 2
+  primary_metric: val_loss
+  primary_task: lr3e-3
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_params
+  value: 421632
+  why: trainable parameters of the 2-layer d=128 GPT (counted from the model)
+- name: n_chars
+  value: 1115394
+  why: characters in the Tiny Shakespeare file
+- name: vocab
+  value: 65
+  why: distinct characters (vocabulary size)
+- name: steps
+  value: 1500
+  why: optimiser steps per run
+- name: batch
+  value: 32
+  why: sequences per batch
+- name: block
+  value: 64
+  why: context length in characters
+- name: dmodel
+  value: 128
+  why: model width
+- name: n_layers
+  value: 2
+  why: transformer blocks
+- name: n_heads
+  value: 4
+  why: attention heads
+- name: warmup_default
+  value: 100
+  why: linear warmup steps for cosine and schedule-free
+- name: wd
+  value: 0.1
+  why: decoupled weight decay on matrices
+- name: clip
+  value: 1
+  why: global gradient-norm clip
+- name: n_val_windows
+  value: 256
+  why: fixed validation windows of length block
+- name: train_frac
+  value: 90
+  why: percent of characters used for training (rest validation)
+- name: cos_floor
+  value: 0.1
+  why: cosine decays to this fraction of the peak
+- name: step_factor
+  value: 0.3
+  why: step-decay multiplier at each drop
+- name: step_at1
+  value: 500
+  why: first step-decay drop
+- name: step_at2
+  value: 1000
+  why: second step-decay drop
+- name: n_seeds
+  value: 3
+  why: seeds per cell
+- name: n_runs
+  value: 112
+  why: total logged runs in results/runs.jsonl at submission
+- name: run_seconds_lo
+  value: 90
+  why: approximate single-run wall-clock, lower end, shared CPU, 2 threads
+- name: run_seconds_hi
+  value: 120
+  why: approximate single-run wall-clock, upper end
+- name: beta1
+  value: 0.9
+  why: Adam beta1
+- name: beta2
+  value: 0.95
+  why: Adam beta2
+- name: warm_alt1
+  value: 50
+  why: alt warmup length
+- name: warm_alt2
+  value: 300
+  why: alt warmup length
+- name: n_lr
+  value: 5
+  why: number of peak learning rates in main plus sweep
+- name: lr_lo
+  value: 0.0003
+  why: lowest peak LR
+- name: lr_hi
+  value: 0.03
+  why: highest peak LR
+- name: chars_seen
+  value: 3072000
+  why: characters processed per run = steps*batch*block (about 3 passes over the 90%
+    training text)
+- name: eval_every
+  value: 150
+  why: steps between validation evaluations in the curve runs

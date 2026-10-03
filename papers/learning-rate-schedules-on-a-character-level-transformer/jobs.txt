@@ -1,0 +1,75 @@
+main baseline constant 3e-3 0
+main method cosine 3e-3 0
+main baseline step 3e-3 0
+main baseline schedulefree 3e-3 0
+main baseline constant 1e-3 0
+main method cosine 1e-3 0
+main baseline step 1e-3 0
+main baseline schedulefree 1e-3 0
+main baseline constant 1e-2 0
+main method cosine 1e-2 0
+main baseline step 1e-2 0
+main baseline schedulefree 1e-2 0
+main baseline constant 3e-3 1
+main method cosine 3e-3 1
+main baseline step 3e-3 1
+main baseline schedulefree 3e-3 1
+main baseline constant 1e-3 1
+main method cosine 1e-3 1
+main baseline step 1e-3 1
+main baseline schedulefree 1e-3 1
+main baseline constant 1e-2 1
+main method cosine 1e-2 1
+main baseline step 1e-2 1
+main baseline schedulefree 1e-2 1
+main baseline constant 3e-3 2
+main method cosine 3e-3 2
+main baseline step 3e-3 2
+main baseline schedulefree 3e-3 2
+main baseline constant 1e-3 2
+main method cosine 1e-3 2
+main baseline step 1e-3 2
+main baseline schedulefree 1e-3 2
+main baseline constant 1e-2 2
+main method cosine 1e-2 2
+main baseline step 1e-2 2
+main baseline schedulefree 1e-2 2
+sweep_lr baseline constant 3e-4 0
+sweep_lr method cosine 3e-4 0
+sweep_lr baseline step 3e-4 0
+sweep_lr baseline schedulefree 3e-4 0
+sweep_lr baseline constant 3e-2 0
+sweep_lr method cosine 3e-2 0
+sweep_lr baseline step 3e-2 0
+sweep_lr baseline schedulefree 3e-2 0
+sweep_lr baseline constant 3e-4 1
+sweep_lr method cosine 3e-4 1
+sweep_lr baseline step 3e-4 1
+sweep_lr baseline schedulefree 3e-4 1
+sweep_lr baseline constant 3e-2 1
+sweep_lr method cosine 3e-2 1
+sweep_lr baseline step 3e-2 1
+sweep_lr baseline schedulefree 3e-2 1
+sweep_lr baseline constant 3e-4 2
+sweep_lr method cosine 3e-4 2
+sweep_lr baseline step 3e-4 2
+sweep_lr baseline schedulefree 3e-4 2
+sweep_lr baseline constant 3e-2 2
+sweep_lr method cosine 3e-2 2
+sweep_lr baseline step 3e-2 2
+sweep_lr baseline schedulefree 3e-2 2
+abl_warmup ablation cosine 1e-2 0 0
+abl_warmup ablation cosine 1e-2 0 50
+abl_warmup ablation cosine 1e-2 0 300
+abl_warmup ablation constant 1e-2 0 100
+abl_warmup ablation constant 1e-2 0 300
+abl_warmup ablation cosine 1e-2 1 0
+abl_warmup ablation cosine 1e-2 1 50
+abl_warmup ablation cosine 1e-2 1 300
+abl_warmup ablation constant 1e-2 1 100
+abl_warmup ablation constant 1e-2 1 300
+abl_warmup ablation cosine 1e-2 2 0
+abl_warmup ablation cosine 1e-2 2 50
+abl_warmup ablation cosine 1e-2 2 300
+abl_warmup ablation constant 1e-2 2 100
+abl_warmup ablation constant 1e-2 2 300

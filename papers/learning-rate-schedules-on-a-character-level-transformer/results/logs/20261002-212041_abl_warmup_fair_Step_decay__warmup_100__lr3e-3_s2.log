@@ -1,0 +1,12 @@
+# rh run | Fri Oct  2 21:20:41 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system step --lr 3e-3 --seed 2 --warmup 100 --out results/raw/abl_warmup_fair_step_3e-3_w100_s2.json
+
+config {"system": "step", "lr": 0.003, "seed": 2, "warmup": 100, "steps": 1500, "batch": 32, "block": 64, "wd": 0.1, "out": "results/raw/abl_warmup_fair_step_3e-3_w100_s2.json", "curve": ""}
+/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/learning-rate-schedules-on-a-character-level-transformer/method/run.py:104: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  if not math.isfinite(float(loss)): diverged = True; break
+final {"val_loss": 1.7079302072525024, "train_loss": 1.5212481570243837, "diverged": 0.0} time 52.8s
+
+# rh: exit code 0 after 53.9 s
+# rh metrics: {"diverged": 0.0, "train_loss": 1.5212481570243837, "val_loss": 1.7079302072525024}

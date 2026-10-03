@@ -1,0 +1,20 @@
+\paragraph{Data and model.} Tiny Shakespeare (\rhval{const/n_chars} characters, vocabulary \rhval{const/vocab}); the first \rhval{const/train_frac}\% of the text is used for training and the remaining 10\% as validation. The model is a pre-LayerNorm GPT with \rhval{const/n_layers} blocks, \rhval{const/n_heads} heads, width \rhval{const/dmodel}, a 4$\times$ GELU MLP, learned positional embeddings, no dropout, and \rhval{const/n_params} parameters. Training uses random windows of \rhval{const/block} characters, batch size \rhval{const/batch}, for \rhval{const/steps} steps so each run processes \rhval{const/chars_seen} characters, roughly three passes over the training text; the models are far from converged and no regularisation question arises (no dropout is used).
+
+\paragraph{Metric.} Validation loss is the mean per-character cross-entropy (nats) on \rhval{const/n_val_windows} fixed validation windows (identical for all runs), evaluated once after the last step (the averaged iterate for Schedule-Free). Training loss is the mean over the last 100 steps. A run is flagged \texttt{diverged} if the final validation loss exceeds 4 nats or is non-finite; no run in any group was flagged. There is no separate test split: no model selection other than the studied peak-LR axis is performed on the validation loss, and no hyperparameter was tuned (all non-LR settings were fixed before the runs; see Table~\ref{tab:hp}).
+
+\paragraph{Grid and seeds.} Four systems $\times$ three main peak LRs ($10^{-3},3\times10^{-3},10^{-2}$) $\times$ \rhval{const/n_seeds} seeds form the core grid; the extra rates $3\times10^{-4}$ and $3\times10^{-2}$ ($\times$ four systems $\times$ \rhval{const/n_seeds} seeds) were run afterwards with the identical protocol; all five rates are logged in one registry group, \texttt{main}. The seed fixes initialisation and batch order. We used three rather than five seeds because each run takes roughly \rhval{const/run_seconds_lo}--\rhval{const/run_seconds_hi} seconds on the shared CPU and the whole study logged \rhval{const/n_runs} runs; five seeds were not cheap enough. The ablations (Sec.~\ref{sec:abl}) add warmup variants of cosine, constant and step decay at the same seeds. In total the study logged \rhval{const/n_runs} runs (including derived sensitivity rows and four curve runs at seed 3).
+
+\paragraph{Hardware and fairness.} All runs use two CPU threads on a shared Apple-silicon machine, at most two processes at a time. Every system goes through the same script (\texttt{method/run.py}), the same data order function, evaluation set and clipping; the only differences are those in Section~\ref{sec:method}. We did not tune warmup length, decay shape, step positions or the Schedule-Free parameters; the peak-LR grid is the only axis explored, so every ranking is relative to our fixed choices.
+
+\begin{table}[t]\centering\caption{Fixed hyperparameters (not tuned).}\label{tab:hp}
+\begin{tabular}{ll}\toprule
+Setting & Value \\\midrule
+Batch / context & \rhval{const/batch} / \rhval{const/block} \\
+Steps & \rhval{const/steps} \\
+Adam $\beta_1,\beta_2$ & \rhval{const/beta1}, \rhval{const/beta2} \\
+Weight decay (matrices) & \rhval{const/wd} \\
+Grad-norm clip & \rhval{const/clip} \\
+Warmup (cosine, SF) & \rhval{const/warmup_default} steps \\
+Cosine floor & \rhval{const/cos_floor}$\times$ peak \\
+Step decay & $\times$\rhval{const/step_factor} at \rhval{const/step_at1}, \rhval{const/step_at2} \\
+\bottomrule\end{tabular}\end{table}

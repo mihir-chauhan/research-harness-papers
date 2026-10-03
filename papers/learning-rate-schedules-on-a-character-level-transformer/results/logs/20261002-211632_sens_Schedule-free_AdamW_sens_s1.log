@@ -1,0 +1,8 @@
+# rh run | Fri Oct  2 21:16:32 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot analysis/sens.py --system 'Schedule-free AdamW' --seed 1 --out results/raw/sens_Schedule_free_AdamW_1.json
+
+sens Schedule-free AdamW 1 {"sens3": 0.24251925945281982, "sens5": 0.5525202751159668, "best3": 1.627403736114502, "best5": 1.627403736114502, "n_lr_within_0p05": 2.0, "best_lr_log10": -2.0}
+
+# rh: exit code 0 after 0.1 s
+# rh metrics: {"best3": 1.627403736114502, "best5": 1.627403736114502, "best_lr_log10": -2.0, "n_lr_within_0p05": 2.0, "sens3": 0.24251925945281982, "sens5": 0.5525202751159668}

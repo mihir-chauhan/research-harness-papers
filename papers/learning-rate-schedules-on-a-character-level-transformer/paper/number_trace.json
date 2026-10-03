@@ -1,0 +1,7074 @@
+{
+ "numbers": [
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_warmup/warmup+cosine-warmup-0/lr1e-2/val_loss/mean:2}",
+   "context": "p length. Cosine without warmup reaches \\rhval{abl_warmup/warmup+cosine-warmup-0/lr1e-2/val_loss/mean:2} nats, against \\rhval{abl_warmup/warmup+",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=0)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "e8c4d8b0a5",
+     "1fc6e145a3",
+     "f724d72068"
+    ],
+    "value": 2.2460881074269614,
+    "key": "abl_warmup/warmup+cosine-warmup-0/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/mean:2}",
+   "context": "0/lr1e-2/val_loss/mean:2} nats, against \\rhval{abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/mean:2} with \\rhval{const/warm_alt1} warmup ste",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 1.693484624226888,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{const/warm_alt1}",
+   "context": "-warmup-50/lr1e-2/val_loss/mean:2} with \\rhval{const/warm_alt1} warmup steps, \\rhval{main/warmup+cosine",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "warm_alt1",
+    "run_ids": [],
+    "value": 50.0,
+    "name": "warm_alt1",
+    "why": "alt warmup length",
+    "key": "const/warm_alt1"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr1e-2/val_loss/mean:2}",
+   "context": "h \\rhval{const/warm_alt1} warmup steps, \\rhval{main/warmup+cosine/lr1e-2/val_loss/mean:2} with the default \\rhval{const/warmup_de",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b4a1a64bb7",
+     "6ea14c6b6d",
+     "6fbc567975"
+    ],
+    "value": 1.6819303433100383,
+    "key": "main/warmup+cosine/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{const/warmup_default}",
+   "context": "r1e-2/val_loss/mean:2} with the default \\rhval{const/warmup_default} (main group) and \\rhval{abl_warmup/warm",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "warmup_default",
+    "run_ids": [],
+    "value": 100.0,
+    "name": "warmup_default",
+    "why": "linear warmup steps for cosine and schedule-free",
+    "key": "const/warmup_default"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/mean:2}",
+   "context": "{const/warmup_default} (main group) and \\rhval{abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/mean:2} with \\rhval{const/warm_alt2}. Relative",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "88d5e176ca",
+     "a6272c68f4",
+     "ca30732378"
+    ],
+    "value": 1.6722177664438884,
+    "key": "abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{const/warm_alt2}",
+   "context": "warmup-300/lr1e-2/val_loss/mean:2} with \\rhval{const/warm_alt2}. Relative to the no-warmup run, the dif",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "warm_alt2",
+    "run_ids": [],
+    "value": 300.0,
+    "name": "warm_alt2",
+    "why": "alt warmup length",
+    "key": "const/warm_alt2"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/delta:2}",
+   "context": "up run, the difference with 50 steps is \\rhval{cmp/abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/delta:2} nats (Welch $p=\\rhval{cmp/abl_warmup/wa",
+   "source": {
+    "type": "compare",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "delta",
+    "run_ids": [
+     "e8c4d8b0a5",
+     "1fc6e145a3",
+     "f724d72068",
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.5526034832000735,
+    "ref": "Warmup+Cosine (warmup=0)",
+    "key": "cmp/abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/delta"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/welch_p}",
+   "context": "lr1e-2/val_loss/delta:2} nats (Welch $p=\\rhval{cmp/abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/welch_p}$) and with 300 steps \\rhval{cmp/abl_war",
+   "source": {
+    "type": "compare",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "e8c4d8b0a5",
+     "1fc6e145a3",
+     "f724d72068",
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.0010711689421826493,
+    "ref": "Warmup+Cosine (warmup=0)",
+    "key": "cmp/abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "300",
+   "context": "-50/lr1e-2/val_loss/welch_p}$) and with 300 steps \\rhval{cmp/abl_warmup/warmup+cosi",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warmup",
+    "run_ids": [
+     "0931bff482",
+     "88d5e176ca",
+     "4edb06d742",
+     "a6272c68f4",
+     "ca30732378",
+     "d9c921bcde"
+    ],
+    "value": 300.0,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/delta:2}",
+   "context": "/val_loss/welch_p}$) and with 300 steps \\rhval{cmp/abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/delta:2} ($p=\\rhval{cmp/abl_warmup/warmup+cosine",
+   "source": {
+    "type": "compare",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "delta",
+    "run_ids": [
+     "e8c4d8b0a5",
+     "1fc6e145a3",
+     "f724d72068",
+     "88d5e176ca",
+     "a6272c68f4",
+     "ca30732378"
+    ],
+    "value": 0.573870340983073,
+    "ref": "Warmup+Cosine (warmup=0)",
+    "key": "cmp/abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/delta"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{cmp/abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/welch_p}",
+   "context": "warmup-300/lr1e-2/val_loss/delta:2} ($p=\\rhval{cmp/abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/welch_p}$). \\textbf{H3 is supported.} The regist",
+   "source": {
+    "type": "compare",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "e8c4d8b0a5",
+     "1fc6e145a3",
+     "f724d72068",
+     "88d5e176ca",
+     "a6272c68f4",
+     "ca30732378"
+    ],
+    "value": 0.0012865795085165576,
+    "ref": "Warmup+Cosine (warmup=0)",
+    "key": "cmp/abl_warmup/warmup+cosine-warmup-300/lr1e-2/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "e registered comparison was against the 100-step default, which lives in the main g",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "300",
+   "context": "we therefore tested against the 50- and 300-step runs that flank it and report the",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warmup",
+    "run_ids": [
+     "0931bff482",
+     "88d5e176ca",
+     "4edb06d742",
+     "a6272c68f4",
+     "ca30732378",
+     "d9c921bcde"
+    ],
+    "value": 300.0,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "-step runs that flank it and report the 100-step mean from the main table. Beyond r",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "little at this rate (the means for 50, 100 and 300 steps are listed above and lie",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "300",
+   "context": "at this rate (the means for 50, 100 and 300 steps are listed above and lie within a",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warmup",
+    "run_ids": [
+     "0931bff482",
+     "88d5e176ca",
+     "4edb06d742",
+     "a6272c68f4",
+     "ca30732378",
+     "d9c921bcde"
+    ],
+    "value": 300.0,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "t giving \\emph{constant} LR a warmup of 100 or 300 steps lowers its loss at $10^{-2",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "300",
+   "context": "g \\emph{constant} LR a warmup of 100 or 300 steps lowers its loss at $10^{-2}$ from",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warmup",
+    "run_ids": [
+     "0931bff482",
+     "88d5e176ca",
+     "4edb06d742",
+     "a6272c68f4",
+     "ca30732378",
+     "d9c921bcde"
+    ],
+    "value": 300.0,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/constant/lr1e-2/val_loss/mean:2}",
+   "context": "steps lowers its loss at $10^{-2}$ from \\rhval{main/constant/lr1e-2/val_loss/mean:2} to \\rhval{abl_warmup/constant-warmup-10",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 2.4166785875956216,
+    "key": "main/constant/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean:2}",
+   "context": "ain/constant/lr1e-2/val_loss/mean:2} to \\rhval{abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean:2} and \\rhval{abl_warmup/constant-warmup-3",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 1.806549112002055,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_warmup/constant-warmup-300/lr1e-2/val_loss/mean:2}",
+   "context": "-warmup-100/lr1e-2/val_loss/mean:2} and \\rhval{abl_warmup/constant-warmup-300/lr1e-2/val_loss/mean:2}, so most of the gap between cosine and",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 1.8014872868855794,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr1e-2/val_loss/mean:2}",
+   "context": "r than decay; the remaining gap (cosine \\rhval{main/warmup+cosine/lr1e-2/val_loss/mean:2} vs.\\ constant with warmup 100 at \\rhval",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b4a1a64bb7",
+     "6ea14c6b6d",
+     "6fbc567975"
+    ],
+    "value": 1.6819303433100383,
+    "key": "main/warmup+cosine/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "_loss/mean:2} vs.\\ constant with warmup 100 at \\rhval{abl_warmup/constant-warmup-10",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean:2}",
+   "context": "ean:2} vs.\\ constant with warmup 100 at \\rhval{abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean:2}) is the decay's contribution. This is a",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 1.806549112002055,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "ption{Step decay and constant LR with a 100-step warmup at the three main rates (co",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "100",
+   "context": "nsitivity.} Table~\\ref{tab:fair} adds a 100-step warmup to step decay at all three",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "10^{-3}",
+   "context": "three main rates and to constant LR at $10^{-3}$ and $3\\times10^{-3}$ (constant at $10^",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "es and to constant LR at $10^{-3}$ and $3\\times10^{-3}$ (constant at $10^{-2}$ is in the warmu",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sens_fair/step-decay-warmup-100/sens/best3/mean:2}",
+   "context": ", step decay's loss at its best rate is \\rhval{sens_fair/step-decay-warmup-100/sens/best3/mean:2} (versus \\rhval{main/step-decay/sens/bes",
+   "source": {
+    "type": "aggregate",
+    "group": "sens_fair",
+    "system": "Step decay (warmup=100)",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "a770b307c1",
+     "4081241d29",
+     "0e7e5f3b7f"
+    ],
+    "value": 1.7033170461654663,
+    "key": "sens_fair/step-decay-warmup-100/sens/best3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/step-decay/sens/best3/mean:2}",
+   "context": "y-warmup-100/sens/best3/mean:2} (versus \\rhval{main/step-decay/sens/best3/mean:2} without) and constant's is \\rhval{sens_",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": 1.8184282779693604,
+    "key": "main/step-decay/sens/best3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sens_fair/constant-warmup-100/sens/best3/mean:2}",
+   "context": "est3/mean:2} without) and constant's is \\rhval{sens_fair/constant-warmup-100/sens/best3/mean:2} (versus \\rhval{main/constant/sens/best3",
+   "source": {
+    "type": "aggregate",
+    "group": "sens_fair",
+    "system": "Constant (warmup=100)",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "27acb93d40",
+     "26328f4809",
+     "3fb42f5983"
+    ],
+    "value": 1.74322505791982,
+    "key": "sens_fair/constant-warmup-100/sens/best3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/constant/sens/best3/mean:2}",
+   "context": "t-warmup-100/sens/best3/mean:2} (versus \\rhval{main/constant/sens/best3/mean:2}). Their $\\text{sens}_3$ drops to \\rhval",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.764613429705302,
+    "key": "main/constant/sens/best3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sens_fair/step-decay-warmup-100/sens/sens3/mean:2}",
+   "context": "ean:2}). Their $\\text{sens}_3$ drops to \\rhval{sens_fair/step-decay-warmup-100/sens/sens3/mean:2} and \\rhval{sens_fair/constant-warmup-10",
+   "source": {
+    "type": "aggregate",
+    "group": "sens_fair",
+    "system": "Step decay (warmup=100)",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "a770b307c1",
+     "4081241d29",
+     "0e7e5f3b7f"
+    ],
+    "value": 0.12724316120147705,
+    "key": "sens_fair/step-decay-warmup-100/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{sens_fair/constant-warmup-100/sens/sens3/mean:2}",
+   "context": "decay-warmup-100/sens/sens3/mean:2} and \\rhval{sens_fair/constant-warmup-100/sens/sens3/mean:2}, so \\emph{constant LR with warmup has t",
+   "source": {
+    "type": "aggregate",
+    "group": "sens_fair",
+    "system": "Constant (warmup=100)",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "27acb93d40",
+     "26328f4809",
+     "3fb42f5983"
+    ],
+    "value": 0.0633240540822347,
+    "key": "sens_fair/constant-warmup-100/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/warmup+cosine/sens/sens3/mean:2}",
+   "context": "we ran}, slightly below warmup+cosine's \\rhval{main/warmup+cosine/sens/sens3/mean:2} (descriptive; no test was run on this c",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 0.09295288721720378,
+    "key": "main/warmup+cosine/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/warmup+cosine/sens/best3/mean:2}",
+   "context": "cost is a higher best loss than cosine (\\rhval{main/warmup+cosine/sens/best3/mean:2}) and Schedule-Free (\\rhval{main/schedul",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 1.6727828979492188,
+    "key": "main/warmup+cosine/sens/best3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/sens/best3/mean:2}",
+   "context": "/sens/best3/mean:2}) and Schedule-Free (\\rhval{main/schedule-free-adamw/sens/best3/mean:2}). Hence the sensitivity advantage repor",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 1.6290932893753052,
+    "key": "main/schedule-free-adamw/sens/best3/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "not run these fair-warmup variants at $3\\times10^{-4}$ or $3\\times10^{-2}$, so $\\text{sens}_5",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "warmup variants at $3\\times10^{-4}$ or $3\\times10^{-2}$, so $\\text{sens}_5$ is only available",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "best grid point, but the largest rate $3\\times10^{-2}$ is still good for warmup+cosine (\\rhva",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-2/val_loss/mean:2}",
+   "context": "^{-2}$ is still good for warmup+cosine (\\rhval{main/warmup+cosine/lr3e-2/val_loss/mean:2}) and Schedule-Free (\\rhval{main/schedul",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.7085603475570679,
+    "key": "main/warmup+cosine/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr3e-2/val_loss/mean:2}",
+   "context": "-2/val_loss/mean:2}) and Schedule-Free (\\rhval{main/schedule-free-adamw/lr3e-2/val_loss/mean:2}), so the optimum of those two lies near",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "30a2e125af",
+     "78d27c155e",
+     "7c0027e766"
+    ],
+    "value": 1.6518537203470867,
+    "key": "main/schedule-free-adamw/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "nd of the grid, and a higher rate than $3\\times10^{-2}$ was not tried.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/n_layers}",
+   "context": "eatments of one hand-written AdamW on a \\rhval{const/n_layers}-layer, $d=\\rhval{const/dmodel}$ charact",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_layers",
+    "run_ids": [],
+    "value": 2.0,
+    "name": "n_layers",
+    "why": "transformer blocks",
+    "key": "const/n_layers"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/dmodel}",
+   "context": "W on a \\rhval{const/n_layers}-layer, $d=\\rhval{const/dmodel}$ character-level GPT (\\rhval{const/n_pa",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "dmodel",
+    "run_ids": [],
+    "value": 128.0,
+    "name": "dmodel",
+    "why": "model width",
+    "key": "const/dmodel"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/n_params}",
+   "context": "val{const/dmodel}$ character-level GPT (\\rhval{const/n_params} parameters) trained for \\rhval{const/st",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_params",
+    "run_ids": [],
+    "value": 421632.0,
+    "name": "n_params",
+    "why": "trainable parameters of the 2-layer d=128 GPT (counted from the model)",
+    "key": "const/n_params"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "const/n_params} parameters) trained for \\rhval{const/steps} steps on Tiny Shakespeare: constant, li",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "ch is run at five peak learning rates ($3\\times10^{-4}$ to $3\\times10^{-2}$) with \\rhval{const",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "ak learning rates ($3\\times10^{-4}$ to $3\\times10^{-2}$) with \\rhval{const/n_seeds} seeds, and",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "times10^{-4}$ to $3\\times10^{-2}$) with \\rhval{const/n_seeds} seeds, and we define peak-LR sensitivit",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-3/val_loss/mean:2}",
+   "context": "e three main peak rates, warmup+cosine (\\rhval{main/warmup+cosine/lr3e-3/val_loss/mean:2} nats at $3\\times10^{-3}$) beats constan",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "f8bf7dce38",
+     "19df72ee7d",
+     "2aa304d3a4"
+    ],
+    "value": 1.6727828979492188,
+    "key": "main/warmup+cosine/lr3e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "cosine/lr3e-3/val_loss/mean:2} nats at $3\\times10^{-3}$) beats constant LR (\\rhval{main/consta",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/constant/lr1e-3/val_loss/mean:2}",
+   "context": "at $3\\times10^{-3}$) beats constant LR (\\rhval{main/constant/lr1e-3/val_loss/mean:2} at $10^{-3}$; Welch $p=\\rhval{cmp/main/",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "55449dfaf7",
+     "faa025210b",
+     "0367305400"
+    ],
+    "value": 1.764613429705302,
+    "key": "main/constant/lr1e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "10^{-3}",
+   "context": "in/constant/lr1e-3/val_loss/mean:2} at $10^{-3}$; Welch $p=\\rhval{cmp/main/constant/sen",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{cmp/main/constant/sens/best3/welch_p}",
+   "context": "val_loss/mean:2} at $10^{-3}$; Welch $p=\\rhval{cmp/main/constant/sens/best3/welch_p}$), but Schedule-Free AdamW is better st",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "welch_p",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 0.001442817603673931,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/sens/best3/welch_p"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr1e-2/val_loss/mean:2}",
+   "context": "ut Schedule-Free AdamW is better still (\\rhval{main/schedule-free-adamw/lr1e-2/val_loss/mean:2} at $10^{-2}$). Our hypothesis that Sche",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 1.6290932893753052,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/sens/sens3/mean:2}",
+   "context": "the three main rates its sensitivity is \\rhval{main/schedule-free-adamw/sens/sens3/mean:2} nats against \\rhval{main/warmup+cosine/",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.2487813631693522,
+    "key": "main/schedule-free-adamw/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/warmup+cosine/sens/sens3/mean:2}",
+   "context": "e-adamw/sens/sens3/mean:2} nats against \\rhval{main/warmup+cosine/sens/sens3/mean:2} for cosine. Most of the large gaps betw",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 0.09295288721720378,
+    "key": "main/warmup+cosine/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/constant/lr1e-2/val_loss/mean:2}",
+   "context": "y as specified have no warmup and reach \\rhval{main/constant/lr1e-2/val_loss/mean:2} and \\rhval{main/step-decay/lr1e-2/val_l",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 2.4166785875956216,
+    "key": "main/constant/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/step-decay/lr1e-2/val_loss/mean:2}",
+   "context": "in/constant/lr1e-2/val_loss/mean:2} and \\rhval{main/step-decay/lr1e-2/val_loss/mean:2} at $10^{-2}$, while giving constant LR",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "6a8d5cde18",
+     "d4c38d6ec0",
+     "d24c8fb9a9"
+    ],
+    "value": 2.348426659901937,
+    "key": "main/step-decay/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "100",
+   "context": "t $10^{-2}$, while giving constant LR a 100-step warmup removes most of the gap (\\r",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean:2}",
+   "context": "00-step warmup removes most of the gap (\\rhval{abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean:2}). With three seeds, one model size and",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 1.806549112002055,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "o-layer character-level GPT trained for \\rhval{const/steps} steps, warmup+cosine beats constant LR",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "10^{-3}",
+   "context": "the advantage vanishes at a low rate ($10^{-3}$) and reverses at $3\\times10^{-4}$, and",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "a low rate ($10^{-3}$) and reverses at $3\\times10^{-4}$, and a large part of the apparent adva",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr1e-2/val_loss/mean:2}",
+   "context": "mplementation) reached the lowest loss (\\rhval{main/schedule-free-adamw/lr1e-2/val_loss/mean:2}) but was \\emph{more} sensitive to the p",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 1.6290932893753052,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "1.69",
+   "context": "Warmup+Cosine (warmup=50) & \\underline{1.69 $\\pm$ 0.01} & 3 \\\\ Warmup+Cosine (warmu",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 1.693484624226888,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "0.01",
+   "context": "ine (warmup=50) & \\underline{1.69 $\\pm$ 0.01} & 3 \\\\ Warmup+Cosine (warmup=0) & 2.25",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "2.25",
+   "context": "0.01} & 3 \\\\ Warmup+Cosine (warmup=0) & 2.25 $\\pm$ 0.04 & 3 \\\\ Constant (warmup=100)",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=0)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "e8c4d8b0a5",
+     "1fc6e145a3",
+     "f724d72068"
+    ],
+    "value": 2.2460881074269614,
+    "key": "abl_warmup/warmup+cosine-warmup-0/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "0.04",
+   "context": "\\ Warmup+Cosine (warmup=0) & 2.25 $\\pm$ 0.04 & 3 \\\\ Constant (warmup=100) & 1.81 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.038909225952251776,
+    "key": "main/constant/lr1e-2/train_loss/std",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "100",
+   "context": "2.25 $\\pm$ 0.04 & 3 \\\\ Constant (warmup=100) & 1.81 $\\pm$ 0.00 & 3 \\\\ Constant (war",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "1.81",
+   "context": "pm$ 0.04 & 3 \\\\ Constant (warmup=100) & 1.81 $\\pm$ 0.00 & 3 \\\\ Constant (warmup=300)",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 1.806549112002055,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/val_loss/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "0.00",
+   "context": "3 \\\\ Constant (warmup=100) & 1.81 $\\pm$ 0.00 & 3 \\\\ Constant (warmup=300) & 1.80 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "300",
+   "context": "1.81 $\\pm$ 0.00 & 3 \\\\ Constant (warmup=300) & 1.80 $\\pm$ 0.00 & 3 \\\\ Warmup+Cosine",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warmup",
+    "run_ids": [
+     "0931bff482",
+     "88d5e176ca",
+     "4edb06d742",
+     "a6272c68f4",
+     "ca30732378",
+     "d9c921bcde"
+    ],
+    "value": 300.0,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "1.80",
+   "context": "pm$ 0.00 & 3 \\\\ Constant (warmup=300) & 1.80 $\\pm$ 0.00 & 3 \\\\ Warmup+Cosine (warmup",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 1.8014872868855794,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/mean",
+    "candidates": 18
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "0.00",
+   "context": "3 \\\\ Constant (warmup=300) & 1.80 $\\pm$ 0.00 & 3 \\\\ Warmup+Cosine (warmup=300) & \\te",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "300",
+   "context": "$\\pm$ 0.00 & 3 \\\\ Warmup+Cosine (warmup=300) & \\textbf{1.67 $\\pm$ 0.00} & 3 \\\\ \\bot",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.warmup",
+    "run_ids": [
+     "0931bff482",
+     "88d5e176ca",
+     "4edb06d742",
+     "a6272c68f4",
+     "ca30732378",
+     "d9c921bcde"
+    ],
+    "value": 300.0,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "1.67",
+   "context": "\\\\ Warmup+Cosine (warmup=300) & \\textbf{1.67 $\\pm$ 0.00} & 3 \\\\ \\bottomrule \\end{tab",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "75c56bbd86"
+    ],
+    "value": 1.6702377796173096,
+    "key": "curves/warmup+cosine/lr1e-2/val_loss/mean",
+    "candidates": 48
+   }
+  },
+  {
+   "section": "generated/abl_warmup.tex",
+   "literal": "0.00",
+   "context": "osine (warmup=300) & \\textbf{1.67 $\\pm$ 0.00} & 3 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "100",
+   "context": "w$ & $n$ \\\\ \\midrule Step decay (warmup=100) & lr3e-3 & \\textbf{1.71 $\\pm$ 0.00} &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "1.71",
+   "context": "p decay (warmup=100) & lr3e-3 & \\textbf{1.71 $\\pm$ 0.00} & 3 \\\\ Constant (warmup=100",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.7085603475570679,
+    "key": "main/warmup+cosine/lr3e-2/val_loss/mean",
+    "candidates": 23
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "0.00",
+   "context": "rmup=100) & lr3e-3 & \\textbf{1.71 $\\pm$ 0.00} & 3 \\\\ Constant (warmup=100) & lr3e-3",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "100",
+   "context": ".71 $\\pm$ 0.00} & 3 \\\\ Constant (warmup=100) & lr3e-3 & \\underline{1.74 $\\pm$ 0.01}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "1.74",
+   "context": "tant (warmup=100) & lr3e-3 & \\underline{1.74 $\\pm$ 0.01} & 3 \\\\ \\midrule Step decay",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup_fair",
+    "system": "Constant (warmup=100)",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b6cbfc7505",
+     "8f70864399",
+     "429344d4b5"
+    ],
+    "value": 1.74322505791982,
+    "key": "abl_warmup_fair/constant-warmup-100/lr3e-3/val_loss/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "0.01",
+   "context": "p=100) & lr3e-3 & \\underline{1.74 $\\pm$ 0.01} & 3 \\\\ \\midrule Step decay (warmup=100",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "100",
+   "context": ".01} & 3 \\\\ \\midrule Step decay (warmup=100) & lr1e-3 & \\underline{1.83 $\\pm$ 0.01}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "1.83",
+   "context": "ecay (warmup=100) & lr1e-3 & \\underline{1.83 $\\pm$ 0.01} & 3 \\\\ Constant (warmup=100",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1dc8175c81",
+     "b0ddf37599",
+     "84d4f1b43c"
+    ],
+    "value": 1.8301372130711873,
+    "key": "main/step-decay/lr1e-3/val_loss/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "0.01",
+   "context": "p=100) & lr1e-3 & \\underline{1.83 $\\pm$ 0.01} & 3 \\\\ Constant (warmup=100) & lr1e-3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "100",
+   "context": ".83 $\\pm$ 0.01} & 3 \\\\ Constant (warmup=100) & lr1e-3 & \\textbf{1.76 $\\pm$ 0.02} &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "1.76",
+   "context": "onstant (warmup=100) & lr1e-3 & \\textbf{1.76 $\\pm$ 0.02} & 3 \\\\ \\midrule Step decay",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup_fair",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ce3b67391d",
+     "cca345a085",
+     "6356a474cd"
+    ],
+    "value": 1.764113187789917,
+    "key": "abl_warmup_fair/constant-warmup-100/lr1e-3/val_loss/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "0.02",
+   "context": "rmup=100) & lr1e-3 & \\textbf{1.76 $\\pm$ 0.02} & 3 \\\\ \\midrule Step decay (warmup=100",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.020631769317639707,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/train_loss/std",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "100",
+   "context": ".02} & 3 \\\\ \\midrule Step decay (warmup=100) & lr1e-2 & \\textbf{1.71 $\\pm$ 0.01} &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "1.71",
+   "context": "p decay (warmup=100) & lr1e-2 & \\textbf{1.71 $\\pm$ 0.01} & 3 \\\\ \\bottomrule \\end{tab",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.7085603475570679,
+    "key": "main/warmup+cosine/lr3e-2/val_loss/mean",
+    "candidates": 23
+   }
+  },
+  {
+   "section": "generated/abl_warmup_fair.tex",
+   "literal": "0.01",
+   "context": "rmup=100) & lr1e-2 & \\textbf{1.71 $\\pm$ 0.01} & 3 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.85",
+   "context": "& $n$ \\\\ \\midrule Step decay & lr3e-3 & 1.85 $\\pm$ 0.05 & 1.70 $\\pm$ 0.05 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "93b16012b5",
+     "a2d31839b5",
+     "2e1e527d7f"
+    ],
+    "value": 1.8513585329055786,
+    "key": "main/step-decay/lr3e-3/val_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.05",
+   "context": "idrule Step decay & lr3e-3 & 1.85 $\\pm$ 0.05 & 1.70 $\\pm$ 0.05 & -- & 3 \\\\ Schedule-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.70",
+   "context": "Step decay & lr3e-3 & 1.85 $\\pm$ 0.05 & 1.70 $\\pm$ 0.05 & -- & 3 \\\\ Schedule-free Ad",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "93b16012b5",
+     "a2d31839b5",
+     "2e1e527d7f"
+    ],
+    "value": 1.7032328216234844,
+    "key": "main/step-decay/lr3e-3/train_loss/mean",
+    "candidates": 29
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.05",
+   "context": "& lr3e-3 & 1.85 $\\pm$ 0.05 & 1.70 $\\pm$ 0.05 & -- & 3 \\\\ Schedule-free AdamW & lr3e-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.69",
+   "context": "hedule-free AdamW & lr3e-3 & \\underline{1.69 $\\pm$ 0.01} & \\underline{1.53 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 1.693484624226888,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/val_loss/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "AdamW & lr3e-3 & \\underline{1.69 $\\pm$ 0.01} & \\underline{1.53 $\\pm$ 0.00} & \\textb",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.53",
+   "context": "underline{1.69 $\\pm$ 0.01} & \\underline{1.53 $\\pm$ 0.00} & \\textbf{1.72 $\\pm$ 0.01}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup_fair",
+    "system": "Step decay (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1ca0f47941",
+     "d9b2dfe595",
+     "f7826faa95"
+    ],
+    "value": 1.5296722249190011,
+    "key": "abl_warmup_fair/step-decay-warmup-100/lr1e-2/train_loss/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": ".69 $\\pm$ 0.01} & \\underline{1.53 $\\pm$ 0.00} & \\textbf{1.72 $\\pm$ 0.01} & 3 \\\\ Cons",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.72",
+   "context": "& \\underline{1.53 $\\pm$ 0.00} & \\textbf{1.72 $\\pm$ 0.01} & 3 \\\\ Constant & lr3e-3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-3",
+    "metric": "val_loss_y",
+    "stat": "mean",
+    "run_ids": [
+     "9fa437f84d",
+     "dee882eddc",
+     "9295e941b1"
+    ],
+    "value": 1.717212716738383,
+    "key": "main/schedule-free-adamw/lr3e-3/val_loss_y/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "e{1.53 $\\pm$ 0.00} & \\textbf{1.72 $\\pm$ 0.01} & 3 \\\\ Constant & lr3e-3 & 1.82 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.82",
+   "context": "$\\pm$ 0.01} & 3 \\\\ Constant & lr3e-3 & 1.82 $\\pm$ 0.03 & 1.66 $\\pm$ 0.03 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": 1.8184282779693604,
+    "key": "main/step-decay/sens/best3/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.03",
+   "context": "} & 3 \\\\ Constant & lr3e-3 & 1.82 $\\pm$ 0.03 & 1.66 $\\pm$ 0.03 & -- & 3 \\\\ \\textbf{W",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.66",
+   "context": "\\ Constant & lr3e-3 & 1.82 $\\pm$ 0.03 & 1.66 $\\pm$ 0.03 & -- & 3 \\\\ \\textbf{Warmup+C",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 1.660586664279302,
+    "key": "main/constant/lr3e-3/train_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.03",
+   "context": "& lr3e-3 & 1.82 $\\pm$ 0.03 & 1.66 $\\pm$ 0.03 & -- & 3 \\\\ \\textbf{Warmup+Cosine} & lr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.67",
+   "context": "extbf{Warmup+Cosine} & lr3e-3 & \\textbf{1.67 $\\pm$ 0.01} & \\textbf{1.49 $\\pm$ 0.00}",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "75c56bbd86"
+    ],
+    "value": 1.6702377796173096,
+    "key": "curves/warmup+cosine/lr1e-2/val_loss/mean",
+    "candidates": 48
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "p+Cosine} & lr3e-3 & \\textbf{1.67 $\\pm$ 0.01} & \\textbf{1.49 $\\pm$ 0.00} & -- & 3 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.49",
+   "context": "-3 & \\textbf{1.67 $\\pm$ 0.01} & \\textbf{1.49 $\\pm$ 0.00} & -- & 3 \\\\ \\midrule Step d",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b26f65f071"
+    ],
+    "value": 1.4915852224826813,
+    "key": "curves/schedule-free-adamw/lr1e-2/train_loss/mean",
+    "candidates": 31
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "f{1.67 $\\pm$ 0.01} & \\textbf{1.49 $\\pm$ 0.00} & -- & 3 \\\\ \\midrule Step decay & lr1e",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.83",
+   "context": "- & 3 \\\\ \\midrule Step decay & lr1e-3 & 1.83 $\\pm$ 0.00 & 1.68 $\\pm$ 0.01 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1dc8175c81",
+     "b0ddf37599",
+     "84d4f1b43c"
+    ],
+    "value": 1.8301372130711873,
+    "key": "main/step-decay/lr1e-3/val_loss/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "idrule Step decay & lr1e-3 & 1.83 $\\pm$ 0.00 & 1.68 $\\pm$ 0.01 & -- & 3 \\\\ Schedule-",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.68",
+   "context": "Step decay & lr1e-3 & 1.83 $\\pm$ 0.00 & 1.68 $\\pm$ 0.01 & -- & 3 \\\\ Schedule-free Ad",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1dc8175c81",
+     "b0ddf37599",
+     "84d4f1b43c"
+    ],
+    "value": 1.6815036861101786,
+    "key": "main/step-decay/lr1e-3/train_loss/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "& lr1e-3 & 1.83 $\\pm$ 0.00 & 1.68 $\\pm$ 0.01 & -- & 3 \\\\ Schedule-free AdamW & lr1e-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.88",
+   "context": "- & 3 \\\\ Schedule-free AdamW & lr1e-3 & 1.88 $\\pm$ 0.01 & 1.75 $\\pm$ 0.01 & \\textbf{",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "mean",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 1.8810445070266724,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "hedule-free AdamW & lr1e-3 & 1.88 $\\pm$ 0.01 & 1.75 $\\pm$ 0.01 & \\textbf{1.88 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.75",
+   "context": "free AdamW & lr1e-3 & 1.88 $\\pm$ 0.01 & 1.75 $\\pm$ 0.01 & \\textbf{1.88 $\\pm$ 0.01} &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 1.7459313555558522,
+    "key": "main/schedule-free-adamw/lr1e-3/train_loss/mean",
+    "candidates": 22
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "& lr1e-3 & 1.88 $\\pm$ 0.01 & 1.75 $\\pm$ 0.01 & \\textbf{1.88 $\\pm$ 0.01} & 3 \\\\ Const",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.88",
+   "context": "$\\pm$ 0.01 & 1.75 $\\pm$ 0.01 & \\textbf{1.88 $\\pm$ 0.01} & 3 \\\\ Constant & lr1e-3 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "mean",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 1.8810445070266724,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "& 1.75 $\\pm$ 0.01 & \\textbf{1.88 $\\pm$ 0.01} & 3 \\\\ Constant & lr1e-3 & \\textbf{1.7",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.76",
+   "context": ".01} & 3 \\\\ Constant & lr1e-3 & \\textbf{1.76 $\\pm$ 0.01} & \\textbf{1.60 $\\pm$ 0.00}",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup_fair",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ce3b67391d",
+     "cca345a085",
+     "6356a474cd"
+    ],
+    "value": 1.764113187789917,
+    "key": "abl_warmup_fair/constant-warmup-100/lr1e-3/val_loss/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "Constant & lr1e-3 & \\textbf{1.76 $\\pm$ 0.01} & \\textbf{1.60 $\\pm$ 0.00} & -- & 3 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.60",
+   "context": "-3 & \\textbf{1.76 $\\pm$ 0.01} & \\textbf{1.60 $\\pm$ 0.00} & -- & 3 \\\\ \\textbf{Warmup+",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "55449dfaf7",
+     "faa025210b",
+     "0367305400"
+    ],
+    "value": 1.6000770910580953,
+    "key": "main/constant/lr1e-3/train_loss/mean",
+    "candidates": 18
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "f{1.76 $\\pm$ 0.01} & \\textbf{1.60 $\\pm$ 0.00} & -- & 3 \\\\ \\textbf{Warmup+Cosine} & l",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.77",
+   "context": "bf{Warmup+Cosine} & lr1e-3 & \\underline{1.77 $\\pm$ 0.01} & \\underline{1.61 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "d3d7a9a7ad",
+     "f5a46d5615",
+     "2882cabfc1"
+    ],
+    "value": 1.7657357851664226,
+    "key": "main/warmup+cosine/lr1e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "osine} & lr1e-3 & \\underline{1.77 $\\pm$ 0.01} & \\underline{1.61 $\\pm$ 0.01} & -- & 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.61",
+   "context": "underline{1.77 $\\pm$ 0.01} & \\underline{1.61 $\\pm$ 0.01} & -- & 3 \\\\ \\midrule Step d",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "d3d7a9a7ad",
+     "f5a46d5615",
+     "2882cabfc1"
+    ],
+    "value": 1.6075073524316152,
+    "key": "main/warmup+cosine/lr1e-3/train_loss/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": ".77 $\\pm$ 0.01} & \\underline{1.61 $\\pm$ 0.01} & -- & 3 \\\\ \\midrule Step decay & lr1e",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.35",
+   "context": "- & 3 \\\\ \\midrule Step decay & lr1e-2 & 2.35 $\\pm$ 0.06 & 2.32 $\\pm$ 0.05 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "6a8d5cde18",
+     "d4c38d6ec0",
+     "d24c8fb9a9"
+    ],
+    "value": 2.348426659901937,
+    "key": "main/step-decay/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.06",
+   "context": "idrule Step decay & lr1e-2 & 2.35 $\\pm$ 0.06 & 2.32 $\\pm$ 0.05 & -- & 3 \\\\ Schedule-",
+   "source": {
+    "type": "aggregate",
+    "group": "sens_fair",
+    "system": "Constant (warmup=100)",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "27acb93d40",
+     "26328f4809",
+     "3fb42f5983"
+    ],
+    "value": 0.0633240540822347,
+    "key": "sens_fair/constant-warmup-100/sens/sens3/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.32",
+   "context": "Step decay & lr1e-2 & 2.35 $\\pm$ 0.06 & 2.32 $\\pm$ 0.05 & -- & 3 \\\\ Schedule-free Ad",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "6a8d5cde18",
+     "d4c38d6ec0",
+     "d24c8fb9a9"
+    ],
+    "value": 2.3174244650204976,
+    "key": "main/step-decay/lr1e-2/train_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.05",
+   "context": "& lr1e-2 & 2.35 $\\pm$ 0.06 & 2.32 $\\pm$ 0.05 & -- & 3 \\\\ Schedule-free AdamW & lr1e-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.63",
+   "context": "Schedule-free AdamW & lr1e-2 & \\textbf{1.63 $\\pm$ 0.00} & \\textbf{1.49 $\\pm$ 0.00}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 1.6290932893753052,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/mean",
+    "candidates": 45
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "ree AdamW & lr1e-2 & \\textbf{1.63 $\\pm$ 0.00} & \\textbf{1.49 $\\pm$ 0.00} & \\textbf{1",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.49",
+   "context": "-2 & \\textbf{1.63 $\\pm$ 0.00} & \\textbf{1.49 $\\pm$ 0.00} & \\textbf{1.67 $\\pm$ 0.01}",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b26f65f071"
+    ],
+    "value": 1.4915852224826813,
+    "key": "curves/schedule-free-adamw/lr1e-2/train_loss/mean",
+    "candidates": 31
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "f{1.63 $\\pm$ 0.00} & \\textbf{1.49 $\\pm$ 0.00} & \\textbf{1.67 $\\pm$ 0.01} & 3 \\\\ Cons",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.67",
+   "context": "0} & \\textbf{1.49 $\\pm$ 0.00} & \\textbf{1.67 $\\pm$ 0.01} & 3 \\\\ Constant & lr1e-2 &",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "75c56bbd86"
+    ],
+    "value": 1.6702377796173096,
+    "key": "curves/warmup+cosine/lr1e-2/val_loss/mean",
+    "candidates": 48
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "f{1.49 $\\pm$ 0.00} & \\textbf{1.67 $\\pm$ 0.01} & 3 \\\\ Constant & lr1e-2 & 2.42 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.42",
+   "context": "$\\pm$ 0.01} & 3 \\\\ Constant & lr1e-2 & 2.42 $\\pm$ 0.05 & 2.40 $\\pm$ 0.04 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 2.4166785875956216,
+    "key": "main/constant/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.05",
+   "context": "} & 3 \\\\ Constant & lr1e-2 & 2.42 $\\pm$ 0.05 & 2.40 $\\pm$ 0.04 & -- & 3 \\\\ \\textbf{W",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.40",
+   "context": "\\ Constant & lr1e-2 & 2.42 $\\pm$ 0.05 & 2.40 $\\pm$ 0.04 & -- & 3 \\\\ \\textbf{Warmup+C",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 2.4046364212036133,
+    "key": "main/constant/lr1e-2/train_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.04",
+   "context": "& lr1e-2 & 2.42 $\\pm$ 0.05 & 2.40 $\\pm$ 0.04 & -- & 3 \\\\ \\textbf{Warmup+Cosine} & lr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.038909225952251776,
+    "key": "main/constant/lr1e-2/train_loss/std",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.68",
+   "context": "bf{Warmup+Cosine} & lr1e-2 & \\underline{1.68 $\\pm$ 0.01} & \\underline{1.50 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-3",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1dc8175c81",
+     "b0ddf37599",
+     "84d4f1b43c"
+    ],
+    "value": 1.6815036861101786,
+    "key": "main/step-decay/lr1e-3/train_loss/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "osine} & lr1e-2 & \\underline{1.68 $\\pm$ 0.01} & \\underline{1.50 $\\pm$ 0.00} & -- & 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.50",
+   "context": "underline{1.68 $\\pm$ 0.01} & \\underline{1.50 $\\pm$ 0.00} & -- & 3 \\\\ \\midrule Step d",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "75c56bbd86"
+    ],
+    "value": 1.5044035232067108,
+    "key": "curves/warmup+cosine/lr1e-2/train_loss/mean",
+    "candidates": 18
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": ".68 $\\pm$ 0.01} & \\underline{1.50 $\\pm$ 0.00} & -- & 3 \\\\ \\midrule Step decay & lr3e",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.13",
+   "context": "- & 3 \\\\ \\midrule Step decay & lr3e-4 & 2.13 $\\pm$ 0.01 & 2.09 $\\pm$ 0.01 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "100bc0dfc0",
+     "f7b46f80a0",
+     "629878eac3"
+    ],
+    "value": 2.1292314529418945,
+    "key": "main/step-decay/lr3e-4/val_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "idrule Step decay & lr3e-4 & 2.13 $\\pm$ 0.01 & 2.09 $\\pm$ 0.01 & -- & 3 \\\\ Schedule-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.09",
+   "context": "Step decay & lr3e-4 & 2.13 $\\pm$ 0.01 & 2.09 $\\pm$ 0.01 & -- & 3 \\\\ Schedule-free Ad",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-4",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "100bc0dfc0",
+     "f7b46f80a0",
+     "629878eac3"
+    ],
+    "value": 2.09283499399821,
+    "key": "main/step-decay/lr3e-4/train_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "& lr3e-4 & 2.13 $\\pm$ 0.01 & 2.09 $\\pm$ 0.01 & -- & 3 \\\\ Schedule-free AdamW & lr3e-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.17",
+   "context": "- & 3 \\\\ Schedule-free AdamW & lr3e-4 & 2.17 $\\pm$ 0.01 & 2.13 $\\pm$ 0.01 & \\textbf{",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b4693fd28d",
+     "61939d4588",
+     "6982439ad3"
+    ],
+    "value": 2.1726533571879068,
+    "key": "main/schedule-free-adamw/lr3e-4/val_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "hedule-free AdamW & lr3e-4 & 2.17 $\\pm$ 0.01 & 2.13 $\\pm$ 0.01 & \\textbf{2.17 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.13",
+   "context": "free AdamW & lr3e-4 & 2.17 $\\pm$ 0.01 & 2.13 $\\pm$ 0.01 & \\textbf{2.17 $\\pm$ 0.01} &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "100bc0dfc0",
+     "f7b46f80a0",
+     "629878eac3"
+    ],
+    "value": 2.1292314529418945,
+    "key": "main/step-decay/lr3e-4/val_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "& lr3e-4 & 2.17 $\\pm$ 0.01 & 2.13 $\\pm$ 0.01 & \\textbf{2.17 $\\pm$ 0.01} & 3 \\\\ Const",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.17",
+   "context": "$\\pm$ 0.01 & 2.13 $\\pm$ 0.01 & \\textbf{2.17 $\\pm$ 0.01} & 3 \\\\ Constant & lr3e-4 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b4693fd28d",
+     "61939d4588",
+     "6982439ad3"
+    ],
+    "value": 2.1726533571879068,
+    "key": "main/schedule-free-adamw/lr3e-4/val_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "& 2.13 $\\pm$ 0.01 & \\textbf{2.17 $\\pm$ 0.01} & 3 \\\\ Constant & lr3e-4 & \\textbf{1.9",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.94",
+   "context": ".01} & 3 \\\\ Constant & lr3e-4 & \\textbf{1.94 $\\pm$ 0.02} & \\textbf{1.83 $\\pm$ 0.01}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "e0bf62e12c",
+     "d860592da1",
+     "bf31fc8b2c"
+    ],
+    "value": 1.9366767803827922,
+    "key": "main/constant/lr3e-4/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.02",
+   "context": "Constant & lr3e-4 & \\textbf{1.94 $\\pm$ 0.02} & \\textbf{1.83 $\\pm$ 0.01} & -- & 3 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.020631769317639707,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/train_loss/std",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.83",
+   "context": "-4 & \\textbf{1.94 $\\pm$ 0.02} & \\textbf{1.83 $\\pm$ 0.01} & -- & 3 \\\\ \\textbf{Warmup+",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1dc8175c81",
+     "b0ddf37599",
+     "84d4f1b43c"
+    ],
+    "value": 1.8301372130711873,
+    "key": "main/step-decay/lr1e-3/val_loss/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "f{1.94 $\\pm$ 0.02} & \\textbf{1.83 $\\pm$ 0.01} & -- & 3 \\\\ \\textbf{Warmup+Cosine} & l",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.07",
+   "context": "bf{Warmup+Cosine} & lr3e-4 & \\underline{2.07 $\\pm$ 0.01} & \\underline{2.02 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "4f37b1d54a",
+     "5ffaabf57a",
+     "f9fdd90039"
+    ],
+    "value": 2.068540652592977,
+    "key": "main/warmup+cosine/lr3e-4/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "osine} & lr3e-4 & \\underline{2.07 $\\pm$ 0.01} & \\underline{2.02 $\\pm$ 0.01} & -- & 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.02",
+   "context": "underline{2.07 $\\pm$ 0.01} & \\underline{2.02 $\\pm$ 0.01} & -- & 3 \\\\ \\midrule Step d",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-4",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "4f37b1d54a",
+     "5ffaabf57a",
+     "f9fdd90039"
+    ],
+    "value": 2.0169125791390736,
+    "key": "main/warmup+cosine/lr3e-4/train_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": ".07 $\\pm$ 0.01} & \\underline{2.02 $\\pm$ 0.01} & -- & 3 \\\\ \\midrule Step decay & lr3e",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.50",
+   "context": "- & 3 \\\\ \\midrule Step decay & lr3e-2 & 2.50 $\\pm$ 0.00 & 2.48 $\\pm$ 0.00 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "7f8fff4f29",
+     "1bc72aba76",
+     "c9db73aef3"
+    ],
+    "value": 2.4974579016367593,
+    "key": "main/step-decay/lr3e-2/val_loss/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "idrule Step decay & lr3e-2 & 2.50 $\\pm$ 0.00 & 2.48 $\\pm$ 0.00 & -- & 3 \\\\ Schedule-",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.48",
+   "context": "Step decay & lr3e-2 & 2.50 $\\pm$ 0.00 & 2.48 $\\pm$ 0.00 & -- & 3 \\\\ Schedule-free Ad",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "7f8fff4f29",
+     "1bc72aba76",
+     "c9db73aef3"
+    ],
+    "value": 2.484800678094228,
+    "key": "main/step-decay/lr3e-2/train_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "& lr3e-2 & 2.50 $\\pm$ 0.00 & 2.48 $\\pm$ 0.00 & -- & 3 \\\\ Schedule-free AdamW & lr3e-",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.65",
+   "context": "Schedule-free AdamW & lr3e-2 & \\textbf{1.65 $\\pm$ 0.02} & \\underline{1.55 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "30a2e125af",
+     "78d27c155e",
+     "7c0027e766"
+    ],
+    "value": 1.6518537203470867,
+    "key": "main/schedule-free-adamw/lr3e-2/val_loss/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.02",
+   "context": "ree AdamW & lr3e-2 & \\textbf{1.65 $\\pm$ 0.02} & \\underline{1.55 $\\pm$ 0.00} & \\textb",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.020631769317639707,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/train_loss/std",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.55",
+   "context": "& \\textbf{1.65 $\\pm$ 0.02} & \\underline{1.55 $\\pm$ 0.00} & \\textbf{1.71 $\\pm$ 0.01}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "30a2e125af",
+     "78d27c155e",
+     "7c0027e766"
+    ],
+    "value": 1.5468033007780708,
+    "key": "main/schedule-free-adamw/lr3e-2/train_loss/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": ".65 $\\pm$ 0.02} & \\underline{1.55 $\\pm$ 0.00} & \\textbf{1.71 $\\pm$ 0.01} & 3 \\\\ Cons",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.71",
+   "context": "& \\underline{1.55 $\\pm$ 0.00} & \\textbf{1.71 $\\pm$ 0.01} & 3 \\\\ Constant & lr3e-2 &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.7085603475570679,
+    "key": "main/warmup+cosine/lr3e-2/val_loss/mean",
+    "candidates": 23
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "e{1.55 $\\pm$ 0.00} & \\textbf{1.71 $\\pm$ 0.01} & 3 \\\\ Constant & lr3e-2 & 2.80 $\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.80",
+   "context": "$\\pm$ 0.01} & 3 \\\\ Constant & lr3e-2 & 2.80 $\\pm$ 0.05 & 2.76 $\\pm$ 0.03 & -- & 3 \\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "9bd9cbc52c",
+     "c7e70c49ef",
+     "ef8aea1b28"
+    ],
+    "value": 2.798868417739868,
+    "key": "main/constant/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.05",
+   "context": "} & 3 \\\\ Constant & lr3e-2 & 2.80 $\\pm$ 0.05 & 2.76 $\\pm$ 0.03 & -- & 3 \\\\ \\textbf{W",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "2.76",
+   "context": "\\ Constant & lr3e-2 & 2.80 $\\pm$ 0.05 & 2.76 $\\pm$ 0.03 & -- & 3 \\\\ \\textbf{Warmup+C",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "9bd9cbc52c",
+     "c7e70c49ef",
+     "ef8aea1b28"
+    ],
+    "value": 2.755542945861816,
+    "key": "main/constant/lr3e-2/train_loss/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.03",
+   "context": "& lr3e-2 & 2.80 $\\pm$ 0.05 & 2.76 $\\pm$ 0.03 & -- & 3 \\\\ \\textbf{Warmup+Cosine} & lr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.71",
+   "context": "bf{Warmup+Cosine} & lr3e-2 & \\underline{1.71 $\\pm$ 0.01} & \\textbf{1.54 $\\pm$ 0.00}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.7085603475570679,
+    "key": "main/warmup+cosine/lr3e-2/val_loss/mean",
+    "candidates": 23
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.01",
+   "context": "osine} & lr3e-2 & \\underline{1.71 $\\pm$ 0.01} & \\textbf{1.54 $\\pm$ 0.00} & -- & 3 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "1.54",
+   "context": "& \\underline{1.71 $\\pm$ 0.01} & \\textbf{1.54 $\\pm$ 0.00} & -- & 3 \\\\ \\midrule \\botto",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "train_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.5384525064627328,
+    "key": "main/warmup+cosine/lr3e-2/train_loss/mean",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/main.tex",
+   "literal": "0.00",
+   "context": "e{1.71 $\\pm$ 0.01} & \\textbf{1.54 $\\pm$ 0.00} & -- & 3 \\\\ \\midrule \\bottomrule \\end{",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.53",
+   "context": "e \\midrule \\midrule Step decay & sens & 0.53 $\\pm$ 0.05 & 0.68 $\\pm$ 0.02 & 1.82 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": 0.5299983819325765,
+    "key": "main/step-decay/sens/sens3/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.05",
+   "context": "\\midrule Step decay & sens & 0.53 $\\pm$ 0.05 & 0.68 $\\pm$ 0.02 & 1.82 $\\pm$ 0.02 & 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.68",
+   "context": "e Step decay & sens & 0.53 $\\pm$ 0.05 & 0.68 $\\pm$ 0.02 & 1.82 $\\pm$ 0.02 & 3 \\\\ Sch",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "mean",
+    "run_ids": [
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": 0.679029623667399,
+    "key": "main/step-decay/sens/sens5/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.02",
+   "context": "y & sens & 0.53 $\\pm$ 0.05 & 0.68 $\\pm$ 0.02 & 1.82 $\\pm$ 0.02 & 3 \\\\ Schedule-free",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.020631769317639707,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/train_loss/std",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "1.82",
+   "context": "s & 0.53 $\\pm$ 0.05 & 0.68 $\\pm$ 0.02 & 1.82 $\\pm$ 0.02 & 3 \\\\ Schedule-free AdamW &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "mean",
+    "run_ids": [
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": 1.8184282779693604,
+    "key": "main/step-decay/sens/best3/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.02",
+   "context": "pm$ 0.05 & 0.68 $\\pm$ 0.02 & 1.82 $\\pm$ 0.02 & 3 \\\\ Schedule-free AdamW & sens & \\un",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.020631769317639707,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/train_loss/std",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.25",
+   "context": "Schedule-free AdamW & sens & \\underline{0.25 $\\pm$ 0.01} & \\underline{0.54 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.2487813631693522,
+    "key": "main/schedule-free-adamw/sens/sens3/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.01",
+   "context": "ee AdamW & sens & \\underline{0.25 $\\pm$ 0.01} & \\underline{0.54 $\\pm$ 0.01} & \\textb",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.54",
+   "context": "underline{0.25 $\\pm$ 0.01} & \\underline{0.54 $\\pm$ 0.01} & \\textbf{1.63 $\\pm$ 0.00}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "mean",
+    "run_ids": [
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.5435600678126017,
+    "key": "main/schedule-free-adamw/sens/sens5/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.01",
+   "context": ".25 $\\pm$ 0.01} & \\underline{0.54 $\\pm$ 0.01} & \\textbf{1.63 $\\pm$ 0.00} & 3 \\\\ Cons",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "1.63",
+   "context": "& \\underline{0.54 $\\pm$ 0.01} & \\textbf{1.63 $\\pm$ 0.00} & 3 \\\\ Constant & sens & 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 1.6290932893753052,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/mean",
+    "candidates": 45
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.00",
+   "context": "e{0.54 $\\pm$ 0.01} & \\textbf{1.63 $\\pm$ 0.00} & 3 \\\\ Constant & sens & 0.65 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-2",
+    "metric": "diverged",
+    "stat": "mean",
+    "run_ids": [
+     "ac3a1a6810",
+     "35c1536e8c",
+     "6763cff1f6"
+    ],
+    "value": 0.0,
+    "key": "abl_warmup/constant-warmup-100/lr1e-2/diverged/mean",
+    "candidates": 421
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.65",
+   "context": "63 $\\pm$ 0.00} & 3 \\\\ Constant & sens & 0.65 $\\pm$ 0.05 & 1.03 $\\pm$ 0.03 & 1.76 $\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 0.6520651578903198,
+    "key": "main/constant/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.05",
+   "context": "00} & 3 \\\\ Constant & sens & 0.65 $\\pm$ 0.05 & 1.03 $\\pm$ 0.03 & 1.76 $\\pm$ 0.01 & 3",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 0.05002270604647146,
+    "key": "main/constant/lr1e-2/val_loss/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "1.03",
+   "context": "\\\\ Constant & sens & 0.65 $\\pm$ 0.05 & 1.03 $\\pm$ 0.03 & 1.76 $\\pm$ 0.01 & 3 \\\\ \\te",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "mean",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0342549880345662,
+    "key": "main/constant/sens/sens5/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.03",
+   "context": "t & sens & 0.65 $\\pm$ 0.05 & 1.03 $\\pm$ 0.03 & 1.76 $\\pm$ 0.01 & 3 \\\\ \\textbf{Warmup",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "1.76",
+   "context": "s & 0.65 $\\pm$ 0.05 & 1.03 $\\pm$ 0.03 & 1.76 $\\pm$ 0.01 & 3 \\\\ \\textbf{Warmup+Cosine",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup_fair",
+    "system": "Constant (warmup=100)",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "ce3b67391d",
+     "cca345a085",
+     "6356a474cd"
+    ],
+    "value": 1.764113187789917,
+    "key": "abl_warmup_fair/constant-warmup-100/lr1e-3/val_loss/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.01",
+   "context": "pm$ 0.05 & 1.03 $\\pm$ 0.03 & 1.76 $\\pm$ 0.01 & 3 \\\\ \\textbf{Warmup+Cosine} & sens &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.09",
+   "context": "\\textbf{Warmup+Cosine} & sens & \\textbf{0.09 $\\pm$ 0.01} & \\textbf{0.40 $\\pm$ 0.02}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 0.09295288721720378,
+    "key": "main/warmup+cosine/sens/sens3/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.01",
+   "context": "mup+Cosine} & sens & \\textbf{0.09 $\\pm$ 0.01} & \\textbf{0.40 $\\pm$ 0.02} & \\underlin",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.40",
+   "context": "ns & \\textbf{0.09 $\\pm$ 0.01} & \\textbf{0.40 $\\pm$ 0.02} & \\underline{1.67 $\\pm$ 0.0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 0.3957577546437581,
+    "key": "main/warmup+cosine/sens/sens5/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.02",
+   "context": "f{0.09 $\\pm$ 0.01} & \\textbf{0.40 $\\pm$ 0.02} & \\underline{1.67 $\\pm$ 0.01} & 3 \\\\ \\",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Warmup+Cosine (warmup=50)",
+    "task": "lr1e-2",
+    "metric": "train_loss",
+    "stat": "std",
+    "run_ids": [
+     "96d6c8e961",
+     "e1acf6cc5b",
+     "2dbd873b47"
+    ],
+    "value": 0.020631769317639707,
+    "key": "abl_warmup/warmup+cosine-warmup-50/lr1e-2/train_loss/std",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "1.67",
+   "context": "& \\textbf{0.40 $\\pm$ 0.02} & \\underline{1.67 $\\pm$ 0.01} & 3 \\\\ \\bottomrule \\end{tab",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "75c56bbd86"
+    ],
+    "value": 1.6702377796173096,
+    "key": "curves/warmup+cosine/lr1e-2/val_loss/mean",
+    "candidates": 48
+   }
+  },
+  {
+   "section": "generated/sens.tex",
+   "literal": "0.01",
+   "context": ".40 $\\pm$ 0.02} & \\underline{1.67 $\\pm$ 0.01} & 3 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss_y",
+    "stat": "std",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 0.009889522504918515,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss_y/std",
+    "candidates": 54
+   }
+  },
+  {
+   "section": "introduction.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "acter-level GPT on Tiny Shakespeare for \\rhval{const/steps} steps. \\paragraph*{Contributions.} (i)",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "introduction.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "damW, over five peak learning rates and \\rhval{const/n_seeds} seeds each, with a defined sensitivity",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "\\rhval{const/n_params}",
+   "context": "emize} \\item \\textbf{Scale.} One model (\\rhval{const/n_params} parameters), one dataset, one budget of",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_params",
+    "run_ids": [],
+    "value": 421632.0,
+    "name": "n_params",
+    "why": "trainable parameters of the 2-layer d=128 GPT (counted from the model)",
+    "key": "const/n_params"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "parameters), one dataset, one budget of \\rhval{const/steps} steps (far from convergence). Rankings",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "tem \\textbf{Seeds and statistics.} Only \\rhval{const/n_seeds} seeds per cell, so Welch/paired $p$-val",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "100",
+   "context": "rplay of the squared-LR weights and the 100-step warmup may matter). \\item \\textbf{",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "256",
+   "context": "e metric.} We report validation loss on 256 fixed windows after the last step only;",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_val_windows",
+    "run_ids": [],
+    "value": 256.0,
+    "name": "n_val_windows",
+    "why": "fixed validation windows of length block",
+    "key": "const/n_val_windows"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "atch gradient at step $t=1,\\dots,T$ ($T=\\rhval{const/steps}$), $\\eta$ the peak learning rate, and $",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/beta1}",
+   "context": "aph{AdamW (shared base).} With $\\beta_1=\\rhval{const/beta1}$, $\\beta_2=\\rhval{const/beta2}$, $\\epsi",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "beta1",
+    "run_ids": [],
+    "value": 0.9,
+    "name": "beta1",
+    "why": "Adam beta1",
+    "key": "const/beta1"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/beta2}",
+   "context": "$\\beta_1=\\rhval{const/beta1}$, $\\beta_2=\\rhval{const/beta2}$, $\\epsilon=10^{-8}$: \\begin{align} m_t",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "beta2",
+    "run_ids": [],
+    "value": 0.95,
+    "name": "beta2",
+    "why": "Adam beta2",
+    "key": "const/beta2"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "10^{-8}",
+   "context": "\\beta_2=\\rhval{const/beta2}$, $\\epsilon=10^{-8}$: \\begin{align} m_t &= \\beta_1 m_{t-1}",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114",
+     "7f8fff4f29",
+     "1bc72aba76",
+     "c9db73aef3"
+    ],
+    "value": 1.1085022040123506e-08,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/step-decay/lr3e-2/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/wd}",
+   "context": "n} with decoupled weight decay $\\lambda=\\rhval{const/wd}$ applied to weight matrices only and gl",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "wd",
+    "run_ids": [],
+    "value": 0.1,
+    "name": "wd",
+    "why": "decoupled weight decay on matrices",
+    "key": "const/wd"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/clip}",
+   "context": "ly and global gradient-norm clipping at \\rhval{const/clip}. \\paragraph{Constant.} $\\gamma_t=\\eta$",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "clip",
+    "run_ids": [],
+    "value": 1.0,
+    "name": "clip",
+    "why": "global gradient-norm clip",
+    "key": "const/clip"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/warmup_default}",
+   "context": "h{Warmup+Cosine.} With warmup length $w=\\rhval{const/warmup_default}$ and floor fraction $\\rho=\\rhval{const/",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "warmup_default",
+    "run_ids": [],
+    "value": 100.0,
+    "name": "warmup_default",
+    "why": "linear warmup steps for cosine and schedule-free",
+    "key": "const/warmup_default"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/cos_floor}",
+   "context": "rmup_default}$ and floor fraction $\\rho=\\rhval{const/cos_floor}$: \\begin{equation} \\gamma_t=\\begin{case",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "cos_floor",
+    "run_ids": [],
+    "value": 0.1,
+    "name": "cos_floor",
+    "why": "cosine decays to this fraction of the peak",
+    "key": "const/cos_floor"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/step_factor}",
+   "context": "mma_t=\\eta\\,\\alpha^{k(t)}$ with $\\alpha=\\rhval{const/step_factor}$ and $k(t)$ the number of drops passed,",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "step_factor",
+    "run_ids": [],
+    "value": 0.3,
+    "name": "step_factor",
+    "why": "step-decay multiplier at each drop",
+    "key": "const/step_factor"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/step_at1}",
+   "context": ")$ the number of drops passed, at steps \\rhval{const/step_at1} and \\rhval{const/step_at2}; no warmup.",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "step_at1",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "step_at1",
+    "why": "first step-decay drop",
+    "key": "const/step_at1"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/step_at2}",
+   "context": "ed, at steps \\rhval{const/step_at1} and \\rhval{const/step_at2}; no warmup. \\paragraph{Schedule-Free A",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "step_at2",
+    "run_ids": [],
+    "value": 1000.0,
+    "name": "step_at2",
+    "why": "second step-decay drop",
+    "key": "const/step_at2"
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "10^{-3}",
+   "context": "er the three main rates $\\mathcal H_3=\\{10^{-3},3\\times10^{-3},10^{-2}\\}$ and $\\text{se",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "hree main rates $\\mathcal H_3=\\{10^{-3},3\\times10^{-3},10^{-2}\\}$ and $\\text{sens}_5$ is $\\max",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "H_5}L$ over the five-rate grid (adding $3\\times10^{-4}$ and $3\\times10^{-2}$). Both are comput",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "rate grid (adding $3\\times10^{-4}$ and $3\\times10^{-2}$). Both are computed per seed, using th",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "idation loss (nats, mean $\\pm$ std over \\rhval{const/n_seeds} seeds) at the three main peak learning",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10^{-3}",
+   "context": "at the three main peak learning rates ($10^{-3}$, $3\\times10^{-3}$, $10^{-2}$) and the",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "e main peak learning rates ($10^{-3}$, $3\\times10^{-3}$, $10^{-2}$) and the two extra rates ($",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "$, $10^{-2}$) and the two extra rates ($3\\times10^{-4}$, $3\\times10^{-2}$). Constant and step",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "the two extra rates ($3\\times10^{-4}$, $3\\times10^{-2}$). Constant and step decay have no warm",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "ning rate (log axis), mean and std over \\rhval{const/n_seeds} seeds, five rates (group main).}\\label{",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-3/val_loss/mean:2}",
+   "context": "three main rates, warmup+cosine reaches \\rhval{main/warmup+cosine/lr3e-3/val_loss/mean:2} at $3\\times10^{-3}$, constant LR \\rhval",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "f8bf7dce38",
+     "19df72ee7d",
+     "2aa304d3a4"
+    ],
+    "value": 1.6727828979492188,
+    "key": "main/warmup+cosine/lr3e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "rmup+cosine/lr3e-3/val_loss/mean:2} at $3\\times10^{-3}$, constant LR \\rhval{main/constant/lr1e",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/constant/lr1e-3/val_loss/mean:2}",
+   "context": "ean:2} at $3\\times10^{-3}$, constant LR \\rhval{main/constant/lr1e-3/val_loss/mean:2} at $10^{-3}$, step decay \\rhval{main/st",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "55449dfaf7",
+     "faa025210b",
+     "0367305400"
+    ],
+    "value": 1.764613429705302,
+    "key": "main/constant/lr1e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10^{-3}",
+   "context": "in/constant/lr1e-3/val_loss/mean:2} at $10^{-3}$, step decay \\rhval{main/step-decay/lr1",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/step-decay/lr1e-3/val_loss/mean:2}",
+   "context": "l_loss/mean:2} at $10^{-3}$, step decay \\rhval{main/step-decay/lr1e-3/val_loss/mean:2} at $10^{-3}$ and Schedule-Free \\rhval{m",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "1dc8175c81",
+     "b0ddf37599",
+     "84d4f1b43c"
+    ],
+    "value": 1.8301372130711873,
+    "key": "main/step-decay/lr1e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10^{-3}",
+   "context": "/step-decay/lr1e-3/val_loss/mean:2} at $10^{-3}$ and Schedule-Free \\rhval{main/schedule",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr1e-2/val_loss/mean:2}",
+   "context": "/mean:2} at $10^{-3}$ and Schedule-Free \\rhval{main/schedule-free-adamw/lr1e-2/val_loss/mean:2} at $10^{-2}$ (Table~\\ref{tab:main}). Th",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 1.6290932893753052,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/sens/best3/delta:3}",
+   "context": "osses, warmup+cosine minus constant, is \\rhval{cmp/main/constant/sens/best3/delta:3} nats (Welch $p=\\rhval{cmp/main/constant",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "delta",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": -0.09183053175608324,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/sens/best3/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/sens/best3/welch_p}",
+   "context": "tant/sens/best3/delta:3} nats (Welch $p=\\rhval{cmp/main/constant/sens/best3/welch_p}$, $n=\\rhval{const/n_seeds}$ per arm; th",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "welch_p",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 0.001442817603673931,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/sens/best3/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "/main/constant/sens/best3/welch_p}$, $n=\\rhval{const/n_seeds}$ per arm; this follows the test registe",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10^{-3}",
+   "context": "e is not uniform across peak rates: at $10^{-3}$ the two are indistinguishable ($\\Delta",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/lr1e-3/val_loss/delta:3}",
+   "context": "the two are indistinguishable ($\\Delta=\\rhval{cmp/main/constant/lr1e-3/val_loss/delta:3}$, $p=\\rhval{cmp/main/constant/lr1e-3/va",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "delta",
+    "run_ids": [
+     "d3d7a9a7ad",
+     "f5a46d5615",
+     "2882cabfc1",
+     "55449dfaf7",
+     "faa025210b",
+     "0367305400"
+    ],
+    "value": 0.0011223554611206055,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/lr1e-3/val_loss/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/lr1e-3/val_loss/welch_p}",
+   "context": "/constant/lr1e-3/val_loss/delta:3}$, $p=\\rhval{cmp/main/constant/lr1e-3/val_loss/welch_p}$), and at the lowest rate $3\\times10^{-",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "d3d7a9a7ad",
+     "f5a46d5615",
+     "2882cabfc1",
+     "55449dfaf7",
+     "faa025210b",
+     "0367305400"
+    ],
+    "value": 0.9138909973017625,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/lr1e-3/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "oss/welch_p}$), and at the lowest rate $3\\times10^{-4}$ constant LR is \\emph{better} than warm",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/constant/lr3e-4/val_loss/mean:2}",
+   "context": "LR is \\emph{better} than warmup+cosine (\\rhval{main/constant/lr3e-4/val_loss/mean:2} vs.\\ \\rhval{main/warmup+cosine/lr3e-4/v",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "e0bf62e12c",
+     "d860592da1",
+     "bf31fc8b2c"
+    ],
+    "value": 1.9366767803827922,
+    "key": "main/constant/lr3e-4/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-4/val_loss/mean:2}",
+   "context": "n/constant/lr3e-4/val_loss/mean:2} vs.\\ \\rhval{main/warmup+cosine/lr3e-4/val_loss/mean:2}; $p=\\rhval{cmp/main/constant/lr3e-4/val",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "4f37b1d54a",
+     "5ffaabf57a",
+     "f9fdd90039"
+    ],
+    "value": 2.068540652592977,
+    "key": "main/warmup+cosine/lr3e-4/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/lr3e-4/val_loss/welch_p}",
+   "context": "rmup+cosine/lr3e-4/val_loss/mean:2}; $p=\\rhval{cmp/main/constant/lr3e-4/val_loss/welch_p}$): when the peak rate is too small for",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "4f37b1d54a",
+     "5ffaabf57a",
+     "f9fdd90039",
+     "e0bf62e12c",
+     "d860592da1",
+     "bf31fc8b2c"
+    ],
+    "value": 0.0004348060177152546,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/lr3e-4/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "1,500",
+   "context": ": when the peak rate is too small for a 1,500-step budget, decaying it only removes u",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "ng it only removes useful progress. At $3\\times10^{-3}$ and $10^{-2}$ cosine wins by \\rhval{cm",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/lr3e-3/val_loss/delta:2}",
+   "context": "es10^{-3}$ and $10^{-2}$ cosine wins by \\rhval{cmp/main/constant/lr3e-3/val_loss/delta:2} and \\rhval{cmp/main/constant/lr1e-2/val",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "delta",
+    "run_ids": [
+     "f8bf7dce38",
+     "19df72ee7d",
+     "2aa304d3a4",
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": -0.14892566204071045,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/lr3e-3/val_loss/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/constant/lr1e-2/val_loss/delta:2}",
+   "context": "n/constant/lr3e-3/val_loss/delta:2} and \\rhval{cmp/main/constant/lr1e-2/val_loss/delta:2} nats respectively, but the $10^{-2}$ ga",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "delta",
+    "run_ids": [
+     "b4a1a64bb7",
+     "6ea14c6b6d",
+     "6fbc567975",
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": -0.7347482442855833,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/constant/lr1e-2/val_loss/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/schedule-free-adamw/lr1e-2/val_loss/delta:3}",
+   "context": "mup+cosine (cosine minus Schedule-Free: \\rhval{cmp/main/schedule-free-adamw/lr1e-2/val_loss/delta:3} nats; Welch $p=\\rhval{cmp/main/schedule",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "delta",
+    "run_ids": [
+     "b4a1a64bb7",
+     "6ea14c6b6d",
+     "6fbc567975",
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.05283705393473315,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/schedule-free-adamw/lr1e-2/val_loss/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/schedule-free-adamw/lr1e-2/val_loss/welch_p}",
+   "context": "lr1e-2/val_loss/delta:3} nats; Welch $p=\\rhval{cmp/main/schedule-free-adamw/lr1e-2/val_loss/welch_p}$) and likewise at $3\\times10^{-2}$ (\\rh",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "b4a1a64bb7",
+     "6ea14c6b6d",
+     "6fbc567975",
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.002789133283272286,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/schedule-free-adamw/lr1e-2/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "-2/val_loss/welch_p}$) and likewise at $3\\times10^{-2}$ (\\rhval{main/schedule-free-adamw/lr3e-",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr3e-2/val_loss/mean:2}",
+   "context": "_p}$) and likewise at $3\\times10^{-2}$ (\\rhval{main/schedule-free-adamw/lr3e-2/val_loss/mean:2} vs.\\ \\rhval{main/warmup+cosine/lr3e-2/v",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "30a2e125af",
+     "78d27c155e",
+     "7c0027e766"
+    ],
+    "value": 1.6518537203470867,
+    "key": "main/schedule-free-adamw/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-2/val_loss/mean:2}",
+   "context": "free-adamw/lr3e-2/val_loss/mean:2} vs.\\ \\rhval{main/warmup+cosine/lr3e-2/val_loss/mean:2}). At $3\\times10^{-3}$ the two are close",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "19e5859640",
+     "3a83656d13",
+     "4252236114"
+    ],
+    "value": 1.7085603475570679,
+    "key": "main/warmup+cosine/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "up+cosine/lr3e-2/val_loss/mean:2}). At $3\\times10^{-3}$ the two are close (\\rhval{main/schedul",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr3e-3/val_loss/mean:2}",
+   "context": "At $3\\times10^{-3}$ the two are close (\\rhval{main/schedule-free-adamw/lr3e-3/val_loss/mean:2} vs.\\ \\rhval{main/warmup+cosine/lr3e-3/v",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "9fa437f84d",
+     "dee882eddc",
+     "9295e941b1"
+    ],
+    "value": 1.6949967940648396,
+    "key": "main/schedule-free-adamw/lr3e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-3/val_loss/mean:2}",
+   "context": "free-adamw/lr3e-3/val_loss/mean:2} vs.\\ \\rhval{main/warmup+cosine/lr3e-3/val_loss/mean:2}, Welch $p=\\rhval{cmp/main/schedule-free",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "f8bf7dce38",
+     "19df72ee7d",
+     "2aa304d3a4"
+    ],
+    "value": 1.6727828979492188,
+    "key": "main/warmup+cosine/lr3e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/schedule-free-adamw/lr3e-3/val_loss/welch_p}",
+   "context": "osine/lr3e-3/val_loss/mean:2}, Welch $p=\\rhval{cmp/main/schedule-free-adamw/lr3e-3/val_loss/welch_p}$), and at lower rates Schedule-Free is",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "welch_p",
+    "run_ids": [
+     "f8bf7dce38",
+     "19df72ee7d",
+     "2aa304d3a4",
+     "9fa437f84d",
+     "dee882eddc",
+     "9295e941b1"
+    ],
+    "value": 0.042811771985246674,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/schedule-free-adamw/lr3e-3/val_loss/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr1e-3/val_loss/mean:2}",
+   "context": "r rates Schedule-Free is clearly worse: \\rhval{main/schedule-free-adamw/lr1e-3/val_loss/mean:2} at $10^{-3}$ and \\rhval{main/schedule-f",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-3",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "7b2ab56260",
+     "701a2cb261",
+     "4539a45d1a"
+    ],
+    "value": 1.8778746525446575,
+    "key": "main/schedule-free-adamw/lr1e-3/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10^{-3}",
+   "context": "-free-adamw/lr1e-3/val_loss/mean:2} at $10^{-3}$ and \\rhval{main/schedule-free-adamw/lr",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr3e-4/val_loss/mean:2}",
+   "context": "r1e-3/val_loss/mean:2} at $10^{-3}$ and \\rhval{main/schedule-free-adamw/lr3e-4/val_loss/mean:2} at $3\\times10^{-4}$, below even the con",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b4693fd28d",
+     "61939d4588",
+     "6982439ad3"
+    ],
+    "value": 2.1726533571879068,
+    "key": "main/schedule-free-adamw/lr3e-4/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "-free-adamw/lr3e-4/val_loss/mean:2} at $3\\times10^{-4}$, below even the constant schedule at t",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/lr1e-2/val_loss_y/mean:2}",
+   "context": "at the average at the best rates (e.g.\\ \\rhval{main/schedule-free-adamw/lr1e-2/val_loss_y/mean:2} at $10^{-2}$), consistent with the aver",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss_y",
+    "stat": "mean",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 1.671866734822591,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss_y/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/sens/sens3/mean:2}",
+   "context": "\\ref{tab:sens} gives $\\text{sens}_3$ of \\rhval{main/schedule-free-adamw/sens/sens3/mean:2} for Schedule-Free and \\rhval{main/warmu",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.2487813631693522,
+    "key": "main/schedule-free-adamw/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/sens/sens3/mean:2}",
+   "context": "ens/sens3/mean:2} for Schedule-Free and \\rhval{main/warmup+cosine/sens/sens3/mean:2} for warmup+cosine (difference cosine mi",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 0.09295288721720378,
+    "key": "main/warmup+cosine/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/schedule-free-adamw/sens/sens3/delta:2}",
+   "context": "(difference cosine minus Schedule-Free \\rhval{cmp/main/schedule-free-adamw/sens/sens3/delta:2}, Welch $p=\\rhval{cmp/main/schedule-free",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "delta",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": -0.15582847595214844,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/schedule-free-adamw/sens/sens3/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/schedule-free-adamw/sens/sens3/welch_p}",
+   "context": "ree-adamw/sens/sens3/delta:2}, Welch $p=\\rhval{cmp/main/schedule-free-adamw/sens/sens3/welch_p}$); over five rates the values are \\rhva",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "welch_p",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.000833911846369632,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/schedule-free-adamw/sens/sens3/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/schedule-free-adamw/sens/sens5/mean:2}",
+   "context": "ch_p}$); over five rates the values are \\rhval{main/schedule-free-adamw/sens/sens5/mean:2} and \\rhval{main/warmup+cosine/sens/sens",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "mean",
+    "run_ids": [
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.5435600678126017,
+    "key": "main/schedule-free-adamw/sens/sens5/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/sens/sens5/mean:2}",
+   "context": "edule-free-adamw/sens/sens5/mean:2} and \\rhval{main/warmup+cosine/sens/sens5/mean:2} ($p=\\rhval{cmp/main/schedule-free-adamw",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "mean",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca"
+    ],
+    "value": 0.3957577546437581,
+    "key": "main/warmup+cosine/sens/sens5/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/schedule-free-adamw/sens/sens5/welch_p}",
+   "context": "in/warmup+cosine/sens/sens5/mean:2} ($p=\\rhval{cmp/main/schedule-free-adamw/sens/sens5/welch_p}$). The direction is opposite to H2. Fig",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "sens",
+    "metric": "sens5",
+    "stat": "welch_p",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "5b00a720c4",
+     "8fe294a703",
+     "9f739cbc41"
+    ],
+    "value": 0.0006694916002794211,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/schedule-free-adamw/sens/sens5/welch_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "ree is flat and good for $10^{-2}$ and $3\\times10^{-2}$ but degrades quickly below $3\\times10^",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "mes10^{-2}$ but degrades quickly below $3\\times10^{-3}$, whereas cosine has a broad, shallow b",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "sine has a broad, shallow basin around $3\\times10^{-3}$. Warmup+cosine is the least sensitive",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/constant/sens/sens3/mean:2}",
+   "context": "sitive of the four \\emph{as specified} (\\rhval{main/constant/sens/sens3/mean:2} for constant, \\rhval{main/step-decay/se",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 0.6520651578903198,
+    "key": "main/constant/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/step-decay/sens/sens3/mean:2}",
+   "context": "nstant/sens/sens3/mean:2} for constant, \\rhval{main/step-decay/sens/sens3/mean:2} for step decay over three rates), but t",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "sens3",
+    "stat": "mean",
+    "run_ids": [
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": 0.5299983819325765,
+    "key": "main/step-decay/sens/sens3/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{const/eval_every}",
+   "context": "3, one run per system; evaluated every \\rhval{const/eval_every} steps; Schedule-Free evaluated at the a",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "eval_every",
+    "run_ids": [],
+    "value": 150.0,
+    "name": "eval_every",
+    "why": "steps between validation evaluations in the curve runs",
+    "key": "const/eval_every"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{curves/constant/lr1e-2/val_loss/mean:2}",
+   "context": "oughout training (final validation loss \\rhval{curves/constant/lr1e-2/val_loss/mean:2} for constant and \\rhval{curves/step-dec",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "380b6299d7"
+    ],
+    "value": 2.3581736087799072,
+    "key": "curves/constant/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{curves/step-decay/lr1e-2/val_loss/mean:2}",
+   "context": "r1e-2/val_loss/mean:2} for constant and \\rhval{curves/step-decay/lr1e-2/val_loss/mean:2} for step decay, against \\rhval{curves/w",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Step decay",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b0d9ac7121"
+    ],
+    "value": 2.2830984592437744,
+    "key": "curves/step-decay/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{curves/warmup+cosine/lr1e-2/val_loss/mean:2}",
+   "context": "al_loss/mean:2} for step decay, against \\rhval{curves/warmup+cosine/lr1e-2/val_loss/mean:2} for cosine and \\rhval{curves/schedule-f",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Warmup+Cosine",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "75c56bbd86"
+    ],
+    "value": 1.6702377796173096,
+    "key": "curves/warmup+cosine/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{curves/schedule-free-adamw/lr1e-2/val_loss/mean:2}",
+   "context": "/lr1e-2/val_loss/mean:2} for cosine and \\rhval{curves/schedule-free-adamw/lr1e-2/val_loss/mean:2} for Schedule-Free in these runs). This",
+   "source": {
+    "type": "aggregate",
+    "group": "curves",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "b26f65f071"
+    ],
+    "value": 1.6257307529449463,
+    "key": "curves/schedule-free-adamw/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/constant/lr1e-2/val_loss/mean:2}",
+   "context": "and step decay at $10^{-2}$ and above: \\rhval{main/constant/lr1e-2/val_loss/mean:2} and \\rhval{main/step-decay/lr1e-2/val_l",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "5f2c5e952b",
+     "0ca08d8ef4",
+     "5013a165a7"
+    ],
+    "value": 2.4166785875956216,
+    "key": "main/constant/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/step-decay/lr1e-2/val_loss/mean:2}",
+   "context": "in/constant/lr1e-2/val_loss/mean:2} and \\rhval{main/step-decay/lr1e-2/val_loss/mean:2} nats, \\rhval{main/constant/lr3e-2/val_l",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "6a8d5cde18",
+     "d4c38d6ec0",
+     "d24c8fb9a9"
+    ],
+    "value": 2.348426659901937,
+    "key": "main/step-decay/lr1e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/constant/lr3e-2/val_loss/mean:2}",
+   "context": "tep-decay/lr1e-2/val_loss/mean:2} nats, \\rhval{main/constant/lr3e-2/val_loss/mean:2} and \\rhval{main/step-decay/lr3e-2/val_l",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "9bd9cbc52c",
+     "c7e70c49ef",
+     "ef8aea1b28"
+    ],
+    "value": 2.798868417739868,
+    "key": "main/constant/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/step-decay/lr3e-2/val_loss/mean:2}",
+   "context": "in/constant/lr3e-2/val_loss/mean:2} and \\rhval{main/step-decay/lr3e-2/val_loss/mean:2} at $3\\times10^{-2}$; no run was flagged",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Step decay",
+    "task": "lr3e-2",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "7f8fff4f29",
+     "1bc72aba76",
+     "c9db73aef3"
+    ],
+    "value": 2.4974579016367593,
+    "key": "main/step-decay/lr3e-2/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "/step-decay/lr3e-2/val_loss/mean:2} at $3\\times10^{-2}$; no run was flagged as diverged, they",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "ply train badly. (ii) Warmup+cosine at $3\\times10^{-4}$ (\\rhval{main/warmup+cosine/lr3e-4/val_",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/warmup+cosine/lr3e-4/val_loss/mean:2}",
+   "context": "(ii) Warmup+cosine at $3\\times10^{-4}$ (\\rhval{main/warmup+cosine/lr3e-4/val_loss/mean:2}), where it is worse than constant. (iii",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Warmup+Cosine",
+    "task": "lr3e-4",
+    "metric": "val_loss",
+    "stat": "mean",
+    "run_ids": [
+     "4f37b1d54a",
+     "5ffaabf57a",
+     "f9fdd90039"
+    ],
+    "value": 2.068540652592977,
+    "key": "main/warmup+cosine/lr3e-4/val_loss/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "10^{-3}",
+   "context": "an constant. (iii) Schedule-Free at $\\le10^{-3}$. No system is best at all rates; the r",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_chars}",
+   "context": "raph{Data and model.} Tiny Shakespeare (\\rhval{const/n_chars} characters, vocabulary \\rhval{const/voc",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_chars",
+    "run_ids": [],
+    "value": 1115394.0,
+    "name": "n_chars",
+    "why": "characters in the Tiny Shakespeare file",
+    "key": "const/n_chars"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/vocab}",
+   "context": "l{const/n_chars} characters, vocabulary \\rhval{const/vocab}); the first \\rhval{const/train_frac}\\%",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "vocab",
+    "run_ids": [],
+    "value": 65.0,
+    "name": "vocab",
+    "why": "distinct characters (vocabulary size)",
+    "key": "const/vocab"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/train_frac}",
+   "context": "abulary \\rhval{const/vocab}); the first \\rhval{const/train_frac}\\% of the text is used for training and",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "train_frac",
+    "run_ids": [],
+    "value": 90.0,
+    "name": "train_frac",
+    "why": "percent of characters used for training (rest validation)",
+    "key": "const/train_frac"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10\\%",
+   "context": "is used for training and the remaining 10\\% as validation. The model is a pre-Layer",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Step decay",
+    "task": "sens",
+    "metric": "best3",
+    "stat": "cohen_d",
+    "run_ids": [
+     "c14d3b9c32",
+     "2925ce618b",
+     "f7f56d4bca",
+     "868a4f400e",
+     "537be74e64",
+     "63fcc15049"
+    ],
+    "value": -10.018367515793296,
+    "ref": "Warmup+Cosine",
+    "key": "cmp/main/step-decay/sens/best3/cohen_d",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_layers}",
+   "context": ". The model is a pre-LayerNorm GPT with \\rhval{const/n_layers} blocks, \\rhval{const/n_heads} heads, wi",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_layers",
+    "run_ids": [],
+    "value": 2.0,
+    "name": "n_layers",
+    "why": "transformer blocks",
+    "key": "const/n_layers"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_heads}",
+   "context": "GPT with \\rhval{const/n_layers} blocks, \\rhval{const/n_heads} heads, width \\rhval{const/dmodel}, a 4$",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_heads",
+    "run_ids": [],
+    "value": 4.0,
+    "name": "n_heads",
+    "why": "attention heads",
+    "key": "const/n_heads"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/dmodel}",
+   "context": "cks, \\rhval{const/n_heads} heads, width \\rhval{const/dmodel}, a 4$\\times$ GELU MLP, learned position",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "dmodel",
+    "run_ids": [],
+    "value": 128.0,
+    "name": "dmodel",
+    "why": "model width",
+    "key": "const/dmodel"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_params}",
+   "context": "positional embeddings, no dropout, and \\rhval{const/n_params} parameters. Training uses random window",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_params",
+    "run_ids": [],
+    "value": 421632.0,
+    "name": "n_params",
+    "why": "trainable parameters of the 2-layer d=128 GPT (counted from the model)",
+    "key": "const/n_params"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/block}",
+   "context": "meters. Training uses random windows of \\rhval{const/block} characters, batch size \\rhval{const/bat",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "block",
+    "run_ids": [],
+    "value": 64.0,
+    "name": "block",
+    "why": "context length in characters",
+    "key": "const/block"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/batch}",
+   "context": "val{const/block} characters, batch size \\rhval{const/batch}, for \\rhval{const/steps} steps so each",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "batch",
+    "run_ids": [],
+    "value": 32.0,
+    "name": "batch",
+    "why": "sequences per batch",
+    "key": "const/batch"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "rs, batch size \\rhval{const/batch}, for \\rhval{const/steps} steps so each run processes \\rhval{cons",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/chars_seen}",
+   "context": "onst/steps} steps so each run processes \\rhval{const/chars_seen} characters, roughly three passes over t",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "chars_seen",
+    "run_ids": [],
+    "value": 3072000.0,
+    "name": "chars_seen",
+    "why": "characters processed per run = steps*batch*block (about 3 passes over the 90% training text)",
+    "key": "const/chars_seen"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_val_windows}",
+   "context": "n per-character cross-entropy (nats) on \\rhval{const/n_val_windows} fixed validation windows (identical for",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_val_windows",
+    "run_ids": [],
+    "value": 256.0,
+    "name": "n_val_windows",
+    "why": "fixed validation windows of length block",
+    "key": "const/n_val_windows"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "100",
+   "context": "Training loss is the mean over the last 100 steps. A run is flagged \\texttt{diverge",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "sens",
+    "metric": "n_lr_within_0p05",
+    "stat": "min",
+    "run_ids": [
+     "c44d87ff6a",
+     "ad493e2d10",
+     "e5549b26ed"
+    ],
+    "value": 1.0,
+    "key": "main/constant/sens/n_lr_within_0p05/min",
+    "form": "percent",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "10^{-3}",
+   "context": "systems $\\times$ three main peak LRs ($10^{-3},3\\times10^{-3},10^{-2}$) $\\times$ \\rhva",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_warmup",
+    "system": "Constant (warmup=300)",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "0931bff482",
+     "4edb06d742",
+     "d9c921bcde"
+    ],
+    "value": 0.0009663747973659455,
+    "key": "abl_warmup/constant-warmup-300/lr1e-2/val_loss/std",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "3\\times10^{-3}",
+   "context": "$\\times$ three main peak LRs ($10^{-3},3\\times10^{-3},10^{-2}$) $\\times$ \\rhval{const/n_seeds",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Schedule-free AdamW",
+    "task": "lr1e-2",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "82f6d8dffd",
+     "cdaf0a4798",
+     "5434374118"
+    ],
+    "value": 0.0030092563402127027,
+    "key": "main/schedule-free-adamw/lr1e-2/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "^{-3},3\\times10^{-3},10^{-2}$) $\\times$ \\rhval{const/n_seeds} seeds form the core grid; the extra rat",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "3\\times10^{-4}",
+   "context": "ds form the core grid; the extra rates $3\\times10^{-4}$ and $3\\times10^{-2}$ ($\\times$ four sy",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.lr",
+    "run_ids": [
+     "e0bf62e12c",
+     "4f37b1d54a",
+     "100bc0dfc0",
+     "b4693fd28d",
+     "d860592da1",
+     "5ffaabf57a",
+     "f7b46f80a0",
+     "61939d4588",
+     "bf31fc8b2c",
+     "f9fdd90039",
+     "629878eac3",
+     "6982439ad3"
+    ],
+    "value": 0.0003,
+    "candidates": 3
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "3\\times10^{-2}",
+   "context": "; the extra rates $3\\times10^{-4}$ and $3\\times10^{-2}$ ($\\times$ four systems $\\times$ \\rhval",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Constant",
+    "task": "lr3e-3",
+    "metric": "val_loss",
+    "stat": "std",
+    "run_ids": [
+     "f184366de2",
+     "315e4d6fd8",
+     "b37fc90d93"
+    ],
+    "value": 0.029121766924945548,
+    "key": "main/constant/lr3e-3/val_loss/std",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "0^{-2}$ ($\\times$ four systems $\\times$ \\rhval{const/n_seeds} seeds) were run afterwards with the ide",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "n_seeds",
+    "why": "seeds per cell",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/run_seconds_lo}",
+   "context": "ve seeds because each run takes roughly \\rhval{const/run_seconds_lo}--\\rhval{const/run_seconds_hi} seconds o",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "run_seconds_lo",
+    "run_ids": [],
+    "value": 90.0,
+    "name": "run_seconds_lo",
+    "why": "approximate single-run wall-clock, lower end, shared CPU, 2 threads",
+    "key": "const/run_seconds_lo"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/run_seconds_hi}",
+   "context": "s roughly \\rhval{const/run_seconds_lo}--\\rhval{const/run_seconds_hi} seconds on the shared CPU and the whole",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "run_seconds_hi",
+    "run_ids": [],
+    "value": 120.0,
+    "name": "run_seconds_hi",
+    "why": "approximate single-run wall-clock, upper end",
+    "key": "const/run_seconds_hi"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_runs}",
+   "context": "e shared CPU and the whole study logged \\rhval{const/n_runs} runs; five seeds were not cheap enough.",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_runs",
+    "run_ids": [],
+    "value": 112.0,
+    "name": "n_runs",
+    "why": "total logged runs in results/runs.jsonl at submission",
+    "key": "const/n_runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_runs}",
+   "context": "e same seeds. In total the study logged \\rhval{const/n_runs} runs (including derived sensitivity row",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_runs",
+    "run_ids": [],
+    "value": 112.0,
+    "name": "n_runs",
+    "why": "total logged runs in results/runs.jsonl at submission",
+    "key": "const/n_runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/batch}",
+   "context": "ng & Value \\\\\\midrule Batch / context & \\rhval{const/batch} / \\rhval{const/block} \\\\ Steps & \\rhval",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "batch",
+    "run_ids": [],
+    "value": 32.0,
+    "name": "batch",
+    "why": "sequences per batch",
+    "key": "const/batch"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/block}",
+   "context": "Batch / context & \\rhval{const/batch} / \\rhval{const/block} \\\\ Steps & \\rhval{const/steps} \\\\ Adam",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "block",
+    "run_ids": [],
+    "value": 64.0,
+    "name": "block",
+    "why": "context length in characters",
+    "key": "const/block"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/steps}",
+   "context": "batch} / \\rhval{const/block} \\\\ Steps & \\rhval{const/steps} \\\\ Adam $\\beta_1,\\beta_2$ & \\rhval{cons",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "steps",
+    "run_ids": [],
+    "value": 1500.0,
+    "name": "steps",
+    "why": "optimiser steps per run",
+    "key": "const/steps"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/beta1}",
+   "context": "onst/steps} \\\\ Adam $\\beta_1,\\beta_2$ & \\rhval{const/beta1}, \\rhval{const/beta2} \\\\ Weight decay (m",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "beta1",
+    "run_ids": [],
+    "value": 0.9,
+    "name": "beta1",
+    "why": "Adam beta1",
+    "key": "const/beta1"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/beta2}",
+   "context": "\\beta_1,\\beta_2$ & \\rhval{const/beta1}, \\rhval{const/beta2} \\\\ Weight decay (matrices) & \\rhval{con",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "beta2",
+    "run_ids": [],
+    "value": 0.95,
+    "name": "beta2",
+    "why": "Adam beta2",
+    "key": "const/beta2"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/wd}",
+   "context": "nst/beta2} \\\\ Weight decay (matrices) & \\rhval{const/wd} \\\\ Grad-norm clip & \\rhval{const/clip}",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "wd",
+    "run_ids": [],
+    "value": 0.1,
+    "name": "wd",
+    "why": "decoupled weight decay on matrices",
+    "key": "const/wd"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/clip}",
+   "context": "& \\rhval{const/wd} \\\\ Grad-norm clip & \\rhval{const/clip} \\\\ Warmup (cosine, SF) & \\rhval{const/w",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "clip",
+    "run_ids": [],
+    "value": 1.0,
+    "name": "clip",
+    "why": "global gradient-norm clip",
+    "key": "const/clip"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/warmup_default}",
+   "context": "al{const/clip} \\\\ Warmup (cosine, SF) & \\rhval{const/warmup_default} steps \\\\ Cosine floor & \\rhval{const/co",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "warmup_default",
+    "run_ids": [],
+    "value": 100.0,
+    "name": "warmup_default",
+    "why": "linear warmup steps for cosine and schedule-free",
+    "key": "const/warmup_default"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/cos_floor}",
+   "context": "warmup_default} steps \\\\ Cosine floor & \\rhval{const/cos_floor}$\\times$ peak \\\\ Step decay & $\\times$\\r",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "cos_floor",
+    "run_ids": [],
+    "value": 0.1,
+    "name": "cos_floor",
+    "why": "cosine decays to this fraction of the peak",
+    "key": "const/cos_floor"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/step_factor}",
+   "context": "r}$\\times$ peak \\\\ Step decay & $\\times$\\rhval{const/step_factor} at \\rhval{const/step_at1}, \\rhval{const",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "step_factor",
+    "run_ids": [],
+    "value": 0.3,
+    "name": "step_factor",
+    "why": "step-decay multiplier at each drop",
+    "key": "const/step_factor"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/step_at1}",
+   "context": "& $\\times$\\rhval{const/step_factor} at \\rhval{const/step_at1}, \\rhval{const/step_at2} \\\\ \\bottomrule\\",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "step_at1",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "step_at1",
+    "why": "first step-decay drop",
+    "key": "const/step_at1"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/step_at2}",
+   "context": "step_factor} at \\rhval{const/step_at1}, \\rhval{const/step_at2} \\\\ \\bottomrule\\end{tabular}\\end{table}",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "step_at2",
+    "run_ids": [],
+    "value": 1000.0,
+    "name": "step_at2",
+    "why": "second step-decay drop",
+    "key": "const/step_at2"
+   }
+  }
+ ],
+ "untraced": [],
+ "constants": [
+  {
+   "name": "n_params",
+   "value": 421632,
+   "why": "trainable parameters of the 2-layer d=128 GPT (counted from the model)"
+  },
+  {
+   "name": "n_chars",
+   "value": 1115394,
+   "why": "characters in the Tiny Shakespeare file"
+  },
+  {
+   "name": "vocab",
+   "value": 65,
+   "why": "distinct characters (vocabulary size)"
+  },
+  {
+   "name": "steps",
+   "value": 1500,
+   "why": "optimiser steps per run"
+  },
+  {
+   "name": "batch",
+   "value": 32,
+   "why": "sequences per batch"
+  },
+  {
+   "name": "block",
+   "value": 64,
+   "why": "context length in characters"
+  },
+  {
+   "name": "dmodel",
+   "value": 128,
+   "why": "model width"
+  },
+  {
+   "name": "n_layers",
+   "value": 2,
+   "why": "transformer blocks"
+  },
+  {
+   "name": "n_heads",
+   "value": 4,
+   "why": "attention heads"
+  },
+  {
+   "name": "warmup_default",
+   "value": 100,
+   "why": "linear warmup steps for cosine and schedule-free"
+  },
+  {
+   "name": "wd",
+   "value": 0.1,
+   "why": "decoupled weight decay on matrices"
+  },
+  {
+   "name": "clip",
+   "value": 1,
+   "why": "global gradient-norm clip"
+  },
+  {
+   "name": "n_val_windows",
+   "value": 256,
+   "why": "fixed validation windows of length block"
+  },
+  {
+   "name": "train_frac",
+   "value": 90,
+   "why": "percent of characters used for training (rest validation)"
+  },
+  {
+   "name": "cos_floor",
+   "value": 0.1,
+   "why": "cosine decays to this fraction of the peak"
+  },
+  {
+   "name": "step_factor",
+   "value": 0.3,
+   "why": "step-decay multiplier at each drop"
+  },
+  {
+   "name": "step_at1",
+   "value": 500,
+   "why": "first step-decay drop"
+  },
+  {
+   "name": "step_at2",
+   "value": 1000,
+   "why": "second step-decay drop"
+  },
+  {
+   "name": "n_seeds",
+   "value": 3,
+   "why": "seeds per cell"
+  },
+  {
+   "name": "n_runs",
+   "value": 112,
+   "why": "total logged runs in results/runs.jsonl at submission"
+  },
+  {
+   "name": "run_seconds_lo",
+   "value": 90,
+   "why": "approximate single-run wall-clock, lower end, shared CPU, 2 threads"
+  },
+  {
+   "name": "run_seconds_hi",
+   "value": 120,
+   "why": "approximate single-run wall-clock, upper end"
+  },
+  {
+   "name": "beta1",
+   "value": 0.9,
+   "why": "Adam beta1"
+  },
+  {
+   "name": "beta2",
+   "value": 0.95,
+   "why": "Adam beta2"
+  },
+  {
+   "name": "warm_alt1",
+   "value": 50,
+   "why": "alt warmup length"
+  },
+  {
+   "name": "warm_alt2",
+   "value": 300,
+   "why": "alt warmup length"
+  },
+  {
+   "name": "n_lr",
+   "value": 5,
+   "why": "number of peak learning rates in main plus sweep"
+  },
+  {
+   "name": "lr_lo",
+   "value": 0.0003,
+   "why": "lowest peak LR"
+  },
+  {
+   "name": "lr_hi",
+   "value": 0.03,
+   "why": "highest peak LR"
+  },
+  {
+   "name": "chars_seen",
+   "value": 3072000,
+   "why": "characters processed per run = steps*batch*block (about 3 passes over the 90% training text)"
+  },
+  {
+   "name": "eval_every",
+   "value": 150,
+   "why": "steps between validation evaluations in the curve runs"
+  }
+ ],
+ "summary": {
+  "checked": 333,
+  "traced": 333,
+  "untraced": 0,
+  "by_type": {
+   "aggregate": 238,
+   "compare": 20,
+   "config": 15,
+   "constant": 60
+  },
+  "files": [
+   "ablations.tex",
+   "abstract.tex",
+   "conclusion.tex",
+   "generated/abl_warmup.tex",
+   "generated/abl_warmup_fair.tex",
+   "generated/main.tex",
+   "generated/sens.tex",
+   "introduction.tex",
+   "keywords.tex",
+   "limitations.tex",
+   "main.tex",
+   "method.tex",
+   "related.tex",
+   "results.tex",
+   "setup.tex"
+  ],
+  "ok": true
+ }
+}

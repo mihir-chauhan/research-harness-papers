@@ -1,0 +1,15 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & sens3 $\downarrow$ & sens5 $\downarrow$ & best3 $\downarrow$ & $n$ \\
+\midrule
+\midrule
+\midrule
+\midrule
+\midrule
+\midrule
+Step decay & sens & 0.53 $\pm$ 0.05 & 0.68 $\pm$ 0.02 & 1.82 $\pm$ 0.02 & 3 \\
+Schedule-free AdamW & sens & \underline{0.25 $\pm$ 0.01} & \underline{0.54 $\pm$ 0.01} & \textbf{1.63 $\pm$ 0.00} & 3 \\
+Constant & sens & 0.65 $\pm$ 0.05 & 1.03 $\pm$ 0.03 & 1.76 $\pm$ 0.01 & 3 \\
+\textbf{Warmup+Cosine} & sens & \textbf{0.09 $\pm$ 0.01} & \textbf{0.40 $\pm$ 0.02} & \underline{1.67 $\pm$ 0.01} & 3 \\
+\bottomrule
+\end{tabular}

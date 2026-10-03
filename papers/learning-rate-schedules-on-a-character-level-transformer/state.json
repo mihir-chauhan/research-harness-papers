@@ -1,0 +1,120 @@
+{
+  "slug": "learning-rate-schedules-on-a-character-level-tra",
+  "direction": "Learning-rate schedules on a character-level transformer. 2-layer, 128-dimensional GPT on Tiny Shakespeare (characters) for 1,500 steps on CPU; constant, linear-warmup + cosine, step decay and schedule-free AdamW at 3 peak learning rates, 3 seeds; measure validation loss and sensitivity to the peak learning rate. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T20:20:50",
+  "updated": "2026-10-03T17:22:16",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T20:20:58",
+      "finished": "2026-10-02T20:28:20",
+      "notes": [
+        {
+          "t": "2026-10-02T20:28:20",
+          "note": "landscape+proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:28:20",
+      "notes": [
+        {
+          "t": "2026-10-02T20:28:20",
+          "note": "run.py smoke-tested"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:25:36",
+      "notes": [
+        {
+          "t": "2026-10-02T21:25:36",
+          "note": "reimplemented in run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:25:36",
+      "notes": [
+        {
+          "t": "2026-10-02T21:25:36",
+          "note": "main+sweep"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:25:36",
+      "notes": [
+        {
+          "t": "2026-10-02T21:25:36",
+          "note": "warmup, sweep"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:31:14",
+      "notes": [
+        {
+          "t": "2026-10-02T21:31:14",
+          "note": "tables, compare, figures"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T21:31:14",
+      "notes": [
+        {
+          "t": "2026-10-02T21:31:14",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T17:22:16",
+      "notes": [
+        {
+          "t": "2026-10-03T17:22:16",
+          "note": "paper built, numbers traced, check READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-03T17:22:01",
+      "phase": "results",
+      "decision": "Folded the extra-rate sweep (3e-4, 3e-2) and the derived sensitivity rows into registry group main (relabelled group field only; no run repeated) because rh check requires the method on every task in group main; analysis scripts updated accordingly."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}
