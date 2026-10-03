@@ -1,0 +1,13 @@
+# rh run | Sat Oct  3 15:26:54 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system ddpm --task unimodal --seed 8 --out results/raw/main_ddpm_unimodal_8_.json
+
+config: {"system": "ddpm", "task": "unimodal", "seed": 8, "jit": 0.01, "n_demos": 2000, "chunk": 1, "n_comp": 2, "n_steps": 50, "width": 128, "epochs": 40, "lr": 0.001, "batch": 256, "n_rollouts": 200, "out": "results/raw/main_ddpm_unimodal_8_.json"}
+epoch 10 train_loss 0.2966
+epoch 20 train_loss 0.2943
+epoch 30 train_loss 0.2868
+epoch 40 train_loss 0.2842
+metrics: {"success": 1.0, "collision": 0.0, "upper_share": 1.0, "lower_share": 0.0, "mode_balance": 0.0, "upper_frac": 1.0, "demo_upper_share": 1.0} (wall 13s)
+
+# rh: exit code 0 after 14.1 s
+# rh metrics: {"collision": 0.0, "demo_upper_share": 1.0, "lower_share": 0.0, "mode_balance": 0.0, "success": 1.0, "upper_frac": 1.0, "upper_share": 1.0}

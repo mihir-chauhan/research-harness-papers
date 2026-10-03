@@ -1,0 +1,13 @@
+# rh run | Sat Oct  3 15:20:09 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system mse --task bimodal50 --seed 7 --out results/raw/main_mse_bimodal50_7_.json
+
+config: {"system": "mse", "task": "bimodal50", "seed": 7, "jit": 0.01, "n_demos": 2000, "chunk": 1, "n_comp": 2, "n_steps": 50, "width": 128, "epochs": 40, "lr": 0.001, "batch": 256, "n_rollouts": 200, "out": "results/raw/main_mse_bimodal50_7_.json"}
+epoch 10 train_loss 0.5050
+epoch 20 train_loss 0.4997
+epoch 30 train_loss 0.4968
+epoch 40 train_loss 0.4952
+metrics: {"success": 0.775, "collision": 0.225, "upper_share": 0.255, "lower_share": 0.52, "mode_balance": 0.6580645161290323, "upper_frac": 0.32903225806451614, "demo_upper_share": 0.5} (wall 8s)
+
+# rh: exit code 0 after 9.7 s
+# rh metrics: {"collision": 0.225, "demo_upper_share": 0.5, "lower_share": 0.52, "mode_balance": 0.6580645161290323, "success": 0.775, "upper_frac": 0.32903225806451614, "upper_share": 0.255}

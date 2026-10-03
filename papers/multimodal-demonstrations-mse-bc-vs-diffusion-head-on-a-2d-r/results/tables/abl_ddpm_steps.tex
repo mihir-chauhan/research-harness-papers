@@ -1,0 +1,10 @@
+\begin{tabular}{lcccc}
+\toprule
+Method & success $\uparrow$ & collision $\downarrow$ & mode\_balance $\uparrow$ & $n$ \\
+\midrule
+DDPM head (steps=1) & 0.11 $\pm$ 0.09 & 0.89 $\pm$ 0.09 & 0.04 $\pm$ 0.06 & 5 \\
+DDPM head (steps=20) & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \textbf{0.92 $\pm$ 0.06} & 5 \\
+DDPM head (steps=10) & \underline{0.99 $\pm$ 0.01} & \underline{0.01 $\pm$ 0.01} & 0.90 $\pm$ 0.08 & 5 \\
+DDPM head (steps=5) & 0.99 $\pm$ 0.01 & 0.01 $\pm$ 0.01 & \underline{0.91 $\pm$ 0.06} & 5 \\
+\bottomrule
+\end{tabular}

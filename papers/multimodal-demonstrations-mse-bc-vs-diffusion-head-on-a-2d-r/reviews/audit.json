@@ -1,0 +1,79 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "All numbers in the paper trace to the registry and compare CSVs, all 217 registry rows have commands and hash-matching logs, and two re-executed main runs reproduced the registry values bit-for-bit. The code matches the described method, the baselines share data and budget with no leakage or selection, and the paper reports its negative result (no DDPM advantage over a 2-component GMM; DDPM weaker at 1 step and K=8) with adequate limitations. Only minor issues remain: an off-by-one run count, one uncited and one imprecise prior-work statement, undisclosed retraining in the steps ablation, and presentation flaws.",
+      "reran": [
+        {
+          "run": "MSE-MLP/bimodal50/3",
+          "metric": "success",
+          "registry": 0.785,
+          "rerun": 0.785
+        },
+        {
+          "run": "DDPM head/bimodal50/3",
+          "metric": "success",
+          "registry": 1.0,
+          "rerun": 1.0
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "States '216 experiment runs were logged, plus one pilot-seed sanity run'; the registry has 215 experiment runs (90+60+30+20+15) plus 1 pilot run (216 ok) and 1 failed attempt.",
+          "fix": "Say 215 experiment runs plus one pilot run (216 ok) and one failed attempt."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "The claim that a plain Gaussian-mixture head is 'often absent or weakly tuned' in benchmarks has no citation, and from memory Diffusion Policy itself compares against an LSTM-GMM baseline.",
+          "fix": "Cite support or soften the claim and acknowledge the LSTM-GMM comparison in Diffusion Policy."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "Lynch et al. is cited for a 'Gaussian-mixture head'; as recalled (not fetched) that work uses a discretised-logistic mixture. The intro also says the obstacle is passed 'on its left or its right' while the task and metrics use upper/lower modes.",
+          "fix": "Say 'mixture head' as in related work, and use 'above or below' consistently."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, method.tex",
+          "issue": "The denoising-steps ablation retrains the DDPM with an N-step schedule (--n_steps changes training and sampling), which the paper does not state; the sampler's clamp of outputs to +-5 is also undescribed.",
+          "fix": "State that each row is a model trained and sampled with N steps, and mention the output clamp."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex",
+          "issue": "Double-negative wording: 'below DDPM at K=4 by -0.114 and below GMM at K=8 by -0.123'.",
+          "fix": "Write 'lower by 0.114 / 0.123' or report signed differences without 'below'."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex",
+          "issue": "H1 is registered as MSE below both GMM and DDPM, but compare_main_success.csv only tests against the DDPM reference; the GMM-vs-MSE test is not reported.",
+          "fix": "Add the GMM-reference compare or state that only DDPM vs MSE was tested and GMM is at 1.000 with zero variance."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf",
+          "issue": "Author-block URL overflows the right margin on page 1; Table II rows are unordered; tables put best/second marks and up-arrows on upper_frac and mode_balance, where higher is not better (disclaimed only in the Table I caption).",
+          "fix": "Shorten or break the URL, sort rows by jitter and method, and drop the marks and arrows for those columns."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "The ablation table lists every ablation as 'missing / Matters? NO', contradicting the compare CSVs and the paper (1 step and K=8 clearly matter).",
+          "fix": "Regenerate the verdict with ablation comparisons wired in, or remove the stale table."
+        }
+      ],
+      "commit": "f0c5d51da2a8ab9303231b16c89dc0e56b62dcdf"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

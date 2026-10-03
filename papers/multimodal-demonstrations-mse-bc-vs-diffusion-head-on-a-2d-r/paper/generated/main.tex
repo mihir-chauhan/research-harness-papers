@@ -1,0 +1,17 @@
+\begin{tabular}{llccccc}
+\toprule
+Method & Task & success $\uparrow$ & collision $\downarrow$ & upper\_frac $\uparrow$ & mode\_balance $\uparrow$ & $n$ \\
+\midrule
+MSE-MLP & bimodal50 & 0.75 $\pm$ 0.06 & 0.25 $\pm$ 0.06 & \underline{0.52 $\pm$ 0.11} & 0.81 $\pm$ 0.12 & 10 \\
+GMM head & bimodal50 & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \textbf{0.52 $\pm$ 0.04} & \underline{0.93 $\pm$ 0.05} & 10 \\
+\textbf{DDPM head} & bimodal50 & \underline{1.00 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & 0.51 $\pm$ 0.03 & \textbf{0.95 $\pm$ 0.03} & 10 \\
+\midrule
+MSE-MLP & bimodal80 & 1.00 $\pm$ 0.01 & 0.01 $\pm$ 0.01 & \textbf{1.00 $\pm$ 0.00} & 0.00 $\pm$ 0.00 & 10 \\
+GMM head & bimodal80 & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & 0.81 $\pm$ 0.02 & \textbf{0.38 $\pm$ 0.05} & 10 \\
+\textbf{DDPM head} & bimodal80 & \underline{1.00 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & \underline{0.82 $\pm$ 0.02} & \underline{0.36 $\pm$ 0.03} & 10 \\
+\midrule
+MSE-MLP & unimodal & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & 10 \\
+GMM head & unimodal & \underline{1.00 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & \underline{1.00 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & 10 \\
+\textbf{DDPM head} & unimodal & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 10 \\
+\bottomrule
+\end{tabular}

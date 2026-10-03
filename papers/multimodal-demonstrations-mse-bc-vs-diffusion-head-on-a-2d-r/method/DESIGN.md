@@ -1,0 +1,3 @@
+# Design
+method/run.py: env + scripted expert + three heads. Observation = position (normalised); action = velocity command (normalised), chunk K (default 1, all K actions executed open loop).
+MSE: 3x128 ReLU MLP, MSE loss. GMM: 3x128 MLP -> M weights, means, diag log-sigmas (clamped [-6,2]); NLL; sampling from the mixture at test time. DDPM: 4x128 MLP on [obs, noisy chunk, sinusoidal step embedding], eps-prediction, cosine schedule, N=50, ancestral sampling with posterior variance. Adam lr 1e-3 cosine, 40 epochs, batch 256. Note: DDPM MLP has one more hidden layer (4 vs 3) because of the extra inputs.

@@ -1,0 +1,120 @@
+{
+  "slug": "multimodal-demonstrations-mse-bc-vs-diffusion-he",
+  "direction": "Multimodal demonstrations: MSE BC vs diffusion head on a 2D reach task. numpy point-mass that must pass an obstacle on the left or right; generate 2,000 scripted bimodal demonstrations; compare an MSE-regression MLP, a Gaussian-mixture head and a small DDPM action head (50 denoising steps); measure success rate and the share of rollouts per mode over 200 rollouts. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-03T13:55:24",
+  "updated": "2026-10-03T15:46:19",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-03T15:10:40",
+      "finished": "2026-10-03T15:17:40",
+      "notes": [
+        {
+          "t": "2026-10-03T15:17:40",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-03T15:17:41",
+      "finished": "2026-10-03T15:18:12",
+      "notes": [
+        {
+          "t": "2026-10-03T15:18:12",
+          "note": "implemented"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T15:41:50",
+      "notes": [
+        {
+          "t": "2026-10-03T15:41:50",
+          "note": "reimplemented"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T15:41:50",
+      "notes": [
+        {
+          "t": "2026-10-03T15:41:50",
+          "note": "216 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T15:41:50",
+      "notes": [
+        {
+          "t": "2026-10-03T15:41:50",
+          "note": "jitter, steps, comps, chunk"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": "2026-10-03T15:41:54",
+      "finished": "2026-10-03T15:46:19",
+      "notes": [
+        {
+          "t": "2026-10-03T15:46:19",
+          "note": "tables, compare"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T15:46:19",
+      "notes": [
+        {
+          "t": "2026-10-03T15:46:19",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T15:46:19",
+      "notes": [
+        {
+          "t": "2026-10-03T15:46:19",
+          "note": "built, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-03T15:17:40",
+      "phase": "novelty",
+      "decision": "Start jitter is a free choice in the seed; default 0.01 chosen from pilot seed 99, then swept as a sensitivity study; 10 seeds because runs take ~10s."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

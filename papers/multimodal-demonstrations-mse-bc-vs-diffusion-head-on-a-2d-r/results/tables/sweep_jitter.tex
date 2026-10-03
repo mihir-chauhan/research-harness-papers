@@ -1,0 +1,18 @@
+\begin{tabular}{lcccc}
+\toprule
+Method & success $\uparrow$ & collision $\downarrow$ & mode\_balance $\uparrow$ & $n$ \\
+\midrule
+MSE-MLP (jit=0.0) & 0.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 5 \\
+DDPM head (jit=0.03) & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & \textbf{0.95 $\pm$ 0.04} & 5 \\
+GMM head (jit=0.03) & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.94 $\pm$ 0.03 & 5 \\
+MSE-MLP (jit=0.03) & 0.90 $\pm$ 0.05 & 0.10 $\pm$ 0.05 & 0.87 $\pm$ 0.06 & 5 \\
+MSE-MLP (jit=0.1) & 0.98 $\pm$ 0.01 & 0.02 $\pm$ 0.01 & 0.93 $\pm$ 0.03 & 5 \\
+GMM head (jit=0.1) & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.94 $\pm$ 0.04 & 5 \\
+DDPM head (jit=0.1) & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & \underline{0.95 $\pm$ 0.03} & 5 \\
+DDPM head (jit=0.003) & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.90 $\pm$ 0.05 & 5 \\
+DDPM head (jit=0.0) & 1.00 $\pm$ 0.00 & 0.00 $\pm$ 0.00 & 0.95 $\pm$ 0.02 & 5 \\
+GMM head (jit=0.0) & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & 0.90 $\pm$ 0.07 & 5 \\
+MSE-MLP (jit=0.003) & 0.18 $\pm$ 0.05 & 0.82 $\pm$ 0.05 & 0.33 $\pm$ 0.30 & 5 \\
+GMM head (jit=0.003) & \underline{1.00 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & 0.90 $\pm$ 0.05 & 5 \\
+\bottomrule
+\end{tabular}

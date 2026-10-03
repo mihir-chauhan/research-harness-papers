@@ -1,0 +1,22 @@
+group,task,kind,name,metric,n,mean,std,ci_lo,ci_hi,min,max
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),success,5,0.9490000000000001,0.015572411502397401,0.937,0.961,0.935,0.97
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),collision,5,0.051000000000000004,0.015572411502397437,0.039,0.063,0.03,0.065
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),upper_share,5,0.499,0.062189227362944466,0.45199999999999996,0.546,0.415,0.565
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),lower_share,5,0.45,0.06294839156007086,0.40099999999999997,0.499,0.37,0.52
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),mode_balance,5,0.890985902587631,0.07653235574729206,0.8316176470588236,0.9503541581164383,0.7914438502673797,0.9690721649484536
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),upper_frac,5,0.5258615886477469,0.06589420390405286,0.47505824364526605,0.5766649336502278,0.4438502673796791,0.6042780748663101
+abl_gmm_comp,bimodal50,ablation,GMM head (M=1),demo_upper_share,5,0.5,0.0,0.5,0.5,0.5,0.5
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),success,5,1.0,0.0,1.0,1.0,1.0,1.0
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),collision,5,0.0,0.0,0.0,0.0,0.0,0.0
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),upper_share,5,0.509,0.0490407993409569,0.47300000000000003,0.5480499999999993,0.45,0.58
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),lower_share,5,0.491,0.04904079934095694,0.45195,0.5269999999999999,0.42,0.55
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),mode_balance,5,0.93,0.06244997998398396,0.8780000000000001,0.976,0.8400000000000001,1.0
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),upper_frac,5,0.509,0.0490407993409569,0.47300000000000003,0.5480499999999993,0.45,0.58
+abl_gmm_comp,bimodal50,ablation,GMM head (M=3),demo_upper_share,5,0.5,0.0,0.5,0.5,0.5,0.5
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),success,5,1.0,0.0,1.0,1.0,1.0,1.0
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),collision,5,0.0,0.0,0.0,0.0,0.0,0.0
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),upper_share,5,0.481,0.021621748310439646,0.4640000000000001,0.49799999999999994,0.455,0.505
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),lower_share,5,0.519,0.021621748310439674,0.502,0.536,0.495,0.545
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),mode_balance,5,0.958,0.038340579025361664,0.9279999999999999,0.9880000000000001,0.9099999999999999,1.0
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),upper_frac,5,0.481,0.021621748310439646,0.4640000000000001,0.49799999999999994,0.455,0.505
+abl_gmm_comp,bimodal50,ablation,GMM head (M=5),demo_upper_share,5,0.5,0.0,0.5,0.5,0.5,0.5

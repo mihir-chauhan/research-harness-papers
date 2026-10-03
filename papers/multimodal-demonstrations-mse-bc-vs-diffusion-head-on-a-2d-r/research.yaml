@@ -1,0 +1,189 @@
+slug: multimodal-demonstrations-mse-bc-vs-diffusion-he
+direction: 'Multimodal demonstrations: MSE BC vs diffusion head on a 2D reach task.
+  numpy point-mass that must pass an obstacle on the left or right; generate 2,000
+  scripted bimodal demonstrations; compare an MSE-regression MLP, a Gaussian-mixture
+  head and a small DDPM action head (50 denoising steps); measure success rate and
+  the share of rollouts per mode over 200 rollouts. Keep it a small CPU study with
+  reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed
+  results plainly.'
+problem: Behaviour cloning with a unimodal regression head averages incompatible demonstrated
+  modes. We ask when, in a minimal point-mass reach task with a left/right obstacle
+  bypass, multimodal action heads (Gaussian mixture, DDPM) actually beat an MSE MLP,
+  and whether the DDPM head offers anything over a 2-component mixture.
+gap: Diffusion policies are widely reported to handle multimodality better than MSE
+  or mixture heads, but small controlled comparisons that isolate start-state ambiguity,
+  mode-share fidelity and a matched mixture baseline, with all heads sharing one training
+  budget, are rare.
+contribution: 'A controlled, fully reproducible CPU study of MSE, GMM and 50-step
+  DDPM heads on bimodal demonstrations: success, collision and mode-share metrics
+  across 3 tasks and 10 seeds, a sensitivity sweep over start-state jitter (the quantity
+  that lets a regressor break symmetry), and ablations on DDPM steps, mixture components
+  and action-chunk length.'
+hypotheses:
+- id: H1
+  statement: On bimodal50 (start jitter 0.01), the MSE head has lower success than
+    both the GMM and the DDPM head.
+  test: rh compare --metric success --task bimodal50 (ref = DDPM head); refuted if
+    MSE is not lower than both at alpha 0.05
+- id: H2
+  statement: The DDPM head does not beat a 2-component GMM head in success on bimodal50
+    (difference < 0.05).
+  test: rh compare --metric success --task bimodal50, DDPM vs GMM; refuted if DDPM
+    exceeds GMM by >= 0.05 with p<0.05
+- id: H3
+  statement: On bimodal80, GMM and DDPM reproduce the demonstrated mode share (upper_frac
+    within 0.1 of 0.8).
+  test: mean upper_frac per system over seeds on bimodal80 versus 0.8
+- id: H4
+  statement: MSE success increases with start-state jitter, whereas GMM and DDPM success
+    is roughly flat.
+  test: 'sweep_jitter table: MSE success at jitter 0 vs 0.1 (rh compare), and range
+    of GMM/DDPM means'
+- id: H5
+  statement: DDPM success degrades when denoising steps are cut to 1 or 5.
+  test: abl_ddpm_steps vs the 50-step main rows, rh compare
+method:
+  name: DDPM head
+  summary: Small MLP epsilon-prediction DDPM (50 steps, cosine schedule) over the
+    action chunk conditioned on position; compared with reimplemented MSE-MLP and
+    Gaussian-mixture heads under identical data, architecture width, optimiser and
+    epochs.
+  components:
+  - denoising steps
+  - action chunk
+  entrypoint: method/run.py
+tasks:
+- bimodal50
+- bimodal80
+- unimodal
+metrics:
+  success:
+    higher_is_better: true
+  collision:
+    higher_is_better: false
+  upper_share:
+    higher_is_better: true
+  lower_share:
+    higher_is_better: true
+  upper_frac:
+    higher_is_better: true
+  mode_balance:
+    higher_is_better: true
+  demo_upper_share:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- MSE-MLP
+- GMM head
+ablations:
+- DDPM head (steps=1)
+- GMM head (M=1)
+- DDPM head (K=8)
+- MSE-MLP (jit=0.0)
+ambition:
+  target_tier: 2
+  primary_metric: success
+  primary_task: bimodal50
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_demos
+  value: 2000
+  why: scripted demonstrations per run
+- name: n_rollouts
+  value: 200
+  why: closed-loop evaluation rollouts per run
+- name: ddpm_steps
+  value: 50
+  why: DDPM denoising steps in main runs
+- name: obs_radius
+  value: 0.15
+  why: obstacle radius
+- name: vmax
+  value: 0.05
+  why: max action norm per step
+- name: goal_radius
+  value: 0.05
+  why: goal tolerance
+- name: t_max
+  value: 40
+  why: episode horizon
+- name: width
+  value: 128
+  why: MLP hidden width
+- name: epochs
+  value: 40
+  why: training epochs
+- name: lr
+  value: 0.001
+  why: Adam learning rate
+- name: batch
+  value: 256
+  why: batch size
+- name: main_seeds
+  value: 10
+  why: seeds in main group
+- name: abl_seeds
+  value: 5
+  why: seeds in sweeps/ablations
+- name: way_y
+  value: 0.35
+  why: waypoint lateral offset
+- name: way_noise
+  value: 0.02
+  why: waypoint noise std
+- name: act_noise
+  value: 0.003
+  why: expert action noise std
+- name: main_jit
+  value: 0.01
+  why: start jitter half-width in main runs
+- name: obs_x
+  value: 0.5
+  why: obstacle centre x
+- name: n_runs
+  value: 216
+  why: total logged runs excluding the sanity run
+- name: pilot_seed
+  value: 99
+  why: pilot seed used for debugging
+- name: p_upper_80
+  value: 0.8
+  why: upper-mode share of bimodal80 demos
+- name: p_upper_50
+  value: 0.5
+  why: upper-mode share of bimodal50 demos
+- name: gmm_main
+  value: 2
+  why: mixture components in main GMM
+- name: ddpm_depth
+  value: 4
+  why: hidden layers of DDPM MLP
+- name: mlp_depth
+  value: 3
+  why: hidden layers of MSE/GMM MLP
+- name: wall_per_run
+  value: 10
+  why: approximate seconds per run

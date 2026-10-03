@@ -1,0 +1,12 @@
+\begin{tabular}{lcccc}
+\toprule
+Method & success $\uparrow$ & collision $\downarrow$ & mode\_balance $\uparrow$ & $n$ \\
+\midrule
+MSE-MLP (K=4) & 0.22 $\pm$ 0.16 & 0.78 $\pm$ 0.16 & 0.43 $\pm$ 0.39 & 5 \\
+MSE-MLP (K=8) & 0.03 $\pm$ 0.02 & 0.97 $\pm$ 0.02 & 0.00 $\pm$ 0.00 & 5 \\
+GMM head (K=8) & \underline{1.00 $\pm$ 0.00} & \underline{0.00 $\pm$ 0.00} & \textbf{0.94 $\pm$ 0.04} & 5 \\
+DDPM head (K=8) & 0.88 $\pm$ 0.01 & 0.02 $\pm$ 0.01 & 0.80 $\pm$ 0.10 & 5 \\
+GMM head (K=4) & \textbf{1.00 $\pm$ 0.00} & \textbf{0.00 $\pm$ 0.00} & \underline{0.94 $\pm$ 0.06} & 5 \\
+DDPM head (K=4) & 0.99 $\pm$ 0.01 & 0.00 $\pm$ 0.00 & 0.88 $\pm$ 0.10 & 5 \\
+\bottomrule
+\end{tabular}

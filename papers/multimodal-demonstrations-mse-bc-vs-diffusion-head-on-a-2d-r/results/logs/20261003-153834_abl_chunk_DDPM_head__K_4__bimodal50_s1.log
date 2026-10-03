@@ -1,0 +1,13 @@
+# rh run | Sat Oct  3 15:38:34 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system ddpm --task bimodal50 --seed 1 --out results/raw/abl_chunk_ddpm_bimodal50_1_chunk4.json --chunk 4
+
+config: {"system": "ddpm", "task": "bimodal50", "seed": 1, "jit": 0.01, "n_demos": 2000, "chunk": 4, "n_comp": 2, "n_steps": 50, "width": 128, "epochs": 40, "lr": 0.001, "batch": 256, "n_rollouts": 200, "out": "results/raw/abl_chunk_ddpm_bimodal50_1_chunk4.json"}
+epoch 10 train_loss 0.3170
+epoch 20 train_loss 0.3048
+epoch 30 train_loss 0.2979
+epoch 40 train_loss 0.2931
+metrics: {"success": 0.99, "collision": 0.0, "upper_share": 0.49, "lower_share": 0.5, "mode_balance": 0.9898989898989898, "upper_frac": 0.494949494949495, "demo_upper_share": 0.5} (wall 12s)
+
+# rh: exit code 0 after 13.6 s
+# rh metrics: {"collision": 0.0, "demo_upper_share": 0.5, "lower_share": 0.5, "mode_balance": 0.9898989898989898, "success": 0.99, "upper_frac": 0.494949494949495, "upper_share": 0.49}

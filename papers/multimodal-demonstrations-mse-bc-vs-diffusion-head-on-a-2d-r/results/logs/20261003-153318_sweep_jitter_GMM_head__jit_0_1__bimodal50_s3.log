@@ -1,0 +1,13 @@
+# rh run | Sat Oct  3 15:33:18 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system gmm --task bimodal50 --seed 3 --out results/raw/sweep_jitter_gmm_bimodal50_3_jit0.1.json --jit 0.1
+
+config: {"system": "gmm", "task": "bimodal50", "seed": 3, "jit": 0.1, "n_demos": 2000, "chunk": 1, "n_comp": 2, "n_steps": 50, "width": 128, "epochs": 40, "lr": 0.001, "batch": 256, "n_rollouts": 200, "out": "results/raw/sweep_jitter_gmm_bimodal50_3_jit0.1.json"}
+epoch 10 train_loss 0.7252
+epoch 20 train_loss 0.7002
+epoch 30 train_loss 0.6861
+epoch 40 train_loss 0.6776
+metrics: {"success": 1.0, "collision": 0.0, "upper_share": 0.55, "lower_share": 0.45, "mode_balance": 0.8999999999999999, "upper_frac": 0.55, "demo_upper_share": 0.5} (wall 12s)
+
+# rh: exit code 0 after 13.0 s
+# rh metrics: {"collision": 0.0, "demo_upper_share": 0.5, "lower_share": 0.45, "mode_balance": 0.8999999999999999, "success": 1.0, "upper_frac": 0.55, "upper_share": 0.55}

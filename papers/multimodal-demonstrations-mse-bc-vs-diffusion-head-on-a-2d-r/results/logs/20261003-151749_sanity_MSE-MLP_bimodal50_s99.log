@@ -1,0 +1,19 @@
+# rh run | Sat Oct  3 15:17:49 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system mse --task bimodal50 --seed 99 --out results/raw/sanity.json
+
+config: {"system": "mse", "task": "bimodal50", "seed": 99, "jit": 0.01, "n_demos": 2000, "chunk": 1, "n_comp": 2, "n_steps": 50, "width": 128, "epochs": 40, "lr": 0.001, "batch": 256, "n_rollouts": 200, "out": "results/raw/sanity.json"}
+epoch 10 train_loss 0.5087
+epoch 20 train_loss 0.5025
+epoch 30 train_loss 0.4982
+epoch 40 train_loss 0.4962
+Traceback (most recent call last):
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/multimodal-demonstrations-mse-bc-vs-diffusion-head-on-a-2d-r/method/run.py", line 190, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/multimodal-demonstrations-mse-bc-vs-diffusion-head-on-a-2d-r/method/run.py", line 187, in main
+    json.dump(m, open(a.out, "w"))
+                 ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/sanity.json'
+
+# rh: exit code 1 after 7.1 s

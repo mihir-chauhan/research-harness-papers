@@ -1,0 +1,13 @@
+# rh run | Sat Oct  3 15:35:49 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system ddpm --task bimodal50 --seed 2 --out results/raw/abl_ddpm_steps_ddpm_bimodal50_2_n_steps20.json --n_steps 20
+
+config: {"system": "ddpm", "task": "bimodal50", "seed": 2, "jit": 0.01, "n_demos": 2000, "chunk": 1, "n_comp": 2, "n_steps": 20, "width": 128, "epochs": 40, "lr": 0.001, "batch": 256, "n_rollouts": 200, "out": "results/raw/abl_ddpm_steps_ddpm_bimodal50_2_n_steps20.json"}
+epoch 10 train_loss 0.2903
+epoch 20 train_loss 0.2836
+epoch 30 train_loss 0.2810
+epoch 40 train_loss 0.2787
+metrics: {"success": 1.0, "collision": 0.0, "upper_share": 0.49, "lower_share": 0.51, "mode_balance": 0.98, "upper_frac": 0.49, "demo_upper_share": 0.5} (wall 12s)
+
+# rh: exit code 0 after 13.2 s
+# rh metrics: {"collision": 0.0, "demo_upper_share": 0.5, "lower_share": 0.51, "mode_balance": 0.98, "success": 1.0, "upper_frac": 0.49, "upper_share": 0.49}
