@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:42:27 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system q --task random20 --seed 4 --curve results/raw/curve_main_random20_q_s4.csv --out results/raw/main_random20_q_s4.json
+
+config: {"alpha": 0.1, "branch": 3, "curve": "results/raw/curve_main_random20_q_s4.csv", "episodes": 1000, "epsilon": 0.1, "final_window": 20, "first_window": 20, "gamma": 0.7, "horizon": 25, "init": "zero", "mu": -0.1, "n_actions": 4, "n_est": 2, "n_states": 20, "out": "results/raw/main_random20_q_s4.json", "random_start": 1, "runs": 1000, "seed": 4, "sigma": 1.0, "system": "q", "task": "random20", "wdq_c": 1.0}
+metrics: {"bias_abs_final": 0.2929340763596561, "bias_allstates_final": -0.15309223356161036, "bias_final": -0.15201721855381434, "bias_first": -2.966003668429708, "bias_peak": -0.13933805755791917, "greedy_err_allstates_final": 0.18386249999999998, "greedy_err_final": 0.17350000000000002, "mean_optimal_gap": 0.7875834512948297, "qbias_final": -0.44594848600856735, "qbias_min": -2.549031115947965, "subopt_all": 0.25251256000000005, "subopt_final": 0.17772600000000002, "subopt_first": 0.46834999999999993}
+
+# rh: exit code 0 after 8.8 s
+# rh metrics: {"bias_abs_final": 0.2929340763596561, "bias_allstates_final": -0.15309223356161036, "bias_final": -0.15201721855381434, "bias_first": -2.966003668429708, "bias_peak": -0.13933805755791917, "greedy_err_allstates_final": 0.18386249999999998, "greedy_err_final": 0.17350000000000002, "mean_optimal_gap": 0.7875834512948297, "qbias_final": -0.44594848600856735, "qbias_min": -2.549031115947965, "subopt_all": 0.25251256000000005, "subopt_final": 0.17772600000000002, "subopt_first": 0.46834999999999993}

@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:40:42 2026
+# cwd: .
+# cmd: nice -n 10 python method/run.py --system q --task maxbias --seed 99 --runs 100 --out results/raw/sanity.json
+
+config: {"alpha": 0.1, "branch": 3, "curve": "", "episodes": 300, "epsilon": 0.1, "final_window": 20, "first_window": 20, "gamma": 1.0, "horizon": 25, "init": "zero", "mu": -0.1, "n_actions": 10, "n_est": 2, "n_states": 20, "out": "results/raw/sanity.json", "random_start": 0, "runs": 100, "seed": 99, "sigma": 1.0, "system": "q", "task": "maxbias", "wdq_c": 1.0}
+metrics: {"bias_abs_final": 0.008735167356997114, "bias_allstates_final": 0.008735167356997114, "bias_final": 0.008735167356997114, "bias_first": 0.03473101339137416, "bias_peak": 0.10524380522681694, "greedy_err_allstates_final": 0.07050000000000002, "greedy_err_final": 0.07050000000000002, "qbias_final": 0.07607009861801009, "qbias_min": 0.07485361118161828, "subopt_all": 0.37523333333333336, "subopt_final": 0.11299999999999996, "subopt_first": 0.8029999999999999}
+
+# rh: exit code 0 after 0.2 s
+# rh metrics: {"bias_abs_final": 0.008735167356997114, "bias_allstates_final": 0.008735167356997114, "bias_final": 0.008735167356997114, "bias_first": 0.03473101339137416, "bias_peak": 0.10524380522681694, "greedy_err_allstates_final": 0.07050000000000002, "greedy_err_final": 0.07050000000000002, "qbias_final": 0.07607009861801009, "qbias_min": 0.07485361118161828, "subopt_all": 0.37523333333333336, "subopt_final": 0.11299999999999996, "subopt_first": 0.8029999999999999}

@@ -1,0 +1,5 @@
+# Protocol
+Tasks. maxbias: states A (start), B; A: right -> terminal r=0, left -> B r=0; B: 10 actions, r ~ N(-0.1, 1), terminal; gamma=1; V*(A)=0, Q*(A,left)=-0.1; 300 episodes. random20: 20 states, 4 actions, 3 random successors per (s,a) with Dirichlet(1) probabilities, mean reward N(0,1), observed reward + N(0,sigma^2) with sigma=1, gamma=0.7, episodes of 25 steps from a uniformly random start state, 1,000 episodes; state 0 is the designated "start state" for the bias metric; true Q* by value iteration. Each seed runs 1,000 independent replicas (own tables, own random MDP in random20, own noise), vectorised.
+Systems: q, double, wdq, maxmin (N=2), double_both. alpha=0.1, epsilon=0.1 (epsilon-greedy on the sum/min of tables), Q initialised to 0, no tuning (hyperparameters from Sutton-Barto; alpha, epsilon, sigma, actions are swept as sensitivity, not tuned). Seeds 0-4. Metrics are means over the 1,000 replicas, then over the last 20 (final) or all episodes.
+Hardware: shared CPU, 2 threads. Runtime ~2-10 s per run.
+Groups: main; abl_double, abl_warm; sweep_sigma, sweep_eps, sweep_alpha (random20); sweep_actions (maxbias).

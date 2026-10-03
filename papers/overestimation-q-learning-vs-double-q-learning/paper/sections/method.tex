@@ -1,0 +1,28 @@
+All agents are tabular, off-policy and $\epsilon$-greedy. Let $Q_k(s,a)$, $k=1..K$, be the tables of an agent ($K=1$ for Q-learning, $K=2$ otherwise), $\alpha$ the step size, $\gamma$ the discount, and $\mathcal A(s)$ the valid actions. The behaviour values are $\bar Q=Q_1$ (Q-learning), $\bar Q=\tfrac12(Q_1+Q_2)$ (the double family) or $\bar Q=\min_k Q_k$ (Maxmin); the agent takes a uniformly random valid action with probability $\epsilon$ and $\arg\max_a \bar Q(s,a)$ otherwise. After a transition $(s,a,r,s')$ the update is $Q(s,a)\leftarrow Q(s,a)+\alpha\,(y-Q(s,a))$ with target $y$ and $y=r$ if $s'$ is terminal.
+
+\paragraph{Q-learning (reimplemented).}
+\begin{equation}
+y = r+\gamma \max_{a'} Q_1(s',a').
+\end{equation}
+
+\paragraph{Double Q-learning (reimplemented).} A table $u\in\{1,2\}$ is drawn uniformly per step, $o$ is the other table, and
+\begin{equation}
+a^\ast=\arg\max_{a'}Q_u(s',a'),\qquad y=r+\gamma\,Q_o(s',a^\ast),\label{eq:dq}
+\end{equation}
+and only $Q_u(s,a)$ is updated. Each table is therefore updated on about half of the samples.
+
+\paragraph{Weighted Double Q-learning (reimplemented).} With $a^\ast=\arg\max_{a'}Q_u(s',a')$, $a_L=\arg\min_{a'}Q_u(s',a')$ and
+\begin{equation}
+\beta=\frac{|Q_o(s',a^\ast)-Q_o(s',a_L)|}{c+|Q_o(s',a^\ast)-Q_o(s',a_L)|},\quad y=r+\gamma\big[\beta Q_u(s',a^\ast)+(1-\beta)Q_o(s',a^\ast)\big],
+\end{equation}
+with $c=1$~\cite{zhang2017weighted}; $\beta\to1$ recovers Q-learning's single estimator and $\beta\to0$ Double Q-learning.
+
+\paragraph{Maxmin Q-learning (reimplemented, $N=2$).}
+\begin{equation}
+y=r+\gamma\max_{a'}\min_{k} Q_k(s',a'),
+\end{equation}
+and one table chosen uniformly is updated~\cite{lan2020maxmin}.
+
+\paragraph{Simultaneous double update (ablation).} Both tables are updated on every sample with the cross targets of Eq.~\eqref{eq:dq} (table 1 first, table 2 second, in place). If both tables start equal and receive the same sample, the cross target equals the single-estimator target, so by induction they stay equal and the agent is Q-learning; the in-place order is the only source of difference from Q-learning when a state transitions to itself.
+
+\paragraph{Quantities measured.} The estimated value of a state is $\hat V(s)=\max_{a\in\mathcal A(s)}\bar Q(s,a)$; the true optimal value $V^\ast(s)$ is known (closed form on the trap MDP, value iteration on random MDPs). The \emph{start-state bias} is $\hat V(s_0)-V^\ast(s_0)$, measured at the end of every episode and averaged over the 1,000 runs. The \emph{$Q$-bias} is $Q(A,\text{left})-q^\ast(A,\text{left})$ on the trap MDP and $\overline{\bar Q(s,a)-q^\ast(s,a)}$ averaged over all state--action pairs on random MDPs. The \emph{suboptimal-action fraction} of an episode is the fraction of actions taken (including exploratory ones, so the floor is not zero) that differ from the optimal action: at the start state on the trap MDP, and over all steps on random MDPs. \emph{Greedy error} is the fraction of runs (trap) or of states (random) at which the greedy action of $\bar Q$ is not optimal. Because $q^\ast(A,\text{right})=0$ is learned exactly, $\hat V(A)\ge 0=V^\ast(A)$ on the trap MDP: this metric can only register overestimation there, and $Q$-bias is the signed companion.

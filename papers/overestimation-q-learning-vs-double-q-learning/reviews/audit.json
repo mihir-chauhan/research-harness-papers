@@ -1,0 +1,91 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "All 252 registry rows have commands, hashed logs and matching metrics; three main-group runs re-executed bit-identically, and every number and p-value in the paper recomputes from the registry. The code implements the described estimators with matched budgets and no leakage, and the paper reports its mixed/negative result and limitations honestly. Only minor issues remain: two foundational works uncited, one overclaimed mechanism sentence, a post hoc ablation not flagged, and presentation glitches.",
+      "reran": [
+        {
+          "run": "Double Q-learning/random20/0",
+          "metric": "bias_final",
+          "registry": -0.3604083436528241,
+          "rerun": -0.3604083436528241
+        },
+        {
+          "run": "Q-learning/random20/3",
+          "metric": "bias_final",
+          "registry": -0.13465085717908581,
+          "rerun": -0.13465085717908581
+        },
+        {
+          "run": "Q-learning/maxbias/4",
+          "metric": "subopt_all",
+          "registry": 0.37818,
+          "rerun": 0.37818
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, introduction.tex, refs.bib",
+          "issue": "van Hasselt (2010) Double Q-learning and Sutton & Barto, the central method and benchmark, are named in text but not in the reference list.",
+          "fix": "Add both to refs.bib (NeurIPS 2010 proceedings entry; the textbook) and cite them."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/introduction.tex",
+          "issue": "Uncited claim that the standard tabular evidence is a single small MDP; van Hasselt 2010, Zhang 2017 and Lan 2020, as recalled by the auditor (not fetched), include other tabular experiments.",
+          "fix": "Soften the sentence and cite the tabular experiments in those papers."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (warm-start paragraph)",
+          "issue": "States that Double's cost is 'thus a cost of reaching the true values from a bad initialisation, not a property of the steady state'; one 1,000-episode warm-start ablation does not establish this and it contradicts the paper's own 'none of them is a proof of mechanism'.",
+          "fix": "Reword to 'consistent with' and drop the steady-state assertion."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H1)",
+          "issue": "Zero initialisation is offered as the likely reason both Q-biases are positive, but the warm-start run shows Q-learning's Q-bias unchanged (0.0748 vs 0.0745); only Double's drops.",
+          "fix": "Attribute the initialisation effect to Double only and describe Q-learning's bias as persisting under warm start."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex",
+          "issue": "The 20 trap-MDP warm-start runs were added after the main results (jobs_extra.txt, commit 18990bd) but are presented as 'the clean version of H1' without being flagged as post hoc.",
+          "fix": "State in the setup that the trap-MDP warm-start runs were added after seeing the main results."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Tables I and II (generated/main.tex, abl_warm.tex)",
+          "issue": "Down-arrows and bold/underline on signed bias columns mark the most negative bias as best; disclaimed only in the results text.",
+          "fix": "Remove the marks on signed columns or repeat the disclaimer in the captions."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex Eq. (3)",
+          "issue": "The Weighted Double target overflows the column and is cut off in the PDF.",
+          "fix": "Break the equation over two lines."
+        },
+        {
+          "severity": "minor",
+          "where": "paper Tables IV and V (sweeps)",
+          "issue": "Sweep tables report means only, with no spread.",
+          "fix": "Add the standard deviation over seeds or state its bound in the caption."
+        },
+        {
+          "severity": "minor",
+          "where": "results/VERDICT.md",
+          "issue": "Auto-generated ablation table says 'missing / Matters? NO' for every ablation, contradicting the paper's ablation findings.",
+          "fix": "Regenerate with ablation deltas wired in, or annotate that the table is not populated."
+        }
+      ],
+      "commit": "a353db8194b95973ecf186f4421a8674af2d888a"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

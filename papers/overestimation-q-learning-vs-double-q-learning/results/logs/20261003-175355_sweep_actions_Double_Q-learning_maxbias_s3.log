@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 17:53:55 2026
+# cwd: .
+# cmd: nice -n 10 /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system double --task maxbias --seed 3 --n_actions 5 --out results/raw/sweep_actions_maxbias_double_5_s3.json
+
+config: {"alpha": 0.1, "branch": 3, "curve": "", "episodes": 300, "epsilon": 0.1, "final_window": 20, "first_window": 20, "gamma": 1.0, "horizon": 25, "init": "zero", "mu": -0.1, "n_actions": 5, "n_est": 2, "n_states": 20, "out": "results/raw/sweep_actions_maxbias_double_5_s3.json", "random_start": 0, "runs": 1000, "seed": 3, "sigma": 1.0, "system": "double", "task": "maxbias", "wdq_c": 1.0}
+metrics: {"bias_abs_final": 0.0006616189644302115, "bias_allstates_final": 0.0006616189644302115, "bias_final": 0.0006616189644302115, "bias_first": 0.0030753790520049447, "bias_peak": 0.007625411761010906, "greedy_err_allstates_final": 0.011200000000000002, "greedy_err_final": 0.011200000000000002, "qbias_final": 0.05185986449107129, "qbias_min": 0.0504030122269596, "subopt_all": 0.10787333333333333, "subopt_final": 0.060050000000000006, "subopt_first": 0.40054999999999996}
+
+# rh: exit code 0 after 0.3 s
+# rh metrics: {"bias_abs_final": 0.0006616189644302115, "bias_allstates_final": 0.0006616189644302115, "bias_final": 0.0006616189644302115, "bias_first": 0.0030753790520049447, "bias_peak": 0.007625411761010906, "greedy_err_allstates_final": 0.011200000000000002, "greedy_err_final": 0.011200000000000002, "qbias_final": 0.05185986449107129, "qbias_min": 0.0504030122269596, "subopt_all": 0.10787333333333333, "subopt_final": 0.060050000000000006, "subopt_first": 0.40054999999999996}

@@ -1,0 +1,120 @@
+{
+  "slug": "overestimation-q-learning-vs-double-q-learning",
+  "direction": "Overestimation: Q-learning vs double Q-learning. numpy tabular agents on a small MDP with a noisy-reward branch (Sutton and Barto maximisation-bias example) and on a 20-state random MDP; 1,000 runs; measure the estimated-minus-true value of the start state and the fraction of suboptimal actions per episode. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-03T00:52:08",
+  "updated": "2026-10-03T18:02:46",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-03T17:25:55",
+      "finished": "2026-10-03T17:40:37",
+      "notes": [
+        {
+          "t": "2026-10-03T17:40:37",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-03T17:40:37",
+      "finished": "2026-10-03T18:01:31",
+      "notes": [
+        {
+          "t": "2026-10-03T18:01:31",
+          "note": "run.py, DESIGN.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T18:01:31",
+      "notes": [
+        {
+          "t": "2026-10-03T18:01:31",
+          "note": "reimplemented wdq, maxmin"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T18:01:31",
+      "notes": [
+        {
+          "t": "2026-10-03T18:01:31",
+          "note": "main group 40 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T18:01:31",
+      "notes": [
+        {
+          "t": "2026-10-03T18:01:31",
+          "note": "warm, double_both, 4 sweeps"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T18:01:32",
+      "notes": [
+        {
+          "t": "2026-10-03T18:01:32",
+          "note": "ok"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T18:01:32",
+      "notes": [
+        {
+          "t": "2026-10-03T18:01:32",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T18:02:46",
+      "notes": [
+        {
+          "t": "2026-10-03T18:02:46",
+          "note": "7 pages"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-03T17:40:37",
+      "phase": "novelty",
+      "decision": "Tabular study with q/double/wdq/maxmin; random20 configured gamma .7, 25-step episodes, random starts, 1000 episodes after seed-0 pilot showed non-convergence; warm start and epsilon sweeps added to separate transient and adaptive-sampling bias."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

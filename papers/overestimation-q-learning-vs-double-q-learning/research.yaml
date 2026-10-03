@@ -1,0 +1,204 @@
+slug: overestimation-q-learning-vs-double-q-learning
+direction: 'Overestimation: Q-learning vs double Q-learning. numpy tabular agents
+  on a small MDP with a noisy-reward branch (Sutton and Barto maximisation-bias example)
+  and on a 20-state random MDP; 1,000 runs; measure the estimated-minus-true value
+  of the start state and the fraction of suboptimal actions per episode. Keep it a
+  small CPU study with reimplemented baselines, at least 5 seeds where cheap, and
+  report negative or mixed results plainly.'
+problem: Q-learning bootstraps from the maximum of noisy action-value estimates, which
+  is positively biased (maximisation bias); double Q-learning decouples action selection
+  from evaluation to remove it. How large are these biases, and what do they cost
+  in policy quality, in a bandit-like trap MDP and in random MDPs?
+gap: Most evidence for double Q-learning comes from the single Sutton-Barto trap MDP
+  or from deep RL, where bias is confounded with function approximation. A controlled
+  tabular comparison on random MDPs, with exact true values, with matched learning
+  rate and exploration, and with ablations that separate decoupling from slower learning
+  and from adaptive data collection, is rarely reported.
+contribution: A reproducible, vectorised (1,000 independent runs per seed) tabular
+  study of the estimated-minus-true value bias and the suboptimal-action rate of Q-learning,
+  Double Q-learning, Weighted Double Q-learning and Maxmin Q-learning, with sensitivity
+  sweeps over noise, number of actions, step size and exploration, and a warm-start
+  ablation that separates transient from steady-state bias.
+hypotheses:
+- id: H1
+  statement: On the maximisation-bias MDP, Q-learning overestimates the value of the
+    trap action (Q(A,left) minus its true value is positive) and Double Q-learning
+    does not (estimated-minus-true is lower than for Q-learning).
+  test: Welch t-test over 5 seeds (seed means of 1,000 runs) of qbias_final, Double
+    Q-learning vs Q-learning, rh compare, alpha 0.05.
+- id: H2
+  statement: On the maximisation-bias MDP, Double Q-learning takes fewer suboptimal
+    actions at the start state than Q-learning over the training episodes.
+  test: rh compare on subopt_all (lower is better), Double Q-learning vs Q-learning,
+    5 seeds, alpha 0.05.
+- id: H3
+  statement: On the 20-state random MDP, Q-learning has a positive start-state estimated-minus-true
+    bias that Double Q-learning removes, and Double Q-learning does not take fewer
+    suboptimal actions.
+  test: rh compare on bias_final and subopt_all for the random20 task, Double Q-learning
+    vs Q-learning, alpha 0.05. The first half is expected to be refuted if bias_final
+    of Q-learning is not positive.
+- id: H4
+  statement: The Q-learning bias grows with the noise scale (random MDP) and with
+    the number of actions at the trap state, and Double Q-learning stays below Q-learning
+    at every setting.
+  test: sweep groups sweep_sigma and sweep_actions; the claim is read only at the
+    swept grid values, from tables of seed means.
+method:
+  name: Double Q-learning
+  summary: Two tables updated alternately; the greedy action is chosen by the table
+    being updated and evaluated by the other (van Hasselt 2010). Compared with Q-learning,
+    Weighted Double Q-learning and Maxmin Q-learning, all reimplemented in numpy with
+    identical step size, exploration and budget.
+  components:
+  - decoupled selection and evaluation
+  - alternating updates
+  entrypoint: method/run.py
+tasks:
+- maxbias
+- random20
+metrics:
+  qbias_final:
+    higher_is_better: false
+  bias_final:
+    higher_is_better: false
+  bias_abs_final:
+    higher_is_better: false
+  subopt_all:
+    higher_is_better: false
+  subopt_final:
+    higher_is_better: false
+  greedy_err_final:
+    higher_is_better: false
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 6
+  max_total_minutes: 45
+baselines:
+- Q-learning
+- Weighted Double Q-learning
+- Maxmin Q-learning
+ablations:
+- Double Q-learning (both tables)
+- Q-learning
+- Double Q-learning
+ambition:
+  target_tier: 2
+  primary_metric: qbias_final
+  primary_task: maxbias
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_replicas
+  value: 1000
+  why: independent runs per seed
+- name: seeds
+  value: 5
+  why: seeds per configuration (0-4)
+- name: ep_maxbias
+  value: 300
+  why: episodes per run, maxbias task
+- name: ep_random
+  value: 1000
+  why: episodes per run, random20 task
+- name: horizon
+  value: 25
+  why: steps per random20 episode
+- name: gamma_random
+  value: 0.7
+  why: discount of random20
+- name: n_states
+  value: 20
+  why: states of random MDP
+- name: n_actions_random
+  value: 4
+  why: actions per state in random20
+- name: branching
+  value: 3
+  why: random successor states per state-action
+- name: alpha
+  value: 0.1
+  why: default step size
+- name: epsilon
+  value: 0.1
+  why: default exploration rate
+- name: sigma
+  value: 1
+  why: default reward noise std in random20 and maxbias
+- name: n_actions_B
+  value: 10
+  why: default number of actions at state B
+- name: mu_B
+  value: -0.1
+  why: mean reward of B actions in maxbias
+- name: wdq_c
+  value: 1
+  why: constant c of Weighted Double Q-learning
+- name: final_window
+  value: 20
+  why: episodes averaged for final metrics
+- name: pilot_gamma
+  value: 0.9
+  why: discount used in the seed-0 pilot
+- name: pilot_episodes
+  value: 300
+  why: episodes used in the seed-0 pilot
+- name: n_systems
+  value: 4
+  why: systems compared in main
+- name: n_seeds_tests
+  value: 5
+  why: seeds in tests
+- name: alpha_half
+  value: 0.05
+  why: half step size in sweep
+- name: alpha_low
+  value: 0.02
+  why: alpha sweep value
+- name: alpha_high
+  value: 0.2
+  why: alpha sweep value
+- name: eps_mid
+  value: 0.3
+  why: epsilon sweep value
+- name: eps_one
+  value: 1
+  why: epsilon sweep value
+- name: sigma_low
+  value: 0.25
+  why: sigma sweep value
+- name: sigma_two
+  value: 2
+  why: sigma sweep value
+- name: sigma_four
+  value: 4
+  why: sigma sweep value
+- name: total_runs_main
+  value: 40
+  why: runs in main group
+- name: n_runs_experiments
+  value: 250
+  why: experiment runs (230 main/ablation/sweep + 20 warm-start trap runs)
+- name: summed_minutes
+  value: 24
+  why: sum of run durations over all logged runs, from provenance
+- name: longest_run_s
+  value: 15
+  why: longest single run, seconds, from provenance
+- name: n_runs_total
+  value: 252
+  why: all rows in the run registry incl. 1 sanity and 1 aggregation run
