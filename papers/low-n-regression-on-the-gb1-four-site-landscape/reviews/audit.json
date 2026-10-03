@@ -1,0 +1,177 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 2,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "FIX",
+      "summary": "All results are real, traced to logged runs and bit-reproducible (four reruns identical), every prose number and p-value matches the registry, and the negative outcome is reported honestly. One ablation paragraph (GP hyperparameters) makes a claim its own numbers contradict, and there are minor text and bookkeeping issues (8 pages, title wording, abstract attribution strength, stale protocol numbers).",
+      "reran": [
+        {
+          "run": "One-hot + pairwise ridge/rand_384/0",
+          "metric": "spearman",
+          "registry": 0.35306906690778667,
+          "rerun": 0.35306906690778667
+        },
+        {
+          "run": "CNN (reimplemented)/rand_384/0",
+          "metric": "spearman",
+          "registry": 0.4426717633443382,
+          "rerun": 0.4426717633443382
+        },
+        {
+          "run": "One-hot ridge (reimplemented)/dbl_2000/2",
+          "metric": "spearman",
+          "registry": 0.35695389275843636,
+          "rerun": 0.35695389275843636
+        },
+        {
+          "run": "GP Hamming kernel (reimplemented)/rand_2000/1",
+          "metric": "spearman",
+          "registry": 0.4482568244068962,
+          "rerun": 0.4482568244068962
+        }
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "where": "paper/sections/ablations.tex, GP hyperparameters",
+          "issue": "Text says the fixed setting 'changes the GP little' and that fitting 'is therefore not what limits the GP', but paired data show consistent shifts in all 5 seeds at N=2000: rand_2000 0.430 vs 0.451 fitted (p=0.0007) and dbl_2000 0.353 vs 0.322 fitted (p=0.0001). At dbl_2000 the fixed GP equals additive ridge (0.353 vs 0.354), so marginal-likelihood selection explains the GP's whole deficit there.",
+          "fix": "Rewrite: the effect is negligible at rand_384, fitting helps at rand_2000 (+0.021) and hurts at dbl_2000 (-0.031), where the fixed GP matches ridge; drop the 'not what limits the GP' sentence and note that marginal likelihood on low-order mutants mis-selects for extrapolation."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/abstract.tex and conclusion.tex",
+          "issue": "'We attribute the CNN's edge mainly to a learned output nonlinearity rather than to epistasis' is stronger than the ablation supports: the CNN itself gains 0.08-0.10 from the log target, it stays ahead of ridge at N=2000 (0.602 vs 0.589, p=0.039), and the CNN log-target run was not done on dbl tasks.",
+          "fix": "Soften to 'consistent with' and state that the gap closes at N<=384 and roughly halves at N=2000."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/title.tex",
+          "issue": "'Compared Under Matched Budgets' conflicts with the paper's own limitation that the CNN received more, manual tuning on test-set Spearman of a separate draw, and that ensembling was CNN-only.",
+          "fix": "Change to 'matched training draws' or drop the phrase."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex and abstract.tex",
+          "issue": "CNN configuration was selected on test-pool Spearman of the seed-100 draw, which overlaps the evaluation test pools almost entirely; the tuning gain (+0.04 at N=384) is about the size of the CNN's lead (0.049). This is disclosed in Setup and Limitations, but 'Tasks, splits and seeds' says every hyperparameter is chosen on the training set or fixed in advance, and the abstract states the CNN lead without the caveat.",
+          "fix": "Make the splits paragraph consistent with the tuning-budget paragraph and add a short caveat in the abstract, or re-tune the CNN with an inner validation split of the training set."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf",
+          "issue": "PDF is 8 pages; the limit is 4-7.",
+          "fix": "Shrink Table II or the per-distance tables so the conclusion and references fit in 7 pages."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections (constants via rhval)",
+          "issue": "Padded precision on constants: '76.90%' (true 76.87%), '19.70%', 'dropout (0.2000)', 'learning rate 0.003000', 'weight decay 0.1000', 'maximum 8.760' (true 8.762).",
+          "fix": "Use explicit format specifiers or store the constants at the precision printed (76.9, 19.7, 0.2, 0.003, 0.1, 8.76)."
+        },
+        {
+          "severity": "minor",
+          "where": "experiments/PROTOCOL.md, BRIEF.md, paper/sections/setup.tex",
+          "issue": "PROTOCOL.md and BRIEF.md give a dbl pool of 2,243 and a test set of 147,118; the data and the paper give 2,168 and 147,193. The paper also says 'the protocol file gives the URL', but the URL is only in method/DESIGN.md.",
+          "fix": "Correct the stale counts and add the URL to PROTOCOL.md, or point the paper at DESIGN.md."
+        },
+        {
+          "severity": "minor",
+          "where": "results/runs.jsonl, results/tables/compare_main_*.csv",
+          "issue": "30 superseded rows labelled 'CNN (reimplemented)' actually ran --system ridge (driver naming bug); they are correctly excluded from aggregation but remain as ok rows. The compare CSVs on disk contain only the dbl_2000 rows, although the quoted p-values for other tasks are correct in values.tex and reproduce independently.",
+          "fix": "Note the mislabelled superseded rows in the README or protocol and regenerate the compare CSVs for all tasks and reference systems quoted."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, Hypotheses and decision rules",
+          "issue": "The switch from Wilcoxon to paired t-tests was made after the main runs were inspected (stated in the proposal.md amendment) but the paper does not say so.",
+          "fix": "Add one clause stating the test substitution was made after seeing the main results; the mean-based refutation rules were pre-stated."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex, Gap addressed",
+          "issue": "'Prior comparisons mostly report Spearman on a fixed split or on assay-averaged benchmarks' is an uncited generalisation about prior work.",
+          "fix": "Cite FLIP and ProteinGym on that sentence or soften it to the cited benchmarks."
+        }
+      ],
+      "commit": "2481af9cc3f6197dade4827d919cfb9ed17e5c17"
+    },
+    {
+      "verdict": "PASS",
+      "summary": "All prose numbers and p-values trace to registry rows, tables and rh compare CSVs; four re-executed main-group runs reproduce the registry bitwise, logs match metrics for every run, and no hand-logged or hard-coded results exist. The paper reports its negative result (pairwise ridge does not win and collapses under single/double-mutant training) and the CNN tuning asymmetry plainly; only minor presentation and disclosure issues remain.",
+      "reran": [
+        {
+          "run": "One-hot + pairwise ridge/rand_384/2",
+          "metric": "spearman",
+          "registry": 0.4821243457424382,
+          "rerun": 0.4821243457424382
+        },
+        {
+          "run": "CNN (reimplemented)/rand_384/2",
+          "metric": "spearman",
+          "registry": 0.47588397168996976,
+          "rerun": 0.47588397168996976
+        },
+        {
+          "run": "One-hot ridge (reimplemented)/dbl_2000/1",
+          "metric": "spearman",
+          "registry": 0.34751210121383763,
+          "rerun": 0.34751210121383763
+        },
+        {
+          "run": "One-hot + pairwise ridge/dbl_2000/1",
+          "metric": "spearman",
+          "registry": 0.1839699522229432,
+          "rerun": 0.1839699522229432
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, Table IV (generated/abl_logtarget.tex)",
+          "issue": "Table IV prints 2 decimals and omits the CNN log-target row and all top-100 recall values, while the text quotes 3-decimal Spearman (0.523/0.530/0.516/0.520) and recalls (0.004, 0.114, 0.212) that match the registry but cannot be checked from any table in the paper.",
+          "fix": "Regenerate Table IV with 3 decimals, add the CNN log-target rows from abl_cnn and a top100_recall column."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex, abstract.tex, setup.tex",
+          "issue": "The log-target ablation for ridge/pairwise/GP was added after the main results (proposal planned a log target only as a CNN variant) and is not labelled post hoc, although headline finding (ii) rests on it. The residual CNN lead at N=2000 is within about one std of the per-seed differences (0.014 +/- 0.010 vs ridge, 0.011 +/- 0.019 vs GP), and the text compares to ridge (0.589) rather than the closer GP (0.592).",
+          "fix": "State that the all-model log-target ablation was post hoc, compare to GP at N=2000, and describe the remaining gap as within noise; note the 0.01 offset was a single untuned choice."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (H3)",
+          "issue": "H3 is about the CNN versus the best linear/kernel model, but the quoted p-values (0.070, 0.060, 0.033) are CNN versus pairwise ridge because rh compare was only run with pairwise ridge as reference.",
+          "fix": "Run rh compare with the CNN as reference (or against ridge/GP) and quote those p-values, or state explicitly that the H3 comparator has no test."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex, limitations.tex; method/run.py",
+          "issue": "Hyperparameter grids hit their edges: the GP selects gamma=1.6 (grid maximum) in most N<=96 draws and noise 0.01 (minimum) often; ridge CV picks alpha=1000 (maximum) in several N<=96 draws. Not disclosed.",
+          "fix": "Disclose edge selections in limitations, or widen the grids and rerun the GP/ridge rows (cheap)."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/ablations.tex (GP hyperparameters), results.tex Table II caption",
+          "issue": "Sentence 'matters little at rand384 but not at the larger sizes' is garbled; Table II caption says HD2 is omitted because 'fewer than the minimum needed exist in the dbl tasks' when the dbl test set contains no HD2 variants by construction.",
+          "fix": "Reword both sentences."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/setup.tex, results/VERDICT.md, experiments/PROTOCOL.md",
+          "issue": "Paper mentions only the failed tune_cnn rows, not the 30 superseded main rows labelled CNN that actually ran ridge (disclosed only in PROTOCOL.md); VERDICT.md lists all ablations as 'missing / NO'; PROTOCOL says each run < 1 min but ensemble runs took up to 170 s; code_sha256 changed mid main group at the same git commit (results still reproduce).",
+          "fix": "Add one sentence on the superseded mislabelled rows to the setup section, fix the VERDICT ablation mapping, and correct the run-time statement."
+        }
+      ],
+      "commit": "4e3aa3f600d7df0c3d8e7f4252234e2155202ae3"
+    }
+  ],
+  "fix_rounds": [
+    {
+      "ready": true,
+      "check": "HARD FAILS: none\nWARNINGS (2):\n! 12 failed runs in registry (fine, but check they were rerun)\n! verdict tier 0 < target 2: not best on rand_384: ours 0.3955 vs CNN (reimplemented) 0.4443\nREADY",
+      "response": "# Response to audit findings\n\n1. **GP hyperparameters (major).** Rewrote the paragraph in ablations.tex: negligible effect at rand_384; fitting raises the mean at rand_2000 and lowers it at dbl_2000, where the fixed GP is about as good as additive ridge. Removed \"not what limits the GP\"; marginal-likelihood mis-selection is offered only as a possible mechanism (\"may\"), with no isolating run claimed. No new p-values quoted (none are in the registry for this comparison).\n2. **CNN attribution (minor).** Abstract, conclusion, ablation text and limitations now say \"consistent with\", state that the gap closes at N<=384 and narrows but does not vanish at N=2000, that the CNN also gains from the log target, and that the CNN log-target run was not done on dbl tasks.\n3. **Title (minor).** \"Under Matched Budgets\" replaced by \"on Matched Training Draws\".\n4. **CNN tuning vs. splits paragraph (minor).** Setup splits paragraph now states the CNN was chosen manually on a separate draw overlapping the test pools; the abstract carries the caveat that the CNN lead is an upper estimate. No re-tuning was done.\n5. **Page count (minor).** Now 7 pages (figure 1 made single-column, tables compacted, smaller bibliography font, a few redundant sentences cut).\n6. **Padded constants (minor).** Used format specifiers (:1, :2, :3) so the text prints 76.9, 19.7, 8.76, 0.2, 0.003, 0.1.\n7. **Stale counts / URL (minor).** PROTOCOL.md and BRIEF.md corrected to 2,168 and 147,193; URL added to PROTOCOL.md; paper points to method/DESIGN.md.\n8. **Mislabelled superseded rows / compare CSVs (minor).** Noted the 30 mislabelled ridge rows in experiments/PROTOCOL.md (they stay in runs.jsonl, excluded from aggregation). Regenerated compare_main_spearman.csv and compare_main_top100_recall.csv for all tasks and systems.\n9. **Wilcoxon -> paired t (minor).** Setup now says the substitution was made after the main results were inspected; the mean-based refutation rules were fixed beforehand.\n10. **Uncited generalisation (minor).** Related-work sentence now restricted to FLIP and ProteinGym, with citations.\n",
+      "seconds": 182
+    }
+  ]
+}

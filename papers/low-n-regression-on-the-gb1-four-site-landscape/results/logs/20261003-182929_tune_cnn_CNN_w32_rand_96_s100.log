@@ -1,0 +1,15 @@
+# rh run | Sat Oct  3 18:29:29 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task rand_96 --seed 100 --out results/raw/tune_w32_rand_96.json --width 32
+
+config {'system': 'cnn', 'task': 'rand_96', 'seed': 100, 'out': 'results/raw/tune_w32_rand_96.json', 'alpha': None, 'gp_fixed': 0, 'width': 32, 'epochs': 200, 'lr': 0.003, 'wd': 0.01, 'dropout': 0.0, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.1829771208061207, "top100_recall": 0.01, "n_train": 96, "n_test": 149265, "spearman_hd2": 0.5373805004800524, "spearman_hd3": 0.35805427696052466, "spearman_hd4": 0.11301997255475488} seconds 3.2
+Traceback (most recent call last):
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/low-n-regression-on-the-gb1-four-site-landscape/method/run.py", line 210, in <module>
+    main()
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/low-n-regression-on-the-gb1-four-site-landscape/method/run.py", line 206, in main
+    json.dump(out, open(a.out, "w"))
+                   ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/tune_w32_rand_96.json'
+
+# rh: exit code 1 after 4.7 s

@@ -1,0 +1,17 @@
+\begin{tabular}{llcccccc}
+\toprule
+Method & Task & spearman $\uparrow$ & top100\_recall $\uparrow$ & spearman\_hd2 $\uparrow$ & spearman\_hd3 $\uparrow$ & spearman\_hd4 $\uparrow$ & $n$ \\
+\midrule
+CNN ensemble of 5 & rand\_48 & \underline{0.218 $\pm$ 0.041} & \underline{0.004 $\pm$ 0.009} & \underline{0.317 $\pm$ 0.313} & \underline{0.268 $\pm$ 0.160} & \underline{0.187 $\pm$ 0.062} & 5 \\
+CNN log target & rand\_48 & \textbf{0.239 $\pm$ 0.085} & \textbf{0.006 $\pm$ 0.009} & \textbf{0.357 $\pm$ 0.242} & \textbf{0.270 $\pm$ 0.181} & \textbf{0.208 $\pm$ 0.081} & 5 \\
+\midrule
+CNN ensemble of 5 & rand\_96 & \underline{0.314 $\pm$ 0.034} & \underline{0.028 $\pm$ 0.029} & \underline{0.378 $\pm$ 0.233} & \underline{0.391 $\pm$ 0.094} & \underline{0.278 $\pm$ 0.036} & 5 \\
+CNN log target & rand\_96 & \textbf{0.366 $\pm$ 0.068} & \textbf{0.030 $\pm$ 0.035} & \textbf{0.505 $\pm$ 0.113} & \textbf{0.457 $\pm$ 0.064} & \textbf{0.333 $\pm$ 0.063} & 5 \\
+\midrule
+CNN ensemble of 5 & rand\_384 & \underline{0.492 $\pm$ 0.027} & \textbf{0.032 $\pm$ 0.018} & \underline{0.711 $\pm$ 0.013} & \underline{0.624 $\pm$ 0.022} & \underline{0.441 $\pm$ 0.031} & 5 \\
+CNN log target & rand\_384 & \textbf{0.520 $\pm$ 0.029} & \underline{0.024 $\pm$ 0.011} & \textbf{0.759 $\pm$ 0.018} & \textbf{0.654 $\pm$ 0.019} & \textbf{0.470 $\pm$ 0.034} & 5 \\
+\midrule
+CNN ensemble of 5 & rand\_2000 & \underline{0.553 $\pm$ 0.016} & \underline{0.206 $\pm$ 0.088} & \underline{0.825 $\pm$ 0.010} & \underline{0.695 $\pm$ 0.014} & \underline{0.503 $\pm$ 0.019} & 5 \\
+CNN log target & rand\_2000 & \textbf{0.602 $\pm$ 0.014} & \textbf{0.212 $\pm$ 0.070} & \textbf{0.847 $\pm$ 0.014} & \textbf{0.737 $\pm$ 0.011} & \textbf{0.556 $\pm$ 0.015} & 5 \\
+\bottomrule
+\end{tabular}

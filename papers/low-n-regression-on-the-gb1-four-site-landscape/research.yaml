@@ -1,0 +1,197 @@
+slug: low-n-regression-on-the-gb1-four-site-landscape
+direction: Low-N regression on the GB1 four-site landscape. Download the GB1 four-site
+  data (about 150k variants, one CSV from the FLIP repository). Compare one-hot ridge,
+  one-hot with pairwise epistasis features, a Gaussian process and a small CNN trained
+  on N = 48, 96, 384, 2000 random or single / double-mutant-only variants. Measure
+  Spearman and top-100 recall on the remaining variants over 5 draws. Keep it a small
+  CPU study with reimplemented baselines, at least 5 seeds where cheap, and report
+  negative or mixed results plainly.
+problem: How well do simple supervised regressors recover the GB1 four-site fitness
+  landscape from very few labels (N=48..2000), and does modelling pairwise epistasis,
+  a GP kernel or a CNN help?
+gap: Low-N comparisons of one-hot ridge, pairwise-epistasis ridge, GP and CNN on the
+  full 149k GB1 landscape are usually reported only for Spearman on random or FLIP
+  splits; top-k recall, per-Hamming-distance breakdown and single/double-mutant-only
+  training are rarely shown together under identical tuning.
+contribution: A controlled, fully reimplemented CPU comparison of four regressors
+  on the complete GB1 four-site landscape, over random and single/double-mutant-only
+  training sets, with Spearman, top-100 recall and a per-distance analysis.
+hypotheses:
+- id: H1
+  statement: Pairwise epistasis features help (higher Spearman than additive one-hot
+    ridge) only when N is large (N>=384) with random training data; at N<=96 they
+    do not.
+  test: Paired Wilcoxon signed-rank over 5 seeds via rh compare, spearman, task rand_N,
+    pairwise vs ridge
+- id: H2
+  statement: A GP with a Hamming-distance kernel is at least as good as ridge at N<=96
+    random.
+  test: rh compare spearman at rand_48, rand_96
+- id: H3
+  statement: The small CNN is worse than the best linear/kernel model at N<=384 and
+    does not clearly overtake it at N=2000.
+  test: rh compare spearman, CNN vs best baseline per task
+- id: H4
+  statement: Training on single/double mutants only gives lower Spearman on HD>=3
+    variants than random training with the same N, for every system.
+  test: Compare spearman_hd3 and spearman_hd4 of dbl_N vs rand_N tables (rh compare
+    is per task, so reported as table rows)
+- id: H5
+  statement: Top-100 recall stays below 0.25 for every system and N<=384.
+  test: top100_recall means
+method:
+  name: One-hot + pairwise ridge
+  summary: Ridge regression on one-hot site features plus all 6 pairwise site-by-site
+    one-hot interaction features, alpha by 5-fold CV on the training set. Compared
+    against one-hot ridge, a Hamming-kernel GP and a small CNN, all reimplemented.
+  components:
+  - pairwise interaction features
+  - CV-selected ridge penalty
+  entrypoint: method/run.py
+tasks:
+- rand_48
+- rand_96
+- rand_384
+- rand_2000
+- dbl_48
+- dbl_96
+- dbl_384
+- dbl_2000
+metrics:
+  spearman:
+    higher_is_better: true
+  top100_recall:
+    higher_is_better: true
+  spearman_hd2:
+    higher_is_better: true
+  spearman_hd3:
+    higher_is_better: true
+  spearman_hd4:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- One-hot ridge (reimplemented)
+- GP Hamming kernel (reimplemented)
+- CNN (reimplemented)
+ablations:
+- GP fixed hyperparameters
+- One-hot ridge fixed alpha
+- CNN ensemble of 5
+- CNN log target
+ambition:
+  target_tier: 2
+  primary_metric: spearman
+  primary_task: rand_384
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: n_variants
+  value: 149361
+  why: rows of four_mutations_full_data.csv (FLIP copy of Wu et al. 2016)
+- name: n_hd1
+  value: 76
+  why: variants at Hamming distance 1 from wild type VDGV in the CSV
+- name: n_hd2
+  value: 2091
+  why: variants at Hamming distance 2 in the CSV
+- name: n_hd3
+  value: 26019
+  why: variants at Hamming distance 3 in the CSV
+- name: n_hd4
+  value: 121174
+  why: variants at Hamming distance 4 in the CSV
+- name: n_dbl_pool
+  value: 2168
+  why: wild type + single + double mutants available for dbl training (1+76+2091)
+- name: n_dbl_test
+  value: 147193
+  why: variants at Hamming distance >=3 (dbl test set)
+- name: n_sites
+  value: 4
+  why: variable sites (positions 39,40,41,54 of GB1)
+- name: n_seeds
+  value: 5
+  why: training-set draws per cell (seeds 0-4)
+- name: n_features_onehot
+  value: 80
+  why: one-hot features, 4 sites x 20 amino acids
+- name: n_features_pair
+  value: 2480
+  why: 80 one-hot + 6 site pairs x 400 pair indicators
+- name: n_pairs
+  value: 6
+  why: site pairs among 4 sites
+- name: n_alpha_grid
+  value: 7
+  why: ridge penalty grid 1e-3..1e3, one value per decade
+- name: n_cv_folds
+  value: 5
+  why: inner CV folds for the ridge penalty
+- name: n_gp_grid
+  value: 72
+  why: 'GP hyperparameter grid: 3 signal variances x 6 gammas x 4 noise levels'
+- name: cnn_epochs
+  value: 200
+  why: CNN training epochs
+- name: cnn_width
+  value: 64
+  why: CNN convolution channels
+- name: cnn_emb
+  value: 16
+  why: CNN embedding size
+- name: cnn_batch
+  value: 32
+  why: CNN batch size
+- name: cnn_lr
+  value: 0.003
+  why: CNN AdamW learning rate
+- name: cnn_wd
+  value: 0.1
+  why: CNN AdamW weight decay
+- name: cnn_dropout
+  value: 0.2
+  why: CNN dropout
+- name: cnn_tune_seed
+  value: 100
+  why: seed of the draw used to choose the CNN configuration
+- name: n_cnn_tune_cfgs
+  value: 7
+  why: CNN configurations tried on the tuning draw
+- name: cnn_ens
+  value: 5
+  why: ensemble size in the CNN-ensemble ablation
+- name: top_k
+  value: 100
+  why: k of top-k recall
+- name: pct_dead
+  value: 76.9
+  why: percent of the 149,361 variants with fitness below 0.01 (computed on the CSV)
+- name: pct_zero
+  value: 19.7
+  why: percent of variants with fitness exactly 0 (computed on the CSV)
+- name: max_fit
+  value: 8.76
+  why: largest fitness in the CSV (wild type = 1)
+- name: n_test_rand_2000
+  value: 147361
+  why: test variants at rand_2000 (149361-2000)
+- name: n_hd3_test_min
+  value: 100
+  why: minimum number of test variants for a per-distance Spearman to be reported

@@ -1,0 +1,125 @@
+{
+  "slug": "low-n-regression-on-the-gb1-four-site-landscape",
+  "direction": "Low-N regression on the GB1 four-site landscape. Download the GB1 four-site data (about 150k variants, one CSV from the FLIP repository). Compare one-hot ridge, one-hot with pairwise epistasis features, a Gaussian process and a small CNN trained on N = 48, 96, 384, 2000 random or single / double-mutant-only variants. Measure Spearman and top-100 recall on the remaining variants over 5 draws. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-03T04:07:32",
+  "updated": "2026-10-03T19:16:07",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-03T18:21:12",
+      "finished": "2026-10-03T18:28:06",
+      "notes": [
+        {
+          "t": "2026-10-03T18:28:06",
+          "note": "lit + proposal"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": "2026-10-03T18:28:07",
+      "finished": "2026-10-03T19:15:26",
+      "notes": [
+        {
+          "t": "2026-10-03T19:15:26",
+          "note": "run.py, DESIGN, PROTOCOL"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T19:15:26",
+      "notes": [
+        {
+          "t": "2026-10-03T19:15:26",
+          "note": "reimplemented ridge, GP, CNN in method/run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T19:15:26",
+      "notes": [
+        {
+          "t": "2026-10-03T19:15:26",
+          "note": "main group 160 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T19:15:27",
+      "notes": [
+        {
+          "t": "2026-10-03T19:15:27",
+          "note": "abl_gp, abl_cnn, abl_logtarget, sweep_alpha"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T19:15:27",
+      "notes": [
+        {
+          "t": "2026-10-03T19:15:27",
+          "note": "RESULTS.md"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-03T19:15:27",
+      "notes": [
+        {
+          "t": "2026-10-03T19:15:27",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": "2026-10-03T19:15:27",
+      "finished": "2026-10-03T19:16:07",
+      "notes": [
+        {
+          "t": "2026-10-03T19:16:07",
+          "note": "paper built, READY"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-03T18:28:06",
+      "phase": "novelty",
+      "decision": "Full 149k CSV from FLIP repo; method=pairwise ridge by convention; test sets and tuning protocol as in BRIEF.md"
+    },
+    {
+      "t": "2026-10-03T19:14:41",
+      "phase": "results",
+      "decision": "Verdicts use the mean-based refutation rules of proposal.md; rh compare paired t p-values descriptive (Wilcoxon cannot reach 0.05 at n=5)."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}

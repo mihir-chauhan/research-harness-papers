@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:46:05 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task rand_48 --seed 3 --out results/raw/ablcnn_ens_rand_48_3.json --ensemble 5
+
+config {'system': 'cnn', 'task': 'rand_48', 'seed': 3, 'out': 'results/raw/ablcnn_ens_rand_48_3.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 5, 'log_target': 0}
+metrics {"spearman": 0.16851719755526076, "top100_recall": 0.02, "n_train": 48, "n_test": 149313, "spearman_hd2": 0.5802272830579467, "spearman_hd3": 0.36537161445665123, "spearman_hd4": 0.08847114074188041} seconds 10.7
+
+# rh: exit code 0 after 12.5 s
+# rh metrics: {"n_test": 149313.0, "n_train": 48.0, "spearman": 0.16851719755526076, "spearman_hd2": 0.5802272830579467, "spearman_hd3": 0.36537161445665123, "spearman_hd4": 0.08847114074188041, "top100_recall": 0.02}

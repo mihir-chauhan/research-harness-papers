@@ -1,0 +1,15 @@
+\paragraph{GB1 and epistasis.}
+Wu et al.~\cite{wu2016adaptation} measured nearly all variants at four GB1 sites and showed that, in this epistatic landscape, adaptation is facilitated by indirect paths; the same data underlie the GB1 tasks of FLIP~\cite{dallago2021flip}, which evaluates models on fixed train/test splits of a subsample.
+Global-epistasis models~\cite{otwinowski2018inferring} posit that mutations act additively on an unobserved trait that is transformed by a monotonic nonlinear function into the observed phenotype; this is directly relevant to our log-target ablation, which is a fixed, crude version of such a nonlinearity.
+Minimum epistasis interpolation~\cite{zhou2020minimum} imputes unmeasured genotypes by inferring the least epistatic sequence-function relationship compatible with the data, approaching additivity where data are sparse, and was applied to a protein G landscape.
+
+\paragraph{Low-N supervised baselines.}
+Hsu et al.~\cite{hsu2022learning} combine evolutionary density scores with assay labels and use one-hot ridge regression as the label-only reference; Michael et al.~\cite{michael2024systematic} analyse regression models for protein engineering and show that different assessment criteria and definitions of generalization can lead to dramatically different conclusions, which motivates our use of two metrics and two training-set regimes.
+Representation-learning approaches such as UniRep~\cite{alley2019unified}, TAPE~\cite{rao2019evaluating} and zero-shot language-model scoring~\cite{meier2021language} reduce the need for labels but are outside our scope; ProteinGym~\cite{notin2023proteingym} provides a large-scale benchmark across assays.
+
+\paragraph{Gaussian processes.}
+Romero et al.~\cite{romero2013navigating} used Gaussian process regression for protein fitness landscapes; Kermut~\cite{groth2024kermut} is a recent GP with a composite kernel for mutation similarity that also provides uncertainty estimates.
+Our GP is far simpler (a Hamming-distance kernel with no structure or language-model component) and serves as a calibrated, tuning-light kernel baseline.
+
+\paragraph{Gap addressed.}
+The benchmarks above (FLIP~\cite{dallago2021flip}, ProteinGym~\cite{notin2023proteingym}) mainly report Spearman on fixed splits or aggregated over assays. We vary the composition of the training set (random versus single/double mutants), report top-$k$ recall, break the error down by Hamming distance of the test variant, and give all models the same data draws and metrics.

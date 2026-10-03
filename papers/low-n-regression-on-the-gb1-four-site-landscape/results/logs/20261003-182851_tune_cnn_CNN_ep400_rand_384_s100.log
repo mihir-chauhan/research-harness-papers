@@ -1,0 +1,15 @@
+# rh run | Sat Oct  3 18:28:51 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task rand_384 --seed 100 --out results/raw/tune_ep400_rand_384.json --epochs 400
+
+config {'system': 'cnn', 'task': 'rand_384', 'seed': 100, 'out': 'results/raw/tune_ep400_rand_384.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 400, 'lr': 0.003, 'wd': 0.01, 'dropout': 0.0, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.4328626441966031, "top100_recall": 0.06, "n_train": 384, "n_test": 148977, "spearman_hd2": 0.6966416715237286, "spearman_hd3": 0.5920679833604877, "spearman_hd4": 0.3707540281876465} seconds 9.8
+Traceback (most recent call last):
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/low-n-regression-on-the-gb1-four-site-landscape/method/run.py", line 210, in <module>
+    main()
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/low-n-regression-on-the-gb1-four-site-landscape/method/run.py", line 206, in main
+    json.dump(out, open(a.out, "w"))
+                   ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/raw/tune_ep400_rand_384.json'
+
+# rh: exit code 1 after 11.2 s

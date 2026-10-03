@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:40:21 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system gp --task rand_2000 --seed 3 --out results/raw/main_gp_rand_2000_3.json
+
+config {'system': 'gp', 'task': 'rand_2000', 'seed': 3, 'out': 'results/raw/main_gp_rand_2000_3.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.46037595551434823, "top100_recall": 0.25, "n_train": 2000, "n_test": 147361, "spearman_hd2": 0.6972306086893224, "spearman_hd3": 0.6149133544450174, "spearman_hd4": 0.40402116762007406, "gp_s2": 1.0, "gp_gamma": 0.8, "gp_noise": 0.01} seconds 15.6
+
+# rh: exit code 0 after 17.0 s
+# rh metrics: {"gp_gamma": 0.8, "gp_noise": 0.01, "gp_s2": 1.0, "n_test": 147361.0, "n_train": 2000.0, "spearman": 0.46037595551434823, "spearman_hd2": 0.6972306086893224, "spearman_hd3": 0.6149133544450174, "spearman_hd4": 0.40402116762007406, "top100_recall": 0.25}

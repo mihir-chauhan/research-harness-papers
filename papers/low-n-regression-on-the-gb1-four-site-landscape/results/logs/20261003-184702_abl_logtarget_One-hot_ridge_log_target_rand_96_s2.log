@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:47:02 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system ridge --task rand_96 --seed 2 --out results/raw/abllog_ridge_rand_96_2.json --log_target 1
+
+config {'system': 'ridge', 'task': 'rand_96', 'seed': 2, 'out': 'results/raw/abllog_ridge_rand_96_2.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 1}
+metrics {"spearman": 0.34920524097955025, "top100_recall": 0.05, "n_train": 96, "n_test": 149265, "spearman_hd2": 0.5248427041805656, "spearman_hd3": 0.4730837723559376, "spearman_hd4": 0.2941835641157773, "alpha": 10.0} seconds 0.5
+
+# rh: exit code 0 after 1.9 s
+# rh metrics: {"alpha": 10.0, "n_test": 149265.0, "n_train": 96.0, "spearman": 0.34920524097955025, "spearman_hd2": 0.5248427041805656, "spearman_hd3": 0.4730837723559376, "spearman_hd4": 0.2941835641157773, "top100_recall": 0.05}

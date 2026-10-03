@@ -1,0 +1,13 @@
+Protein engineering campaigns usually start from a few dozen to a few thousand measured variants, and the model trained on them is used to rank the rest of a combinatorial library.
+Benchmarks such as FLIP~\cite{dallago2021flip}, TAPE~\cite{rao2019evaluating} and ProteinGym~\cite{notin2023proteingym} make it possible to compare such supervised models, and a recurring lesson is that simple baselines are strong: one-hot ridge regression is a robust low-N baseline that more elaborate models must be shown to beat~\cite{hsu2022learning}, and conclusions about regressors depend on the metric and on how generalization is defined~\cite{michael2024systematic}.
+At the same time, the central scientific reason to expect more flexible models to win is epistasis, i.e.\ non-additive interaction between mutations, which is extensive in the near-complete GB1 landscape of Wu et al.~\cite{wu2016adaptation}.
+Whether this epistasis is exploitable at low N, and by which model class, is the question we test.
+
+GB1 is a convenient testbed because the landscape is almost complete: the CSV distributed with FLIP lists \rhval{const/n_variants} of the $20^4$ variants at four sites, so any model can be scored on essentially all variants it has not seen, rather than on a small held-out sample.
+It is also hard in a specific way: about \rhval{const/pct_dead:1}\% of variants have fitness below 0.01 (\rhval{const/pct_zero:1}\% exactly zero), so most of the ranking signal is a binary alive/dead split and the quantity of interest in design, the few best variants, lies far in the tail.
+
+We compare four reimplemented regressors (one-hot ridge, ridge with all pairwise one-hot features, a Hamming-kernel Gaussian process, and a small CNN) at $N\in\{48,96,384,2000\}$ training variants, drawn either at random or only from wild-type, single and double mutants (the realistic regime in which an experimentalist has measured only low-order variants and wants to extrapolate).
+We report Spearman correlation and top-100 recall on all remaining variants, and we add ablations on the GP hyperparameters, the ridge penalty and the target transform.
+We state five hypotheses in advance (Sec.~\ref{sec:setup}) and report which of them hold.
+The contribution is a controlled, small-scale measurement, not a new method: pairwise ridge is the only model we call ``the method'' because the question concerns epistasis features, and it does not win.
+The findings are (i) pairwise features give no measurable gain at random N and a large loss when training on low-order mutants only, (ii) the CNN's advantage in the main table largely disappears when every model is trained on a log-transformed target, and (iii) top-100 recall is near zero for all models at $N\le 384$.

@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:35:34 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task rand_384 --seed 3 --out results/raw/main_cnn_rand_384_3.json
+
+config {'system': 'cnn', 'task': 'rand_384', 'seed': 3, 'out': 'results/raw/main_cnn_rand_384_3.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.41351756154953856, "top100_recall": 0.04, "n_train": 384, "n_test": 148977, "spearman_hd2": 0.7010333271668339, "spearman_hd3": 0.5968809868847639, "spearman_hd4": 0.34692200953426894} seconds 8.7
+
+# rh: exit code 0 after 10.6 s
+# rh metrics: {"n_test": 148977.0, "n_train": 384.0, "spearman": 0.41351756154953856, "spearman_hd2": 0.7010333271668339, "spearman_hd3": 0.5968809868847639, "spearman_hd4": 0.34692200953426894, "top100_recall": 0.04}

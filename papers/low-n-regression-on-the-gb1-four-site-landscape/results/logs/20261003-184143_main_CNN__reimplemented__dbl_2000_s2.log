@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:41:43 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task dbl_2000 --seed 2 --out results/raw/main_cnn_dbl_2000_2.json
+
+config {'system': 'cnn', 'task': 'dbl_2000', 'seed': 2, 'out': 'results/raw/main_cnn_dbl_2000_2.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.34722136854473973, "top100_recall": 0.2, "n_train": 2000, "n_test": 147193, "spearman_hd3": 0.5465821243946014, "spearman_hd4": 0.3188070851633601} seconds 31.2
+
+# rh: exit code 0 after 33.2 s
+# rh metrics: {"n_test": 147193.0, "n_train": 2000.0, "spearman": 0.34722136854473973, "spearman_hd3": 0.5465821243946014, "spearman_hd4": 0.3188070851633601, "top100_recall": 0.2}

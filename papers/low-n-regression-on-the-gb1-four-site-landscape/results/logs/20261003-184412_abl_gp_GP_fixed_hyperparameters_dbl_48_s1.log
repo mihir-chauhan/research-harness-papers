@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:44:12 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system gp --task dbl_48 --seed 1 --out results/raw/ablgp_dbl_48_1.json --gp_fixed 1
+
+config {'system': 'gp', 'task': 'dbl_48', 'seed': 1, 'out': 'results/raw/ablgp_dbl_48_1.json', 'alpha': None, 'gp_fixed': 1, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.23695444953724792, "top100_recall": 0.05, "n_train": 48, "n_test": 147193, "spearman_hd3": 0.4312717593107051, "spearman_hd4": 0.18702162219724594, "gp_s2": 1.0, "gp_gamma": 0.5, "gp_noise": 0.1} seconds 0.6
+
+# rh: exit code 0 after 1.7 s
+# rh metrics: {"gp_gamma": 0.5, "gp_noise": 0.1, "gp_s2": 1.0, "n_test": 147193.0, "n_train": 48.0, "spearman": 0.23695444953724792, "spearman_hd3": 0.4312717593107051, "spearman_hd4": 0.18702162219724594, "top100_recall": 0.05}

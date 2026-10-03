@@ -16,6 +16,7 @@ Code: MIT. Text and figures: CC BY 4.0.
 |---|---|---|
 | biology | How Much Epistasis Can Simple Sequence-to-Fitness Models Absorb? A Small Study on Simulated NK Landscapes | [`papers/epistasis-fitness-models-nk`](papers/epistasis-fitness-models-nk) |
 | biology | Designing Sequences for Target Folds on the Exact 2D HP Lattice: Conditional Autoregressive Generation versus Simulated Annealing at Equal Oracle Budget | [`papers/lattice-protein-design-toy`](papers/lattice-protein-design-toy) |
+| biology | Low-N Regression on the Complete GB1 Four-Site Landscape: Pairwise Epistasis Features, Gaussian Processes and a Small CNN Compared on Matched Training Draws | [`papers/low-n-regression-on-the-gb1-four-site-landscape`](papers/low-n-regression-on-the-gb1-four-site-landscape) |
 | chemistry-materials | Descriptor Invariance versus Regressor Choice for a Toy Machine-Learned Potential on Small Lennard-Jones Clusters | [`papers/lennard-jones-invariant-descriptors`](papers/lennard-jones-invariant-descriptors) |
 | climate-weather | Does Rollout Training Help a Small CNN Emulator of Two-Scale Lorenz-96? Skill, Stability and Climatological Variance | [`papers/autoregressive-emulator-on-lorenz-96`](papers/autoregressive-emulator-on-lorenz-96) |
 | climate-weather | Polynomial, MLP and AR(1) Closures for the Fast Variables of Two-Scale Lorenz-96: Forecast Skill, Stability and Climate | [`papers/lorenz96-learned-parametrisation`](papers/lorenz96-learned-parametrisation) |

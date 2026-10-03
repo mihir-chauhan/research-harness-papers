@@ -1,0 +1,45 @@
+\begin{tabular}{llccc}
+\toprule
+Method & Task & spearman $\uparrow$ & top100\_recall $\uparrow$ & $n$ \\
+\midrule
+One-hot ridge (reimplemented) & rand\_48 & 0.182 $\pm$ 0.052 & \textbf{0.006 $\pm$ 0.009} & 5 \\
+GP Hamming kernel (reimplemented) & rand\_48 & \textbf{0.202 $\pm$ 0.051} & 0.004 $\pm$ 0.009 & 5 \\
+CNN (reimplemented) & rand\_48 & 0.166 $\pm$ 0.072 & 0.004 $\pm$ 0.009 & 5 \\
+\textbf{One-hot + pairwise ridge} & rand\_48 & \underline{0.188 $\pm$ 0.043} & \underline{0.006 $\pm$ 0.009} & 5 \\
+\midrule
+One-hot ridge (reimplemented) & rand\_96 & 0.231 $\pm$ 0.036 & \underline{0.016 $\pm$ 0.018} & 5 \\
+GP Hamming kernel (reimplemented) & rand\_96 & \underline{0.236 $\pm$ 0.030} & 0.010 $\pm$ 0.017 & 5 \\
+CNN (reimplemented) & rand\_96 & \textbf{0.287 $\pm$ 0.042} & \textbf{0.022 $\pm$ 0.016} & 5 \\
+\textbf{One-hot + pairwise ridge} & rand\_96 & 0.229 $\pm$ 0.035 & 0.012 $\pm$ 0.016 & 5 \\
+\midrule
+One-hot ridge (reimplemented) & rand\_384 & 0.381 $\pm$ 0.037 & 0.024 $\pm$ 0.027 & 5 \\
+GP Hamming kernel (reimplemented) & rand\_384 & 0.389 $\pm$ 0.042 & \textbf{0.036 $\pm$ 0.025} & 5 \\
+CNN (reimplemented) & rand\_384 & \textbf{0.444 $\pm$ 0.023} & 0.030 $\pm$ 0.014 & 5 \\
+\textbf{One-hot + pairwise ridge} & rand\_384 & \underline{0.396 $\pm$ 0.052} & \underline{0.034 $\pm$ 0.028} & 5 \\
+\midrule
+One-hot ridge (reimplemented) & rand\_2000 & \underline{0.480 $\pm$ 0.017} & 0.084 $\pm$ 0.080 & 5 \\
+GP Hamming kernel (reimplemented) & rand\_2000 & 0.451 $\pm$ 0.006 & \underline{0.152 $\pm$ 0.062} & 5 \\
+CNN (reimplemented) & rand\_2000 & \textbf{0.506 $\pm$ 0.015} & \textbf{0.216 $\pm$ 0.109} & 5 \\
+\textbf{One-hot + pairwise ridge} & rand\_2000 & 0.478 $\pm$ 0.009 & 0.152 $\pm$ 0.063 & 5 \\
+\midrule
+One-hot ridge (reimplemented) & dbl\_48 & \textbf{0.212 $\pm$ 0.063} & \textbf{0.018 $\pm$ 0.027} & 5 \\
+GP Hamming kernel (reimplemented) & dbl\_48 & \underline{0.199 $\pm$ 0.057} & 0.014 $\pm$ 0.022 & 5 \\
+CNN (reimplemented) & dbl\_48 & 0.186 $\pm$ 0.081 & 0.012 $\pm$ 0.027 & 5 \\
+\textbf{One-hot + pairwise ridge} & dbl\_48 & 0.192 $\pm$ 0.048 & \underline{0.016 $\pm$ 0.023} & 5 \\
+\midrule
+One-hot ridge (reimplemented) & dbl\_96 & 0.262 $\pm$ 0.038 & 0.006 $\pm$ 0.009 & 5 \\
+GP Hamming kernel (reimplemented) & dbl\_96 & 0.252 $\pm$ 0.046 & \textbf{0.012 $\pm$ 0.011} & 5 \\
+CNN (reimplemented) & dbl\_96 & \textbf{0.289 $\pm$ 0.046} & 0.008 $\pm$ 0.008 & 5 \\
+\textbf{One-hot + pairwise ridge} & dbl\_96 & \underline{0.263 $\pm$ 0.045} & \underline{0.010 $\pm$ 0.010} & 5 \\
+\midrule
+One-hot ridge (reimplemented) & dbl\_384 & \underline{0.320 $\pm$ 0.046} & \underline{0.020 $\pm$ 0.016} & 5 \\
+GP Hamming kernel (reimplemented) & dbl\_384 & 0.299 $\pm$ 0.040 & 0.014 $\pm$ 0.013 & 5 \\
+CNN (reimplemented) & dbl\_384 & \textbf{0.332 $\pm$ 0.053} & \textbf{0.028 $\pm$ 0.013} & 5 \\
+\textbf{One-hot + pairwise ridge} & dbl\_384 & 0.247 $\pm$ 0.054 & 0.014 $\pm$ 0.013 & 5 \\
+\midrule
+One-hot ridge (reimplemented) & dbl\_2000 & \underline{0.354 $\pm$ 0.005} & 0.062 $\pm$ 0.011 & 5 \\
+GP Hamming kernel (reimplemented) & dbl\_2000 & 0.322 $\pm$ 0.013 & 0.114 $\pm$ 0.009 & 5 \\
+CNN (reimplemented) & dbl\_2000 & \textbf{0.387 $\pm$ 0.034} & \textbf{0.208 $\pm$ 0.023} & 5 \\
+\textbf{One-hot + pairwise ridge} & dbl\_2000 & 0.196 $\pm$ 0.010 & \underline{0.128 $\pm$ 0.016} & 5 \\
+\bottomrule
+\end{tabular}

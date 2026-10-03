@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:40:08 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task dbl_384 --seed 1 --out results/raw/main_cnn_dbl_384_1.json
+
+config {'system': 'cnn', 'task': 'dbl_384', 'seed': 1, 'out': 'results/raw/main_cnn_dbl_384_1.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.2682383428820156, "top100_recall": 0.01, "n_train": 384, "n_test": 147193, "spearman_hd3": 0.5008684214136698, "spearman_hd4": 0.21358158855258183} seconds 9.4
+
+# rh: exit code 0 after 11.4 s
+# rh metrics: {"n_test": 147193.0, "n_train": 384.0, "spearman": 0.2682383428820156, "spearman_hd3": 0.5008684214136698, "spearman_hd4": 0.21358158855258183, "top100_recall": 0.01}

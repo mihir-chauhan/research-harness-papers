@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:49:04 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system pairwise --task rand_2000 --seed 0 --out results/raw/abllog_pairwise_rand_2000_0.json --log_target 1
+
+config {'system': 'pairwise', 'task': 'rand_2000', 'seed': 0, 'out': 'results/raw/abllog_pairwise_rand_2000_0.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 1}
+metrics {"spearman": 0.5412697638699772, "top100_recall": 0.19, "n_train": 2000, "n_test": 147361, "spearman_hd2": 0.854109340974071, "spearman_hd3": 0.7121401946230616, "spearman_hd4": 0.48023145992198146, "alpha": 1.0} seconds 5.1
+
+# rh: exit code 0 after 6.5 s
+# rh metrics: {"alpha": 1.0, "n_test": 147361.0, "n_train": 2000.0, "spearman": 0.5412697638699772, "spearman_hd2": 0.854109340974071, "spearman_hd3": 0.7121401946230616, "spearman_hd4": 0.48023145992198146, "top100_recall": 0.19}

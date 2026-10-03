@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:30:42 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system cnn --task rand_384 --seed 100 --out results/raw/tune_drop02_rand_384.json --dropout 0.2
+
+config {'system': 'cnn', 'task': 'rand_384', 'seed': 100, 'out': 'results/raw/tune_drop02_rand_384.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.01, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.4573579524722937, "top100_recall": 0.06, "n_train": 384, "n_test": 148977, "spearman_hd2": 0.7299174595672148, "spearman_hd3": 0.6002444590399172, "spearman_hd4": 0.40023561407660807} seconds 6.7
+
+# rh: exit code 0 after 8.2 s
+# rh metrics: {"n_test": 148977.0, "n_train": 384.0, "spearman": 0.4573579524722937, "spearman_hd2": 0.7299174595672148, "spearman_hd3": 0.6002444590399172, "spearman_hd4": 0.40023561407660807, "top100_recall": 0.06}

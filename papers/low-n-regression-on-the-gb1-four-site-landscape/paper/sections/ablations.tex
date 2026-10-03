@@ -1,0 +1,31 @@
+We run four controlled variations. All use the same training draws as the main group (seeds 0--4) and the same test sets.
+
+\subsection{Target transform (log target)}
+The target has a heavy zero-inflated tail, and a monotone output nonlinearity is the main non-additive structure that global-epistasis models posit~\cite{otwinowski2018inferring}. To test whether the CNN's advantage comes from such a nonlinearity we retrain every system on $\log(y+0.01)$ (group \texttt{abl\_logtarget}; for the CNN, group \texttt{abl\_cnn}), with everything else unchanged; metrics are still computed on the raw fitness, so Spearman is comparable with the main table. Table~\ref{tab:logt} and Fig.~\ref{fig:logt} show the result.
+
+\begin{table*}[t]\footnotesize\centering\renewcommand{\arraystretch}{0.8}
+\caption{Log-target ablation (rand and two dbl sizes): Spearman, mean $\pm$ std over draws.}\label{tab:logt}
+\resizebox{0.4\textwidth}{!}{\input{generated/abl_logtarget.tex}}
+\end{table*}
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.5\columnwidth]{logtarget_curves.pdf}
+\caption{Mean Spearman versus $N$ (random training) with the raw target (solid) and the log-transformed target (dashed).}\label{fig:logt}
+\end{figure}
+
+With a log target every model improves substantially at $N\ge96$ in Spearman. At $N{=}384$ the four log-target systems lie within a narrow band (ridge \rhval{abl_logtarget/one-hot-ridge-log-target/rand_384/spearman/mean:3}, GP \rhval{abl_logtarget/gp-log-target/rand_384/spearman/mean:3}, pairwise \rhval{abl_logtarget/one-hot-+-pairwise-ridge-log-target/rand_384/spearman/mean:3}, CNN \rhval{abl_cnn/cnn-log-target/rand_384/spearman/mean:3}), whereas with the raw target the CNN led by a visible margin (\rhval{main/cnn-reimplemented/rand_384/spearman/mean:3} versus \rhval{main/one-hot-ridge-reimplemented/rand_384/spearman/mean:3}). At $N{=}2000$ the CNN remains slightly ahead (\rhval{abl_cnn/cnn-log-target/rand_2000/spearman/mean:3} versus \rhval{abl_logtarget/one-hot-ridge-log-target/rand_2000/spearman/mean:3} for ridge) and pairwise ridge falls behind (\rhval{abl_logtarget/one-hot-+-pairwise-ridge-log-target/rand_2000/spearman/mean:3}). The gap to the CNN closes at $N\le384$ and shrinks at $N{=}2000$ but does not vanish. This is consistent with part of the CNN's raw-target advantage being a learned output nonlinearity that a fixed transform provides to the linear models; it does not isolate epistasis from other effects, the CNN itself also gains from the log target, the log-target ablation was not run for the CNN on the dbl tasks, and the CNN could still exploit interactions at $N{=}2000$.
+The transform has a cost: top-100 recall of additive ridge at $N{=}2000$ drops to \rhval{abl_logtarget/one-hot-ridge-log-target/rand_2000/top100_recall/mean:3} (raw target: \rhval{main/one-hot-ridge-reimplemented/rand_2000/top100_recall/mean:3}), because the logarithm compresses differences among high-fitness variants, so the better global ranking does not carry over to the tail. The other models keep most of their recall (CNN \rhval{abl_cnn/cnn-log-target/rand_2000/top100_recall/mean:3}, GP \rhval{abl_logtarget/gp-log-target/rand_2000/top100_recall/mean:3}).
+
+\subsection{GP hyperparameters}
+Replacing the marginal-likelihood grid by one fixed setting ($\sigma^2{=}1$, $\gamma{=}0.5$, $\sigma_n^2{=}0.1$; group \texttt{abl\_gp}) matters little at rand$_{384}$ but not at the larger sizes: rand$_{384}$ \rhval{abl_gp/gp-fixed-hyperparameters/rand_384/spearman/mean:3} (fitted: \rhval{main/gp-hamming-kernel-reimplemented/rand_384/spearman/mean:3}), rand$_{2000}$ \rhval{abl_gp/gp-fixed-hyperparameters/rand_2000/spearman/mean:3} (fitted \rhval{main/gp-hamming-kernel-reimplemented/rand_2000/spearman/mean:3}), dbl$_{2000}$ \rhval{abl_gp/gp-fixed-hyperparameters/dbl_2000/spearman/mean:3} (fitted \rhval{main/gp-hamming-kernel-reimplemented/dbl_2000/spearman/mean:3}). The effect is negligible at rand$_{384}$; at rand$_{2000}$ fitting raises the mean Spearman, whereas at dbl$_{2000}$ the fitted GP is lower than the fixed one, which is about as good as additive ridge (\rhval{main/one-hot-ridge-reimplemented/dbl_2000/spearman/mean:3}). Marginal-likelihood selection on low-order mutants may therefore pick hyperparameters that extrapolate poorly to higher-order variants; we did not run a test that isolates this mechanism, and the fixed setting was not tuned for any task.
+
+\subsection{Ridge penalty}
+Table~\ref{tab:alpha} fixes the penalty at each decade at rand$_{384}$ and compares with the CV choice. Additive ridge is almost flat in $\alpha$ (from \rhval{derived/derived-analysis/rand_384/alpha_ridge_0.001_mean/mean:3} at $10^{-3}$ to \rhval{derived/derived-analysis/rand_384/alpha_ridge_1000_mean/mean:3} at $10^{3}$), so CV matters little; pairwise ridge needs a large penalty (\rhval{derived/derived-analysis/rand_384/alpha_pairwise_0.001_mean/mean:3} at $10^{-3}$ versus \rhval{derived/derived-analysis/rand_384/alpha_pairwise_10_mean/mean:3} at $10$), and CV finds it (\rhval{derived/derived-analysis/rand_384/alpha_pairwise_cv_mean/mean:3}). The pairwise model's lack of benefit in Table~\ref{tab:main} is therefore not an artifact of a badly chosen penalty at this size.
+
+\begin{table}[t]\footnotesize\centering\renewcommand{\arraystretch}{0.8}
+\caption{Mean Spearman at rand$_{384}$ as a function of the fixed ridge penalty $\alpha$, and with the CV-selected penalty (main group).}\label{tab:alpha}
+\resizebox{\columnwidth}{!}{\input{generated/alpha_sweep.tex}}
+\end{table}
+
+\subsection{CNN ensembling}
+Averaging five CNNs (group \texttt{abl\_cnn}) gives rand$_{2000}$ Spearman \rhval{abl_cnn/cnn-ensemble-of-5/rand_2000/spearman/mean:3} against \rhval{main/cnn-reimplemented/rand_2000/spearman/mean:3} for the single network, and \rhval{abl_cnn/cnn-ensemble-of-5/rand_96/spearman/mean:3} against \rhval{main/cnn-reimplemented/rand_96/spearman/mean:3} at rand$_{96}$: ensembling helps the CNN further, so the single-network numbers in the main table understate what this architecture can do. Ensembles were not given to the other systems (an asymmetry we flag rather than resolve).

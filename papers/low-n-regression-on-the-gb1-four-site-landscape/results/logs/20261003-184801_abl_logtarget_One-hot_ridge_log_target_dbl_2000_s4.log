@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:48:01 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system ridge --task dbl_2000 --seed 4 --out results/raw/abllog_ridge_dbl_2000_4.json --log_target 1
+
+config {'system': 'ridge', 'task': 'dbl_2000', 'seed': 4, 'out': 'results/raw/abllog_ridge_dbl_2000_4.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 1}
+metrics {"spearman": 0.4987423718995601, "top100_recall": 0.02, "n_train": 2000, "n_test": 147193, "spearman_hd3": 0.7035162804975419, "spearman_hd4": 0.44205849154701354, "alpha": 1.0} seconds 1.9
+
+# rh: exit code 0 after 3.2 s
+# rh metrics: {"alpha": 1.0, "n_test": 147193.0, "n_train": 2000.0, "spearman": 0.4987423718995601, "spearman_hd3": 0.7035162804975419, "spearman_hd4": 0.44205849154701354, "top100_recall": 0.02}

@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:35:01 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system ridge --task dbl_96 --seed 2 --out results/raw/main_ridge_dbl_96_2.json
+
+config {'system': 'ridge', 'task': 'dbl_96', 'seed': 2, 'out': 'results/raw/main_ridge_dbl_96_2.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 0}
+metrics {"spearman": 0.2655527029410008, "top100_recall": 0.0, "n_train": 96, "n_test": 147193, "spearman_hd3": 0.46400813984739614, "spearman_hd4": 0.2104086427114398, "alpha": 10.0} seconds 0.5
+
+# rh: exit code 0 after 1.8 s
+# rh metrics: {"alpha": 10.0, "n_test": 147193.0, "n_train": 96.0, "spearman": 0.2655527029410008, "spearman_hd3": 0.46400813984739614, "spearman_hd4": 0.2104086427114398, "top100_recall": 0.0}

@@ -1,0 +1,9 @@
+# rh run | Sat Oct  3 18:50:50 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --system gp --task rand_96 --seed 4 --out results/raw/abllog_gp_rand_96_4.json --log_target 1
+
+config {'system': 'gp', 'task': 'rand_96', 'seed': 4, 'out': 'results/raw/abllog_gp_rand_96_4.json', 'alpha': None, 'gp_fixed': 0, 'width': 64, 'epochs': 200, 'lr': 0.003, 'wd': 0.1, 'dropout': 0.2, 'ensemble': 1, 'log_target': 1}
+metrics {"spearman": 0.31051467182503917, "top100_recall": 0.0, "n_train": 96, "n_test": 149265, "spearman_hd2": 0.5372848082488384, "spearman_hd3": 0.4540664349363967, "spearman_hd4": 0.26192504748444034, "gp_s2": 1.0, "gp_gamma": 0.4, "gp_noise": 0.2} seconds 0.7
+
+# rh: exit code 0 after 2.0 s
+# rh metrics: {"gp_gamma": 0.4, "gp_noise": 0.2, "gp_s2": 1.0, "n_test": 149265.0, "n_train": 96.0, "spearman": 0.31051467182503917, "spearman_hd2": 0.5372848082488384, "spearman_hd3": 0.4540664349363967, "spearman_hd4": 0.26192504748444034, "top100_recall": 0.0}

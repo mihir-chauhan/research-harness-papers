@@ -1,0 +1,28 @@
+All four systems map a four-residue variant $s=(a_1,\dots,a_4)$, $a_i\in\{1..20\}$, to a scalar fitness $y$ and are trained by regression on $N$ labelled variants $\{(s_n,y_n)\}$. The ranking of unseen variants by the prediction $\hat f(s)$ is the object of evaluation. All models are reimplemented in \texttt{method/run.py}; none uses pretrained weights, structure or sequence-family information.
+
+\subsection{One-hot ridge}
+Let $\phi(s)\in\{0,1\}^{\rhval{const/n_features_onehot}}$ be the concatenation of the one-hot encodings of the \rhval{const/n_sites} sites. The model is $\hat f(s)=b+w^\top\phi(s)$ with
+\begin{equation}
+(\hat b,\hat w)=\arg\min_{b,w}\ \sum_{n}\big(y_n-b-w^\top\phi(s_n)\big)^2+\alpha\|w\|_2^2 ,
+\end{equation}
+the intercept unpenalised. Since $N\ll$ the number of features in the pairwise model below, we solve the dual form on centred features, $\hat w=\Phi_c^\top(\Phi_c\Phi_c^\top+\alpha I)^{-1}(y-\bar y)$. The penalty $\alpha$ is chosen from $\{10^{-3},\dots,10^{3}\}$ (\rhval{const/n_alpha_grid} values) by \rhval{const/n_cv_folds}-fold cross-validated squared error on the training set only.
+
+\subsection{One-hot with pairwise epistasis features (the focal method)}
+We append, for each of the \rhval{const/n_pairs} site pairs $(i,j)$, the one-hot indicator of the amino-acid pair $(a_i,a_j)$ ($400$ features per pair), giving $\psi(s)\in\{0,1\}^{\rhval{const/n_features_pair}}$ and the same ridge model with the same CV grid:
+\begin{equation}
+\hat f(s)=b+\sum_i w_i[a_i]+\sum_{i<j}u_{ij}[a_i,a_j].
+\end{equation}
+This is the standard second-order (pairwise) epistatic model; it contains the additive model as a special case, and its extra parameters are shrunk only through the common penalty.
+
+\subsection{Gaussian process with a Hamming kernel}
+With $d_H$ the Hamming distance between two variants, we use
+\begin{equation}
+k(s,s')=\sigma^2\exp\!\big(-\gamma\, d_H(s,s')\big)+\sigma_n^2\,\mathbb 1[s=s'] ,
+\end{equation}
+which is a radial-basis kernel on the one-hot vectors because $\|\phi(s)-\phi(s')\|^2=2d_H(s,s')$. Targets are standardised, the prior mean is the training mean, and $(\sigma^2,\gamma,\sigma_n^2)$ are chosen from a grid of \rhval{const/n_gp_grid} triples (3 signal variances, 6 values of $\gamma$, 4 noise levels) by maximising the log marginal likelihood of the training data. The prediction is the posterior mean $\hat f(s)=m+k_*^\top(K+\sigma_n^2I)^{-1}(y-m)$; we do not use the posterior variance in the reported metrics.
+
+\subsection{Small CNN}
+A variant is embedded (\rhval{const/cnn_emb} dimensions per residue), passed through a width-\rhval{const/cnn_width} one-dimensional convolution of kernel size 2 with zero padding (so the sequence length goes from 4 to 5), ReLU, dropout (\rhval{const/cnn_dropout:1}), flatten, a 32-unit ReLU layer and a linear output. We minimise squared error on standardised targets with AdamW (learning rate \rhval{const/cnn_lr:3}, weight decay \rhval{const/cnn_wd:1}) for \rhval{const/cnn_epochs} epochs with batch size \rhval{const/cnn_batch}. There is no early stopping and no validation split. The convolution operates on the four variable residues only, not on the full-length construct, since the other positions are constant.
+
+\subsection{Metrics}
+For a test set $T$ we report the Spearman rank correlation between $\hat f$ and $y$ on $T$, and top-$k$ recall at $k=\rhval{const/top_k}$: $|\mathrm{top}_k(\hat f)\cap\mathrm{top}_k(y)|/k$ where $\mathrm{top}_k$ is the set of $k$ test variants with the largest value. Because \rhval{const/pct_zero:1}\% of variants have fitness exactly zero, Spearman is computed with average ranks for ties. We also report Spearman restricted to test variants at Hamming distance 2, 3 or 4 from wild type when that subset has at least \rhval{const/n_hd3_test_min} variants.
