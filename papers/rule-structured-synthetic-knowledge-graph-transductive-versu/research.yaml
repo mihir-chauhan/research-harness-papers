@@ -1,0 +1,192 @@
+slug: rule-structured-synthetic-knowledge-graph-transd
+direction: Rule-structured synthetic knowledge graph, transductive versus inductive.
+  Generate a family-tree knowledge graph (500 people, relations parent / sibling /
+  grandparent / uncle derived by rules). Train TransE and a small path-based model
+  (2-hop relational message passing) and test on held-out triples of the same graph
+  and on a freshly generated graph with new entities; report MRR in both settings.
+  Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap,
+  and report negative or mixed results plainly.
+problem: Do embedding-based and path-based knowledge-graph completion models recover
+  rule-structured relations (parent/sibling/grandparent/uncle) on held-out triples
+  of the training graph, and does that carry over to a freshly generated graph with
+  entirely new entities?
+gap: Transductive embedding models are known to be unable to score unseen entities,
+  and path-based GNNs are inductive by construction, but the size of the gap, how
+  it varies per rule-derived relation, and how fairly-treated embedding baselines
+  (fold-in of new entities) close it is rarely measured in a fully controlled rule-generated
+  setting.
+contribution: A controlled, fully reproducible CPU study on synthetic family-tree
+  KGs (5 seeds, each a distinct graph pair) of TransE, TransE with entity fold-in,
+  a 2-hop query-conditioned relational message-passing model and a hand-written rule
+  oracle, with depth, query-edge-removal and message-graph-density ablations.
+hypotheses:
+- id: H1
+  statement: On held-out triples of the training graph, Path-MP (2 layers) has higher
+    filtered MRR than TransE.
+  test: Paired t-test over 5 seeds (rh compare), metric mrr, task transductive, alpha
+    0.05
+- id: H2
+  statement: On a fresh graph with new entities TransE collapses to near-chance MRR
+    while Path-MP keeps its transductive MRR (drop of less than 0.05 absolute).
+  test: rh compare transductive vs inductive MRR per system; effect size in absolute
+    MRR
+- id: H3
+  statement: Fold-in of new entity embeddings gives TransE a large inductive gain
+    over frozen random embeddings, but it stays below Path-MP.
+  test: Paired t-test over 5 seeds, inductive task, TransE+fold-in vs TransE and vs
+    Path-MP
+- id: H4
+  statement: 'Path-MP''s accuracy needs depth 2 (all four relations are derived by
+    2-hop rules): 1 layer is clearly worse, 3 layers no better; and training without
+    removing the query edge hurts.'
+  test: sweep_layers and abl_nodrop groups vs main, rh compare, both tasks
+- id: H5
+  statement: Inductive Path-MP MRR degrades as the observed message graph of the new
+    entities gets sparser.
+  test: 'sweep_density: obs_frac in {0.25,0.5,0.75} plus main row at 1.0'
+method:
+  name: Path-MP (2-hop)
+  summary: Query-conditioned relational message passing (NBFNet-style, 2 layers, sum
+    aggregation) trained with 1-vs-all cross-entropy and per-query removal of the
+    target edge; scores every entity as a tail for (h, r, ?).
+  components:
+  - relation-conditioned messages
+  - boundary condition at the query entity
+  - query-edge removal
+  entrypoint: method/run.py
+tasks:
+- transductive
+- inductive
+metrics:
+  mrr:
+    higher_is_better: true
+  hits1:
+    higher_is_better: true
+  hits10:
+    higher_is_better: true
+  mrr_parent:
+    higher_is_better: true
+  mrr_sibling:
+    higher_is_better: true
+  mrr_grandparent:
+    higher_is_better: true
+  mrr_uncle:
+    higher_is_better: true
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+compute:
+  gpus: 0
+  max_minutes_per_run: 10
+  max_total_minutes: 45
+baselines:
+- TransE (reimplemented)
+- TransE+fold-in (reimplemented)
+- Rule oracle (hand-written)
+ablations:
+- name: Path-MP (2-hop)
+  description: groups sweep_layers (1 and 3 layers), abl_nodrop (no query-edge removal),
+    sweep_density (observed fraction 25/50/75%, also TransE+fold-in and the rule oracle)
+ambition:
+  target_tier: 2
+  primary_metric: mrr
+  primary_task: inductive
+  alpha: 0.05
+  min_relative_gain: 0.1
+  min_effect_size: 0.8
+  groundbreaking_gain: 0.3
+  max_iterations: 12
+  patience: 3
+  gpu_hour_budget: 2
+gates: []
+profile: quick
+venue: ieee-icra
+constants:
+- name: people
+  value: 500
+  why: entities per generated family graph
+- name: n_rel
+  value: 4
+  why: 'base relations: parent, sibling, grandparent, uncle'
+- name: embed_dim
+  value: 64
+  why: TransE embedding dimension
+- name: transe_margin
+  value: 8
+  why: TransE margin chosen on validation
+- name: transe_epochs
+  value: 200
+  why: TransE training epochs
+- name: pathmp_hidden
+  value: 32
+  why: Path-MP hidden width
+- name: pathmp_epochs
+  value: 3
+  why: Path-MP training epochs
+- name: n_seeds
+  value: 5
+  why: seeds 0-4, each a different graph pair
+- name: tune_seeds
+  value: 2
+  why: validation-graph seeds (100, 101) used for tuning
+- name: split_train
+  value: 80
+  why: percent of units in train
+- name: split_val
+  value: 10
+  why: percent of units in validation
+- name: split_test
+  value: 10
+  why: percent of units in test
+- name: founder_couples
+  value: 6
+  why: founding couples of each generated graph
+- name: p_kids1
+  value: 20
+  why: percent of couples with one child
+- name: p_kids2
+  value: 35
+  why: percent of couples with two children
+- name: p_kids3
+  value: 30
+  why: percent of couples with three children
+- name: p_kids4
+  value: 15
+  why: percent of couples with four children
+- name: p_marry
+  value: 80
+  why: percent of children who marry a newly created outsider
+- name: max_gen
+  value: 6
+  why: maximum number of generations (couples with generation index below 5 breed)
+- name: threads
+  value: 2
+  why: torch CPU threads
+- name: negs
+  value: 10
+  why: TransE negatives per positive
+- name: transe_lr
+  value: 0.01
+  why: TransE Adam learning rate
+- name: transe_bs
+  value: 512
+  why: TransE batch size
+- name: pathmp_lr
+  value: 0.003
+  why: Path-MP Adam learning rate
+- name: pathmp_bs
+  value: 32
+  why: Path-MP queries per batch
+- name: clip
+  value: 5
+  why: gradient norm clip for Path-MP
+- name: p_thresh
+  value: 0.001
+  why: threshold quoted for paired p-values below it (all listed p-values in the corresponding
+    analysis keys are smaller)
+- name: n_failed_density
+  value: 30
+  why: failed launches of sweep_density baselines (launcher bug), re-run

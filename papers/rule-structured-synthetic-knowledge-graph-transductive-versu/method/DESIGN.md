@@ -1,0 +1,4 @@
+# Design
+`method/run.py`: generator (`gen_family`), unit-level split (`split_graph`), filtered ranking with tie splitting (`evaluate`), TransE (+ fold-in), Path-MP (`PathMP`, query-edge removal per batch element via group ids), rule oracle. `method/analyze.py`: derived statistics, ablation/sweep tables, density figure (run via `rh run`, group analysis).
+Hyperparameters: TransE dim 64, L1, margin 8, 10 negatives, Adam 0.01, batch 512, 200 epochs; fold-in 200 epochs with frozen relations. Path-MP d=32, L=2, Adam 0.003, 32 queries/batch, 3 epochs, clip 5.
+Scripts: experiments/tune*.sh (validation seeds 100, 101), experiments/run_main.sh 1|2|3. The first launch of the sweep_density baselines failed (30 rows logged as failed) because of a shell variable clash in the launcher; they were re-run with `run_main.sh 3`.

@@ -1,0 +1,11 @@
+# rh run | Fri Oct  2 20:15:07 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/analyze.py results/raw/analysis_final2.json
+
+Traceback (most recent call last):
+  File "/Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/work/rule-structured-synthetic-knowledge-graph-transductive-versu/method/analyze.py", line 11, in <module>
+    rows = [r for r in rows if r["status"] == "ok" and r["group"] in ("main", "abl_nodrop", "sweep_layers", "sweep_density")]
+                               ~^^^^^^^^^^
+KeyError: 'status'
+
+# rh: exit code 1 after 1.6 s

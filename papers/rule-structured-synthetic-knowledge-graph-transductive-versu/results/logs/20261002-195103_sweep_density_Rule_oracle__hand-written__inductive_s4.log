@@ -1,0 +1,13 @@
+# rh run | Fri Oct  2 19:51:03 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --task inductive --seed 4 --out results/raw/sweep_density_Rule_oracle__hand_written__inductive_s4___obs_frac___results_raw_sweep_density_TransE_fold_in__reimplemented__inductive_s4___obs_frac___results_raw_sweep_density_Path_MP__2_hop__inductive_s4___obs_frac___0_75__json__json_.json --system oracle --obs_frac results/raw/sweep_density_TransE_fold_in__reimplemented__inductive_s4___obs_frac___results_raw_sweep_density_Path_MP__2_hop__inductive_s4___obs_frac___0_75__json_.json
+
+usage: run.py [-h] --system SYSTEM --task TASK --seed SEED --out OUT
+              [--people PEOPLE] [--dim DIM] [--epochs EPOCHS] [--lr LR]
+              [--margin MARGIN] [--negs NEGS] [--bs BS] [--p P]
+              [--fold_epochs FOLD_EPOCHS] [--layers LAYERS] [--d D]
+              [--pm_epochs PM_EPOCHS] [--pm_lr PM_LR] [--pm_bs PM_BS]
+              [--no_drop] [--obs_frac OBS_FRAC] [--eval_split {test,val}]
+run.py: error: argument --obs_frac: invalid float value: 'results/raw/sweep_density_TransE_fold_in__reimplemented__inductive_s4___obs_frac___results_raw_sweep_density_Path_MP__2_hop__inductive_s4___obs_frac___0_75__json_.json'
+
+# rh: exit code 2 after 1.2 s

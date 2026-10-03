@@ -1,0 +1,6320 @@
+{
+ "numbers": [
+  {
+   "section": "ablations.tex",
+   "literal": "100\\%",
+   "context": "a); the test triples are unchanged. The 100\\% column is the main result.}\\label{tab:d",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 1.0,
+    "key": "main/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "form": "percent",
+    "candidates": 319
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_trans_l1_mean/mean:3}",
+   "context": "e layer the model scores at chance (MRR \\rhval{analysis/analysis-final/inductive/lay_trans_l1_mean/mean:3} transductive, \\rhval{analysis/analysis-",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L1_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004081813862972764,
+    "key": "analysis/analysis-final/inductive/lay_trans_l1_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_induc_l1_mean/mean:3}",
+   "context": "lay_trans_l1_mean/mean:3} transductive, \\rhval{analysis/analysis-final/inductive/lay_induc_l1_mean/mean:3} inductive; a constant scorer under the",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L1_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004085816539725144,
+    "key": "analysis/analysis-final/inductive/lay_induc_l1_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_induc_l1_vs_l2_diff/mean:3}",
+   "context": "er of entities), a paired difference of \\rhval{analysis/analysis-final/inductive/lay_induc_l1_vs_l2_diff/mean:3} in the inductive setting. This is expec",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L1_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.9848067343189519,
+    "key": "analysis/analysis-final/inductive/lay_induc_l1_vs_l2_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean:3}",
+   "context": "the paired difference to two layers is \\rhval{analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean:3} (paired $p=\\rhval{analysis/analysis-fin",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L3_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0015206398272283872,
+    "key": "analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_trans_l3_vs_l2_p/mean:2}",
+   "context": "_trans_l3_vs_l2_diff/mean:3} (paired $p=\\rhval{analysis/analysis-final/inductive/lay_trans_l3_vs_l2_p/mean:2}$) transductively and \\rhval{analysis/an",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L3_vs_L2_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.497741494713716,
+    "key": "analysis/analysis-final/inductive/lay_trans_l3_vs_l2_p/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_induc_l3_vs_l2_diff/mean:3}",
+   "context": "l3_vs_l2_p/mean:2}$) transductively and \\rhval{analysis/analysis-final/inductive/lay_induc_l3_vs_l2_diff/mean:3} ($p=\\rhval{analysis/analysis-final/indu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L3_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.0006865854782507341,
+    "key": "analysis/analysis-final/inductive/lay_induc_l3_vs_l2_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/lay_induc_l3_vs_l2_p/mean:2}",
+   "context": "ive/lay_induc_l3_vs_l2_diff/mean:3} ($p=\\rhval{analysis/analysis-final/inductive/lay_induc_l3_vs_l2_p/mean:2}$) inductively; with five seeds this mea",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L3_vs_L2_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.7265020290462701,
+    "key": "analysis/analysis-final/inductive/lay_induc_l3_vs_l2_p/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_trans_mean/mean:3}",
+   "context": "ge after removing a layer: MRR falls to \\rhval{analysis/analysis-final/inductive/nodrop_trans_mean/mean:3} (transductive) and \\rhval{analysis/anal",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_trans_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.5072568213705756,
+    "key": "analysis/analysis-final/inductive/nodrop_trans_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_induc_mean/mean:3}",
+   "context": "p_trans_mean/mean:3} (transductive) and \\rhval{analysis/analysis-final/inductive/nodrop_induc_mean/mean:3} (inductive), differences of \\rhval{anal",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.45764544116567574,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_trans_vs_l2_diff/mean:3}",
+   "context": "ean/mean:3} (inductive), differences of \\rhval{analysis/analysis-final/inductive/nodrop_trans_vs_l2_diff/mean:3} and \\rhval{analysis/analysis-final/indu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_trans_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.48045324600048894,
+    "key": "analysis/analysis-final/inductive/nodrop_trans_vs_l2_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_induc_vs_l2_diff/mean:3}",
+   "context": "ive/nodrop_trans_vs_l2_diff/mean:3} and \\rhval{analysis/analysis-final/inductive/nodrop_induc_vs_l2_diff/mean:3} to the main model (paired $p$ below \\rh",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.5312471096930013,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_vs_l2_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{const/p_thresh:3}",
+   "context": ":3} to the main model (paired $p$ below \\rhval{const/p_thresh:3}). With the edge present at training tim",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_thresh",
+    "run_ids": [],
+    "value": 0.001,
+    "name": "p_thresh",
+    "why": "threshold quoted for paired p-values below it (all listed p-values in the corresponding analysis keys are smaller)",
+    "key": "const/p_thresh"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_induc_std/mean:3}",
+   "context": "oss seeds is high for this variant (std \\rhval{analysis/analysis-final/inductive/nodrop_induc_std/mean:3} inductive). In the no-removal variant s",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.08995921063724333,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_std/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_induc_sibling_mean/mean:3}",
+   "context": "moval variant sibling is hurt most (MRR \\rhval{analysis/analysis-final/inductive/nodrop_induc_sibling_mean/mean:3} inductive), whereas uncle is hurt least",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_sibling_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.27693021610973567,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_sibling_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/nodrop_induc_uncle_mean/mean:3}",
+   "context": "nductive), whereas uncle is hurt least (\\rhval{analysis/analysis-final/inductive/nodrop_induc_uncle_mean/mean:3}); we have no isolating run for this ord",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_uncle_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.6275146084278223,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_uncle_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f100_mean/mean:3}",
+   "context": "tonically at the four grid points, from \\rhval{analysis/analysis-final/inductive/dens_pm_f100_mean/mean:3} with everything observed to \\rhval{anal",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.988892550858677,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f75_mean/mean:3}",
+   "context": "ean/mean:3} with everything observed to \\rhval{analysis/analysis-final/inductive/dens_pm_f75_mean/mean:3}, \\rhval{analysis/analysis-final/inducti",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f75_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9338277566480105,
+    "key": "analysis/analysis-final/inductive/dens_pm_f75_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f50_mean/mean:3}",
+   "context": "nal/inductive/dens_pm_f75_mean/mean:3}, \\rhval{analysis/analysis-final/inductive/dens_pm_f50_mean/mean:3} and \\rhval{analysis/analysis-final/indu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f50_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.7003263473142437,
+    "key": "analysis/analysis-final/inductive/dens_pm_f50_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f25_mean/mean:3}",
+   "context": "/inductive/dens_pm_f50_mean/mean:3} and \\rhval{analysis/analysis-final/inductive/dens_pm_f25_mean/mean:3} at the three sparser levels; the step f",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f25_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.29219095090318314,
+    "key": "analysis/analysis-final/inductive/dens_pm_f25_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "75\\%",
+   "context": "r levels; the step from the full to the 75\\% graph is itself significant (paired dif",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_nodrop",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "min",
+    "run_ids": [
+     "ac04038b3e",
+     "6ef22e6a0f",
+     "50e59b7174",
+     "8c4e0f8e5d",
+     "c701d4674b"
+    ],
+    "value": 0.7489270386266095,
+    "key": "abl_nodrop/path-mp-2-hop/transductive/hits10/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f100_vs_f75_diff/mean:3}",
+   "context": "s itself significant (paired difference \\rhval{analysis/analysis-final/inductive/dens_pm_f100_vs_f75_diff/mean:3}, $p=\\rhval{analysis/analysis-final/indu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_vs_f75_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.05506479421066655,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_vs_f75_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f100_vs_f75_p/mean:sci2}",
+   "context": "ve/dens_pm_f100_vs_f75_diff/mean:3}, $p=\\rhval{analysis/analysis-final/inductive/dens_pm_f100_vs_f75_p/mean:sci2}$). The rule oracle falls similarly, so",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_vs_f75_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.003756191907987245,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_vs_f75_p/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_tf_f100_mean/mean:3}",
+   "context": "d. Fold-in TransE degrades more gently (\\rhval{analysis/analysis-final/inductive/dens_tf_f100_mean/mean:3} to \\rhval{analysis/analysis-final/induc",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.6440792896679158,
+    "key": "analysis/analysis-final/inductive/dens_tf_f100_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_tf_f25_mean/mean:3}",
+   "context": "/inductive/dens_tf_f100_mean/mean:3} to \\rhval{analysis/analysis-final/inductive/dens_tf_f25_mean/mean:3}) and the ranking of the systems changes",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f25_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.32921848442590196,
+    "key": "analysis/analysis-final/inductive/dens_tf_f25_mean/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "75\\%",
+   "context": "ity. Path-MP is ahead of fold-in at the 75\\% and 50\\% levels (paired differences \\rh",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_nodrop",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "min",
+    "run_ids": [
+     "ac04038b3e",
+     "6ef22e6a0f",
+     "50e59b7174",
+     "8c4e0f8e5d",
+     "c701d4674b"
+    ],
+    "value": 0.7489270386266095,
+    "key": "abl_nodrop/path-mp-2-hop/transductive/hits10/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "50\\%",
+   "context": "-MP is ahead of fold-in at the 75\\% and 50\\% levels (paired differences \\rhval{analy",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "c1d28f18df",
+     "e4e68f1128",
+     "ec751f9e65",
+     "62398f884b",
+     "f9fe77c1ef",
+     "0c6d68fe8b",
+     "a2bab3e57b",
+     "909ff02e7f",
+     "5d144fa8c0",
+     "e240bba420"
+    ],
+    "value": 0.5003319285714053,
+    "key": "sweep_layers/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "form": "percent",
+    "candidates": 72
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f75_diff/mean:3}",
+   "context": "5\\% and 50\\% levels (paired differences \\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f75_diff/mean:3} and \\rhval{analysis/analysis-final/indu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_vs_tf_f75_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.32315891085975473,
+    "key": "analysis/analysis-final/inductive/dens_pm_vs_tf_f75_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f50_diff/mean:3}",
+   "context": "tive/dens_pm_vs_tf_f75_diff/mean:3} and \\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f50_diff/mean:3}), but at 25\\% fold-in TransE has the hi",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_vs_tf_f50_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.1534414534214738,
+    "key": "analysis/analysis-final/inductive/dens_pm_vs_tf_f50_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "25\\%",
+   "context": "dens_pm_vs_tf_f50_diff/mean:3}), but at 25\\% fold-in TransE has the higher mean (dif",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "12567ff5d8",
+     "dbd1e21157",
+     "3766c5505b",
+     "53598a9214",
+     "cf75b203cb"
+    ],
+    "value": 0.2482787428849421,
+    "config": {
+     "obs_frac": 0.25
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.25/inductive/mrr_sibling/mean",
+    "form": "percent",
+    "candidates": 367
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f25_diff/mean:3}",
+   "context": "TransE has the higher mean (difference \\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f25_diff/mean:3} for Path-MP, paired $p=\\rhval{analysis/",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_vs_tf_f25_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.0370275335227188,
+    "key": "analysis/analysis-final/inductive/dens_pm_vs_tf_f25_diff/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f25_p/mean:2}",
+   "context": "f25_diff/mean:3} for Path-MP, paired $p=\\rhval{analysis/analysis-final/inductive/dens_pm_vs_tf_f25_p/mean:2}$), which with five seeds is inconclusiv",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_vs_tf_f25_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.14998572785666525,
+    "key": "analysis/analysis-final/inductive/dens_pm_vs_tf_f25_p/mean"
+   }
+  },
+  {
+   "section": "ablations.tex",
+   "literal": "\\rhval{const/p_thresh:3}",
+   "context": "three sparser levels (paired $p$ below \\rhval{const/p_thresh:3}). Note that in this sweep Path-MP is ap",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_thresh",
+    "run_ids": [],
+    "value": 0.001,
+    "name": "p_thresh",
+    "why": "threshold quoted for paired p-values below it (all listed p-values in the corresponding analysis keys are smaller)",
+    "key": "const/p_thresh"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/people}",
+   "context": "tion. We generate family-tree graphs of \\rhval{const/people} people with four relations (parent, sib",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "people",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "people",
+    "why": "entities per generated family graph",
+    "key": "const/people"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "hand-written one-step rule oracle, over \\rhval{const/n_seeds} seeds that each use a different graph p",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "n_seeds",
+    "why": "seeds 0-4, each a different graph pair",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/mrr/mean:3}",
+   "context": "raph pair. Path-MP reaches filtered MRR \\rhval{main/path-mp-2-hop/transductive/mrr/mean:3} on held-out triples and \\rhval{main/pat",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9877100673710645,
+    "key": "main/path-mp-2-hop/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/inductive/mrr/mean:3}",
+   "context": "ive/mrr/mean:3} on held-out triples and \\rhval{main/path-mp-2-hop/inductive/mrr/mean:3} on the new graph, with no measurable dr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 0.988892550858677,
+    "key": "main/path-mp-2-hop/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/mrr/mean:3}",
+   "context": "with no measurable drop; TransE reaches \\rhval{main/transe-reimplemented/transductive/mrr/mean:3} and falls to \\rhval{main/transe-reimple",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.6576576472944394,
+    "key": "main/transe-reimplemented/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/transe-reimplemented/inductive/mrr/mean:3}",
+   "context": "d/transductive/mrr/mean:3} and falls to \\rhval{main/transe-reimplemented/inductive/mrr/mean:3}. Fitting new entity vectors with frozen",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.011347055029711815,
+    "key": "main/transe-reimplemented/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{main/transe+fold-in-reimplemented/inductive/mrr/mean:3}",
+   "context": "zen relation vectors restores TransE to \\rhval{main/transe+fold-in-reimplemented/inductive/mrr/mean:3}, still far below Path-MP. Ablations sho",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "d611073c79",
+     "31e15c8558",
+     "c934114cc7",
+     "ace624fb92",
+     "751f5ab898"
+    ],
+    "value": 0.6440792896679158,
+    "key": "main/transe+fold-in-reimplemented/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "abstract.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/dens_pm_f25_mean/mean:3}",
+   "context": "observed Path-MP degrades quickly (MRR \\rhval{analysis/analysis-final/inductive/dens_pm_f25_mean/mean:3} at a quarter of the triples) and is no",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f25_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.29219095090318314,
+    "key": "analysis/analysis-final/inductive/dens_pm_f25_mean/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/mrr/mean:3}",
+   "context": "sage-passing model reached filtered MRR \\rhval{main/path-mp-2-hop/transductive/mrr/mean:3} on held-out triples and \\rhval{main/pat",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9877100673710645,
+    "key": "main/path-mp-2-hop/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/inductive/mrr/mean:3}",
+   "context": "ive/mrr/mean:3} on held-out triples and \\rhval{main/path-mp-2-hop/inductive/mrr/mean:3} on a fresh graph with new entities, wit",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 0.988892550858677,
+    "key": "main/path-mp-2-hop/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/mrr/mean:3}",
+   "context": "sfer loss, while a tuned TransE reached \\rhval{main/transe-reimplemented/transductive/mrr/mean:3} on held-out triples and was at chance o",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.6576576472944394,
+    "key": "main/transe-reimplemented/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "conclusion.tex",
+   "literal": "\\rhval{main/transe+fold-in-reimplemented/inductive/mrr/mean:3}",
+   "context": "n the observed new graph restores it to \\rhval{main/transe+fold-in-reimplemented/inductive/mrr/mean:3}, but it remains far below the path mode",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "d611073c79",
+     "31e15c8558",
+     "c934114cc7",
+     "ace624fb92",
+     "751f5ab898"
+    ],
+    "value": 0.6440792896679158,
+    "key": "main/transe+fold-in-reimplemented/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "25\\%",
+   "context": "\\begin{tabular}{lcccc}\\toprule System & 25\\% & 50\\% & 75\\% & 100\\% \\\\\\midrule Path-M",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "12567ff5d8",
+     "dbd1e21157",
+     "3766c5505b",
+     "53598a9214",
+     "cf75b203cb"
+    ],
+    "value": 0.2482787428849421,
+    "config": {
+     "obs_frac": 0.25
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.25/inductive/mrr_sibling/mean",
+    "form": "percent",
+    "candidates": 367
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "50\\%",
+   "context": "tabular}{lcccc}\\toprule System & 25\\% & 50\\% & 75\\% & 100\\% \\\\\\midrule Path-MP (2-ho",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "c1d28f18df",
+     "e4e68f1128",
+     "ec751f9e65",
+     "62398f884b",
+     "f9fe77c1ef",
+     "0c6d68fe8b",
+     "a2bab3e57b",
+     "909ff02e7f",
+     "5d144fa8c0",
+     "e240bba420"
+    ],
+    "value": 0.5003319285714053,
+    "key": "sweep_layers/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "form": "percent",
+    "candidates": 72
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "75\\%",
+   "context": "}{lcccc}\\toprule System & 25\\% & 50\\% & 75\\% & 100\\% \\\\\\midrule Path-MP (2-hop) & 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_nodrop",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "min",
+    "run_ids": [
+     "ac04038b3e",
+     "6ef22e6a0f",
+     "50e59b7174",
+     "8c4e0f8e5d",
+     "c701d4674b"
+    ],
+    "value": 0.7489270386266095,
+    "key": "abl_nodrop/path-mp-2-hop/transductive/hits10/min",
+    "form": "percent",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "100\\%",
+   "context": "}\\toprule System & 25\\% & 50\\% & 75\\% & 100\\% \\\\\\midrule Path-MP (2-hop) & 0.292$\\pm$",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 1.0,
+    "key": "main/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "form": "percent",
+    "candidates": 319
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.292",
+   "context": "\\% & 100\\% \\\\\\midrule Path-MP (2-hop) & 0.292$\\pm$0.052 & 0.700$\\pm$0.041 & 0.934$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f25_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.29219095090318314,
+    "key": "analysis/analysis-final/inductive/dens_pm_f25_mean/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.052",
+   "context": "\\\\\\midrule Path-MP (2-hop) & 0.292$\\pm$0.052 & 0.700$\\pm$0.041 & 0.934$\\pm$0.019 & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f25_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.05229594686022189,
+    "key": "analysis/analysis-final/inductive/dens_pm_f25_std/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.700",
+   "context": "ule Path-MP (2-hop) & 0.292$\\pm$0.052 & 0.700$\\pm$0.041 & 0.934$\\pm$0.019 & 0.989$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f50_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.7003263473142437,
+    "key": "analysis/analysis-final/inductive/dens_pm_f50_mean/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.041",
+   "context": "P (2-hop) & 0.292$\\pm$0.052 & 0.700$\\pm$0.041 & 0.934$\\pm$0.019 & 0.989$\\pm$0.007 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f50_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04070323094421246,
+    "key": "analysis/analysis-final/inductive/dens_pm_f50_std/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.934",
+   "context": ") & 0.292$\\pm$0.052 & 0.700$\\pm$0.041 & 0.934$\\pm$0.019 & 0.989$\\pm$0.007 \\\\ TransE+f",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f75_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9338277566480105,
+    "key": "analysis/analysis-final/inductive/dens_pm_f75_mean/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.019",
+   "context": "\\pm$0.052 & 0.700$\\pm$0.041 & 0.934$\\pm$0.019 & 0.989$\\pm$0.007 \\\\ TransE+fold-in & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f75_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.018933036587500514,
+    "key": "analysis/analysis-final/inductive/dens_pm_f75_std/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.989",
+   "context": "2 & 0.700$\\pm$0.041 & 0.934$\\pm$0.019 & 0.989$\\pm$0.007 \\\\ TransE+fold-in & 0.329$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.988892550858677,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_mean/mean",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.007",
+   "context": "\\pm$0.041 & 0.934$\\pm$0.019 & 0.989$\\pm$0.007 \\\\ TransE+fold-in & 0.329$\\pm$0.028 & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.007284943935751464,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_std/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.329",
+   "context": "9 & 0.989$\\pm$0.007 \\\\ TransE+fold-in & 0.329$\\pm$0.028 & 0.547$\\pm$0.038 & 0.611$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f25_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.32921848442590196,
+    "key": "analysis/analysis-final/inductive/dens_tf_f25_mean/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.028",
+   "context": "\\pm$0.007 \\\\ TransE+fold-in & 0.329$\\pm$0.028 & 0.547$\\pm$0.038 & 0.611$\\pm$0.036 & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f25_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.02797231395552928,
+    "key": "analysis/analysis-final/inductive/dens_tf_f25_std/mean",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.547",
+   "context": "7 \\\\ TransE+fold-in & 0.329$\\pm$0.028 & 0.547$\\pm$0.038 & 0.611$\\pm$0.036 & 0.644$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f50_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.5468848938927698,
+    "key": "analysis/analysis-final/inductive/dens_tf_f50_mean/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.038",
+   "context": "E+fold-in & 0.329$\\pm$0.028 & 0.547$\\pm$0.038 & 0.611$\\pm$0.036 & 0.644$\\pm$0.025 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f50_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.03785608794012204,
+    "key": "analysis/analysis-final/inductive/dens_tf_f50_std/mean",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.611",
+   "context": "n & 0.329$\\pm$0.028 & 0.547$\\pm$0.038 & 0.611$\\pm$0.036 & 0.644$\\pm$0.025 \\\\ Rule ora",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f75_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.6106688457882558,
+    "key": "analysis/analysis-final/inductive/dens_tf_f75_mean/mean",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.036",
+   "context": "\\pm$0.028 & 0.547$\\pm$0.038 & 0.611$\\pm$0.036 & 0.644$\\pm$0.025 \\\\ Rule oracle & 0.17",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f75_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.036069172463073375,
+    "key": "analysis/analysis-final/inductive/dens_tf_f75_std/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.644",
+   "context": "8 & 0.547$\\pm$0.038 & 0.611$\\pm$0.036 & 0.644$\\pm$0.025 \\\\ Rule oracle & 0.175$\\pm$0.",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.6440792896679158,
+    "key": "analysis/analysis-final/inductive/dens_tf_f100_mean/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.025",
+   "context": "\\pm$0.038 & 0.611$\\pm$0.036 & 0.644$\\pm$0.025 \\\\ Rule oracle & 0.175$\\pm$0.043 & 0.51",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.025209430802886117,
+    "key": "analysis/analysis-final/inductive/dens_tf_f100_std/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.175",
+   "context": ".036 & 0.644$\\pm$0.025 \\\\ Rule oracle & 0.175$\\pm$0.043 & 0.515$\\pm$0.048 & 0.803$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f25_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.1750177553409567,
+    "key": "analysis/analysis-final/inductive/dens_or_f25_mean/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.043",
+   "context": "44$\\pm$0.025 \\\\ Rule oracle & 0.175$\\pm$0.043 & 0.515$\\pm$0.048 & 0.803$\\pm$0.027 & 0",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f25_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04334896677346487,
+    "key": "analysis/analysis-final/inductive/dens_or_f25_std/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.515",
+   "context": ".025 \\\\ Rule oracle & 0.175$\\pm$0.043 & 0.515$\\pm$0.048 & 0.803$\\pm$0.027 & 0.950$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f50_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.5149059473105854,
+    "key": "analysis/analysis-final/inductive/dens_or_f50_mean/mean",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.048",
+   "context": "le oracle & 0.175$\\pm$0.043 & 0.515$\\pm$0.048 & 0.803$\\pm$0.027 & 0.950$\\pm$0.020 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f50_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04794825678986996,
+    "key": "analysis/analysis-final/inductive/dens_or_f50_std/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.803",
+   "context": "e & 0.175$\\pm$0.043 & 0.515$\\pm$0.048 & 0.803$\\pm$0.027 & 0.950$\\pm$0.020 \\\\ \\bottomr",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f75_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.802967035521706,
+    "key": "analysis/analysis-final/inductive/dens_or_f75_mean/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.027",
+   "context": "\\pm$0.043 & 0.515$\\pm$0.048 & 0.803$\\pm$0.027 & 0.950$\\pm$0.020 \\\\ \\bottomrule\\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f75_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.027154757416278597,
+    "key": "analysis/analysis-final/inductive/dens_or_f75_std/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.950",
+   "context": "3 & 0.515$\\pm$0.048 & 0.803$\\pm$0.027 & 0.950$\\pm$0.020 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9502785006743879,
+    "key": "analysis/analysis-final/inductive/dens_or_f100_mean/mean",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/analysis_density.tex",
+   "literal": "0.020",
+   "context": "\\pm$0.048 & 0.803$\\pm$0.027 & 0.950$\\pm$0.020 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.01982423496394269,
+    "key": "analysis/analysis-final/inductive/dens_or_f100_std/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.004",
+   "context": "$ vs L=2 (induct.) \\\\\\midrule 1 layer & 0.004$\\pm$0.000 & 0.004$\\pm$0.000 & -0.984 &",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.000",
+   "context": "induct.) \\\\\\midrule 1 layer & 0.004$\\pm$0.000 & 0.004$\\pm$0.000 & -0.984 & -0.985 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.004",
+   "context": "\\\\\\midrule 1 layer & 0.004$\\pm$0.000 & 0.004$\\pm$0.000 & -0.984 & -0.985 \\\\ 2 layers",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.000",
+   "context": "e 1 layer & 0.004$\\pm$0.000 & 0.004$\\pm$0.000 & -0.984 & -0.985 \\\\ 2 layers (main) &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.984",
+   "context": "& 0.004$\\pm$0.000 & 0.004$\\pm$0.000 & -0.984 & -0.985 \\\\ 2 layers (main) & 0.988$\\pm",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L1_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.9836282535080917,
+    "key": "analysis/analysis-final/inductive/lay_trans_l1_vs_l2_diff/mean",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.985",
+   "context": "\\pm$0.000 & 0.004$\\pm$0.000 & -0.984 & -0.985 \\\\ 2 layers (main) & 0.988$\\pm$0.004 &",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L1_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.9848067343189519,
+    "key": "analysis/analysis-final/inductive/lay_induc_l1_vs_l2_diff/mean",
+    "candidates": 26
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.988",
+   "context": "& -0.984 & -0.985 \\\\ 2 layers (main) & 0.988$\\pm$0.004 & 0.989$\\pm$0.007 & -- & -- \\",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L3_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9882059653804263,
+    "key": "analysis/analysis-final/inductive/lay_induc_l3_mean/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.004",
+   "context": "& -0.985 \\\\ 2 layers (main) & 0.988$\\pm$0.004 & 0.989$\\pm$0.007 & -- & -- \\\\ 3 layers",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.989",
+   "context": "\\\\ 2 layers (main) & 0.988$\\pm$0.004 & 0.989$\\pm$0.007 & -- & -- \\\\ 3 layers & 0.989",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.988892550858677,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_mean/mean",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.007",
+   "context": "rs (main) & 0.988$\\pm$0.004 & 0.989$\\pm$0.007 & -- & -- \\\\ 3 layers & 0.989$\\pm$0.004",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.007284943935751464,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_std/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.989",
+   "context": "0.989$\\pm$0.007 & -- & -- \\\\ 3 layers & 0.989$\\pm$0.004 & 0.988$\\pm$0.011 & 0.002 & -",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.988892550858677,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_mean/mean",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.004",
+   "context": "0.007 & -- & -- \\\\ 3 layers & 0.989$\\pm$0.004 & 0.988$\\pm$0.011 & 0.002 & -0.001 \\\\ 2",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.988",
+   "context": "-- & -- \\\\ 3 layers & 0.989$\\pm$0.004 & 0.988$\\pm$0.011 & 0.002 & -0.001 \\\\ 2 layers,",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L3_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9882059653804263,
+    "key": "analysis/analysis-final/inductive/lay_induc_l3_mean/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.011",
+   "context": "3 layers & 0.989$\\pm$0.004 & 0.988$\\pm$0.011 & 0.002 & -0.001 \\\\ 2 layers, no edge r",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.011107858473083836,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/mean",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.002",
+   "context": "s & 0.989$\\pm$0.004 & 0.988$\\pm$0.011 & 0.002 & -0.001 \\\\ 2 layers, no edge removal &",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L3_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0015206398272283872,
+    "key": "analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean",
+    "candidates": 27
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.001",
+   "context": "$\\pm$0.004 & 0.988$\\pm$0.011 & 0.002 & -0.001 \\\\ 2 layers, no edge removal & 0.507$\\p",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_pm_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0011824834876126068,
+    "key": "analysis/analysis-final/inductive/shift_pm_diff/mean",
+    "candidates": 110
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.507",
+   "context": "& -0.001 \\\\ 2 layers, no edge removal & 0.507$\\pm$0.073 & 0.458$\\pm$0.090 & -0.480 &",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_nodrop",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "ac04038b3e",
+     "6ef22e6a0f",
+     "50e59b7174",
+     "8c4e0f8e5d",
+     "c701d4674b"
+    ],
+    "value": 0.5072568213705756,
+    "key": "abl_nodrop/path-mp-2-hop/transductive/mrr/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.073",
+   "context": "\\ 2 layers, no edge removal & 0.507$\\pm$0.073 & 0.458$\\pm$0.090 & -0.480 & -0.531 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_trans_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0732335453715249,
+    "key": "analysis/analysis-final/inductive/nodrop_trans_std/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.458",
+   "context": "rs, no edge removal & 0.507$\\pm$0.073 & 0.458$\\pm$0.090 & -0.480 & -0.531 \\\\ \\bottomr",
+   "source": {
+    "type": "aggregate",
+    "group": "abl_nodrop",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "992d469521",
+     "07576271c9",
+     "fe6bf926d5",
+     "51e48ba8c1",
+     "9a66cb37e1"
+    ],
+    "value": 0.45764544116567574,
+    "key": "abl_nodrop/path-mp-2-hop/inductive/mrr/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.090",
+   "context": "e removal & 0.507$\\pm$0.073 & 0.458$\\pm$0.090 & -0.480 & -0.531 \\\\ \\bottomrule\\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.08995921063724333,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_std/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.480",
+   "context": "& 0.507$\\pm$0.073 & 0.458$\\pm$0.090 & -0.480 & -0.531 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "2803224b57",
+     "8e98293b3f",
+     "1cc819d0c7",
+     "be367555aa",
+     "816f755d9d"
+    ],
+    "value": 0.48034571902836154,
+    "config": {
+     "obs_frac": 0.75
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.75/inductive/mrr_uncle/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/analysis_depth.tex",
+   "literal": "0.531",
+   "context": "\\pm$0.073 & 0.458$\\pm$0.090 & -0.480 & -0.531 \\\\ \\bottomrule\\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_induc_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.5312471096930013,
+    "key": "analysis/analysis-final/inductive/nodrop_induc_vs_l2_diff/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.937",
+   "context": "nd-written) & transductive & \\underline{0.937 $\\pm$ 0.026} & \\underline{0.931 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.9369251802393406,
+    "key": "main/rule-oracle-hand-written/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.026",
+   "context": "& transductive & \\underline{0.937 $\\pm$ 0.026} & \\underline{0.931 $\\pm$ 0.026} & 0.94",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.02597457407629009,
+    "key": "main/rule-oracle-hand-written/transductive/mrr/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.931",
+   "context": "derline{0.937 $\\pm$ 0.026} & \\underline{0.931 $\\pm$ 0.026} & 0.940 $\\pm$ 0.026 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.9313365152859756,
+    "key": "main/rule-oracle-hand-written/transductive/hits1/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.026",
+   "context": "7 $\\pm$ 0.026} & \\underline{0.931 $\\pm$ 0.026} & 0.940 $\\pm$ 0.026 & 5 \\\\ TransE+fold",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.02597457407629009,
+    "key": "main/rule-oracle-hand-written/transductive/mrr/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.940",
+   "context": ".026} & \\underline{0.931 $\\pm$ 0.026} & 0.940 $\\pm$ 0.026 & 5 \\\\ TransE+fold-in (reim",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.9398783533523247,
+    "key": "main/rule-oracle-hand-written/transductive/hits10/mean",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.026",
+   "context": "erline{0.931 $\\pm$ 0.026} & 0.940 $\\pm$ 0.026 & 5 \\\\ TransE+fold-in (reimplemented) &",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.02597457407629009,
+    "key": "main/rule-oracle-hand-written/transductive/mrr/std",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.656",
+   "context": "old-in (reimplemented) & transductive & 0.656 $\\pm$ 0.029 & 0.423 $\\pm$ 0.056 & 0.981",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "2ce377b478",
+     "58d04ad089",
+     "bf5e1b67df",
+     "29a2446ba4",
+     "0d5fd39a1f"
+    ],
+    "value": 0.656089376119408,
+    "key": "main/transe+fold-in-reimplemented/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.029",
+   "context": "plemented) & transductive & 0.656 $\\pm$ 0.029 & 0.423 $\\pm$ 0.056 & 0.981 $\\pm$ 0.005",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "2ce377b478",
+     "58d04ad089",
+     "bf5e1b67df",
+     "29a2446ba4",
+     "0d5fd39a1f"
+    ],
+    "value": 0.028945234494054017,
+    "key": "main/transe+fold-in-reimplemented/transductive/mrr/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.423",
+   "context": "d) & transductive & 0.656 $\\pm$ 0.029 & 0.423 $\\pm$ 0.056 & 0.981 $\\pm$ 0.005 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "transductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "2ce377b478",
+     "58d04ad089",
+     "bf5e1b67df",
+     "29a2446ba4",
+     "0d5fd39a1f"
+    ],
+    "value": 0.42275928508068467,
+    "key": "main/transe+fold-in-reimplemented/transductive/hits1/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.056",
+   "context": "ctive & 0.656 $\\pm$ 0.029 & 0.423 $\\pm$ 0.056 & 0.981 $\\pm$ 0.005 & 5 \\\\ TransE (reim",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "std",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.05620555245501985,
+    "key": "main/transe-reimplemented/transductive/mrr_grandparent/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.981",
+   "context": "0.656 $\\pm$ 0.029 & 0.423 $\\pm$ 0.056 & 0.981 $\\pm$ 0.005 & 5 \\\\ TransE (reimplemente",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "64e7dd842a",
+     "a090bb76e8",
+     "120e5e9d4d",
+     "f7289423f0"
+    ],
+    "value": 0.9811029121844944,
+    "config": {
+     "pm_lr": 0.01
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.01/transductive/mrr_grandparent/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.005",
+   "context": "0.029 & 0.423 $\\pm$ 0.056 & 0.981 $\\pm$ 0.005 & 5 \\\\ TransE (reimplemented) & transdu",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "8d611a592b",
+     "7e70d5009c",
+     "bbfe6dd6d8",
+     "475b63c8dd",
+     "b0d64b4a7d"
+    ],
+    "value": 0.00512885275172724,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/transductive/mrr_parent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.658",
+   "context": "TransE (reimplemented) & transductive & 0.658 $\\pm$ 0.024 & 0.424 $\\pm$ 0.049 & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.6576576472944394,
+    "key": "main/transe-reimplemented/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.024",
+   "context": "plemented) & transductive & 0.658 $\\pm$ 0.024 & 0.424 $\\pm$ 0.049 & \\underline{0.983",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.023767651184386986,
+    "key": "main/transe-reimplemented/transductive/mrr/std",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.424",
+   "context": "d) & transductive & 0.658 $\\pm$ 0.024 & 0.424 $\\pm$ 0.049 & \\underline{0.983 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.4235697702609684,
+    "key": "main/transe-reimplemented/transductive/hits1/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.049",
+   "context": "ctive & 0.658 $\\pm$ 0.024 & 0.424 $\\pm$ 0.049 & \\underline{0.983 $\\pm$ 0.005} & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_trans_parent_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04892114087759873,
+    "key": "analysis/analysis-final/inductive/nodrop_trans_parent_std/mean",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.983",
+   "context": "0.024 & 0.424 $\\pm$ 0.049 & \\underline{0.983 $\\pm$ 0.005} & 5 \\\\ \\textbf{Path-MP (2-",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "9067e608ed",
+     "17f2a64da1",
+     "008e6590b9",
+     "9fb6fde142",
+     "bf1ebb7cd4"
+    ],
+    "value": 0.9828378611531262,
+    "config": {
+     "obs_frac": 0.75
+    },
+    "key": "sweep_density/path-mp-2-hop@obs_frac=0.75/inductive/mrr_sibling/mean",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.005",
+   "context": "24 $\\pm$ 0.049 & \\underline{0.983 $\\pm$ 0.005} & 5 \\\\ \\textbf{Path-MP (2-hop)} & tran",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "8d611a592b",
+     "7e70d5009c",
+     "bbfe6dd6d8",
+     "475b63c8dd",
+     "b0d64b4a7d"
+    ],
+    "value": 0.00512885275172724,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/transductive/mrr_parent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.988",
+   "context": "th-MP (2-hop)} & transductive & \\textbf{0.988 $\\pm$ 0.004} & \\textbf{0.985 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L3_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9882059653804263,
+    "key": "analysis/analysis-final/inductive/lay_induc_l3_mean/mean",
+    "candidates": 35
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.004",
+   "context": ")} & transductive & \\textbf{0.988 $\\pm$ 0.004} & \\textbf{0.985 $\\pm$ 0.003} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.985",
+   "context": "& \\textbf{0.988 $\\pm$ 0.004} & \\textbf{0.985 $\\pm$ 0.003} & \\textbf{0.990 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_induc_L1_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.9848067343189519,
+    "key": "analysis/analysis-final/inductive/lay_induc_l1_vs_l2_diff/mean",
+    "candidates": 26
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.003",
+   "context": ".988 $\\pm$ 0.004} & \\textbf{0.985 $\\pm$ 0.003} & \\textbf{0.990 $\\pm$ 0.005} & 5 \\\\ \\m",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "std",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0029861757362437714,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.990",
+   "context": "& \\textbf{0.985 $\\pm$ 0.003} & \\textbf{0.990 $\\pm$ 0.005} & 5 \\\\ \\midrule Rule oracl",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.9899132558928919,
+    "key": "main/rule-oracle-hand-written/inductive/mrr_sibling/mean",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.005",
+   "context": ".985 $\\pm$ 0.003} & \\textbf{0.990 $\\pm$ 0.005} & 5 \\\\ \\midrule Rule oracle (hand-writ",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "8d611a592b",
+     "7e70d5009c",
+     "bbfe6dd6d8",
+     "475b63c8dd",
+     "b0d64b4a7d"
+    ],
+    "value": 0.00512885275172724,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/transductive/mrr_parent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.950",
+   "context": "(hand-written) & inductive & \\underline{0.950 $\\pm$ 0.020} & \\underline{0.946 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.9502785006743879,
+    "key": "analysis/analysis-final/inductive/dens_or_f100_mean/mean",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.020",
+   "context": "n) & inductive & \\underline{0.950 $\\pm$ 0.020} & \\underline{0.946 $\\pm$ 0.019} & 0.95",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.01982423496394269,
+    "key": "analysis/analysis-final/inductive/dens_or_f100_std/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.946",
+   "context": "derline{0.950 $\\pm$ 0.020} & \\underline{0.946 $\\pm$ 0.019} & 0.952 $\\pm$ 0.020 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.9455942710515608,
+    "key": "main/rule-oracle-hand-written/inductive/hits1/mean"
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.019",
+   "context": "0 $\\pm$ 0.020} & \\underline{0.946 $\\pm$ 0.019} & 0.952 $\\pm$ 0.020 & 5 \\\\ TransE+fold",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f75_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.018933036587500514,
+    "key": "analysis/analysis-final/inductive/dens_pm_f75_std/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.952",
+   "context": ".020} & \\underline{0.946 $\\pm$ 0.019} & 0.952 $\\pm$ 0.020 & 5 \\\\ TransE+fold-in (reim",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "hits10",
+    "stat": "mean",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.9524488524447732,
+    "key": "main/rule-oracle-hand-written/inductive/hits10/mean",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.020",
+   "context": "erline{0.946 $\\pm$ 0.019} & 0.952 $\\pm$ 0.020 & 5 \\\\ TransE+fold-in (reimplemented) &",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.01982423496394269,
+    "key": "analysis/analysis-final/inductive/dens_or_f100_std/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.644",
+   "context": "E+fold-in (reimplemented) & inductive & 0.644 $\\pm$ 0.025 & 0.423 $\\pm$ 0.046 & \\unde",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.6440792896679158,
+    "key": "analysis/analysis-final/inductive/dens_tf_f100_mean/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.025",
+   "context": "eimplemented) & inductive & 0.644 $\\pm$ 0.025 & 0.423 $\\pm$ 0.046 & \\underline{0.982",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.025209430802886117,
+    "key": "analysis/analysis-final/inductive/dens_tf_f100_std/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.423",
+   "context": "nted) & inductive & 0.644 $\\pm$ 0.025 & 0.423 $\\pm$ 0.046 & \\underline{0.982 $\\pm$ 0.",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "transductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "2ce377b478",
+     "58d04ad089",
+     "bf5e1b67df",
+     "29a2446ba4",
+     "0d5fd39a1f"
+    ],
+    "value": 0.42275928508068467,
+    "key": "main/transe+fold-in-reimplemented/transductive/hits1/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.046",
+   "context": "ctive & 0.644 $\\pm$ 0.025 & 0.423 $\\pm$ 0.046 & \\underline{0.982 $\\pm$ 0.010} & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "std",
+    "run_ids": [
+     "2803224b57",
+     "8e98293b3f",
+     "1cc819d0c7",
+     "be367555aa",
+     "816f755d9d"
+    ],
+    "value": 0.04608881681910471,
+    "config": {
+     "obs_frac": 0.75
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.75/inductive/hits1/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.982",
+   "context": "0.025 & 0.423 $\\pm$ 0.046 & \\underline{0.982 $\\pm$ 0.010} & 5 \\\\ TransE (reimplement",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "1cf97c8217",
+     "a090bb76e8",
+     "31c23ca302",
+     "f7289423f0"
+    ],
+    "value": 0.9818353565673131,
+    "config": {
+     "pm_epochs": 6
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_epochs=6/transductive/mrr_grandparent/mean",
+    "candidates": 21
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.010",
+   "context": "23 $\\pm$ 0.046 & \\underline{0.982 $\\pm$ 0.010} & 5 \\\\ TransE (reimplemented) & induct",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.009715681339576853,
+    "key": "main/transe-reimplemented/inductive/mrr_sibling/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.011",
+   "context": "\\\\ TransE (reimplemented) & inductive & 0.011 $\\pm$ 0.002 & 0.000 $\\pm$ 0.000 & 0.015",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.011107858473083836,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/mean",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.002",
+   "context": "eimplemented) & inductive & 0.011 $\\pm$ 0.002 & 0.000 $\\pm$ 0.000 & 0.015 $\\pm$ 0.006",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L3_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0015206398272283872,
+    "key": "analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean",
+    "candidates": 27
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.000",
+   "context": "nted) & inductive & 0.011 $\\pm$ 0.002 & 0.000 $\\pm$ 0.000 & 0.015 $\\pm$ 0.006 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.000",
+   "context": "ctive & 0.011 $\\pm$ 0.002 & 0.000 $\\pm$ 0.000 & 0.015 $\\pm$ 0.006 & 5 \\\\ \\textbf{Path",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.015",
+   "context": "0.011 $\\pm$ 0.002 & 0.000 $\\pm$ 0.000 & 0.015 $\\pm$ 0.006 & 5 \\\\ \\textbf{Path-MP (2-h",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits10",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.014538939435733107,
+    "key": "main/transe-reimplemented/inductive/hits10/mean",
+    "candidates": 20
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.006",
+   "context": "0.002 & 0.000 $\\pm$ 0.000 & 0.015 $\\pm$ 0.006 & 5 \\\\ \\textbf{Path-MP (2-hop)} & induc",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "9a671ca351",
+     "1cf97c8217",
+     "06f345963b",
+     "31c23ca302"
+    ],
+    "value": 0.006014272149881704,
+    "config": {
+     "pm_lr": 0.003
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.003/transductive/mrr_parent/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.989",
+   "context": "{Path-MP (2-hop)} & inductive & \\textbf{0.989 $\\pm$ 0.007} & \\textbf{0.987 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_mean",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.988892550858677,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_mean/mean",
+    "candidates": 37
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.007",
+   "context": "hop)} & inductive & \\textbf{0.989 $\\pm$ 0.007} & \\textbf{0.987 $\\pm$ 0.008} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.007284943935751464,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_std/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.987",
+   "context": "& \\textbf{0.989 $\\pm$ 0.007} & \\textbf{0.987 $\\pm$ 0.008} & \\textbf{0.992 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 0.9871710490609896,
+    "key": "main/path-mp-2-hop/inductive/hits1/mean",
+    "candidates": 23
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.008",
+   "context": ".989 $\\pm$ 0.007} & \\textbf{0.987 $\\pm$ 0.008} & \\textbf{0.992 $\\pm$ 0.007} & 5 \\\\ \\b",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "hits10",
+    "stat": "std",
+    "run_ids": [
+     "e4e68f1128",
+     "62398f884b",
+     "0c6d68fe8b",
+     "909ff02e7f",
+     "e240bba420"
+    ],
+    "value": 0.00799524585920202,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/inductive/hits10/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.992",
+   "context": "& \\textbf{0.987 $\\pm$ 0.008} & \\textbf{0.992 $\\pm$ 0.007} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "8d611a592b",
+     "7e70d5009c",
+     "bbfe6dd6d8",
+     "475b63c8dd",
+     "b0d64b4a7d"
+    ],
+    "value": 0.9919907667591976,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/transductive/mrr_sibling/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_mrr.tex",
+   "literal": "0.007",
+   "context": ".987 $\\pm$ 0.008} & \\textbf{0.992 $\\pm$ 0.007} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.007284943935751464,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_std/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.828",
+   "context": "nd-written) & transductive & \\underline{0.828 $\\pm$ 0.035} & \\underline{0.976 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.8282473741925237,
+    "key": "main/rule-oracle-hand-written/transductive/mrr_parent/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.035",
+   "context": "& transductive & \\underline{0.828 $\\pm$ 0.035} & \\underline{0.976 $\\pm$ 0.020} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "std",
+    "run_ids": [
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.03508409093194293,
+    "config": {
+     "dim": 64
+    },
+    "key": "tune_transe/transe-reimplemented@dim=64/transductive/hits10/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.976",
+   "context": "derline{0.828 $\\pm$ 0.035} & \\underline{0.976 $\\pm$ 0.020} & \\underline{0.996 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "mean",
+    "run_ids": [
+     "64e7dd842a",
+     "a090bb76e8",
+     "120e5e9d4d",
+     "f7289423f0"
+    ],
+    "value": 0.975952291911529,
+    "config": {
+     "pm_lr": 0.01
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.01/transductive/hits10/mean",
+    "candidates": 8
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.020",
+   "context": "8 $\\pm$ 0.035} & \\underline{0.976 $\\pm$ 0.020} & \\underline{0.996 $\\pm$ 0.009} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.01982423496394269,
+    "key": "analysis/analysis-final/inductive/dens_or_f100_std/mean",
+    "candidates": 19
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.996",
+   "context": "derline{0.976 $\\pm$ 0.020} & \\underline{0.996 $\\pm$ 0.009} & \\underline{0.958 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.9961692616620328,
+    "key": "main/rule-oracle-hand-written/transductive/mrr_grandparent/mean",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.009",
+   "context": "6 $\\pm$ 0.020} & \\underline{0.996 $\\pm$ 0.009} & \\underline{0.958 $\\pm$ 0.036} & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "9a671ca351",
+     "1cf97c8217",
+     "06f345963b",
+     "31c23ca302"
+    ],
+    "value": 0.00896291731889652,
+    "config": {
+     "pm_lr": 0.003
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.003/transductive/mrr/std",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.958",
+   "context": "derline{0.996 $\\pm$ 0.009} & \\underline{0.958 $\\pm$ 0.036} & 5 \\\\ TransE+fold-in (rei",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.958214649143077,
+    "key": "main/rule-oracle-hand-written/transductive/mrr_uncle/mean",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.036",
+   "context": "6 $\\pm$ 0.009} & \\underline{0.958 $\\pm$ 0.036} & 5 \\\\ TransE+fold-in (reimplemented)",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f75_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.036069172463073375,
+    "key": "analysis/analysis-final/inductive/dens_tf_f75_std/mean",
+    "candidates": 12
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.735",
+   "context": "old-in (reimplemented) & transductive & 0.735 $\\pm$ 0.035 & 0.485 $\\pm$ 0.010 & 0.858",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "a1d0acbc81",
+     "a2eda6c73e"
+    ],
+    "value": 0.7351683686618351,
+    "config": {
+     "margin": 6
+    },
+    "key": "tune_transe/transe-reimplemented@margin=6/transductive/mrr_parent/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.035",
+   "context": "plemented) & transductive & 0.735 $\\pm$ 0.035 & 0.485 $\\pm$ 0.010 & 0.858 $\\pm$ 0.065",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "std",
+    "run_ids": [
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.03508409093194293,
+    "config": {
+     "dim": 64
+    },
+    "key": "tune_transe/transe-reimplemented@dim=64/transductive/hits10/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.485",
+   "context": "d) & transductive & 0.735 $\\pm$ 0.035 & 0.485 $\\pm$ 0.010 & 0.858 $\\pm$ 0.065 & 0.498",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "d318e84f6d",
+     "549bda2edc",
+     "5ad5f914f1",
+     "4f0de9bb82",
+     "7006f66acf",
+     "bed66a43b7",
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "428c3a7877",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "b17b25cf0c",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.4851421393766348,
+    "config": {
+     "p": 1
+    },
+    "key": "tune_transe/transe-reimplemented@p=1/transductive/mrr_uncle/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.010",
+   "context": "ctive & 0.735 $\\pm$ 0.035 & 0.485 $\\pm$ 0.010 & 0.858 $\\pm$ 0.065 & 0.498 $\\pm$ 0.052",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.009715681339576853,
+    "key": "main/transe-reimplemented/inductive/mrr_sibling/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.858",
+   "context": "0.735 $\\pm$ 0.035 & 0.485 $\\pm$ 0.010 & 0.858 $\\pm$ 0.065 & 0.498 $\\pm$ 0.052 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "2ce377b478",
+     "58d04ad089",
+     "bf5e1b67df",
+     "29a2446ba4",
+     "0d5fd39a1f"
+    ],
+    "value": 0.8582496753703275,
+    "key": "main/transe+fold-in-reimplemented/transductive/mrr_grandparent/mean"
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.065",
+   "context": "0.035 & 0.485 $\\pm$ 0.010 & 0.858 $\\pm$ 0.065 & 0.498 $\\pm$ 0.052 & 5 \\\\ TransE (reim",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_sibling",
+    "stat": "std",
+    "run_ids": [
+     "d318e84f6d",
+     "549bda2edc",
+     "5ad5f914f1",
+     "4f0de9bb82",
+     "7006f66acf",
+     "bed66a43b7",
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "428c3a7877",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "b17b25cf0c",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.06505309828639541,
+    "config": {
+     "p": 1
+    },
+    "key": "tune_transe/transe-reimplemented@p=1/transductive/mrr_sibling/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.498",
+   "context": "0.485 $\\pm$ 0.010 & 0.858 $\\pm$ 0.065 & 0.498 $\\pm$ 0.052 & 5 \\\\ TransE (reimplemente",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "f8b41b0480",
+     "8d611a592b",
+     "79dd47c368",
+     "7e70d5009c",
+     "ca96f23d0c",
+     "bbfe6dd6d8",
+     "ff57b283fb",
+     "475b63c8dd",
+     "874a145c28",
+     "b0d64b4a7d"
+    ],
+    "value": 0.49803266707784405,
+    "key": "sweep_layers/path-mp-2-hop/transductive/mrr_sibling/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.052",
+   "context": "0.010 & 0.858 $\\pm$ 0.065 & 0.498 $\\pm$ 0.052 & 5 \\\\ TransE (reimplemented) & transdu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f25_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.05229594686022189,
+    "key": "analysis/analysis-final/inductive/dens_pm_f25_std/mean",
+    "candidates": 13
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.732",
+   "context": "TransE (reimplemented) & transductive & 0.732 $\\pm$ 0.045 & 0.485 $\\pm$ 0.008 & 0.867",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.7320631444013073,
+    "key": "main/transe-reimplemented/transductive/mrr_parent/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.045",
+   "context": "plemented) & transductive & 0.732 $\\pm$ 0.045 & 0.485 $\\pm$ 0.008 & 0.867 $\\pm$ 0.056",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "12567ff5d8",
+     "dbd1e21157",
+     "3766c5505b",
+     "53598a9214",
+     "cf75b203cb"
+    ],
+    "value": 0.04487904507698287,
+    "config": {
+     "obs_frac": 0.25
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.25/inductive/mrr_parent/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.485",
+   "context": "d) & transductive & 0.732 $\\pm$ 0.045 & 0.485 $\\pm$ 0.008 & 0.867 $\\pm$ 0.056 & 0.499",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "d318e84f6d",
+     "549bda2edc",
+     "5ad5f914f1",
+     "4f0de9bb82",
+     "7006f66acf",
+     "bed66a43b7",
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "428c3a7877",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "b17b25cf0c",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.4851421393766348,
+    "config": {
+     "p": 1
+    },
+    "key": "tune_transe/transe-reimplemented@p=1/transductive/mrr_uncle/mean",
+    "candidates": 7
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.008",
+   "context": "ctive & 0.732 $\\pm$ 0.045 & 0.485 $\\pm$ 0.008 & 0.867 $\\pm$ 0.056 & 0.499 $\\pm$ 0.041",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "hits10",
+    "stat": "std",
+    "run_ids": [
+     "e4e68f1128",
+     "62398f884b",
+     "0c6d68fe8b",
+     "909ff02e7f",
+     "e240bba420"
+    ],
+    "value": 0.00799524585920202,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/inductive/hits10/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.867",
+   "context": "0.732 $\\pm$ 0.045 & 0.485 $\\pm$ 0.008 & 0.867 $\\pm$ 0.056 & 0.499 $\\pm$ 0.041 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.8668121056251241,
+    "key": "main/transe-reimplemented/transductive/mrr_grandparent/mean"
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.056",
+   "context": "0.045 & 0.485 $\\pm$ 0.008 & 0.867 $\\pm$ 0.056 & 0.499 $\\pm$ 0.041 & 5 \\\\ \\textbf{Path",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "std",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.05620555245501985,
+    "key": "main/transe-reimplemented/transductive/mrr_grandparent/std",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.499",
+   "context": "0.485 $\\pm$ 0.008 & 0.867 $\\pm$ 0.056 & 0.499 $\\pm$ 0.041 & 5 \\\\ \\textbf{Path-MP (2-h",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.4987799331460339,
+    "key": "main/transe-reimplemented/transductive/mrr_uncle/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.041",
+   "context": "0.008 & 0.867 $\\pm$ 0.056 & 0.499 $\\pm$ 0.041 & 5 \\\\ \\textbf{Path-MP (2-hop)} & trans",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f50_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04070323094421246,
+    "key": "analysis/analysis-final/inductive/dens_pm_f50_std/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.964",
+   "context": "th-MP (2-hop)} & transductive & \\textbf{0.964 $\\pm$ 0.019} & \\textbf{0.999 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9644232483822046,
+    "key": "main/path-mp-2-hop/transductive/mrr_parent/mean",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.019",
+   "context": ")} & transductive & \\textbf{0.964 $\\pm$ 0.019} & \\textbf{0.999 $\\pm$ 0.002} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f75_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.018933036587500514,
+    "key": "analysis/analysis-final/inductive/dens_pm_f75_std/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.999",
+   "context": "& \\textbf{0.964 $\\pm$ 0.019} & \\textbf{0.999 $\\pm$ 0.002} & \\textbf{0.996 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9993243243243242,
+    "key": "main/path-mp-2-hop/transductive/mrr_sibling/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.002",
+   "context": ".964 $\\pm$ 0.019} & \\textbf{0.999 $\\pm$ 0.002} & \\textbf{0.996 $\\pm$ 0.009} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L3_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0015206398272283872,
+    "key": "analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean",
+    "candidates": 27
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.996",
+   "context": "& \\textbf{0.999 $\\pm$ 0.002} & \\textbf{0.996 $\\pm$ 0.009} & \\textbf{0.994 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.9961692616620328,
+    "key": "main/rule-oracle-hand-written/transductive/mrr_grandparent/mean",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.009",
+   "context": ".999 $\\pm$ 0.002} & \\textbf{0.996 $\\pm$ 0.009} & \\textbf{0.994 $\\pm$ 0.007} & 5 \\\\ \\m",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "std",
+    "run_ids": [
+     "9a671ca351",
+     "1cf97c8217",
+     "06f345963b",
+     "31c23ca302"
+    ],
+    "value": 0.00896291731889652,
+    "config": {
+     "pm_lr": 0.003
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.003/transductive/mrr/std",
+    "candidates": 15
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.994",
+   "context": "& \\textbf{0.996 $\\pm$ 0.009} & \\textbf{0.994 $\\pm$ 0.007} & 5 \\\\ \\midrule Rule oracl",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "64e7dd842a",
+     "a090bb76e8",
+     "120e5e9d4d",
+     "f7289423f0"
+    ],
+    "value": 0.9938432103610676,
+    "config": {
+     "pm_lr": 0.01
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.01/transductive/mrr_uncle/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.007",
+   "context": ".996 $\\pm$ 0.009} & \\textbf{0.994 $\\pm$ 0.007} & 5 \\\\ \\midrule Rule oracle (hand-writ",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_pm_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.007284943935751464,
+    "key": "analysis/analysis-final/inductive/dens_pm_f100_std/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.851",
+   "context": "(hand-written) & inductive & \\underline{0.851 $\\pm$ 0.065} & \\underline{0.990 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.851135025098813,
+    "key": "main/rule-oracle-hand-written/inductive/mrr_parent/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.065",
+   "context": "n) & inductive & \\underline{0.851 $\\pm$ 0.065} & \\underline{0.990 $\\pm$ 0.002} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_sibling",
+    "stat": "std",
+    "run_ids": [
+     "d318e84f6d",
+     "549bda2edc",
+     "5ad5f914f1",
+     "4f0de9bb82",
+     "7006f66acf",
+     "bed66a43b7",
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "428c3a7877",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "b17b25cf0c",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.06505309828639541,
+    "config": {
+     "p": 1
+    },
+    "key": "tune_transe/transe-reimplemented@p=1/transductive/mrr_sibling/std",
+    "candidates": 4
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.990",
+   "context": "derline{0.851 $\\pm$ 0.065} & \\underline{0.990 $\\pm$ 0.002} & \\underline{1.000 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.9899132558928919,
+    "key": "main/rule-oracle-hand-written/inductive/mrr_sibling/mean",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.002",
+   "context": "1 $\\pm$ 0.065} & \\underline{0.990 $\\pm$ 0.002} & \\underline{1.000 $\\pm$ 0.000} & \\und",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L3_vs_L2_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0015206398272283872,
+    "key": "analysis/analysis-final/inductive/lay_trans_l3_vs_l2_diff/mean",
+    "candidates": 27
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "1.000",
+   "context": "derline{0.990 $\\pm$ 0.002} & \\underline{1.000 $\\pm$ 0.000} & \\underline{0.967 $\\pm$ 0",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 1.0,
+    "key": "main/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "candidates": 270
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.000",
+   "context": "0 $\\pm$ 0.002} & \\underline{1.000 $\\pm$ 0.000} & \\underline{0.967 $\\pm$ 0.033} & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.967",
+   "context": "derline{1.000 $\\pm$ 0.000} & \\underline{0.967 $\\pm$ 0.033} & 5 \\\\ TransE+fold-in (rei",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.9669585139206596,
+    "key": "main/rule-oracle-hand-written/inductive/mrr_uncle/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.033",
+   "context": "0 $\\pm$ 0.000} & \\underline{0.967 $\\pm$ 0.033} & 5 \\\\ TransE+fold-in (reimplemented)",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "std",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.032982573517950836,
+    "key": "main/rule-oracle-hand-written/inductive/mrr_uncle/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.692",
+   "context": "E+fold-in (reimplemented) & inductive & 0.692 $\\pm$ 0.035 & 0.480 $\\pm$ 0.006 & 0.863",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "d611073c79",
+     "31e15c8558",
+     "c934114cc7",
+     "ace624fb92",
+     "751f5ab898"
+    ],
+    "value": 0.6915095537261471,
+    "key": "main/transe+fold-in-reimplemented/inductive/mrr_parent/mean",
+    "candidates": 2
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.035",
+   "context": "eimplemented) & inductive & 0.692 $\\pm$ 0.035 & 0.480 $\\pm$ 0.006 & 0.863 $\\pm$ 0.048",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "std",
+    "run_ids": [
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 0.03508409093194293,
+    "config": {
+     "dim": 64
+    },
+    "key": "tune_transe/transe-reimplemented@dim=64/transductive/hits10/std",
+    "candidates": 6
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.480",
+   "context": "nted) & inductive & 0.692 $\\pm$ 0.035 & 0.480 $\\pm$ 0.006 & 0.863 $\\pm$ 0.048 & 0.506",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "2803224b57",
+     "8e98293b3f",
+     "1cc819d0c7",
+     "be367555aa",
+     "816f755d9d"
+    ],
+    "value": 0.48034571902836154,
+    "config": {
+     "obs_frac": 0.75
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.75/inductive/mrr_uncle/mean",
+    "candidates": 14
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.006",
+   "context": "ctive & 0.692 $\\pm$ 0.035 & 0.480 $\\pm$ 0.006 & 0.863 $\\pm$ 0.048 & 0.506 $\\pm$ 0.033",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_pathmp",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "9a671ca351",
+     "1cf97c8217",
+     "06f345963b",
+     "31c23ca302"
+    ],
+    "value": 0.006014272149881704,
+    "config": {
+     "pm_lr": 0.003
+    },
+    "key": "tune_pathmp/path-mp-2-hop@pm_lr=0.003/transductive/mrr_parent/std",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.863",
+   "context": "0.692 $\\pm$ 0.035 & 0.480 $\\pm$ 0.006 & 0.863 $\\pm$ 0.048 & 0.506 $\\pm$ 0.033 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "d611073c79",
+     "31e15c8558",
+     "c934114cc7",
+     "ace624fb92",
+     "751f5ab898"
+    ],
+    "value": 0.8631539220657588,
+    "key": "main/transe+fold-in-reimplemented/inductive/mrr_grandparent/mean",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.048",
+   "context": "0.035 & 0.480 $\\pm$ 0.006 & 0.863 $\\pm$ 0.048 & 0.506 $\\pm$ 0.033 & 5 \\\\ TransE (reim",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_or_f50_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04794825678986996,
+    "key": "analysis/analysis-final/inductive/dens_or_f50_std/mean",
+    "candidates": 9
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.506",
+   "context": "0.480 $\\pm$ 0.006 & 0.863 $\\pm$ 0.048 & 0.506 $\\pm$ 0.033 & 5 \\\\ TransE (reimplemente",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "d611073c79",
+     "31e15c8558",
+     "c934114cc7",
+     "ace624fb92",
+     "751f5ab898"
+    ],
+    "value": 0.5059479576908259,
+    "key": "main/transe+fold-in-reimplemented/inductive/mrr_uncle/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.033",
+   "context": "0.006 & 0.863 $\\pm$ 0.048 & 0.506 $\\pm$ 0.033 & 5 \\\\ TransE (reimplemented) & inducti",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "std",
+    "run_ids": [
+     "7a36434a26",
+     "256a5493d7",
+     "54a3af4c1e",
+     "39087777b1",
+     "f2360f4f83"
+    ],
+    "value": 0.032982573517950836,
+    "key": "main/rule-oracle-hand-written/inductive/mrr_uncle/std",
+    "candidates": 3
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.012",
+   "context": "\\\\ TransE (reimplemented) & inductive & 0.012 $\\pm$ 0.004 & 0.010 $\\pm$ 0.005 & 0.011",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_tf_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.012010086451492086,
+    "key": "analysis/analysis-final/inductive/shift_tf_diff/mean",
+    "candidates": 48
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.004",
+   "context": "eimplemented) & inductive & 0.012 $\\pm$ 0.004 & 0.010 $\\pm$ 0.005 & 0.011 $\\pm$ 0.003",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.010",
+   "context": "nted) & inductive & 0.012 $\\pm$ 0.004 & 0.010 $\\pm$ 0.005 & 0.011 $\\pm$ 0.003 & 0.012",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.009715681339576853,
+    "key": "main/transe-reimplemented/inductive/mrr_sibling/mean",
+    "candidates": 24
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.005",
+   "context": "ctive & 0.012 $\\pm$ 0.004 & 0.010 $\\pm$ 0.005 & 0.011 $\\pm$ 0.003 & 0.012 $\\pm$ 0.004",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_layers",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "std",
+    "run_ids": [
+     "8d611a592b",
+     "7e70d5009c",
+     "bbfe6dd6d8",
+     "475b63c8dd",
+     "b0d64b4a7d"
+    ],
+    "value": 0.00512885275172724,
+    "config": {
+     "layers": 3
+    },
+    "key": "sweep_layers/path-mp-2-hop@layers=3/transductive/mrr_parent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.011",
+   "context": "0.012 $\\pm$ 0.004 & 0.010 $\\pm$ 0.005 & 0.011 $\\pm$ 0.003 & 0.012 $\\pm$ 0.004 & 5 \\\\",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.011107858473083836,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/mean",
+    "candidates": 25
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.003",
+   "context": "0.004 & 0.010 $\\pm$ 0.005 & 0.011 $\\pm$ 0.003 & 0.012 $\\pm$ 0.004 & 5 \\\\ \\textbf{Path",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "std",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0029861757362437714,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.012",
+   "context": "0.010 $\\pm$ 0.005 & 0.011 $\\pm$ 0.003 & 0.012 $\\pm$ 0.004 & 5 \\\\ \\textbf{Path-MP (2-h",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_tf_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.012010086451492086,
+    "key": "analysis/analysis-final/inductive/shift_tf_diff/mean",
+    "candidates": 48
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.004",
+   "context": "0.005 & 0.011 $\\pm$ 0.003 & 0.012 $\\pm$ 0.004 & 5 \\\\ \\textbf{Path-MP (2-hop)} & induc",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "lay_trans_L2_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.004036433917949322,
+    "key": "analysis/analysis-final/inductive/lay_trans_l2_std/mean",
+    "candidates": 152
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.960",
+   "context": "{Path-MP (2-hop)} & inductive & \\textbf{0.960 $\\pm$ 0.025} & \\textbf{1.000 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 0.9601641071696104,
+    "key": "main/path-mp-2-hop/inductive/mrr_parent/mean",
+    "candidates": 16
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.025",
+   "context": "hop)} & inductive & \\textbf{0.960 $\\pm$ 0.025} & \\textbf{1.000 $\\pm$ 0.000} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "dens_tf_f100_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.025209430802886117,
+    "key": "analysis/analysis-final/inductive/dens_tf_f100_std/mean",
+    "candidates": 11
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "1.000",
+   "context": "& \\textbf{0.960 $\\pm$ 0.025} & \\textbf{1.000 $\\pm$ 0.000} & \\textbf{1.000 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 1.0,
+    "key": "main/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "candidates": 270
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.000",
+   "context": ".960 $\\pm$ 0.025} & \\textbf{1.000 $\\pm$ 0.000} & \\textbf{1.000 $\\pm$ 0.000} & \\textbf",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "1.000",
+   "context": "& \\textbf{1.000 $\\pm$ 0.000} & \\textbf{1.000 $\\pm$ 0.000} & \\textbf{0.998 $\\pm$ 0.00",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 1.0,
+    "key": "main/path-mp-2-hop/inductive/mrr_grandparent/mean",
+    "candidates": 270
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.000",
+   "context": ".000 $\\pm$ 0.000} & \\textbf{1.000 $\\pm$ 0.000} & \\textbf{0.998 $\\pm$ 0.003} & 5 \\\\ \\b",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean",
+    "candidates": 290
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.998",
+   "context": "& \\textbf{1.000 $\\pm$ 0.000} & \\textbf{0.998 $\\pm$ 0.003} & 5 \\\\ \\bottomrule \\end{ta",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 0.9979696472518457,
+    "key": "main/path-mp-2-hop/inductive/mrr_uncle/mean",
+    "candidates": 17
+   }
+  },
+  {
+   "section": "generated/main_rel.tex",
+   "literal": "0.003",
+   "context": ".000 $\\pm$ 0.000} & \\textbf{0.998 $\\pm$ 0.003} & 5 \\\\ \\bottomrule \\end{tabular}",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "std",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0029861757362437714,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "introduction.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "relation. (2) A paired comparison, over \\rhval{const/n_seeds} seeds, each with its own pair of graphs",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "n_seeds",
+    "why": "seeds 0-4, each a different graph pair",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "e. \\item \\textbf{Scale and statistics.} \\rhval{const/n_seeds} seeds, graphs of \\rhval{const/people} p",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "n_seeds",
+    "why": "seeds 0-4, each a different graph pair",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "\\rhval{const/people}",
+   "context": "\\rhval{const/n_seeds} seeds, graphs of \\rhval{const/people} people, a few hundred test triples per",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "people",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "people",
+    "why": "entities per generated family graph",
+    "key": "const/people"
+   }
+  },
+  {
+   "section": "limitations.tex",
+   "literal": "25\\%",
+   "context": "er, or Path-MP versus fold-in TransE at 25\\% observed). \\item \\textbf{Reimplemented,",
+   "source": {
+    "type": "aggregate",
+    "group": "sweep_density",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "12567ff5d8",
+     "dbd1e21157",
+     "3766c5505b",
+     "53598a9214",
+     "cf75b203cb"
+    ],
+    "value": 0.2482787428849421,
+    "config": {
+     "obs_frac": 0.25
+    },
+    "key": "sweep_density/transe+fold-in-reimplemented@obs_frac=0.25/inductive/mrr_sibling/mean",
+    "form": "percent",
+    "candidates": 367
+   }
+  },
+  {
+   "section": "method.tex",
+   "literal": "\\rhval{const/people}",
+   "context": "e-derived family graphs} A graph has $n=\\rhval{const/people}$ people and four base relations $\\mathc",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "people",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "people",
+    "why": "entities per generated family graph",
+    "key": "const/people"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "and setting. All numbers are means over \\rhval{const/n_seeds} seeds; differences quoted below are pai",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "n_seeds",
+    "why": "seeds 0-4, each a different graph pair",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/mrr/mean:3}",
+   "context": "iples (supported).} Path-MP reaches MRR \\rhval{main/path-mp-2-hop/transductive/mrr/mean:3} against \\rhval{main/transe-reimplemente",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9877100673710645,
+    "key": "main/path-mp-2-hop/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/mrr/mean:3}",
+   "context": "-2-hop/transductive/mrr/mean:3} against \\rhval{main/transe-reimplemented/transductive/mrr/mean:3} for tuned TransE, a paired difference o",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.6576576472944394,
+    "key": "main/transe-reimplemented/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/transe-reimplemented/transductive/mrr/delta:3}",
+   "context": "or tuned TransE, a paired difference of \\rhval{cmp/main/transe-reimplemented/transductive/mrr/delta:3} (paired $p=\\rhval{cmp/main/transe-reimp",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "delta",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d",
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.33005242007662505,
+    "ref": "Path-MP (2-hop)",
+    "key": "cmp/main/transe-reimplemented/transductive/mrr/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/transe-reimplemented/transductive/mrr/paired_p:sci2}",
+   "context": "ed/transductive/mrr/delta:3} (paired $p=\\rhval{cmp/main/transe-reimplemented/transductive/mrr/paired_p:sci2}$ over \\rhval{const/n_seeds} seeds, the",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "paired_p",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d",
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 7.981655831709198e-06,
+    "ref": "Path-MP (2-hop)",
+    "key": "cmp/main/transe-reimplemented/transductive/mrr/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "d/transductive/mrr/paired_p:sci2}$ over \\rhval{const/n_seeds} seeds, the test registered in the propo",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "n_seeds",
+    "why": "seeds 0-4, each a different graph pair",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/hits10/mean:3}",
+   "context": "s different for Hits@10: TransE reaches \\rhval{main/transe-reimplemented/transductive/hits10/mean:3} against \\rhval{main/path-mp-2-hop/trans",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.9833002170782942,
+    "key": "main/transe-reimplemented/transductive/hits10/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/hits10/mean:3}",
+   "context": "ted/transductive/hits10/mean:3} against \\rhval{main/path-mp-2-hop/transductive/hits10/mean:3}, but Hits@1 is \\rhval{main/transe-reimp",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "hits10",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9904468740568768,
+    "key": "main/path-mp-2-hop/transductive/hits10/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/hits1/mean:3}",
+   "context": "nsductive/hits10/mean:3}, but Hits@1 is \\rhval{main/transe-reimplemented/transductive/hits1/mean:3} against \\rhval{main/path-mp-2-hop/trans",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.4235697702609684,
+    "key": "main/transe-reimplemented/transductive/hits1/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/hits1/mean:3}",
+   "context": "nted/transductive/hits1/mean:3} against \\rhval{main/path-mp-2-hop/transductive/hits1/mean:3}. TransE places the answer among the fir",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9852778284475765,
+    "key": "main/path-mp-2-hop/transductive/hits1/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "500",
+   "context": "ays but often not first, which, under a 500-entity candidate set, is a weak criteri",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "people",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "people",
+    "why": "entities per generated family graph",
+    "key": "const/people"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/rule-oracle-hand-written/transductive/mrr/mean:3}",
+   "context": "o exceeds the one-step rule oracle (MRR \\rhval{main/rule-oracle-hand-written/transductive/mrr/mean:3}, difference \\rhval{cmp/main/rule-oracle",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.9369251802393406,
+    "key": "main/rule-oracle-hand-written/transductive/mrr/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/rule-oracle-hand-written/transductive/mrr/delta:3}",
+   "context": "en/transductive/mrr/mean:3}, difference \\rhval{cmp/main/rule-oracle-hand-written/transductive/mrr/delta:3}, paired $p=\\rhval{cmp/main/rule-oracle-",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "delta",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d",
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.05078488713172391,
+    "ref": "Path-MP (2-hop)",
+    "key": "cmp/main/rule-oracle-hand-written/transductive/mrr/delta"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{cmp/main/rule-oracle-hand-written/transductive/mrr/paired_p:sci2}",
+   "context": "en/transductive/mrr/delta:3}, paired $p=\\rhval{cmp/main/rule-oracle-hand-written/transductive/mrr/paired_p:sci2}$). The oracle is a one-step reference,",
+   "source": {
+    "type": "compare",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr",
+    "stat": "paired_p",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d",
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.009612856019942884,
+    "ref": "Path-MP (2-hop)",
+    "key": "cmp/main/rule-oracle-hand-written/transductive/mrr/paired_p"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/mrr_grandparent/mean:3}",
+   "context": "se.} TransE is best on grandparent (MRR \\rhval{main/transe-reimplemented/transductive/mrr_grandparent/mean:3}) and worst on sibling and uncle (\\rhval",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_grandparent",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.8668121056251241,
+    "key": "main/transe-reimplemented/transductive/mrr_grandparent/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/mrr_sibling/mean:3}",
+   "context": "ean:3}) and worst on sibling and uncle (\\rhval{main/transe-reimplemented/transductive/mrr_sibling/mean:3} and \\rhval{main/transe-reimplemented/tr",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.48520410570753814,
+    "key": "main/transe-reimplemented/transductive/mrr_sibling/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/transductive/mrr_uncle/mean:3}",
+   "context": "ed/transductive/mrr_sibling/mean:3} and \\rhval{main/transe-reimplemented/transductive/mrr_uncle/mean:3}). A plausible explanation, which we did",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "mrr_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "cc8f1008af",
+     "5742ba47da",
+     "bd186eb49a",
+     "d5194e2bd0",
+     "4ba0d38988"
+    ],
+    "value": 0.4987799331460339,
+    "key": "main/transe-reimplemented/transductive/mrr_uncle/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/mrr_parent/mean:3}",
+   "context": "parent and uncle but weakest on parent (\\rhval{main/path-mp-2-hop/transductive/mrr_parent/mean:3} transductive, \\rhval{main/path-mp-2-hop",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.9644232483822046,
+    "key": "main/path-mp-2-hop/transductive/mrr_parent/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/inductive/mrr_parent/mean:3}",
+   "context": "uctive/mrr_parent/mean:3} transductive, \\rhval{main/path-mp-2-hop/inductive/mrr_parent/mean:3} inductive). The oracle is weakest on pa",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 0.9601641071696104,
+    "key": "main/path-mp-2-hop/inductive/mrr_parent/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/rule-oracle-hand-written/transductive/mrr_parent/mean:3}",
+   "context": "he oracle is weakest on parent as well (\\rhval{main/rule-oracle-hand-written/transductive/mrr_parent/mean:3} transductive), consistent with a parent",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Rule oracle (hand-written)",
+    "task": "transductive",
+    "metric": "mrr_parent",
+    "stat": "mean",
+    "run_ids": [
+     "b2b4cc2e31",
+     "5c1342f54c",
+     "a09135721b",
+     "151bf25332",
+     "ee063fa7fd"
+    ],
+    "value": 0.8282473741925237,
+    "key": "main/rule-oracle-hand-written/transductive/mrr_parent/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/inductive/mrr/mean:3}",
+   "context": "ot (supported).} Frozen TransE gets MRR \\rhval{main/transe-reimplemented/inductive/mrr/mean:3} on the new graph and Hits@1 \\rhval{main",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.011347055029711815,
+    "key": "main/transe-reimplemented/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe-reimplemented/inductive/hits1/mean:3}",
+   "context": "mrr/mean:3} on the new graph and Hits@1 \\rhval{main/transe-reimplemented/inductive/hits1/mean:3}, a change of \\rhval{analysis/analysis-f",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "hits1",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0,
+    "key": "main/transe-reimplemented/inductive/hits1/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/shift_te_diff/mean:3}",
+   "context": "ed/inductive/hits1/mean:3}, a change of \\rhval{analysis/analysis-final/inductive/shift_te_diff/mean:3} relative to the transductive setting (p",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_te_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.6463105922647276,
+    "key": "analysis/analysis-final/inductive/shift_te_diff/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/shift_te_p/mean:sci2}",
+   "context": "to the transductive setting (paired $p=\\rhval{analysis/analysis-final/inductive/shift_te_p/mean:sci2}$). This is the expected result, since t",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_te_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 4.284525246343541e-07,
+    "key": "analysis/analysis-final/inductive/shift_te_p/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/shift_pm_diff/mean:3}",
+   "context": "hange from transductive to inductive is \\rhval{analysis/analysis-final/inductive/shift_pm_diff/mean:3} MRR (paired $p=\\rhval{analysis/analysis",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_pm_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.0011824834876126068,
+    "key": "analysis/analysis-final/inductive/shift_pm_diff/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/shift_pm_p/mean:2}",
+   "context": "ve/shift_pm_diff/mean:3} MRR (paired $p=\\rhval{analysis/analysis-final/inductive/shift_pm_p/mean:2}$): within the 0.05 tolerance stated in",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_pm_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.7936013302735822,
+    "key": "analysis/analysis-final/inductive/shift_pm_p/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "0.05",
+   "context": "uctive/shift_pm_p/mean:2}$): within the 0.05 tolerance stated in H2, and statistical",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "nodrop_trans_parent_std",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.04892114087759873,
+    "key": "analysis/analysis-final/inductive/nodrop_trans_parent_std/mean",
+    "candidates": 65
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{main/transe+fold-in-reimplemented/inductive/mrr/mean:3}",
+   "context": "upported).} TransE with fold-in reaches \\rhval{main/transe+fold-in-reimplemented/inductive/mrr/mean:3} on the new graph, \\rhval{analysis/analy",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE+fold-in (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr",
+    "stat": "mean",
+    "run_ids": [
+     "d611073c79",
+     "31e15c8558",
+     "c934114cc7",
+     "ace624fb92",
+     "751f5ab898"
+    ],
+    "value": 0.6440792896679158,
+    "key": "main/transe+fold-in-reimplemented/inductive/mrr/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/h3_tf_vs_te_ind_diff/mean:3}",
+   "context": "inductive/mrr/mean:3} on the new graph, \\rhval{analysis/analysis-final/inductive/h3_tf_vs_te_ind_diff/mean:3} above frozen TransE (paired $p=\\rhval{a",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "h3_tf_vs_te_ind_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.632732234638204,
+    "key": "analysis/analysis-final/inductive/h3_tf_vs_te_ind_diff/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/h3_tf_vs_te_ind_p/mean:sci2}",
+   "context": "/mean:3} above frozen TransE (paired $p=\\rhval{analysis/analysis-final/inductive/h3_tf_vs_te_ind_p/mean:sci2}$), and its inductive MRR is not disting",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "h3_tf_vs_te_ind_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 5.980580536231235e-07,
+    "key": "analysis/analysis-final/inductive/h3_tf_vs_te_ind_p/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/shift_tf_diff/mean:3}",
+   "context": "from TransE's transductive MRR (change \\rhval{analysis/analysis-final/inductive/shift_tf_diff/mean:3}, $p=\\rhval{analysis/analysis-final/indu",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_tf_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": -0.012010086451492086,
+    "key": "analysis/analysis-final/inductive/shift_tf_diff/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/shift_tf_p/mean:2}",
+   "context": "nal/inductive/shift_tf_diff/mean:3}, $p=\\rhval{analysis/analysis-final/inductive/shift_tf_p/mean:2}$). Path-MP stays above fold-in by \\rhva",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "shift_tf_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.5938614583923869,
+    "key": "analysis/analysis-final/inductive/shift_tf_p/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/h3_pm_vs_tf_ind_diff/mean:3}",
+   "context": "an:2}$). Path-MP stays above fold-in by \\rhval{analysis/analysis-final/inductive/h3_pm_vs_tf_ind_diff/mean:3} MRR (paired $p=\\rhval{analysis/analysis",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "h3_pm_vs_tf_ind_diff",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 0.34481326119076117,
+    "key": "analysis/analysis-final/inductive/h3_pm_vs_tf_ind_diff/mean"
+   }
+  },
+  {
+   "section": "results.tex",
+   "literal": "\\rhval{analysis/analysis-final/inductive/h3_pm_vs_tf_ind_p/mean:sci2}",
+   "context": "m_vs_tf_ind_diff/mean:3} MRR (paired $p=\\rhval{analysis/analysis-final/inductive/h3_pm_vs_tf_ind_p/mean:sci2}$). The conclusion that TransE cannot ha",
+   "source": {
+    "type": "aggregate",
+    "group": "analysis",
+    "system": "Analysis final",
+    "task": "inductive",
+    "metric": "h3_pm_vs_tf_ind_p",
+    "stat": "mean",
+    "run_ids": [
+     "35b81b29e3"
+    ],
+    "value": 1.2381077466125314e-05,
+    "key": "analysis/analysis-final/inductive/h3_pm_vs_tf_ind_p/mean"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/founder_couples}",
+   "context": "Data generation.} A graph is grown from \\rhval{const/founder_couples} founding couples. Each couple has betwe",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "founder_couples",
+    "run_ids": [],
+    "value": 6.0,
+    "name": "founder_couples",
+    "why": "founding couples of each generated graph",
+    "key": "const/founder_couples"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/p_kids1}",
+   "context": "en one and four children (probabilities \\rhval{const/p_kids1}, \\rhval{const/p_kids2}, \\rhval{const/p_",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_kids1",
+    "run_ids": [],
+    "value": 20.0,
+    "name": "p_kids1",
+    "why": "percent of couples with one child",
+    "key": "const/p_kids1"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/p_kids2}",
+   "context": "n (probabilities \\rhval{const/p_kids1}, \\rhval{const/p_kids2}, \\rhval{const/p_kids3} and \\rhval{const",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_kids2",
+    "run_ids": [],
+    "value": 35.0,
+    "name": "p_kids2",
+    "why": "percent of couples with two children",
+    "key": "const/p_kids2"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/p_kids3}",
+   "context": "{const/p_kids1}, \\rhval{const/p_kids2}, \\rhval{const/p_kids3} and \\rhval{const/p_kids4} percent for o",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_kids3",
+    "run_ids": [],
+    "value": 30.0,
+    "name": "p_kids3",
+    "why": "percent of couples with three children",
+    "key": "const/p_kids3"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/p_kids4}",
+   "context": "nst/p_kids2}, \\rhval{const/p_kids3} and \\rhval{const/p_kids4} percent for one to four children), each",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_kids4",
+    "run_ids": [],
+    "value": 15.0,
+    "name": "p_kids4",
+    "why": "percent of couples with four children",
+    "key": "const/p_kids4"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/p_marry}",
+   "context": "newly created outsider with probability \\rhval{const/p_marry} percent, and the new couple is queued,",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "p_marry",
+    "run_ids": [],
+    "value": 80.0,
+    "name": "p_marry",
+    "why": "percent of children who marry a newly created outsider",
+    "key": "const/p_marry"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/max_gen}",
+   "context": "nt, and the new couple is queued, up to \\rhval{const/max_gen} generations of couples, until exactly \\",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "max_gen",
+    "run_ids": [],
+    "value": 6.0,
+    "name": "max_gen",
+    "why": "maximum number of generations (couples with generation index below 5 breed)",
+    "key": "const/max_gen"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/people}",
+   "context": "} generations of couples, until exactly \\rhval{const/people} people exist. Entity ids are randomly p",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "people",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "people",
+    "why": "entities per generated family graph",
+    "key": "const/people"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/n_triples_g1/mean:0}",
+   "context": "carry no information. A graph has about \\rhval{main/path-mp-2-hop/transductive/n_triples_g1/mean:0} triples (mean over seeds) spread almost",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "n_triples_g1",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 2027.6,
+    "key": "main/path-mp-2-hop/transductive/n_triples_g1/mean"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/frac_uncle/mean:pct1}",
+   "context": "four relations (relation shares between \\rhval{main/path-mp-2-hop/transductive/frac_uncle/mean:pct1}\\% and \\rhval{main/path-mp-2-hop/transdu",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "frac_uncle",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.224821960536854,
+    "key": "main/path-mp-2-hop/transductive/frac_uncle/mean"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/frac_parent/mean:pct1}",
+   "context": "ransductive/frac_uncle/mean:pct1}\\% and \\rhval{main/path-mp-2-hop/transductive/frac_parent/mean:pct1}\\% on average). \\vspace{4pt}\\noindent\\t",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "frac_parent",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 0.2717860850639235,
+    "key": "main/path-mp-2-hop/transductive/frac_parent/mean"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/split_train}",
+   "context": "are split at the level of \\emph{units} (\\rhval{const/split_train}/\\rhval{const/split_val}/\\rhval{const/sp",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "split_train",
+    "run_ids": [],
+    "value": 80.0,
+    "name": "split_train",
+    "why": "percent of units in train",
+    "key": "const/split_train"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/split_val}",
+   "context": "\\emph{units} (\\rhval{const/split_train}/\\rhval{const/split_val}/\\rhval{const/split_test} percent for tr",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "split_val",
+    "run_ids": [],
+    "value": 10.0,
+    "name": "split_val",
+    "why": "percent of units in validation",
+    "key": "const/split_val"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/split_test}",
+   "context": "st/split_train}/\\rhval{const/split_val}/\\rhval{const/split_test} percent for train, validation and test)",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "split_test",
+    "run_ids": [],
+    "value": 10.0,
+    "name": "split_test",
+    "why": "percent of units in test",
+    "key": "const/split_test"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/transductive/n_test_g1/mean:0}",
+   "context": "t: the held-out units of graph~1 (about \\rhval{main/path-mp-2-hop/transductive/n_test_g1/mean:0} triples per seed), message graph = trai",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "transductive",
+    "metric": "n_test_g1",
+    "stat": "mean",
+    "run_ids": [
+     "aea8ddc3a7",
+     "c2b6bd3e82",
+     "71d3e0236c",
+     "4516bedacf",
+     "8032001b5d"
+    ],
+    "value": 206.4,
+    "key": "main/path-mp-2-hop/transductive/n_test_g1/mean"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/people}",
+   "context": "ph{Inductive} test: a second graph with \\rhval{const/people} entities that were never seen, generate",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "people",
+    "run_ids": [],
+    "value": 500.0,
+    "name": "people",
+    "why": "entities per generated family graph",
+    "key": "const/people"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{main/path-mp-2-hop/inductive/n_test_g2/mean:0}",
+   "context": "units; test = its held-out units (about \\rhval{main/path-mp-2-hop/inductive/n_test_g2/mean:0} triples per seed). Both settings are th",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "Path-MP (2-hop)",
+    "task": "inductive",
+    "metric": "n_test_g2",
+    "stat": "mean",
+    "run_ids": [
+     "4dd9803a63",
+     "6a0bbb9c9e",
+     "b463dfdb22",
+     "c58fb3a093",
+     "a033c94441"
+    ],
+    "value": 203.0,
+    "key": "main/path-mp-2-hop/inductive/n_test_g2/mean"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/threads}",
+   "context": "tems are reimplemented in PyTorch (CPU, \\rhval{const/threads} threads) in one script (\\texttt{method/",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "threads",
+    "run_ids": [],
+    "value": 2.0,
+    "name": "threads",
+    "why": "torch CPU threads",
+    "key": "const/threads"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/embed_dim}",
+   "context": "evaluation function. TransE: dimension \\rhval{const/embed_dim}, $L_1$ distance, margin $\\gamma=\\rhval{",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "embed_dim",
+    "run_ids": [],
+    "value": 64.0,
+    "name": "embed_dim",
+    "why": "TransE embedding dimension",
+    "key": "const/embed_dim"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/transe_margin}",
+   "context": "ed_dim}, $L_1$ distance, margin $\\gamma=\\rhval{const/transe_margin}$, $k=\\rhval{const/negs}$ negatives, Ada",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "transe_margin",
+    "run_ids": [],
+    "value": 8.0,
+    "name": "transe_margin",
+    "why": "TransE margin chosen on validation",
+    "key": "const/transe_margin"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/negs}",
+   "context": "\\gamma=\\rhval{const/transe_margin}$, $k=\\rhval{const/negs}$ negatives, Adam with learning rate \\rh",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "negs",
+    "run_ids": [],
+    "value": 10.0,
+    "name": "negs",
+    "why": "TransE negatives per positive",
+    "key": "const/negs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/transe_lr:2}",
+   "context": "gs}$ negatives, Adam with learning rate \\rhval{const/transe_lr:2}, batch size \\rhval{const/transe_bs}, \\r",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "transe_lr",
+    "run_ids": [],
+    "value": 0.01,
+    "name": "transe_lr",
+    "why": "TransE Adam learning rate",
+    "key": "const/transe_lr"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/transe_bs}",
+   "context": "e \\rhval{const/transe_lr:2}, batch size \\rhval{const/transe_bs}, \\rhval{const/transe_epochs} epochs; fo",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "transe_bs",
+    "run_ids": [],
+    "value": 512.0,
+    "name": "transe_bs",
+    "why": "TransE batch size",
+    "key": "const/transe_bs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/transe_epochs}",
+   "context": "2}, batch size \\rhval{const/transe_bs}, \\rhval{const/transe_epochs} epochs; fold-in uses the same optimiser",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "transe_epochs",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "transe_epochs",
+    "why": "TransE training epochs",
+    "key": "const/transe_epochs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/transe_epochs}",
+   "context": "hs; fold-in uses the same optimiser for \\rhval{const/transe_epochs} epochs on the new graph. Path-MP: width",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "transe_epochs",
+    "run_ids": [],
+    "value": 200.0,
+    "name": "transe_epochs",
+    "why": "TransE training epochs",
+    "key": "const/transe_epochs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/pathmp_hidden}",
+   "context": "chs on the new graph. Path-MP: width $d=\\rhval{const/pathmp_hidden}$, $L=2$, Adam with learning rate \\rhval",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "pathmp_hidden",
+    "run_ids": [],
+    "value": 32.0,
+    "name": "pathmp_hidden",
+    "why": "Path-MP hidden width",
+    "key": "const/pathmp_hidden"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/pathmp_lr:3}",
+   "context": "idden}$, $L=2$, Adam with learning rate \\rhval{const/pathmp_lr:3}, batches of \\rhval{const/pathmp_bs} que",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "pathmp_lr",
+    "run_ids": [],
+    "value": 0.003,
+    "name": "pathmp_lr",
+    "why": "Path-MP Adam learning rate",
+    "key": "const/pathmp_lr"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/pathmp_bs}",
+   "context": "e \\rhval{const/pathmp_lr:3}, batches of \\rhval{const/pathmp_bs} queries, \\rhval{const/pathmp_epochs} ep",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "pathmp_bs",
+    "run_ids": [],
+    "value": 32.0,
+    "name": "pathmp_bs",
+    "why": "Path-MP queries per batch",
+    "key": "const/pathmp_bs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/pathmp_epochs}",
+   "context": "hes of \\rhval{const/pathmp_bs} queries, \\rhval{const/pathmp_epochs} epochs, gradient-norm clipping at \\rhva",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "pathmp_epochs",
+    "run_ids": [],
+    "value": 3.0,
+    "name": "pathmp_epochs",
+    "why": "Path-MP training epochs",
+    "key": "const/pathmp_epochs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/clip}",
+   "context": "ochs} epochs, gradient-norm clipping at \\rhval{const/clip}. \\vspace{4pt}\\noindent\\textbf{Tuning.}",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "clip",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "clip",
+    "why": "gradient norm clip for Path-MP",
+    "key": "const/clip"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/tune_seeds}",
+   "context": "f graph~1 for two separate graph seeds (\\rhval{const/tune_seeds} seeds distinct from the evaluation seed",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "tune_seeds",
+    "run_ids": [],
+    "value": 2.0,
+    "name": "tune_seeds",
+    "why": "validation-graph seeds (100, 101) used for tuning",
+    "key": "const/tune_seeds"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "128",
+   "context": "sus $L_2$ distance, dimension 64 versus 128, 200 versus 400 epochs), because the be",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.dim",
+    "run_ids": [
+     "428c3a7877",
+     "b17b25cf0c"
+    ],
+    "value": 128.0,
+    "candidates": 2
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "200",
+   "context": "L_2$ distance, dimension 64 versus 128, 200 versus 400 epochs), because the best ma",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "n_test_g1",
+    "stat": "ci_lo",
+    "run_ids": [
+     "d318e84f6d",
+     "092c924021",
+     "549bda2edc",
+     "935bb3f02d",
+     "5ad5f914f1",
+     "f79f86dd29",
+     "4f0de9bb82",
+     "dfa1634e09",
+     "7006f66acf",
+     "08e6e593a7",
+     "bed66a43b7",
+     "c65579ad33",
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "428c3a7877",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "b17b25cf0c",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 200.28571428571428,
+    "key": "tune_transe/transe-reimplemented/transductive/n_test_g1/ci_lo",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "400",
+   "context": "ce, dimension 64 versus 128, 200 versus 400 epochs), because the best margin was at",
+   "source": {
+    "type": "config",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "command.epochs",
+    "run_ids": [
+     "9ebcfef354",
+     "c0039fa41a",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 400.0,
+    "candidates": 2
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "200",
+   "context": "optimum (margin 8, $L_1$, dimension 64, 200 epochs) lies inside the grid, and large",
+   "source": {
+    "type": "aggregate",
+    "group": "tune_transe",
+    "system": "TransE (reimplemented)",
+    "task": "transductive",
+    "metric": "n_test_g1",
+    "stat": "ci_lo",
+    "run_ids": [
+     "d318e84f6d",
+     "092c924021",
+     "549bda2edc",
+     "935bb3f02d",
+     "5ad5f914f1",
+     "f79f86dd29",
+     "4f0de9bb82",
+     "dfa1634e09",
+     "7006f66acf",
+     "08e6e593a7",
+     "bed66a43b7",
+     "c65579ad33",
+     "a1d0acbc81",
+     "eda991d1a2",
+     "9ebcfef354",
+     "428c3a7877",
+     "a2eda6c73e",
+     "5a5bb12b27",
+     "c0039fa41a",
+     "b17b25cf0c",
+     "8602ddaaf8",
+     "7aff2c8b51",
+     "8d4077a4c4",
+     "91c223ca9b",
+     "ddb8952d69",
+     "326ff3aedd",
+     "a3775e92d3",
+     "af13c549a5"
+    ],
+    "value": 200.28571428571428,
+    "key": "tune_transe/transe-reimplemented/transductive/n_test_g1/ci_lo",
+    "candidates": 5
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{count/tune_transe/runs}",
+   "context": "12) did not improve validation MRR (all \\rhval{count/tune_transe/runs} tuning runs are logged in group \\texttt",
+   "source": {
+    "type": "count",
+    "group": "tune_transe",
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "runs",
+    "run_ids": [],
+    "value": 28.0,
+    "key": "count/tune_transe/runs"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.003",
+   "context": "es2$ grid (epochs 3 or 6, learning rate 0.003 or 0.01); 3 and 6 epochs were tied on v",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_grandparent",
+    "stat": "std",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.0029861757362437714,
+    "key": "main/transe-reimplemented/inductive/mrr_grandparent/std",
+    "candidates": 10
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "0.01",
+   "context": "(epochs 3 or 6, learning rate 0.003 or 0.01); 3 and 6 epochs were tied on validatio",
+   "source": {
+    "type": "aggregate",
+    "group": "main",
+    "system": "TransE (reimplemented)",
+    "task": "inductive",
+    "metric": "mrr_sibling",
+    "stat": "mean",
+    "run_ids": [
+     "81a6892532",
+     "1f78f689b7",
+     "8aa97742df",
+     "d011b30c85",
+     "927be55590"
+    ],
+    "value": 0.009715681339576853,
+    "key": "main/transe-reimplemented/inductive/mrr_sibling/mean",
+    "candidates": 251
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_seeds}",
+   "context": "}\\noindent\\textbf{Statistics and runs.} \\rhval{const/n_seeds} seeds (0--4). Tables report mean $\\pm$",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_seeds",
+    "run_ids": [],
+    "value": 5.0,
+    "name": "n_seeds",
+    "why": "seeds 0-4, each a different graph pair",
+    "key": "const/n_seeds"
+   }
+  },
+  {
+   "section": "setup.tex",
+   "literal": "\\rhval{const/n_failed_density}",
+   "context": "tains failed rows that we did not hide: \\rhval{const/n_failed_density} launches of the \\texttt{sweep\\_density}",
+   "source": {
+    "type": "constant",
+    "group": null,
+    "system": null,
+    "task": null,
+    "metric": null,
+    "stat": "n_failed_density",
+    "run_ids": [],
+    "value": 30.0,
+    "name": "n_failed_density",
+    "why": "failed launches of sweep_density baselines (launcher bug), re-run",
+    "key": "const/n_failed_density"
+   }
+  }
+ ],
+ "untraced": [],
+ "constants": [
+  {
+   "name": "people",
+   "value": 500,
+   "why": "entities per generated family graph"
+  },
+  {
+   "name": "n_rel",
+   "value": 4,
+   "why": "base relations: parent, sibling, grandparent, uncle"
+  },
+  {
+   "name": "embed_dim",
+   "value": 64,
+   "why": "TransE embedding dimension"
+  },
+  {
+   "name": "transe_margin",
+   "value": 8,
+   "why": "TransE margin chosen on validation"
+  },
+  {
+   "name": "transe_epochs",
+   "value": 200,
+   "why": "TransE training epochs"
+  },
+  {
+   "name": "pathmp_hidden",
+   "value": 32,
+   "why": "Path-MP hidden width"
+  },
+  {
+   "name": "pathmp_epochs",
+   "value": 3,
+   "why": "Path-MP training epochs"
+  },
+  {
+   "name": "n_seeds",
+   "value": 5,
+   "why": "seeds 0-4, each a different graph pair"
+  },
+  {
+   "name": "tune_seeds",
+   "value": 2,
+   "why": "validation-graph seeds (100, 101) used for tuning"
+  },
+  {
+   "name": "split_train",
+   "value": 80,
+   "why": "percent of units in train"
+  },
+  {
+   "name": "split_val",
+   "value": 10,
+   "why": "percent of units in validation"
+  },
+  {
+   "name": "split_test",
+   "value": 10,
+   "why": "percent of units in test"
+  },
+  {
+   "name": "founder_couples",
+   "value": 6,
+   "why": "founding couples of each generated graph"
+  },
+  {
+   "name": "p_kids1",
+   "value": 20,
+   "why": "percent of couples with one child"
+  },
+  {
+   "name": "p_kids2",
+   "value": 35,
+   "why": "percent of couples with two children"
+  },
+  {
+   "name": "p_kids3",
+   "value": 30,
+   "why": "percent of couples with three children"
+  },
+  {
+   "name": "p_kids4",
+   "value": 15,
+   "why": "percent of couples with four children"
+  },
+  {
+   "name": "p_marry",
+   "value": 80,
+   "why": "percent of children who marry a newly created outsider"
+  },
+  {
+   "name": "max_gen",
+   "value": 6,
+   "why": "maximum number of generations (couples with generation index below 5 breed)"
+  },
+  {
+   "name": "threads",
+   "value": 2,
+   "why": "torch CPU threads"
+  },
+  {
+   "name": "negs",
+   "value": 10,
+   "why": "TransE negatives per positive"
+  },
+  {
+   "name": "transe_lr",
+   "value": 0.01,
+   "why": "TransE Adam learning rate"
+  },
+  {
+   "name": "transe_bs",
+   "value": 512,
+   "why": "TransE batch size"
+  },
+  {
+   "name": "pathmp_lr",
+   "value": 0.003,
+   "why": "Path-MP Adam learning rate"
+  },
+  {
+   "name": "pathmp_bs",
+   "value": 32,
+   "why": "Path-MP queries per batch"
+  },
+  {
+   "name": "clip",
+   "value": 5,
+   "why": "gradient norm clip for Path-MP"
+  },
+  {
+   "name": "p_thresh",
+   "value": 0.001,
+   "why": "threshold quoted for paired p-values below it (all listed p-values in the corresponding analysis keys are smaller)"
+  },
+  {
+   "name": "n_failed_density",
+   "value": 30,
+   "why": "failed launches of sweep_density baselines (launcher bug), re-run"
+  }
+ ],
+ "summary": {
+  "checked": 286,
+  "traced": 286,
+  "untraced": 0,
+  "by_type": {
+   "aggregate": 240,
+   "compare": 4,
+   "config": 2,
+   "constant": 39,
+   "count": 1
+  },
+  "files": [
+   "ablations.tex",
+   "abstract.tex",
+   "conclusion.tex",
+   "generated/analysis_density.tex",
+   "generated/analysis_depth.tex",
+   "generated/main_mrr.tex",
+   "generated/main_rel.tex",
+   "introduction.tex",
+   "keywords.tex",
+   "limitations.tex",
+   "main.tex",
+   "method.tex",
+   "related.tex",
+   "results.tex",
+   "setup.tex"
+  ],
+  "ok": true
+ }
+}

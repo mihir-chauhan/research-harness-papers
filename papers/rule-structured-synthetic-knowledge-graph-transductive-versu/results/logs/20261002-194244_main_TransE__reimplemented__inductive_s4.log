@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 19:42:44 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --task inductive --seed 4 --out results/raw/main_TransE__reimplemented__inductive_s4___.json --system transe
+
+config {"system": "transe", "task": "inductive", "seed": 4, "out": "results/raw/main_TransE__reimplemented__inductive_s4___.json", "people": 500, "dim": 64, "epochs": 200, "lr": 0.01, "margin": 8.0, "negs": 10, "bs": 512, "p": 1, "fold_epochs": 200, "layers": 2, "d": 32, "pm_epochs": 3, "pm_lr": 0.003, "pm_bs": 32, "no_drop": false, "obs_frac": 1.0, "eval_split": "test"}
+stats {'n_triples_g1': 2207, 'n_train_g1': 1753, 'n_test_g1': 233, 'n_triples_g2': 2178, 'n_test_g2': 220, 'frac_parent': 0.272768463978251, 'frac_sibling': 0.2374263706388763, 'frac_grandparent': 0.2628001812415043, 'frac_uncle': 0.22700498414136838}
+final {"mrr": 0.01363923848204031, "hits1": 0.0, "hits10": 0.020454545454545454, "mrr_parent": 0.011496207275038473, "mrr_sibling": 0.017485294848662698, "mrr_grandparent": 0.008167644581362508, "mrr_uncle": 0.017754029031305647, "n_triples_g1": 2207, "n_train_g1": 1753, "n_test_g1": 233, "n_triples_g2": 2178, "n_test_g2": 220, "frac_parent": 0.272768463978251, "frac_sibling": 0.2374263706388763, "frac_grandparent": 0.2628001812415043, "frac_uncle": 0.22700498414136838}
+
+# rh: exit code 0 after 9.5 s
+# rh metrics: {"frac_grandparent": 0.2628001812415043, "frac_parent": 0.272768463978251, "frac_sibling": 0.2374263706388763, "frac_uncle": 0.22700498414136838, "hits1": 0.0, "hits10": 0.020454545454545454, "mrr": 0.01363923848204031, "mrr_grandparent": 0.008167644581362508, "mrr_parent": 0.011496207275038473, "mrr_sibling": 0.017485294848662698, "mrr_uncle": 0.017754029031305647, "n_test_g1": 233.0, "n_test_g2": 220.0, "n_train_g1": 1753.0, "n_triples_g1": 2207.0, "n_triples_g2": 2178.0}

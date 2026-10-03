@@ -1,0 +1,15 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Task & mrr $\uparrow$ & hits1 $\uparrow$ & hits10 $\uparrow$ & $n$ \\
+\midrule
+Rule oracle (hand-written) & transductive & \underline{0.937 $\pm$ 0.026} & \underline{0.931 $\pm$ 0.026} & 0.940 $\pm$ 0.026 & 5 \\
+TransE+fold-in (reimplemented) & transductive & 0.656 $\pm$ 0.029 & 0.423 $\pm$ 0.056 & 0.981 $\pm$ 0.005 & 5 \\
+TransE (reimplemented) & transductive & 0.658 $\pm$ 0.024 & 0.424 $\pm$ 0.049 & \underline{0.983 $\pm$ 0.005} & 5 \\
+\textbf{Path-MP (2-hop)} & transductive & \textbf{0.988 $\pm$ 0.004} & \textbf{0.985 $\pm$ 0.003} & \textbf{0.990 $\pm$ 0.005} & 5 \\
+\midrule
+Rule oracle (hand-written) & inductive & \underline{0.950 $\pm$ 0.020} & \underline{0.946 $\pm$ 0.019} & 0.952 $\pm$ 0.020 & 5 \\
+TransE+fold-in (reimplemented) & inductive & 0.644 $\pm$ 0.025 & 0.423 $\pm$ 0.046 & \underline{0.982 $\pm$ 0.010} & 5 \\
+TransE (reimplemented) & inductive & 0.011 $\pm$ 0.002 & 0.000 $\pm$ 0.000 & 0.015 $\pm$ 0.006 & 5 \\
+\textbf{Path-MP (2-hop)} & inductive & \textbf{0.989 $\pm$ 0.007} & \textbf{0.987 $\pm$ 0.008} & \textbf{0.992 $\pm$ 0.007} & 5 \\
+\bottomrule
+\end{tabular}

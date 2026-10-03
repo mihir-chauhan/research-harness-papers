@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 19:43:45 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --task transductive --seed 0 --out results/raw/abl_nodrop_Path_MP__2_hop__transductive_s0___drop_query_edge___0_.json --system pathmp --no_drop
+
+config {"system": "pathmp", "task": "transductive", "seed": 0, "out": "results/raw/abl_nodrop_Path_MP__2_hop__transductive_s0___drop_query_edge___0_.json", "people": 500, "dim": 64, "epochs": 200, "lr": 0.01, "margin": 8.0, "negs": 10, "bs": 512, "p": 1, "fold_epochs": 200, "layers": 2, "d": 32, "pm_epochs": 3, "pm_lr": 0.003, "pm_bs": 32, "no_drop": true, "obs_frac": 1.0, "eval_split": "test"}
+stats {'n_triples_g1': 2015, 'n_train_g1': 1612, 'n_test_g1': 202, 'n_triples_g2': 1996, 'n_test_g2': 204, 'frac_parent': 0.2660049627791563, 'frac_sibling': 0.24615384615384617, 'frac_grandparent': 0.2501240694789082, 'frac_uncle': 0.23771712158808933}
+final {"mrr": 0.5039586520006487, "hits1": 0.33663366336633666, "hits10": 0.8465346534653465, "mrr_parent": 0.5280926578556923, "mrr_sibling": 0.28893429362175493, "mrr_grandparent": 0.44353369875287046, "mrr_uncle": 0.7886854547457297, "n_triples_g1": 2015, "n_train_g1": 1612, "n_test_g1": 202, "n_triples_g2": 1996, "n_test_g2": 204, "frac_parent": 0.2660049627791563, "frac_sibling": 0.24615384615384617, "frac_grandparent": 0.2501240694789082, "frac_uncle": 0.23771712158808933}
+
+# rh: exit code 0 after 35.4 s
+# rh metrics: {"frac_grandparent": 0.2501240694789082, "frac_parent": 0.2660049627791563, "frac_sibling": 0.24615384615384617, "frac_uncle": 0.23771712158808933, "hits1": 0.33663366336633666, "hits10": 0.8465346534653465, "mrr": 0.5039586520006487, "mrr_grandparent": 0.44353369875287046, "mrr_parent": 0.5280926578556923, "mrr_sibling": 0.28893429362175493, "mrr_uncle": 0.7886854547457297, "n_test_g1": 202.0, "n_test_g2": 204.0, "n_train_g1": 1612.0, "n_triples_g1": 2015.0, "n_triples_g2": 1996.0}

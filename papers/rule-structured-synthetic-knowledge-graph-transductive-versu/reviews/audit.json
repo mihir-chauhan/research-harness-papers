@@ -1,0 +1,73 @@
+{
+  "auditor": "independent AI auditor (did not write the paper); a fresh one for every round",
+  "rounds": 1,
+  "final": "PASS",
+  "audits": [
+    {
+      "verdict": "PASS",
+      "summary": "Every number in the paper traces to logged runs and generated tables; the code implements the described method with no test leakage or hard-coded results, and the claims and limitations are stated honestly, including the mixed 25%-density result. Remaining issues are minor: a broken table reference (\"??\"), one overstated null result in H3, undisclosed TransE run-to-run nondeterminism (~0.01 MRR), and one imprecisely used citation.",
+      "reran": [
+        {
+          "run": "Path-MP (2-hop)/inductive/seed2",
+          "metric": "mrr",
+          "registry": 0.9925061545059817,
+          "rerun": 0.9925061545059817
+        },
+        {
+          "run": "TransE (reimplemented)/transductive/seed3",
+          "metric": "mrr",
+          "registry": 0.6169482531990956,
+          "rerun": 0.607803421292873
+        }
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex (Per relation paragraph)",
+          "issue": "\\ref{tab:rel.} has a stray period and renders as 'Table ??' in main.pdf.",
+          "fix": "Change to \\ref{tab:rel} and rebuild."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/results.tex H3",
+          "issue": "'the inductive handicap of TransE vanishes' and 'an artefact of the evaluation set-up' read a non-significant difference (-0.012, p=0.59, 5 seeds) as equivalence, against the paper's own rule; fold-in is also test-time training, a different setting.",
+          "fix": "Say fold-in inductive MRR is not distinguishable from transductive TransE with five seeds, and that fold-in changes the setting by training on the new graph."
+        },
+        {
+          "severity": "minor",
+          "where": "method/run.py TransE / paper setup 'A seed fixes ...'",
+          "issue": "TransE is not deterministic run to run: a rerun of seed 3 gave 0.6078/0.6084 against 0.6169 in the registry, and transe vs transe_foldin transductive (identical code) differ by up to 0.018 per seed. The paper implies full determinism.",
+          "fix": "State the run-to-run variation of TransE (about 0.01 MRR, below the seed std) or make training deterministic."
+        },
+        {
+          "severity": "minor",
+          "where": "Table I / method.tex",
+          "issue": "The 'TransE+fold-in' transductive row is the same code path as TransE (no fold-in happens in that setting), but it is presented as a separate result without explanation.",
+          "fix": "Note in the caption that fold-in equals TransE transductively, or drop that row."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/related.tex (rossi2020knowledge)",
+          "issue": "Rossi et al. is cited for 'classic models are competitive once hyperparameters and training are tuned'; that paper is about design choices and evaluation bias, and the claim belongs to Ruffinelli et al. 2020.",
+          "fix": "Rephrase to what Rossi et al. show, or cite Ruffinelli et al. (ICLR 2020) for the tuning claim."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/sections/method.tex (fold-in)",
+          "issue": "'a standard way to embed out-of-sample entities' has no citation.",
+          "fix": "Add a citation or soften the wording."
+        },
+        {
+          "severity": "minor",
+          "where": "paper/main.pdf (author block, references)",
+          "issue": "The repository URL overflows past the page edge; the Bordes et al. reference has no venue.",
+          "fix": "Wrap or shorten the URL with \\url line breaks; add the NeurIPS 2013 venue to the bib entry."
+        }
+      ],
+      "commit": "18b6471607c98a2282ac88f20b7346df8d54e031"
+    }
+  ],
+  "fix_rounds": [
+    null
+  ]
+}

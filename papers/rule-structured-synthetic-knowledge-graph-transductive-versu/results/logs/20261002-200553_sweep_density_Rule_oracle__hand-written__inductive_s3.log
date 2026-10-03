@@ -1,0 +1,10 @@
+# rh run | Fri Oct  2 20:05:53 2026
+# cwd: .
+# cmd: /Users/pumpkinpies/Donna/Mihir/mihir-s-platform-on-top-his-existing-git/seed/bin/pyslot method/run.py --task inductive --seed 3 --out results/raw/sweep_density_Rule_oracle__hand_written__inductive_s3___obs_frac___0_25_.json --system oracle --obs_frac 0.25
+
+config {"system": "oracle", "task": "inductive", "seed": 3, "out": "results/raw/sweep_density_Rule_oracle__hand_written__inductive_s3___obs_frac___0_25_.json", "people": 500, "dim": 64, "epochs": 200, "lr": 0.01, "margin": 8.0, "negs": 10, "bs": 512, "p": 1, "fold_epochs": 200, "layers": 2, "d": 32, "pm_epochs": 3, "pm_lr": 0.003, "pm_bs": 32, "no_drop": false, "obs_frac": 0.25, "eval_split": "test"}
+stats {'n_triples_g1': 2036, 'n_train_g1': 1615, 'n_test_g1': 215, 'n_triples_g2': 2047, 'n_test_g2': 196, 'frac_parent': 0.26227897838899805, 'frac_sibling': 0.2544204322200393, 'frac_grandparent': 0.24656188605108054, 'frac_uncle': 0.23673870333988212}
+final {"mrr": 0.1361325749327924, "hits1": 0.1326530612244898, "hits10": 0.1326530612244898, "mrr_parent": 0.07389790613992302, "mrr_sibling": 0.17976636000661647, "mrr_grandparent": 0.1612817104448545, "mrr_uncle": 0.149264381276459, "n_triples_g1": 2036, "n_train_g1": 1615, "n_test_g1": 215, "n_triples_g2": 2047, "n_test_g2": 196, "frac_parent": 0.26227897838899805, "frac_sibling": 0.2544204322200393, "frac_grandparent": 0.24656188605108054, "frac_uncle": 0.23673870333988212}
+
+# rh: exit code 0 after 1.4 s
+# rh metrics: {"frac_grandparent": 0.24656188605108054, "frac_parent": 0.26227897838899805, "frac_sibling": 0.2544204322200393, "frac_uncle": 0.23673870333988212, "hits1": 0.1326530612244898, "hits10": 0.1326530612244898, "mrr": 0.1361325749327924, "mrr_grandparent": 0.1612817104448545, "mrr_parent": 0.07389790613992302, "mrr_sibling": 0.17976636000661647, "mrr_uncle": 0.149264381276459, "n_test_g1": 215.0, "n_test_g2": 196.0, "n_train_g1": 1615.0, "n_triples_g1": 2036.0, "n_triples_g2": 2047.0}

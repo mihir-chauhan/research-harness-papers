@@ -1,0 +1,33 @@
+\subsection{Data: rule-derived family graphs}
+A graph has $n=\rhval{const/people}$ people and four base relations $\mathcal R=\{\text{parent},\text{sibling},\text{grandparent},\text{uncle}\}$. Parent facts come from a random multi-generation family forest (Section~\ref{sec:setup}). The other relations are derived by the rules
+\begin{align}
+\text{sibling}(x,y)&\leftarrow \text{parent}(p,x)\wedge\text{parent}(p,y)\wedge x\neq y,\\
+\text{grandparent}(x,y)&\leftarrow \text{parent}(x,z)\wedge\text{parent}(z,y),\\
+\text{uncle}(x,y)&\leftarrow \text{sibling}(x,z)\wedge\text{parent}(z,y),
+\end{align}
+where uncle is gender-neutral (a sibling of a parent: an uncle or an aunt), so that every relation follows from the parent facts alone. Every triple $(h,r,t)$ also induces an inverse edge $(t,r^{-1},h)$, giving $2|\mathcal R|=8$ edge types. Tail prediction for $(h,r,?)$ and head prediction for $(?,r,t)$ (asked as $(t,r^{-1},?)$) are both evaluated.
+
+\subsection{TransE (reimplemented)}
+Each entity $e$ and relation $r$ has a vector $\mathbf e,\mathbf r\in\mathbb R^{d}$. The score of a triple is $f(h,r,t)=\lVert \mathbf h+\mathbf r-\mathbf t\rVert_1$ (lower is better). Training minimises the margin ranking loss
+\begin{equation}
+\mathcal L=\frac1{|B|k}\sum_{(h,r,t)\in B}\sum_{j=1}^{k}\max\big(0,\gamma+f(h,r,t)-f(h'_j,r,t'_j)\big),
+\end{equation}
+where $(h'_j,r,t'_j)$ replaces the head or the tail (with probability $\tfrac12$ each) by a uniformly random entity, and entity vectors are projected to $\lVert\mathbf e\rVert_2\le1$ after every step. Ranking a head query uses $f(c,r,t)$ over all candidates $c$. A new entity has no trained vector, so in the inductive setting TransE (frozen) gives every new entity a fresh random vector drawn from the initialisation law; the relation vectors are those learned on graph~1.
+
+\subsection{TransE with fold-in (reimplemented)}
+To give the embedding baseline a fair chance on new entities, we keep the relation vectors fixed and fit only the new entity table on the \emph{observed} triples of the new graph, with the same loss and optimiser. No held-out test triple is used. This is a standard way to embed out-of-sample entities but needs gradient steps on the new graph at test time.
+
+\subsection{Path-MP: 2-hop relational message passing}
+Path-MP scores every entity $v$ as an answer to a query $(h,q,?)$ with $q$ one of the 8 edge types. Let $\mathbf q\in\mathbb R^{d}$ be a learned embedding of the query relation and $\mathbf x^{0}_v=\mathbb 1[v=h]\,\mathbf q$. For layers $\ell=1,\dots,L$,
+\begin{align}
+\mathbf w^{\ell}_{e}&=\mathrm{reshape}(W^{\ell}\mathbf q)_e\in\mathbb R^{d},\\
+\mathbf a^{\ell}_v&=\sum_{(u,e,v)\in\mathcal E}\mathbf x^{\ell-1}_u\odot \mathbf w^{\ell}_{e},\\
+\mathbf x^{\ell}_v&=\mathrm{ReLU}\big(\mathrm{LN}\big(U^{\ell}[\mathbf x^{\ell-1}_v;\mathbf a^{\ell}_v]\big)+\mathbf x^{0}_v\big),
+\end{align}
+where $\mathcal E$ is the set of (forward and inverse) edges of the message graph, $e$ indexes edge types, $\odot$ is the element-wise product, $W^\ell\in\mathbb R^{8d\times d}$ makes the per-edge-type weights depend on the query relation, $U^\ell$ is linear, LN is layer normalisation, and the initial state $\mathbf x^0$ is added at every layer as a boundary condition. The score is $s(v)=\mathrm{MLP}(\mathbf x^{L}_v)$. Training uses 1-vs-all cross-entropy over all $n$ entities, $\mathcal L=-\log\mathrm{softmax}(s)_t$, where other training-known answers of the same query are masked out. Both directions of every training triple are used as queries. Crucially, while training on query $(h,r,t)$ the edge $(h,r,t)$ and its inverse (and, for the symmetric sibling relation, the mirror triple) are removed from the message graph of that query; otherwise the model could read the answer off the graph. At test time the message graph is the full observed graph of the setting. The model has no entity-specific parameters, hence the same weights apply to any graph. Depth $L$ is $2$ in the main experiments: each rule above has a body of length two, so two hops suffice to reach the answer.
+
+\subsection{Rule oracle (hand-written)}
+As a reference we score each candidate by the number of groundings of a one-step rule set applied to the observed graph (with $A_r$ the adjacency matrix of relation $r$): parent $\leftarrow A_{p}A_{s}$ (a parent of my sibling is my parent); sibling $\leftarrow (A_p^\top A_p)$ with zeroed diagonal, plus symmetry, transitivity and $A_uA_p^\top$; grandparent $\leftarrow A_pA_p+A_pA_u+A_gA_s$; uncle $\leftarrow A_sA_p+A_uA_s$, where subscripts $p,s,g,u$ abbreviate the four relations. It is not trained, and it is \emph{not} a ceiling: it applies each rule once to observed facts, while the learned model may combine several rule paths.
+
+\subsection{Evaluation}
+For each held-out triple we rank the true answer among all $n$ entities after filtering every other entity that forms a true triple (in the whole generated graph) with the query. A tie between the true answer and other candidates is resolved by counting half of the tied candidates, $\mathrm{rank}=1+|\{s>s_t\}|+\tfrac12|\{s=s_t\}|$, so constant scores cannot score well. We report MRR over head and tail queries, Hits@1, Hits@10 and the MRR per relation.

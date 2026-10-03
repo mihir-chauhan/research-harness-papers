@@ -1,0 +1,134 @@
+{
+  "slug": "rule-structured-synthetic-knowledge-graph-transd",
+  "direction": "Rule-structured synthetic knowledge graph, transductive versus inductive. Generate a family-tree knowledge graph (500 people, relations parent / sibling / grandparent / uncle derived by rules). Train TransE and a small path-based model (2-hop relational message passing) and test on held-out triples of the same graph and on a freshly generated graph with new entities; report MRR in both settings. Keep it a small CPU study with reimplemented baselines, at least 5 seeds where cheap, and report negative or mixed results plainly.",
+  "created": "2026-10-02T19:11:47",
+  "updated": "2026-10-02T20:15:54",
+  "gates": [],
+  "phases": {
+    "novelty": {
+      "status": "done",
+      "started": "2026-10-02T19:11:56",
+      "finished": "2026-10-02T20:08:37",
+      "notes": [
+        {
+          "t": "2026-10-02T19:21:11",
+          "note": "landscape in progress"
+        },
+        {
+          "t": "2026-10-02T20:08:37",
+          "note": "landscape, proposal written; 16 refs"
+        }
+      ],
+      "artifacts": []
+    },
+    "setup": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:08:37",
+      "notes": [
+        {
+          "t": "2026-10-02T20:08:37",
+          "note": "method/run.py"
+        }
+      ],
+      "artifacts": []
+    },
+    "baselines": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:08:37",
+      "notes": [
+        {
+          "t": "2026-10-02T20:08:37",
+          "note": "TransE, TransE+fold-in, oracle, tuned on val"
+        }
+      ],
+      "artifacts": []
+    },
+    "experiments": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:08:37",
+      "notes": [
+        {
+          "t": "2026-10-02T20:08:37",
+          "note": "main 40 runs"
+        }
+      ],
+      "artifacts": []
+    },
+    "ablations": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:08:38",
+      "notes": [
+        {
+          "t": "2026-10-02T20:08:38",
+          "note": "layers, nodrop, density"
+        }
+      ],
+      "artifacts": []
+    },
+    "results": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:14:21",
+      "notes": [
+        {
+          "t": "2026-10-02T20:14:21",
+          "note": "tables, compare, analysis"
+        }
+      ],
+      "artifacts": []
+    },
+    "improve": {
+      "status": "done",
+      "started": null,
+      "finished": "2026-10-02T20:14:21",
+      "notes": [
+        {
+          "t": "2026-10-02T20:14:21",
+          "note": "quick study: no improve loop"
+        }
+      ],
+      "artifacts": []
+    },
+    "paper": {
+      "status": "done",
+      "started": "2026-10-02T20:14:21",
+      "finished": "2026-10-02T20:15:54",
+      "notes": [
+        {
+          "t": "2026-10-02T20:15:54",
+          "note": "paper built"
+        }
+      ],
+      "artifacts": []
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-10-02T19:33:36",
+      "phase": "setup",
+      "decision": "Uncle relation is gender-neutral (sibling of a parent: uncle or aunt) so that every relation is exactly rule-derivable from parent facts without a gender attribute; sibling = full sibling (shared both parents); sibling pairs are split as one unit so the mirror triple cannot leak."
+    },
+    {
+      "t": "2026-10-02T19:33:36",
+      "phase": "setup",
+      "decision": "Inductive world = second independently generated 500-person graph; its triples are split 80/10/10 like graph 1; observed message graph = its train+val units, test = its held-out 10%. Ties in ranks are split evenly (realistic rank). Filtered ranking uses all true triples of the graph."
+    },
+    {
+      "t": "2026-10-02T19:33:37",
+      "phase": "baselines",
+      "decision": "TransE tuned on validation split of separate graph seeds 100,101 over three rounds (margin, norm, dim, epochs; best margin 8, L1, dim 64, 200 epochs, interior optimum). Path-MP tuned over epochs {3,6} x lr {0.003,0.01}: tie at 3 vs 6 epochs, chose 3 (cheaper), lr 0.003. A fold-in variant of TransE (new entity vectors fitted with relations frozen) and a hand-written rule oracle added as stronger / reference baselines."
+    }
+  ],
+  "iterations": [],
+  "loop": {
+    "ticks": 0,
+    "last_tick": null,
+    "stop_reason": null
+  },
+  "profile": "quick",
+  "venue": "ieee-icra"
+}
