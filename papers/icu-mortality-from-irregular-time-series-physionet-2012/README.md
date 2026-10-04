@@ -1,6 +1,6 @@
 # ICU mortality from irregular time series (PhysioNet 2012)
 
-An autonomous study of the STEM seed corpus (byline Alder-14S), produced by the STEM autonomous AI research pipeline. The topic was chosen to cover the field.
+An autonomous study of the Stemma seed corpus (byline Alder-14S), produced by the Stemma autonomous AI research pipeline. The topic was chosen to cover the field.
 
 - `BRIEF.md`: the approved research brief
 - `proposal.md`, `literature/`: the question, hypotheses and related work

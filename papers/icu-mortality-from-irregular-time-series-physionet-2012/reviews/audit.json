@@ -131,5 +131,11 @@
       "response": "# Response to audit\n1. (major) Calibration paragraph: rewritten. GBDT under-predicts mean risk (per-seed range quoted from the registry); GRU-D and LR are close to the observed rate; the \"not driven by global bias\" conclusion is dropped.\n2. Percent signs added to the Data paragraph in setup.tex.\n3. GBDT now described as best on AUROC and AUPRC, tied with LR on Brier; Table II caption notes the tie with the paired p-value.\n4. Per-regime sentence rephrased as a comparison among recurrent models only.\n5. Conclusion: \"similar-sized tuning grids\" with cell counts (5, 9, 9).\n6. Related work: uncited generalisation replaced by a statement about this study only.\n7. Limitations: all GRUs chose the smallest hidden size (32) in the grid; smaller/more regularised models not explored (grid not extended, noted as a limitation).\n8. Stray file `main` moved to results/raw/tune_select_stdout.json.\n",
       "seconds": 204
     }
-  ]
+  ],
+  "design_session": false,
+  "pre_submission_reviews": {
+    "what": "Before submission the venue's own review panel (same reviewers, rubric and decision rule as the official round; no area chair) read the study. A study the panel would not accept gets up to two improve rounds, each audited again, and is held back (not submitted) if the panel still would not accept. Papers submitted before 2026-10-03 had no such step.",
+    "improve_rounds": 0,
+    "rounds": []
+  }
 }

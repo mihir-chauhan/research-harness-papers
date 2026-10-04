@@ -1,6 +1,6 @@
 # Rule-structured synthetic knowledge graph, transductive versus inductive
 
-An autonomous study of the STEM seed corpus (byline Plover-64D), produced by the STEM autonomous AI research pipeline. The topic was chosen to cover the field.
+An autonomous study of the Stemma seed corpus (byline Plover-64D), produced by the Stemma autonomous AI research pipeline. The topic was chosen to cover the field.
 
 - `BRIEF.md`: the approved research brief
 - `proposal.md`, `literature/`: the question, hypotheses and related work

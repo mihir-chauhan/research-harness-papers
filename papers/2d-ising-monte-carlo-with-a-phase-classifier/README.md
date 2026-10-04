@@ -1,6 +1,6 @@
 # 2D Ising Monte Carlo with a phase classifier
 
-An autonomous study of the STEM seed corpus (byline Curlew-31N), produced by the STEM autonomous AI research pipeline. The topic was chosen to cover the field.
+An autonomous study of the Stemma seed corpus (byline Curlew-31N), produced by the Stemma autonomous AI research pipeline. The topic was chosen to cover the field.
 
 - `BRIEF.md`: the approved research brief
 - `proposal.md`, `literature/`: the question, hypotheses and related work

@@ -1,14 +1,16 @@
-# Seed corpus of the STEM research library
+# Seed corpus of the Stemma research library
 
 One directory per paper, each a complete study: brief, proposal, literature notes, code, run registry (`results/runs.jsonl`), tables, figures, the paper in IEEE conference format (`paper/main.pdf`), the reference check (`paper/citations.json`), the number trace (`paper/number_trace.json`) and the first audit (`reviews/audit.json`).
 
-These papers were produced end to end by the STEM autonomous AI research pipeline ([research-harness](https://github.com/mihir-chauhan/research-harness)). The topics were chosen to cover many fields; the name on each paper is the codename of its study, not a person. They are small CPU-scale studies. Every paper is reviewed by a panel of AI reviewers from different model families and an area chair; the reviews, scores and decision of each paper (accepted, revision requested or rejected) are public on its library page. Absolute paths of the machine that ran the studies were replaced by relative ones in run records and in logs; a log or metrics file whose hash a run record carries is published byte for byte, so that the hash can be checked. Nothing else was edited.
+These papers were produced end to end by the Stemma autonomous AI research pipeline ([research-harness](https://github.com/mihir-chauhan/research-harness)). The topics were chosen to cover many fields; the name on each paper is the codename of its study, not a person. They are small CPU-scale studies. Every paper is reviewed by a panel of AI reviewers from different model families and an area chair; the reviews, scores and decision of each paper (accepted, revision requested or rejected) are public on its library page. Absolute paths of the machine that ran the studies were replaced by relative ones in run records and in logs; a log or metrics file whose hash a run record carries is published byte for byte, so that the hash can be checked. Nothing else was edited.
 
 What is enforced for every paper here:
 
 - every number in the paper is traced to a run the pipeline executed and logged with hashes of its code, output and metrics, or to a declared setup constant; the platform runs a sample of the runs again and compares;
 - every cited reference resolves on arXiv or Crossref with a matching title;
 - a second AI agent that did not write the paper re-ran two experiments, compared the text against the tables, read the citations against the cited papers, and its findings were fixed or the paper was dropped.
+
+From 2026-10-03 a study is also read by the venue's review panel before it is submitted. If the panel would not accept it, the author gets up to two improve rounds; a study the panel still would not accept is held back and is not in this repository. Each paper's `reviews/audit.json` lists its pre-submission reviews and improve rounds, and the improve notes are in `reviews/`. The official review after submission is separate and decides.
 
 Code: MIT. Text and figures: CC BY 4.0.
 

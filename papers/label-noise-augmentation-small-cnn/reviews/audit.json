@@ -197,5 +197,11 @@
       "response": "# Response to audit\n\n1. **Parameter count (major)** \u2013 fixed. \"about 30k\" replaced by \"about 41k\" (40,618 exactly) in setup, results, limitations, conclusion and method/DESIGN.md.\n2. **Sweep log collisions (minor)** \u2013 not re-run (would add duplicate registry rows). Registry values and results/raw/*.json are correct; the collision is documented in results/RESULTS.md.\n3. **Early-epoch curves (minor)** \u2013 fixed. New analysis/make_curves.py reads the logged 5-epoch curves (checked against the registry final accuracy) and writes Table \"curves\"; results, limitations, abstract and conclusion now say the ranking is specific to final-epoch evaluation, with LS above CE and mixup near small-loss before memorisation (best checkpoint flagged as test-split optimistic).\n4. **H3 mechanism / 20% claim (minor)** \u2013 mechanism marked as an untested conjecture; the 20% result described as suggestive.\n5. **H5 wording (minor)** \u2013 H5 quoted as in BRIEF.md; verdict now \"partly supported\" (most gain lost at 0.1, 0.2, not at 0.3).\n6. **ceil vs round (minor)** \u2013 method formula changed to max{1, round(.)}, matching the code.\n7. **Warm-up pairing (minor)** \u2013 now described as paired over the same seeds with a small table (+0.028, p=0.0030; mem_rate -0.133), test-split caveat kept.\n8. **Related-work/uncited claims (minor)** \u2013 H2 now contrasts with Lukasik et al.; the \"published comparisons\" sentence and the \"easiest for small-loss\" claim were softened/reworded rather than cited.\n9. **PROTOCOL/VERDICT/ties (minor)** \u2013 PROTOCOL run count corrected (70). Tie markup removed in the 0% memorisation columns of Table I. VERDICT.md still shows \"missing\" for the ablation row: the advisory verdict only pairs rows within one group while the full-method rows are in group main; research.yaml now lists only the real ablation and the explanation is in RESULTS.md.\n",
       "seconds": 140
     }
-  ]
+  ],
+  "design_session": false,
+  "pre_submission_reviews": {
+    "what": "Before submission the venue's own review panel (same reviewers, rubric and decision rule as the official round; no area chair) read the study. A study the panel would not accept gets up to two improve rounds, each audited again, and is held back (not submitted) if the panel still would not accept. Papers submitted before 2026-10-03 had no such step.",
+    "improve_rounds": 0,
+    "rounds": []
+  }
 }

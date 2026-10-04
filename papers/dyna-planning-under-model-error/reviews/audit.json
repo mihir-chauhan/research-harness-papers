@@ -179,5 +179,11 @@
       "response": "# Response to audit\n\n1. **Major, H4 \"below Q-learning\"**: accepted. Added `method/tests_stochastic.py` -> `results/tables/tests_stochastic_n.csv` (paired tests). Abstract, H4, failure paragraph, conclusion and limitations now say the advantage of planning shrinks (n=1 vs 100 p=0.0016) and that at n>=50 Dyna-Q is not distinguishable from Q-learning (p=0.44, 0.14). The H4 verdict is restricted to \"shrinks\"; harm is not claimed. Did not add seeds.\n2. **Ablation tests**: ran `rh compare` on abl_dynaq_plus (ref Dyna-Q+ and ref Dyna-Q, CSVs in results/tables). Text now reports p-values; the blocking bonus effect (p=0.069) and w/o-untried gaps on blocking/shortcut/stoch-blocking are called trends.\n3. **Early-reward p**: generated `compare_main_early_reward.csv`; RESULTS.md made consistent.\n4. **PS claim**: scoped to cumulative and post-change reward; early-reward advantage (p=0.014) now reported in abstract, H5 and conclusion.\n5. **Mechanism statements**: marked as conjectures (Dyna-Q+ at n=1, PS queue, noise-driven re-exploration); count-based-model claim softened and the missing correct-model control stated; Fig. 2 wording changed to \"rises more steeply\".\n6. **Citations**: added Sutton 1990 (`sutton1990integrated`, via DOI) for Dyna-Q+ and the mazes; textbook is no longer named as a source (no verifiable record to cite).\n7. **Provenance**: noted in README (overwritten raw files, empty logs, registry authoritative). Not regenerated: re-running would create duplicate registry rows; registry values were already confirmed by exact re-execution.\n8. **Presentation**: caption says \"underlined\"; column renamed \"seeds\"; curve figures regenerated (`method/curves.py`) with y-axis \"cumulative reward\" and the s.e. band defined; Table I widened to full text width.\n",
       "seconds": 261
     }
-  ]
+  ],
+  "design_session": false,
+  "pre_submission_reviews": {
+    "what": "Before submission the venue's own review panel (same reviewers, rubric and decision rule as the official round; no area chair) read the study. A study the panel would not accept gets up to two improve rounds, each audited again, and is held back (not submitted) if the panel still would not accept. Papers submitted before 2026-10-03 had no such step.",
+    "improve_rounds": 0,
+    "rounds": []
+  }
 }
